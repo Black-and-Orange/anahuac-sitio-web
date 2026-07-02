@@ -652,80 +652,109 @@
   word-break: break-all;
 }
 
-/* Contact Form Layout */
-.contact-form-layout {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 60px;
-  align-items: end;
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: var(--radius);
-  padding: 60px;
-}
-
-.contact-form-mascot img {
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-}
-
-.contact-form-header {
-  margin-bottom: 30px;
-}
-
-.contact-form-header h3 {
-  font-family: var(--font-heading);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin: 8px 0;
-}
-
-.contact-form-header p {
-  font-size: 16px;
-  color: var(--color-text-secondary);
-}
-
+/* ===== 6. FORMULARIO — ACTÚA (copia de la sección Actúa de Oferta) ===== */
 .adm-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 2px solid var(--orange);
-  border-radius: var(--radius);
-  padding: 36px;
+  position: relative;
+  overflow: hidden;
   background: var(--white);
 }
 
-.adm-form .form-field {
+.adm-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.4;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0 2px, transparent 2.5px);
+  background-size: 35px 35px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+  mask-image: linear-gradient(to top, black 50%, transparent 100%);
+}
+
+.adm-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 610px;
+  gap: 0;
+  align-items: end;
+  position: relative;
+  z-index: 1;
+}
+
+.adm-form-mascot {
+  position: relative;
+  align-self: end;
+  height: 500px;
+  z-index: 2;
+}
+
+.adm-form-mascot img {
+  position: absolute;
+  bottom: -520px;
+  left: 0;
+  width: 630px;
+  height: auto;
+  object-fit: contain;
+}
+
+.adm-form-content {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 40px;
 }
 
-.adm-form .form-field label {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-secondary);
+.adm-form-content .section-intro {
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 0;
 }
 
-.adm-form .form-field input,
-.adm-form .form-field textarea {
+.adm-form-content .section-intro h2 {
+  font-size: 70px;
+  text-wrap: balance;
+}
+
+.adm-form-content .section-intro p:not(.tagline) {
+  text-wrap: balance;
+}
+
+.adm-form-card {
+  border: 2px solid var(--orange);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--white);
+}
+
+.adm-form-card input[type="text"],
+.adm-form-card input[type="email"],
+.adm-form-card textarea {
+  width: 100%;
   padding: 14px 16px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: var(--radius-sm);
+  border: none;
+  border-radius: 12px;
+  background: var(--gray);
   font-family: var(--font-body);
   font-size: 16px;
   outline: none;
   resize: vertical;
-  transition: border-color 200ms;
+  transition: box-shadow 200ms;
+  box-sizing: border-box;
 }
 
-.adm-form .form-field input:focus,
-.adm-form .form-field textarea:focus {
-  border-color: var(--orange);
+.adm-form-card input[type="text"]:focus,
+.adm-form-card input[type="email"]:focus,
+.adm-form-card textarea:focus {
+  box-shadow: 0 0 0 2px var(--orange);
 }
 
-.adm-form .form-check {
+.adm-form-card textarea {
+  min-height: 100px;
+}
+
+.adm-form-check {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -734,10 +763,134 @@
   cursor: pointer;
 }
 
-.adm-form .form-check input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+.adm-form-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
   accent-color: var(--orange);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.adm-form .btn-orange {
+  align-self: flex-start;
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 200ms, transform 200ms;
+}
+
+.adm-form .btn-orange:hover {
+  background: #e04f00;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1440px) {
+  .adm-form-mascot img {
+    bottom: clamp(-520px, 648px - 81.08vw, -310px);
+    width: 600px;
+  }
+
+  .adm-form-content .section-intro h2 {
+    font-size: 58px;
+  }
+
+  .adm-form-layout {
+    grid-template-columns: 1fr 505px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .adm-form-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .adm-form-content {
+    order: 1;
+  }
+
+  .adm-form-mascot {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+  }
+
+  .adm-form-mascot img {
+    bottom: -670px;
+    width: 700px;
+    left: unset;
+  }
+
+  .adm-form-content .section-intro h2 {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .adm-form-mascot {
+    height: 500px;
+  }
+
+  .adm-form-mascot img {
+    bottom: clamp(-680px, -889px + 27.19vw, -590px);
+    width: 650px;
+  }
+
+  .adm-form-content .section-intro h2 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .adm-form-content .section-intro h2 {
+    font-size: 60px;
+  }
+
+  .adm-form-mascot {
+    height: 500px;
+  }
+
+  .adm-form-mascot img {
+    bottom: clamp(-670px, 298px - 125.98vw, -510px);
+    width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .adm-form-mascot {
+    height: 420px;
+  }
+
+  .adm-form-mascot img {
+    bottom: clamp(-400px, -88px - 48.78vw, -320px);
+    width: 430px;
+  }
+
+  .adm-form-content .section-intro h2 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 475px) {
+  .adm-form-mascot {
+    height: clamp(160px, -590px + 200vw, 360px);
+  }
+
+  .adm-form-mascot img {
+    bottom: -340px;
+    width: 390px;
+  }
+
+  .adm-form-content .section-intro h2 {
+    font-size: 32px;
+  }
 }
 
 /* Outline button variant */
@@ -791,20 +944,6 @@
   .contact-channels {
     grid-template-columns: 1fr;
   }
-
-  .contact-form-layout {
-    grid-template-columns: 1fr;
-    padding: 40px;
-  }
-
-  .contact-form-mascot {
-    display: flex;
-    justify-content: center;
-  }
-
-  .contact-form-mascot img {
-    max-width: 280px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -828,14 +967,6 @@
 
   .step-panel h3 {
     font-size: 28px;
-  }
-
-  .contact-form-layout {
-    padding: 24px;
-  }
-
-  .adm-form {
-    padding: 24px;
   }
 }
 
