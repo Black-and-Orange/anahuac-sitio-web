@@ -94,9 +94,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-a, button, input, select, textarea {
   -webkit-tap-highlight-color: transparent;
 }
 

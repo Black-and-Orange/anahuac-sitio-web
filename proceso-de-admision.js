@@ -24,6 +24,23 @@
     });
   });
 
+  /* ===== PROPEDÉUTICOS TABS (Medicina / Música) ===== */
+  const propTabs = document.querySelectorAll(".prop-tab[data-prop]");
+  const propPanels = document.querySelectorAll(".prop-panel[data-prop-panel]");
+
+  propTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const idx = tab.dataset.prop;
+
+      propTabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      propPanels.forEach((p) => p.classList.remove("active"));
+      const target = document.querySelector(`.prop-panel[data-prop-panel="${idx}"]`);
+      if (target) target.classList.add("active");
+    });
+  });
+
   /* ===== FORM SUBMIT ===== */
   const admForm = document.querySelector(".adm-form");
   if (admForm) {

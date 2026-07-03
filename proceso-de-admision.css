@@ -394,121 +394,327 @@
   border-radius: var(--radius);
 }
 
-/* ===== 3. MEDICINA ===== */
-.adm-medicina {
+/* ===== 3. FECHAS DE EXÁMENES (section-intro de "Elige tu camino" de Oferta) ===== */
+.adm-fechas {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.adm-fechas > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.adm-fechas::before,
+.adm-fechas::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0 2px, transparent 2.5px);
+  background-size: 35px 35px;
+}
+
+.adm-fechas::before {
+  top: 400px;
+  left: -120px;
+  width: 560px;
+  height: 240px;
+}
+
+.adm-fechas::after {
+  bottom: 400px;
+  right: -120px;
+  width: 560px;
+  height: 240px;
+}
+
+.adm-fechas .section-intro {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 715px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.adm-fechas .section-intro h2,
+.adm-fechas .section-intro p:not(.tagline) {
+  text-wrap: balance;
+}
+
+@media (max-width: 1440px) {
+  .adm-fechas::before,
+  .adm-fechas::after {
+    transform: scale(0.9);
+  }
+
+  .adm-fechas .section-intro {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .adm-fechas .section-intro {
+    max-width: 100%;
+  }
+
+  .adm-fechas::before,
+  .adm-fechas::after {
+    transform: scale(0.7);
+  }
+
+  .adm-fechas::before {
+    top: 500px;
+    left: -200px;
+  }
+
+  .adm-fechas::after {
+    bottom: 400px;
+    right: -200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .adm-fechas::before,
+  .adm-fechas::after {
+    transform: scale(0.6);
+  }
+
+  .adm-fechas::before {
+    top: 600px;
+    left: -200px;
+  }
+
+  .adm-fechas::after {
+    bottom: 300px;
+    right: -200px;
+  }
+}
+
+/* ===== 4. CTA — COMIENZA TU SOLICITUD ===== */
+.adm-cta {
   background: var(--purple-1);
   color: var(--white);
   position: relative;
   overflow: hidden;
 }
 
-.adm-medicina::before {
+/* Cuadrícula con degradado (mismo patrón que ".oferta-areas" de Oferta) */
+.adm-cta::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.08;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0 3px, transparent 3.5px);
-  background-size: 30px 30px;
-  pointer-events: none;
+  z-index: 0;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.55) 1px, transparent 1px);
+  background-size: 89px 85px;
+  transform: translate(-32px, -20px);
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 40%, transparent 100%),
+    linear-gradient(to right, black 80%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(to bottom, black 40%, transparent 100%),
+    linear-gradient(to right, black 80%, transparent 100%);
+  mask-composite: intersect;
 }
 
-.adm-medicina .section-intro {
-  max-width: 700px;
-  margin-bottom: 60px;
+.adm-cta .container {
   position: relative;
   z-index: 1;
 }
 
-.medicina-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.medicina-card {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius);
-  padding: 36px;
+.adm-cta-inner {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: transform 300ms, background 300ms;
-}
-
-.medicina-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.medicina-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: var(--orange);
-  display: flex;
   align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.adm-cta-inner h2 {
+  text-wrap: balance;
+}
+
+.adm-cta-inner p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  text-wrap: balance;
+}
+
+.adm-cta-inner .button-row {
+  margin-top: 12px;
   justify-content: center;
 }
 
-.medicina-icon svg {
-  width: 28px;
-  height: 28px;
-  color: var(--white);
-}
-
-.medicina-card h3 {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.medicina-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
-.adm-medicina .button-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-}
-
-.adm-medicina .btn-dark {
-  background: var(--white);
-  color: var(--purple-1);
-}
-
-.adm-medicina .btn-dark:hover {
-  background: var(--orange);
-  color: var(--white);
-}
-
-.adm-medicina .btn-outline {
+/* Botón secundario sobre fondo oscuro */
+.adm-cta .btn-outline {
   border-color: var(--white);
   color: var(--white);
 }
 
-/* ===== 4. FAQ ===== */
+.adm-cta .btn-outline:hover {
+  background: var(--white);
+  color: var(--purple-1);
+}
+
+/* ===== 5. PROPEDÉUTICOS ===== */
+.adm-prop {
+  background: var(--gray);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Puntos decorativos (copia del ::before de "Costos"), anclados abajo-izquierda */
+.adm-prop::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 238px;
+  bottom: 188px;
+  width: 360px;
+  height: 330px;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0 2px, transparent 2.5px);
+  background-size: 35px 35px;
+}
+
+.adm-prop .container {
+  position: relative;
+  z-index: 1;
+}
+
+.adm-prop-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.adm-prop-layout .section-intro {
+  width: auto;
+}
+
+.adm-prop-layout .section-intro h2,
+.adm-prop-layout .section-intro p:not(.tagline) {
+  text-wrap: balance;
+}
+
+/* Tabs (Medicina / Música) */
+.prop-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prop-tab {
+  flex: 1;
+  padding: 14px 24px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 200ms, border-color 200ms, background-color 200ms, transform 200ms;
+}
+
+.prop-tab:hover {
+  transform: translateY(-2px);
+}
+
+.prop-tab--orange:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.prop-tab--purple:hover {
+  border-color: var(--purple-2);
+  color: var(--purple-2);
+}
+
+.prop-tab--orange.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+
+.prop-tab--purple.active {
+  background: var(--purple-2);
+  border-color: var(--purple-2);
+  color: var(--white);
+}
+
+/* Paneles de contenido (blancos con contorno de color, como en Descubre) */
+.prop-panel {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  padding: 30px;
+  animation: panelIn 400ms ease;
+}
+
+.prop-panel.active {
+  display: flex;
+}
+
+.prop-panel--orange {
+  border-color: var(--orange);
+}
+
+.prop-panel--purple {
+  border-color: var(--purple-2);
+}
+
+.prop-panel--purple .step-tag {
+  color: var(--purple-2);
+}
+
+@media (max-width: 1440px) {
+  .adm-prop-layout {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .adm-prop-layout {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ===== 6. FAQ ===== */
 .adm-faq {
   background: rgba(0, 0, 0, 0.02);
 }
 
 .adm-faq .section-intro {
-  text-align: center;
+  text-align: left;
   margin-bottom: 50px;
 }
 
+.adm-faq .section-intro h2,
+.adm-faq .section-intro p:not(.tagline) {
+  text-wrap: balance;
+}
+
 .faq-list {
-  max-width: 800px;
-  margin: 0 auto 40px;
+  width: 100%;
+  margin: 0 0 40px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -529,6 +735,8 @@
   justify-content: space-between;
   align-items: center;
   transition: color 200ms;
+  text-wrap: balance;
+  user-select: none;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -560,29 +768,12 @@
   line-height: 1.7;
   color: var(--color-text-secondary);
   animation: faqIn 300ms ease;
+  text-wrap: balance;
 }
 
 @keyframes faqIn {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-.faq-cta {
-  text-align: center;
-  padding: 40px;
-  background: var(--white);
-  border-radius: var(--radius);
-  border: 2px solid rgba(0, 0, 0, 0.06);
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.faq-cta p {
-  margin-bottom: 8px;
-}
-
-.faq-cta .btn {
-  margin-top: 16px;
 }
 
 /* ===== 5. CONTACTO / ASESORÍA ===== */
@@ -935,10 +1126,6 @@
   .step-panel-body {
     width: 80%;
     justify-self: center;
-  }
-
-  .medicina-steps {
-    grid-template-columns: 1fr;
   }
 
   .contact-channels {
