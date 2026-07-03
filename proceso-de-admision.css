@@ -287,7 +287,8 @@
   color: var(--black);
 }
 
-.step-panel h3 {
+.step-panel h3,
+.prop-panel h3 {
   font-family: var(--font-heading);
   font-size: 36px;
   font-weight: 500;
@@ -1288,7 +1289,8 @@
     padding: 30px;
   }
 
-  .step-panel h3 {
+  .step-panel h3,
+  .prop-panel h3 {
     font-size: 28px;
   }
 }
