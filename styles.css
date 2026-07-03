@@ -217,10 +217,19 @@ body::before {
   cursor: pointer;
 }
 
+/* NOTA: para páginas dentro de un dropdown/submenú, marca su enlace con
+   class="is-active" (en .dropdown-panel del desktop y en .mobile-submenu).
+   El estado activo (subrayado del botón + texto naranja) sale solo de aquí. */
 .desktop-nav > a:hover,
 .desktop-nav > a.is-active,
-.nav-dropdown:hover > button {
+.nav-dropdown:hover > button,
+.nav-dropdown:has(.is-active) > button {
   border-color: var(--orange);
+}
+
+/* Enlace de la página actual dentro de un menú desplegable */
+.dropdown-panel a.is-active {
+  color: var(--orange);
 }
 
 .nav-dropdown {
@@ -440,6 +449,7 @@ body::before {
 
 .mobile-menu-panel .is-active {
   border-bottom: none;
+  color: var(--orange);
 }
 
 .mobile-menu-panel a:not(.mobile-contact):hover,

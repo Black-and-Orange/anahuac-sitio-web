@@ -408,6 +408,8 @@
 
 .adm-fechas::before,
 .adm-fechas::after {
+  /* Desactivados por ahora (quitar 'display: none' para reactivarlos) */
+  display: none;
   content: "";
   position: absolute;
   z-index: 0;
@@ -443,6 +445,135 @@
 .adm-fechas .section-intro h2,
 .adm-fechas .section-intro p:not(.tagline) {
   text-wrap: balance;
+}
+
+/* Bloque de fechas por campus (2 columnas con acordeón de pastillas) */
+.fechas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.fechas-col h3 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.fechas-col--orange h3 {
+  color: var(--orange);
+}
+
+.fechas-col--purple h3 {
+  color: var(--purple-2);
+}
+
+.fechas-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cada fecha = pastilla con contorno */
+.fecha-item {
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+
+.fecha-item[open] {
+  border-color: var(--orange);
+}
+
+.fecha-item summary {
+  padding: 18px 24px;
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  transition: color 200ms;
+}
+
+.fecha-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.fecha-item summary::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--orange);
+  flex-shrink: 0;
+  transition: transform 300ms;
+}
+
+.fecha-item[open] summary::after {
+  content: "−";
+}
+
+.fecha-item summary:hover {
+  color: var(--orange);
+}
+
+/* Campus Sur en morado (Campus Norte usa el naranja base) */
+.fechas-col--purple .fecha-item[open] {
+  border-color: var(--purple-2);
+}
+
+.fechas-col--purple .fecha-item summary::after {
+  color: var(--purple-2);
+}
+
+.fechas-col--purple .fecha-item summary:hover {
+  color: var(--purple-2);
+}
+
+.fecha-panel {
+  padding: 0 24px 20px;
+  animation: faqIn 300ms ease;
+}
+
+.fecha-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fecha-table td {
+  padding: 12px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-text-secondary);
+}
+
+.fecha-table td:first-child {
+  padding-right: 16px;
+}
+
+.fecha-table small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  white-space: normal;
+}
+
+.fecha-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--black);
 }
 
 @media (max-width: 1440px) {
@@ -491,6 +622,11 @@
   .adm-fechas::after {
     bottom: 300px;
     right: -200px;
+  }
+
+  .fechas-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
