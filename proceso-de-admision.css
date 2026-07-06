@@ -834,7 +834,123 @@
   }
 }
 
-/* ===== 6. FAQ ===== */
+/* ===== 6. SIGUIENTE PASO (estilo emulado de "Costos" de Inicio) ===== */
+.adm-siguiente {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.adm-siguiente-layout {
+  display: grid;
+  grid-template-columns: 505px auto 610px;
+  align-items: start;
+}
+
+.adm-siguiente-layout .section-intro {
+  width: auto;
+  grid-column: 1;
+}
+
+.adm-siguiente-layout .section-intro h2,
+.adm-siguiente-layout .section-intro p {
+  text-wrap: balance;
+}
+
+.siguiente-cards {
+  grid-column: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.siguiente-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.siguiente-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+}
+
+/* Iconos SVG inline: el color se controla con `color` (fill="currentColor") */
+.siguiente-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  color: var(--purple-2);
+  transition: color 200ms ease;
+}
+
+.siguiente-card h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-top: 8px;
+  transition: color 200ms ease;
+}
+
+/* Hover de la card: icono a --purple-3 y h3 a --orange */
+.siguiente-card:hover .siguiente-icon {
+  color: var(--purple-3);
+}
+
+.siguiente-card:hover h3 {
+  color: var(--orange);
+}
+
+.siguiente-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+.siguiente-card a {
+  margin-top: auto;
+  padding-top: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.siguiente-card a:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 1440px) {
+  .adm-siguiente-layout {
+    grid-template-columns: 1fr minmax(24px, auto) 1.2fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .adm-siguiente-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .siguiente-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 7. FAQ ===== */
 .adm-faq {
   background: rgba(0, 0, 0, 0.02);
 }
@@ -913,74 +1029,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== 5. CONTACTO / ASESORÍA ===== */
-.adm-contact .section-intro {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.contact-channels {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 80px;
-}
-
-.channel-card {
-  text-align: center;
-  padding: 40px 30px;
-  border: 2px solid rgba(0, 0, 0, 0.06);
-  border-radius: var(--radius);
-  background: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
-}
-
-.channel-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-  border-color: var(--orange);
-}
-
-.channel-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: rgba(255, 89, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.channel-icon svg {
-  width: 28px;
-  height: 28px;
-  color: var(--orange);
-}
-
-.channel-card h3 {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.channel-card p {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
-.channel-card > a {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--orange);
-  word-break: break-all;
-}
-
-/* ===== 6. FORMULARIO — ACTÚA (copia de la sección Actúa de Oferta) ===== */
+/* ===== FORMULARIO — ACTÚA (copia de la sección Actúa de Oferta) ===== */
 .adm-form {
   position: relative;
   overflow: hidden;
@@ -1263,10 +1312,6 @@
   .step-panel-body {
     width: 80%;
     justify-self: center;
-  }
-
-  .contact-channels {
-    grid-template-columns: 1fr;
   }
 }
 
