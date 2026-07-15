@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apoyos económicos | Universidad Anáhuac México</title>
+    <meta
+      name="description"
+      content="Conoce las opciones de apoyo y financiamiento de la Universidad Anáhuac México para que el factor económico no sea un obstáculo en tu camino universitario."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="apoyos-economicos.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
+        <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Admisiones
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="proceso-de-admision.html" role="menuitem">Proceso de admisión</a>
+            <a href="#" role="menuitem">Fechas de examen</a>
+            <a href="#" role="menuitem">Revalidación y equivalencia</a>
+            <a href="#" role="menuitem">Curso para examen de admisión</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Costos y apoyos
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="#" role="menuitem">Costos</a>
+            <a href="#" role="menuitem">Cotiza tu licenciatura</a>
+            <a href="apoyos-economicos.html" class="is-active" role="menuitem">Apoyos educativos</a>
+            <a href="#" role="menuitem">Financiamiento</a>
+            <a href="#" role="menuitem">Concursos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Vida universitaria
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="Inicio.html#experiencia" role="menuitem">Experiencia</a>
+            <a href="Inicio.html#eventos" role="menuitem">Eventos</a>
+          </div>
+        </div>
+        <a href="#">Foráneos</a>
+      </nav>
+
+      <a class="btn btn-dark nav-contact" href="#actua">Contacto</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Admisiones
+        </button>
+        <div class="mobile-submenu">
+          <a href="proceso-de-admision.html">Proceso de admisión</a>
+          <a href="#">Fechas de examen</a>
+          <a href="#">Revalidación y equivalencia</a>
+          <a href="#">Curso para examen de admisión</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Costos y apoyos
+        </button>
+        <div class="mobile-submenu">
+          <a href="#">Costos</a>
+          <a href="#">Cotiza tu licenciatura</a>
+          <a href="apoyos-economicos.html" class="is-active">Apoyos educativos</a>
+          <a href="#">Financiamiento</a>
+          <a href="#">Concursos</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Vida universitaria
+        </button>
+        <div class="mobile-submenu">
+          <a href="Inicio.html#experiencia">Experiencia</a>
+          <a href="Inicio.html#eventos">Eventos</a>
+        </div>
+        <a href="#">Foráneos</a>
+        <a class="btn btn-dark mobile-contact" href="#actua">Contacto</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- ===== 1. HERO ===== -->
+      <section class="apo-hero section-pad" id="inicio">
+        <div class="container apo-hero-inner">
+          <div class="apo-hero-copy">
+            <p class="tagline reveal" data-reveal><span></span>Apoyos Económicos</p>
+            <h1 class="reveal" data-reveal>Impulsa tu carrera con apoyos hechos para tu talento y perfil</h1>
+          </div>
+          <div class="apo-hero-info reveal" data-reveal>
+            <img class="apo-hero-img" src="assets/apoyos-economicos/hero-apoyos.webp" alt="Estudiante Anáhuac en contexto académico" />
+            <div class="apo-hero-info-copy">
+              <div class="hero-card">
+                <p>La Universidad Anáhuac México cuenta con distintas opciones de apoyo y financiamiento para que el factor económico no sea un obstáculo en tu camino universitario.</p>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="#panorama">Quiero conocer mis opciones</a>
+                <a class="btn btn-light" href="#actua">Inicia tu solicitud de apoyo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. ORIENTACIÓN (grilla-selector de atajos) ===== -->
+      <section class="apo-orientacion section-pad" id="orientacion">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Orientación</p>
+            <h2>¿Qué tipo de apoyo buscas?</h2>
+            <p>Elige la opción que mejor describe tu situación y te llevamos directo a la información que necesitas.</p>
+          </div>
+          <div class="orientacion-grid reveal" data-reveal>
+            <a class="orientacion-card" href="#panorama">
+              <svg class="orientacion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>
+              <h3>Busco un apoyo por desempeño académico</h3>
+              <span class="orientacion-arrow" aria-hidden="true">›</span>
+            </a>
+            <a class="orientacion-card" href="#panorama">
+              <svg class="orientacion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 14.9 8.9 21.5 9.8 16.7 14.4 17.9 21 12 17.8 6.1 21 7.3 14.4 2.5 9.8 9.1 8.9 12 3"/></svg>
+              <h3>Tengo talento deportivo o artístico</h3>
+              <span class="orientacion-arrow" aria-hidden="true">›</span>
+            </a>
+            <a class="orientacion-card" href="#apoyo-concursos">
+              <svg class="orientacion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/><path d="M10 15.5V18M14 15.5V18M8 21h8M9 21v-1a3 3 0 0 1 6 0v1"/></svg>
+              <h3>Participé o quiero participar en concursos</h3>
+              <span class="orientacion-arrow" aria-hidden="true">›</span>
+            </a>
+            <a class="orientacion-card" href="#financiamiento">
+              <svg class="orientacion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              <h3>Necesito complementar con financiamiento</h3>
+              <span class="orientacion-arrow" aria-hidden="true">›</span>
+            </a>
+            <a class="orientacion-card" href="#asesoria">
+              <svg class="orientacion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+              <h3>Quiero hablar con un asesor</h3>
+              <span class="orientacion-arrow" aria-hidden="true">›</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. PANORAMA GENERAL DE APOYOS ===== -->
+      <section class="apo-panorama section-pad" id="panorama">
+        <div class="container">
+          <div class="programs-head">
+            <div class="section-intro reveal" data-reveal>
+              <p class="tagline"><span></span>Panorama de apoyos</p>
+              <h2>Tipos de apoyo disponibles</h2>
+              <p>Compara de un vistazo las categorías principales y entra al detalle de la que mejor se ajuste a tu perfil.</p>
+            </div>
+            <div class="arrow-buttons reveal" data-reveal>
+              <button type="button" aria-label="Apoyo anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" aria-label="Siguiente apoyo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="panorama-grid reveal" data-reveal>
+            <!-- 1. Socioeconómico académico -->
+            <article class="panorama-card">
+              <h3>Apoyo socioeconómico académico</h3>
+              <p class="panorama-rango">10% – 50%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Nuevo ingreso a licenciatura</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-academico">Ver detalles ›</a>
+            </article>
+
+            <!-- 2. Socioeconómico de excelencia -->
+            <article class="panorama-card">
+              <h3>Apoyo socioeconómico de excelencia</h3>
+              <p class="panorama-rango">10% – 70%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Nuevo ingreso a licenciatura</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 9</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-excelencia">Ver detalles ›</a>
+            </article>
+
+            <!-- 3. Concursos académicos preuniversitarios -->
+            <article class="panorama-card">
+              <h3>Concursos académicos preuniversitarios</h3>
+              <p class="panorama-rango">30% – 100%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Alumnos de cualquier año de preparatoria</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Sin promedio mínimo; se premia el talento</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-concursos">Ver detalles ›</a>
+            </article>
+
+            <!-- 4. Apoyo deportivo -->
+            <article class="panorama-card">
+              <h3>Apoyo deportivo</h3>
+              <p class="panorama-rango">10% – 90%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Talento con evaluación en una disciplina deportiva</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-deportivo">Ver detalles ›</a>
+            </article>
+
+            <!-- 5. Apoyo artístico -->
+            <article class="panorama-card">
+              <h3>Apoyo artístico</h3>
+              <p class="panorama-rango">10% – 70%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Talento en teatro, danza, música o artes visuales</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-artistico">Ver detalles ›</a>
+            </article>
+
+            <!-- 6. Fondo para la Educación Maguén David
+                 [PLACEHOLDER] Datos ficticios temporales — confirmar con la fuente antes de publicar -->
+            <article class="panorama-card">
+              <h3>Fondo para la Educación Maguén David</h3>
+              <p class="panorama-rango">20% – 60%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Nuevo ingreso con perfil socioeconómico elegible</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8.5</dd></div>
+              </dl>
+              <p class="panorama-note">*Datos de referencia, por confirmar.</p>
+              <a class="panorama-link" href="#apoyo-maguen-david">Ver detalles ›</a>
+            </article>
+
+            <!-- 7. Crédito educativo / financiamiento complementario -->
+            <article class="panorama-card">
+              <h3>Crédito educativo complementario</h3>
+              <p class="panorama-rango">5% – 20%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Complementa cualquier apoyo socioeconómico</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de 7 (mantener 7.5 semestral)</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-credito">Ver detalles ›</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 4. DETALLE POR TIPO DE APOYO (acordeón de fichas) ===== -->
+      <section class="apo-detalle section-pad" id="detalle-apoyos">
+        <div class="container apo-detalle-layout">
+          <div class="apo-detalle-aside">
+            <div class="section-intro reveal" data-reveal>
+              <p class="tagline"><span></span>Detalle por apoyo</p>
+              <h2>Conoce a fondo cada apoyo</h2>
+              <p>Despliega el apoyo que te interese para ver en qué consiste, a quién va dirigido y cómo se evalúa.</p>
+            </div>
+            <img class="detalle-media reveal" data-reveal src="assets/apoyos-economicos/default-detalle-apoyos.webp" alt="Apoyos económicos Universidad Anáhuac México" />
+          </div>
+
+          <div class="detalle-list reveal" data-reveal>
+            <!-- 1 -->
+            <details class="detalle-item" id="apoyo-academico" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Apoyo socioeconómico académico</span>
+                <span class="detalle-rango">10% – 50%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Candidatos de nuevo ingreso a licenciatura</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 2 -->
+            <details class="detalle-item" id="apoyo-excelencia" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Apoyo socioeconómico de excelencia</span>
+                <span class="detalle-rango">10% – 70%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Candidatos de nuevo ingreso a licenciatura</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 9</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 3 -->
+            <details class="detalle-item" id="apoyo-concursos" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Concursos académicos preuniversitarios</span>
+                <span class="detalle-rango">30% – 100%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Alumnos cursando cualquier año de preparatoria</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Sin promedio mínimo; se premia el talento</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 4 -->
+            <details class="detalle-item" id="apoyo-deportivo" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Apoyo deportivo</span>
+                <span class="detalle-rango">10% – 90%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Talento con evaluación en una disciplina deportiva</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 5 -->
+            <details class="detalle-item" id="apoyo-artistico" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Apoyo artístico</span>
+                <span class="detalle-rango">10% – 70%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Talento en teatro, danza, música o artes visuales</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>El rango varía por campus (Norte 10%–50%, Sur 10%–70%).</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 6 · [PLACEHOLDER] Datos ficticios temporales — confirmar con la fuente -->
+            <details class="detalle-item" id="apoyo-maguen-david" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Fondo para la Educación Maguén David</span>
+                <span class="detalle-rango">20% – 60%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Nuevo ingreso con perfil socioeconómico elegible</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de preparatoria ≥ 8.5</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>*Datos de referencia, por confirmar.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 7 -->
+            <details class="detalle-item" id="apoyo-credito" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Crédito educativo complementario</span>
+                <span class="detalle-rango">5% – 20%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Complementa cualquier apoyo socioeconómico</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de 7 (mantener 7.5 semestral)</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. FINANCIAMIENTO (fondo morado, base de la CTA 'solicitud') ===== -->
+      <section class="apo-financiamiento section-pad" id="financiamiento">
+        <div class="container">
+          <div class="section-intro reveal" data-reveal>
+            <p class="tagline"><span></span>Financiamiento</p>
+            <h2>Complementa tu apoyo con financiamiento</h2>
+            <p>Si necesitas complementar tu apoyo, también existen opciones de financiamiento. A diferencia de una beca, el financiamiento es un crédito que cubres a lo largo del tiempo y que puede combinarse con tu apoyo socioeconómico cuando más te conviene.</p>
+          </div>
+
+          <div class="financiamiento-grid reveal" data-reveal>
+            <article class="financiamiento-card">
+              <img class="financiamiento-logo" src="assets/apoyos-economicos/logos/preparate.webp" alt="Prepárate" />
+              <h3>Crédito Educativo Prepárate</h3>
+              <dl class="financiamiento-meta">
+                <div><dt>Cómo funciona</dt><dd>Pagas mensualidades fijas menores a la colegiatura mientras estudias y, al egresar, liquidas el resto a largo plazo con una tasa de interés baja. Financia hasta $1,100,000.</dd></div>
+                <div><dt>Requisito base</dt><dd>Promedio mínimo de 8.0, obligado solidario con ingresos comprobables y buen historial en buró de crédito.</dd></div>
+              </dl>
+              <p class="financiamiento-combinable">Combinable con apoyo</p>
+              <a class="btn-program" href="#actua">Más información <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="financiamiento-card">
+              <img class="financiamiento-logo" src="assets/apoyos-economicos/logos/laudex.jpg" alt="Laudex" />
+              <h3>Laudex</h3>
+              <dl class="financiamiento-meta">
+                <div><dt>Cómo funciona</dt><dd>Reduce el monto de tus colegiaturas y lo pagas en un plazo posterior a tus estudios. Tasa de 0% anual mientras seas alumno regular (9.9% si dejas de serlo), con liquidación anticipada sin penalización.</dd></div>
+                <div><dt>Requisito base</dt><dd>Sujeto a evaluación y aprobación crediticia de Laudex; consulta montos y condiciones.</dd></div>
+              </dl>
+              <p class="financiamiento-combinable">Combinable con apoyo</p>
+              <a class="btn-program" href="#actua">Más información <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+
+            <article class="financiamiento-card">
+              <img class="financiamiento-logo" src="assets/logo-anahuac.svg" alt="Universidad Anáhuac México" />
+              <h3>Crédito educativo complementario institucional</h3>
+              <dl class="financiamiento-meta">
+                <div><dt>Cómo funciona</dt><dd>Financiamiento complementario en el que pagas intereses semestrales durante la carrera, con opción de 6 meses de gracia después de egresar.</dd></div>
+                <div><dt>Requisito base</dt><dd>Promedio mínimo de preparatoria de 7.5, obligado solidario (aval) y reporte actualizado de buró de crédito.</dd></div>
+              </dl>
+              <p class="financiamiento-combinable">Combinable con apoyo</p>
+              <a class="btn-program" href="#actua">Más información <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </article>
+          </div>
+
+          <!-- Bloque de documentos / requisitos generales (fuente: Anáhuac México) -->
+          <details class="financiamiento-docs reveal" data-reveal>
+            <summary class="financiamiento-docs-summary">
+              <h3>Documentos y requisitos generales</h3>
+            </summary>
+            <div class="financiamiento-docs-cols">
+              <div>
+                <h4>Del alumno y su familia</h4>
+                <ul>
+                  <li>Promedio mínimo de preparatoria de 7.5</li>
+                  <li>Solicitud completa y firmada</li>
+                  <li>Última declaración de impuestos y último recibo de sueldo</li>
+                  <li>Constancia de calificaciones o certificado de preparatoria (primer semestre)</li>
+                  <li>Copia de identificación y recibo de teléfono del alumno</li>
+                  <li>Reporte actualizado de buró de crédito del padre o tutor</li>
+                  <li>Carta Anáhuac de preautorización</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Del aval (obligado solidario)</h4>
+                <ul>
+                  <li>Declaración de impuestos del año y recibo de sueldo del mes</li>
+                  <li>Copia del título de propiedad que avala el crédito</li>
+                  <li>Copia del predial pagado de esa propiedad</li>
+                  <li>Comprobante de domicilio (con fotografía y firma)</li>
+                  <li>Recibo de teléfono con domicilio del aval</li>
+                  <li>Reporte actualizado de buró de crédito del aval</li>
+                  <li>Carta Anáhuac de preautorización</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ===== 6. CONSIDERACIONES GENERALES (módulo 6 del doc) ===== -->
+      <section class="apo-consideraciones section-pad" id="consideraciones">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Antes de solicitar</p>
+            <h2>Consideraciones generales</h2>
+            <p>Cinco puntos clave que conviene tener presentes al elegir y solicitar tu apoyo.</p>
+          </div>
+          <ul class="consideraciones-grid reveal" data-reveal>
+            <li class="consideracion">
+              <span class="consideracion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>
+              </span>
+              <div>
+                <h3>Primero, tu admisión</h3>
+                <p>Debes estar admitido para iniciar ciertos trámites de apoyo.</p>
+              </div>
+            </li>
+            <li class="consideracion">
+              <span class="consideracion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+              </span>
+              <div>
+                <h3>Porcentaje variable</h3>
+                <p>El monto otorgado depende de la evaluación y la disponibilidad.</p>
+              </div>
+            </li>
+            <li class="consideracion">
+              <span class="consideracion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <div>
+                <h3>Evaluación integral</h3>
+                <p>El comité considera variables académicas y socioeconómicas.</p>
+              </div>
+            </li>
+            <li class="consideracion">
+              <span class="consideracion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              </span>
+              <div>
+                <h3>Nuevo ingreso</h3>
+                <p>Algunos apoyos son exclusivos para quienes ingresan a licenciatura.</p>
+              </div>
+            </li>
+            <li class="consideracion">
+              <span class="consideracion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <h3>Convocatorias y campus</h3>
+                <p>Ciertos apoyos están sujetos a convocatoria, pruebas o disponibilidad por campus.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== 7. PASOS — CÓMO APLICAR (timeline estático con imagen · versión activa) =====
+           La Opción B (#pasos-v3) queda oculta más abajo por si el cliente la prefiere. -->
+      <section class="apo-steps section-pad" id="pasos-v1">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Cómo aplicar</p>
+            <h2>Pasos para solicitar tu apoyo</h2>
+            <p>La solicitud de apoyo vive dentro de tu proceso de admisión. Estos son los pasos, de principio a fin.</p>
+          </div>
+
+          <!-- Navegación por número (solo móvil: muestra una card a la vez, como en Proceso de admisión) -->
+          <div class="steps-nav" role="tablist" aria-label="Pasos para solicitar tu apoyo">
+            <button class="steps-nav-dot active" type="button" data-goto="0" aria-label="Ver paso 1">1</button>
+            <button class="steps-nav-dot" type="button" data-goto="1" aria-label="Ver paso 2">2</button>
+            <button class="steps-nav-dot" type="button" data-goto="2" aria-label="Ver paso 3">3</button>
+            <button class="steps-nav-dot" type="button" data-goto="3" aria-label="Ver paso 4">4</button>
+            <button class="steps-nav-dot" type="button" data-goto="4" aria-label="Ver paso 5">5</button>
+          </div>
+
+          <ol class="steps-cards reveal" data-reveal>
+            <li class="step-card is-active">
+              <img src="assets/apoyos-economicos/pasos/paso-1-inicia-admision.webp" alt="Estudiante llenando su registro en una laptop" loading="lazy" />
+              <div class="step-card-body">
+                <span class="step-card-num">1</span>
+                <h3>Inicia tu proceso de admisión</h3>
+                <p>Los apoyos se gestionan dentro del proceso de admisión: regístrate como aspirante para poder solicitarlos.</p>
+              </div>
+            </li>
+            <li class="step-card">
+              <img src="assets/apoyos-economicos/pasos/paso-2-revisa-apoyo.webp" alt="Estudiante revisando información en una laptop" loading="lazy" />
+              <div class="step-card-body">
+                <span class="step-card-num">2</span>
+                <h3>Revisa qué apoyo aplica para ti</h3>
+                <p>Explora el panorama y el detalle de cada apoyo para identificar el que mejor se ajusta a tu perfil o talento.</p>
+              </div>
+            </li>
+            <li class="step-card">
+              <img src="assets/apoyos-economicos/pasos/paso-3-prepara-documentacion.webp" alt="Manos organizando documentos" loading="lazy" />
+              <div class="step-card-body">
+                <span class="step-card-num">3</span>
+                <h3>Prepara tu documentación</h3>
+                <p>Reúne los documentos y requisitos generales; para apoyos deportivos o artísticos, alista tu material de evaluación.</p>
+              </div>
+            </li>
+            <li class="step-card">
+              <img src="assets/apoyos-economicos/pasos/paso-4-envia-solicitud.webp" alt="Estudiante tomando notas" loading="lazy" />
+              <div class="step-card-body">
+                <span class="step-card-num">4</span>
+                <h3>Envía tu solicitud o evaluación</h3>
+                <p>Completa tu solicitud y, según el caso, participa en la convocatoria, prueba o audición correspondiente.</p>
+              </div>
+            </li>
+            <li class="step-card">
+              <img src="assets/apoyos-economicos/pasos/paso-5-recibe-seguimiento.webp" alt="Persona revisando su teléfono con documentos" loading="lazy" />
+              <div class="step-card-body">
+                <span class="step-card-num">5</span>
+                <h3>Recibe seguimiento</h3>
+                <p>Un asesor acompaña tu caso mientras el comité evalúa tu solicitud con criterios académicos y socioeconómicos.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="steps-cta reveal" data-reveal>
+            <a class="btn btn-orange" href="proceso-de-admision.html">Ir al proceso de admisión</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PASOS · OPCIÓN B (switcher ligero) — EN PAUSA =====
+           Oculta con [hidden]; se conserva por si el cliente la prefiere tras revisión.
+           Para reactivarla: quitar el atributo hidden (y decidir cuál queda como activa). -->
+      <section class="apo-steps section-pad" id="pasos-v3" hidden>
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Cómo aplicar · Opción B</p>
+            <h2>Pasos para solicitar tu apoyo</h2>
+            <p>La solicitud de apoyo vive dentro de tu proceso de admisión. Recorre cada paso para saber qué esperar.</p>
+          </div>
+
+          <div class="steps-timeline reveal" data-reveal>
+            <button class="step-dot active" data-step="0">
+              <span class="step-num">1</span>
+              <span class="step-label">Inicia tu admisión</span>
+            </button>
+            <button class="step-dot" data-step="1">
+              <span class="step-num">2</span>
+              <span class="step-label">Elige tu apoyo</span>
+            </button>
+            <button class="step-dot" data-step="2">
+              <span class="step-num">3</span>
+              <span class="step-label">Prepara documentos</span>
+            </button>
+            <button class="step-dot" data-step="3">
+              <span class="step-num">4</span>
+              <span class="step-label">Envía o evalúa</span>
+            </button>
+            <button class="step-dot" data-step="4">
+              <span class="step-num">5</span>
+              <span class="step-label">Seguimiento</span>
+            </button>
+          </div>
+
+          <div class="step-panels">
+            <article class="step-panel active" data-panel="0">
+              <div class="step-panel-body">
+                <span class="step-tag">Paso 1</span>
+                <h3>Inicia tu proceso de admisión</h3>
+                <p class="step-desc">Los apoyos económicos se gestionan dentro del proceso de admisión. El primer paso es registrarte como aspirante para poder solicitar cualquier apoyo.</p>
+                <div class="button-row">
+                  <a class="btn btn-dark" href="proceso-de-admision.html">Ir al proceso de admisión</a>
+                </div>
+              </div>
+              <img src="assets/apoyos-economicos/pasos/paso-1-inicia-admision.webp" alt="Estudiante llenando su registro en una laptop" loading="lazy" />
+            </article>
+            <article class="step-panel" data-panel="1">
+              <div class="step-panel-body">
+                <span class="step-tag">Paso 2</span>
+                <h3>Revisa qué apoyo aplica para ti</h3>
+                <p class="step-desc">Explora el panorama y el detalle de cada apoyo para identificar el que mejor se ajusta a tu perfil, desempeño o talento.</p>
+                <a class="step-link" href="#panorama">Ver tipos de apoyo ›</a>
+              </div>
+              <img src="assets/apoyos-economicos/pasos/paso-2-revisa-apoyo.webp" alt="Estudiante revisando información en una laptop" loading="lazy" />
+            </article>
+            <article class="step-panel" data-panel="2">
+              <div class="step-panel-body">
+                <span class="step-tag">Paso 3</span>
+                <h3>Prepara tu documentación o materiales</h3>
+                <p class="step-desc">Reúne los documentos y requisitos generales. Para apoyos deportivos o artísticos, alista también el material que pedirá tu evaluación.</p>
+                <a class="step-link" href="#financiamiento">Ver documentos y requisitos ›</a>
+              </div>
+              <img src="assets/apoyos-economicos/pasos/paso-3-prepara-documentacion.webp" alt="Manos organizando documentos" loading="lazy" />
+            </article>
+            <article class="step-panel" data-panel="3">
+              <div class="step-panel-body">
+                <span class="step-tag">Paso 4</span>
+                <h3>Envía tu solicitud o participa en la evaluación</h3>
+                <p class="step-desc">Completa tu solicitud de apoyo y, según el caso, participa en la convocatoria, prueba o audición correspondiente.</p>
+                <a class="step-link" href="#asesoria">Consultar convocatorias con un asesor ›</a>
+              </div>
+              <img src="assets/apoyos-economicos/pasos/paso-4-envia-solicitud.webp" alt="Estudiante tomando notas" loading="lazy" />
+            </article>
+            <article class="step-panel" data-panel="4">
+              <div class="step-panel-body">
+                <span class="step-tag">Paso 5</span>
+                <h3>Recibe seguimiento del proceso</h3>
+                <p class="step-desc">Un asesor acompaña tu caso mientras el comité evalúa tu solicitud considerando variables académicas y socioeconómicas.</p>
+                <a class="step-link" href="#asesoria">Hablar con un asesor ›</a>
+              </div>
+              <img src="assets/apoyos-economicos/pasos/paso-5-recibe-seguimiento.webp" alt="Persona revisando su teléfono con documentos" loading="lazy" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 8. DUDAS FRECUENTES (módulo 8 del doc) ===== -->
+      <section class="apo-faq section-pad" id="dudas">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>Dudas frecuentes</h2>
+            <p>Resuelve las preguntas más comunes sobre apoyos económicos y financiamiento en Anáhuac.</p>
+          </div>
+          <div class="faq-list reveal" data-reveal>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Necesito estar admitido para solicitar un apoyo?</summary>
+              <p>Los apoyos económicos se gestionan dentro del proceso de admisión. Puedes explorar tus opciones desde antes, pero para iniciar ciertos trámites de apoyo necesitas estar admitido: primero te registras como aspirante y, una vez dentro del proceso, presentas tu solicitud.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Qué diferencia hay entre un apoyo y el financiamiento?</summary>
+              <p>Un apoyo es un porcentaje de descuento sobre tu colegiatura que no tienes que devolver y que se otorga según tu desempeño, talento o perfil socioeconómico. El financiamiento es un crédito que cubres a lo largo del tiempo, con sus propias condiciones e intereses. En resumen: el apoyo reduce el costo y el financiamiento distribuye el pago.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Puedo combinar un apoyo socioeconómico con un crédito educativo?</summary>
+              <p>Sí. El financiamiento está pensado para complementar tu apoyo, no para sustituirlo. Las opciones disponibles —Crédito Educativo Prepárate, Laudex y el crédito complementario institucional— son combinables con un apoyo socioeconómico para cubrir la parte restante de tu colegiatura.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Todos los apoyos aplican para ambos campus?</summary>
+              <p>No necesariamente. Algunos apoyos están sujetos a disponibilidad por campus y sus rangos pueden variar de una sede a otra; el apoyo artístico, por ejemplo, maneja rangos distintos en Campus Norte y Campus Sur. Confirma con tu asesor la disponibilidad y el porcentaje del campus donde quieres estudiar.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Los porcentajes de apoyo son fijos?</summary>
+              <p>No. Cada apoyo se maneja dentro de un rango (por ejemplo, 10%–50%) y el porcentaje que se otorga depende de la evaluación de tu caso y de la disponibilidad. El comité considera variables académicas y socioeconómicas para definir el monto dentro de ese rango.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Qué pasa si no cumplo con el promedio mínimo?</summary>
+              <p>El promedio mínimo cambia según el apoyo, y no todos lo exigen. Si no alcanzas el de un apoyo académico, podrías calificar por otra vía: talento deportivo o artístico, concursos preuniversitarios —que premian el talento sin promedio mínimo— o financiamiento complementario. Un asesor puede ayudarte a encontrar la opción que mejor se ajuste a tu perfil.</p>
+            </details>
+            <details class="faq-item" name="faq-dudas">
+              <summary>¿Dónde veo las convocatorias de deporte, arte o concursos?</summary>
+              <p>Estos apoyos dependen de convocatorias, pruebas o audiciones que se publican por periodo y campus. Para conocer las fechas y los requisitos vigentes contacta a un asesor, que te compartirá la convocatoria correspondiente a tu disciplina y campus.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 9. ASESORÍA / CONTACTO (módulo 9 del doc · fondo naranja con puntos) ===== -->
+      <section class="apo-asesoria section-pad on-orange" id="asesoria">
+        <div class="container apo-asesoria-layout">
+          <div class="section-intro reveal" data-reveal>
+            <p class="tagline"><span></span>Asesoría</p>
+            <h2>Te ayudamos a encontrar la mejor opción para ti</h2>
+            <p>Un asesor te orienta sobre el apoyo que mejor se ajusta a tu perfil y resuelve tus dudas en cada paso. Elige tu estado y contáctalo directamente.</p>
+            <div class="asesoria-select-wrap">
+              <label for="asesoria-estado">Selecciona una opción</label>
+              <select id="asesoria-estado" class="asesoria-select"></select>
+            </div>
+          </div>
+
+          <div class="asesor-col">
+            <div class="asesor-card reveal" data-reveal>
+            <div class="asesor-foto" data-genero="f"></div>
+            <div class="asesor-info">
+            <h3 class="asesor-nombre">Alyn Guerrero Camarena</h3>
+            <div class="asesor-links">
+              <a class="asesor-link asesor-wa" href="https://wa.me/5215534118914" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.73-.85-2-.95-.27-.1-.46-.15-.66.15-.19.29-.76.94-.93 1.13-.17.19-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.08-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5l-.56-.01c-.19 0-.51.07-.77.36-.27.29-1.01.99-1.01 2.43 0 1.43 1.04 2.81 1.19 3 .15.19 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.73-.71 1.97-1.39.24-.68.24-1.27.17-1.39-.07-.12-.27-.19-.56-.34m-5.4 7.37h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-3.48.91.93-3.39-.22-.35a9.16 9.16 0 0 1-1.4-4.88c0-5.06 4.13-9.19 9.2-9.19 2.46 0 4.76.96 6.5 2.7a9.13 9.13 0 0 1 2.69 6.5c0 5.07-4.13 9.2-9.19 9.2m7.83-17.02A10.86 10.86 0 0 0 12.05 1C6.06 1 1.18 5.87 1.18 11.86c0 1.92.5 3.79 1.45 5.44L1.09 23l5.83-1.53a10.88 10.88 0 0 0 5.13 1.31h.01c5.99 0 10.87-4.87 10.87-10.86 0-2.9-1.13-5.63-3.18-7.68"/></svg>
+                <span>WhatsApp</span>
+              </a>
+              <a class="asesor-link asesor-cita" href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Agenda una cita</span>
+              </a>
+              <a class="asesor-link asesor-email" href="mailto:asesores@anahuac.mx">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>asesores@anahuac.mx</span>
+              </a>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FORMULARIO — ACTÚA ===== -->
+      <section class="apo-form section-pad" id="actua">
+        <div class="container">
+          <div class="apo-form-layout">
+            <div class="apo-form-media">
+              <img src="assets/apoyos-economicos/img-formulario-apoyo.webp" alt="Estudiante recibiendo asesoría de apoyo académico en el campus Anáhuac México" loading="lazy" />
+            </div>
+            <div class="apo-form-content">
+              <div class="section-intro reveal" data-reveal>
+                <p class="tagline"><span></span>Siguiente paso</p>
+                <h2>Recibe orientación sobre tu apoyo</h2>
+                <p>Cuéntanos un poco sobre ti y un asesor te contactará para ayudarte a encontrar el apoyo que mejor se ajusta a tu perfil.</p>
+              </div>
+              <div class="apo-form-card reveal" data-reveal>
+                <input type="text" placeholder="Nombre" aria-label="Nombre" />
+                <input type="email" placeholder="Correo" aria-label="Correo electrónico" />
+                <input type="tel" placeholder="Teléfono" aria-label="Teléfono" />
+                <select class="js-select" aria-label="Campus de interés" required>
+                  <option value="" disabled selected>Campus de interés</option>
+                  <option value="norte">Campus Norte</option>
+                  <option value="sur">Campus Sur</option>
+                </select>
+                <input type="text" placeholder="Licenciatura de interés" aria-label="Licenciatura de interés" />
+                <select class="js-select" aria-label="Tema de interés" required>
+                  <option value="" disabled selected>Tema de interés</option>
+                  <option value="academico">Apoyo académico</option>
+                  <option value="excelencia">Apoyo de excelencia</option>
+                  <option value="deportivo">Deportivo</option>
+                  <option value="artistico">Artístico</option>
+                  <option value="concursos">Concursos</option>
+                  <option value="financiamiento">Financiamiento</option>
+                </select>
+                <label class="apo-form-check">
+                  <input type="checkbox" />
+                  Acepto los términos legales
+                </label>
+                <button type="submit" class="btn btn-orange">Quiero recibir orientación</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <svg class="social-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M15.1 8.3h3V4h-3.7c-4 0-6 2.4-6 6v2.4H5v4.4h3.4V24h4.7v-7.2h3.8l.7-4.4h-4.5v-2c0-1.3.5-2.1 2-2.1Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.7l-5.2-6.9L5.6 22H2.3l7.8-8.9L1.8 2h6.9l4.7 6.3L18.9 2Zm-1.2 18h1.8L7.7 3.9h-2L17.7 20Z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21.7 7.1a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.6.5a3 3 0 0 0-2.1 2.1C1.8 9 1.8 12 1.8 12s0 3 .5 4.9A3 3 0 0 0 4.4 19c1.9.5 7.6.5 7.6.5s5.7 0 7.6-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.9.5-4.9s0-3-.5-4.9ZM10 15.2V8.8l5.6 3.2-5.6 3.2Z"/></symbol>
+      </svg>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+          <form class="newsletter">
+            <h2>Mantente informado sobre las novedades del mes de nuestra Universidad</h2>
+            <p>Recibe noticias sobre admisiones, eventos preuniversitarios y vida universitaria en tu correo.</p>
+            <div><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn-dark" type="submit">Enviar</button></div>
+            <small>Al suscribirte aceptas nuestra política de privacidad</small>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div><h3>Descubre</h3><a href="#">Por qué Anáhuac</a><a href="#">Vida universitaria</a><a href="#">Estudiantes foráneos</a><a href="#">Competencias académicas</a><a href="#">Ubicaciones</a></div>
+          <div><h3>Programas</h3><a href="#">Oferta académica</a><a href="#">Todas las licenciaturas</a><a href="#">Áreas académicas</a><a href="#">Solicita información</a><a href="#">Visita el campus</a></div>
+          <div><h3>Admisiones</h3><a href="#">Admisión general</a><a href="#">Admisión medicina</a><a href="#">Admisión internacional</a><a href="#">Fechas de examen</a><a href="#">Inicia tu proceso</a></div>
+          <div>
+            <h3>Campus Norte</h3>
+            <p>Av. Universidad Anáhuac 46, Col. Lomas Anáhuac. Huixquilucan, Estado de México.</p>
+            <a href="#">+52 (55) 5627 0210</a>
+            <div class="social-links" aria-label="Redes sociales Campus Norte">
+              <a href="#" aria-label="Facebook Campus Norte"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Norte"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Norte"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Norte"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Campus Sur</h3>
+            <p>Av. de los Tanques 865, Col. Torres de Potrero. Álvaro Obregón, CDMX.</p>
+            <a href="#">+52 (55) 5628 8800</a>
+            <a href="#">Misión y valores</a>
+            <a href="#">Acreditaciones</a>
+            <a href="#">Noticias</a>
+            <div class="social-links" aria-label="Redes sociales Campus Sur">
+              <a href="#" aria-label="Facebook Campus Sur"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Sur"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Sur"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Sur"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="#">Teléfono principal</a>
+            <a href="#">Correo de admisiones</a>
+            <a href="#">Síguenos en línea</a>
+            <a href="#">Ubicación</a>
+            <div class="social-links" aria-label="Redes sociales Anáhuac México">
+              <a href="#" aria-label="Facebook Anáhuac México"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Anáhuac México"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Anáhuac México"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Anáhuac México"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">© 2026 Universidad Anáhuac México. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="apoyos-economicos.js"></script>
+  </body>
+</html>
