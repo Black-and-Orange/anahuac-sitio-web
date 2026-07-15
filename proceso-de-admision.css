@@ -1133,6 +1133,9 @@
 .asesor-info {
   flex: 1 1 200px;
   min-width: 200px;
+  /* No exceder el ancho de la imagen (280px): con la card en vertical, un
+     nombre largo debe envolver en vez de ensanchar la card. */
+  max-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1185,6 +1188,18 @@
   color: var(--orange);
 }
 
+/* El dropdown propio del selector de estado va en blanco sobre el fondo gris */
+.adm-asesoria .cselect__btn {
+  background-color: var(--white);
+}
+
+/* El reveal de este contenedor va SOLO con opacidad (sin transform): un transform
+   —incluido el translateY(0)— crea un stacking context que atraparía el z-index
+   del menú del dropdown por debajo de la tarjeta del asesor. */
+.adm-asesoria .section-intro.reveal {
+  transform: none;
+}
+
 /* Ancho mínimo de la columna de texto en breakpoints intermedios */
 @media (min-width: 1181px) and (max-width: 1440px) {
   .adm-asesoria-layout .section-intro {
@@ -1219,9 +1234,21 @@
 }
 
 @media (max-width: 480px) {
+  /* En pantallas muy reducidas la card se vuelve fluida: llena el contenedor
+     hasta su ancho natural (~340px) y encoge por debajo sin desbordar. */
+  .asesor-card {
+    width: 100%;
+    max-width: 340px;
+  }
+
   .asesor-foto {
     width: 100%;
     min-width: 0;
+  }
+
+  .asesor-info {
+    min-width: 0;
+    max-width: none;
   }
 }
 

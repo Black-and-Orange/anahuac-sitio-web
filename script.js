@@ -544,3 +544,112 @@ document.querySelectorAll("[data-yt-id]").forEach((card) => {
 
   updateDotsOpacity();
 })();
+
+/* =====================================================================
+   CUSTOM SELECT — reemplaza la UI nativa del <select> por un dropdown
+   propio (anclado al campo, igual en todos los dispositivos). El <select>
+   real se conserva oculto: sigue guardando el valor y disparando 'change',
+   así la lógica dependiente (asesor por estado, etc.) no cambia.
+   Uso: window.enhanceSelect(selectEl). Auto-mejora los <select class="js-select">.
+   ===================================================================== */
+window.enhanceSelect = function enhanceSelect(select) {
+  if (!select || select.dataset.enhanced === "true") return;
+  select.dataset.enhanced = "true";
+
+  const wrap = document.createElement("div");
+  wrap.className = "cselect";
+  wrap.dataset.open = "false";
+  select.parentNode.insertBefore(wrap, select);
+  wrap.appendChild(select);
+  select.classList.add("cselect__native");
+  select.setAttribute("tabindex", "-1");
+  select.setAttribute("aria-hidden", "true");
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "cselect__btn";
+  btn.setAttribute("aria-haspopup", "listbox");
+  btn.setAttribute("aria-expanded", "false");
+  if (select.getAttribute("aria-label")) {
+    btn.setAttribute("aria-label", select.getAttribute("aria-label"));
+  }
+  const label = document.createElement("span");
+  label.className = "cselect__label";
+  btn.appendChild(label);
+
+  const menu = document.createElement("ul");
+  menu.className = "cselect__menu";
+  menu.setAttribute("role", "listbox");
+
+  wrap.appendChild(btn);
+  wrap.appendChild(menu);
+
+  function buildOptions() {
+    menu.innerHTML = "";
+    Array.from(select.options).forEach((o) => {
+      const li = document.createElement("li");
+      li.className = "cselect__opt";
+      li.setAttribute("role", "option");
+      li.textContent = o.textContent;
+      li.dataset.value = o.value;
+      if (o.disabled || o.value === "") li.classList.add("is-placeholder");
+      li.addEventListener("click", () => {
+        if (o.disabled) return;
+        select.value = o.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        close();
+        btn.focus();
+      });
+      menu.appendChild(li);
+    });
+  }
+
+  function syncFromSelect() {
+    const opt = select.options[select.selectedIndex];
+    const isPlaceholder = !opt || opt.value === "";
+    label.textContent = opt ? opt.textContent : "";
+    label.classList.toggle("is-placeholder", isPlaceholder);
+    menu.querySelectorAll(".cselect__opt").forEach((li) => {
+      li.setAttribute("aria-selected", li.dataset.value === select.value ? "true" : "false");
+    });
+  }
+
+  function onDocClick(e) {
+    if (!wrap.contains(e.target)) close();
+  }
+  function onKey(e) {
+    if (e.key === "Escape") { close(); btn.focus(); }
+  }
+  function open() {
+    wrap.dataset.open = "true";
+    btn.setAttribute("aria-expanded", "true");
+    /* Llevar la opción seleccionada a la vista desplazando SOLO el interior del
+       menú (no la ventana: scrollIntoView movería la página y saltaría la sección). */
+    const active = menu.querySelector('.cselect__opt[aria-selected="true"]');
+    if (active) {
+      menu.scrollTop = Math.max(
+        0,
+        active.offsetTop - menu.clientHeight / 2 + active.offsetHeight / 2
+      );
+    }
+    document.addEventListener("click", onDocClick, true);
+    document.addEventListener("keydown", onKey);
+  }
+  function close() {
+    wrap.dataset.open = "false";
+    btn.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", onDocClick, true);
+    document.removeEventListener("keydown", onKey);
+  }
+  function toggle() {
+    if (wrap.dataset.open === "true") close(); else open();
+  }
+
+  btn.addEventListener("click", toggle);
+  select.addEventListener("change", syncFromSelect);
+
+  buildOptions();
+  syncFromSelect();
+};
+
+document.querySelectorAll("select.js-select").forEach((s) => window.enhanceSelect(s));

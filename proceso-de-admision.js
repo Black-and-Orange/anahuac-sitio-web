@@ -112,6 +112,9 @@
     estadoSelect.value = inicial;
     renderAsesor(inicial);
     estadoSelect.addEventListener("change", () => renderAsesor(estadoSelect.value));
+
+    /* Reemplazar el <select> nativo por el dropdown propio (tras poblarlo). */
+    if (window.enhanceSelect) window.enhanceSelect(estadoSelect);
   }
 
   /* ===== FORM SUBMIT ===== */
