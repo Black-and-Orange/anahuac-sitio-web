@@ -116,9 +116,15 @@
     }
   }
 
-  /* ===== DETALLE — abrir la ficha correspondiente al llegar por hash =====
-     Los "Ver detalles" del Panorama enlazan a #apoyo-… ; como <details> no se
-     abre solo con el hash, lo abrimos por JS (name="detalle-apoyos" cierra el resto). */
+  /* ===== DETALLE — acordeón que arranca SIEMPRE cerrado =====
+     Regla: una ficha solo se abre por una acción del usuario en esta sesión
+     — clic en su cabecera, o clic en un "Ver detalles" del Panorama (#apoyo-…) —.
+     Al (re)cargar la página debe estar todo cerrado, aunque la URL traiga un
+     #hash o aunque el navegador recuerde qué <details> quedó abierto: refrescar
+     nunca debe dejar un panel "pegado".
+
+     openDetalleFromHash abre la ficha del hash actual (los <details> no lo hacen
+     solos); name="detalle-apoyos" cierra el resto automáticamente. */
   function openDetalleFromHash() {
     const id = decodeURIComponent(location.hash.slice(1));
     if (!id) return;
@@ -127,8 +133,58 @@
       el.open = true;
     }
   }
-  window.addEventListener("hashchange", openDetalleFromHash);
-  openDetalleFromHash();
+
+  const detalles = Array.from(document.querySelectorAll(".detalle-item"));
+  if (detalles.length) {
+    /* Solo se considera "abierto a propósito" tras una acción del usuario en esta
+       carga; en la carga inicial es false, así que todo arranca cerrado. */
+    let userPicked = false;
+
+    const list = document.querySelector(".detalle-list");
+    if (list) {
+      list.addEventListener("click", (e) => {
+        if (e.target.closest("summary")) userPicked = true;
+      });
+    }
+
+    /* "Ver detalles" del Panorama (enlaces a #apoyo-…): abren su ficha al hacer
+       clic, aunque el hash ya fuera ese (no siempre dispara "hashchange"). */
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest('a[href^="#apoyo-"]');
+      if (!link) return;
+      userPicked = true;
+      const el = document.getElementById(
+        decodeURIComponent(link.getAttribute("href").slice(1))
+      );
+      if (el && el.tagName.toLowerCase() === "details") el.open = true;
+    });
+
+    /* Navegación de hash en vivo (p. ej. enlace externo dentro de la sesión). */
+    window.addEventListener("hashchange", () => {
+      userPicked = true;
+      openDetalleFromHash();
+    });
+
+    /* Mientras el usuario no haya elegido nada en esta carga, revertimos cualquier
+       apertura (restauración del navegador, #hash en la URL al recargar, etc.). */
+    function enforceClosed() {
+      if (userPicked) return;
+      detalles.forEach((d) => {
+        if (d.open) d.open = false;
+      });
+    }
+
+    const mo = new MutationObserver(enforceClosed);
+    detalles.forEach((d) =>
+      mo.observe(d, { attributes: true, attributeFilter: ["open"] })
+    );
+
+    /* Cubre bfcache (volver con el botón atrás), donde la restauración llega tras
+       la carga inicial. */
+    window.addEventListener("pageshow", enforceClosed);
+
+    enforceClosed();
+  }
 
   /* ===== DETALLE — imagen que cambia según la ficha abierta =====
      Cada imagen se nombra por el id de su <details> (p. ej. apoyo-deportivo.webp).

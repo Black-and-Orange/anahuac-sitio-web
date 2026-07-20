@@ -130,7 +130,8 @@
         </div>
       </section>
 
-      <!-- ===== 2. ORIENTACIÓN (grilla-selector de atajos) ===== -->
+      <!-- ===== 2. ORIENTACIÓN (grilla-selector de atajos) — DESACTIVADA (recuperable): quitar los marcadores de comentario para reactivar ===== -->
+      <!-- DESACTIVADA-ORIENTACION-INICIO
       <section class="apo-orientacion section-pad" id="orientacion">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
@@ -167,6 +168,7 @@
           </div>
         </div>
       </section>
+      DESACTIVADA-ORIENTACION-FIN -->
 
       <!-- ===== 3. PANORAMA GENERAL DE APOYOS ===== -->
       <section class="apo-panorama section-pad" id="panorama">
@@ -256,7 +258,8 @@
               <a class="panorama-link" href="#apoyo-maguen-david">Ver detalles ›</a>
             </article>
 
-            <!-- 7. Crédito educativo / financiamiento complementario -->
+            <!-- 7. Crédito educativo / financiamiento complementario — DESACTIVADA (recuperable): quitar los marcadores de comentario para reactivar -->
+            <!-- DESACTIVADA-CREDITO-CARD-INICIO
             <article class="panorama-card">
               <h3>Crédito educativo complementario</h3>
               <p class="panorama-rango">5% – 20%</p>
@@ -264,7 +267,30 @@
                 <div><dt>Perfil</dt><dd>Complementa cualquier apoyo socioeconómico</dd></div>
                 <div><dt>Requisito mínimo</dt><dd>Promedio de 7 (mantener 7.5 semestral)</dd></div>
               </dl>
-              <a class="panorama-link" href="#apoyo-credito">Ver detalles ›</a>
+              <a class="panorama-link" href="#">Ver detalles ›</a>
+            </article>
+            DESACTIVADA-CREDITO-CARD-FIN -->
+
+            <!-- 8. Apoyo SEDENA -->
+            <article class="panorama-card">
+              <h3>Apoyo SEDENA</h3>
+              <p class="panorama-rango">Reembolso de inscripción</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Hijos de militares activos en las Fuerzas Armadas de México</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio ≥ 8.5 y examen de admisión</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-sedena">Ver detalles ›</a>
+            </article>
+
+            <!-- 9. Convenio ISSFAM -->
+            <article class="panorama-card">
+              <h3>Convenio ISSFAM</h3>
+              <p class="panorama-rango">40%</p>
+              <dl class="panorama-meta">
+                <div><dt>Perfil</dt><dd>Beneficiarios del ISSFAM</dd></div>
+                <div><dt>Requisito mínimo</dt><dd>Promedio de bachillerato ≥ 8.5</dd></div>
+              </dl>
+              <a class="panorama-link" href="#apoyo-issfam">Ver detalles ›</a>
             </article>
           </div>
         </div>
@@ -403,19 +429,39 @@
               </div>
             </details>
 
-            <!-- 7 -->
-            <details class="detalle-item" id="apoyo-credito" name="detalle-apoyos">
+            <!-- 7 · Apoyo SEDENA (fuente: mexico.anahuac.mx/licenciaturas/apoyos-educativos) -->
+            <details class="detalle-item" id="apoyo-sedena" name="detalle-apoyos">
               <summary>
-                <span class="detalle-nombre">Crédito educativo complementario</span>
-                <span class="detalle-rango">5% – 20%</span>
+                <span class="detalle-nombre">Apoyo SEDENA</span>
+                <span class="detalle-rango">Reembolso de inscripción</span>
               </summary>
               <div class="detalle-panel">
-                <p class="detalle-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+                <p class="detalle-desc">Dirigido a hijos de militares activos en las Fuerzas Armadas de México: pagas la inscripción con tus propios recursos y la SEDENA la reembolsa tras verificar tu inscripción académica al inicio del semestre.</p>
                 <dl class="detalle-ficha">
-                  <div><dt>Perfil ideal</dt><dd>Complementa cualquier apoyo socioeconómico</dd></div>
-                  <div><dt>Requisito mínimo</dt><dd>Promedio de 7 (mantener 7.5 semestral)</dd></div>
-                  <div><dt>Cómo se evalúa</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd></div>
-                  <div><dt>Notas importantes</dt><dd>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</dd></div>
+                  <div><dt>Perfil ideal</dt><dd>Hijos de militares activos en las Fuerzas Armadas de México</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio ≥ 8.5 y aprobar el examen de admisión</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Cargas materias y, en la tercera semana, solicitas la constancia académica; la SEDENA verifica y reembolsa la inscripción.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>El pago de la inscripción corre por cuenta del candidato. Requiere Credencial de Identidad Militar del tutor y Cédula de Credencial SEDENA del candidato.</dd></div>
+                </dl>
+                <div class="button-row">
+                  <a class="btn btn-orange" href="#actua">Solicitar información</a>
+                </div>
+              </div>
+            </details>
+
+            <!-- 8 · Convenio ISSFAM (fuente: mexico.anahuac.mx/licenciaturas/apoyos-educativos) -->
+            <details class="detalle-item" id="apoyo-issfam" name="detalle-apoyos">
+              <summary>
+                <span class="detalle-nombre">Convenio ISSFAM</span>
+                <span class="detalle-rango">40%</span>
+              </summary>
+              <div class="detalle-panel">
+                <p class="detalle-desc">Convenio entre la Universidad Anáhuac México y el ISSFAM (Instituto de Seguridad Social para las Fuerzas Armadas Mexicanas) que otorga un 40% de descuento sobre la colegiatura semestral a sus beneficiarios.</p>
+                <dl class="detalle-ficha">
+                  <div><dt>Perfil ideal</dt><dd>Beneficiarios del ISSFAM</dd></div>
+                  <div><dt>Requisito mínimo</dt><dd>Promedio de bachillerato ≥ 8.5</dd></div>
+                  <div><dt>Cómo se evalúa</dt><dd>Solicitud formal al departamento de becas de la Anáhuac con la documentación completa.</dd></div>
+                  <div><dt>Notas importantes</dt><dd>Documentos: constancia de estudios (promedio de al menos dos años), comprobante de domicilio (≤ 3 meses), comprobantes de ingresos y credencial militar del tutor.</dd></div>
                 </dl>
                 <div class="button-row">
                   <a class="btn btn-orange" href="#actua">Solicitar información</a>
