@@ -647,6 +647,9 @@ window.enhanceSelect = function enhanceSelect(select) {
 
   btn.addEventListener("click", toggle);
   select.addEventListener("change", syncFromSelect);
+  /* Reconstruye el menú cuando las <option> del <select> cambian por JS
+     (p. ej. un segundo dropdown dependiente). Uso: select.dispatchEvent(new Event("refresh")). */
+  select.addEventListener("refresh", () => { buildOptions(); syncFromSelect(); });
 
   buildOptions();
   syncFromSelect();

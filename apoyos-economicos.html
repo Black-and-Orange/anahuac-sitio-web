@@ -809,10 +809,13 @@
           <div class="section-intro reveal" data-reveal>
             <p class="tagline"><span></span>Asesoría</p>
             <h2>Te ayudamos a encontrar la mejor opción para ti</h2>
-            <p>Un asesor te orienta sobre el apoyo que mejor se ajusta a tu perfil y resuelve tus dudas en cada paso. Elige tu estado y contáctalo directamente.</p>
+            <p>Un asesor te orienta sobre el apoyo que mejor se ajusta a tu perfil y resuelve tus dudas en cada paso. Elige tu opción y contáctalo directamente.</p>
             <div class="asesoria-select-wrap">
-              <label for="asesoria-estado">Selecciona una opción</label>
-              <select id="asesoria-estado" class="asesoria-select"></select>
+              <label id="asesoria-label">¿Dónde estudias o estudiaste la preparatoria/bachillerato?</label>
+              <div class="asesoria-select-row">
+                <select id="asesoria-region" class="asesoria-select" aria-labelledby="asesoria-label" aria-label="Región"></select>
+                <select id="asesoria-estado" class="asesoria-select" aria-labelledby="asesoria-label" aria-label="Estado o país"></select>
+              </div>
             </div>
           </div>
 

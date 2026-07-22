@@ -579,8 +579,11 @@
             <h2>Te guiamos en tu proceso</h2>
             <p>Nuestro equipo responde tus preguntas sobre admisión.</p>
             <div class="asesoria-select-wrap">
-              <label for="asesoria-estado">Selecciona una opción</label>
-              <select id="asesoria-estado" class="asesoria-select"></select>
+              <label id="asesoria-label">¿Dónde estudias o estudiaste la preparatoria/bachillerato?</label>
+              <div class="asesoria-select-row">
+                <select id="asesoria-region" class="asesoria-select" aria-labelledby="asesoria-label" aria-label="Región"></select>
+                <select id="asesoria-estado" class="asesoria-select" aria-labelledby="asesoria-label" aria-label="Estado o país"></select>
+              </div>
             </div>
           </div>
 

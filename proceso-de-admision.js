@@ -83,21 +83,34 @@
     "Soy Extranjero": { nombre: "María Fernanda García Toyos", wa: "https://wa.me/+525548114482", g: "f" },
   };
 
+  const regionSelect = document.getElementById("asesoria-region");
   const estadoSelect = document.getElementById("asesoria-estado");
-  if (estadoSelect) {
+  if (regionSelect && estadoSelect) {
     const foto = document.querySelector(".asesor-foto");
     const nombreEl = document.querySelector(".asesor-nombre");
     const waEl = document.querySelector(".asesor-wa");
 
-    const opciones = Object.keys(asesores)
-      .filter((k) => k !== "Soy Extranjero")
+    /* Split de las claves de `asesores` en: extranjero, Edo. Méx./CDMX y resto de estados. */
+    const PAISES = ["Colombia", "El Salvador", "Venezuela"];
+    const SOY_EXTRANJERO = "Soy Extranjero";
+    const EDOMEX_CDMX = ["Ciudad de México", "Estado de México"];
+    const fuera = new Set([...PAISES, SOY_EXTRANJERO, ...EDOMEX_CDMX]);
+    const estadosMexico = Object.keys(asesores)
+      .filter((k) => !fuera.has(k))
       .sort((a, b) => a.localeCompare(b, "es"));
-    opciones.push("Soy Extranjero");
-    opciones.forEach((estado) => {
+
+    /* Región -> opciones del segundo dropdown (en orden de aparición). */
+    const REGIONES = {
+      "Extranjero": [...PAISES],
+      "México": estadosMexico,
+      "Estado de México y CDMX": EDOMEX_CDMX,
+    };
+
+    Object.keys(REGIONES).forEach((region) => {
       const opt = document.createElement("option");
-      opt.value = estado;
-      opt.textContent = estado;
-      estadoSelect.appendChild(opt);
+      opt.value = region;
+      opt.textContent = region;
+      regionSelect.appendChild(opt);
     });
 
     const renderAsesor = (estado) => {
@@ -108,13 +121,34 @@
       foto.setAttribute("data-genero", data.g);
     };
 
-    const inicial = "Ciudad de México";
-    estadoSelect.value = inicial;
-    renderAsesor(inicial);
+    /* Rellena el segundo dropdown según la región y refresca la card + el cselect. */
+    const poblarEstados = (region, preferido) => {
+      const lista = REGIONES[region] || [];
+      estadoSelect.innerHTML = "";
+      lista.forEach((estado) => {
+        const opt = document.createElement("option");
+        opt.value = estado;
+        opt.textContent = estado;
+        estadoSelect.appendChild(opt);
+      });
+      const elegido = preferido && lista.includes(preferido) ? preferido : lista[0];
+      estadoSelect.value = elegido;
+      estadoSelect.dispatchEvent(new Event("refresh"));
+      renderAsesor(elegido);
+    };
+
+    const regionInicial = "Estado de México y CDMX";
+    regionSelect.value = regionInicial;
+    poblarEstados(regionInicial, "Ciudad de México");
+
+    regionSelect.addEventListener("change", () => poblarEstados(regionSelect.value));
     estadoSelect.addEventListener("change", () => renderAsesor(estadoSelect.value));
 
-    /* Reemplazar el <select> nativo por el dropdown propio (tras poblarlo). */
-    if (window.enhanceSelect) window.enhanceSelect(estadoSelect);
+    /* Reemplazar los <select> nativos por el dropdown propio (tras poblarlos). */
+    if (window.enhanceSelect) {
+      window.enhanceSelect(regionSelect);
+      window.enhanceSelect(estadoSelect);
+    }
   }
 
   /* ===== FORM SUBMIT ===== */

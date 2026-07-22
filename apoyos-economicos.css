@@ -2028,7 +2028,30 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 420px;
+  max-width: 520px;
+}
+
+/* Fila de los dos dropdowns. flex-wrap + texto nowrap: el texto de cada uno
+   nunca se parte; cuando no caben lado a lado (contenedor estrecho), el segundo
+   baja a otra línea y ambos ocupan el ancho completo (apilados, como en móvil).
+   No usamos min-width:0 a propósito: así el min-content (texto sin cortar) fuerza
+   el salto de línea en lugar de comprimir y partir el texto. */
+.asesoria-select-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: start;
+}
+
+.asesoria-select-row > .cselect {
+  /* width:auto anula el width:100% del `.cselect` base para que la base flex sea
+     el contenido (no el 100%), y así ambos quepan lado a lado cuando hay espacio. */
+  width: auto;
+  flex: 1 1 auto;
+}
+
+.asesoria-select-row > .cselect .cselect__label {
+  white-space: nowrap;
 }
 
 .asesoria-select-wrap label {

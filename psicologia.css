@@ -643,7 +643,7 @@
 .lic-plan {
   position: relative;
   overflow: hidden;
-  background: var(--orange);
+  background: var(--purple-1);
   color: var(--color-text-invert);
 }
 
@@ -772,6 +772,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 530px;
+  background: var(--lilac-2);
 }
 
 .plan-aeo-answer {
@@ -798,6 +800,16 @@
 
 .plan-accordion {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+/* Cada columna es un flex independiente: al abrir un panel solo empuja los
+   de su misma columna, sin abrir hueco en la otra. */
+.plan-accordion-col {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
@@ -898,6 +910,11 @@
 
 @media (max-width: 900px) {
   .plan-top {
+    grid-template-columns: 1fr;
+  }
+
+  /* El acordeón vuelve a una columna al apilarse */
+  .plan-accordion {
     grid-template-columns: 1fr;
   }
 
@@ -1245,5 +1262,391 @@
   .campo-cta .btn {
     flex: 1 1 auto;
     justify-content: center;
+  }
+}
+
+/* ===== 6. Instalaciones y campus (Norte y Sur) · [AIDA: Deseo] =====
+   Estilo de referencia: sección "descubre" de Oferta Académica
+   (fondo --gray + cards blancas con borde naranja/morado). */
+.lic-campus {
+  background: var(--gray);
+}
+
+.lic-campus .section-intro {
+  align-items: center;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 60px;
+}
+
+.lic-campus .section-intro h2,
+.lic-campus .section-intro > p:not(.tagline) {
+  text-wrap: balance;
+}
+
+.lic-campus .section-intro .tagline {
+  justify-content: center;
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.campus-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 36px 32px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.campus-card--orange {
+  border-color: var(--orange);
+}
+
+.campus-card--purple {
+  border-color: var(--purple-2);
+}
+
+.campus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.campus-icon {
+  display: inline-flex;
+  transition: transform 200ms ease;
+}
+
+.campus-icon svg {
+  width: 44px;
+  height: 44px;
+}
+
+.campus-card:hover .campus-icon {
+  transform: scale(1.08);
+}
+
+.campus-card--orange .campus-icon {
+  color: var(--orange);
+}
+
+.campus-card--purple .campus-icon {
+  color: var(--purple-2);
+}
+
+.campus-card h3 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.campus-address {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: balance;
+}
+
+.campus-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: gap 180ms ease;
+}
+
+.campus-card:hover .campus-cta {
+  gap: 12px;
+}
+
+.campus-card--orange .campus-cta {
+  color: var(--orange);
+}
+
+.campus-card--purple .campus-cta {
+  color: var(--purple-2);
+}
+
+.campus-cta svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Datos de refuerzo (transporte intercampus · hectáreas) */
+.campus-note {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 40px;
+  max-width: 900px;
+  margin: 36px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.campus-note-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+.campus-note-item svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--purple-2);
+}
+
+.campus-note-item strong {
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .campus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-note {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+}
+
+/* ===== 8. Colaboradores y docencia · [AIDA: Deseo, secundaria] ===== */
+.lic-colab {
+  background: var(--gray);
+}
+
+.lic-colab .section-intro {
+  margin-bottom: 50px;
+}
+
+.lic-colab .section-intro h2,
+.lic-colab .section-intro > p:not(.tagline) {
+  text-wrap: balance;
+}
+
+/* Convenios / aliados (tiles de texto; logos pendientes) */
+.colab-aliados {
+  display: grid;
+  gap: 34px;
+  margin-bottom: 60px;
+}
+
+.colab-group-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.colab-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.colab-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 92px;
+  padding: 18px 16px;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.colab-logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+}
+
+/* Cuando el tile trae logo (img), se muestra en escala de grises y se colorea
+   en hover; el nombre queda como alt/fallback en los tiles sin logo aún. */
+.colab-logo img {
+  max-width: 100%;
+  max-height: 48px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+.colab-logo:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+.colab-logo span {
+  margin-top: 5px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Planta docente (nombres ficticios; fotos pendientes → avatar de iniciales) */
+.colab-docentes-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+
+.colab-docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.docente-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 28px 24px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+/* Contorno intercalado naranja/morado (mismo patrón que las cards de instalaciones) */
+.docente-card:nth-child(odd) {
+  border-color: var(--orange);
+}
+
+.docente-card:nth-child(even) {
+  border-color: var(--purple-2);
+}
+
+.docente-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.docente-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--purple-2);
+  color: var(--color-text-invert);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* El avatar toma el mismo acento que el contorno */
+.docente-card:nth-child(odd) .docente-avatar {
+  background: var(--orange);
+}
+
+.docente-card:nth-child(even) .docente-avatar {
+  background: var(--purple-2);
+}
+
+.docente-name {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.docente-grado {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.docente-area {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  color: var(--purple-2);
+}
+
+/* En las cards de contorno naranja, el área también va en naranja */
+.docente-card:nth-child(odd) .docente-area {
+  color: var(--orange);
+}
+
+@media (max-width: 900px) {
+  .colab-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .colab-docentes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .colab-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .colab-docentes-grid {
+    grid-template-columns: 1fr;
   }
 }
