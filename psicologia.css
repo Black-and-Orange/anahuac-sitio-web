@@ -1459,6 +1459,10 @@
 .colab-aliados {
   display: grid;
   gap: 34px;
+}
+
+/* Docentes ahora van primero: la separación de 60px pasa aquí */
+.colab-docentes {
   margin-bottom: 60px;
 }
 
@@ -1648,5 +1652,499 @@
 
   .colab-docentes-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 9. Elige el siguiente paso (módulo de decisiones) · [AIDA: Acción] =====
+   Estructura del módulo homónimo de Proceso de admisión, pero con fondo --white.
+   El intro ocupa la 1.ª celda de una rejilla 3×2; las 5 cards llenan el resto. */
+.lic-pasos {
+  background: var(--surface);
+}
+
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Intro como primera celda (texto, sin borde), centrado verticalmente */
+.pasos-lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding-right: 20px;
+}
+
+.pasos-lead h2,
+.pasos-lead > p:not(.tagline) {
+  text-wrap: balance;
+}
+
+.pasos-lead > p:not(.tagline) {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+/* Tarjeta de decisión (blanca, borde lila → morado en hover) */
+.paso-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 28px;
+  background: var(--white);
+  border: 2px solid var(--lilac-2);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.paso-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-2);
+  box-shadow: 0 18px 36px rgba(67, 47, 100, 0.1);
+}
+
+.paso-icon {
+  display: inline-flex;
+  color: var(--color-brand-primary);
+  transition: transform 200ms ease;
+}
+
+.paso-icon svg {
+  width: 44px;
+  height: 44px;
+}
+
+.paso-card:hover .paso-icon {
+  transform: scale(1.08);
+}
+
+.paso-card h3 {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.paso-card p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+.paso-cta {
+  margin-top: auto;
+  padding-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+  transition: gap 180ms ease;
+}
+
+.paso-card:hover .paso-cta {
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .pasos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pasos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pasos-lead {
+    padding-right: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .pasos-lead .tagline {
+    justify-content: center;
+  }
+}
+
+/* ===== 10. Preguntas frecuentes sobre Psicología · [AIDA: Acción] =====
+   Acordeón (patrón de FAQ de Proceso/Apoyos) adaptado a fondo --orange. */
+.lic-faq {
+  background: var(--orange);
+  color: var(--color-text-invert);
+}
+
+.lic-faq .section-intro {
+  margin-bottom: 50px;
+}
+
+.lic-faq .section-intro h2 {
+  text-wrap: balance;
+}
+
+/* Tagline sobre naranja: línea/flecha en blanco (igual que en el módulo 4) */
+.lic-faq .tagline span {
+  background: var(--white);
+}
+
+.lic-faq .tagline span::after {
+  border-color: var(--white);
+}
+
+.faq-list {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text-invert);
+  cursor: pointer;
+  list-style: none;
+  text-wrap: balance;
+  user-select: none;
+  transition: opacity 200ms ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  margin-left: 20px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-text-invert);
+  transition: transform 300ms ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.faq-item summary:hover {
+  opacity: 0.75;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+.faq-item p {
+  padding: 0 0 24px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  color: var(--color-text-invert);
+  text-wrap: pretty;
+  animation: faqIn 300ms ease;
+}
+
+@keyframes faqIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-item summary {
+    font-size: 19px;
+  }
+}
+
+/* ===== 12. Solicita información (formulario dedicado) · [AIDA: Acción] =====
+   Estructura de la sección "actua" (.apo-form) de Apoyos económicos. */
+.lic-form {
+  position: relative;
+  background: var(--gray);
+}
+
+/* Patrón de puntos sutil (mismo recurso que .apo-form) */
+.lic-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.4;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0 2px, transparent 2.5px);
+  background-size: 35px 35px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+  mask-image: linear-gradient(to top, black 50%, transparent 100%);
+}
+
+.lic-form-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 610px;
+  gap: 60px;
+  align-items: center;
+}
+
+.lic-form-media {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.lic-form-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.lic-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lic-form-content .section-intro {
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.lic-form-content .section-intro h2 {
+  font-size: 44px;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.lic-form-content .section-intro > p:not(.tagline) {
+  text-wrap: pretty;
+}
+
+.lic-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 40px;
+  background: var(--white);
+  border: 2px solid var(--orange);
+  border-radius: var(--radius);
+}
+
+.lic-form-card input[type="text"],
+.lic-form-card input[type="email"],
+.lic-form-card input[type="tel"] {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--gray);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 200ms ease;
+}
+
+.lic-form-card input:focus {
+  box-shadow: 0 0 0 2px var(--orange);
+}
+
+.lic-form-card input[readonly] {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.lic-form-card select {
+  width: 100%;
+  padding: 14px 44px 14px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--gray);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 12 8' fill='none' stroke='%23ff5900' stroke-width='2'%3E%3Cpolyline points='1,1 6,6 11,1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 200ms ease;
+}
+
+.lic-form-card select:focus {
+  box-shadow: 0 0 0 2px var(--orange);
+}
+
+.lic-form-card select:has(option[value=""]:checked) {
+  color: var(--color-text-secondary);
+}
+
+/* Evita que el translateY del reveal descoloque el popup nativo del select */
+.lic-form-card.reveal {
+  transform: none;
+}
+
+/* Campo múltiple "¿Qué te gustaría recibir?" como chips accesibles */
+.lic-form-checks {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lic-form-checks legend {
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.lic-form-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 2px solid var(--lilac-2);
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.lic-form-chip input {
+  margin: 0;
+  accent-color: var(--orange);
+}
+
+.lic-form-chip:hover {
+  border-color: var(--purple-2);
+}
+
+.lic-form-chip:has(input:checked) {
+  border-color: var(--orange);
+  background: rgba(255, 89, 0, 0.08);
+  color: var(--color-brand-primary);
+}
+
+.lic-form-chip:focus-within {
+  box-shadow: 0 0 0 2px var(--orange);
+}
+
+.lic-form-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.lic-form-privacy input {
+  margin-top: 3px;
+  accent-color: var(--orange);
+}
+
+.lic-form-privacy a {
+  color: var(--color-brand-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.lic-form-card .btn {
+  padding: 15px 30px;
+  font-size: 21px;
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .lic-form-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lic-form-media {
+    width: 75%;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .lic-form-media {
+    width: 100%;
+  }
+
+  .lic-form-card {
+    padding: 28px 22px;
+  }
+
+  .lic-form-content .section-intro h2 {
+    font-size: 34px;
+  }
+}
+
+/* ===== Módulo 11 (experiencia) — padding inferior al apilarse en 1 columna =====
+   El componente compartido `.experience` solo trae padding-top; al apilar (≤1180px)
+   falta el espacio inferior, que ahora se nota porque debajo va la sección gris
+   (Solicita información). Se agrega solo aquí (psicologia.css es exclusivo de esta
+   página) y solo en los rangos apilados, siguiendo el ritmo del sitio (80/60px). */
+@media (max-width: 1180px) {
+  .experience {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .experience {
+    padding-bottom: 60px;
   }
 }

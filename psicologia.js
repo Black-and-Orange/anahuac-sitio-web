@@ -113,3 +113,26 @@
   media.dataset.current = activeTile().dataset.img;
   update();
 })();
+
+/* ===== Módulo 12 — Campo WhatsApp/teléfono: solo dígitos =====
+   type="tel" + inputmode/pattern no bloquean tecleo/pegado no numérico; aquí
+   filtramos en vivo cualquier carácter que no sea 0-9 (conservando el cursor). */
+(function () {
+  "use strict";
+
+  const tel = document.querySelector('.lic-form-card input[type="tel"]');
+  if (!tel) return;
+
+  tel.addEventListener("input", function () {
+    const digits = tel.value.replace(/\D/g, "");
+    if (digits !== tel.value) {
+      const pos = tel.selectionStart - (tel.value.length - digits.length);
+      tel.value = digits;
+      try {
+        tel.setSelectionRange(pos, pos);
+      } catch (e) {
+        /* setSelectionRange no aplica en algunos navegadores para type=tel */
+      }
+    }
+  });
+})();
