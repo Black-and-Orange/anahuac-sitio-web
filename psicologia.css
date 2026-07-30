@@ -793,26 +793,18 @@
   border-radius: var(--radius-button);
   background: var(--white);
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
-/* Número del semestre, destacado sobre la palabra "semestre" */
+/* Número del semestre, destacado sobre la palabra "Semestre" */
 .plan-tab-num {
   font-size: 21px;
   font-weight: 700;
   line-height: 1;
-}
-
-.plan-tab sup {
-  font-size: 0.55em;
-  /* Menos elevado que el `super` por defecto para que se vea más natural */
-  vertical-align: baseline;
-  position: relative;
-  top: -0.5em;
 }
 
 /* Dropdown de semestres (solo ≤540px): usa el custom select compartido (.cselect,
