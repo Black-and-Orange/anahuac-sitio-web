@@ -552,65 +552,30 @@
   border-radius: var(--radius);
 }
 
-.porque-plan-head {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.porque-plan-copy {
+  max-width: 640px;
 }
 
-.porque-plan-badge {
-  align-self: flex-start;
-  padding: 6px 14px;
-  border-radius: var(--radius-button);
-  background: var(--purple-2);
-  color: var(--color-text-invert);
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.porque-plan-total {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.porque-plan-total strong {
-  margin-right: 12px;
-  font-size: 64px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--purple-2);
-}
-
-.porque-plan-breakdown {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+.porque-plan-text {
   margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.porque-plan-breakdown li {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   font-family: var(--font-body);
-  font-size: 15px;
-  letter-spacing: 0.2px;
-  color: var(--color-text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text);
 }
 
-.porque-plan-breakdown li span {
-  font-family: var(--font-heading);
-  font-size: 34px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--color-text);
+.porque-plan-lead {
+  font-weight: 700;
+  color: var(--orange);
+}
+
+/* CTA compacto, mismo tamaño que los botones del hero (.button-row .btn).
+   En 2 columnas cae al fondo de su columna (end); en móvil vuelve a la izquierda. */
+.porque-plan-cta {
+  flex-shrink: 0;
+  align-self: flex-end;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 @media (max-width: 1180px) {
@@ -630,12 +595,12 @@
     padding: 30px 24px;
   }
 
-  .porque-plan-total strong {
-    font-size: 52px;
+  .porque-plan-text {
+    font-size: 16px;
   }
 
-  .porque-plan-breakdown {
-    gap: 28px;
+  .porque-plan-cta {
+    align-self: flex-start;
   }
 }
 
@@ -789,102 +754,157 @@
   font-weight: 600;
 }
 
-/* Acordeón de materias */
-.plan-materias-title {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  line-height: 1.15;
-  font-weight: 600;
+/* =============================================
+   5. Plan de estudios: tabs por semestre + bloques (fondo gris)
+   ============================================= */
+.lic-plan-est {
+  background: var(--gray);
+}
+
+.lic-plan-est .section-intro {
+  margin-bottom: 32px;
+}
+
+.lic-plan-est .section-intro h2 {
+  text-wrap: balance;
+}
+
+/* ----- Tabs por semestre ----- */
+.plan-tabs {
+  margin-bottom: 40px;
+}
+
+/* Grid de columnas iguales: al no caber en una fila se reparten equitativamente
+   (8 → 4+4 → 2+2+2+2), en lugar de pasar los sobrantes uno por uno. */
+.plan-tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.plan-accordion {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start;
-  gap: 12px;
-}
-
-/* Cada columna es un flex independiente: al abrir un panel solo empuja los
-   de su misma columna, sin abrir hueco en la otra. */
-.plan-accordion-col {
+.plan-tab {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.plan-item {
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-button);
   background: var(--white);
-  color: var(--color-text);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.plan-item summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 22px 28px;
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
-  transition: color 180ms ease;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
-.plan-item summary::-webkit-details-marker {
+/* Número del semestre, destacado sobre la palabra "semestre" */
+.plan-tab-num {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.plan-tab sup {
+  font-size: 0.55em;
+  /* Menos elevado que el `super` por defecto para que se vea más natural */
+  vertical-align: baseline;
+  position: relative;
+  top: -0.5em;
+}
+
+/* Dropdown de semestres (solo ≤540px): usa el custom select compartido (.cselect,
+   generado por enhanceSelect() desde el <select class="js-select">) para que el
+   menú se ancle al campo igual en todos los dispositivos, en lugar del menú nativo
+   que se despliega raro en móvil. El <select> nativo queda oculto como fuente de valor. */
+.plan-tabs-select {
   display: none;
 }
 
-.plan-item summary::after {
-  content: "";
-  width: 11px;
-  height: 11px;
-  flex-shrink: 0;
-  border-right: 2px solid var(--purple-2);
-  border-bottom: 2px solid var(--purple-2);
-  transform: rotate(45deg);
-  transition: transform 200ms ease;
+.plan-tabs .cselect {
+  display: none;
+  margin-bottom: 20px;
 }
 
-.plan-item[open] summary::after {
-  transform: rotate(-135deg);
+/* Botón/campo blanco con borde morado, a tono con los tabs de esta sección */
+.plan-tabs .cselect__btn {
+  background-color: var(--white);
+  border: 2px solid var(--purple-2);
+  border-radius: var(--radius-button);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 12 8' fill='none' stroke='%235d428c' stroke-width='2'%3E%3Cpolyline points='1,1 6,6 11,1'/%3E%3C/svg%3E");
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-.plan-item summary:hover {
+.plan-tabs .cselect__btn:focus-visible,
+.plan-tabs .cselect[data-open="true"] .cselect__btn {
+  box-shadow: 0 0 0 2px var(--purple-2);
+}
+
+.plan-tabs .cselect__opt[aria-selected="true"] {
   color: var(--purple-2);
 }
 
-.plan-item summary:focus-visible {
+.plan-tab:hover {
+  color: var(--purple-2);
+  transform: translateY(-1px);
+}
+
+.plan-tab.is-active {
+  background: var(--purple-2);
+  color: var(--color-text-invert);
+}
+
+.plan-tab:focus-visible {
   outline: 2px solid var(--purple-2);
-  outline-offset: -4px;
+  outline-offset: 2px;
 }
 
-.plan-panel {
-  padding: 0 28px 26px;
+.plan-tab-panel {
+  padding: 32px 36px;
+  background: var(--white);
+  border-radius: var(--radius);
+  animation: planFade 260ms ease;
 }
 
-.plan-panel ul {
+.plan-tab-panel[hidden] {
+  display: none;
+}
+
+@keyframes planFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.plan-sem-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 36px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.plan-panel li {
+.plan-sem-list li {
   position: relative;
   padding-left: 20px;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.2px;
+  color: var(--color-text);
 }
 
-.plan-panel li::before {
+.plan-sem-list li::before {
   content: "";
   position: absolute;
   left: 2px;
@@ -893,6 +913,238 @@
   height: 6px;
   border-radius: 50%;
   background: var(--orange);
+}
+
+/* ----- Bloques que integra la universidad ----- */
+.plan-bloques {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plan-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 32px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.plan-bloque:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.plan-bloque--prof {
+  border-color: var(--orange);
+}
+
+.plan-bloque--anahuac {
+  border-color: var(--purple-2);
+}
+
+.plan-bloque--inter {
+  border-color: var(--lilac-1);
+}
+
+.plan-bloque h3 {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.plan-bloque p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* Enlace "Minors" que abre el video en un modal (con fallback a YouTube) */
+.plan-minors-link {
+  color: var(--color-brand-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--orange);
+  cursor: pointer;
+}
+
+.plan-minors-link:hover,
+.plan-minors-link:focus-visible {
+  color: var(--purple-2);
+  text-decoration-color: var(--purple-2);
+}
+
+/* ----- RVOE reubicado (discreto, no compite con los CTA) ----- */
+.plan-rvoe {
+  margin-top: 20px;
+}
+
+.plan-rvoe-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1.5px solid rgba(0, 0, 0, 0.16);
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  transition: border-color 180ms ease, color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.plan-rvoe-link:hover,
+.plan-rvoe-link:focus-visible {
+  border-color: var(--purple-2);
+  color: var(--purple-2);
+  text-decoration-color: var(--purple-2);
+}
+
+.plan-rvoe-link svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ----- Modal de video (Minors) ----- */
+.plan-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.plan-video-modal[hidden] {
+  display: none;
+}
+
+.plan-video-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 12, 33, 0.72);
+  animation: planFade 200ms ease;
+}
+
+.plan-video-dialog {
+  position: relative;
+  width: min(960px, 100%);
+  animation: planFade 240ms ease;
+}
+
+.plan-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.plan-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.plan-video-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--color-text);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 180ms ease;
+}
+
+.plan-video-close:hover {
+  transform: scale(1.08);
+}
+
+.plan-video-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tabs: reparto equitativo por filas al reducir el ancho (8 → 4+4 → 2×4) */
+@media (max-width: 1280px) {
+  .plan-tabs-nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .plan-sem-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plan-bloques {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plan-tab-panel {
+    padding: 24px;
+  }
+
+  .plan-sem-list {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-bloque {
+    padding: 26px 24px;
+  }
+
+  .plan-video-close {
+    top: -46px;
+    right: 0;
+  }
+}
+
+/* ≤540px: los tabs en una sola columna quedan demasiado altos en celular;
+   se reemplazan por el dropdown de semestres. */
+@media (max-width: 540px) {
+  .plan-tabs-nav {
+    display: none;
+  }
+
+  .plan-tabs .cselect {
+    display: block;
+  }
 }
 
 /* CTAs de descarga (cierre del módulo) */
@@ -910,11 +1162,6 @@
 
 @media (max-width: 900px) {
   .plan-top {
-    grid-template-columns: 1fr;
-  }
-
-  /* El acordeón vuelve a una columna al apilarse */
-  .plan-accordion {
     grid-template-columns: 1fr;
   }
 
@@ -956,19 +1203,6 @@
 @media (max-width: 640px) {
   .plan-card {
     padding: 26px 24px;
-  }
-
-  .plan-panel ul {
-    grid-template-columns: 1fr;
-  }
-
-  .plan-item summary {
-    padding: 18px 22px;
-    font-size: 18px;
-  }
-
-  .plan-panel {
-    padding: 0 22px 22px;
   }
 
   .plan-cta .btn {
@@ -1373,6 +1607,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
   transition: gap 180ms ease;
 }
 
@@ -1394,6 +1629,128 @@
   stroke: currentColor;
   stroke-width: 2;
   fill: none;
+}
+
+/* Tira de fotos 1:1: se ven 3 miniaturas y el resto quedan ocultas (más sutil).
+   Se desliza de a una con flechas discretas (hover) + puntos + swipe táctil. */
+.campus-slider {
+  position: relative;
+  width: 100%;
+}
+
+.campus-slider-viewport {
+  overflow: hidden;
+}
+
+/* Flechas discretas: solo aparecen al pasar el cursor sobre la tira */
+.campus-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms ease, background-color 180ms ease;
+}
+
+.campus-slider-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.campus-slider:hover .campus-slider-arrow,
+.campus-slider-arrow:focus-visible {
+  opacity: 1;
+}
+
+.campus-slider-arrow:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.campus-slider-prev {
+  left: 8px;
+}
+
+.campus-slider-next {
+  right: 8px;
+}
+
+/* En los extremos, la flecha correspondiente se oculta */
+.campus-slider .campus-slider-arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Táctil (sin hover): las flechas activas quedan tenues y siempre visibles */
+@media (hover: none) {
+  .campus-slider-arrow:not(:disabled) {
+    opacity: 0.65;
+  }
+}
+
+.campus-slides {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 400ms ease;
+}
+
+.campus-slides > li {
+  flex: 0 0 calc((100% - 16px) / 3);
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.campus-slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Puntos de paginación debajo de la tira: pequeños y neutros para no destacar */
+.campus-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.campus-slider-dots:empty {
+  display: none;
+}
+
+.campus-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.campus-dot:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.campus-dot.is-active {
+  background: rgba(0, 0, 0, 0.55);
+  transform: scale(1.3);
 }
 
 /* Datos de refuerzo (transporte intercampus · hectáreas) */
@@ -1537,22 +1894,70 @@
 }
 
 /* Planta docente (nombres ficticios; fotos pendientes → avatar de iniciales) */
+/* Encabezado: título + flechas del carrusel */
+.colab-docentes-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
 .colab-docentes-title {
   font-family: var(--font-heading);
   font-size: 28px;
   line-height: 1.15;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin: 0;
   text-wrap: balance;
 }
 
-.colab-docentes-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.colab-arrows {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.colab-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid var(--purple-2);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--purple-2);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.colab-arrow:hover {
+  background: var(--purple-2);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Carrusel infinito: se ven 4 cards y el resto quedan ocultas */
+.colab-docentes-carousel {
+  overflow: hidden;
+}
+
+.colab-docentes-track {
+  display: flex;
   gap: 20px;
+  /* la transición la controla el JS */
+}
+
+.colab-docentes-track > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
 }
 
 .docente-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1561,7 +1966,31 @@
   background: var(--white);
   border: 2px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+/* Enlace a LinkedIn (esquina superior derecha de la card) */
+.docente-linkedin {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--color-text-secondary);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.docente-linkedin:hover,
+.docente-linkedin:focus-visible {
+  color: #0a66c2;
+  transform: translateY(-1px);
+}
+
+.docente-linkedin svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Contorno intercalado naranja/morado (mismo patrón que las cards de instalaciones) */
@@ -1571,11 +2000,6 @@
 
 .docente-card:nth-child(even) {
   border-color: var(--purple-2);
-}
-
-.docente-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
 .docente-avatar {
@@ -1640,8 +2064,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .colab-docentes-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Carrusel: 2 cards visibles */
+  .colab-docentes-track > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
   }
 }
 
@@ -1650,8 +2075,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .colab-docentes-grid {
-    grid-template-columns: 1fr;
+  /* Carrusel: 1 card visible */
+  .colab-docentes-track > .docente-card {
+    flex: 0 0 100%;
   }
 }
 
