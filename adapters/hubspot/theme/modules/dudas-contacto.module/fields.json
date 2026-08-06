@@ -1,0 +1,90 @@
+[ {
+  "id" : "image",
+  "name" : "image",
+  "label" : "Imagen",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Estudiante Anáhuac en aula"
+  }
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Título (H2)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "¿Tienes alguna duda de nuestra universidad?"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Descripción",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nuestro equipo de asesores preuniversitarios en la Universidad Anáhuac México está aquí para guiarte en cada paso hacia tu futuro brillante. ¡Contáctanos hoy y comienza a trazar el camino hacia tus sueños!"
+}, {
+  "id" : "primary_text",
+  "name" : "primary_text",
+  "label" : "Botón primario · texto",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Contactar"
+}, {
+  "id" : "primary_link",
+  "name" : "primary_link",
+  "label" : "Botón primario · destino",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "#"
+    },
+    "open_in_new_tab" : false
+  }
+}, {
+  "id" : "secondary_text",
+  "name" : "secondary_text",
+  "label" : "Botón secundario · texto",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Agenda tu visita"
+}, {
+  "id" : "secondary_link",
+  "name" : "secondary_link",
+  "label" : "Botón secundario · destino",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "#"
+    },
+    "open_in_new_tab" : false
+  }
+} ]

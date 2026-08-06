@@ -1,0 +1,302 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Dudas frecuentes"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Resuelve tus dudas sobre el proceso de admisión en Anáhuac."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "preguntas",
+    "name": "preguntas",
+    "label": "Preguntas y respuestas",
+    "help_text": "Acordeón: solo una respuesta abierta a la vez. La respuesta admite formato y enlaces.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "sorting_label_field": null,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "preguntas.pregunta",
+        "name": "pregunta",
+        "label": "Pregunta",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Cuándo son los exámenes?"
+      },
+      {
+        "id": "preguntas.pregunta_tag",
+        "name": "pregunta_tag",
+        "label": "Etiqueta HTML de «pregunta»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "preguntas.pregunta_color",
+        "name": "pregunta_color",
+        "label": "Color de texto de «pregunta»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "preguntas.respuesta",
+        "name": "respuesta",
+        "label": "Respuesta",
+        "type": "richtext",
+        "default": "<p>Escribe aquí la respuesta.</p>"
+      }
+    ],
+    "default": [
+      {
+        "pregunta": "¿Cuándo son los exámenes?",
+        "pregunta_tag": "ninguna",
+        "respuesta": "<p>Las fechas de examen se publican en nuestro calendario anual. Puedes elegir la que mejor se ajuste a tu preparación y disponibilidad.</p>"
+      },
+      {
+        "pregunta": "¿Qué documentos necesito?",
+        "pregunta_tag": "ninguna",
+        "respuesta": "<p>Requerimos tu certificado de bachillerato, identificación oficial y comprobante de domicilio. Algunos programas como medicina solicitan documentación adicional.</p>"
+      },
+      {
+        "pregunta": "¿Hay opciones para internacionales?",
+        "pregunta_tag": "ninguna",
+        "respuesta": "<p>Sí, contamos con un proceso especial para estudiantes internacionales que incluye evaluaciones de idioma y documentación adicional.</p>"
+      },
+      {
+        "pregunta": "¿Cuánto cuesta estudiar aquí?",
+        "pregunta_tag": "ninguna",
+        "respuesta": "<p>Las colegiaturas varían según el programa que elijas. Ofrecemos becas y apoyos financieros para estudiantes calificados.</p>"
+      },
+      {
+        "pregunta": "¿Cambia el proceso si quiero solicitar una beca?",
+        "pregunta_tag": "ninguna",
+        "respuesta": "<p>Comienza explorando nuestras licenciaturas en la oferta académica. Luego regístrate en el portal y prepara tu documentación.</p>"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_pregunta",
+        "name": "color_pregunta",
+        "label": "Color de las preguntas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_respuesta",
+        "name": "color_respuesta",
+        "label": "Color de las respuestas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_enlace",
+        "name": "color_enlace",
+        "label": "Color de los enlaces de la respuesta",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

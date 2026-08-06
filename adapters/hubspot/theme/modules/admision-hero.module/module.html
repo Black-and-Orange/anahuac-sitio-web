@@ -1,0 +1,50 @@
+{# ===== Admisión · Hero =====
+   Porta <section class="adm-hero"> de proceso-de-admision.html sin cambiar el
+   marcado. El H1 de la página vive aquí.
+
+   El «bloque morado» es .adm-hero .hero-card, no el fondo de la sección: son dos
+   campos distintos. Los colores vacíos caen al token del design system. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-hero-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--admision-hero-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_panel_fondo.color %}{% set estilo = estilo ~ "--admision-hero-panel-bg:" ~ e.color_panel_fondo.color ~ ";" %}{% endif %}
+{% if e.color_panel_texto.color %}{% set estilo = estilo ~ "--admision-hero-panel-text:" ~ e.color_panel_texto.color ~ ";" %}{% endif %}
+{% if e.tamano_panel %}{% set estilo = estilo ~ "--admision-hero-panel-size:var(--" ~ e.tamano_panel ~ ");" %}{% endif %}
+{% if e.color_boton1_fondo.color %}{% set estilo = estilo ~ "--admision-hero-cta-bg:" ~ e.color_boton1_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton1_texto.color %}{% set estilo = estilo ~ "--admision-hero-cta-text:" ~ e.color_boton1_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton2_fondo.color %}{% set estilo = estilo ~ "--admision-hero-cta2-bg:" ~ e.color_boton2_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton2_texto.color %}{% set estilo = estilo ~ "--admision-hero-cta2-text:" ~ e.color_boton2_texto.color ~ ";" %}{% endif %}
+
+<section class="adm-hero section-pad" id="inicio"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container adm-hero-inner">
+    <div class="adm-hero-copy">
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline reveal" data-reveal{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}>{% if v.mostrar_flecha %}<span></span>{% endif %}{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h1', true) }} class="reveal" data-reveal{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h1', true) }}>
+      {% endif %}
+    </div>
+
+    <div class="adm-hero-info reveal" data-reveal>
+      {% if c.texto_panel %}
+        <div class="hero-card">{{ c.texto_panel }}</div>
+      {% endif %}
+      {% if v.mostrar_botones and module.botones %}
+        <div class="button-row">
+          {% for boton in module.botones %}
+            {% if boton.texto %}
+              <a class="btn {{ boton.estilo|default('btn-dark', true) }}" href="{{ boton.enlace.url.href|default('#', true) }}"
+                 {% if boton.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if boton.texto_tag and boton.texto_tag != 'ninguna' %}<{{ boton.texto_tag }}{% if boton.texto_color.color %} style="color:{{ boton.texto_color.color }}"{% endif %}>{{ boton.texto }}</{{ boton.texto_tag }}>{% elif boton.texto_color.color %}<span style="color:{{ boton.texto_color.color }}">{{ boton.texto }}</span>{% else %}{{ boton.texto }}{% endif %}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1185 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Proceso de admisión"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Pasos hacia tu ingreso"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Conoce qué esperar en cada momento hacia tu ingreso a la Universidad Anáhuac ya seas estudiante nacional o internacional."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_flecha",
+        "name": "mostrar_flecha",
+        "label": "Mostrar la flecha del eyebrow",
+        "help_text": "El elemento decorativo que antecede al texto pequeño.",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "pasos",
+    "name": "pasos",
+    "label": "Pasos",
+    "help_text": "El número de cada paso y la línea de tiempo se generan solos desde este listado: agregar, borrar o reordenar aquí basta.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 6
+    },
+    "children": [
+      {
+        "id": "pasos.etiqueta_dot",
+        "name": "etiqueta_dot",
+        "label": "Etiqueta en la línea de tiempo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Inicia tu solicitud"
+      },
+      {
+        "id": "pasos.etiqueta_dot_tag",
+        "name": "etiqueta_dot_tag",
+        "label": "Etiqueta HTML de «etiqueta_dot»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.etiqueta_dot_color",
+        "name": "etiqueta_dot_color",
+        "label": "Color de texto de «etiqueta_dot»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.indicador",
+        "name": "indicador",
+        "label": "Indicador del paso",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Paso 1"
+      },
+      {
+        "id": "pasos.indicador_tag",
+        "name": "indicador_tag",
+        "label": "Etiqueta HTML de «indicador»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.indicador_color",
+        "name": "indicador_color",
+        "label": "Color de texto de «indicador»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Regístrate para iniciar tu solicitud"
+      },
+      {
+        "id": "pasos.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "pasos.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.descripcion",
+        "name": "descripcion",
+        "label": "Descripción",
+        "help_text": "Admite párrafos, listas numeradas y con viñetas.",
+        "type": "richtext",
+        "default": "<p>Describe este paso del proceso.</p>"
+      },
+      {
+        "id": "pasos.nota",
+        "name": "nota",
+        "label": "Nota al pie",
+        "help_text": "Aclaración en pequeño. Déjala vacía si no aplica.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": ""
+      },
+      {
+        "id": "pasos.nota_tag",
+        "name": "nota_tag",
+        "label": "Etiqueta HTML de «nota»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "pasos.nota_color",
+        "name": "nota_color",
+        "label": "Color de texto de «nota»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.mostrar_tiempo",
+        "name": "mostrar_tiempo",
+        "label": "Mostrar el tiempo estimado",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "pasos.etiqueta_tiempo",
+        "name": "etiqueta_tiempo",
+        "label": "Etiqueta del tiempo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Tiempo estimado:"
+      },
+      {
+        "id": "pasos.etiqueta_tiempo_tag",
+        "name": "etiqueta_tiempo_tag",
+        "label": "Etiqueta HTML de «etiqueta_tiempo»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.etiqueta_tiempo_color",
+        "name": "etiqueta_tiempo_color",
+        "label": "Color de texto de «etiqueta_tiempo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.tiempo",
+        "name": "tiempo",
+        "label": "Tiempo estimado",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "5 min."
+      },
+      {
+        "id": "pasos.tiempo_tag",
+        "name": "tiempo_tag",
+        "label": "Etiqueta HTML de «tiempo»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.tiempo_color",
+        "name": "tiempo_color",
+        "label": "Color de texto de «tiempo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.mostrar_enlace",
+        "name": "mostrar_enlace",
+        "label": "Mostrar enlace secundario",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false
+      },
+      {
+        "id": "pasos.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Enlace · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Consultar próximas fechas de pruebas ›"
+      },
+      {
+        "id": "pasos.enlace_texto_tag",
+        "name": "enlace_texto_tag",
+        "label": "Etiqueta HTML de «enlace_texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.enlace_texto_color",
+        "name": "enlace_texto_color",
+        "label": "Color de texto de «enlace_texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.enlace",
+        "name": "enlace",
+        "label": "Enlace · destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "pasos.mostrar_cta",
+        "name": "mostrar_cta",
+        "label": "Mostrar botón",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "pasos.cta_texto",
+        "name": "cta_texto",
+        "label": "Botón · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Continuar proceso"
+      },
+      {
+        "id": "pasos.cta_texto_tag",
+        "name": "cta_texto_tag",
+        "label": "Etiqueta HTML de «cta_texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "pasos.cta_texto_color",
+        "name": "cta_texto_color",
+        "label": "Color de texto de «cta_texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "pasos.cta_enlace",
+        "name": "cta_enlace",
+        "label": "Botón · destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "pasos.tipo_media",
+        "name": "tipo_media",
+        "label": "Recurso lateral",
+        "help_text": "Cada paso puede llevar imagen o video de YouTube.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "imagen",
+            "Imagen"
+          ],
+          [
+            "video",
+            "Video de YouTube"
+          ]
+        ],
+        "default": "imagen"
+      },
+      {
+        "id": "pasos.imagen",
+        "name": "imagen",
+        "label": "Imagen",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "Paso del proceso de admisión"
+        }
+      },
+      {
+        "id": "pasos.video_id",
+        "name": "video_id",
+        "label": "Video · ID de YouTube",
+        "help_text": "Solo el ID, no la URL completa. En youtu.be/AbC123 el ID es AbC123.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": ""
+      },
+      {
+        "id": "pasos.video_poster",
+        "name": "video_poster",
+        "label": "Video · miniatura",
+        "help_text": "Se muestra antes de reproducir. Si la dejas vacía se usa la de YouTube.",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "Miniatura del video"
+        }
+      }
+    ],
+    "default": [
+      {
+        "etiqueta_dot": "Inicia tu solicitud",
+        "indicador": "Paso 1",
+        "indicador_tag": "ninguna",
+        "titulo": "Regístrate para iniciar tu solicitud en línea",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": true,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "5 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Empezar registro",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 1 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "etiqueta_dot": "Sube tus documentos",
+        "indicador": "Paso 2",
+        "indicador_tag": "ninguna",
+        "titulo": "Reúne y sube tus documentos",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": true,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "15 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Continuar proceso",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 2 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "etiqueta_dot": "Completa tu información",
+        "indicador": "Paso 3",
+        "indicador_tag": "ninguna",
+        "titulo": "Completa tu información",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": false,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "5 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Continuar proceso",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 3 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "etiqueta_dot": "Agenda tus pruebas",
+        "indicador": "Paso 4",
+        "indicador_tag": "ninguna",
+        "titulo": "Agenda tus pruebas",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": false,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "5 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Agendar mis pruebas",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 4 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "etiqueta_dot": "Recibe resultados",
+        "indicador": "Paso 5",
+        "indicador_tag": "ninguna",
+        "titulo": "Fechas disponibles para tu examen",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": false,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "5 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Continuar proceso",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 5 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "etiqueta_dot": "Termina tu inscripción",
+        "indicador": "Paso 6",
+        "indicador_tag": "ninguna",
+        "titulo": "Inversión en tu futuro profesional",
+        "titulo_tag": "h3",
+        "descripcion": "<p>Describe este paso del proceso.</p>",
+        "mostrar_tiempo": false,
+        "etiqueta_tiempo": "Tiempo estimado:",
+        "tiempo": "5 min.",
+        "nota": "",
+        "nota_tag": "p",
+        "mostrar_enlace": false,
+        "enlace_texto": "Consultar próximas fechas de pruebas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "mostrar_cta": true,
+        "cta_texto": "Calcular",
+        "cta_texto_tag": "ninguna",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tipo_media": "imagen",
+        "imagen": {
+          "src": "",
+          "alt": "Paso 6 del proceso de admisión"
+        },
+        "video_id": "",
+        "video_poster": {
+          "src": "",
+          "alt": ""
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_dot_texto",
+        "name": "color_dot_texto",
+        "label": "Línea de tiempo · color de la etiqueta",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_dot_fondo",
+        "name": "color_dot_fondo",
+        "label": "Línea de tiempo · fondo del número",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_dot_activo_fondo",
+        "name": "color_dot_activo_fondo",
+        "label": "Línea de tiempo · fondo del paso activo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_dot_activo_texto",
+        "name": "color_dot_activo_texto",
+        "label": "Línea de tiempo · texto del paso activo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Botón · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Botón · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+[ {
+  "id" : "eyebrow",
+  "name" : "eyebrow",
+  "label" : "Eyebrow (tagline)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Oferta Académica de la Universidad Anáhuac México"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Título (H1)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Encuentra lo que te apasiona"
+}, {
+  "id" : "card_text",
+  "name" : "card_text",
+  "label" : "Tarjeta de oferta",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Descubre las ocho áreas académicas y todos nuestros programas de licenciatura disponibles</p>"
+}, {
+  "id" : "btn1_text",
+  "name" : "btn1_text",
+  "label" : "Botón primario · texto",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explorar áreas académicas"
+}, {
+  "id" : "btn1_link",
+  "name" : "btn1_link",
+  "label" : "Botón primario · destino",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "#areas"
+    },
+    "open_in_new_tab" : false
+  }
+}, {
+  "id" : "btn2_text",
+  "name" : "btn2_text",
+  "label" : "Botón secundario · texto",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Buscar por licenciatura"
+}, {
+  "id" : "btn2_link",
+  "name" : "btn2_link",
+  "label" : "Botón secundario · destino",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "#buscar"
+    },
+    "open_in_new_tab" : false
+  }
+} ]

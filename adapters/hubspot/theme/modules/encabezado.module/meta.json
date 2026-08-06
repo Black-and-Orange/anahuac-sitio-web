@@ -1,0 +1,10 @@
+{
+  "global" : true,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE" ],
+  "smart_type" : "NOT_SMART",
+  "categories" : [ "DESIGN" ],
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 216442200966,
+  "label" : "Encabezado — Anáhuac (global)",
+  "is_available_for_new_content" : true
+}

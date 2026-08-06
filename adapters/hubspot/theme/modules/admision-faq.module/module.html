@@ -1,0 +1,31 @@
+{# ===== Admisión · Dudas frecuentes =====
+   Porta <section class="adm-faq">. Acordeón nativo con <details name="faq-dudas">:
+   solo una abierta a la vez, sin JS. El `name` debe ser el mismo en todos los
+   items, si no dejan de excluirse entre sí. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-faq-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--admision-faq-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_pregunta.color %}{% set estilo = estilo ~ "--admision-faq-pregunta:" ~ e.color_pregunta.color ~ ";" %}{% endif %}
+{% if e.color_respuesta.color %}{% set estilo = estilo ~ "--admision-faq-respuesta:" ~ e.color_respuesta.color ~ ";" %}{% endif %}
+{% if e.color_enlace.color %}{% set estilo = estilo ~ "--admision-faq-enlace:" ~ e.color_enlace.color ~ ";" %}{% endif %}
+
+<section class="adm-faq section-pad" id="dudas"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+    <div class="faq-list reveal" data-reveal>
+      {% for item in module.preguntas %}
+        <details class="faq-item" name="faq-dudas">
+          <summary>{% if item.pregunta_tag and item.pregunta_tag != 'ninguna' %}<{{ item.pregunta_tag }}{% if item.pregunta_color.color %} style="color:{{ item.pregunta_color.color }}"{% endif %}>{{ item.pregunta }}</{{ item.pregunta_tag }}>{% elif item.pregunta_color.color %}<span style="color:{{ item.pregunta_color.color }}">{{ item.pregunta }}</span>{% else %}{{ item.pregunta }}{% endif %}</summary>
+          {{ item.respuesta }}
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

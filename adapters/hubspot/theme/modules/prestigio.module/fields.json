@@ -1,0 +1,133 @@
+[ {
+  "id" : "eyebrow",
+  "name" : "eyebrow",
+  "label" : "Eyebrow (tagline)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Prestigio Anáhuac"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Título (H2)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Excelencia en cifras"
+}, {
+  "id" : "intro",
+  "name" : "intro",
+  "label" : "Introducción",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Datos que hablan de nuestro compromiso con la calidad educativa."
+}, {
+  "id" : "youtube_id",
+  "name" : "youtube_id",
+  "label" : "ID del video de YouTube",
+  "help_text" : "Solo el ID (ej. x3jzZcZOewk). El JS del theme lo usa para reproducir el video.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "x3jzZcZOewk"
+}, {
+  "id" : "video_thumb",
+  "name" : "video_thumb",
+  "label" : "Miniatura del video",
+  "help_text" : "Opcional. Si se deja vacía se usa la miniatura de YouTube (hqdefault).",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Universidad Anáhuac México — Reproducir video"
+  }
+}, {
+  "id" : "stats",
+  "name" : "stats",
+  "label" : "Cifras",
+  "help_text" : "Cada tarjeta anima su número. 'Valor' es el número final; usa prefijo/sufijo para signos.",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "stats.value",
+    "name" : "value",
+    "label" : "Valor (número final)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "0"
+  }, {
+    "id" : "stats.prefix",
+    "name" : "prefix",
+    "label" : "Prefijo",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stats.suffix",
+    "name" : "suffix",
+    "label" : "Sufijo",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stats.text",
+    "name" : "text",
+    "label" : "Etiqueta",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Etiqueta"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "value" : "70",
+    "prefix" : "",
+    "suffix" : "%",
+    "text" : "Egresados con trabajo"
+  }, {
+    "value" : "65000",
+    "prefix" : "+",
+    "suffix" : "",
+    "text" : "Egresados Anáhuac"
+  }, {
+    "value" : "290",
+    "prefix" : "+",
+    "suffix" : "",
+    "text" : "Convenios internacionales activos"
+  } ]
+} ]

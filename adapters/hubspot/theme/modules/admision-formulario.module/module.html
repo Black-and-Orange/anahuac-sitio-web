@@ -1,0 +1,50 @@
+{# ===== Admisión · Formulario =====
+   Porta <section class="adm-form">. La maqueta original no enviaba datos; aquí
+   se usa el campo nativo `form` para que los envíos entren al CRM, con la
+   maqueta como respaldo visual si no hay formulario elegido. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-form-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--admision-form-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+<section class="adm-form section-pad" id="actua"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="adm-form-layout">
+      <div class="adm-form-mascot">
+        <img src="{{ module.grupo_imagen.mascota.src or get_asset_url('../../images/oferta-academica/formulario/leonel-formulario-1.png') }}"
+             alt="{{ module.grupo_imagen.mascota.alt|default('Leonel, mascota Anáhuac', true) }}" />
+      </div>
+      <div class="adm-form-content">
+        <div class="section-intro reveal" data-reveal>
+          {% if c.eyebrow %}
+            <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}>{% if v.mostrar_flecha %}<span></span>{% endif %}{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+          {% endif %}
+          {% if c.heading %}<{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+          {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+        </div>
+        <div class="adm-form-card reveal" data-reveal>
+          {% if module.grupo_formulario.formulario.form_id %}
+            {% form
+              form_to_use="{{ module.grupo_formulario.formulario.form_id }}"
+              response_type="{{ module.grupo_formulario.formulario.response_type }}"
+              message="{{ module.grupo_formulario.formulario.message }}"
+              redirect_id="{{ module.grupo_formulario.formulario.redirect_id }}"
+              redirect_url="{{ module.grupo_formulario.formulario.redirect_url }}"
+            %}
+          {% else %}
+            {# Respaldo visual: sin formulario seleccionado no hay envío de datos. #}
+            <input type="text" placeholder="Nombre" aria-label="Nombre" />
+            <input type="email" placeholder="Correo" aria-label="Correo electrónico" />
+            <textarea placeholder="Escribe tu pregunta aquí" rows="4" aria-label="Mensaje"></textarea>
+            <label class="adm-form-check"><input type="checkbox" /> Acepto los términos legales</label>
+            <button type="submit" class="btn btn-orange">Enviar</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

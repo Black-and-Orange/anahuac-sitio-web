@@ -1,0 +1,334 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "help_text": "Opcional. Déjalo vacío para ocultarlo, como en el diseño aprobado.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": ""
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Dudas frecuentes"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Resuelve las preguntas más comunes sobre apoyos económicos y financiamiento en Anáhuac."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "preguntas",
+    "name": "preguntas",
+    "label": "Preguntas y respuestas",
+    "help_text": "Acordeón: solo una respuesta abierta a la vez. La respuesta admite formato y enlaces.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "sorting_label_field": null,
+      "default": 7
+    },
+    "children": [
+      {
+        "id": "preguntas.pregunta",
+        "name": "pregunta",
+        "label": "Pregunta",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Necesito estar admitido para solicitar un apoyo?"
+      },
+      {
+        "id": "preguntas.pregunta_tag",
+        "name": "pregunta_tag",
+        "label": "Etiqueta HTML de «pregunta»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "preguntas.pregunta_color",
+        "name": "pregunta_color",
+        "label": "Color de texto de «pregunta»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "preguntas.respuesta",
+        "name": "respuesta",
+        "label": "Respuesta",
+        "type": "richtext",
+        "default": "<p>Escribe aquí la respuesta.</p>"
+      }
+    ],
+    "default": [
+      {
+        "pregunta": "¿Necesito estar admitido para solicitar un apoyo?",
+        "respuesta": "<p>Los apoyos económicos se gestionan dentro del proceso de admisión. Puedes explorar tus opciones desde antes, pero para iniciar ciertos trámites de apoyo necesitas estar admitido: primero te registras como aspirante y, una vez dentro del proceso, presentas tu solicitud.</p>"
+      },
+      {
+        "pregunta": "¿Qué diferencia hay entre un apoyo y el financiamiento?",
+        "respuesta": "<p>Un apoyo es un porcentaje de descuento sobre tu colegiatura que no tienes que devolver y que se otorga según tu desempeño, talento o perfil socioeconómico. El financiamiento es un crédito que cubres a lo largo del tiempo, con sus propias condiciones e intereses. En resumen: el apoyo reduce el costo y el financiamiento distribuye el pago.</p>"
+      },
+      {
+        "pregunta": "¿Puedo combinar un apoyo socioeconómico con un crédito educativo?",
+        "respuesta": "<p>Sí. El financiamiento está pensado para complementar tu apoyo, no para sustituirlo. Las opciones disponibles —Crédito Educativo Prepárate, Laudex y el crédito complementario institucional— son combinables con un apoyo socioeconómico para cubrir la parte restante de tu colegiatura.</p>"
+      },
+      {
+        "pregunta": "¿Todos los apoyos aplican para ambos campus?",
+        "respuesta": "<p>No necesariamente. Algunos apoyos están sujetos a disponibilidad por campus y sus rangos pueden variar de una sede a otra; el apoyo artístico, por ejemplo, maneja rangos distintos en Campus Norte y Campus Sur. Confirma con tu asesor la disponibilidad y el porcentaje del campus donde quieres estudiar.</p>"
+      },
+      {
+        "pregunta": "¿Los porcentajes de apoyo son fijos?",
+        "respuesta": "<p>No. Cada apoyo se maneja dentro de un rango (por ejemplo, 10%–50%) y el porcentaje que se otorga depende de la evaluación de tu caso y de la disponibilidad. El comité considera variables académicas y socioeconómicas para definir el monto dentro de ese rango.</p>"
+      },
+      {
+        "pregunta": "¿Qué pasa si no cumplo con el promedio mínimo?",
+        "respuesta": "<p>El promedio mínimo cambia según el apoyo, y no todos lo exigen. Si no alcanzas el de un apoyo académico, podrías calificar por otra vía: talento deportivo o artístico, concursos preuniversitarios —que premian el talento sin promedio mínimo— o financiamiento complementario. Un asesor puede ayudarte a encontrar la opción que mejor se ajuste a tu perfil.</p>"
+      },
+      {
+        "pregunta": "¿Dónde veo las convocatorias de deporte, arte o concursos?",
+        "respuesta": "<p>Estos apoyos dependen de convocatorias, pruebas o audiciones que se publican por periodo y campus. Para conocer las fechas y los requisitos vigentes contacta a un asesor, que te compartirá la convocatoria correspondiente a tu disciplina y campus.</p>"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

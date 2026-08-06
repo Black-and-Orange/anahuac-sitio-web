@@ -1,0 +1,73 @@
+{# ===== Admisión · Cursos propedéuticos =====
+   Porta <section class="adm-prop">. data-prop / data-prop-panel salen de
+   loop.index0; main.js los empareja por índice.
+
+   El color de acento es un choice cerrado (naranja / morado): son las variantes
+   aprobadas y cada una tiene CSS propio (.prop-tab--orange, .prop-panel--purple). #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-prop-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--admision-prop-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_tab_texto.color %}{% set estilo = estilo ~ "--admision-prop-tab-text:" ~ e.color_tab_texto.color ~ ";" %}{% endif %}
+
+<section class="adm-prop section-pad" id="propedeuticos"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container adm-prop-layout">
+    <div class="section-intro reveal" data-reveal>
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}>{% if v.mostrar_flecha %}<span></span>{% endif %}{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+
+    <div class="adm-prop-tabs-wrap reveal" data-reveal>
+      {% if v.mostrar_tabs %}
+        <div class="prop-tabs" role="tablist">
+          {% for curso in module.cursos %}
+            <button class="prop-tab prop-tab--{% if curso.acento == 'morado' %}purple{% else %}orange{% endif %}{% if loop.first %} active{% endif %}"
+                    type="button" data-prop="{{ loop.index0 }}"
+                    {% if curso.tab_texto_color.color %}style="color:{{ curso.tab_texto_color.color }}"{% endif %}>{% if curso.tab_texto_tag and curso.tab_texto_tag != 'ninguna' %}<{{ curso.tab_texto_tag }}>{{ curso.tab_texto }}</{{ curso.tab_texto_tag }}>{% else %}{{ curso.tab_texto }}{% endif %}</button>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="prop-panels">
+        {% for curso in module.cursos %}
+          {# Sin pestañas solo se pinta el primero: no habría forma de cambiar de panel. #}
+          {% if v.mostrar_tabs or loop.first %}
+            <article class="prop-panel prop-panel--{% if curso.acento == 'morado' %}purple{% else %}orange{% endif %}{% if loop.first %} active{% endif %}"
+                     data-prop-panel="{{ loop.index0 }}">
+              <div class="video-card"{% if curso.video_id %} data-yt-id="{{ curso.video_id }}"{% endif %}>
+                {% set poster_fallback = ["proceso-de-admision/medicina-propedeuticos.jpg", "proceso-de-admision/musica-propedeuticos.jpg"] %}
+                <img src="{{ curso.video_poster.src or get_asset_url('../../images/' ~ poster_fallback[loop.index0 % (poster_fallback|length)]) }}"
+                     alt="{{ curso.video_poster.alt|default(curso.titulo, true) }}" loading="lazy" />
+                {% if curso.video_id %}
+                  <button class="video-play-btn" type="button" aria-label="Reproducir video">
+                    <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+                  </button>
+                {% endif %}
+              </div>
+              <div class="step-panel-body">
+                {% if curso.indicador %}
+                  <span class="step-tag"{% if curso.indicador_color.color %} style="color:{{ curso.indicador_color.color }}"{% endif %}>{% if curso.indicador_tag and curso.indicador_tag != 'ninguna' %}<{{ curso.indicador_tag }}>{{ curso.indicador }}</{{ curso.indicador_tag }}>{% else %}{{ curso.indicador }}{% endif %}</span>
+                {% endif %}
+                {% if curso.titulo %}<{{ curso.titulo_tag|default('h3', true) }}{% if curso.titulo_color.color %} style="color:{{ curso.titulo_color.color }}"{% endif %}>{{ curso.titulo }}</{{ curso.titulo_tag|default('h3', true) }}>{% endif %}
+                {{ curso.descripcion }}
+                {% if curso.mostrar_cta and curso.cta_texto %}
+                  <div class="button-row">
+                    <a class="btn {% if curso.acento == 'morado' %}btn-purple{% else %}btn-orange{% endif %}" href="{{ curso.cta_enlace.url.href|default('#', true) }}"
+                       {% if curso.cta_enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if curso.cta_texto_tag and curso.cta_texto_tag != 'ninguna' %}<{{ curso.cta_texto_tag }}{% if curso.cta_texto_color.color %} style="color:{{ curso.cta_texto_color.color }}"{% endif %}>{{ curso.cta_texto }}</{{ curso.cta_texto_tag }}>{% elif curso.cta_texto_color.color %}<span style="color:{{ curso.cta_texto_color.color }}">{{ curso.cta_texto }}</span>{% else %}{{ curso.cta_texto }}{% endif %}</a>
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

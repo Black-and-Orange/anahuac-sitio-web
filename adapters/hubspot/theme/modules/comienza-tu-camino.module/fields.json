@@ -1,0 +1,230 @@
+[ {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Título (H2)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Comienza tu camino"
+}, {
+  "id" : "intro",
+  "name" : "intro",
+  "label" : "Introducción",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Accede rápidamente a la información que necesitas para decidir. Elige tu ruta y avanza."
+}, {
+  "id" : "main_photo",
+  "name" : "main_photo",
+  "label" : "Foto principal",
+  "help_text" : "Foto grande de la izquierda. Cambia al pasar el cursor sobre cada tarjeta.",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Estudiantes consultando información en laptop"
+  }
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Tarjetas de ruta",
+  "help_text" : "Cada tarjeta tiene una imagen de hover que reemplaza la foto principal (usada por el JS del theme).",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "cards.icon",
+    "name" : "icon",
+    "label" : "Ícono",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Título",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Título"
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Descripción",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.cta_text",
+    "name" : "cta_text",
+    "label" : "Texto del enlace",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Explorar ›"
+  }, {
+    "id" : "cards.cta_link",
+    "name" : "cta_link",
+    "label" : "Destino del enlace",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    }
+  }, {
+    "id" : "cards.hover_image",
+    "name" : "hover_image",
+    "label" : "Imagen de hover",
+    "help_text" : "Reemplaza la foto principal al pasar el cursor sobre la tarjeta.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Tu admisión",
+    "description" : "Conoce cada paso del proceso de admisión.",
+    "cta_text" : "Explorar ›",
+    "cta_link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "hover_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Cotiza tu licenciatura",
+    "description" : "Calcula el costo total de tus estudios.",
+    "cta_text" : "Cotizar ›",
+    "cta_link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "hover_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Apoyos educativos",
+    "description" : "Conoce las opciones de apoyos financieros disponibles para ti.",
+    "cta_text" : "Explorar ›",
+    "cta_link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "hover_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Soy foráneo",
+    "description" : "Conoce todo lo que la Universidad Anáhuac te ofrece para que te sientas en casa.",
+    "cta_text" : "Conocer ›",
+    "cta_link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "hover_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Soy extranjero",
+    "description" : "Conoce todo lo que la Universidad Anáhuac te ofrece para que te sientas en casa.",
+    "cta_text" : "Conocer ›",
+    "cta_link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "hover_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ]
+} ]

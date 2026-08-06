@@ -1,0 +1,74 @@
+{# ===== Apoyos · Financiamiento =====
+   Fondo morado. Los logotipos caen a un fallback del theme cuando el editor
+   no carga uno propio, para no dejar la tarjeta sin identificar. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--financing-options-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--financing-options-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_tarjeta_fondo.color %}{% set estilo = estilo ~ "--financing-options-card-bg:" ~ e.color_tarjeta_fondo.color ~ ";" %}{% endif %}
+{% if e.color_tarjeta_texto.color %}{% set estilo = estilo ~ "--financing-options-card-text:" ~ e.color_tarjeta_texto.color ~ ";" %}{% endif %}
+{% if e.color_etiquetas.color %}{% set estilo = estilo ~ "--financing-options-label-color:" ~ e.color_etiquetas.color ~ ";" %}{% endif %}
+{% if e.color_combinable.color %}{% set estilo = estilo ~ "--financing-options-tag-color:" ~ e.color_combinable.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--financing-options-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--financing-options-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="apo-financiamiento section-pad" id="financiamiento" aria-labelledby="financiamiento-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro reveal" data-reveal>
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="financiamiento-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+
+    <div class="financiamiento-grid reveal" data-reveal>
+      {% set logos_fallback = [
+        "logo-anahuac.svg",
+        "apoyos-economicos/logos/preparate.png",
+        "apoyos-economicos/logos/laudex.jpg"
+      ] %}
+      {% for opcion in module.opciones %}
+        <article class="financiamiento-card">
+          <img class="financiamiento-logo"
+               src="{{ opcion.logo.src or get_asset_url('../../images/' ~ logos_fallback[loop.index0 % (logos_fallback|length)]) }}"
+               alt="{{ opcion.logo.alt|default(opcion.titulo, true) }}" loading="lazy" />
+          {% if opcion.titulo %}<{{ opcion.titulo_tag|default('h4', true) }}{% if opcion.titulo_color.color %} style="color:{{ opcion.titulo_color.color }}"{% endif %}>{{ opcion.titulo }}</{{ opcion.titulo_tag|default('h4', true) }}>{% endif %}
+          {% if opcion.como_funciona or opcion.requisito %}
+            <dl class="financiamiento-meta">
+              {% if opcion.como_funciona %}<div><dt>{% if module.grupo_etiquetas.label_como_funciona_tag and module.grupo_etiquetas.label_como_funciona_tag != 'ninguna' %}<{{ module.grupo_etiquetas.label_como_funciona_tag }}{% if module.grupo_etiquetas.label_como_funciona_color.color %} style="color:{{ module.grupo_etiquetas.label_como_funciona_color.color }}"{% endif %}>{{ module.grupo_etiquetas.label_como_funciona }}</{{ module.grupo_etiquetas.label_como_funciona_tag }}>{% elif module.grupo_etiquetas.label_como_funciona_color.color %}<span style="color:{{ module.grupo_etiquetas.label_como_funciona_color.color }}">{{ module.grupo_etiquetas.label_como_funciona }}</span>{% else %}{{ module.grupo_etiquetas.label_como_funciona }}{% endif %}</dt><dd>{% if opcion.como_funciona_tag and opcion.como_funciona_tag != 'ninguna' %}<{{ opcion.como_funciona_tag }}{% if opcion.como_funciona_color.color %} style="color:{{ opcion.como_funciona_color.color }}"{% endif %}>{{ opcion.como_funciona }}</{{ opcion.como_funciona_tag }}>{% elif opcion.como_funciona_color.color %}<span style="color:{{ opcion.como_funciona_color.color }}">{{ opcion.como_funciona }}</span>{% else %}{{ opcion.como_funciona }}{% endif %}</dd></div>{% endif %}
+              {% if opcion.requisito %}<div><dt>{% if module.grupo_etiquetas.label_requisito_tag and module.grupo_etiquetas.label_requisito_tag != 'ninguna' %}<{{ module.grupo_etiquetas.label_requisito_tag }}{% if module.grupo_etiquetas.label_requisito_color.color %} style="color:{{ module.grupo_etiquetas.label_requisito_color.color }}"{% endif %}>{{ module.grupo_etiquetas.label_requisito }}</{{ module.grupo_etiquetas.label_requisito_tag }}>{% elif module.grupo_etiquetas.label_requisito_color.color %}<span style="color:{{ module.grupo_etiquetas.label_requisito_color.color }}">{{ module.grupo_etiquetas.label_requisito }}</span>{% else %}{{ module.grupo_etiquetas.label_requisito }}{% endif %}</dt><dd>{% if opcion.requisito_tag and opcion.requisito_tag != 'ninguna' %}<{{ opcion.requisito_tag }}{% if opcion.requisito_color.color %} style="color:{{ opcion.requisito_color.color }}"{% endif %}>{{ opcion.requisito }}</{{ opcion.requisito_tag }}>{% elif opcion.requisito_color.color %}<span style="color:{{ opcion.requisito_color.color }}">{{ opcion.requisito }}</span>{% else %}{{ opcion.requisito }}{% endif %}</dd></div>{% endif %}
+            </dl>
+          {% endif %}
+          {% if v.mostrar_combinable and opcion.combinable %}<{{ opcion.combinable_tag|default('p', true) }} class="financiamiento-combinable"{% if opcion.combinable_color.color %} style="color:{{ opcion.combinable_color.color }}"{% endif %}>{{ opcion.combinable }}</{{ opcion.combinable_tag|default('p', true) }}>{% endif %}
+          {% if v.mostrar_cta and opcion.cta_texto %}
+            <a class="btn-program" href="{{ opcion.cta_enlace.url.href|default('#', true) }}"
+               {% if opcion.cta_enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if opcion.cta_texto_tag and opcion.cta_texto_tag != 'ninguna' %}<{{ opcion.cta_texto_tag }}{% if opcion.cta_texto_color.color %} style="color:{{ opcion.cta_texto_color.color }}"{% endif %}>{{ opcion.cta_texto }}</{{ opcion.cta_texto_tag }}>{% elif opcion.cta_texto_color.color %}<span style="color:{{ opcion.cta_texto_color.color }}">{{ opcion.cta_texto }}</span>{% else %}{{ opcion.cta_texto }}{% endif %}
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if module.grupo_documentos.mostrar and module.columnas %}
+      <details class="financiamiento-docs reveal" data-reveal>
+        <summary class="financiamiento-docs-summary">
+          <span class="financiamiento-docs-title">{% if module.grupo_documentos.titulo_tag and module.grupo_documentos.titulo_tag != 'ninguna' %}<{{ module.grupo_documentos.titulo_tag }}{% if module.grupo_documentos.titulo_color.color %} style="color:{{ module.grupo_documentos.titulo_color.color }}"{% endif %}>{{ module.grupo_documentos.titulo }}</{{ module.grupo_documentos.titulo_tag }}>{% elif module.grupo_documentos.titulo_color.color %}<span style="color:{{ module.grupo_documentos.titulo_color.color }}">{{ module.grupo_documentos.titulo }}</span>{% else %}{{ module.grupo_documentos.titulo }}{% endif %}</span>
+        </summary>
+        <div class="financiamiento-docs-cols">
+          {% for columna in module.columnas %}
+            <div>
+              {% if columna.titulo %}<{{ columna.titulo_tag|default('h4', true) }}{% if columna.titulo_color.color %} style="color:{{ columna.titulo_color.color }}"{% endif %}>{{ columna.titulo }}</{{ columna.titulo_tag|default('h4', true) }}>{% endif %}
+              {{ columna.lista }}
+            </div>
+          {% endfor %}
+        </div>
+      </details>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,561 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Elige el siguiente paso para tu futuro"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "En la Universidad Anáhuac te estamos esperando."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "tarjetas",
+    "name": "tarjetas",
+    "label": "Tarjetas",
+    "help_text": "Se pueden agregar, ocultar o reordenar.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "tarjetas.mostrar",
+        "name": "mostrar",
+        "label": "Mostrar esta tarjeta",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "tarjetas.icono",
+        "name": "icono",
+        "label": "Icono del design system",
+        "help_text": "Se usa cuando no subes una imagen propia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "calendario",
+            "Calendario"
+          ],
+          [
+            "documento",
+            "Documento"
+          ],
+          [
+            "documento-check",
+            "Documento con check"
+          ],
+          [
+            "contacto",
+            "Tarjeta de contacto"
+          ]
+        ],
+        "default": "calendario"
+      },
+      {
+        "id": "tarjetas.icono_imagen",
+        "name": "icono_imagen",
+        "label": "Icono propio (opcional)",
+        "help_text": "Si subes uno, sustituye al del design system. Se recomienda SVG. Ojo: una imagen subida no se recolorea con el campo «Color del icono».",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "id": "tarjetas.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Fechas de examen"
+      },
+      {
+        "id": "tarjetas.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "tarjetas.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.texto",
+        "name": "texto",
+        "label": "Descripción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Consulta el calendario completo de pruebas."
+      },
+      {
+        "id": "tarjetas.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "tarjetas.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Enlace · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Consultar ›"
+      },
+      {
+        "id": "tarjetas.enlace_texto_tag",
+        "name": "enlace_texto_tag",
+        "label": "Etiqueta HTML de «enlace_texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "tarjetas.enlace_texto_color",
+        "name": "enlace_texto_color",
+        "label": "Color de texto de «enlace_texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace",
+        "name": "enlace",
+        "label": "Enlace · destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "default": [
+      {
+        "mostrar": true,
+        "icono": "calendario",
+        "icono_imagen": {
+          "src": "",
+          "alt": "Fechas de examen"
+        },
+        "titulo": "Fechas de examen",
+        "titulo_tag": "h3",
+        "texto": "Consulta el calendario completo de pruebas para tu ingreso a la universidad.",
+        "texto_tag": "p",
+        "enlace_texto": "Consultar ›",
+        "enlace_texto_tag": "ninguna",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "mostrar": true,
+        "icono": "documento",
+        "icono_imagen": {
+          "src": "",
+          "alt": "Curso para el examen de admisión"
+        },
+        "titulo": "Curso para el examen de admisión",
+        "titulo_tag": "h3",
+        "texto": "Regístrate a nuestro curso gratuito de preparación para el examen de admisión.",
+        "texto_tag": "p",
+        "enlace_texto": "Revisar ›",
+        "enlace_texto_tag": "ninguna",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "mostrar": true,
+        "icono": "documento-check",
+        "icono_imagen": {
+          "src": "",
+          "alt": "Guía para tu examen de admisión"
+        },
+        "titulo": "Guía para tu examen de admisión",
+        "titulo_tag": "h3",
+        "texto": "Descarga la guía para el examen de admisión.",
+        "texto_tag": "p",
+        "enlace_texto": "Descargar ›",
+        "enlace_texto_tag": "ninguna",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "mostrar": true,
+        "icono": "contacto",
+        "icono_imagen": {
+          "src": "",
+          "alt": "Contacta con un asesor"
+        },
+        "titulo": "Contacta con un asesor",
+        "titulo_tag": "h3",
+        "texto": "Si tienes dudas sobre el proceso estamos para ayudarte.",
+        "texto_tag": "p",
+        "enlace_texto": "Contactar ›",
+        "enlace_texto_tag": "ninguna",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_fondo",
+        "name": "color_tarjeta_fondo",
+        "label": "Tarjetas · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_texto",
+        "name": "color_tarjeta_texto",
+        "label": "Tarjetas · color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_desc",
+        "name": "color_tarjeta_desc",
+        "label": "Tarjetas · color de la descripción",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_enlace",
+        "name": "color_tarjeta_enlace",
+        "label": "Tarjetas · color del enlace",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_icono",
+        "name": "color_icono",
+        "label": "Tarjetas · color del icono",
+        "help_text": "Solo afecta a los iconos del design system, no a las imágenes subidas.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]
