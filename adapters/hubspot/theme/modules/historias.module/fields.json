@@ -1,213 +1,457 @@
-[ {
-  "id" : "heading",
-  "name" : "heading",
-  "label" : "Título (H2)",
-  "required" : false,
-  "locked" : true,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Historias Anáhuac"
-}, {
-  "id" : "intro",
-  "name" : "intro",
-  "label" : "Texto introductorio",
-  "required" : false,
-  "locked" : true,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Leones Anáhuac que han transformado sus vidas con nosotros"
-}, {
-  "id" : "stories",
-  "name" : "stories",
-  "label" : "Historias",
-  "help_text" : "Cada fila alterna entre imágenes primero (naranja) y cita primero (morada).",
-  "required" : false,
-  "locked" : true,
-  "occurrence" : {
-    "min" : 0,
-    "max" : 12,
-    "sorting_label_field" : null,
-    "default" : 6
+[
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": true,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Historias Anáhuac"
   },
-  "children" : [ {
-    "id" : "stories.quote",
-    "name" : "quote",
-    "label" : "Cita",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "type" : "text",
-    "display_width" : null,
-    "default" : "Cita del egresado"
-  }, {
-    "id" : "stories.author",
-    "name" : "author",
-    "label" : "Autor",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "type" : "text",
-    "display_width" : null,
-    "default" : "Nombre Apellido"
-  }, {
-    "id" : "stories.role",
-    "name" : "role",
-    "label" : "Rol / carrera",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "type" : "text",
-    "display_width" : null,
-    "default" : "Egresado"
-  }, {
-    "id" : "stories.image_a",
-    "name" : "image_a",
-    "label" : "Imagen A",
-    "required" : false,
-    "locked" : false,
-    "responsive" : true,
-    "resizable" : true,
-    "show_loading" : false,
-    "type" : "image",
-    "display_width" : null,
-    "default" : {
-      "src" : "",
-      "alt" : "Egresado Anáhuac"
-    }
-  }, {
-    "id" : "stories.image_b",
-    "name" : "image_b",
-    "label" : "Imagen B",
-    "required" : false,
-    "locked" : false,
-    "responsive" : true,
-    "resizable" : true,
-    "show_loading" : false,
-    "type" : "image",
-    "display_width" : null,
-    "default" : {
-      "src" : "",
-      "alt" : "Comunidad Anáhuac"
-    }
-  }, {
-    "id" : "stories.variant",
-    "name" : "variant",
-    "label" : "Color de la cita",
-    "required" : false,
-    "locked" : false,
-    "display" : "select",
-    "choices" : [ [ "orange", "Naranja" ], [ "purple", "Morada" ] ],
-    "multiple" : false,
-    "reordering_enabled" : true,
-    "preset" : null,
-    "type" : "choice",
-    "display_width" : null,
-    "default" : "orange"
-  }, {
-    "id" : "stories.layout",
-    "name" : "layout",
-    "label" : "Orden de la fila",
-    "required" : false,
-    "locked" : false,
-    "display" : "select",
-    "choices" : [ [ "img-first", "Imágenes primero" ], [ "quote-first", "Cita primero" ] ],
-    "multiple" : false,
-    "reordering_enabled" : true,
-    "preset" : null,
-    "type" : "choice",
-    "display_width" : null,
-    "default" : "img-first"
-  } ],
-  "tab" : "CONTENT",
-  "expanded" : false,
-  "group_occurrence_meta" : null,
-  "type" : "group",
-  "display_width" : null,
-  "default" : [ {
-    "quote" : "Anáhuac me dio más que una carrera, me dio una red de amigos y mentores que cambió mi trayectoria profesional",
-    "author" : "María Gómez",
-    "role" : "Egresada, Ingeniería",
-    "image_a" : {
-      "src" : "",
-      "alt" : "María Gómez, egresada Anáhuac"
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Texto introductorio",
+    "required": false,
+    "locked": true,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Leones Anáhuac que han transformado sus vidas con nosotros"
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML de «intro»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "stories",
+    "name": "stories",
+    "label": "Historias",
+    "help_text": "Cada fila alterna entre imágenes primero (naranja) y cita primero (morada).",
+    "required": false,
+    "locked": true,
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 6
     },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Estudiante en laboratorio"
-    },
-    "variant" : "orange",
-    "layout" : "img-first"
-  }, {
-    "quote" : "Los convenios internacionales me permitieron estudiar un semestre en Europa y eso fue decisivo para conseguir mi primer trabajo",
-    "author" : "Carlos Mendoza",
-    "role" : "Egresado, Ingeniería en Sistemas",
-    "image_a" : {
-      "src" : "",
-      "alt" : "Egresado trabajando con equipo de cómputo"
-    },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Carlos Mendoza, egresado Anáhuac"
-    },
-    "variant" : "purple",
-    "layout" : "quote-first"
-  }, {
-    "quote" : "Gracias a las prácticas profesionales, conseguí trabajo antes de terminar la carrera",
-    "author" : "Daniel Torres",
-    "role" : "Egresado, Administración",
-    "image_a" : {
-      "src" : "",
-      "alt" : "Estudiantes en campus"
-    },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Egresada exitosa"
-    },
-    "variant" : "orange",
-    "layout" : "img-first"
-  }, {
-    "quote" : "La formación integral que recibí en Anáhuac me preparó para enfrentar cualquier reto profesional con confianza",
-    "author" : "Ana Rodríguez",
-    "role" : "Egresada, Comunicación",
-    "image_a" : {
-      "src" : "",
-      "alt" : "Proyecto estudiantil"
-    },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Laboratorio de innovación"
-    },
-    "variant" : "purple",
-    "layout" : "quote-first"
-  }, {
-    "quote" : "El programa de movilidad me cambió la vida. Estudié en España y volví con una visión completamente nueva",
-    "author" : "Sofía Martínez",
-    "role" : "Egresada, Derecho",
-    "image_a" : {
-      "src" : "",
-      "alt" : "Ceremonia de graduación"
-    },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Vida en campus"
-    },
-    "variant" : "orange",
-    "layout" : "img-first"
-  }, {
-    "quote" : "Anáhuac no solo me dio conocimientos, me dio una comunidad para toda la vida",
-    "author" : "Roberto Silva",
-    "role" : "Egresado, Ingeniería Industrial",
-    "image_a" : {
-      "src" : "",
-      "alt" : "Espacios de estudio"
-    },
-    "image_b" : {
-      "src" : "",
-      "alt" : "Comunidad Anáhuac"
-    },
-    "variant" : "purple",
-    "layout" : "quote-first"
-  } ]
-} ]
+    "children": [
+      {
+        "id": "stories.quote",
+        "name": "quote",
+        "label": "Cita",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Cita del egresado"
+      },
+      {
+        "id": "stories.author",
+        "name": "author",
+        "label": "Autor",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Nombre Apellido"
+      },
+      {
+        "id": "stories.role",
+        "name": "role",
+        "label": "Rol / carrera",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Egresado"
+      },
+      {
+        "id": "stories.image_a",
+        "name": "image_a",
+        "label": "Imagen A",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "Egresado Anáhuac"
+        }
+      },
+      {
+        "id": "stories.image_b",
+        "name": "image_b",
+        "label": "Imagen B",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "Comunidad Anáhuac"
+        }
+      },
+      {
+        "id": "stories.variant",
+        "name": "variant",
+        "label": "Color de la cita",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          [
+            "orange",
+            "Naranja"
+          ],
+          [
+            "purple",
+            "Morada"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "display_width": null,
+        "default": "orange"
+      },
+      {
+        "id": "stories.layout",
+        "name": "layout",
+        "label": "Orden de la fila",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          [
+            "img-first",
+            "Imágenes primero"
+          ],
+          [
+            "quote-first",
+            "Cita primero"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "display_width": null,
+        "default": "img-first"
+      },
+      {
+        "id": "stories.color_caja",
+        "name": "color_caja",
+        "label": "Color de la caja del testimonio",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "stories.color_texto",
+        "name": "color_texto",
+        "label": "Color del testimonio",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "stories.color_autor",
+        "name": "color_autor",
+        "label": "Color del nombre y la carrera",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "quote": "Anáhuac me dio más que una carrera, me dio una red de amigos y mentores que cambió mi trayectoria profesional",
+        "author": "María Gómez",
+        "role": "Egresada, Ingeniería",
+        "image_a": {
+          "src": "",
+          "alt": "María Gómez, egresada Anáhuac"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Estudiante en laboratorio"
+        },
+        "variant": "orange",
+        "layout": "img-first"
+      },
+      {
+        "quote": "Los convenios internacionales me permitieron estudiar un semestre en Europa y eso fue decisivo para conseguir mi primer trabajo",
+        "author": "Carlos Mendoza",
+        "role": "Egresado, Ingeniería en Sistemas",
+        "image_a": {
+          "src": "",
+          "alt": "Egresado trabajando con equipo de cómputo"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Carlos Mendoza, egresado Anáhuac"
+        },
+        "variant": "purple",
+        "layout": "quote-first"
+      },
+      {
+        "quote": "Gracias a las prácticas profesionales, conseguí trabajo antes de terminar la carrera",
+        "author": "Daniel Torres",
+        "role": "Egresado, Administración",
+        "image_a": {
+          "src": "",
+          "alt": "Estudiantes en campus"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Egresada exitosa"
+        },
+        "variant": "orange",
+        "layout": "img-first"
+      },
+      {
+        "quote": "La formación integral que recibí en Anáhuac me preparó para enfrentar cualquier reto profesional con confianza",
+        "author": "Ana Rodríguez",
+        "role": "Egresada, Comunicación",
+        "image_a": {
+          "src": "",
+          "alt": "Proyecto estudiantil"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Laboratorio de innovación"
+        },
+        "variant": "purple",
+        "layout": "quote-first"
+      },
+      {
+        "quote": "El programa de movilidad me cambió la vida. Estudié en España y volví con una visión completamente nueva",
+        "author": "Sofía Martínez",
+        "role": "Egresada, Derecho",
+        "image_a": {
+          "src": "",
+          "alt": "Ceremonia de graduación"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Vida en campus"
+        },
+        "variant": "orange",
+        "layout": "img-first"
+      },
+      {
+        "quote": "Anáhuac no solo me dio conocimientos, me dio una comunidad para toda la vida",
+        "author": "Roberto Silva",
+        "role": "Egresado, Ingeniería Industrial",
+        "image_a": {
+          "src": "",
+          "alt": "Espacios de estudio"
+        },
+        "image_b": {
+          "src": "",
+          "alt": "Comunidad Anáhuac"
+        },
+        "variant": "purple",
+        "layout": "quote-first"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_heading",
+        "name": "tamano_heading",
+        "label": "Tamaño del título",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-64",
+            "Pequeño"
+          ],
+          [
+            "size-70",
+            "Mediano"
+          ],
+          [
+            "heading-2-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-1-size",
+            "Grande"
+          ]
+        ],
+        "default": "heading-2-size"
+      },
+      {
+        "id": "grupo_estilos.color_testimonio",
+        "name": "color_testimonio",
+        "label": "Color de los testimonios",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_testimonio",
+        "name": "tamano_testimonio",
+        "label": "Tamaño de los testimonios",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-22",
+            "Pequeño"
+          ],
+          [
+            "size-26",
+            "Mediano"
+          ],
+          [
+            "size-30",
+            "Normal (el del diseño)"
+          ],
+          [
+            "size-36",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ]
+        ],
+        "default": "size-30"
+      },
+      {
+        "id": "grupo_estilos.color_autor",
+        "name": "color_autor",
+        "label": "Color de los nombres",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

@@ -1,11 +1,22 @@
 {# ===== Experience — por qué ser un León Anáhuac (columna sticky + slides) ===== #}
-<section class="experience" id="experiencia">
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-exp-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.color_intro.color %}{% set estilo = estilo ~ "--home-exp-intro:" ~ e.color_intro.color ~ ";" %}{% endif %}
+{% if e.color_card_fondo.color %}{% set estilo = estilo ~ "--home-exp-card-bg:" ~ e.color_card_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_titulo.color %}{% set estilo = estilo ~ "--home-exp-card-title:" ~ e.color_card_titulo.color ~ ";" %}{% endif %}
+{% if e.color_card_texto.color %}{% set estilo = estilo ~ "--home-exp-card-text:" ~ e.color_card_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--home-exp-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--home-exp-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="experience" id="experiencia"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container experience-layout">
     <div class="experience-sticky">
       <div class="section-intro reveal" data-reveal>
         {% if module.eyebrow %}<p class="tagline"><span></span>{{ module.eyebrow }}</p>{% endif %}
-        {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-        {% if module.intro %}<p>{{ module.intro }}</p>{% endif %}
+        {% if module.heading %}<{{ module.heading_tag|default('h2', true) }}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>{% endif %}
+        {% if module.intro %}<{{ module.intro_tag|default('p', true) }}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>{% endif %}
         {% if module.cta_text %}
           <a class="btn btn-purple" href="{{ module.cta_link.url.href|default('#', true) }}"
              {% if module.cta_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.cta_text }}</a>

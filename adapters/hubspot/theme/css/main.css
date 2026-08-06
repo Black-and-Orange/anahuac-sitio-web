@@ -700,6 +700,12 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 .purple-2 { background: var(--purple-2); }
 .purple-3 { background: var(--purple-1); }
 
+/* El color de cada cuadro se puede fijar por tarjeta desde el editor; sin
+   valor manda la clase .purple-N de arriba. */
+.prestige .stat-card[style*="--home-prestigio-card-bg"] {
+  background: var(--home-prestigio-card-bg);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 90em) {
   .split-heading { grid-template-columns: 1fr 1fr; }
@@ -4964,7 +4970,145 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 
 .adm-prop .prop-tab { color: var(--admision-prop-tab-text, var(--color-text-secondary)); }
 
-/* Hooks de los módulos de Admisión./* Hooks de los módulos de Admisión. Sin campo lleno caen al token de siempre,
+/* =============================================
+   HOME · hooks de administración
+   Cada variable cae al token actual, así que con
+   los campos vacíos el render no cambia. Van
+   acotadas por sección porque .hero-card,
+   .stat-card y .btn también los usan otras páginas.
+   ============================================= */
+
+/* --- Módulo 1 · Hero --- */
+.hero .hero-card {
+  background: var(--home-hero-panel-bg, var(--color-brand-primary));
+  color: var(--home-hero-panel-text, var(--color-text-invert));
+  font-size: var(--home-hero-panel-size, var(--lead-size));
+}
+
+.hero h1 {
+  color: var(--home-hero-heading-color, inherit);
+}
+
+.hero .btn-dark {
+  background: var(--home-hero-cta1-bg, var(--cta-bg-dark));
+  color: var(--home-hero-cta1-text, var(--color-text-invert));
+}
+
+.hero .btn-light {
+  background: var(--home-hero-cta2-bg, var(--surface));
+  color: var(--home-hero-cta2-text, var(--color-text));
+}
+
+/* --- Módulo 2 · Prestigio --- */
+.prestige .stat-card strong {
+  color: var(--home-prestigio-cifra-color, inherit);
+  font-size: var(--home-prestigio-cifra-size, var(--heading-2-size));
+}
+
+.prestige .stat-card span {
+  color: var(--home-prestigio-texto-color, inherit);
+  font-size: var(--home-prestigio-texto-size, var(--heading-6-size));
+}
+
+/* --- Módulo 3 · Comienza tu camino --- */
+.path .path-card {
+  background: var(--home-camino-card-bg, var(--purple-1));
+  color: var(--home-camino-card-text, var(--color-text-invert));
+}
+
+.path .path-card:hover,
+.path .path-card.is-open {
+  background: var(--home-camino-card-open-bg, var(--color-brand-primary));
+  color: var(--home-camino-card-open-text, var(--color-text-invert));
+}
+
+.path .section-intro h2 {
+  color: var(--home-camino-heading-color, inherit);
+}
+
+.path .section-intro > p:not(.tagline) {
+  color: var(--home-camino-intro-color, inherit);
+}
+
+/* --- Módulo 4 · Licenciaturas --- */
+.programs .section-intro h2 { color: var(--home-lic-heading, inherit); }
+.programs .section-intro > p:not(.tagline) { color: var(--home-lic-intro, inherit); }
+.programs .btn {
+  background: var(--home-lic-cta-bg, var(--cta-bg-dark));
+  color: var(--home-lic-cta-text, var(--color-text-invert));
+}
+
+/* --- Módulo 5 · Experiencia --- */
+.experience .section-intro h2 { color: var(--home-exp-heading, inherit); }
+.experience .section-intro > p:not(.tagline) { color: var(--home-exp-intro, inherit); }
+.experience .experience-card {
+  background: var(--home-exp-card-bg, var(--surface));
+  color: var(--home-exp-card-text, inherit);
+}
+.experience .experience-card h3 { color: var(--home-exp-card-title, var(--color-brand-primary)); }
+.experience .btn {
+  background: var(--home-exp-cta-bg, var(--cta-bg-purple));
+  color: var(--home-exp-cta-text, var(--color-text-invert));
+}
+
+/* --- Módulo 6 · Historias --- */
+.stories .section-intro h2 {
+  color: var(--home-historias-heading, inherit);
+  font-size: var(--home-historias-heading-size, var(--heading-2-size));
+}
+.stories .quote { color: var(--home-historias-quote-text, var(--color-text-invert)); }
+.stories .quote p { font-size: var(--home-historias-quote-size, var(--size-30)); }
+.stories .quote cite { color: var(--home-historias-autor, inherit); }
+
+/* --- Módulo 7 · El siguiente paso --- */
+.next .section-intro h2 { color: var(--home-next-heading, inherit); }
+.next .next-card {
+  background: var(--home-next-card-bg, var(--surface-glass));
+  color: var(--home-next-card-text, inherit);
+}
+.next .next-card:hover {
+  background: var(--home-next-card-hover-bg, transparent);
+  color: var(--home-next-card-hover-text, var(--cta-bg-purple));
+}
+.next .next-card h3 { color: var(--home-next-card-title, inherit); }
+.next .next-card p { color: var(--home-next-card-desc, var(--color-text)); }
+.next .next-card a { color: var(--home-next-card-cta, var(--color-brand-primary)); }
+.next .next-card:hover h3,
+.next .next-card:hover p,
+.next .next-card:hover a { color: var(--home-next-card-hover-text, inherit); }
+.next .next-icon { color: var(--home-next-icon, inherit); }
+
+/* --- Módulo 8 · Eventos --- */
+.events .section-intro h2 { color: var(--home-eventos-heading, inherit); }
+.events .section-intro > p:not(.tagline) { color: var(--home-eventos-intro, inherit); }
+.events .btn {
+  background: var(--home-eventos-cta-bg, var(--cta-bg));
+  color: var(--home-eventos-cta-text, var(--cta-text));
+}
+
+/* --- Módulo 9 · Dudas / Contacto --- */
+.questions {
+  background: var(--home-dudas-bg, var(--color-brand-primary));
+}
+.questions-card { background: var(--home-dudas-card-bg, var(--surface-glass-panel)); }
+.questions h2 {
+  color: var(--home-dudas-heading, inherit);
+  font-size: var(--home-dudas-heading-size, var(--heading-2-size));
+}
+.questions p {
+  color: var(--home-dudas-texto, inherit);
+  font-size: var(--home-dudas-texto-size, var(--paragraph-size));
+}
+.questions .btn-dark {
+  background: var(--home-dudas-cta1-bg, var(--cta-bg-dark));
+  color: var(--home-dudas-cta1-text, var(--color-text-invert));
+}
+.questions .btn-light {
+  background: var(--home-dudas-cta2-bg, var(--surface));
+  color: var(--home-dudas-cta2-text, var(--color-text));
+}
+
+/* Hooks de los módulos de Admisión./* Hooks de los módulos de Admisión./* Hooks de los módulos de Admisión./* Hooks de los módulos de Admisión. Sin campo lleno caen al token de siempre,
    así que el render por defecto es idéntico a la maqueta aprobada. */
 .adm-hero .hero-card,
 .adm-hero .hero-card p {

@@ -1,9 +1,21 @@
 {# ===== El siguiente paso — tarjetas de acción ===== #}
-<section class="next section-pad" id="costos">
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-next-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.color_icono.color %}{% set estilo = estilo ~ "--home-next-icon:" ~ e.color_icono.color ~ ";" %}{% endif %}
+{% if e.color_card_fondo.color %}{% set estilo = estilo ~ "--home-next-card-bg:" ~ e.color_card_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_titulo.color %}{% set estilo = estilo ~ "--home-next-card-title:" ~ e.color_card_titulo.color ~ ";" %}{% endif %}
+{% if e.color_card_texto.color %}{% set estilo = estilo ~ "--home-next-card-desc:" ~ e.color_card_texto.color ~ ";" %}{% endif %}
+{% if e.color_card_cta.color %}{% set estilo = estilo ~ "--home-next-card-cta:" ~ e.color_card_cta.color ~ ";" %}{% endif %}
+{% if e.color_card_hover_fondo.color %}{% set estilo = estilo ~ "--home-next-card-hover-bg:" ~ e.color_card_hover_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_hover_texto.color %}{% set estilo = estilo ~ "--home-next-card-hover-text:" ~ e.color_card_hover_texto.color ~ ";" %}{% endif %}
+
+<section class="next section-pad" id="costos"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container next-layout">
     <div class="section-intro reveal" data-reveal>
-      {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-      {% if module.intro %}<p>{{ module.intro }}</p>{% endif %}
+      {% if module.heading %}<{{ module.heading_tag|default('h2', true) }}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>{% endif %}
+      {% if module.intro %}<{{ module.intro_tag|default('p', true) }}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>{% endif %}
       <div class="long-arrow"></div>
     </div>
     <div class="next-cards reveal" data-reveal>

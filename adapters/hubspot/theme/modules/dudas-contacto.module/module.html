@@ -1,5 +1,19 @@
 {# ===== Dudas / Contacto — imagen + tarjeta con dos CTAs ===== #}
-<section class="questions section-pad" id="contacto">
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--home-dudas-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_fondo.color %}{% set estilo = estilo ~ "--home-dudas-card-bg:" ~ e.color_card_fondo.color ~ ";" %}{% endif %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-dudas-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.tamano_heading %}{% set estilo = estilo ~ "--home-dudas-heading-size:var(--" ~ e.tamano_heading ~ ");" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--home-dudas-texto:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.tamano_texto %}{% set estilo = estilo ~ "--home-dudas-texto-size:var(--" ~ e.tamano_texto ~ ");" %}{% endif %}
+{% if e.color_boton1_fondo.color %}{% set estilo = estilo ~ "--home-dudas-cta1-bg:" ~ e.color_boton1_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton1_texto.color %}{% set estilo = estilo ~ "--home-dudas-cta1-text:" ~ e.color_boton1_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton2_fondo.color %}{% set estilo = estilo ~ "--home-dudas-cta2-bg:" ~ e.color_boton2_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton2_texto.color %}{% set estilo = estilo ~ "--home-dudas-cta2-text:" ~ e.color_boton2_texto.color ~ ";" %}{% endif %}
+
+<section class="questions section-pad" id="contacto"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container questions-card reveal" data-reveal>
     <img src="{{ module.image.src or get_asset_url('../../images/dudas.jpg') }}"
          alt="{{ module.image.alt|default('Estudiante Anáhuac en aula', true) }}"
@@ -7,8 +21,8 @@
          {% if module.image.height %}height="{{ module.image.height }}"{% endif %}
          loading="lazy" />
     <div>
-      {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-      {% if module.description %}<p>{{ module.description }}</p>{% endif %}
+      {% if module.heading %}<{{ module.heading_tag|default('h2', true) }}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>{% endif %}
+      {% if module.description %}<{{ module.description_tag|default('p', true) }}>{{ module.description }}</{{ module.description_tag|default('p', true) }}>{% endif %}
       <div class="button-row centered">
         {% if module.primary_text %}
           <a class="btn btn-dark" href="{{ module.primary_link.url.href|default('#', true) }}"

@@ -1,90 +1,333 @@
-[ {
-  "id" : "image",
-  "name" : "image",
-  "label" : "Imagen",
-  "required" : false,
-  "locked" : false,
-  "responsive" : true,
-  "resizable" : true,
-  "show_loading" : false,
-  "type" : "image",
-  "display_width" : null,
-  "default" : {
-    "src" : "",
-    "alt" : "Estudiante Anáhuac en aula"
+[
+  {
+    "id": "image",
+    "name": "image",
+    "label": "Imagen",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Estudiante Anáhuac en aula"
+    }
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "¿Tienes alguna duda de nuestra universidad?"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Descripción",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Nuestro equipo de asesores preuniversitarios en la Universidad Anáhuac México está aquí para guiarte en cada paso hacia tu futuro brillante. ¡Contáctanos hoy y comienza a trazar el camino hacia tus sueños!"
+  },
+  {
+    "id": "description_tag",
+    "name": "description_tag",
+    "label": "Etiqueta HTML de «description»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "primary_text",
+    "name": "primary_text",
+    "label": "Botón primario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Contactar"
+  },
+  {
+    "id": "primary_link",
+    "name": "primary_link",
+    "label": "Botón primario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "secondary_text",
+    "name": "secondary_text",
+    "label": "Botón secundario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Agenda tu visita"
+  },
+  {
+    "id": "secondary_link",
+    "name": "secondary_link",
+    "label": "Botón secundario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo del módulo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_fondo",
+        "name": "color_card_fondo",
+        "label": "Color de fondo de la tarjeta",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_heading",
+        "name": "tamano_heading",
+        "label": "Tamaño del título",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-64",
+            "Pequeño"
+          ],
+          [
+            "size-70",
+            "Mediano"
+          ],
+          [
+            "heading-2-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-1-size",
+            "Grande"
+          ]
+        ],
+        "default": "heading-2-size"
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color del párrafo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_texto",
+        "name": "tamano_texto",
+        "label": "Tamaño del párrafo",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "paragraph-size",
+            "Pequeño"
+          ],
+          [
+            "heading-6-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-5-size",
+            "Grande"
+          ],
+          [
+            "size-22",
+            "Muy grande"
+          ]
+        ],
+        "default": "paragraph-size"
+      },
+      {
+        "id": "grupo_estilos.color_boton1_fondo",
+        "name": "color_boton1_fondo",
+        "label": "Botón 1 · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton1_texto",
+        "name": "color_boton1_texto",
+        "label": "Botón 1 · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_fondo",
+        "name": "color_boton2_fondo",
+        "label": "Botón 2 · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_texto",
+        "name": "color_boton2_texto",
+        "label": "Botón 2 · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
   }
-}, {
-  "id" : "heading",
-  "name" : "heading",
-  "label" : "Título (H2)",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "¿Tienes alguna duda de nuestra universidad?"
-}, {
-  "id" : "description",
-  "name" : "description",
-  "label" : "Descripción",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Nuestro equipo de asesores preuniversitarios en la Universidad Anáhuac México está aquí para guiarte en cada paso hacia tu futuro brillante. ¡Contáctanos hoy y comienza a trazar el camino hacia tus sueños!"
-}, {
-  "id" : "primary_text",
-  "name" : "primary_text",
-  "label" : "Botón primario · texto",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Contactar"
-}, {
-  "id" : "primary_link",
-  "name" : "primary_link",
-  "label" : "Botón primario · destino",
-  "required" : false,
-  "locked" : false,
-  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-  "show_advanced_rel_options" : false,
-  "type" : "link",
-  "display_width" : null,
-  "default" : {
-    "url" : {
-      "type" : "EXTERNAL",
-      "href" : "#"
-    },
-    "open_in_new_tab" : false
-  }
-}, {
-  "id" : "secondary_text",
-  "name" : "secondary_text",
-  "label" : "Botón secundario · texto",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Agenda tu visita"
-}, {
-  "id" : "secondary_link",
-  "name" : "secondary_link",
-  "label" : "Botón secundario · destino",
-  "required" : false,
-  "locked" : false,
-  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-  "show_advanced_rel_options" : false,
-  "type" : "link",
-  "display_width" : null,
-  "default" : {
-    "url" : {
-      "type" : "EXTERNAL",
-      "href" : "#"
-    },
-    "open_in_new_tab" : false
-  }
-} ]
+]

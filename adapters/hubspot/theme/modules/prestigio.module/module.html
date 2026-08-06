@@ -1,11 +1,29 @@
-{# ===== Prestigio — split heading + video + cifras animadas ===== #}
-<section class="prestige section-pad" id="prestigio">
+{# ===== Prestigio — split heading + video + cifras animadas =====
+   El color de cada cuadro se puede fijar por tarjeta; sin valor manda la clase
+   .purple-N que asigna el diseño según la posición. #}
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-prestigio-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.color_intro.color %}{% set estilo = estilo ~ "--home-prestigio-intro:" ~ e.color_intro.color ~ ";" %}{% endif %}
+{% if e.color_cifras.color %}{% set estilo = estilo ~ "--home-prestigio-cifra-color:" ~ e.color_cifras.color ~ ";" %}{% endif %}
+{% if e.tamano_cifras %}{% set estilo = estilo ~ "--home-prestigio-cifra-size:var(--" ~ e.tamano_cifras ~ ");" %}{% endif %}
+{% if e.color_textos.color %}{% set estilo = estilo ~ "--home-prestigio-texto-color:" ~ e.color_textos.color ~ ";" %}{% endif %}
+{% if e.tamano_textos %}{% set estilo = estilo ~ "--home-prestigio-texto-size:var(--" ~ e.tamano_textos ~ ");" %}{% endif %}
+
+<section class="prestige section-pad" id="prestigio"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container">
     <div class="split-heading">
       <div class="section-intro reveal" data-reveal>
-        {% if module.eyebrow %}<p class="tagline"><span></span>{{ module.eyebrow }}</p>{% endif %}
-        {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-        {% if module.intro %}<p>{{ module.intro }}</p>{% endif %}
+        {% if module.eyebrow %}
+          <{{ module.eyebrow_tag|default('p', true) }} class="tagline"><span></span>{{ module.eyebrow }}</{{ module.eyebrow_tag|default('p', true) }}>
+        {% endif %}
+        {% if module.heading %}
+          <{{ module.heading_tag|default('h2', true) }}{% if e.color_heading.color %} style="color:{{ e.color_heading.color }}"{% endif %}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>
+        {% endif %}
+        {% if module.intro %}
+          <{{ module.intro_tag|default('p', true) }}{% if e.color_intro.color %} style="color:{{ e.color_intro.color }}"{% endif %}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>
+        {% endif %}
       </div>
       <div class="video-card reveal" data-reveal data-yt-id="{{ module.youtube_id }}">
         <img
@@ -21,7 +39,11 @@
 
     <div class="stats-grid">
       {% for s in module.stats %}
-        <article class="stat-card purple-{{ loop.index }} reveal" data-reveal>
+        {% set card = "" %}
+        {% if s.color_cuadro.color %}{% set card = card ~ "--home-prestigio-card-bg:" ~ s.color_cuadro.color ~ ";" %}{% endif %}
+        {% if s.color_cifra.color %}{% set card = card ~ "--home-prestigio-cifra-color:" ~ s.color_cifra.color ~ ";" %}{% endif %}
+        {% if s.color_texto.color %}{% set card = card ~ "--home-prestigio-texto-color:" ~ s.color_texto.color ~ ";" %}{% endif %}
+        <article class="stat-card purple-{{ loop.index }} reveal" data-reveal{% if card %} style="{{ card }}"{% endif %}>
           <strong data-count-to="{{ s.value }}" data-count-prefix="{{ s.prefix }}" data-count-suffix="{{ s.suffix }}">{{ s.prefix }}0{{ s.suffix }}</strong>
           <span>{{ s.text }}</span>
         </article>
