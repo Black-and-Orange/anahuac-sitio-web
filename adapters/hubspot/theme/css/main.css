@@ -5749,11 +5749,11 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 }
 
 .fechas-col--orange h3 {
-  color: var(--orange);
+  color: var(--admision-fechas-titulo-norte, var(--orange));
 }
 
 .fechas-col--purple h3 {
-  color: var(--purple-2);
+  color: var(--admision-fechas-titulo-sur, var(--purple-2));
 }
 
 .fechas-accordion {
@@ -5776,6 +5776,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 }
 
 .fecha-item summary {
+  color: var(--admision-fechas-fecha, inherit);
   padding: 1.125rem 1.5rem;
   font-family: var(--font-heading);
   font-size: var(--btn-medium-size);
@@ -5839,7 +5840,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
   font-size: var(--size-15);
   line-height: 1.5;
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.08);
-  color: var(--color-text-secondary);
+  color: var(--admision-fechas-etiqueta, var(--color-text-secondary));
 }
 
 .fecha-table td:first-child {
@@ -5859,7 +5860,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
   text-align: right;
   white-space: nowrap;
   font-weight: 600;
-  color: var(--black);
+  color: var(--admision-fechas-valor, var(--black));
 }
 
 @media (max-width: 90em) {
@@ -7427,10 +7428,23 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
   text-decoration: none;
 }
 
+/* Estado vacío del calendario: se muestra cuando un campus no tiene ninguna
+   convocatoria marcada en HubDB. Mismo lenguaje visual que el resto de la
+   tarjeta, en tono secundario para no competir con las fechas reales. */
+.fechas-vacio {
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.03);
+  font-size: var(--size-16);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
 .adm-fechas {
   position: relative;
   overflow: hidden;
-  background: var(--white);
+  background: var(--admision-fechas-bg, var(--white));
 }
 
 .adm-fechas > .container {

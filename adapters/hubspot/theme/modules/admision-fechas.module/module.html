@@ -1,0 +1,113 @@
+{# ===== Admisión · Calendario de fechas de exámenes (HubDB) =====
+   Porta <section class="adm-fechas"> de proceso-de-admision.html. Todo el
+   contenido del calendario viene de la tabla de HubDB; aquí no queda ni una
+   fecha escrita a mano.
+
+   Contrato con la tabla (columnas obligatorias, por nombre):
+     fecha_limite_para_entrega_de_documentos           TEXT
+     aplicacion_de_examen_de_conocimientos_academicos  TEXT
+     aplicacion_de_examen_psicometrico                 TEXT
+     entrega_de_resultados                             TEXT
+     campus                                            MULTISELECT (NORTE / SUR)
+     aparece_en_las_primeras_5_fechas                  BOOLEAN
+     fecha_de_ordenamiento                             DATE
+
+   El orden lo fija `fecha_de_ordenamiento`, no las columnas visibles: esas son
+   TEXT ("24 de julio") y ordenarlas daría un orden alfabético, no cronológico.
+   Si una fila se queda sin esa fecha se va al final del listado.
+
+   `campus` es MULTISELECT, no un select simple: una misma convocatoria puede
+   estar marcada para los dos campus y debe salir en las dos columnas. Por eso
+   el filtro es `campus__contains` y no una igualdad, y por eso se lanza una
+   consulta por columna: un `limit` compartido devolvería 5 filas en total y no
+   5 por campus.
+
+   Las dos columnas se recorren desde una lista para no duplicar el marcado; lo
+   único que cambia entre ellas es la opción de campus, el título y la clase de
+   color. Sin macros: este theme las tiene prohibidas porque rompen el render
+   del módulo completo (ver adapters/hubspot/README.md). #}
+
+{% set c = module.grupo_contenido %}
+{% set t = module.grupo_tabla %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-fechas-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_titulo_norte.color %}{% set estilo = estilo ~ "--admision-fechas-titulo-norte:" ~ e.color_titulo_norte.color ~ ";" %}{% endif %}
+{% if e.color_titulo_sur.color %}{% set estilo = estilo ~ "--admision-fechas-titulo-sur:" ~ e.color_titulo_sur.color ~ ";" %}{% endif %}
+{% if e.color_fecha.color %}{% set estilo = estilo ~ "--admision-fechas-fecha:" ~ e.color_fecha.color ~ ";" %}{% endif %}
+{% if e.color_etiqueta.color %}{% set estilo = estilo ~ "--admision-fechas-etiqueta:" ~ e.color_etiqueta.color ~ ";" %}{% endif %}
+{% if e.color_valor.color %}{% set estilo = estilo ~ "--admision-fechas-valor:" ~ e.color_valor.color ~ ";" %}{% endif %}
+
+{% set columnas = [
+  { "opcion": t.opcion_norte|default('NORTE', true), "titulo": c.titulo_norte|default('Campus Norte', true), "clase": "fechas-col--orange", "slug": "norte" },
+  { "opcion": t.opcion_sur|default('SUR', true),     "titulo": c.titulo_sur|default('Campus Sur', true),     "clase": "fechas-col--purple", "slug": "sur" }
+] %}
+
+<section class="adm-fechas section-pad" id="fechas"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.tagline %}
+        <{{ c.tagline_tag|default('p', true) }} class="tagline"><span></span>{{ c.tagline }}</{{ c.tagline_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+    </div>
+
+    <div class="fechas-grid">
+      {% for col in columnas %}
+        {% set consulta = "campus__contains=" ~ col.opcion ~ "&aparece_en_las_primeras_5_fechas=true&orderBy=fecha_de_ordenamiento&limit=" ~ t.maximo|default(5, true) %}
+        {% set filas = hubdb_table_rows(t.tabla, consulta) %}
+
+        <div class="fechas-col {{ col.clase }} reveal" data-reveal>
+          <{{ c.titulo_tag|default('h3', true) }}>{{ col.titulo }}</{{ c.titulo_tag|default('h3', true) }}>
+
+          <div class="fechas-accordion">
+            {% for fila in filas %}
+              {# Cada par es [etiqueta administrable, valor de la fila]. Recorrerlos
+                 evita repetir cuatro veces la misma lógica de partido del texto. #}
+              {% set renglones = [
+                [ c.label_documentos|default('Fecha límite para entrega de documentos', true), fila.fecha_limite_para_entrega_de_documentos ],
+                [ c.label_academico|default('Aplicación de examen de conocimientos académicos', true), fila.aplicacion_de_examen_de_conocimientos_academicos ],
+                [ c.label_psicometrico|default('Aplicación de examen psicométrico', true), fila.aplicacion_de_examen_psicometrico ],
+                [ c.label_resultados|default('Entrega de resultados', true), fila.entrega_de_resultados ]
+              ] %}
+
+              {# El `name` compartido hace que solo una fecha quede abierta por
+                 columna. Lleva el id de la instancia para que dos módulos en la
+                 misma página no se cierren entre sí. #}
+              <details class="fecha-item" name="fechas-{{ col.slug }}-{{ name }}">
+                <summary>{{ fila.fecha_limite_para_entrega_de_documentos }}</summary>
+                <div class="fecha-panel">
+                  <table class="fecha-table">
+                    <tbody>
+                      {% for renglon in renglones %}
+                        {% if renglon[1] %}
+                          {# La columna guarda fecha y horario en un solo texto
+                             ("30 de julio, 15 hrs. horario CDMX"). El diseño los
+                             separa: fecha en negritas y horario en <small>. Si no
+                             hay coma, sale solo la fecha. #}
+                          {% set partes = renglon[1]|split(", ", 2) %}
+                          <tr>
+                            <td>{{ renglon[0] }}</td>
+                            <td>{{ partes[0] }}{% if partes|length > 1 %}<br /><small>{{ partes[1] }}</small>{% endif %}</td>
+                          </tr>
+                        {% endif %}
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            {% endfor %}
+
+            {% if filas|length == 0 and c.mensaje_vacio %}
+              <p class="fechas-vacio">{{ c.mensaje_vacio }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
