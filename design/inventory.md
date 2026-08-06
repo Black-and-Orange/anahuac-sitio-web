@@ -24,6 +24,14 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `step-card` | `design/components/step-card.md` | pendiente | Home, Admisiones |
 | `event-card` | `design/components/event-card.md` | pendiente | Home |
 | `cta-section` | `design/components/cta-section.md` | pendiente | Home |
+| `support-hero` | `design/components/support-hero.md` | construido (`apoyos-hero.module`) | Apoyos Económicos |
+| `support-overview` | `design/components/support-overview.md` | construido (`apoyos-panorama.module`) | Apoyos Económicos |
+| `support-detail` | `design/components/support-detail.md` | construido (`apoyos-detalle.module`) | Apoyos Económicos |
+| `financing-options` | `design/components/financing-options.md` | construido (`apoyos-financiamiento.module`) | Apoyos Económicos |
+| `support-considerations` | `design/components/support-considerations.md` | construido (`apoyos-consideraciones.module`) | Apoyos Económicos |
+| `support-steps` | `design/components/support-steps.md` | construido (`apoyos-pasos.module`) | Apoyos Económicos |
+| `support-faq` | `design/components/support-faq.md` | construido (`apoyos-faq.module`) | Apoyos Económicos |
+| `support-advisor` | `design/components/support-advisor.md` | construido (`apoyos-asesoria.module`) | Apoyos Económicos |
 
 ## Componentes atómicos (UI Kit)
 
@@ -35,6 +43,20 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `enlace` | `design/components/enlace.md` | pendiente | footer, nav |
 | `slider-arrow` | `design/components/slider-arrow.md` | pendiente | area-card scroller |
 | `checkbox` | `design/components/checkbox.md` | pendiente | formularios |
+
+## Proceso de admisión — módulos HubSpot
+
+| Módulo | Estado | Sección origen |
+|---|---|---|
+| `admision-hero` | construido | `.adm-hero` |
+| `admision-pasos` | construido | `.adm-steps` |
+| `admision-fechas` | congelado (HubDB) | `.adm-fechas` |
+| `admision-cta` | construido | `.adm-cta` |
+| `admision-propedeuticos` | construido | `.adm-prop` |
+| `admision-siguiente-paso` | construido | `.adm-siguiente` |
+| `admision-faq` | construido | `.adm-faq` |
+| `admision-asesoria` | congelado — reutiliza `apoyos-asesoria` | `.adm-asesoria` |
+| `admision-formulario` | construido | `.adm-form` |
 
 ## Variantes de botón (del UI Kit)
 
