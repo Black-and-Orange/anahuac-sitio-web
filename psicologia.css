@@ -754,6 +754,44 @@
   font-weight: 600;
 }
 
+/* Cifras del dato AEO en dos columnas (semestres / créditos). Mismo patrón
+   cifra + etiqueta que las .stat-card del sitio. */
+.plan-aeo-datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.plan-aeo-dato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.plan-aeo-dato strong {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--purple-2);
+}
+
+.plan-aeo-dato span {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+@media (max-width: 475px) {
+  .plan-aeo-dato strong {
+    font-size: 52px;
+  }
+}
+
 /* =============================================
    5. Plan de estudios: tabs por semestre + bloques (fondo gris)
    ============================================= */
@@ -1437,6 +1475,59 @@
   gap: 12px;
 }
 
+/* Variante doble titulación: logo del partner a la izquierda, copy + CTAs a la
+   derecha. Reemplaza el bloque de estadística en la misma banda morada. */
+.campo-band--doble {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+}
+
+.campo-doble-logo {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+}
+
+.campo-doble-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.campo-doble-title {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.campo-doble-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.campo-doble-text strong,
+.campo-doble-duracion strong {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.campo-doble-duracion {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.campo-band--doble .campo-cta {
+  margin-top: 12px;
+}
+
 .campo-cta .btn {
   padding: 15px 30px;
   font-size: 21px;
@@ -1483,6 +1574,24 @@
 
   .campo-stat > strong {
     font-size: 76px;
+  }
+
+  .campo-band--doble {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .campo-doble-logo {
+    width: 110px;
+  }
+
+  .campo-doble-title {
+    font-size: 24px;
+  }
+
+  .campo-doble-duracion {
+    font-size: 19px;
   }
 
   .campo-cta .btn {
@@ -1821,7 +1930,7 @@
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: var(--black);
   margin-bottom: 16px;
 }
 
