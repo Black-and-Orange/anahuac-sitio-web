@@ -1013,6 +1013,15 @@
 }
 
 /* Enlace "Minors" que abre el video en un modal (con fallback a YouTube) */
+/* Glosa que explica qué es un Minor. Sube de jerarquía solo con color: un plomo
+   de la misma familia azulada que el texto del bloque (#788592), pero más
+   oscuro —7.6:1 sobre la tarjeta blanca contra los 3.8:1 del párrafo—. No se
+   toca tamaño ni peso: en negritas competiría con el enlace «Minors», y en
+   negro leería como título. */
+.plan-minors-gloss {
+  color: #4a5561;
+}
+
 .plan-minors-link {
   color: var(--color-brand-primary);
   font-weight: 600;
