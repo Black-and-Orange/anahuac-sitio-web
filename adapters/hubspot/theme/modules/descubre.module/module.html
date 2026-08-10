@@ -1,10 +1,29 @@
-{# ===== Descubre tu licenciatura ideal — intro + tarjetas de acción + imagen ===== #}
-<section class="descubre section-pad" id="descubre">
+{# ===== Descubre tu licenciatura ideal — intro + tarjetas de acción + imagen =====
+   El repeater `cards` va a nivel raíz, no anidado en un grupo: anidado pierde
+   todos sus items en la primera edición (ver adapters/hubspot/README.md).
+   El color del cuadro se aplica al borde, que es lo que distingue una tarjeta
+   de otra en el diseño; sin valor mandan las clases --orange / --purple. #}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--oferta-descubre-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+<section class="descubre section-pad" id="descubre"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container">
     <div class="section-intro wide reveal" data-reveal>
-      {% if module.eyebrow %}<p class="tagline"><span></span>{{ module.eyebrow }}</p>{% endif %}
-      {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-      {% if module.intro %}<p>{{ module.intro }}</p>{% endif %}
+      {% if module.eyebrow %}
+        <{{ module.eyebrow_tag|default('p', true) }} class="tagline"{% if e.color_eyebrow.color %} style="color:{{ e.color_eyebrow.color }}"{% endif %}><span></span>{{ module.eyebrow }}</{{ module.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if module.heading %}
+        <{{ module.heading_tag|default('h2', true) }}{% if e.color_heading.color %} style="color:{{ e.color_heading.color }}"{% endif %}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if module.intro %}
+        {% set estilo_intro = "" %}
+        {% if e.color_intro.color %}{% set estilo_intro = estilo_intro ~ "color:" ~ e.color_intro.color ~ ";" %}{% endif %}
+        {% if e.tamano_intro %}{% set estilo_intro = estilo_intro ~ "font-size:var(--" ~ e.tamano_intro ~ ");" %}{% endif %}
+        <{{ module.intro_tag|default('p', true) }}{% if estilo_intro %} style="{{ estilo_intro }}"{% endif %}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>
+      {% endif %}
     </div>
 
     <div class="descubre-grid reveal" data-reveal>
@@ -12,13 +31,14 @@
         {% set icon_fallbacks = ["descrubre-tu-licenciatura-ideal/FileTextOutlined.svg", "descrubre-tu-licenciatura-ideal/CommentOutlined.svg"] %}
         {% for card in module.cards %}
           <a class="descubre-card {{ card.variant }}" href="{{ card.link.url.href|default('#', true) }}"
+             {% if card.color_cuadro.color %}style="border-color:{{ card.color_cuadro.color }}"{% endif %}
              {% if card.link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
             <img class="descubre-card-icon"
                  src="{{ card.icon.src or get_asset_url('../../images/oferta-academica/' ~ icon_fallbacks[loop.index0 % (icon_fallbacks|length)]) }}"
                  alt="{{ card.icon.alt|default(card.title, true) }}" />
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.text }}</p>
-            <span class="descubre-cta">{{ card.cta_text }} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <{{ card.title_tag|default('h3', true) }}{% if card.color_titulo.color %} style="color:{{ card.color_titulo.color }}"{% endif %}>{{ card.title }}</{{ card.title_tag|default('h3', true) }}>
+            <p{% if card.color_texto.color %} style="color:{{ card.color_texto.color }}"{% endif %}>{{ card.text }}</p>
+            <span class="descubre-cta"{% if card.color_cta.color %} style="color:{{ card.color_cta.color }}"{% endif %}>{{ card.cta_text }} <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         {% endfor %}
       </div>

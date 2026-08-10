@@ -260,6 +260,15 @@
         "default": "Descripción de la experiencia."
       },
       {
+        "id": "slides.video",
+        "name": "video",
+        "label": "Video de la tarjeta (opcional)",
+        "help_text": "Si se sube un video, sustituye a la imagen y se reproduce en bucle sin sonido. La imagen se usa como póster mientras carga. Déjalo vacío para mostrar solo la imagen.",
+        "type": "file",
+        "picker": "file",
+        "default": null
+      },
+      {
         "id": "slides.image",
         "name": "image",
         "label": "Imagen",

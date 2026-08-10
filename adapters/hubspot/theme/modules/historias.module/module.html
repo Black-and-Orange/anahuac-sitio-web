@@ -26,18 +26,18 @@
           {% set fb_b = fallbacks_b[loop.index0 % 6] %}
           <div class="stories-row">
             {% if story.layout == "quote-first" %}
-              <blockquote class="quote {{ story.variant }}">
-                <p>"{{ story.quote }}"</p>
-                <cite>{{ story.author }} <span>{{ story.role }}</span></cite>
+              <blockquote class="quote {{ story.variant }}"{% if story.color_caja.color %} style="background:{{ story.color_caja.color }}"{% endif %}>
+                <p{% if story.color_texto.color %} style="color:{{ story.color_texto.color }}"{% endif %}>"{{ story.quote }}"</p>
+                <cite{% if story.color_autor.color %} style="color:{{ story.color_autor.color }}"{% endif %}>{{ story.author }} <span>{{ story.role }}</span></cite>
               </blockquote>
               <img src="{{ story.image_a.src or get_asset_url('../../images/' ~ fb_a) }}" alt="{{ story.image_a.alt|default('Egresado Anáhuac', true) }}" loading="lazy" />
               <img src="{{ story.image_b.src or get_asset_url('../../images/' ~ fb_b) }}" alt="{{ story.image_b.alt|default('Comunidad Anáhuac', true) }}" loading="lazy" />
             {% else %}
               <img src="{{ story.image_a.src or get_asset_url('../../images/' ~ fb_a) }}" alt="{{ story.image_a.alt|default('Egresado Anáhuac', true) }}" loading="lazy" />
               <img src="{{ story.image_b.src or get_asset_url('../../images/' ~ fb_b) }}" alt="{{ story.image_b.alt|default('Comunidad Anáhuac', true) }}" loading="lazy" />
-              <blockquote class="quote {{ story.variant }}">
-                <p>"{{ story.quote }}"</p>
-                <cite>{{ story.author }} <span>{{ story.role }}</span></cite>
+              <blockquote class="quote {{ story.variant }}"{% if story.color_caja.color %} style="background:{{ story.color_caja.color }}"{% endif %}>
+                <p{% if story.color_texto.color %} style="color:{{ story.color_texto.color }}"{% endif %}>"{{ story.quote }}"</p>
+                <cite{% if story.color_autor.color %} style="color:{{ story.color_autor.color }}"{% endif %}>{{ story.author }} <span>{{ story.role }}</span></cite>
               </blockquote>
             {% endif %}
           </div>

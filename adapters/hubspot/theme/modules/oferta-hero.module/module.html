@@ -1,12 +1,29 @@
-{# ===== Oferta · Hero — eyebrow + título + tarjeta de oferta + CTAs ===== #}
-<section class="oferta-hero section-pad" id="inicio">
+{# ===== Oferta · Hero — eyebrow + título + panel de oferta + CTAs =====
+   Mismo patrón que apoyos-hero y admision-hero: selector de etiqueta en cada
+   texto que no es enriquecido, color por campo y estilos de sección vía custom
+   properties con el valor actual como fallback. Los nombres de los campos de
+   contenido se conservan tal cual para no perder lo ya capturado; lo nuevo va
+   en grupo_estilos. Sin macros (ver adapters/hubspot/README.md). #}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_panel_fondo.color %}{% set estilo = estilo ~ "--oferta-hero-panel-bg:" ~ e.color_panel_fondo.color ~ ";" %}{% endif %}
+{% if e.color_panel_texto.color %}{% set estilo = estilo ~ "--oferta-hero-panel-text:" ~ e.color_panel_texto.color ~ ";" %}{% endif %}
+{% if e.tamano_panel %}{% set estilo = estilo ~ "--oferta-hero-panel-size:var(--" ~ e.tamano_panel ~ ");" %}{% endif %}
+{% if e.color_boton1_fondo.color %}{% set estilo = estilo ~ "--oferta-hero-cta1-bg:" ~ e.color_boton1_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton1_texto.color %}{% set estilo = estilo ~ "--oferta-hero-cta1-text:" ~ e.color_boton1_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton2_fondo.color %}{% set estilo = estilo ~ "--oferta-hero-cta2-bg:" ~ e.color_boton2_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton2_texto.color %}{% set estilo = estilo ~ "--oferta-hero-cta2-text:" ~ e.color_boton2_texto.color ~ ";" %}{% endif %}
+
+<section class="oferta-hero section-pad" id="inicio"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container oferta-hero-inner">
     <div class="oferta-hero-copy">
       {% if module.eyebrow %}
-        <p class="tagline reveal" data-reveal><span></span>{{ module.eyebrow }}</p>
+        <{{ module.eyebrow_tag|default('p', true) }} class="tagline reveal" data-reveal{% if e.color_eyebrow.color %} style="color:{{ e.color_eyebrow.color }}"{% endif %}><span></span>{{ module.eyebrow }}</{{ module.eyebrow_tag|default('p', true) }}>
       {% endif %}
       {% if module.heading %}
-        <h1 class="reveal" data-reveal>{{ module.heading }}</h1>
+        <{{ module.heading_tag|default('h1', true) }} class="reveal" data-reveal{% if e.color_heading.color %} style="color:{{ e.color_heading.color }}"{% endif %}>{{ module.heading }}</{{ module.heading_tag|default('h1', true) }}>
       {% endif %}
     </div>
     <div class="oferta-hero-info reveal" data-reveal>
@@ -14,11 +31,19 @@
         <div class="hero-card">{{ module.card_text }}</div>
       {% endif %}
       <div class="button-row">
-        {% if module.btn1_text %}
+        {# `mostrar_botonN` gobierna la visibilidad. El texto ya no la decide:
+           vaciarlo por error hacía desaparecer el botón sin explicación.
+
+           `|default(true)` sin el segundo argumento es deliberado: HubSpot no
+           rellena defaults en instancias ya guardadas, así que en la página que
+           ya existe el campo llega indefinido y sin esto los dos botones
+           desaparecerían. Con un solo argumento solo se sustituye lo indefinido;
+           un `false` puesto a mano por el editor se respeta. #}
+        {% if module.mostrar_boton1|default(true) and module.btn1_text %}
           <a class="btn btn-dark" href="{{ module.btn1_link.url.href|default('#', true) }}"
              {% if module.btn1_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.btn1_text }}</a>
         {% endif %}
-        {% if module.btn2_text %}
+        {% if module.mostrar_boton2|default(true) and module.btn2_text %}
           <a class="btn btn-light" href="{{ module.btn2_link.url.href|default('#', true) }}"
              {% if module.btn2_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.btn2_text }}</a>
         {% endif %}

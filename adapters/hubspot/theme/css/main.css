@@ -2663,7 +2663,19 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 }
 
 .oferta-hero .hero-card {
-  background: var(--purple-2);
+  background: var(--oferta-hero-panel-bg, var(--purple-2));
+  color: var(--oferta-hero-panel-text, var(--color-text-invert));
+  font-size: var(--oferta-hero-panel-size, var(--lead-size));
+}
+
+.oferta-hero .btn-dark {
+  background: var(--oferta-hero-cta1-bg, var(--color-text));
+  color: var(--oferta-hero-cta1-text, var(--color-text-invert));
+}
+
+.oferta-hero .btn-light {
+  background: var(--oferta-hero-cta2-bg, var(--surface));
+  color: var(--oferta-hero-cta2-text, var(--color-text));
 }
 
 .oferta-hero .hero-card p {
@@ -2754,7 +2766,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
    ============================================= */
 
 .oferta-areas {
-  background: var(--color-brand-primary);
+  background: var(--oferta-areas-bg, var(--color-brand-primary));
   color: var(--color-text-invert);
   position: relative;
   overflow: hidden;
@@ -3664,7 +3676,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 /* ==== descubre ==== */
 /* ===== Descubre tu licenciatura ideal ===== */
 .descubre {
-  background: var(--surface-muted);
+  background: var(--oferta-descubre-bg, var(--surface-muted));
 }
 
 .descubre .section-intro {

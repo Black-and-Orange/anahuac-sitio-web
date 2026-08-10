@@ -1,13 +1,34 @@
 {# ===== Áreas académicas — carrusel vertical infinito (2 tarjetas por paso) =====
    Las clases .oferta-areas, .area-grid, .area-card y .arrow-buttons button las
-   consume oferta.js (carrusel). NO renombrar. El JS crea .area-track / .is-clone. #}
-<section class="oferta-areas section-pad" id="areas">
+   consume oferta.js (carrusel). NO renombrar. El JS crea .area-track / .is-clone.
+
+   El repeater `areas` va a nivel raíz, no anidado en un grupo: anidado pierde
+   todos sus items en la primera edición (ver adapters/hubspot/README.md).
+   El número de áreas no está limitado por el diseño: la clase que oculta a
+   partir de la quinta la calcula el bucle, así que el carrusel sigue
+   funcionando con las que haya. #}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--oferta-areas-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+<section class="oferta-areas section-pad" id="areas"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container">
     <div class="programs-head">
       <div class="section-intro on-orange reveal" data-reveal>
-        {% if module.eyebrow %}<p class="tagline"><span></span>{{ module.eyebrow }}</p>{% endif %}
-        {% if module.heading %}<h2>{{ module.heading }}</h2>{% endif %}
-        {% if module.intro %}<p>{{ module.intro }}</p>{% endif %}
+        {% if module.eyebrow %}
+          <{{ module.eyebrow_tag|default('p', true) }} class="tagline"{% if e.color_eyebrow.color %} style="color:{{ e.color_eyebrow.color }}"{% endif %}><span></span>{{ module.eyebrow }}</{{ module.eyebrow_tag|default('p', true) }}>
+        {% endif %}
+        {% if module.heading %}
+          <{{ module.heading_tag|default('h2', true) }}{% if e.color_heading.color %} style="color:{{ e.color_heading.color }}"{% endif %}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>
+        {% endif %}
+        {% if module.intro %}
+          {% set estilo_intro = "" %}
+          {% if e.color_intro.color %}{% set estilo_intro = estilo_intro ~ "color:" ~ e.color_intro.color ~ ";" %}{% endif %}
+          {% if e.tamano_intro %}{% set estilo_intro = estilo_intro ~ "font-size:var(--" ~ e.tamano_intro ~ ");" %}{% endif %}
+          <{{ module.intro_tag|default('p', true) }}{% if estilo_intro %} style="{{ estilo_intro }}"{% endif %}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>
+        {% endif %}
       </div>
       <div class="arrow-buttons reveal" data-reveal>
         <button type="button" aria-label="Área anterior">
@@ -33,11 +54,17 @@
           <img src="{{ area.image.src or get_asset_url('../../images/' ~ fallbacks[loop.index0 % (fallbacks|length)]) }}"
                alt="{{ area.image.alt|default(area.item_name, true) }}" loading="lazy" />
           <div class="area-card-body">
-            {% if area.item_name %}<h3>{{ area.item_name }}</h3>{% endif %}
-            {% if area.hook %}<p class="area-hook">{{ area.hook }}</p>{% endif %}
-            {% if area.desc %}<p class="area-desc">{{ area.desc }}</p>{% endif %}
+            {% if area.item_name %}
+              <{{ area.item_name_tag|default('h3', true) }}{% if area.color_titulo.color %} style="color:{{ area.color_titulo.color }}"{% endif %}>{{ area.item_name }}</{{ area.item_name_tag|default('h3', true) }}>
+            {% endif %}
+            {% if area.hook %}<p class="area-hook"{% if area.color_pregunta.color %} style="color:{{ area.color_pregunta.color }}"{% endif %}>{{ area.hook }}</p>{% endif %}
+            {% if area.desc %}<p class="area-desc"{% if area.color_texto.color %} style="color:{{ area.color_texto.color }}"{% endif %}>{{ area.desc }}</p>{% endif %}
             {% if area.link_text %}
+              {% set estilo_btn = "" %}
+              {% if area.color_boton_fondo.color %}{% set estilo_btn = estilo_btn ~ "background:" ~ area.color_boton_fondo.color ~ ";" %}{% endif %}
+              {% if area.color_boton_texto.color %}{% set estilo_btn = estilo_btn ~ "color:" ~ area.color_boton_texto.color ~ ";" %}{% endif %}
               <a class="btn btn-dark btn-sm" href="{{ area.link.url.href|default('#', true) }}"
+                 {% if estilo_btn %}style="{{ estilo_btn }}"{% endif %}
                  {% if area.link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ area.link_text }}</a>
             {% endif %}
           </div>

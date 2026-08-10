@@ -1,84 +1,330 @@
-[ {
-  "id" : "eyebrow",
-  "name" : "eyebrow",
-  "label" : "Eyebrow (tagline)",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Oferta Académica de la Universidad Anáhuac México"
-}, {
-  "id" : "heading",
-  "name" : "heading",
-  "label" : "Título (H1)",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Encuentra lo que te apasiona"
-}, {
-  "id" : "card_text",
-  "name" : "card_text",
-  "label" : "Tarjeta de oferta",
-  "required" : false,
-  "locked" : false,
-  "type" : "richtext",
-  "display_width" : null,
-  "default" : "<p>Descubre las ocho áreas académicas y todos nuestros programas de licenciatura disponibles</p>"
-}, {
-  "id" : "btn1_text",
-  "name" : "btn1_text",
-  "label" : "Botón primario · texto",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Explorar áreas académicas"
-}, {
-  "id" : "btn1_link",
-  "name" : "btn1_link",
-  "label" : "Botón primario · destino",
-  "required" : false,
-  "locked" : false,
-  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-  "show_advanced_rel_options" : false,
-  "type" : "link",
-  "display_width" : null,
-  "default" : {
-    "url" : {
-      "type" : "EXTERNAL",
-      "href" : "#areas"
-    },
-    "open_in_new_tab" : false
+[
+  {
+    "id": "eyebrow",
+    "name": "eyebrow",
+    "label": "Eyebrow (tagline)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Oferta Académica de la Universidad Anáhuac México"
+  },
+  {
+    "id": "eyebrow_tag",
+    "name": "eyebrow_tag",
+    "label": "Etiqueta HTML del antetítulo",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H1)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Encuentra lo que te apasiona"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML del título",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h1"
+  },
+  {
+    "id": "card_text",
+    "name": "card_text",
+    "label": "Tarjeta de oferta",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "display_width": null,
+    "default": "<p>Descubre las ocho áreas académicas y todos nuestros programas de licenciatura disponibles</p>"
+  },
+  {
+    "id": "btn1_text",
+    "name": "btn1_text",
+    "label": "Botón primario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Explorar áreas académicas"
+  },
+  {
+    "id": "btn1_link",
+    "name": "btn1_link",
+    "label": "Botón primario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#areas"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "mostrar_boton1",
+    "name": "mostrar_boton1",
+    "label": "Mostrar el botón principal",
+    "type": "boolean",
+    "display": "toggle",
+    "default": true
+  },
+  {
+    "id": "btn2_text",
+    "name": "btn2_text",
+    "label": "Botón secundario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Buscar por licenciatura"
+  },
+  {
+    "id": "btn2_link",
+    "name": "btn2_link",
+    "label": "Botón secundario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#buscar"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "mostrar_boton2",
+    "name": "mostrar_boton2",
+    "label": "Mostrar el botón secundario",
+    "type": "boolean",
+    "display": "toggle",
+    "default": true
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": false,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_eyebrow",
+        "name": "color_eyebrow",
+        "label": "Color del antetítulo",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_panel_fondo",
+        "name": "color_panel_fondo",
+        "label": "Color de fondo del panel",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_panel_texto",
+        "name": "color_panel_texto",
+        "label": "Color del texto del panel",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_panel",
+        "name": "tamano_panel",
+        "label": "Tamaño del texto del panel",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "micro-size",
+            "Muy pequeño"
+          ],
+          [
+            "eyebrow-size",
+            "Pequeño"
+          ],
+          [
+            "paragraph-size",
+            "Normal"
+          ],
+          [
+            "meta-size",
+            "Mediano"
+          ],
+          [
+            "lead-size",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ]
+        ],
+        "default": "lead-size"
+      },
+      {
+        "id": "grupo_estilos.color_boton1_fondo",
+        "name": "color_boton1_fondo",
+        "label": "Color de fondo del botón principal",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton1_texto",
+        "name": "color_boton1_texto",
+        "label": "Color del texto del botón principal",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_fondo",
+        "name": "color_boton2_fondo",
+        "label": "Color de fondo del botón secundario",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_texto",
+        "name": "color_boton2_texto",
+        "label": "Color del texto del botón secundario",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      }
+    ]
   }
-}, {
-  "id" : "btn2_text",
-  "name" : "btn2_text",
-  "label" : "Botón secundario · texto",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
-  "display_width" : null,
-  "default" : "Buscar por licenciatura"
-}, {
-  "id" : "btn2_link",
-  "name" : "btn2_link",
-  "label" : "Botón secundario · destino",
-  "required" : false,
-  "locked" : false,
-  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
-  "show_advanced_rel_options" : false,
-  "type" : "link",
-  "display_width" : null,
-  "default" : {
-    "url" : {
-      "type" : "EXTERNAL",
-      "href" : "#buscar"
-    },
-    "open_in_new_tab" : false
-  }
-} ]
+]
