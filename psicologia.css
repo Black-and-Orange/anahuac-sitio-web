@@ -934,6 +934,10 @@
   color: var(--color-text);
 }
 
+/* La viñeta indica a qué bloque pertenece la asignatura, con los mismos colores
+   que ya distinguen a las tarjetas .plan-bloque--*. El naranja del Bloque
+   Profesional es el default —son 52 de las 70 materias— y solo se marcan las
+   excepciones, así que el modificador va en el <li>, no en cada elemento. */
 .plan-sem-list li::before {
   content: "";
   position: absolute;
@@ -943,6 +947,14 @@
   height: 6px;
   border-radius: 50%;
   background: var(--orange);
+}
+
+.plan-sem-list li.plan-sem-item--anahuac::before {
+  background: var(--purple-2);
+}
+
+.plan-sem-list li.plan-sem-item--inter::before {
+  background: var(--lilac-1);
 }
 
 /* ----- Bloques que integra la universidad ----- */
