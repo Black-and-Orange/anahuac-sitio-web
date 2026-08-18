@@ -491,10 +491,19 @@
       ],
     };
 
-    /* Región -> opciones del segundo dropdown (en orden de aparición). */
+    /* CDMX y Estado de México se separan del resto: son los dos únicos con
+       catálogo de preparatorias, así que al darles su propia región el bloque
+       "Selecciona tu preparatoria" aparece justo cuando corresponde. */
+    const ZONA_METROPOLITANA = ["Ciudad de México", "Estado de México"];
+
+    /* Región -> opciones del segundo dropdown (en orden de aparición).
+       El orden de las claves es el orden de las opciones del primer select. */
     const REGIONES = {
-      "Extranjero": [...PAISES],
-      "México": [...ESTADOS_MEXICO],
+      "Interior de la república": ESTADOS_MEXICO.filter(
+        (estado) => !ZONA_METROPOLITANA.includes(estado)
+      ),
+      "Estado de México y CDMX": [...ZONA_METROPOLITANA],
+      "Extranjeros": [...PAISES],
     };
 
     Object.keys(REGIONES).forEach((region) => {
@@ -506,7 +515,7 @@
 
     const renderAsesor = (estado) => {
       const data = asesores[estado]
-        || (regionSelect.value === "Extranjero" ? asesores["Soy Extranjero"] : null);
+        || (regionSelect.value === "Extranjeros" ? asesores["Soy Extranjero"] : null);
       if (!data) return;
       nombreEl.textContent = data.nombre;
       waEl.href = data.wa;
@@ -561,7 +570,7 @@
 
     /* Sin estado preferido: arranca en el primero del catálogo (Aguascalientes)
        y con el bloque de preparatoria oculto. */
-    const regionInicial = "México";
+    const regionInicial = "Interior de la república";
     regionSelect.value = regionInicial;
     poblarEstados(regionInicial, null, false);
 
