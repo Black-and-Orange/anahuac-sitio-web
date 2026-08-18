@@ -856,7 +856,14 @@
   color: var(--text-gray);
 }
 
-/* ===== 10. Comunidad ===== */
+/* ===== 10. Comunidad =====
+   «ADEFA + CAF» baja a su propia línea. Se hace con un span en bloque y no con
+   un <br>: el texto del título no cambia y el salto se puede desactivar por
+   breakpoint si algún día estorba. */
+.for-h2-linea {
+  display: block;
+}
+
 .for-comunidad {
   background: var(--white);
 }
