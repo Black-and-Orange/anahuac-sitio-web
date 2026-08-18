@@ -1,0 +1,118 @@
+<!--
+  templateType: page
+  label: Apoyos Económicos — Anáhuac
+  isAvailableForNewContent: true
+-->
+<!doctype html>
+<html class="no-js" lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page_meta.html_title }}</title>
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+
+    {{ standard_header_includes }}
+
+    {# Fuentes Google (Zilla Slab + Roboto) — con preconnect y display=swap (CWV) #}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+    {# CSS del theme — carga explícita y confiable (tokens ANTES que main) #}
+    <link rel="stylesheet" href="{{ get_asset_url('../css/tokens.css') }}" />
+    <link rel="stylesheet" href="{{ get_asset_url('../css/main.css') }}" />
+
+    {# Colores principales configurables → sobreescriben los defaults de tokens.css #}
+    <style>
+      :root {
+        --orange: {{ theme.colors.brand_primary.color }};
+        --brown: {{ theme.colors.brand_secondary.color }};
+        --black: {{ theme.colors.surface_dark.color }};
+        --purple-2: {{ theme.colors.accent_purple.color }};
+        --font-heading: {{ theme.typography.heading_font.font }}, "Zilla Slab", serif;
+        --font-body: {{ theme.typography.body_font.font }}, "Roboto", sans-serif;
+      }
+    </style>
+
+    {# FIX editor: HubSpot no re-ejecuta el JS del theme al editar un módulo, así que
+       los .reveal (opacity:0) quedarían invisibles. Se fuerzan visibles SOLO dentro
+       del editor; en el sitio publicado la animación de scroll funciona normal. #}
+    {% if is_in_editor %}
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+    {% endif %}
+  </head>
+  <body class="{{ builtin_body_classes }}">
+    {% module "header" path="../modules/encabezado", label="Encabezado (global)" %}
+
+    <main id="contenido">
+      {# Los módulos vienen precargados en el orden aprobado de la LP. Marketing
+         puede reordenarlos, ocultarlos o agregar otros desde el editor.
+         Ojo con los anclajes: #panorama, #detalle-apoyos, #financiamiento,
+         #asesoria y #actua los usan los enlaces internos entre módulos. #}
+      {% dnd_area "contenido" label="Contenido de la página" %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-hero" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-panorama" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-detalle" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-financiamiento" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-consideraciones" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-pasos" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-faq" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-asesoria" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/apoyos-formulario" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+      {% end_dnd_area %}
+    </main>
+
+    {% module "footer" path="../modules/pie-de-pagina", label="Pie de página (global)" %}
+
+    {{ standard_footer_includes }}
+    <script src="{{ get_asset_url('../js/main.js') }}" defer></script>
+  </body>
+</html>

@@ -1,0 +1,696 @@
+[
+  {
+    "id": "eyebrow",
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Próximos eventos"
+  },
+  {
+    "id": "eyebrow_tag",
+    "name": "eyebrow_tag",
+    "label": "Etiqueta HTML de «eyebrow»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Sé parte de nuestras experiencias preuniversitarias"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Texto introductorio",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Participa en experiencias diseñadas para conocer tu futuro en Anáhuac."
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML de «intro»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "4dbd252f-2b1b-f98b-4f1b-7eae3cdb90a1",
+    "name": "mostrar_evento_destacado",
+    "label": "Mostrar Evento destacado",
+    "required": false,
+    "locked": false,
+    "display": "checkbox",
+    "type": "boolean",
+    "display_width": null,
+    "default": false
+  },
+  {
+    "id": "featured",
+    "name": "featured",
+    "label": "Evento destacado",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "featured.image",
+        "name": "image",
+        "label": "Imagen",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "Estudiantes caminando en campus"
+        }
+      },
+      {
+        "id": "featured.day",
+        "name": "day",
+        "label": "Día",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "15"
+      },
+      {
+        "id": "featured.month",
+        "name": "month",
+        "label": "Mes",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Mayo 2026"
+      },
+      {
+        "id": "featured.pill_text",
+        "name": "pill_text",
+        "label": "Etiqueta (pill)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Evento Masivo"
+      },
+      {
+        "id": "featured.title",
+        "name": "title",
+        "label": "Título del evento",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Vive Anáhuac"
+      },
+      {
+        "id": "featured.modality",
+        "name": "modality",
+        "label": "Modalidad",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Presencial"
+      },
+      {
+        "id": "featured.campus",
+        "name": "campus",
+        "label": "Campus",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "featured.description",
+        "name": "description",
+        "label": "Descripción",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Vive el mejor evento para preuniversitarios con talleres, conferencias, juegos, concursos, premios y mucho más."
+      },
+      {
+        "id": "featured.cta_text",
+        "name": "cta_text",
+        "label": "Texto del botón",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Regístrate aquí ›"
+      },
+      {
+        "id": "featured.cta_link",
+        "name": "cta_link",
+        "label": "Destino del botón",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "display_width": null,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": {
+      "image": {
+        "src": "",
+        "alt": "Estudiantes caminando en campus"
+      },
+      "day": "15",
+      "month": "Mayo 2026",
+      "pill_text": "Evento Masivo",
+      "title": "Vive Anáhuac",
+      "modality": "Presencial",
+      "campus": "Campus Norte",
+      "description": "Vive el mejor evento para preuniversitarios con talleres, conferencias, juegos, concursos, premios y mucho más.",
+      "cta_text": "Regístrate aquí ›",
+      "cta_link": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#"
+        },
+        "open_in_new_tab": false
+      }
+    }
+  },
+  {
+    "id": "filters",
+    "name": "filters",
+    "label": "Filtros",
+    "help_text": "El primer filtro es siempre 'Ver todos'. Cada slug debe coincidir con las etiquetas (tags) de los eventos.",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "filters.text",
+        "name": "text",
+        "label": "Texto",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Filtro"
+      },
+      {
+        "id": "filters.slug",
+        "name": "slug",
+        "label": "Slug",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "all"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "slug": "all",
+        "text": "Ver todos"
+      },
+      {
+        "slug": "sesiones-informativas",
+        "text": "Sesiones informativas"
+      },
+      {
+        "slug": "visitas-campus",
+        "text": "Visitas en Campus"
+      },
+      {
+        "slug": "brunch-informativo",
+        "text": "Brunch informativo"
+      },
+      {
+        "slug": "eventos-masivos",
+        "text": "Eventos masivos"
+      }
+    ]
+  },
+  {
+    "id": "events",
+    "name": "events",
+    "label": "Eventos",
+    "help_text": "En 'Etiquetas' escribe uno o varios slugs separados por espacio que coincidan con los filtros.",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 0,
+      "max": 24,
+      "sorting_label_field": null,
+      "default": 6
+    },
+    "children": [
+      {
+        "id": "events.day",
+        "name": "day",
+        "label": "Día",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "18"
+      },
+      {
+        "id": "events.month",
+        "name": "month",
+        "label": "Mes",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Mayo 2026"
+      },
+      {
+        "id": "events.title",
+        "name": "title",
+        "label": "Título",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Evento"
+      },
+      {
+        "id": "events.pill_text",
+        "name": "pill_text",
+        "label": "Etiqueta (pill)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": ""
+      },
+      {
+        "id": "events.modality",
+        "name": "modality",
+        "label": "Modalidad",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Virtual"
+      },
+      {
+        "id": "events.campus",
+        "name": "campus",
+        "label": "Campus",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "events.description",
+        "name": "description",
+        "label": "Descripción",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": ""
+      },
+      {
+        "id": "events.cta_text",
+        "name": "cta_text",
+        "label": "Texto del botón",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Conocer más"
+      },
+      {
+        "id": "events.cta_link",
+        "name": "cta_link",
+        "label": "Destino del botón",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "display_width": null,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "events.tags",
+        "name": "tags",
+        "label": "Etiquetas (slugs)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": ""
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "day": "18",
+        "month": "Mayo 2026",
+        "title": "Movilidad Internacional",
+        "pill_text": "Sesión Informativa",
+        "modality": "Virtual",
+        "campus": "Campus Norte",
+        "description": "Explora nuestros convenios globales y estudia un semestre en universidades aliadas del mundo.",
+        "cta_text": "Conocer más",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "sesiones-informativas"
+      },
+      {
+        "day": "22",
+        "month": "Mayo 2026",
+        "title": "Día de puertas abiertas",
+        "pill_text": "",
+        "modality": "Virtual",
+        "campus": "Campus Sur",
+        "description": "Vive un día como León Anáhuac con talleres, conferencias y competencias en vivo.",
+        "cta_text": "Agendar visita",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "visitas-campus"
+      },
+      {
+        "day": "25",
+        "month": "Mayo 2026",
+        "title": "Encuentro con egresados",
+        "pill_text": "",
+        "modality": "Presencial",
+        "campus": "Bi-Campus",
+        "description": "Escucha historias reales de quiénes estudiaron aquí y hoy generan impacto profesional.",
+        "cta_text": "Inscribirse",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "eventos-masivos"
+      },
+      {
+        "day": "29",
+        "month": "Mayo 2026",
+        "title": "Taller vocacional Anáhuac",
+        "pill_text": "",
+        "modality": "Presencial",
+        "campus": "Campus Norte",
+        "description": "Descubre tus intereses profesionales con actividades guiadas por orientadores universitarios.",
+        "cta_text": "Apartar lugar",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "visitas-campus"
+      },
+      {
+        "day": "04",
+        "month": "Junio 2026",
+        "title": "Brunch para familias",
+        "pill_text": "",
+        "modality": "Presencial",
+        "campus": "Campus Sur",
+        "description": "Conoce instalaciones, resuelve dudas de admisión y conversa con asesores académicos.",
+        "cta_text": "Reservar",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "brunch-informativo"
+      },
+      {
+        "day": "11",
+        "month": "Junio 2026",
+        "title": "Clase muestra por área",
+        "pill_text": "",
+        "modality": "Virtual",
+        "campus": "Bi-Campus",
+        "description": "Vive una sesión académica breve para acercarte a la experiencia real de tu licenciatura.",
+        "cta_text": "Ver horarios",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "tags": "sesiones-informativas"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_intro",
+        "name": "color_intro",
+        "label": "Color del texto de introducción",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Botones · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Botones · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

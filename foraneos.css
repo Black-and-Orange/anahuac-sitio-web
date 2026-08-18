@@ -1,0 +1,1307 @@
+/* =============================================
+   FORÁNEOS
+   Página de soporte y comunidad. Reutiliza el design system: los bloques de
+   acento vienen de psicologia.css, las dos columnas por campus y la tarjeta de
+   asesor de apoyos-economicos.css, y «experience» / «stories» de styles.css.
+   Aquí solo vive lo específico de esta página.
+   ============================================= */
+
+/* El atributo `hidden` es `display:none` con especificidad cero, así que
+   cualquier regla que declare `display` lo derrota en silencio. Pasó con
+   `.button-row` y con los filtros del mapa: nacían con `hidden` y se veían
+   igual. Esta regla lo vuelve fiable en toda la página. */
+[hidden] {
+  display: none !important;
+}
+
+/* Oculto visualmente pero anunciado por lectores de pantalla. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== 1. Hero =====
+   Misma estructura y ritmo que el hero de Apoyos: copy centrado arriba y,
+   debajo, media + panel en dos columnas. El H1 usa la escala del sistema. */
+.for-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 191px;
+  padding-bottom: 100px;
+  background:
+    radial-gradient(ellipse at 80% -28%, rgba(205, 185, 239, 0.76) 0%, rgba(225, 214, 247, 0.38) 28%, rgba(255, 255, 255, 0) 52%),
+    var(--white);
+}
+
+.for-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.for-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.for-hero-copy .tagline {
+  justify-content: center;
+}
+
+.for-hero-copy .tagline,
+.for-hero-copy h1 {
+  text-wrap: balance;
+}
+
+.for-hero-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.for-hero-media {
+  position: relative;
+}
+
+.for-hero-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* El control de pausa es requisito de accesibilidad para cualquier media que
+   arranca sola. Se mantiene visible, no aparece solo al pasar el cursor. */
+.for-video-pausa {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: rgba(0, 0, 0, 0.62);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.for-video-pausa:hover,
+.for-video-pausa:focus-visible {
+  background: rgba(0, 0, 0, 0.82);
+}
+
+.for-hero-info-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.for-hero-info-copy .button-row {
+  margin-top: 0;
+}
+
+.for-hero .hero-card {
+  background: var(--cta-bg-purple);
+}
+
+.for-hero .hero-card p {
+  text-wrap: balance;
+}
+
+/* ===== 2. ¿Quién es foráneo? ===== */
+.for-quien {
+  background: var(--gray);
+}
+
+/* Medida de línea de los intros. Sin esto el párrafo corre a los 1240px del
+   contenedor, que son unos 150 caracteres por línea. */
+.for-quien .section-intro > p,
+.for-cdmx .section-intro > p,
+.for-calc .section-intro > p,
+.for-hospedaje .section-intro > p,
+.for-videos .section-intro > p,
+.for-mapa .section-intro > p,
+.for-salud .section-intro > p,
+.for-comunidad .section-intro > p,
+.for-admision .section-intro > p {
+  max-width: 715px;
+  text-wrap: pretty;
+}
+
+/* Cuando el intro va ENCIMA del contenido, el sistema lo separa con 50px: es lo
+   que hacen .apo-consideraciones, .apo-faq y .adm-fechas. Los 40px del valor
+   base son para los módulos cuyo intro vive en una columna lateral —experience,
+   siguiente paso, asesoría—, que es otra relación. */
+.for-quien .section-intro,
+.for-cdmx .section-intro,
+.for-calc .section-intro,
+.for-hospedaje .section-intro,
+.for-videos .section-intro,
+.for-mapa .section-intro,
+.for-salud .section-intro,
+.for-comunidad .section-intro,
+.for-admision .section-intro,
+.for-faq .section-intro {
+  margin-bottom: 50px;
+}
+
+/* Dos tarjetas en vez de las tres del plan de estudios. Se encadena la clase
+   del componente para ganar en especificidad: la regla portada de .plan-bloques
+   vive más abajo en este archivo y si no, gana por orden. */
+.plan-bloques.for-quien-bloques,
+.plan-bloques.for-comunidad-bloques {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Icono de tipo de foráneo: mismo tratamiento que los del mapa de servicios —
+   cuadro redondeado con el color de acento de su tarjeta. */
+.for-tipo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  border-radius: var(--radius);
+}
+
+.for-tipo-icono svg {
+  width: 24px;
+  height: 24px;
+}
+
+.plan-bloque--prof .for-tipo-icono {
+  background: rgba(255, 89, 0, 0.1);
+  color: var(--orange);
+}
+
+.plan-bloque--anahuac .for-tipo-icono {
+  background: rgba(93, 66, 140, 0.1);
+  color: var(--purple-2);
+}
+
+/* El dato de composición usa el contador animado del sistema: son cifras reales
+   y merecen el momento de movimiento. La frase se mantiene en tono de apoyo;
+   solo los números ganan peso. */
+.for-dato {
+  margin-top: 32px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.for-dato-cifra {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--orange);
+}
+
+/* Las tarjetas de contenido responden al puntero igual que el resto de la
+   página. `.consideracion` se repite quince veces aquí y era la única sin
+   estado; `.fex-paso` tampoco lo tenía. Se acota a esta página para no alterar
+   los componentes en sus maquetas de origen. */
+.for-cdmx .consideracion,
+.for-salud .consideracion,
+.for-roomies-grid .consideracion,
+.for-guia-pasos .fex-paso {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.for-cdmx .consideracion:hover,
+.for-salud .consideracion:hover,
+.for-roomies-grid .consideracion:hover,
+.for-guia-pasos .fex-paso:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+.for-cdmx .consideracion:hover,
+.for-salud .consideracion:hover {
+  border-color: var(--lilac-1);
+}
+
+.for-puente {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.for-puente-frase {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--purple-2);
+  text-wrap: balance;
+}
+
+/* Enlace terciario: no es un botón, por decisión del handoff */
+.for-link-terciario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.for-link-terciario:hover,
+.for-link-terciario:focus-visible {
+  color: var(--purple-2);
+}
+
+.for-link-terciario-wrap {
+  margin-top: 20px;
+}
+
+/* ===== 3. ¿Por qué la CDMX? =====
+   Monta el componente .path del home: al pasar por cada razón cambia la foto
+   grande. Era el módulo más aspiracional de la página y el único sin ningún
+   momento de interacción propio.
+
+   Las tarjetas del home llevan un título corto y revelan su descripción al
+   abrirse; aquí cada razón es una frase completa del handoff, así que la altura
+   fija de 85px no sirve. Se libera la altura y el hover se queda con lo que
+   importa: cambiar la foto y encender el acento. */
+.for-cdmx {
+  background: var(--white);
+}
+
+/* El componente fija la altura de la tarjeta por breakpoint —85px de base, 65
+   entre 1181 y 1440— con `.path-card:not(:hover):not(.is-open)`, tres clases de
+   especificidad. Aquí cada razón es una frase completa y a altura fija se
+   recortaban cinco de las seis, así que hay que igualar ese selector para
+   liberarla. `flex-shrink: 0` evita además que la columna se comprima contra
+   la foto. */
+.for-cdmx .path-card,
+.for-cdmx .path-card:not(:hover):not(.is-open),
+.for-cdmx .path-card:hover,
+.for-cdmx .path-card.is-open {
+  height: auto;
+  min-height: 0;
+  flex-shrink: 0;
+  padding: 20px 22px;
+  justify-content: center;
+}
+
+/* El reparto del home es 925/315 porque allí los títulos son de dos palabras.
+   Aquí cada tarjeta lleva una frase completa y a 315px se partía en cuatro y
+   cinco líneas. Se le da más ancho a la columna de texto a costa de la foto, y
+   `stretch` hace que la foto termine donde terminan las tarjetas en vez de
+   dejarlas colgando sobre el fondo. */
+.for-cdmx-layout {
+  margin-top: 50px;
+}
+
+.for-cdmx .path-layout {
+  grid-template-columns: minmax(0, 1fr) 470px;
+  /* `center` en lugar de `start`: la columna de tarjetas es más corta que la
+     foto, y alineada arriba dejaba la primera a ras y un hueco solo al final.
+     Centrada, el margen es el mismo arriba y abajo. Es seguro porque la foto ya
+     tiene proporción fija: su altura no cambia al pasar de una tarjeta a otra. */
+  align-items: center;
+}
+
+.for-cdmx .path-photo {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+/* Sin `space-between`: repartir el sobrante entre las tarjetas hace que los
+   huecos se recalculen en cada cambio de estado y la columna «baile». */
+.for-cdmx .path-cards {
+  width: 555px;
+  gap: 14px;
+}
+
+.for-cdmx .path-title {
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* El componente fija el tamaño del título con `.path-card:not(:hover):not(.is-open)
+   .path-title h3` —cuatro clases— y por breakpoint: 30px arriba de 1440, 22 por
+   debajo. Con frases completas eso daba cuatro y cinco líneas. Hay que igualar
+   el selector para bajarlo. */
+.for-cdmx .path-card h3,
+.for-cdmx .path-card:not(:hover):not(.is-open) .path-title h3,
+.for-cdmx .path-card:hover .path-title h3,
+.for-cdmx .path-card.is-open .path-title h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+/* El número sustituye al icono del componente original: la numeración ya viene
+   en el contenido y da un ancla visual sin inventar iconografía. */
+.for-razon-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* El intro del componente va centrado en el home; aquí la página alinea todo a
+   la izquierda y romperlo desalinearía este módulo con los otros catorce. */
+.for-cdmx .section-intro {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ===== 5. Calculadora =====
+   Toma el lenguaje del cotizador: dos tarjetas de precio en paralelo con el
+   monto como ancla visual y el desglose por rubro debajo. El sitio ya resuelve
+   así «hablar de dinero», y el módulo dejaba de tener cualquier peso visual
+   siendo solo un párrafo y una caja gris. */
+.for-calc {
+  background: var(--gray);
+}
+
+/* Especificidad: al vivir dentro del .section-intro, `.section-intro > p` le
+   gana a una clase suelta. */
+.section-intro > p.for-calc-intro,
+.section-intro > p.for-mapa-intro {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.for-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.for-precio {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.for-precio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+/* El acento por campus es el mismo que en el resto de la página: Norte naranja,
+   Sur morado. Así las dos columnas se reconocen sin leer el título. */
+.for-precio--norte {
+  border-color: var(--orange);
+}
+
+.for-precio--sur {
+  border-color: var(--purple-2);
+}
+
+.for-precio-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.for-precio-top h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.for-precio--norte .for-precio-top h3 {
+  color: var(--orange);
+}
+
+.for-precio--sur .for-precio-top h3 {
+  color: var(--purple-2);
+}
+
+/* El monto es el ancla visual del módulo. Mientras no haya cifras reales dice
+   «Por definir», con el mismo peso tipográfico que tendrá el número. */
+.for-precio-monto {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  line-height: 1.05;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Sin cifra real, el monto no puede ser el elemento más grande del módulo. */
+.for-precio-monto--pendiente {
+  font-size: 22px;
+  color: var(--text-gray);
+}
+
+.for-precio-periodo {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.for-precio-rubros {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.for-precio-rubros li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text-gray);
+}
+
+.for-precio-dato {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Aviso de dato pendiente. Mismo tratamiento en la calculadora y en el mapa:
+   son el mismo tipo de mensaje y antes cada uno tenía el suyo. */
+.for-calc-nota,
+.for-mapa-nota {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  padding: 20px 24px;
+  border-left: 4px solid var(--orange);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.for-calc-nota p {
+  flex: 1 1 420px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.for-calc-nota .button-row {
+  margin-top: 0;
+}
+
+.for-calc-zonas {
+  margin-top: 32px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.for-calc-zonas a,
+.for-guia a {
+  color: var(--orange);
+}
+
+/* ===== 6. Hospedaje =====
+   Una sola tarjeta por campus. Antes eran cinco bloques sueltos apilados —foto,
+   título, etiqueta, chips y una tarjeta de asesor de 608px— con dos imágenes
+   compitiendo por columna. Ahora hay una imagen grande (el entorno del campus),
+   un avatar pequeño para la persona de contacto, y una jerarquía interna clara:
+   dónde → quién → cómo contactarle. */
+.for-hospedaje {
+  background: var(--white);
+}
+
+.for-campus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.for-campus {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.for-campus:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+}
+
+.for-campus--norte {
+  border-color: var(--orange);
+}
+
+.for-campus--sur {
+  border-color: var(--purple-2);
+}
+
+/* La foto es el encabezado de la tarjeta: va a sangre, sin radio propio, y el
+   `overflow: hidden` del contenedor la recorta contra las esquinas. */
+.for-campus-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+.for-campus-cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px;
+}
+
+.for-campus-cuerpo h3 {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.for-campus--norte .for-campus-cuerpo h3 {
+  color: var(--orange);
+}
+
+.for-campus--sur .for-campus-cuerpo h3 {
+  color: var(--purple-2);
+}
+
+/* Las zonas reservan dos filas de chips. Norte tiene cinco y Sur cuatro, así
+   que sin esto el bloque de contacto arrancaba a distinta altura en cada
+   tarjeta y las dos columnas dejaban de sincronizar. */
+.for-campus .for-zonas {
+  min-height: 78px;
+  align-content: flex-start;
+}
+
+/* La persona de contacto va sobre una divisoria: separa el «dónde» del «quién»
+   sin necesidad de otra caja. */
+.for-contacto {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* `.asesor-foto` trae `min-width: 280px` para su uso en Apoyos; aquí el avatar
+   es pequeño y hay que anularlo o el min-width gana. */
+.for-contacto-avatar {
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center top;
+}
+
+.for-contacto-nombre {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.for-contacto-rol {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-gray);
+}
+
+.for-contacto-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.for-cierre-calido {
+  margin-top: 50px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--purple-2);
+  text-wrap: balance;
+  max-width: 900px;
+}
+
+.for-hospedaje-cta {
+  margin-top: 32px;
+}
+
+.for-roomies {
+  margin-top: 50px;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--gray);
+}
+
+.for-roomies h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.for-roomies-grid {
+  margin-top: 0;
+}
+
+/* ===== 7. Dos videos ===== */
+.for-videos {
+  background: var(--gray);
+}
+
+.for-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.for-video {
+  margin: 0;
+}
+
+.for-video video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--black);
+  display: block;
+}
+
+.for-video figcaption {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+/* ===== 8. Mapa de servicios ===== */
+.for-mapa {
+  background: var(--white);
+}
+
+/* Los filtros son mejora progresiva: nacen ocultos y el JS los revela. Sin JS
+   se ven todas las categorías, así que nunca son la única vía al contenido. */
+.for-mapa-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.for-filtro {
+  padding: 9px 16px;
+  border: 1.5px solid var(--lilac-1);
+  border-radius: var(--radius-button);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.for-filtro:hover,
+.for-filtro:focus-visible {
+  border-color: var(--purple-2);
+}
+
+.for-filtro.is-active {
+  background: var(--purple-2);
+  border-color: var(--purple-2);
+  color: var(--white);
+}
+
+/* Las siete categorías del directorio, visibles aunque el listado no exista
+   todavía: el módulo pasa de «no hay nada» a «esto vas a encontrar». */
+.for-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.for-categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.for-categoria:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+  border-color: var(--lilac-1);
+}
+
+.for-categoria-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: rgba(93, 66, 140, 0.08);
+  color: var(--purple-2);
+}
+
+.for-categoria-icono svg {
+  width: 24px;
+  height: 24px;
+}
+
+.for-categoria h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* ===== 9. Salud y bienestar ===== */
+.for-salud {
+  background: var(--gray);
+}
+
+.for-guia {
+  margin-top: 50px;
+}
+
+.for-guia h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+
+/* La guía usa las tarjetas numeradas de Fechas de examen, pero sin título por
+   paso: cada una es una sola instrucción. */
+.for-guia-pasos .fex-paso p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+/* ===== 10. Comunidad =====
+   «ADEFA + CAF» baja a su propia línea. Se hace con un span en bloque y no con
+   un <br>: el texto del título no cambia y el salto se puede desactivar por
+   breakpoint si algún día estorba. */
+.for-h2-linea {
+  display: block;
+}
+
+.for-comunidad {
+  background: var(--white);
+}
+
+.for-redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.for-red {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.for-red svg {
+  width: 20px;
+  height: 20px;
+}
+
+.for-red:hover,
+.for-red:focus-visible {
+  color: var(--purple-2);
+}
+
+.for-caf-nota {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.for-comunidad-cta {
+  margin-top: 40px;
+}
+
+/* El rol del asesor en el módulo 12; su regla vivía en el bloque de hospedaje
+   que se reescribió. */
+.for-asesor-rol {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+}
+
+.for-contacto-quien {
+  min-width: 0;
+}
+
+/* ===== 12. Asesor =====
+   La tarjeta va horizontal: en Apoyos vive en una columna estrecha y se apila,
+   pero aquí dispone de 610px y en vertical medía 564px de alto contra 292 de la
+   columna de texto, dejando la mitad izquierda vacía. En horizontal las dos
+   columnas se equilibran. */
+.for-asesor {
+  background: var(--orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.for-asesor-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 610px);
+  gap: 60px;
+  align-items: center;
+}
+
+.for-asesor-layout .section-intro {
+  width: auto;
+}
+
+.for-asesor .asesor-card {
+  width: 100%;
+  max-width: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+/* La foto baja de 280 a 200px: en horizontal, a 280 se comía la mitad de la
+   tarjeta y dejaba el texto sin aire. */
+.for-asesor .asesor-foto {
+  width: 200px;
+  min-width: 200px;
+}
+
+.for-asesor .asesor-info {
+  max-width: none;
+  gap: 12px;
+}
+
+/* Sobre la banda naranja, el enlace del correo tiene que ser blanco: en naranja
+   quedaba con contraste 1:1, invisible. */
+.for-asesor-fallback {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.for-asesor-fallback a {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ===== 13. Proceso de admisión =====
+   Dos columnas en vez de tres bandas apiladas. A la izquierda el mensaje que
+   aplica a todos —el proceso es el mismo— con sus dos CTA; a la derecha, en su
+   propia tarjeta, el trámite migratorio, que solo concierne a los
+   internacionales. El panel blanco anterior era una barra de 1240×169 para una
+   sola línea de texto. */
+.for-admision {
+  background: var(--purple-1);
+  color: var(--white);
+}
+
+.for-admision-copy {
+  min-width: 0;
+}
+
+.for-admision-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 560px);
+  gap: 60px;
+  align-items: start;
+}
+
+.for-admision .section-intro {
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.for-admision .section-intro h2,
+.for-admision .section-intro p,
+.for-admision-remate {
+  color: var(--white);
+}
+
+.for-admision .section-intro > p {
+  max-width: none;
+}
+
+/* El remate cierra el argumento antes de los botones: va un punto por encima
+   del párrafo de respuesta, no en una caja aparte. */
+.for-admision-remate {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  line-height: 1.35;
+  font-weight: 500;
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+
+/* Tarjeta blanca sobre el morado: el contraste separa «esto solo aplica a
+   algunos» del mensaje general, y el texto oscuro se lee mejor que el blanco
+   sobre morado que tenía antes. */
+.for-migratorio {
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--color-text);
+}
+
+.for-migratorio .faq-list {
+  margin-bottom: 0;
+}
+
+.for-migratorio .faq-item {
+  border: 0;
+}
+
+.for-migratorio summary {
+  padding-top: 0;
+}
+
+.for-migratorio summary h3 {
+  display: inline;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.for-disclaimer {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--orange);
+  background: rgba(0, 0, 0, 0.04);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.for-migratorio-pasos {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.for-migratorio-pasos li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.for-migratorio .faq-answer p {
+  color: var(--text-gray);
+}
+
+.for-migratorio .faq-answer a {
+  color: var(--orange);
+}
+
+/* ===== 14. FAQ ===== */
+.for-faq {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.for-faq .section-intro {
+  text-align: left;
+}
+
+
+/* ===== Componentes portados de otras maquetas =====
+   En el theme de HubSpot todos viven en main.css y no haría falta duplicarlos;
+   aquí sí, porque cada maqueta carga solo su propia hoja. Se copian tal cual,
+   sin retocar valores, para que el componente se vea idéntico a su origen. */
+
+/* Bloques con contorno de acento — psicologia.css (módulos 2 y 10) */
+.plan-bloques {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plan-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 32px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.plan-bloque--prof {
+  border-color: var(--orange);
+}
+
+.plan-bloque--anahuac {
+  border-color: var(--purple-2);
+}
+
+.plan-bloque h3 {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.plan-bloque p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* Chips — psicologia.css (zonas recomendadas por campus) */
+.lic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1.5px solid var(--lilac-1);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  color: var(--purple-1);
+}
+
+/* Estado vacío — fechas-de-examenes.css. Sin esta regla base, los módulos que
+   aún no tienen datos reales mostraban el mensaje como texto suelto. */
+.fechas-vacio {
+  padding: 28px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-gray);
+  text-align: center;
+}
+
+/* Tarjetas numeradas — fechas-de-examenes.css (guía de 4 pasos del módulo 9) */
+.fex-pasos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fex-paso {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 24px rgba(67, 47, 100, 0.08);
+}
+
+.fex-paso-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1180px) {
+  .for-hero {
+    padding-top: 180px;
+  }
+
+  .for-hero-copy {
+    max-width: none;
+  }
+
+  .for-hero h1 {
+    font-size: 72px;
+  }
+
+  .for-hero-info {
+    grid-template-columns: 1fr;
+  }
+
+  .for-asesor-layout,
+  .for-admision-copy {
+  min-width: 0;
+}
+
+.for-admision-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .for-quien-bloques,
+  .for-comunidad-bloques,
+  .for-videos-grid,
+  .for-calc-grid,
+  .for-campus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .for-guia-pasos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .for-puente {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .for-link-terciario {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .for-hero {
+    padding-top: 140px;
+    padding-bottom: 60px;
+  }
+
+  .for-hero h1 {
+    font-size: 52px;
+  }
+
+  .for-migratorio,
+  .for-roomies,
+  .for-precio {
+    padding: 24px;
+  }
+
+  .for-precio-monto {
+    font-size: 36px;
+  }
+
+  .for-guia-pasos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .for-hero {
+    padding-top: 160px;
+  }
+}

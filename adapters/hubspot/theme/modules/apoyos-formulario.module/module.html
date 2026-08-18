@@ -1,0 +1,68 @@
+{# ===== Apoyos · Formulario de contacto =====
+   Si Marketing elige un formulario de HubSpot, se renderiza el real y los
+   envíos entran al CRM. Si no hay ninguno seleccionado, cae a la maqueta de la
+   LP (misma que oferta-form: reproducción visual que NO envía datos), para que
+   la sección nunca quede vacía en el editor. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-form-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--support-form-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+<section class="apo-form section-pad" id="actua"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="apo-form-layout">
+      <div class="apo-form-media">
+        <img src="{{ module.grupo_imagen.image.src or get_asset_url('../../images/apoyos-economicos/img-formulario-apoyo.jpg') }}"
+             alt="{{ module.grupo_imagen.image.alt }}" loading="lazy" />
+      </div>
+      <div class="apo-form-content">
+        <div class="section-intro reveal" data-reveal>
+          {% if c.eyebrow %}
+            <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+          {% endif %}
+          {% if c.heading %}<{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+          {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+        </div>
+
+        <div class="apo-form-card reveal" data-reveal>
+          {% if module.grupo_formulario.formulario.form_id %}
+            {% form
+              form_to_use="{{ module.grupo_formulario.formulario.form_id }}"
+              response_type="{{ module.grupo_formulario.formulario.response_type }}"
+              message="{{ module.grupo_formulario.formulario.message }}"
+              redirect_id="{{ module.grupo_formulario.formulario.redirect_id }}"
+              redirect_url="{{ module.grupo_formulario.formulario.redirect_url }}"
+            %}
+          {% else %}
+            {# Respaldo visual: sin formulario seleccionado no hay envío de datos. #}
+            <input type="text" placeholder="Nombre" aria-label="Nombre" />
+            <input type="email" placeholder="Correo" aria-label="Correo electrónico" />
+            <input type="tel" placeholder="Teléfono" aria-label="Teléfono" />
+            <select class="js-select" aria-label="Campus de interés">
+              <option value="" disabled selected>Campus de interés</option>
+              <option value="norte">Campus Norte</option>
+              <option value="sur">Campus Sur</option>
+            </select>
+            <input type="text" placeholder="Licenciatura de interés" aria-label="Licenciatura de interés" />
+            <select class="js-select" aria-label="Tema de interés">
+              <option value="" disabled selected>Tema de interés</option>
+              <option value="academico">Apoyo académico</option>
+              <option value="excelencia">Apoyo de excelencia</option>
+              <option value="deportivo">Deportivo</option>
+              <option value="artistico">Artístico</option>
+              <option value="concursos">Concursos</option>
+              <option value="financiamiento">Financiamiento</option>
+            </select>
+            <label class="apo-form-check">
+              <input type="checkbox" />
+              Acepto los términos legales
+            </label>
+            <button type="submit" class="btn btn-orange">Quiero recibir orientación</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

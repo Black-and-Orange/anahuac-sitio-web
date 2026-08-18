@@ -1,0 +1,76 @@
+{# ===== Apoyos · Detalle por apoyo =====
+   Acordeón nativo con <details name="…">: el navegador cierra las demás fichas
+   sin JS. El id de cada <details> es el ancla que apunta desde el Panorama.
+
+   Los interruptores de "Visibilidad" ocultan datos sin borrarlos y las
+   etiquetas (Perfil ideal, Requisito…) se editan en el grupo "Etiquetas". #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set l = module.grupo_etiquetas %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-detail-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_nombre.color %}{% set estilo = estilo ~ "--support-detail-nombre-text:" ~ e.color_nombre.color ~ ";" %}{% endif %}
+{% if e.color_rango.color %}{% set estilo = estilo ~ "--support-detail-range-text:" ~ e.color_rango.color ~ ";" %}{% endif %}
+{% if e.color_descripcion.color %}{% set estilo = estilo ~ "--support-detail-secondary-text:" ~ e.color_descripcion.color ~ ";" %}{% endif %}
+{% if e.color_etiquetas.color %}{% set estilo = estilo ~ "--support-detail-accent-text:" ~ e.color_etiquetas.color ~ ";" %}{% endif %}
+{% if e.color_valores.color %}{% set estilo = estilo ~ "--support-detail-body-text:" ~ e.color_valores.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--support-detail-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--support-detail-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+{% if v.tamano_rango %}{% set estilo = estilo ~ "--support-detail-range-size:var(--" ~ v.tamano_rango ~ ");" %}{% endif %}
+
+<section class="apo-detalle section-pad" id="detalle-apoyos" aria-labelledby="detalle-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container apo-detalle-layout">
+    <div class="apo-detalle-aside">
+      <div class="section-intro reveal" data-reveal>
+        {% if c.eyebrow %}
+          <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+        {% endif %}
+        {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="detalle-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+        {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+      </div>
+      <img class="detalle-media reveal" data-reveal
+           src="{{ module.grupo_imagen.image.src or get_asset_url('../../images/apoyos-economicos/default-detalle-apoyos.jpg') }}"
+           alt="{{ module.grupo_imagen.image.alt }}" loading="lazy" />
+    </div>
+
+    <div class="detalle-list reveal" data-reveal>
+      {% for ficha in module.fichas %}
+        <details class="detalle-item" id="{{ ficha.ancla|default('apoyo-' ~ loop.index, true) }}" name="detalle-apoyos">
+          <summary>
+            <{{ ficha.titulo_tag|default('span', true) }} class="detalle-nombre"{% if ficha.titulo_color.color %} style="color:{{ ficha.titulo_color.color }}"{% endif %}>{{ ficha.titulo }}</{{ ficha.titulo_tag|default('span', true) }}>
+            {% if v.mostrar_rango and ficha.rango %}<span class="detalle-rango">{% if ficha.rango_tag and ficha.rango_tag != 'ninguna' %}<{{ ficha.rango_tag }}{% if ficha.rango_color.color %} style="color:{{ ficha.rango_color.color }}"{% endif %}>{{ ficha.rango }}</{{ ficha.rango_tag }}>{% elif ficha.rango_color.color %}<span style="color:{{ ficha.rango_color.color }}">{{ ficha.rango }}</span>{% else %}{{ ficha.rango }}{% endif %}</span>{% endif %}
+          </summary>
+          <div class="detalle-panel">
+            {% if v.mostrar_descripcion and ficha.descripcion %}
+              <div class="detalle-desc">{{ ficha.descripcion }}</div>
+            {% endif %}
+
+            {% set hay_perfil = v.mostrar_perfil and ficha.perfil %}
+            {% set hay_requisito = v.mostrar_requisito and ficha.requisito %}
+            {% set hay_evaluacion = v.mostrar_evaluacion and ficha.evaluacion %}
+            {% set hay_notas = v.mostrar_notas and ficha.notas %}
+            {% if hay_perfil or hay_requisito or hay_evaluacion or hay_notas %}
+              <dl class="detalle-ficha">
+                {% if hay_perfil %}<div><dt>{% if l.label_perfil_tag and l.label_perfil_tag != 'ninguna' %}<{{ l.label_perfil_tag }}{% if l.label_perfil_color.color %} style="color:{{ l.label_perfil_color.color }}"{% endif %}>{{ l.label_perfil }}</{{ l.label_perfil_tag }}>{% elif l.label_perfil_color.color %}<span style="color:{{ l.label_perfil_color.color }}">{{ l.label_perfil }}</span>{% else %}{{ l.label_perfil }}{% endif %}</dt><dd>{% if ficha.perfil_tag and ficha.perfil_tag != 'ninguna' %}<{{ ficha.perfil_tag }}{% if ficha.perfil_color.color %} style="color:{{ ficha.perfil_color.color }}"{% endif %}>{{ ficha.perfil }}</{{ ficha.perfil_tag }}>{% elif ficha.perfil_color.color %}<span style="color:{{ ficha.perfil_color.color }}">{{ ficha.perfil }}</span>{% else %}{{ ficha.perfil }}{% endif %}</dd></div>{% endif %}
+                {% if hay_requisito %}<div><dt>{% if l.label_requisito_tag and l.label_requisito_tag != 'ninguna' %}<{{ l.label_requisito_tag }}{% if l.label_requisito_color.color %} style="color:{{ l.label_requisito_color.color }}"{% endif %}>{{ l.label_requisito }}</{{ l.label_requisito_tag }}>{% elif l.label_requisito_color.color %}<span style="color:{{ l.label_requisito_color.color }}">{{ l.label_requisito }}</span>{% else %}{{ l.label_requisito }}{% endif %}</dt><dd>{% if ficha.requisito_tag and ficha.requisito_tag != 'ninguna' %}<{{ ficha.requisito_tag }}{% if ficha.requisito_color.color %} style="color:{{ ficha.requisito_color.color }}"{% endif %}>{{ ficha.requisito }}</{{ ficha.requisito_tag }}>{% elif ficha.requisito_color.color %}<span style="color:{{ ficha.requisito_color.color }}">{{ ficha.requisito }}</span>{% else %}{{ ficha.requisito }}{% endif %}</dd></div>{% endif %}
+                {% if hay_evaluacion %}<div><dt>{% if l.label_evaluacion_tag and l.label_evaluacion_tag != 'ninguna' %}<{{ l.label_evaluacion_tag }}{% if l.label_evaluacion_color.color %} style="color:{{ l.label_evaluacion_color.color }}"{% endif %}>{{ l.label_evaluacion }}</{{ l.label_evaluacion_tag }}>{% elif l.label_evaluacion_color.color %}<span style="color:{{ l.label_evaluacion_color.color }}">{{ l.label_evaluacion }}</span>{% else %}{{ l.label_evaluacion }}{% endif %}</dt><dd>{% if ficha.evaluacion_tag and ficha.evaluacion_tag != 'ninguna' %}<{{ ficha.evaluacion_tag }}{% if ficha.evaluacion_color.color %} style="color:{{ ficha.evaluacion_color.color }}"{% endif %}>{{ ficha.evaluacion }}</{{ ficha.evaluacion_tag }}>{% elif ficha.evaluacion_color.color %}<span style="color:{{ ficha.evaluacion_color.color }}">{{ ficha.evaluacion }}</span>{% else %}{{ ficha.evaluacion }}{% endif %}</dd></div>{% endif %}
+                {% if hay_notas %}<div><dt>{% if l.label_notas_tag and l.label_notas_tag != 'ninguna' %}<{{ l.label_notas_tag }}{% if l.label_notas_color.color %} style="color:{{ l.label_notas_color.color }}"{% endif %}>{{ l.label_notas }}</{{ l.label_notas_tag }}>{% elif l.label_notas_color.color %}<span style="color:{{ l.label_notas_color.color }}">{{ l.label_notas }}</span>{% else %}{{ l.label_notas }}{% endif %}</dt><dd>{% if ficha.notas_tag and ficha.notas_tag != 'ninguna' %}<{{ ficha.notas_tag }}{% if ficha.notas_color.color %} style="color:{{ ficha.notas_color.color }}"{% endif %}>{{ ficha.notas }}</{{ ficha.notas_tag }}>{% elif ficha.notas_color.color %}<span style="color:{{ ficha.notas_color.color }}">{{ ficha.notas }}</span>{% else %}{{ ficha.notas }}{% endif %}</dd></div>{% endif %}
+              </dl>
+            {% endif %}
+
+            {% if v.mostrar_cta and ficha.cta_texto %}
+              <div class="button-row">
+                <a class="btn btn-orange" href="{{ ficha.cta_enlace.url.href|default('#', true) }}"
+                   {% if ficha.cta_enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if ficha.cta_texto_tag and ficha.cta_texto_tag != 'ninguna' %}<{{ ficha.cta_texto_tag }}{% if ficha.cta_texto_color.color %} style="color:{{ ficha.cta_texto_color.color }}"{% endif %}>{{ ficha.cta_texto }}</{{ ficha.cta_texto_tag }}>{% elif ficha.cta_texto_color.color %}<span style="color:{{ ficha.cta_texto_color.color }}">{{ ficha.cta_texto }}</span>{% else %}{{ ficha.cta_texto }}{% endif %}</a>
+              </div>
+            {% endif %}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,304 @@
+[ {
+  "id" : "logo",
+  "name" : "logo",
+  "label" : "Logo",
+  "required" : false,
+  "locked" : true,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "https://www.anahuac.mx/logo-anahuac.svg",
+    "alt" : "Anáhuac México",
+    "width" : 122,
+    "height" : 47
+  }
+}, {
+  "id" : "logo_link",
+  "name" : "logo_link",
+  "label" : "Enlace del logo",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "/"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "nav_items",
+  "name" : "nav_items",
+  "label" : "Elementos del menú",
+  "help_text" : "Cada elemento puede tener un submenú (déjalo vacío para un enlace simple).",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 12,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "nav_items.text",
+    "name" : "text",
+    "label" : "Texto",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Enlace"
+  }, {
+    "id" : "nav_items.link",
+    "name" : "link",
+    "label" : "Destino",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "show_advanced_rel_options" : false,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    }
+  }, {
+    "id" : "nav_items.submenu",
+    "name" : "submenu",
+    "label" : "Submenú",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 8,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "children" : [ {
+      "id" : "nav_items.submenu.text",
+      "name" : "text",
+      "label" : "Texto",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Subenlace"
+    }, {
+      "id" : "nav_items.submenu.link",
+      "name" : "link",
+      "label" : "Destino",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "/oferta-academica"
+      },
+      "open_in_new_tab" : false
+    },
+    "submenu" : [ ],
+    "text" : "Licenciaturas"
+  }, {
+    "link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "submenu" : [ {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "/proceso-de-admision"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Proceso de admisión"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Fechas de examen"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Revalidación y equivalencia"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Curso para examen de admisión"
+    } ],
+    "text" : "Admisiones"
+  }, {
+    "link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "submenu" : [ {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Costos"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Cotiza tu licenciatura"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Apoyos educativos"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Financiamiento"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Concursos"
+    } ],
+    "text" : "Costos y apoyos"
+  }, {
+    "link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "submenu" : [ {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#experiencia"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Experiencia"
+    }, {
+      "link" : {
+        "url" : {
+          "type" : "EXTERNAL",
+          "href" : "#eventos"
+        },
+        "open_in_new_tab" : false
+      },
+      "text" : "Eventos"
+    } ],
+    "text" : "Vida universitaria"
+  }, {
+    "link" : {
+      "url" : {
+        "type" : "EXTERNAL",
+        "href" : "#"
+      },
+      "open_in_new_tab" : false
+    },
+    "submenu" : [ ],
+    "text" : "Foráneos"
+  } ]
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "Texto del botón (CTA)",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Contacto"
+}, {
+  "id" : "cta_link",
+  "name" : "cta_link",
+  "label" : "Destino del botón (CTA)",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "type" : "EXTERNAL",
+      "href" : "#contacto"
+    },
+    "open_in_new_tab" : false
+  }
+} ]

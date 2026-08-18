@@ -1,0 +1,284 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¡Estás en el primer paso!"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Inicia tu proceso aquí"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Llena el formulario de solicitud y cuando finalices te llevará al siguiente paso para continuar con el proceso."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_flecha",
+        "name": "mostrar_flecha",
+        "label": "Mostrar la flecha del eyebrow",
+        "help_text": "El elemento decorativo que antecede al texto pequeño.",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "grupo_imagen",
+    "name": "grupo_imagen",
+    "label": "Imagen",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_imagen.mascota",
+        "name": "mascota",
+        "label": "Mascota",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "Leonel, mascota Anáhuac"
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_formulario",
+    "name": "grupo_formulario",
+    "label": "Formulario",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_formulario.formulario",
+        "name": "formulario",
+        "label": "Formulario de HubSpot",
+        "help_text": "Elige el formulario que recibe las solicitudes. Los envíos llegan al CRM del portal.",
+        "type": "form",
+        "embed_version": "v4",
+        "default": {
+          "form_type": "HUBSPOT",
+          "response_type": "inline",
+          "message": "Gracias por enviar el formulario.",
+          "gotowebinar_webinar_key": null,
+          "form_type_display": "HUBSPOT"
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

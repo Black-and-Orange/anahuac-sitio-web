@@ -1,0 +1,65 @@
+{# ===== Apoyos · Panorama de apoyos =====
+   Carrusel horizontal infinito. Las clases .panorama-grid, .panorama-card y
+   .arrow-buttons button las consume main.js (bloque APOYOS ECONÓMICOS): NO
+   renombrar. El JS clona las tarjetas (.is-clone) para el loop sin costura.
+
+   Los colores del grupo "Estilos" se inyectan como custom properties sobre la
+   sección; si quedan vacíos, el CSS cae al token del design system. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-overview-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--support-overview-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_tarjeta_fondo.color %}{% set estilo = estilo ~ "--support-overview-card-bg:" ~ e.color_tarjeta_fondo.color ~ ";" %}{% endif %}
+{% if e.color_tarjeta_texto.color %}{% set estilo = estilo ~ "--support-overview-card-text:" ~ e.color_tarjeta_texto.color ~ ";" %}{% endif %}
+{% if e.color_porcentaje.color %}{% set estilo = estilo ~ "--support-overview-percentage-color:" ~ e.color_porcentaje.color ~ ";" %}{% endif %}
+{% if e.color_etiquetas.color %}{% set estilo = estilo ~ "--support-overview-label-color:" ~ e.color_etiquetas.color ~ ";" %}{% endif %}
+{% if e.color_enlace.color %}{% set estilo = estilo ~ "--support-overview-link-color:" ~ e.color_enlace.color ~ ";" %}{% endif %}
+{% if v.tamano_rango %}{% set estilo = estilo ~ "--support-overview-percentage-size:var(--" ~ v.tamano_rango ~ ");" %}{% endif %}
+
+<section class="apo-panorama section-pad" id="panorama" aria-labelledby="panorama-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="programs-head">
+      <div class="section-intro reveal" data-reveal>
+        {% if c.eyebrow %}
+          <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+        {% endif %}
+        {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="panorama-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+        {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+      </div>
+      <div class="arrow-buttons reveal" data-reveal>
+        <button type="button" aria-label="Apoyo anterior" aria-controls="panorama-carousel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" aria-label="Siguiente apoyo" aria-controls="panorama-carousel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="panorama-grid reveal" id="panorama-carousel" role="region" aria-label="{{ c.heading }}" aria-live="polite" data-reveal>
+      {% for tarjeta in module.tarjetas %}
+        <article class="panorama-card">
+          {% if tarjeta.titulo %}<{{ tarjeta.titulo_tag|default('h3', true) }}{% if tarjeta.titulo_color.color %} style="color:{{ tarjeta.titulo_color.color }}"{% endif %}>{{ tarjeta.titulo }}</{{ tarjeta.titulo_tag|default('h3', true) }}>{% endif %}
+          {% if v.mostrar_rango and tarjeta.rango %}<{{ tarjeta.rango_tag|default('p', true) }} class="panorama-rango"{% if tarjeta.rango_color.color %} style="color:{{ tarjeta.rango_color.color }}"{% endif %}>{{ tarjeta.rango }}</{{ tarjeta.rango_tag|default('p', true) }}>{% endif %}
+          {% set hay_perfil = v.mostrar_perfil and tarjeta.perfil %}
+          {% set hay_requisito = v.mostrar_requisito and tarjeta.requisito %}
+          {% if hay_perfil or hay_requisito %}
+            <dl class="panorama-meta">
+              {% if hay_perfil %}<div><dt>{% if module.grupo_etiquetas.label_perfil_tag and module.grupo_etiquetas.label_perfil_tag != 'ninguna' %}<{{ module.grupo_etiquetas.label_perfil_tag }}{% if module.grupo_etiquetas.label_perfil_color.color %} style="color:{{ module.grupo_etiquetas.label_perfil_color.color }}"{% endif %}>{{ module.grupo_etiquetas.label_perfil }}</{{ module.grupo_etiquetas.label_perfil_tag }}>{% elif module.grupo_etiquetas.label_perfil_color.color %}<span style="color:{{ module.grupo_etiquetas.label_perfil_color.color }}">{{ module.grupo_etiquetas.label_perfil }}</span>{% else %}{{ module.grupo_etiquetas.label_perfil }}{% endif %}</dt><dd>{% if tarjeta.perfil_tag and tarjeta.perfil_tag != 'ninguna' %}<{{ tarjeta.perfil_tag }}{% if tarjeta.perfil_color.color %} style="color:{{ tarjeta.perfil_color.color }}"{% endif %}>{{ tarjeta.perfil }}</{{ tarjeta.perfil_tag }}>{% elif tarjeta.perfil_color.color %}<span style="color:{{ tarjeta.perfil_color.color }}">{{ tarjeta.perfil }}</span>{% else %}{{ tarjeta.perfil }}{% endif %}</dd></div>{% endif %}
+              {% if hay_requisito %}<div><dt>{% if module.grupo_etiquetas.label_requisito_tag and module.grupo_etiquetas.label_requisito_tag != 'ninguna' %}<{{ module.grupo_etiquetas.label_requisito_tag }}{% if module.grupo_etiquetas.label_requisito_color.color %} style="color:{{ module.grupo_etiquetas.label_requisito_color.color }}"{% endif %}>{{ module.grupo_etiquetas.label_requisito }}</{{ module.grupo_etiquetas.label_requisito_tag }}>{% elif module.grupo_etiquetas.label_requisito_color.color %}<span style="color:{{ module.grupo_etiquetas.label_requisito_color.color }}">{{ module.grupo_etiquetas.label_requisito }}</span>{% else %}{{ module.grupo_etiquetas.label_requisito }}{% endif %}</dt><dd>{% if tarjeta.requisito_tag and tarjeta.requisito_tag != 'ninguna' %}<{{ tarjeta.requisito_tag }}{% if tarjeta.requisito_color.color %} style="color:{{ tarjeta.requisito_color.color }}"{% endif %}>{{ tarjeta.requisito }}</{{ tarjeta.requisito_tag }}>{% elif tarjeta.requisito_color.color %}<span style="color:{{ tarjeta.requisito_color.color }}">{{ tarjeta.requisito }}</span>{% else %}{{ tarjeta.requisito }}{% endif %}</dd></div>{% endif %}
+            </dl>
+          {% endif %}
+          {% if v.mostrar_nota and tarjeta.nota %}<{{ tarjeta.nota_tag|default('p', true) }} class="panorama-note"{% if tarjeta.nota_color.color %} style="color:{{ tarjeta.nota_color.color }}"{% endif %}>{{ tarjeta.nota }}</{{ tarjeta.nota_tag|default('p', true) }}>{% endif %}
+          {% if v.mostrar_enlace and tarjeta.enlace_texto %}
+            <a class="panorama-link" href="{{ tarjeta.enlace.url.href|default('#', true) }}"
+               {% if tarjeta.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if tarjeta.enlace_texto_tag and tarjeta.enlace_texto_tag != 'ninguna' %}<{{ tarjeta.enlace_texto_tag }}{% if tarjeta.enlace_texto_color.color %} style="color:{{ tarjeta.enlace_texto_color.color }}"{% endif %}>{{ tarjeta.enlace_texto }}</{{ tarjeta.enlace_texto_tag }}>{% elif tarjeta.enlace_texto_color.color %}<span style="color:{{ tarjeta.enlace_texto_color.color }}">{{ tarjeta.enlace_texto }}</span>{% else %}{{ tarjeta.enlace_texto }}{% endif %}</a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

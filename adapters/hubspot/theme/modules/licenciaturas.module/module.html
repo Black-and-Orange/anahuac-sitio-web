@@ -1,0 +1,45 @@
+{# ===== Programs — áreas académicas (carrusel con scroll infinito) ===== #}
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-lic-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.color_intro.color %}{% set estilo = estilo ~ "--home-lic-intro:" ~ e.color_intro.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--home-lic-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--home-lic-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="programs section-pad" id="licenciaturas"{% if module.bg_color.color %} style="--programs-bg: {{ module.bg_color.color }};"{% endif %}
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="programs-head">
+      <div class="section-intro on-orange reveal" data-reveal>
+        {% if module.eyebrow %}<p class="tagline"><span></span>{{ module.eyebrow }}</p>{% endif %}
+        {% if module.heading %}<{{ module.heading_tag|default('h2', true) }}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>{% endif %}
+        {% if module.intro %}<{{ module.intro_tag|default('p', true) }}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>{% endif %}
+      </div>
+      {% if module.view_all_text %}
+        <a class="btn btn-white-arrow reveal" href="{{ module.view_all_link.url.href|default('#', true) }}" data-reveal
+           {% if module.view_all_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.view_all_text }} <span>›</span></a>
+      {% endif %}
+    </div>
+
+    <div class="program-scroller reveal" data-reveal>
+      {% set fallbacks = ["area-salud.jpg", "area-ingenierias.jpg", "area-negocios.jpg", "area-derecho.jpg", "area-comunicacion.jpg", "area-artes.jpg", "area-educacion.jpg"] %}
+      {% for program in module.programs %}
+        <article class="program-card">
+          <img src="{{ program.image.src or get_asset_url('../../images/' ~ fallbacks[loop.index0 % (fallbacks|length)]) }}"
+               alt="{{ program.image.alt|default(program.program_name, true) }}" loading="lazy" />
+          <div>
+            <h3>{{ program.program_name }}</h3>
+            <p>{{ program.count }}</p>
+            <a href="{{ program.cta_link.url.href|default('#', true) }}"
+               {% if program.cta_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ program.cta_text }}</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="slider-ui">
+      <div class="dots"></div>
+      <div class="arrow-buttons"><button type="button">‹</button><button type="button">›</button></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,392 @@
+[
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "El siguiente paso hacia tus sueños"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Texto introductorio",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Avanza hacia tu futuro hoy mismo."
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML de «intro»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Tarjetas",
+    "help_text": "La primera tarjeta se resalta automáticamente.",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "cards.icon",
+        "name": "icon",
+        "label": "Ícono",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "id": "cards.title",
+        "name": "title",
+        "label": "Título (H3)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Título de la tarjeta"
+      },
+      {
+        "id": "cards.title_tag",
+        "name": "title_tag",
+        "label": "Etiqueta HTML de «title»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "cards.description",
+        "name": "description",
+        "label": "Descripción",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Descripción de la tarjeta."
+      },
+      {
+        "id": "cards.cta_text",
+        "name": "cta_text",
+        "label": "Texto del enlace",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Explorar ›"
+      },
+      {
+        "id": "cards.cta_link",
+        "name": "cta_link",
+        "label": "Destino del enlace",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "display_width": null,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "icon": {
+          "src": "",
+          "alt": ""
+        },
+        "title": "Elige tu carrera ideal",
+        "description": "Explora nuestras ocho áreas académicas y encuentra el programa que te llama.",
+        "cta_text": "Explorar ›",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icon": {
+          "src": "",
+          "alt": ""
+        },
+        "title": "Calcula tu inversión",
+        "description": "Conoce el costo real y las becas disponibles para ti en minutos.",
+        "cta_text": "Calcular ›",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icon": {
+          "src": "",
+          "alt": ""
+        },
+        "title": "Visita el campus",
+        "description": "Experimenta Anáhuac en persona y resuelve tus últimas dudas con nuestro equipo.",
+        "cta_text": "Agendar ›",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icon": {
+          "src": "",
+          "alt": ""
+        },
+        "title": "Inicia tu admisión",
+        "description": "Completa tu solicitud y comienza el camino hacia tu futuro profesional.",
+        "cta_text": "Solicitar ›",
+        "cta_link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_icono",
+        "name": "color_icono",
+        "label": "Color de los iconos",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_fondo",
+        "name": "color_card_fondo",
+        "label": "Tarjetas · fondo (normal)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_titulo",
+        "name": "color_card_titulo",
+        "label": "Tarjetas · título (normal)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_texto",
+        "name": "color_card_texto",
+        "label": "Tarjetas · texto (normal)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_cta",
+        "name": "color_card_cta",
+        "label": "Tarjetas · CTA (normal)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_hover_fondo",
+        "name": "color_card_hover_fondo",
+        "label": "Tarjetas · fondo (hover)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_hover_texto",
+        "name": "color_card_hover_texto",
+        "label": "Tarjetas · contenido (hover)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

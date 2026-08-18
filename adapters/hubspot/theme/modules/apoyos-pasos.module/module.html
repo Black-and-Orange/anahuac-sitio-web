@@ -1,0 +1,64 @@
+{# ===== Apoyos · Pasos para solicitar =====
+   El id "pasos-v1" y las clases .steps-nav / .step-card las consume main.js
+   (bloque APOYOS ECONÓMICOS): genera la navegación numerada de móvil desde
+   las tarjetas presentes. NO renombrar. #}
+{% set c = module.grupo_contenido %}
+{% set b = module.grupo_boton %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-steps-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--support-steps-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--support-steps-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--support-steps-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="apo-steps section-pad" id="pasos-v1" aria-labelledby="pasos-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="pasos-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+
+    {% if module.grupo_aviso.mostrar and module.grupo_aviso.texto %}
+      <aside class="steps-disclaimer reveal" aria-label="Información importante" data-reveal>
+        <span class="steps-disclaimer-icon" aria-hidden="true">i</span>
+        <{{ module.grupo_aviso.texto_tag|default('p', true) }}{% if module.grupo_aviso.texto_color.color %} style="color:{{ module.grupo_aviso.texto_color.color }}"{% endif %}>{{ module.grupo_aviso.texto }}</{{ module.grupo_aviso.texto_tag|default('p', true) }}>
+      </aside>
+    {% endif %}
+
+    {# main.js rellena esta navegación (solo visible en móvil) #}
+    <div class="steps-nav" aria-label="Navegación de pasos"></div>
+
+    <ol class="steps-cards reveal" data-reveal>
+      {% set pasos_fallback = [
+        "apoyos-economicos/pasos/paso-1-inicia-admision.jpg",
+        "apoyos-economicos/pasos/paso-2-revisa-apoyo.jpg",
+        "apoyos-economicos/pasos/paso-3-prepara-documentacion.jpg",
+        "apoyos-economicos/pasos/paso-4-envia-solicitud.jpg",
+        "apoyos-economicos/pasos/paso-5-recibe-seguimiento.jpg"
+      ] %}
+      {% for paso in module.pasos %}
+        <li class="step-card{% if loop.first %} is-active{% endif %}">
+          <img src="{{ paso.imagen.src or get_asset_url('../../images/' ~ pasos_fallback[loop.index0 % (pasos_fallback|length)]) }}"
+               alt="{{ paso.imagen.alt|default(paso.titulo, true) }}" loading="lazy" />
+          <div class="step-card-body">
+            <span class="step-card-num">{{ loop.index }}</span>
+            {% if paso.titulo %}<{{ paso.titulo_tag|default('h3', true) }}{% if paso.titulo_color.color %} style="color:{{ paso.titulo_color.color }}"{% endif %}>{{ paso.titulo }}</{{ paso.titulo_tag|default('h3', true) }}>{% endif %}
+            {% if paso.texto %}<{{ paso.texto_tag|default('p', true) }}{% if paso.texto_color.color %} style="color:{{ paso.texto_color.color }}"{% endif %}>{{ paso.texto }}</{{ paso.texto_tag|default('p', true) }}>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+
+    {% if b.mostrar and b.texto %}
+      <div class="steps-cta reveal" data-reveal>
+        <a class="btn btn-orange" href="{{ b.enlace.url.href|default('#', true) }}"
+           {% if b.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if b.texto_tag and b.texto_tag != 'ninguna' %}<{{ b.texto_tag }}{% if b.texto_color.color %} style="color:{{ b.texto_color.color }}"{% endif %}>{{ b.texto }}</{{ b.texto_tag }}>{% elif b.texto_color.color %}<span style="color:{{ b.texto_color.color }}">{{ b.texto }}</span>{% else %}{{ b.texto }}{% endif %}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>

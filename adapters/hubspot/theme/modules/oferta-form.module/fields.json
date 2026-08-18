@@ -1,0 +1,96 @@
+[ {
+  "id" : "mascot_image",
+  "name" : "mascot_image",
+  "label" : "Imagen de la mascota",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Leonel, mascota Anáhuac"
+  }
+}, {
+  "id" : "eyebrow",
+  "name" : "eyebrow",
+  "label" : "Eyebrow (tagline)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Actúa"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Título (H2)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Da el siguiente paso"
+}, {
+  "id" : "intro",
+  "name" : "intro",
+  "label" : "Texto de introducción",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Encuentra tu camino académico y comienza tu transformación"
+}, {
+  "id" : "name_label",
+  "name" : "name_label",
+  "label" : "Campo nombre · placeholder",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Nombre"
+}, {
+  "id" : "email_label",
+  "name" : "email_label",
+  "label" : "Campo correo · placeholder",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Correo"
+}, {
+  "id" : "message_label",
+  "name" : "message_label",
+  "label" : "Campo mensaje · placeholder",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Cuéntanos sobre ti"
+}, {
+  "id" : "terms_label",
+  "name" : "terms_label",
+  "label" : "Texto de términos legales",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Acepto los términos legales"
+}, {
+  "id" : "submit_text",
+  "name" : "submit_text",
+  "label" : "Botón · texto",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explorar"
+} ]

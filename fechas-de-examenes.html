@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fechas de Examen de Admisión | Anáhuac México</title>
+    <meta
+      name="description"
+      content="Consulta las fechas de examen de admisión en Campus Norte y Sur de Anáhuac México. Examen en línea; entrevista presencial. Elige tu fecha e inicia tu admisión."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <meta property="og:title" content="Fechas de Examen de Admisión — Anáhuac México" />
+    <meta
+      property="og:description"
+      content="Consulta las fechas del examen de admisión en Campus Norte y Sur, disponibles cada semana durante todo el año. Examen en línea, entrevista presencial."
+    />
+    <!-- apoyos-economicos.css carga los componentes compartidos que esta página
+         reutiliza (acordeón de fechas, tarjetas de siguiente paso, FAQ, asesor y
+         el custom select). Es la misma situación que en el theme de HubSpot, donde
+         todos viven en main.css. -->
+    <link rel="stylesheet" href="apoyos-economicos.css" />
+    <link rel="stylesheet" href="fechas-de-examenes.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
+        <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Admisiones
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="proceso-de-admision.html" role="menuitem">Proceso de admisión</a>
+            <a href="fechas-de-examenes.html" class="is-active" role="menuitem">Fechas de examen</a>
+            <a href="#" role="menuitem">Revalidación y equivalencia</a>
+            <a href="#" role="menuitem">Curso para examen de admisión</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Costos y apoyos
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="#" role="menuitem">Costos</a>
+            <a href="#" role="menuitem">Cotiza tu licenciatura</a>
+            <a href="apoyos-economicos.html" role="menuitem">Apoyos económicos</a>
+            <a href="#" role="menuitem">Financiamiento</a>
+            <a href="#" role="menuitem">Concursos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Vida universitaria
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="Inicio.html#experiencia" role="menuitem">Experiencia</a>
+            <a href="Inicio.html#eventos" role="menuitem">Eventos</a>
+          </div>
+        </div>
+        <a href="#">Foráneos</a>
+      </nav>
+
+      <a class="btn btn-dark nav-contact" href="#actua">Contacto</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Admisiones
+        </button>
+        <div class="mobile-submenu">
+          <a href="proceso-de-admision.html" class="is-active">Proceso de admisión</a>
+          <a href="#">Fechas de examen</a>
+          <a href="#">Revalidación y equivalencia</a>
+          <a href="#">Curso para examen de admisión</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Costos y apoyos
+        </button>
+        <div class="mobile-submenu">
+          <a href="#">Costos</a>
+          <a href="#">Cotiza tu licenciatura</a>
+          <a href="apoyos-economicos.html">Apoyos económicos</a>
+          <a href="#">Financiamiento</a>
+          <a href="#">Concursos</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Vida universitaria
+        </button>
+        <div class="mobile-submenu">
+          <a href="Inicio.html#experiencia">Experiencia</a>
+          <a href="Inicio.html#eventos">Eventos</a>
+        </div>
+        <a href="#">Foráneos</a>
+        <a class="btn btn-dark mobile-contact" href="#actua">Contacto</a>
+      </div>
+    </div>
+
+        <main>
+      <!-- ===== 1. HERO · AIDA Atención ===== -->
+      <section class="fex-hero section-pad" id="inicio" aria-labelledby="fex-page-title">
+        <div class="container fex-hero-inner">
+          <div class="fex-hero-copy">
+            <p class="tagline reveal" data-reveal><span aria-hidden="true"></span>Admisión Anáhuac México</p>
+            <h1 class="reveal" id="fex-page-title" data-reveal>Fechas de examen de admisión Anáhuac México</h1>
+            <p class="fex-hero-claim reveal" data-reveal>Elige el día y el campus que mejor se acomoden a ti</p>
+          </div>
+
+          <div class="fex-hero-info reveal" data-reveal>
+            <img
+              class="fex-hero-img"
+              src="assets/proceso-de-admision/pasos-de-admision-img-1.webp"
+              alt="Aspirante de la Universidad Anáhuac México completando su registro de admisión en línea antes de presentar su examen"
+              width="1200"
+              height="900"
+            />
+            <div class="fex-hero-info-copy">
+              <!-- Bloque de respuesta directa (AEO): autocontenido, sin año fijo. -->
+              <div class="hero-card">
+                <p>El examen de admisión de la Universidad Anáhuac México se aplica en línea cada semana durante todo el año, para los dos periodos de ingreso: agosto y enero. Consulta el calendario vigente y elige la fecha que mejor se ajuste a ti.</p>
+              </div>
+              <ul class="lic-chips">
+                <li class="lic-chip">Agenda de fechas en línea</li>
+                <li class="lic-chip">Examen académico y psicométrico en línea</li>
+                <li class="lic-chip">Entrevista presencial</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn btn-dark" href="#modulo-fechas">Conocer fechas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. ANTES DE TU EXAMEN · AIDA Interés ===== -->
+      <section class="fex-antes section-pad" id="antes" aria-labelledby="antes-title">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2 id="antes-title">Antes de tu examen</h2>
+            <p>Cuatro pasos rápidos antes de elegir tu fecha de examen.</p>
+          </div>
+
+          <ol class="fex-pasos reveal" data-reveal>
+            <li class="fex-paso">
+              <span class="fex-paso-num" aria-hidden="true">1</span>
+              <div>
+                <h3>Regístrate en línea</h3>
+                <p>Crea tu cuenta en la plataforma de admisión y elige el campus de tu preferencia: Norte o Sur.</p>
+              </div>
+            </li>
+            <li class="fex-paso">
+              <span class="fex-paso-num" aria-hidden="true">2</span>
+              <div>
+                <h3>Sube tus documentos</h3>
+                <p>Acta de nacimiento, CURP y tu certificado, constancia o historial académico, escaneados.</p>
+              </div>
+            </li>
+            <li class="fex-paso">
+              <span class="fex-paso-num" aria-hidden="true">3</span>
+              <div>
+                <h3>Elige tu fecha</h3>
+                <p>Selecciona tu día de examen según la disponibilidad de cupo vigente por campus — consulta el calendario aquí abajo.</p>
+              </div>
+            </li>
+            <li class="fex-paso">
+              <span class="fex-paso-num" aria-hidden="true">4</span>
+              <div>
+                <h3>Recibe tu credencial digital</h3>
+                <p>Con tu número de expediente y acceso a la plataforma para presentar tus exámenes.</p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="fex-link-secundario reveal" data-reveal>
+            <a href="proceso-de-admision.html">Conoce el proceso de admisión completo →</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== 3. CALENDARIO (HubDB) · AIDA Deseo · módulo central =====
+           Se reutiliza el componente aprobado de Proceso de admisión: dos columnas
+           por campus con acordeón por convocatoria. Escala a 10+ fechas sin romper
+           el layout y en móvil se apila solo.
+           Las filas de ejemplo salen de la tabla HubDB `fechas_examen_admision`
+           (activo = true, ORDER BY fecha_examen_academico ASC). -->
+      <section class="fex-fechas section-pad" id="modulo-fechas" aria-labelledby="fechas-title">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span aria-hidden="true"></span>Calendario vigente</p>
+            <h2 id="fechas-title">¿Cuándo es el próximo examen de admisión?</h2>
+            <p>El examen de admisión en la Anáhuac México se aplica de forma semanal durante todo el año, en Campus Norte y Campus Sur. Las convocatorias están sujetas a disponibilidad de cupo: filtra por campus para ver la fecha límite de documentos, los exámenes y la entrega de resultados vigentes.</p>
+          </div>
+
+          <div class="fechas-grid reveal" data-reveal>
+            <!-- Campus Norte -->
+            <div class="fechas-col fechas-col--orange">
+              <h3>Campus Norte</h3>
+              <div class="fechas-accordion">
+                <details class="fecha-item" name="fechas-norte" open>
+                  <summary>
+                    <span class="fecha-summary-dia">26 de junio</span>
+                    <span class="fecha-badge fecha-badge--pocos">Últimos lugares</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 26 de junio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>26 de junio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>2 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>3 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>10 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">3 de julio</span>
+                    <span class="fecha-badge fecha-badge--pocos">Últimos lugares</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 3 de julio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>3 de julio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>9 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>10 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>17 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">10 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 10 de julio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>10 de julio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>16 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>17 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>24 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">17 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 17 de julio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>17 de julio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>23 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>24 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>31 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">24 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 24 de julio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>24 de julio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>30 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>31 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>7 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">31 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 31 de julio, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>31 de julio</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>6 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>7 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>14 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">7 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 7 de agosto, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>7 de agosto</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>13 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>14 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>21 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">14 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 14 de agosto, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>14 de agosto</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>20 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>21 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>28 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">21 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 21 de agosto, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>21 de agosto</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>27 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>28 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>4 de septiembre</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-norte">
+                  <summary>
+                    <span class="fecha-summary-dia">28 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 28 de agosto, Campus Norte</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>28 de agosto</td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>3 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>4 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>11 de septiembre</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Campus Sur -->
+            <div class="fechas-col fechas-col--purple">
+              <h3>Campus Sur</h3>
+              <div class="fechas-accordion">
+                <details class="fecha-item" name="fechas-sur" open>
+                  <summary>
+                    <span class="fecha-summary-dia">3 de julio</span>
+                    <span class="fecha-badge fecha-badge--pocos">Últimos lugares</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 3 de julio, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>3 de julio</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>8 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>9 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>17 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">10 de julio</span>
+                    <span class="fecha-badge fecha-badge--pocos">Últimos lugares</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 10 de julio, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>10 de julio</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>15 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>16 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>24 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">17 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 17 de julio, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>17 de julio</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>22 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>23 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>31 de julio</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">24 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 24 de julio, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>24 de julio</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>29 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>30 de julio<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>7 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">31 de julio</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 31 de julio, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>31 de julio</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>5 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>6 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>14 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">7 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 7 de agosto, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>7 de agosto</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>12 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>13 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>21 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">14 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 14 de agosto, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>14 de agosto</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>19 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>20 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>28 de agosto</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">21 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 21 de agosto, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>21 de agosto</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>26 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>27 de agosto<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>4 de septiembre</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">28 de agosto</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 28 de agosto, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>28 de agosto</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>2 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>3 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>11 de septiembre</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+                <details class="fecha-item" name="fechas-sur">
+                  <summary>
+                    <span class="fecha-summary-dia">4 de septiembre</span>
+                    <span class="fecha-badge fecha-badge--ok">Disponible</span>
+                  </summary>
+                  <div class="fecha-panel">
+                    <table class="fecha-table">
+                      <caption class="visually-hidden">Convocatoria del 4 de septiembre, Campus Sur</caption>
+                      <tbody>
+                        <tr><th scope="row">Fecha límite para entrega de documentos</th><td>4 de septiembre</td></tr>
+                        <tr><th scope="row">Examen psicométrico</th><td>9 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Examen de conocimientos académicos</th><td>10 de septiembre<br /><small>15 hrs. horario CDMX</small></td></tr>
+                        <tr><th scope="row">Entrevista personal</th><td class="fecha-texto">Se agenda directamente en la plataforma de admisión en línea.</td></tr>
+                        <tr><th scope="row">Entrega de resultados</th><td>18 de septiembre</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 4. ELIGE EL SIGUIENTE PASO · AIDA Acción =====
+           Reutiliza el componente .siguiente-cards de Proceso de admisión. -->
+      <section class="apo-siguiente section-pad" id="siguiente-paso" aria-labelledby="siguiente-title">
+        <div class="container apo-siguiente-layout">
+          <div class="section-intro reveal" data-reveal>
+            <h2 id="siguiente-title">Elige el siguiente paso para tu futuro</h2>
+            <p>En la Anáhuac México te estamos esperando, sea cual sea el paso en el que estés.</p>
+          </div>
+          <div class="siguiente-cards reveal" data-reveal>
+            <article class="siguiente-card">
+              <svg class="siguiente-icon" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M24 6 2 17l22 11 18-9v12h4V17L24 6ZM8 24.5V33c0 3.3 7.2 8 16 8s16-4.7 16-8v-8.5l-16 8-16-8Z"/></svg>
+              <h3>Iniciar proceso de admisión</h3>
+              <p>Comienza tu registro en línea y aparta tu lugar para presentar el examen.</p>
+              <!-- PENDIENTE: URL de la plataforma de registro (handoff, módulo 4). -->
+              <a href="#">Inicia tu admisión ›</a>
+            </article>
+            <article class="siguiente-card">
+              <svg class="siguiente-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="m31 17-4 10-10 4 4-10z"/></svg>
+              <h3>Conocer pasos del proceso de admisión</h3>
+              <p>Revisa paso a paso cómo es el proceso de admisión, desde el registro hasta tu inscripción.</p>
+              <a href="proceso-de-admision.html">Conocer el proceso ›</a>
+            </article>
+            <article class="siguiente-card">
+              <svg class="siguiente-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h13a7 7 0 0 1 7 7v25a5 5 0 0 0-5-5H8Z"/><path d="M40 8H27a7 7 0 0 0-7 7v25a5 5 0 0 1 5-5h15Z"/></svg>
+              <h3>Guía para el examen de admisión</h3>
+              <p>Descarga la guía oficial para prepararte antes de presentar tu examen.</p>
+              <a href="https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/Guia%20%20de%20estudio%20KP_RUA_V2-1.pdf?hsCtaTracking=6e4c228f-7dc0-4048-9079-a2a6727c5935%7C8c519207-1bde-4dda-9b8a-b272e8e2ab7a" target="_blank" rel="noopener">Descargar guía ›</a>
+            </article>
+            <article class="siguiente-card">
+              <svg class="siguiente-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M31 41v-4a8 8 0 0 0-8-8H12a8 8 0 0 0-8 8v4"/><circle cx="17.5" cy="13" r="8"/><path d="M38 41v-4a8 8 0 0 0-6-7.7"/><path d="M32 5.3a8 8 0 0 1 0 15.5"/></svg>
+              <h3>Curso para el examen de admisión</h3>
+              <p>Regístrate al curso de preparación para el examen de admisión.</p>
+              <a href="https://mexico.anahuac.mx/curso-preparaci%C3%B3n-acad%C3%A9mica-universidad-an%C3%A1huac-m%C3%A9xico" target="_blank" rel="noopener">Conocer el curso ›</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. PREGUNTAS FRECUENTES · AEO + FAQPage schema ===== -->
+      <section class="fex-faq section-pad" id="dudas" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2 id="faq-title">Preguntas frecuentes</h2>
+          </div>
+          <div class="faq-list reveal" data-reveal>
+            <details class="faq-item" name="faq-fechas" open>
+              <summary>¿Cuándo son los exámenes de admisión de la Anáhuac México?</summary>
+              <div class="faq-answer"><p>Los exámenes de admisión se aplican durante todo el año, cada semana, para las dos admisiones de la Universidad Anáhuac México: ingreso en <strong>agosto</strong> e ingreso en <strong>enero</strong> de cada ciclo vigente. Consulta el calendario de arriba para ver las fechas disponibles por campus.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿Cada cuánto hay convocatorias de examen?</summary>
+              <div class="faq-answer"><p>Hay fechas de examen <strong>cada semana</strong> a lo largo del año, ya que la Anáhuac México cuenta con dos periodos de ingreso: agosto y enero. Elige la fecha que mejor se acomode a ti dentro del calendario vigente.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿Qué necesito tener listo antes de mi examen?</summary>
+              <div class="faq-answer"><p>Acta de nacimiento, CURP y tus documentos académicos (certificado, constancia o historial con el mínimo de materias aprobadas). Revisa el detalle completo en el <a href="proceso-de-admision.html">proceso de admisión</a>.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿Cuánto cuesta presentar el examen de admisión?</summary>
+              <div class="faq-answer"><p>El costo del examen de admisión es de <strong>$1,335 MXN</strong>. Este pago forma parte de tu proceso de admisión y te da acceso a presentar el examen académico y psicométrico, y a agendar tu entrevista.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿Puedo cambiar mi fecha de examen si no puedo asistir?</summary>
+              <div class="faq-answer"><p>Sí. Si no puedes asistir en la fecha que elegiste, es posible reprogramar tu examen: contacta a tu asesor de admisión y te apoyará con el cambio de fecha.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿El examen es presencial o en línea?</summary>
+              <div class="faq-answer"><p>El examen académico y psicométrico se realizan <strong>en línea</strong>. La <strong>entrevista</strong> se realiza de manera <strong>presencial</strong>, a menos que te encuentres fuera de la Ciudad de México o Estado de México.</p></div>
+            </details>
+            <details class="faq-item" name="faq-fechas">
+              <summary>¿Cómo me preparo para el examen de admisión?</summary>
+              <div class="faq-answer"><p>Puedes prepararte con dos recursos oficiales: la <a href="https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/Guia%20%20de%20estudio%20KP_RUA_V2-1.pdf?hsCtaTracking=6e4c228f-7dc0-4048-9079-a2a6727c5935%7C8c519207-1bde-4dda-9b8a-b272e8e2ab7a" target="_blank" rel="noopener">guía de estudio para el examen de admisión</a> y el <a href="https://mexico.anahuac.mx/curso-preparaci%C3%B3n-acad%C3%A9mica-universidad-an%C3%A1huac-m%C3%A9xico" target="_blank" rel="noopener">curso de preparación académica</a>. Ambos enlaces están disponibles directamente aquí, sin necesidad de bajar al módulo «Elige el siguiente paso».</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 6. ASESOR · AIDA Acción · reutiliza el módulo 8 de Apoyos Económicos ===== -->
+<!-- ===== 6. DUDAS / CONTACTO =====
+           Se reutiliza el módulo .questions del home tal cual: mismo componente,
+           mismo copy y mismos dos CTA. Su CSS ya vive en styles.css. -->
+      <section class="questions section-pad" id="contacto">
+        <div class="container questions-card reveal" data-reveal>
+          <img src="assets/dudas.jpg" alt="Estudiante Anáhuac en aula" />
+          <div>
+            <h2>¿Tienes alguna duda de nuestra universidad?</h2>
+            <p>
+              Nuestro equipo de asesores preuniversitarios en la Universidad Anáhuac México está aquí
+              para guiarte en cada paso hacia tu futuro brillante. ¡Contáctanos hoy y comienza a trazar
+              el camino hacia tus sueños!
+            </p>
+            <div class="button-row centered">
+              <a class="btn btn-dark" href="#">Contactar</a>
+              <a class="btn btn-light" href="#">Agenda tu visita</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<footer class="site-footer">
+      <svg class="social-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M15.1 8.3h3V4h-3.7c-4 0-6 2.4-6 6v2.4H5v4.4h3.4V24h4.7v-7.2h3.8l.7-4.4h-4.5v-2c0-1.3.5-2.1 2-2.1Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.7l-5.2-6.9L5.6 22H2.3l7.8-8.9L1.8 2h6.9l4.7 6.3L18.9 2Zm-1.2 18h1.8L7.7 3.9h-2L17.7 20Z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21.7 7.1a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.6.5a3 3 0 0 0-2.1 2.1C1.8 9 1.8 12 1.8 12s0 3 .5 4.9A3 3 0 0 0 4.4 19c1.9.5 7.6.5 7.6.5s5.7 0 7.6-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.9.5-4.9s0-3-.5-4.9ZM10 15.2V8.8l5.6 3.2-5.6 3.2Z"/></symbol>
+      </svg>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+          <form class="newsletter">
+            <h2>Mantente informado sobre las novedades del mes de nuestra Universidad</h2>
+            <p>Recibe noticias sobre admisiones, eventos preuniversitarios y vida universitaria en tu correo.</p>
+            <div><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn-dark" type="submit">Enviar</button></div>
+            <small>Al suscribirte aceptas nuestra política de privacidad</small>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div><h3>Descubre</h3><a href="#">Por qué Anáhuac</a><a href="#">Vida universitaria</a><a href="#">Estudiantes foráneos</a><a href="#">Competencias académicas</a><a href="#">Ubicaciones</a></div>
+          <div><h3>Programas</h3><a href="#">Oferta académica</a><a href="#">Todas las licenciaturas</a><a href="#">Áreas académicas</a><a href="#">Solicita información</a><a href="#">Visita el campus</a></div>
+          <div><h3>Admisiones</h3><a href="#">Admisión general</a><a href="#">Admisión medicina</a><a href="#">Admisión internacional</a><a href="#">Fechas de examen</a><a href="#">Inicia tu proceso</a></div>
+          <div>
+            <h3>Campus Norte</h3>
+            <p>Av. Universidad Anáhuac 46, Col. Lomas Anáhuac. Huixquilucan, Estado de México.</p>
+            <a href="#">+52 (55) 5627 0210</a>
+            <div class="social-links" aria-label="Redes sociales Campus Norte">
+              <a href="#" aria-label="Facebook Campus Norte"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Norte"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Norte"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Norte"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Campus Sur</h3>
+            <p>Av. de los Tanques 865, Col. Torres de Potrero. Álvaro Obregón, CDMX.</p>
+            <a href="#">+52 (55) 5628 8800</a>
+            <a href="#">Misión y valores</a>
+            <a href="#">Acreditaciones</a>
+            <a href="#">Noticias</a>
+            <div class="social-links" aria-label="Redes sociales Campus Sur">
+              <a href="#" aria-label="Facebook Campus Sur"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Sur"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Sur"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Sur"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="#">Teléfono principal</a>
+            <a href="#">Correo de admisiones</a>
+            <a href="#">Síguenos en línea</a>
+            <a href="#">Ubicación</a>
+            <div class="social-links" aria-label="Redes sociales Anáhuac México">
+              <a href="#" aria-label="Facebook Anáhuac México"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Anáhuac México"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Anáhuac México"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Anáhuac México"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">© 2026 Universidad Anáhuac México. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- La cascada del asesor vive en el JS de Apoyos. Sus otros bloques
+         (carrusel, pasos, formulario) tienen guarda y no se ejecutan aquí. -->
+    <!-- Datos estructurados aprobados en el handoff. `Event` por convocatoria queda
+         fuera a propósito: el documento lo marca como condicionado. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Cuándo son los exámenes de admisión de la Anáhuac México?", "acceptedAnswer": { "@type": "Answer", "text": "Los exámenes de admisión se aplican durante todo el año, cada semana, para las dos admisiones de la Universidad Anáhuac México: ingreso en agosto e ingreso en enero de cada ciclo vigente. Consulta el calendario de arriba para ver las fechas disponibles por campus." } },
+          { "@type": "Question", "name": "¿Cada cuánto hay convocatorias de examen?", "acceptedAnswer": { "@type": "Answer", "text": "Hay fechas de examen cada semana a lo largo del año, ya que la Anáhuac México cuenta con dos periodos de ingreso: agosto y enero. Elige la fecha que mejor se acomode a ti dentro del calendario vigente." } },
+          { "@type": "Question", "name": "¿Qué necesito tener listo antes de mi examen?", "acceptedAnswer": { "@type": "Answer", "text": "Acta de nacimiento, CURP y tus documentos académicos (certificado, constancia o historial con el mínimo de materias aprobadas). Revisa el detalle completo en el proceso de admisión." } },
+          { "@type": "Question", "name": "¿Cuánto cuesta presentar el examen de admisión?", "acceptedAnswer": { "@type": "Answer", "text": "El costo del examen de admisión es de $1,335 MXN. Este pago forma parte de tu proceso de admisión y te da acceso a presentar el examen académico y psicométrico, y a agendar tu entrevista." } },
+          { "@type": "Question", "name": "¿Puedo cambiar mi fecha de examen si no puedo asistir?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si no puedes asistir en la fecha que elegiste, es posible reprogramar tu examen: contacta a tu asesor de admisión y te apoyará con el cambio de fecha." } },
+          { "@type": "Question", "name": "¿El examen es presencial o en línea?", "acceptedAnswer": { "@type": "Answer", "text": "El examen académico y psicométrico se realizan en línea. La entrevista se realiza de manera presencial, a menos que te encuentres fuera de la Ciudad de México o Estado de México." } },
+          { "@type": "Question", "name": "¿Cómo me preparo para el examen de admisión?", "acceptedAnswer": { "@type": "Answer", "text": "Puedes prepararte con dos recursos oficiales: la guía de estudio para el examen de admisión y el curso de preparación académica. Ambos enlaces están disponibles directamente aquí, sin necesidad de bajar al módulo «Elige el siguiente paso»." } }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "/" },
+          { "@type": "ListItem", "position": 2, "name": "Admisiones", "item": "/licenciaturas/admision-general" },
+          { "@type": "ListItem", "position": 3, "name": "Fechas de examen de admisión" }
+        ]
+      }
+    </script>
+  </body>
+</html>

@@ -29,6 +29,9 @@
         const clone = card.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
         clone.classList.add("is-clone");
+        clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach((element) => {
+          element.setAttribute("tabindex", "-1");
+        });
         track.appendChild(clone);
       });
 
@@ -287,18 +290,49 @@
   (function () {
     const section = document.getElementById("pasos-v1");
     if (!section) return;
-    const navDots = section.querySelectorAll(".steps-nav-dot[data-goto]");
-    const cards = section.querySelectorAll(".step-card");
-    if (!navDots.length || !cards.length) return;
+    const nav = section.querySelector(".steps-nav");
+    const cards = Array.from(section.querySelectorAll(".step-card"));
+    if (!nav || !cards.length) return;
+
+    nav.replaceChildren();
+    const navDots = cards.map((card, index) => {
+      const stepNumber = index + 1;
+      const button = document.createElement("button");
+      const cardId = card.id || "support-step-" + stepNumber;
+      card.id = cardId;
+      button.className = "steps-nav-dot";
+      button.type = "button";
+      button.dataset.goto = String(index);
+      button.setAttribute("aria-label", "Ver paso " + stepNumber);
+      button.setAttribute("aria-controls", cardId);
+      button.textContent = String(stepNumber);
+      nav.appendChild(button);
+      return button;
+    });
+
+    function selectStep(index) {
+      navDots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        dot.classList.toggle("active", isActive);
+        if (isActive) {
+          dot.setAttribute("aria-current", "step");
+        } else {
+          dot.removeAttribute("aria-current");
+        }
+      });
+      cards.forEach((card, cardIndex) => {
+        card.classList.toggle("is-active", cardIndex === index);
+      });
+    }
 
     navDots.forEach((dot) => {
       dot.addEventListener("click", () => {
         const idx = Number(dot.dataset.goto);
-        navDots.forEach((d) => d.classList.remove("active"));
-        dot.classList.add("active");
-        cards.forEach((c, i) => c.classList.toggle("is-active", i === idx));
+        selectStep(idx);
       });
     });
+
+    selectStep(0);
   })();
 
   /* ===== PROPEDÉUTICOS TABS (Medicina / Música) ===== */
@@ -362,25 +396,114 @@
 
   const regionSelect = document.getElementById("asesoria-region");
   const estadoSelect = document.getElementById("asesoria-estado");
-  if (regionSelect && estadoSelect) {
+  const preparatoriaSelect = document.getElementById("asesoria-preparatoria");
+  const preparatoriaWrap = document.querySelector(".asesoria-preparatoria-wrap");
+  if (regionSelect && estadoSelect && preparatoriaSelect && preparatoriaWrap) {
     const foto = document.querySelector(".asesor-foto");
     const nombreEl = document.querySelector(".asesor-nombre");
     const waEl = document.querySelector(".asesor-wa");
 
-    /* Split de las claves de `asesores` en: extranjero, Edo. Méx./CDMX y resto de estados. */
-    const PAISES = ["Colombia", "El Salvador", "Venezuela"];
-    const SOY_EXTRANJERO = "Soy Extranjero";
-    const EDOMEX_CDMX = ["Ciudad de México", "Estado de México"];
-    const fuera = new Set([...PAISES, SOY_EXTRANJERO, ...EDOMEX_CDMX]);
-    const estadosMexico = Object.keys(asesores)
-      .filter((k) => !fuera.has(k))
-      .sort((a, b) => a.localeCompare(b, "es"));
+    const PAISES = [
+      "Alemania", "Bolivia", "Brasil", "Canadá", "Chile", "Colombia",
+      "Costa Rica", "Ecuador", "El Salvador", "España", "Estados Unidos",
+      "Guatemala", "Holanda", "Honduras", "Inglaterra", "Israel", "Japón",
+      "Nicaragua", "Panamá", "República Dominicana", "Suiza", "Venezuela",
+    ];
+    const ESTADOS_MEXICO = [
+      "Aguascalientes", "Baja California", "Baja California Sur", "Campeche",
+      "Chiapas", "Chihuahua", "Ciudad de México", "Coahuila", "Colima",
+      "Durango", "Estado de México", "Guanajuato", "Guerrero", "Hidalgo",
+      "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca",
+      "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa",
+      "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán",
+      "Zacatecas",
+    ];
 
-    /* Región -> opciones del segundo dropdown (en orden de aparición). */
+    /* Catálogo verificado contra el formulario público de Atención
+       Preuniversitaria. Solo se incluyen planteles cuya ubicación en CDMX o
+       Estado de México es explícita; "Otra preparatoria" cubre el resto. */
+    const PREPARATORIAS_POR_ESTADO = {
+      "Ciudad de México": [
+        "CCH Plantel Azcapotzalco",
+        "CECyT 11 Wilfrido Massieu",
+        "CECyT 9 Juan de Dios Bátiz",
+        "CECyT Plantel 1 Gonzalo Vázquez Vela",
+        "Colegio Anglo Mexicano de Coyoacán",
+        "Colegio Ciudad de México",
+        "Colegio Francés del Pedregal",
+        "Colegio Madrid",
+        "Colegio Peterson Cuajimalpa",
+        "Colegio Peterson Lomas",
+        "Colegio Peterson Tlalpan",
+        "Colegio Simón Bolívar del Pedregal",
+        "Colegio Simón Bolívar Mixcoac",
+        "Colegio St. John's Tlalpan",
+        "Escuela Nacional Preparatoria Plantel 5 UNAM",
+        "Instituto de Humanidades y Ciencias (INHUMYC)",
+        "Instituto Miguel Ángel",
+        "Instituto Pedregal",
+        "Instituto Simón Bolívar de Xoco",
+        "Prepa Anáhuac México Campus Cumbres",
+        "Prepa Anáhuac México Campus Maddox",
+        "Prepa Anáhuac México Campus Oxford",
+        "Preparatoria Ibero Ciudad de México",
+        "UVM Campus Roma",
+        "Universidad Insurgentes Plantel San Ángel",
+        "Universidad Insurgentes Plantel Xola",
+        "Universidad La Salle A.C.",
+        "Otra preparatoria",
+      ],
+      "Estado de México": [
+        "Bachillerato Cumbres Toluca",
+        "CCH Plantel Naucalpan",
+        "Colegio Alemán Campus Norte",
+        "Colegio Alemán Campus Poniente (La Herradura)",
+        "Colegio Argos Toluca",
+        "Colegio Cristóbal Colón Lomas Verdes",
+        "Colegio Euro Texcoco",
+        "Colegio Mano Amiga Chalco",
+        "Colegio Mano Amiga Lerma",
+        "Colegio Miraflores Toluca",
+        "Colegio Nuevo Continente Campus Metepec",
+        "Colegio Panamericano de Texcoco",
+        "Escuela Sierra Nevada Interlomas",
+        "Escuela Sierra Nevada San Mateo",
+        "High School Kipling Campus Esmeralda",
+        "High School Kipling Campus Satélite",
+        "Instituto Campestre de Ciencias y Artes de Metepec",
+        "Instituto Juventud del Estado de México",
+        "Instituto México de Toluca",
+        "Instituto Oriente Arboledas",
+        "Instituto Tepeyac Coacalco",
+        "Instituto Tepeyac Cuautitlán",
+        "Instituto Thomas Jefferson Esmeralda",
+        "La Salle Arboledas",
+        "La Salle Boulevares",
+        "La Salle Esmeralda",
+        "La Salle Nezahualcóyotl Bachillerato",
+        "Liceo del Valle de Toluca",
+        "Prepa Anáhuac Toluca",
+        "Prepa Tec Metepec",
+        "Prepa Tec Toluca",
+        "Preparatoria CUDEC",
+        "Tec de Monterrey Campus Lago de Guadalupe",
+        "Otra preparatoria",
+      ],
+    };
+
+    /* CDMX y Estado de México se separan del resto: son los dos únicos con
+       catálogo de preparatorias, así que al darles su propia región el bloque
+       "Selecciona tu preparatoria" aparece justo cuando corresponde. */
+    const ZONA_METROPOLITANA = ["Ciudad de México", "Estado de México"];
+
+    /* Región -> opciones del segundo dropdown (en orden de aparición).
+       El orden de las claves es el orden de las opciones del primer select. */
     const REGIONES = {
-      "Extranjero": [...PAISES],
-      "México": estadosMexico,
-      "Estado de México y CDMX": EDOMEX_CDMX,
+      "Interior de la república": ESTADOS_MEXICO.filter(
+        (estado) => !ZONA_METROPOLITANA.includes(estado)
+      ),
+      "Estado de México y CDMX": [...ZONA_METROPOLITANA],
+      "Extranjeros": [...PAISES],
     };
 
     Object.keys(REGIONES).forEach((region) => {
@@ -391,15 +514,45 @@
     });
 
     const renderAsesor = (estado) => {
-      const data = asesores[estado];
+      const data = asesores[estado]
+        || (regionSelect.value === "Extranjeros" ? asesores["Soy Extranjero"] : null);
       if (!data) return;
       nombreEl.textContent = data.nombre;
       waEl.href = data.wa;
       foto.setAttribute("data-genero", data.g);
     };
 
-    /* Rellena el segundo dropdown según la región y refresca la card + el cselect. */
-    const poblarEstados = (region, preferido) => {
+    /* `revelar` en false mantiene el bloque oculto aunque el estado tenga
+       catálogo: se usa en la carga inicial para que "Selecciona tu preparatoria"
+       aparezca solo cuando la persona elige CDMX o Estado de México. */
+    const poblarPreparatorias = (estado, revelar = true) => {
+      const lista = revelar ? PREPARATORIAS_POR_ESTADO[estado] : null;
+      preparatoriaSelect.innerHTML = "";
+      preparatoriaWrap.hidden = !lista;
+
+      if (!lista) {
+        preparatoriaSelect.dispatchEvent(new Event("refresh"));
+        return;
+      }
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Selecciona tu preparatoria";
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      preparatoriaSelect.appendChild(placeholder);
+
+      lista.forEach((preparatoria) => {
+        const opt = document.createElement("option");
+        opt.value = preparatoria;
+        opt.textContent = preparatoria;
+        preparatoriaSelect.appendChild(opt);
+      });
+      preparatoriaSelect.dispatchEvent(new Event("refresh"));
+    };
+
+    /* Rellena el segundo dropdown según el país y refresca la card y el cselect. */
+    const poblarEstados = (region, preferido, revelarPrepa = true) => {
       const lista = REGIONES[region] || [];
       estadoSelect.innerHTML = "";
       lista.forEach((estado) => {
@@ -412,20 +565,41 @@
       estadoSelect.value = elegido;
       estadoSelect.dispatchEvent(new Event("refresh"));
       renderAsesor(elegido);
+      poblarPreparatorias(elegido, revelarPrepa);
     };
 
-    const regionInicial = "Estado de México y CDMX";
+    /* Sin estado preferido: arranca en el primero del catálogo (Aguascalientes)
+       y con el bloque de preparatoria oculto. */
+    const regionInicial = "Interior de la república";
     regionSelect.value = regionInicial;
-    poblarEstados(regionInicial, "Ciudad de México");
+    poblarEstados(regionInicial, null, false);
 
     regionSelect.addEventListener("change", () => poblarEstados(regionSelect.value));
-    estadoSelect.addEventListener("change", () => renderAsesor(estadoSelect.value));
+    estadoSelect.addEventListener("change", () => {
+      renderAsesor(estadoSelect.value);
+      poblarPreparatorias(estadoSelect.value);
+    });
 
     /* Reemplazar los <select> nativos por el dropdown propio (tras poblarlos). */
     if (window.enhanceSelect) {
       window.enhanceSelect(regionSelect);
       window.enhanceSelect(estadoSelect);
+      window.enhanceSelect(preparatoriaSelect);
     }
+  }
+
+  /* El menú móvil compartido permanece fuera del orden de foco mientras está cerrado.
+     Esta sincronización es local a la LP; no modifica el componente global. */
+  const localMobileMenu = document.querySelector(".mobile-menu");
+  if (localMobileMenu) {
+    const syncMobileMenuInert = () => {
+      localMobileMenu.inert = localMobileMenu.getAttribute("aria-hidden") !== "false";
+    };
+    new MutationObserver(syncMobileMenuInert).observe(localMobileMenu, {
+      attributes: true,
+      attributeFilter: ["aria-hidden"],
+    });
+    syncMobileMenuInert();
   }
 
   /* ===== TELÉFONO — solo números (y + - ( ) espacio) ===== */

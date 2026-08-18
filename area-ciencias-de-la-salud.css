@@ -1,0 +1,734 @@
+/* =============================================================================
+   ÁREA DE AFINIDAD — hoja de página
+
+   Esta hoja NO define componentes: todos vienen de styles.css y psicologia.css.
+   Aquí solo vive lo propio de una página de área:
+
+     a) el ritmo de fondos de los 11 módulos,
+     b) la retícula del módulo 4 (el router de carreras) y sus dos datos nuevos
+        —el dato distintivo y el indicador de campus—,
+     c) cuatro remates de sección (cierres y bandas),
+     d) los ajustes responsive de lo anterior.
+
+   Al construir las demás áreas se copia tal cual: nada de aquí es específico de
+   Ciencias de la Salud. Si algo tuviera que cambiar por área, sería un error de
+   sistema y su lugar sería el componente, no esta hoja.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro. No es una escala de múltiplos de 8: no la "corrijas".
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   RITMO DE FONDOS
+   Blanco y gris alternando; el acento se reserva para el cierre. Nunca dos
+   acentos seguidos. El módulo 4 es la excepción deliberada: lleva fondo propio
+   (tinte lila) porque es la micro-conversión principal y necesita destacar
+   frente a los módulos 3 y 5, que también son rejillas de tarjetas.
+   -------------------------------------------------------------------------- */
+.salud-carreras {
+  background: rgba(205, 185, 239, 0.22); /* tinte de --lilac-2 */
+}
+
+.salud-campo {
+  background: var(--surface);
+}
+
+/* Blanco, no gris: el módulo 6 ya es gris y dos grises seguidos borran el
+   ritmo. Lo que separa este módulo del 3 —también tarjetas— es la fotografía. */
+.salud-clinicas {
+  background: var(--surface);
+
+  /* 60 abajo en vez de 100. Medido, el hueco hasta Historias era de 202px: la
+     mediana exacta de la página, ni un píxel más que las otras transiciones.
+     Pero es la única sección que cierra con un bloque de color a todo el ancho,
+     y un bloque relleno cierra por sí solo: los mismos 200px que tras un texto
+     se leen como respiración, tras la banda se leen como hueco.
+
+     Es una excepción a la regla de 200px, no un descuido de ella: la condición
+     que la justifica —cerrar con banda de color— solo se da aquí. */
+  padding-bottom: 60px;
+}
+
+/* -----------------------------------------------------------------------------
+   RITMO VERTICAL
+   El hueco entre la intro de sección y su contenido es 50px en toda la familia
+   —lo fijan .lic-afinidad, .lic-porque y .lic-faq—. Mis tres secciones propias
+   se habían quedado en 40 por herencia, y con eso la página bajaba con saltos
+   de 50/50/40/40/60/40. Se igualan.
+
+   Las dos excepciones son de sus componentes y no se tocan: campus usa 60 y
+   Historias 100, igual que en la página de licenciatura.
+   -------------------------------------------------------------------------- */
+.salud-carreras .section-intro,
+.salud-campo .section-intro,
+.salud-clinicas .section-intro {
+  margin-bottom: 50px;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 1 — Hero
+   Sin chips y sin bloque "En resumen". La media es una imagen y no el
+   .video-card de la página de licenciatura, así que hereda su sombra a mano.
+   -------------------------------------------------------------------------- */
+/* .lic-hero pisa el padding lateral por breakpoint —60px a 1024, 30 a 768, 20 en
+   móvil— en vez de dejar el de .section-pad. En la página de licenciatura eso
+   deja el H1 fuera del eje de todos los H2 de abajo: 36px a 1024 y 6 a 768.
+
+   Se le devuelve el token, no un valor fijo: así sigue cada breakpoint solo y
+   el eje izquierdo es uno solo de arriba a abajo. */
+.salud-hero {
+  padding-left: var(--section-pad-x);
+  padding-right: var(--section-pad-x);
+}
+
+/* Jerarquía tipográfica del hero: el claim manda, no el H1.
+
+   El handoff lo pide dos veces —«el claim lleva el tratamiento tipográfico
+   grande» y «Claim (dominante)»— y es lo correcto para una página de área: el
+   H1 es una etiqueta de categoría («Licenciaturas en Ciencias de la Salud»),
+   mientras que el claim es la promesa. Liderar con la etiqueta hace que los
+   primeros 8 segundos los ocupe un rótulo de catálogo.
+
+   Se invierte el tamaño, no la semántica: el H1 sigue siendo el H1.
+
+   El tamaño está medido, no elegido: a 70px caben 3 líneas con un rag de 36px
+   —casi justificado—; a 78 salta a 4 líneas con un rag de 203 y el hero engorda
+   130px. 70 deja el claim al 1.8× del H1, que es lo que pide el handoff, y a
+   2px de los H2: la diferencia no se ve, así que el hero no compite con las
+   secciones.
+
+   Esto separa deliberadamente el hero de área del hero de licenciatura, donde
+   la relación es la contraria porque allí el H1 —el nombre de la carrera— sí es
+   lo que el usuario vino a buscar. */
+.salud-hero h1 {
+  font-size: clamp(26px, 2.7vw, 40px);
+  line-height: 1.1;
+}
+
+.salud-hero .lic-hero-claim {
+  font-size: clamp(32px, 4.9vw, 70px);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.salud-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 48px rgba(67, 47, 100, 0.16);
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 2 — Afinidad
+   El cierre («Si te identificas con al menos dos de estos puntos…») es el puente
+   hacia el módulo 4: se le da peso de lectura, no de tarjeta.
+   -------------------------------------------------------------------------- */
+.salud-afinidad-cierre {
+  margin: 40px auto 0;
+  max-width: 860px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 3 — Diferenciadores
+   -------------------------------------------------------------------------- */
+/* Las cifras duras —350 sitios, 53 hospitales, 8 estados, 5 pisos— son la prueba
+   más fuerte de la página y estaban en cuerpo de 16px, iguales al resto. Suben
+   de tamaño y de color para que el ojo las encuentre sin leer el párrafo. Solo
+   las llevan las dos tarjetas que tienen cifra: no es una simetría que rellenar,
+   es información que existe o no. */
+.salud-cifra {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--purple-2);
+}
+
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 9 — FAQ
+   Sobre la banda naranja el enlace hereda el blanco del párrafo: queda del
+   mismo color, mismo grosor y sin subrayado, o sea invisible como enlace.
+   El subrayado es lo único que lo distingue sin romper el contraste.
+   -------------------------------------------------------------------------- */
+.salud-faq .faq-item a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+.salud-faq .faq-item a:hover {
+  text-decoration-thickness: 2.5px;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 4 — Router de carreras
+   Componente .area-card, el mismo que presenta las áreas en Oferta Académica.
+   Aquí NO va en carrusel: con 5 carreras, esconder cuatro tras una flecha
+   trabaja en contra de la micro-conversión.
+
+   La regla del molde: dos columnas y, cuando el total es impar, la última
+   tarjeta ocupa el renglón completo. Así ningún número de carreras deja un
+   hueco — 5 da 2+2+1, 11 da 2+2+2+2+2+1. Es CSS puro: al duplicar la página
+   para otra área basta con poner las tarjetas que haya.
+   -------------------------------------------------------------------------- */
+.salud-carreras-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  /* A todo el ancho la imagen no puede seguir siendo la mitad de la tarjeta:
+     pasa a una franja fija. */
+  grid-template-columns: 420px minmax(0, 1fr);
+}
+
+/* La proporción se calcula, no se elige: 420 de ancho por 7/5 da 300 de alto,
+   que es justo el min-height del componente (380) menos su padding (2×40). Así
+   la foto llena la tarjeta exactamente y no queda hueco debajo.
+
+   Y tiene que ser una proporción fija. Con `height: 100%` la altura la acaba
+   marcando el tamaño natural del archivo —esta misma tarjeta pasaba de 380 a
+   605 px solo por cambiar de foto—, que es de donde salían las tarjetas
+   bailando en foráneos. */
+.salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+  aspect-ratio: 7 / 5;
+}
+
+/* A doble ancho el texto ocupa la mitad de renglones, así que el CTA pegado al
+   fondo —que es lo correcto cuando las tarjetas van en pareja y hay que
+   alinearlos— deja un hueco. Aquí el bloque se centra contra la foto y el botón
+   sigue al texto. */
+.salud-carreras-grid > .area-card:last-child:nth-child(odd) .area-card-body {
+  justify-content: center;
+}
+
+.salud-carreras-grid > .area-card:last-child:nth-child(odd) .btn-sm {
+  margin-top: 4px;
+}
+
+/* La tarjeta de carrera lleva cinco piezas (nombre, gancho, dato, campus y CTA)
+   en lugar de las cuatro de la tarjeta de área: hace falta pautarlas. */
+.salud-carrera .area-card-body {
+  gap: 0;
+}
+
+.salud-carrera .area-hook {
+  margin-bottom: 14px;
+}
+
+/* Dato distintivo. Es el argumento concreto de la carrera y por eso se lee como
+   una nota destacada, no como una píldora: varios pasan de cien caracteres y en
+   formato chip se romperían. */
+.salud-dato {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--lilac-1);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(93, 66, 140, 0.06); /* tinte de --purple-2 */
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* Indicador de campus. Es el dato que más se consulta —«¿dónde se estudia
+   esto?»— así que va como marca escaneable y no dentro del texto corrido.
+   No depende solo del color: siempre lleva el icono y el nombre del campus. */
+.salud-campus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  /* Mismos valores que .lic-chip (9px 16px, gap 8); solo se recorta el padding
+     izquierdo porque aquí el chip lleva icono delante. */
+  padding: 9px 16px 9px 12px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+  align-self: flex-start;
+}
+
+.salud-campus svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  color: var(--purple-2);
+}
+
+/* Bicampus se distingue con borde y color de icono, además del texto. */
+.salud-campus--bi {
+  border-color: var(--lilac-1);
+}
+
+.salud-campus--bi svg {
+  color: var(--orange);
+}
+
+.salud-carrera .area-card-body .btn-sm {
+  margin-top: auto;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 5 — Campo laboral
+
+   Cinco de los seis ámbitos son solo un título; el sexto trae una precisión.
+   Con la tarjeta blanca con borde de los módulos 3, 4, 6 y 7, «Investigación y
+   academia» —dos palabras— pesaba lo mismo que un diferenciador entero o que
+   una carrera. Eso es un error de jerarquía: son etiquetas, no argumentos.
+
+   Van como mosaico en gris y sin borde. Se leen como lista, que es lo que son,
+   y de paso rompen la racha de seis secciones seguidas con la misma tarjeta.
+   -------------------------------------------------------------------------- */
+/* Sin esto, el único ámbito con precisión —«Consultorio propio»— estira a los
+   otros dos de su renglón y deja dos cajas grises medio vacías. Cada mosaico se
+   ajusta a su contenido. */
+.salud-campo .consideraciones-grid {
+  align-items: start;
+}
+
+/* El espaciado no se inventa: son los valores de `.campo-tile` (psicología), que
+   es el mosaico gris sin borde que ya existe en el sistema. El icono y el H3
+   se quedan como los de `.consideracion` en apoyos y foráneos — 48/24 y 18px—;
+   la degradación la cargan el fondo, la falta de borde y el padding, no un
+   tamaño de letra a 17px que además no está en la escala. */
+.salud-campo .consideracion {
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  border: 0;
+  background: var(--gray);
+}
+
+/* El mosaico que sí trae descripción vuelve al alineado superior del componente:
+   centrado contra título + párrafo, el icono queda flotando por debajo de su
+   propio título. Va por contenido y no por posición, así sirve igual en las
+   otras áreas, donde la descripción caerá en otro ámbito. */
+.salud-campo .consideracion:has(p) {
+  align-items: flex-start;
+}
+
+/* Lo único que cambia del icono: el chip lleva tinte morado y sobre gris se
+   enturbia. En blanco se separa del mosaico. */
+.salud-campo .consideracion-icon {
+  background: var(--white);
+}
+
+.salud-campo .consideracion h3 {
+  margin-bottom: 0;
+}
+
+.salud-campo .consideracion h3:not(:only-child) {
+  margin-bottom: 6px;
+}
+
+.salud-campo-remate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.salud-campo-nota {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.salud-campo-nota a {
+  color: var(--purple-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.salud-campo-nota a:hover {
+  color: var(--orange);
+}
+
+.salud-campo-remate .button-row {
+  margin-top: 0;
+  gap: 12px;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 6 — Campus
+   El componente entero se hereda. Solo se coloca el cierre sobre los
+   laboratorios, que en el handoff va después de las dos tarjetas.
+   -------------------------------------------------------------------------- */
+.salud-campus-cierre {
+  margin: 40px auto 0;
+  max-width: 920px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 7 — Clínicas internas
+   Misma tarjeta que los diferenciadores, pero encabezada por fotografía en vez
+   de icono: el handoff pide peso visual propio y foto real de cada clínica.
+   Esa diferencia —foto contra icono, más el cambio de fondo de sección— es la
+   que evita que los módulos 3 y 7 se lean como el mismo bloque repetido.
+   -------------------------------------------------------------------------- */
+.salud-clinica {
+  padding: 0 0 30px;
+  overflow: hidden;
+}
+
+.salud-clinica-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  /* La foto sangra hasta el borde de la tarjeta; el radio superior lo hereda del
+     contenedor, así que basta con no redondearla por abajo. */
+  border-radius: 0;
+}
+
+.salud-clinica h3,
+.salud-clinica p {
+  padding: 0 30px;
+}
+
+.salud-clinica h3 {
+  margin-top: 26px;
+}
+
+/* Banda de cierre del módulo: el trabajo interdisciplinario es la idea que
+   sostiene las tres clínicas, y por eso va como bloque destacado y no como una
+   cuarta tarjeta. */
+.salud-clinicas-banda {
+  margin-top: 40px;
+  padding: 44px;
+  border-radius: var(--radius);
+  background: var(--surface-accent);
+  color: var(--color-text-invert);
+}
+
+.salud-clinicas-banda p {
+  max-width: 1000px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 10 — Elige el siguiente paso
+   El componente .pasos-grid ya resuelve las 5 tarjetas: tres columnas donde la
+   intro ocupa la primera celda y las cinco tarjetas llenan las restantes, dos
+   renglones exactos. No hace falta ninguna variante de retícula.
+
+   La primera tarjeta lleva el CTA primario destacado, según el handoff.
+   -------------------------------------------------------------------------- */
+/* Solo el borde: el icono y el enlace de .paso-card ya son naranjas en todas
+   las tarjetas, así que teñirlos aquí no distinguiría nada. */
+.salud-paso--primario,
+.salud-paso--primario:hover {
+  border-color: var(--orange);
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+
+/* La tarjeta de carrera necesita más ancho que la de área porque lleva una
+   pieza más. Pasa a una columna antes que aquélla. */
+@media (max-width: 1180px) {
+  .salud-carreras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* En una columna ya no hay huérfanas que compensar: la última tarjeta vuelve a
+     ser una tarjeta normal. */
+  .salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* Debajo de ~760px las dos columnas internas de la tarjeta dejan la foto en una
+   tira y el texto en una columna de ~130px. La tarjeta se apila: foto arriba,
+   contenido debajo. (La página de Oferta Académica resuelve esto en su propia
+   hoja, afinado para su carrusel; aquí toca hacerlo para esta retícula.) */
+@media (max-width: 760px) {
+  .salud-carrera,
+  .salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 24px;
+    gap: 22px;
+  }
+
+  .salud-carrera > img,
+  .salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Apilada ya no hay nada con qué alinear el botón: que siga al texto. */
+  .salud-carrera .area-card-body .btn-sm {
+    margin-top: 4px;
+  }
+
+  /* El nombre de carrera se quedaba en 32px mientras el H2 de sección baja de 72
+     a 38: en móvil el titular de tarjeta casi alcanzaba al de sección y la
+     jerarquía se aplanaba. A 26 mantiene la distancia. (Oferta Académica lo
+     resuelve en su hoja, que esta página no carga.) */
+  .salud-carrera h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .salud-clinicas-banda {
+    padding: 32px;
+  }
+
+  .salud-clinicas-banda p {
+    font-size: 17px;
+  }
+
+  .salud-afinidad-cierre {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .salud-campo-remate {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .salud-clinica h3,
+  .salud-clinica p {
+    padding: 0 24px;
+  }
+
+  .salud-clinica {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .salud-dato {
+    font-size: 12px;
+    padding: 10px 14px 10px 16px;
+  }
+
+  .salud-clinicas-banda {
+    padding: 26px;
+  }
+
+  .salud-clinicas-banda p {
+    font-size: 16px;
+  }
+}
+
+/* =============================================================================
+   PILOTO — ESCALA TIPOGRÁFICA PROPUESTA PARA TODO EL SITIO
+
+   Va prefijado con `.escala-2026` (clase en el <body>) para que se pueda comparar
+   y revertir quitando esa clase. Si se aprueba, estas reglas se mudan a
+   styles.css sin el prefijo.
+
+   Tres cosas, en orden de impacto:
+
+   1) MEDIDA. Es la corrección que más se nota. Hoy el 19% de los bloques de esta
+      página pasa de 80 caracteres por línea y las respuestas del FAQ llegan a
+      155 — más del doble de lo cómodo. Se acota a 62ch, que da unos 70 caracteres reales: la unidad `ch`
+      mide el cero, más ancho que la media de las minúsculas.
+
+   2) TITULARES EN TRES ESCALONES: 32 / 24 / 20. El piso de 20 no es una
+      convención: la 'x' de Zilla Slab mide 0.447em y la de Roboto 0.528em, así
+      que por debajo de 18.9px un titular tiene las minúsculas más chicas que el
+      párrafo que encabeza. A 18px eso ya pasaba.
+
+   3) UNA INTERLÍNEA Y UN TRACKING POR NIVEL. En el sitio hay seis tratamientos
+      distintos del mismo cuerpo de 16px.
+   ========================================================================== */
+
+/* ---- 1. Medida: ningún texto corrido pasa de 68 caracteres ---- */
+.escala-2026 .faq-item p,
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .salud-afinidad-cierre,
+.escala-2026 .salud-campus-cierre,
+.escala-2026 .salud-clinicas-banda p,
+.escala-2026 .campus-address,
+/* En la tarjeta ancha, el gancho y el dato ocupan los 720px del cuerpo. */
+.escala-2026 .salud-carrera .area-hook,
+.escala-2026 .salud-dato,
+/* Footer: el aviso del newsletter y la línea legal también son texto corrido. */
+.escala-2026 .site-footer .newsletter p,
+.escala-2026 .site-footer .copyright {
+  max-width: 62ch;
+}
+
+/* Los remates centrados conservan su centrado al acotarse. */
+.escala-2026 .salud-afinidad-cierre,
+.escala-2026 .salud-campus-cierre {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* La banda de clínicas ocupa todo el ancho, así que al acotar el texto a medida
+   de lectura quedaban 569px de morado vacío a la derecha: media banda hueca.
+   El texto sigue alineado a la izquierda —se lee mejor que centrado en 5
+   líneas— pero el bloque se centra, y el aire queda repartido a los dos lados
+   en vez de amontonado en uno. */
+.escala-2026 .salud-clinicas-banda p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- 2. Titulares ---- */
+
+/* H2 a 58px y no a 72.
+
+   Los 72px del sitio están calibrados para los H2 de Inicio, Oferta y Apoyos,
+   que promedian 29 caracteres: a esa longitud entran en 1 o 2 líneas y lucen.
+   Los H2 de una página de área vienen escritos para SEO y promedian 45 —«Por
+   qué elegir Ciencias de la Salud en la Universidad Anáhuac México» son 68—.
+   A 72px dos de ellos caen en 3 líneas y el más alto ocupa 205px: el 23% de la
+   pantalla en puro titular, antes de que aparezca nada.
+
+   Medido escalón por escalón: a 64px siguen los mismos dos títulos de 3 líneas;
+   a 58 ya ninguno pasa de 2 y el alto máximo cae a 110px (12%). De 58 para
+   abajo la ganancia se agota —52 solo ahorra 11px— y se pierde presencia.
+
+   El copy no se puede acortar, así que se ajusta el tamaño. 58 ya existe en el
+   inventario del sitio: no es un valor nuevo.
+
+   Va con clamp y no con un valor fijo: fijándolo se anulaban los breakpoints del
+   sitio y en móvil el H2 se quedaba en 58px, con títulos de 8 líneas que se
+   salían de la pantalla.
+   -------------------------------------------------------------------------- */
+.escala-2026 main h2 {
+  font-size: clamp(32px, 4.6vw, 58px);
+  line-height: 1; /* 0.9 aprieta las descendentes cuando el título va a 2 líneas */
+}
+
+/* H3-L — nombre de carrera y de campus */
+.escala-2026 .salud-carrera h3,
+.escala-2026 .campus-card h3 {
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+/* H3-M — tarjeta estándar y pregunta de FAQ (hoy 24, 23 y 22: un solo escalón) */
+.escala-2026 .porque-card h3,
+.escala-2026 .paso-card h3,
+.escala-2026 .faq-item summary {
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+/* H3-S — mosaico. Sube de 18 a 20: a 18 las minúsculas quedaban por debajo de
+   las del párrafo de 16px. */
+.escala-2026 .salud-campo .consideracion h3 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* ---- 3. Cuerpo: cuatro tamaños, una interlínea y un tracking por tamaño ---- */
+
+/* Párrafo L — intro de sección y remates */
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .salud-afinidad-cierre,
+.escala-2026 .salud-campus-cierre,
+.escala-2026 .salud-clinicas-banda p {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* Párrafo M — cuerpo por defecto */
+.escala-2026 .porque-card p,
+.escala-2026 .afinidad-card p,
+.escala-2026 .faq-item p,
+.escala-2026 .campus-address {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* Párrafo S — texto auxiliar dentro de tarjeta. El dato distintivo sube de 13 a
+   15: es el argumento de venta de la carrera, no una nota al pie. */
+.escala-2026 .paso-card p,
+.escala-2026 .salud-campo .consideracion p,
+.escala-2026 .salud-dato,
+.escala-2026 .salud-carrera .area-hook {
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+/* El gancho conserva su peso y color de acento; solo se alinea de tamaño. */
+.escala-2026 .salud-carrera .area-hook {
+  line-height: 1.4;
+}
+
+/* Etiquetas — chip de campus al escalón de rótulo (14), no a 13 suelto */
+.escala-2026 .salud-campus {
+  font-size: 14px;
+}
+
+/* Caption y legal: 13 es el piso. 12 y 11 quedan fuera del sistema. */
+.escala-2026 .site-footer small,
+.escala-2026 .site-footer .copyright {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---- Móvil: los titulares también escalan ---- */
+@media (max-width: 760px) {
+  .escala-2026 .salud-carrera h3,
+  .escala-2026 .campus-card h3 {
+    font-size: 26px;
+  }
+
+  .escala-2026 .porque-card h3,
+  .escala-2026 .paso-card h3,
+  .escala-2026 .faq-item summary {
+    font-size: 21px;
+  }
+
+  .escala-2026 .salud-campo .consideracion h3 {
+    font-size: 18px;
+  }
+
+  /* El cuerpo no encoge en móvil; solo el escalón L, que es el más grande. */
+  .escala-2026 .section-intro > p:not(.tagline),
+  .escala-2026 .salud-afinidad-cierre,
+  .escala-2026 .salud-campus-cierre,
+  .escala-2026 .salud-clinicas-banda p {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,1021 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Financiamiento"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Complementa tu apoyo con financiamiento"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Si necesitas complementar tu apoyo, también existen opciones de financiamiento. A diferencia de una beca, el financiamiento es un crédito que cubres a lo largo del tiempo y que puede combinarse con tu apoyo socioeconómico cuando más te conviene."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "opciones",
+    "name": "opciones",
+    "label": "Opciones de financiamiento",
+    "help_text": "Tarjetas de proveedores. Se recomienda mantener la institucional Anáhuac en primer lugar.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 9,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "opciones.logo",
+        "name": "logo",
+        "label": "Logotipo",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "Proveedor de financiamiento"
+        }
+      },
+      {
+        "id": "opciones.titulo",
+        "name": "titulo",
+        "label": "Nombre (H3)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Crédito educativo"
+      },
+      {
+        "id": "opciones.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "opciones.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "opciones.como_funciona",
+        "name": "como_funciona",
+        "label": "Cómo funciona",
+        "type": "text",
+        "allow_new_line": true,
+        "default": ""
+      },
+      {
+        "id": "opciones.como_funciona_tag",
+        "name": "como_funciona_tag",
+        "label": "Etiqueta HTML de «como_funciona»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "opciones.como_funciona_color",
+        "name": "como_funciona_color",
+        "label": "Color de texto de «como_funciona»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "opciones.requisito",
+        "name": "requisito",
+        "label": "Requisito base",
+        "type": "text",
+        "allow_new_line": true,
+        "default": ""
+      },
+      {
+        "id": "opciones.requisito_tag",
+        "name": "requisito_tag",
+        "label": "Etiqueta HTML de «requisito»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "opciones.requisito_color",
+        "name": "requisito_color",
+        "label": "Color de texto de «requisito»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "opciones.combinable",
+        "name": "combinable",
+        "label": "Etiqueta de combinación",
+        "help_text": "Déjalo vacío para ocultar la etiqueta.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Combinable con apoyo"
+      },
+      {
+        "id": "opciones.combinable_tag",
+        "name": "combinable_tag",
+        "label": "Etiqueta HTML de «combinable»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "opciones.combinable_color",
+        "name": "combinable_color",
+        "label": "Color de texto de «combinable»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "opciones.cta_texto",
+        "name": "cta_texto",
+        "label": "Enlace · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Más información"
+      },
+      {
+        "id": "opciones.cta_texto_tag",
+        "name": "cta_texto_tag",
+        "label": "Etiqueta HTML de «cta_texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "opciones.cta_texto_color",
+        "name": "cta_texto_color",
+        "label": "Color de texto de «cta_texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "opciones.cta_enlace",
+        "name": "cta_enlace",
+        "label": "Enlace · destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#actua"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "default": [
+      {
+        "logo": {
+          "src": "",
+          "alt": "Universidad Anáhuac México"
+        },
+        "titulo": "Crédito educativo complementario institucional",
+        "como_funciona": "Financiamiento complementario en el que pagas intereses semestrales durante la carrera, con opción de 6 meses de gracia después de egresar.",
+        "requisito": "Promedio mínimo de preparatoria de 7.5, obligado solidario (aval) y reporte actualizado de buró de crédito.",
+        "combinable": "Combinable con apoyo",
+        "cta_texto": "Más información",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#actua"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "logo": {
+          "src": "",
+          "alt": "Prepárate"
+        },
+        "titulo": "Crédito Educativo Prepárate",
+        "como_funciona": "Pagas mensualidades fijas menores a la colegiatura mientras estudias y, al egresar, liquidas el resto a largo plazo con una tasa de interés baja. Financia hasta $1,100,000.",
+        "requisito": "Promedio mínimo de 8.0, obligado solidario con ingresos comprobables y buen historial en buró de crédito.",
+        "combinable": "Combinable con apoyo",
+        "cta_texto": "Más información",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#actua"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "logo": {
+          "src": "",
+          "alt": "Laudex"
+        },
+        "titulo": "Laudex",
+        "como_funciona": "Reduce el monto de tus colegiaturas y lo pagas en un plazo posterior a tus estudios. Tasa de 0% anual mientras seas alumno regular (9.9% si dejas de serlo), con liquidación anticipada sin penalización.",
+        "requisito": "Sujeto a evaluación y aprobación crediticia de Laudex; consulta montos y condiciones.",
+        "combinable": "Combinable con apoyo",
+        "cta_texto": "Más información",
+        "cta_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#actua"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_documentos",
+    "name": "grupo_documentos",
+    "label": "Documentos y requisitos",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_documentos.mostrar",
+        "name": "mostrar",
+        "label": "Mostrar bloque de documentos",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_documentos.titulo",
+        "name": "titulo",
+        "label": "Título del desplegable",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Documentos y requisitos generales"
+      },
+      {
+        "id": "grupo_documentos.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_documentos.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "columnas",
+    "name": "columnas",
+    "label": "Documentos · columnas",
+    "help_text": "Cada columna es un listado de requisitos. Recomendado: 2 columnas.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "columnas.titulo",
+        "name": "titulo",
+        "label": "Título de la columna (H4)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Del alumno y su familia"
+      },
+      {
+        "id": "columnas.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h4"
+      },
+      {
+        "id": "columnas.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "columnas.lista",
+        "name": "lista",
+        "label": "Listado",
+        "help_text": "Usa una lista con viñetas del editor.",
+        "type": "richtext",
+        "default": "<ul><li>Requisito</li></ul>"
+      }
+    ],
+    "default": [
+      {
+        "titulo": "Del alumno y su familia",
+        "lista": "<ul><li>Promedio mínimo de preparatoria de 7.5</li><li>Solicitud completa y firmada</li><li>Última declaración de impuestos y último recibo de sueldo</li><li>Constancia de calificaciones o certificado de preparatoria (primer semestre)</li><li>Copia de identificación y recibo de teléfono del alumno</li><li>Reporte actualizado de buró de crédito del padre o tutor</li><li>Carta Anáhuac de preautorización</li></ul>"
+      },
+      {
+        "titulo": "Del aval (obligado solidario)",
+        "lista": "<ul><li>Declaración de impuestos del año y recibo de sueldo del mes</li><li>Copia del título de propiedad que avala el crédito</li><li>Copia del predial pagado de esa propiedad</li><li>Comprobante de domicilio (con fotografía y firma)</li><li>Recibo de teléfono con domicilio del aval</li><li>Reporte actualizado de buró de crédito del aval</li><li>Carta Anáhuac de preautorización</li></ul>"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_etiquetas",
+    "name": "grupo_etiquetas",
+    "label": "Etiquetas de la tarjeta",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_etiquetas.label_como_funciona",
+        "name": "label_como_funciona",
+        "label": "Etiqueta · Cómo funciona",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Cómo funciona"
+      },
+      {
+        "id": "grupo_etiquetas.label_como_funciona_tag",
+        "name": "label_como_funciona_tag",
+        "label": "Etiqueta HTML de «label_como_funciona»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_etiquetas.label_como_funciona_color",
+        "name": "label_como_funciona_color",
+        "label": "Color de texto de «label_como_funciona»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito",
+        "name": "label_requisito",
+        "label": "Etiqueta · Requisito base",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Requisito base"
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito_tag",
+        "name": "label_requisito_tag",
+        "label": "Etiqueta HTML de «label_requisito»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito_color",
+        "name": "label_requisito_color",
+        "label": "Color de texto de «label_requisito»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "help_text": "Oculta datos sin borrarlos: el contenido se conserva por si lo vuelves a activar.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_combinable",
+        "name": "mostrar_combinable",
+        "label": "Mostrar la etiqueta «Combinable con apoyo»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_cta",
+        "name": "mostrar_cta",
+        "label": "Mostrar el enlace «Más información»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_fondo",
+        "name": "color_tarjeta_fondo",
+        "label": "Color de fondo de las tarjetas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_texto",
+        "name": "color_tarjeta_texto",
+        "label": "Color de texto de las tarjetas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_etiquetas",
+        "name": "color_etiquetas",
+        "label": "Color de las etiquetas (Cómo funciona, Requisito)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_combinable",
+        "name": "color_combinable",
+        "label": "Color de la etiqueta «Combinable con apoyo»",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Color de fondo del botón",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Color de texto del botón",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

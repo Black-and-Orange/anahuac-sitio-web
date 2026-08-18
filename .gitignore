@@ -12,3 +12,9 @@ Thumbs.db
 
 # Node
 node_modules/
+
+# Espejo del Design Manager de HubSpot (hs cms fetch).
+# Las imágenes ya viven en el portal y su fuente está en assets/: versionarlas
+# aquí sumaría ~58 MB permanentes a la historia de git. El CÓDIGO del theme
+# (modules, css, js, templates) sí se versiona.
+adapters/hubspot/theme/images/

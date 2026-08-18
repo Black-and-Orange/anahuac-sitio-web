@@ -1,0 +1,373 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Apoyos Económicos"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título principal (H1)",
+        "help_text": "Es el único H1 de la página. No agregues otro H1 en los demás módulos.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Impulsa tu carrera con apoyos hechos para tu talento y perfil"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h1"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de la tarjeta",
+        "type": "richtext",
+        "default": "<p>La Universidad Anáhuac México cuenta con distintas opciones de apoyo y financiamiento para que el factor económico no sea un obstáculo en tu camino universitario.</p>"
+      }
+    ]
+  },
+  {
+    "id": "grupo_imagen",
+    "name": "grupo_imagen",
+    "label": "Imagen",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_imagen.image",
+        "name": "image",
+        "label": "Imagen del hero",
+        "type": "image",
+        "responsive": true,
+        "resizable": false,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "Estudiante Anáhuac en contexto académico"
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_botones",
+    "name": "grupo_botones",
+    "label": "Botones",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_botones.mostrar_botones",
+        "name": "mostrar_botones",
+        "label": "Mostrar botones",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "botones",
+    "name": "botones",
+    "label": "Botones",
+    "help_text": "Máximo 2. El primero se pinta oscuro y el segundo claro, según el diseño aprobado.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 2,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "botones.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Quiero conocer mis opciones"
+      },
+      {
+        "id": "botones.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "botones.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "botones.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#panorama"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "botones.estilo",
+        "name": "estilo",
+        "label": "Estilo",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-light",
+            "Claro"
+          ],
+          [
+            "btn-orange",
+            "Naranja"
+          ]
+        ],
+        "default": "btn-dark"
+      }
+    ],
+    "default": [
+      {
+        "texto": "Quiero conocer mis opciones",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#panorama"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-dark"
+      },
+      {
+        "texto": "Inicia tu solicitud de apoyo",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#actua"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-light"
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Color de fondo del botón principal",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Color de texto del botón principal",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

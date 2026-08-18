@@ -5,6 +5,12 @@
 
 /* ===== 1. HERO (copia del hero de Oferta Académica) ===== */
 .apo-hero {
+  --support-hero-panel-bg: var(--cta-bg-purple);
+  --support-hero-panel-text: var(--color-text-invert);
+  --support-hero-primary-bg: var(--cta-bg-dark);
+  --support-hero-primary-text: var(--color-text-invert);
+  --support-hero-secondary-bg: var(--surface);
+  --support-hero-secondary-text: var(--color-text);
   position: relative;
   overflow: hidden;
   padding-top: 191px;
@@ -63,7 +69,8 @@
 }
 
 .apo-hero .hero-card {
-  background: var(--purple-2);
+  background: var(--support-hero-panel-bg);
+  color: var(--support-hero-panel-text);
 }
 
 .apo-hero .hero-card p {
@@ -75,6 +82,16 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 0;
+}
+
+.apo-hero .btn-dark {
+  background: var(--support-hero-primary-bg);
+  color: var(--support-hero-primary-text);
+}
+
+.apo-hero .btn-light {
+  background: var(--support-hero-secondary-bg);
+  color: var(--support-hero-secondary-text);
 }
 
 @media (max-width: 1180px) {
@@ -253,7 +270,9 @@
 
 /* ===== 3. PANORAMA GENERAL DE APOYOS (fondo naranja, cards blancas) ===== */
 .apo-panorama {
-  background: var(--orange);
+  --support-overview-bg: var(--color-brand-primary);
+  --support-overview-percentage-color: var(--cta-bg-purple);
+  background: var(--support-overview-bg);
   color: var(--white);
   position: relative;
   overflow: hidden;
@@ -344,7 +363,7 @@
   font-size: 40px;
   font-weight: 600;
   line-height: 1;
-  color: var(--purple-2);
+  color: var(--support-overview-percentage-color);
 }
 
 /* Pares etiqueta/valor (Perfil, Requisito) */
@@ -421,6 +440,12 @@
 
 /* ===== 4. DETALLE POR TIPO DE APOYO (acordeón de fichas) ===== */
 .apo-detalle {
+  --support-detail-accent-text: var(--color-brand-primary);
+  --support-detail-range-text: var(--cta-bg-purple);
+  --support-detail-body-text: var(--color-text);
+  --support-detail-secondary-text: var(--color-text-secondary);
+  --support-detail-cta-bg: var(--cta-bg);
+  --support-detail-cta-text: var(--cta-text);
   background: var(--white);
 }
 
@@ -559,7 +584,7 @@
   font-size: 26px;
   font-weight: 600;
   line-height: 1;
-  color: var(--purple-2);
+  color: var(--support-detail-range-text);
   white-space: nowrap;
 }
 
@@ -588,7 +613,7 @@
 .detalle-desc {
   font-size: 16px;
   line-height: 1.7;
-  color: var(--color-text-secondary);
+  color: var(--support-detail-secondary-text);
   text-wrap: pretty;
   max-width: 70ch;
 }
@@ -612,7 +637,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  color: var(--orange);
+  color: var(--support-detail-accent-text);
 }
 
 .detalle-ficha dd {
@@ -829,7 +854,12 @@
 
 .step-time strong {
   font-weight: 600;
-  color: var(--black);
+  color: var(--support-detail-body-text);
+}
+
+.apo-detalle .btn-orange {
+  background: var(--support-detail-cta-bg);
+  color: var(--support-detail-cta-text);
 }
 
 .step-panel h3,
@@ -941,9 +971,41 @@
 }
 
 /* ===== 7A. PASOS · OPCIÓN A (timeline estático con imagen) ===== */
+.steps-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: calc(var(--container) - (var(--space-14) * 3));
+  margin: calc(var(--space-10) * -1) 0 var(--space-10);
+  padding: var(--space-6) var(--space-7);
+  border-left: var(--space-1) solid var(--color-brand-primary);
+  border-radius: var(--radius-button);
+  background: var(--surface-accent-light);
+  color: var(--color-text);
+}
+
+.steps-disclaimer-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: 50%;
+  background: var(--cta-bg-purple);
+  color: var(--color-text-invert);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.steps-disclaimer p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
 .steps-cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
   gap: 20px;
   list-style: none;
   padding: 0;
@@ -1317,7 +1379,8 @@
 
 /* ===== 5. FINANCIAMIENTO (fondo morado, base de la CTA 'solicitud', sin cuadrícula) ===== */
 .apo-financiamiento {
-  background: var(--purple-1);
+  --financing-options-bg: var(--surface-accent);
+  background: var(--financing-options-bg);
   color: var(--white);
 }
 
@@ -1502,7 +1565,8 @@
   content: "−";
 }
 
-.financiamiento-docs h3 {
+.financiamiento-docs-title {
+  display: block;
   font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 500;
@@ -1545,6 +1609,7 @@
 
 /* ===== 6. CONSIDERACIONES GENERALES (mini-highlights con icono) ===== */
 .apo-consideraciones {
+  --support-consideration-icon: var(--cta-bg-purple);
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -1586,67 +1651,6 @@
 .apo-consideraciones .section-intro h2,
 .apo-consideraciones .section-intro p:not(.tagline) {
   text-wrap: balance;
-}
-
-.consideraciones-grid {
-  display: grid;
-  /* min(340px, 100%) evita que el track fuerce 340px y se desborde en pantallas
-     angostas: ahí el mínimo pasa a ser el 100% del contenedor. */
-  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.consideracion {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  min-width: 0;
-  padding: 28px;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius);
-  background: var(--white);
-}
-
-/* En móvil el icono va arriba (alineado a la izquierda) y el texto debajo */
-@media (max-width: 640px) {
-  .consideracion {
-    flex-direction: column;
-    gap: 14px;
-  }
-}
-
-.consideracion-icon {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(93, 66, 140, 0.1); /* tinte de --purple-2 */
-  color: var(--purple-2);
-}
-
-.consideracion-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.consideracion h3 {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-
-.consideracion p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  text-wrap: pretty;
 }
 
 /* ===== PROPEDÉUTICOS ===== */
@@ -1961,13 +1965,28 @@
   color: var(--orange);
 }
 
-.faq-item p {
+.faq-answer {
   padding: 0 0 24px;
   font-size: 16px;
   line-height: 1.7;
   color: var(--color-text-secondary);
   animation: faqIn 300ms ease;
   text-wrap: balance;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer a {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--space-1);
+}
+
+/* Contraste AA local para el CTA del footer en esta página. */
+.site-footer .newsletter button {
+  color: var(--color-text);
 }
 
 @keyframes faqIn {
@@ -2052,6 +2071,20 @@
 
 .asesoria-select-row > .cselect .cselect__label {
   white-space: nowrap;
+}
+
+.asesoria-preparatoria-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.asesoria-preparatoria-wrap[hidden] {
+  display: none;
+}
+
+.asesoria-preparatoria-wrap > .cselect {
+  width: 100%;
 }
 
 .asesoria-select-wrap label {

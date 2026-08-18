@@ -1,0 +1,46 @@
+{# ===== Admisión · CTA solicitud =====
+   Porta <section class="adm-cta"> de proceso-de-admision.html.
+
+   Los dos botones son campos separados, no un repeater: son roles distintos
+   (primario naranja, secundario outline) y el orden forma parte del diseño. #}
+{% set c = module.grupo_contenido %}
+{% set b1 = module.grupo_boton1 %}
+{% set b2 = module.grupo_boton2 %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-cta-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto_principal.color %}{% set estilo = estilo ~ "--admision-cta-text-principal:" ~ e.color_texto_principal.color ~ ";" %}{% endif %}
+{% if e.color_texto_secundario.color %}{% set estilo = estilo ~ "--admision-cta-text-secundario:" ~ e.color_texto_secundario.color ~ ";" %}{% endif %}
+{% if e.color_boton1_fondo.color %}{% set estilo = estilo ~ "--admision-cta-boton1-bg:" ~ e.color_boton1_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton1_texto.color %}{% set estilo = estilo ~ "--admision-cta-boton1-text:" ~ e.color_boton1_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton2_texto.color %}{% set estilo = estilo ~ "--admision-cta-boton2-text:" ~ e.color_boton2_texto.color ~ ";" %}{% endif %}
+
+<section class="adm-cta section-pad" id="solicitud"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="adm-cta-inner">
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} class="reveal" data-reveal{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if c.texto %}
+        <{{ c.texto_tag|default('p', true) }} class="reveal" data-reveal{% if c.texto_color.color %} style="color:{{ c.texto_color.color }}"{% endif %}>{{ c.texto }}</{{ c.texto_tag|default('p', true) }}>
+      {% endif %}
+
+      {% set hay_b1 = b1.mostrar and b1.texto %}
+      {% set hay_b2 = b2.mostrar and b2.texto %}
+      {% if hay_b1 or hay_b2 %}
+        <div class="button-row reveal" data-reveal>
+          {% if hay_b1 %}
+            <a class="btn btn-orange" href="{{ b1.enlace.url.href|default('#', true) }}"
+               {% if b1.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if b1.texto_tag and b1.texto_tag != 'ninguna' %}<{{ b1.texto_tag }}{% if b1.texto_color.color %} style="color:{{ b1.texto_color.color }}"{% endif %}>{{ b1.texto }}</{{ b1.texto_tag }}>{% elif b1.texto_color.color %}<span style="color:{{ b1.texto_color.color }}">{{ b1.texto }}</span>{% else %}{{ b1.texto }}{% endif %}</a>
+          {% endif %}
+          {% if hay_b2 %}
+            <a class="btn btn-outline" href="{{ b2.enlace.url.href|default('#', true) }}"
+               {% if b2.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if b2.texto_tag and b2.texto_tag != 'ninguna' %}<{{ b2.texto_tag }}{% if b2.texto_color.color %} style="color:{{ b2.texto_color.color }}"{% endif %}>{{ b2.texto }}</{{ b2.texto_tag }}>{% elif b2.texto_color.color %}<span style="color:{{ b2.texto_color.color }}">{{ b2.texto }}</span>{% else %}{{ b2.texto }}{% endif %}</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

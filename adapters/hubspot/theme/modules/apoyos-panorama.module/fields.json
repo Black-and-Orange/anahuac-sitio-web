@@ -1,0 +1,1006 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Panorama de apoyos"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Tipos de apoyo disponibles"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Compara de un vistazo las categorías principales y entra al detalle de la que mejor se ajuste a tu perfil."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "tarjetas",
+    "name": "tarjetas",
+    "label": "Tarjetas de apoyo",
+    "help_text": "Se muestran en un carrusel horizontal infinito. El JS del theme clona las tarjetas para el loop; con menos de 3 el carrusel se desactiva solo.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "sorting_label_field": null,
+      "default": 8
+    },
+    "children": [
+      {
+        "id": "tarjetas.titulo",
+        "name": "titulo",
+        "label": "Nombre del apoyo (H3)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Apoyo socioeconómico académico"
+      },
+      {
+        "id": "tarjetas.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "tarjetas.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.rango",
+        "name": "rango",
+        "label": "Rango o beneficio",
+        "help_text": "Por ejemplo «10% – 50%» o «Reembolso de inscripción».",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "10% – 50%"
+      },
+      {
+        "id": "tarjetas.rango_tag",
+        "name": "rango_tag",
+        "label": "Etiqueta HTML de «rango»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "tarjetas.rango_color",
+        "name": "rango_color",
+        "label": "Color de texto de «rango»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.perfil",
+        "name": "perfil",
+        "label": "Perfil",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Nuevo ingreso a licenciatura"
+      },
+      {
+        "id": "tarjetas.perfil_tag",
+        "name": "perfil_tag",
+        "label": "Etiqueta HTML de «perfil»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "tarjetas.perfil_color",
+        "name": "perfil_color",
+        "label": "Color de texto de «perfil»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.requisito",
+        "name": "requisito",
+        "label": "Requisito",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Promedio de preparatoria mayor o igual a 8"
+      },
+      {
+        "id": "tarjetas.requisito_tag",
+        "name": "requisito_tag",
+        "label": "Etiqueta HTML de «requisito»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "tarjetas.requisito_color",
+        "name": "requisito_color",
+        "label": "Color de texto de «requisito»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.nota",
+        "name": "nota",
+        "label": "Nota al pie (opcional)",
+        "help_text": "Se muestra en pequeño bajo los datos. Déjalo vacío si no aplica.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": ""
+      },
+      {
+        "id": "tarjetas.nota_tag",
+        "name": "nota_tag",
+        "label": "Etiqueta HTML de «nota»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "tarjetas.nota_color",
+        "name": "nota_color",
+        "label": "Color de texto de «nota»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Enlace · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ver detalles ›"
+      },
+      {
+        "id": "tarjetas.enlace_texto_tag",
+        "name": "enlace_texto_tag",
+        "label": "Etiqueta HTML de «enlace_texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "tarjetas.enlace_texto_color",
+        "name": "enlace_texto_color",
+        "label": "Color de texto de «enlace_texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace",
+        "name": "enlace",
+        "label": "Enlace · destino",
+        "help_text": "Normalmente el ancla de la ficha correspondiente en el módulo «Detalle por apoyo» (por ejemplo #apoyo-academico).",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-academico"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "default": [
+      {
+        "titulo": "Apoyo socioeconómico académico",
+        "rango": "10% – 50%",
+        "perfil": "Nuevo ingreso a licenciatura",
+        "requisito": "Promedio de preparatoria mayor o igual a 8",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-academico"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Apoyo socioeconómico de excelencia",
+        "rango": "10% – 70%",
+        "perfil": "Nuevo ingreso a licenciatura",
+        "requisito": "Promedio de preparatoria mayor o igual a 9",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-excelencia"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Concursos académicos preuniversitarios",
+        "rango": "30% – 100%",
+        "perfil": "Alumnos de cualquier año de preparatoria",
+        "requisito": "Sin promedio mínimo; se premia el talento",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-concursos"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Apoyo deportivo",
+        "rango": "10% – 90%",
+        "perfil": "Talento con evaluación en una disciplina deportiva",
+        "requisito": "Promedio de preparatoria mayor o igual a 8",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-deportivo"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Apoyo artístico",
+        "rango": "10% – 70%",
+        "perfil": "Talento en teatro, danza, música o artes visuales",
+        "requisito": "Promedio de preparatoria mayor o igual a 8",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-artistico"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Fondo para la Educación Maguén David",
+        "rango": "20% – 60%",
+        "perfil": "Nuevo ingreso con perfil socioeconómico elegible",
+        "requisito": "Promedio de preparatoria mayor o igual a 8.5",
+        "nota": "*Datos de referencia, por confirmar.",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-maguen-david"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Apoyo SEDENA",
+        "rango": "Reembolso de inscripción",
+        "perfil": "Hijos de militares activos en las Fuerzas Armadas de México",
+        "requisito": "Promedio mayor o igual a 8.5 y examen de admisión",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-sedena"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "titulo": "Convenio ISSFAM",
+        "rango": "40%",
+        "perfil": "Beneficiarios del ISSFAM",
+        "requisito": "Promedio de bachillerato mayor o igual a 8.5",
+        "nota": "",
+        "enlace_texto": "Ver detalles ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#apoyo-issfam"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_etiquetas",
+    "name": "grupo_etiquetas",
+    "label": "Etiquetas de los datos",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_etiquetas.label_perfil",
+        "name": "label_perfil",
+        "label": "Etiqueta · Perfil",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Perfil"
+      },
+      {
+        "id": "grupo_etiquetas.label_perfil_tag",
+        "name": "label_perfil_tag",
+        "label": "Etiqueta HTML de «label_perfil»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_etiquetas.label_perfil_color",
+        "name": "label_perfil_color",
+        "label": "Color de texto de «label_perfil»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito",
+        "name": "label_requisito",
+        "label": "Etiqueta · Requisito",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Requisito"
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito_tag",
+        "name": "label_requisito_tag",
+        "label": "Etiqueta HTML de «label_requisito»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_etiquetas.label_requisito_color",
+        "name": "label_requisito_color",
+        "label": "Color de texto de «label_requisito»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "help_text": "Oculta datos sin borrarlos: el contenido se conserva por si lo vuelves a activar.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_rango",
+        "name": "mostrar_rango",
+        "label": "Mostrar el porcentaje",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.tamano_rango",
+        "name": "tamano_rango",
+        "label": "Tamaño del porcentaje",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-22",
+            "Pequeño"
+          ],
+          [
+            "size-26",
+            "Mediano"
+          ],
+          [
+            "size-30",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ],
+          [
+            "size-48",
+            "Enorme"
+          ]
+        ],
+        "default": "heading-3-size"
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_perfil",
+        "name": "mostrar_perfil",
+        "label": "Mostrar «Perfil»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_requisito",
+        "name": "mostrar_requisito",
+        "label": "Mostrar «Requisito»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_nota",
+        "name": "mostrar_nota",
+        "label": "Mostrar la nota al pie",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_enlace",
+        "name": "mostrar_enlace",
+        "label": "Mostrar el enlace «Ver detalles»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_fondo",
+        "name": "color_tarjeta_fondo",
+        "label": "Color de fondo de las tarjetas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_texto",
+        "name": "color_tarjeta_texto",
+        "label": "Color de texto de las tarjetas",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_porcentaje",
+        "name": "color_porcentaje",
+        "label": "Color del porcentaje",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_etiquetas",
+        "name": "color_etiquetas",
+        "label": "Color de las etiquetas (Perfil, Requisito)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_enlace",
+        "name": "color_enlace",
+        "label": "Color del enlace «Ver detalles»",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

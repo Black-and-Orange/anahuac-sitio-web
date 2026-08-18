@@ -1,0 +1,436 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Antes de solicitar"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Consideraciones generales"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Cinco puntos clave que conviene tener presentes al elegir y solicitar tu apoyo."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "items",
+    "name": "items",
+    "label": "Consideraciones",
+    "help_text": "De 1 a 6 tarjetas. El icono se elige de un catálogo del design system: no se sube SVG desde el editor.",
+    "type": "group",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "sorting_label_field": null,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "items.icono",
+        "name": "icono",
+        "label": "Icono",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "admision",
+            "Admisión (usuario verificado)"
+          ],
+          [
+            "porcentaje",
+            "Porcentaje variable"
+          ],
+          [
+            "comite",
+            "Evaluación integral (comité)"
+          ],
+          [
+            "ingreso",
+            "Nuevo ingreso (flecha)"
+          ],
+          [
+            "campus",
+            "Convocatorias y campus (ubicación)"
+          ]
+        ],
+        "default": "admision"
+      },
+      {
+        "id": "items.titulo",
+        "name": "titulo",
+        "label": "Título (H3)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Primero, tu admisión"
+      },
+      {
+        "id": "items.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "items.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "items.texto",
+        "name": "texto",
+        "label": "Descripción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Debes estar admitido para iniciar ciertos trámites de apoyo."
+      },
+      {
+        "id": "items.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "items.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "default": [
+      {
+        "icono": "admision",
+        "titulo": "Primero, tu admisión",
+        "texto": "Debes estar admitido para iniciar ciertos trámites de apoyo."
+      },
+      {
+        "icono": "porcentaje",
+        "titulo": "Porcentaje variable",
+        "texto": "El monto otorgado depende de la evaluación y la disponibilidad."
+      },
+      {
+        "icono": "comite",
+        "titulo": "Evaluación integral",
+        "texto": "El comité considera variables académicas y socioeconómicas."
+      },
+      {
+        "icono": "ingreso",
+        "titulo": "Nuevo ingreso",
+        "texto": "Algunos apoyos son exclusivos para quienes ingresan a licenciatura."
+      },
+      {
+        "icono": "campus",
+        "titulo": "Convocatorias y campus",
+        "texto": "Ciertos apoyos están sujetos a convocatoria, pruebas o disponibilidad por campus."
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": true
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "help_text": "Oculta datos sin borrarlos: el contenido se conserva por si lo vuelves a activar.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_iconos",
+        "name": "mostrar_iconos",
+        "label": "Mostrar los iconos",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_icono",
+        "name": "color_icono",
+        "label": "Color del icono",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

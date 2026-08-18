@@ -1,0 +1,100 @@
+{# ===== Admisión · Pasos del proceso =====
+   Porta <section class="adm-steps">. La línea de tiempo (.steps-timeline) y los
+   paneles (.step-panels) los empareja main.js por índice mediante data-step /
+   data-panel: ambos salen de loop.index0, así que agregar, borrar o reordenar
+   pasos desde el editor no desincroniza nada.
+
+   El número visible del dot también sale de loop.index: en la maqueta estaba
+   escrito a mano y se habría desordenado al editar. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--admision-pasos-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--admision-pasos-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_dot_texto.color %}{% set estilo = estilo ~ "--admision-pasos-dot-text:" ~ e.color_dot_texto.color ~ ";" %}{% endif %}
+{% if e.color_dot_fondo.color %}{% set estilo = estilo ~ "--admision-pasos-dot-bg:" ~ e.color_dot_fondo.color ~ ";" %}{% endif %}
+{% if e.color_dot_activo_fondo.color %}{% set estilo = estilo ~ "--admision-pasos-dot-activo-bg:" ~ e.color_dot_activo_fondo.color ~ ";" %}{% endif %}
+{% if e.color_dot_activo_texto.color %}{% set estilo = estilo ~ "--admision-pasos-dot-activo-text:" ~ e.color_dot_activo_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--admision-pasos-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--admision-pasos-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="adm-steps section-pad" id="pasos"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}>{% if v.mostrar_flecha %}<span></span>{% endif %}{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }}{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+
+    <div class="steps-timeline reveal" data-reveal>
+      {% for paso in module.pasos %}
+        <button class="step-dot{% if loop.first %} active{% endif %}" type="button" data-step="{{ loop.index0 }}">
+          <span class="step-num">{{ loop.index }}</span>
+          <span class="step-label"{% if paso.etiqueta_dot_color.color %} style="color:{{ paso.etiqueta_dot_color.color }}"{% endif %}>{% if paso.etiqueta_dot_tag and paso.etiqueta_dot_tag != 'ninguna' %}<{{ paso.etiqueta_dot_tag }}>{{ paso.etiqueta_dot }}</{{ paso.etiqueta_dot_tag }}>{% else %}{{ paso.etiqueta_dot }}{% endif %}</span>
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="step-panels">
+      {% for paso in module.pasos %}
+        <article class="step-panel{% if loop.first %} active{% endif %}" data-panel="{{ loop.index0 }}">
+          <div class="step-panel-body">
+            {% set hay_tiempo = paso.mostrar_tiempo and paso.tiempo %}
+            {% if hay_tiempo %}
+              <div class="step-panel-head">
+                <span class="step-tag"{% if paso.indicador_color.color %} style="color:{{ paso.indicador_color.color }}"{% endif %}>{% if paso.indicador_tag and paso.indicador_tag != 'ninguna' %}<{{ paso.indicador_tag }}>{{ paso.indicador }}</{{ paso.indicador_tag }}>{% else %}{{ paso.indicador }}{% endif %}</span>
+                <p class="step-time"{% if paso.etiqueta_tiempo_color.color %} style="color:{{ paso.etiqueta_tiempo_color.color }}"{% endif %}>{{ paso.etiqueta_tiempo }} <strong{% if paso.tiempo_color.color %} style="color:{{ paso.tiempo_color.color }}"{% endif %}>{{ paso.tiempo }}</strong></p>
+              </div>
+            {% else %}
+              <span class="step-tag"{% if paso.indicador_color.color %} style="color:{{ paso.indicador_color.color }}"{% endif %}>{% if paso.indicador_tag and paso.indicador_tag != 'ninguna' %}<{{ paso.indicador_tag }}>{{ paso.indicador }}</{{ paso.indicador_tag }}>{% else %}{{ paso.indicador }}{% endif %}</span>
+            {% endif %}
+
+            {% if paso.titulo %}<{{ paso.titulo_tag|default('h3', true) }}{% if paso.titulo_color.color %} style="color:{{ paso.titulo_color.color }}"{% endif %}>{{ paso.titulo }}</{{ paso.titulo_tag|default('h3', true) }}>{% endif %}
+            {{ paso.descripcion }}
+            {% if paso.nota %}<{{ paso.nota_tag|default('p', true) }} class="step-note"{% if paso.nota_color.color %} style="color:{{ paso.nota_color.color }}"{% endif %}>{{ paso.nota }}</{{ paso.nota_tag|default('p', true) }}>{% endif %}
+
+            {% if paso.mostrar_enlace and paso.enlace_texto %}
+              <a class="step-link" href="{{ paso.enlace.url.href|default('#', true) }}"
+                 {% if paso.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+                 {% if paso.enlace_texto_color.color %}style="color:{{ paso.enlace_texto_color.color }}"{% endif %}>{% if paso.enlace_texto_tag and paso.enlace_texto_tag != 'ninguna' %}<{{ paso.enlace_texto_tag }}>{{ paso.enlace_texto }}</{{ paso.enlace_texto_tag }}>{% else %}{{ paso.enlace_texto }}{% endif %}</a>
+            {% endif %}
+
+            {% if paso.mostrar_cta and paso.cta_texto %}
+              <div class="button-row">
+                <a class="btn btn-dark" href="{{ paso.cta_enlace.url.href|default('#', true) }}"
+                   {% if paso.cta_enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if paso.cta_texto_tag and paso.cta_texto_tag != 'ninguna' %}<{{ paso.cta_texto_tag }}{% if paso.cta_texto_color.color %} style="color:{{ paso.cta_texto_color.color }}"{% endif %}>{{ paso.cta_texto }}</{{ paso.cta_texto_tag }}>{% elif paso.cta_texto_color.color %}<span style="color:{{ paso.cta_texto_color.color }}">{{ paso.cta_texto }}</span>{% else %}{{ paso.cta_texto }}{% endif %}</a>
+              </div>
+            {% endif %}
+          </div>
+
+          {% set fallback = [
+            "proceso-de-admision/pasos-de-admision-img-1.jpg",
+            "proceso-de-admision/pasos-de-admision-img-2.jpg",
+            "proceso-de-admision/pasos-de-admision-img-3.jpg",
+            "proceso-de-admision/pasos-de-admision-img-4.jpg",
+            "proceso-de-admision/pasos-de-admision-img-5.jpg",
+            "proceso-de-admision/pasos-de-admision-img-6.jpg"
+          ] %}
+          {% if paso.tipo_media == "video" and paso.video_id %}
+            {# El theme carga el iframe solo al pulsar play (main.js, [data-yt-id]). #}
+            <div class="video-card" data-yt-id="{{ paso.video_id }}">
+              <img src="{{ paso.video_poster.src or 'https://i.ytimg.com/vi/' ~ paso.video_id ~ '/maxresdefault.jpg' }}"
+                   alt="{{ paso.video_poster.alt|default(paso.titulo, true) }}" loading="lazy" />
+              <button class="video-play-btn" type="button" aria-label="Reproducir video">
+                <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+              </button>
+            </div>
+          {% else %}
+            <img src="{{ paso.imagen.src or get_asset_url('../../images/' ~ fallback[loop.index0 % (fallback|length)]) }}"
+                 alt="{{ paso.imagen.alt|default(paso.titulo, true) }}" loading="lazy" />
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

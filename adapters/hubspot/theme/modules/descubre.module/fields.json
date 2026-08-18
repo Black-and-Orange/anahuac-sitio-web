@@ -1,0 +1,494 @@
+[
+  {
+    "id": "eyebrow",
+    "name": "eyebrow",
+    "label": "Eyebrow (tagline)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Descubre tu licenciatura ideal"
+  },
+  {
+    "id": "eyebrow_tag",
+    "name": "eyebrow_tag",
+    "label": "Etiqueta HTML del antetítulo",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "¿Aún no decides qué carrera estudiar?"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML del título",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Texto de introducción",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Si todavía estás explorando, te apoyamos en tu decisión para que encuentres una opción alineada con tus intereses y metas."
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML del párrafo",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "image",
+    "name": "image",
+    "label": "Imagen lateral",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Estudiante Anáhuac pensando en su carrera"
+    }
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Tarjetas de acción",
+    "help_text": "Tarjetas para orientar la decisión del prospecto (test vocacional, asesor, etc.).",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "cards.icon",
+        "name": "icon",
+        "label": "Ícono",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "id": "cards.variant",
+        "name": "variant",
+        "label": "Estilo de la tarjeta",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          [
+            "descubre-card--orange",
+            "Naranja"
+          ],
+          [
+            "descubre-card--purple",
+            "Morada"
+          ]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "display_width": null,
+        "default": "descubre-card--orange"
+      },
+      {
+        "id": "cards.color_cuadro",
+        "name": "color_cuadro",
+        "label": "Color del cuadro",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        },
+        "help_text": "Pinta el borde de la tarjeta. Sin valor manda el color del estilo elegido arriba."
+      },
+      {
+        "id": "cards.title",
+        "name": "title",
+        "label": "Título",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Hacer test vocacional"
+      },
+      {
+        "id": "cards.title_tag",
+        "name": "title_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "cards.color_titulo",
+        "name": "color_titulo",
+        "label": "Color del título",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "cards.text",
+        "name": "text",
+        "label": "Descripción",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Descubre en qué área y carreras te puedes desempeñar con mayor éxito."
+      },
+      {
+        "id": "cards.color_texto",
+        "name": "color_texto",
+        "label": "Color del párrafo",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "cards.cta_text",
+        "name": "cta_text",
+        "label": "Enlace · texto",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Realizar test"
+      },
+      {
+        "id": "cards.color_cta",
+        "name": "color_cta",
+        "label": "Color del CTA",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "cards.link",
+        "name": "link",
+        "label": "Enlace · destino",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "type": "link",
+        "display_width": null,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "icon": {
+          "src": "",
+          "alt": "Ícono test vocacional"
+        },
+        "variant": "descubre-card--orange",
+        "title": "Hacer test vocacional",
+        "text": "Descubre en qué área y carreras te puedes desempeñar con mayor éxito.",
+        "cta_text": "Realizar test",
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icon": {
+          "src": "",
+          "alt": "Ícono hablar con asesor"
+        },
+        "variant": "descubre-card--purple",
+        "title": "Habla con un asesor",
+        "text": "Nuestro equipo te guía hacia el programa que mejor se ajusta a ti.",
+        "cta_text": "Hablar con asesor",
+        "link": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": false,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo del módulo",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_eyebrow",
+        "name": "color_eyebrow",
+        "label": "Color del antetítulo",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_intro",
+        "name": "color_intro",
+        "label": "Color del párrafo",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_intro",
+        "name": "tamano_intro",
+        "label": "Tamaño del párrafo",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "micro-size",
+            "Muy pequeño"
+          ],
+          [
+            "eyebrow-size",
+            "Pequeño"
+          ],
+          [
+            "paragraph-size",
+            "Normal"
+          ],
+          [
+            "meta-size",
+            "Mediano"
+          ],
+          [
+            "lead-size",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ]
+        ],
+        "default": "paragraph-size"
+      }
+    ]
+  }
+]

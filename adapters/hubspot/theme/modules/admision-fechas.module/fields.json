@@ -1,0 +1,354 @@
+[
+  {
+    "id": "grupo_tabla",
+    "name": "grupo_tabla",
+    "label": "Origen de los datos (HubDB)",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_tabla.tabla",
+        "name": "tabla",
+        "label": "Tabla de HubDB",
+        "help_text": "La tabla debe tener las columnas fecha_limite_para_entrega_de_documentos, aplicacion_de_examen_de_conocimientos_academicos, aplicacion_de_examen_psicometrico, entrega_de_resultados, campus (multiselección NORTE/SUR), aparece_en_las_primeras_5_fechas (casilla) y fecha_de_ordenamiento (fecha). Esta última define el orden cronológico: las columnas visibles son texto libre y no se pueden ordenar por fecha real.",
+        "type": "hubdbtable",
+        "required": true,
+        "default": 385703603
+      },
+      {
+        "id": "grupo_tabla.maximo",
+        "name": "maximo",
+        "label": "Máximo de fechas por campus",
+        "help_text": "Si un campus tiene menos convocatorias marcadas, se muestran solo las disponibles.",
+        "type": "number",
+        "display": "text",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "default": 5
+      },
+      {
+        "id": "grupo_tabla.opcion_norte",
+        "name": "opcion_norte",
+        "label": "Campus de la columna izquierda",
+        "help_text": "Corresponde a una opción de la columna «campus» en HubDB. Es una lista cerrada a propósito: un valor que no exista en la tabla hace que la consulta devuelva error y el módulo no se renderice.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "NORTE",
+            "Campus Norte"
+          ],
+          [
+            "SUR",
+            "Campus Sur"
+          ]
+        ],
+        "default": "NORTE"
+      },
+      {
+        "id": "grupo_tabla.opcion_sur",
+        "name": "opcion_sur",
+        "label": "Campus de la columna derecha",
+        "help_text": "Corresponde a una opción de la columna «campus» en HubDB. Es una lista cerrada a propósito: un valor que no exista en la tabla hace que la consulta devuelva error y el módulo no se renderice.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "NORTE",
+            "Campus Norte"
+          ],
+          [
+            "SUR",
+            "Campus Sur"
+          ]
+        ],
+        "default": "SUR"
+      }
+    ]
+  },
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.tagline",
+        "name": "tagline",
+        "label": "Antetítulo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Calendario de fechas de exámenes"
+      },
+      {
+        "id": "grupo_contenido.tagline_tag",
+        "name": "tagline_tag",
+        "label": "Etiqueta HTML del antetítulo",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Próximas fechas de exámenes"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto del título",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.titulo_norte",
+        "name": "titulo_norte",
+        "label": "Título de la columna izquierda",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "grupo_contenido.titulo_sur",
+        "name": "titulo_sur",
+        "label": "Título de la columna derecha",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Sur"
+      },
+      {
+        "id": "grupo_contenido.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de los títulos de columna",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "grupo_contenido.label_documentos",
+        "name": "label_documentos",
+        "label": "Etiqueta de la fila de documentos",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Fecha límite para entrega de documentos"
+      },
+      {
+        "id": "grupo_contenido.label_academico",
+        "name": "label_academico",
+        "label": "Etiqueta de la fila de examen académico",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Aplicación de examen de conocimientos académicos"
+      },
+      {
+        "id": "grupo_contenido.label_psicometrico",
+        "name": "label_psicometrico",
+        "label": "Etiqueta de la fila de examen psicométrico",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Aplicación de examen psicométrico"
+      },
+      {
+        "id": "grupo_contenido.label_resultados",
+        "name": "label_resultados",
+        "label": "Etiqueta de la fila de resultados",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Entrega de resultados"
+      },
+      {
+        "id": "grupo_contenido.mensaje_vacio",
+        "name": "mensaje_vacio",
+        "label": "Mensaje cuando un campus no tiene fechas",
+        "help_text": "Se muestra solo si la tabla no devuelve ninguna convocatoria para ese campus. Déjalo vacío para no mostrar nada.",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Por el momento no hay fechas publicadas para este campus."
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": false,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_titulo_norte",
+        "name": "color_titulo_norte",
+        "label": "Color del título de la columna izquierda",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_titulo_sur",
+        "name": "color_titulo_sur",
+        "label": "Color del título de la columna derecha",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_fecha",
+        "name": "color_fecha",
+        "label": "Color de la fecha del acordeón",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_etiqueta",
+        "name": "color_etiqueta",
+        "label": "Color de las etiquetas de cada fila",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_valor",
+        "name": "color_valor",
+        "label": "Color de las fechas de cada fila",
+        "type": "color",
+        "show_opacity": false,
+        "default": {
+          "color": null,
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

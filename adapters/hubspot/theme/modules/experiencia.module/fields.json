@@ -1,0 +1,429 @@
+[
+  {
+    "id": "eyebrow",
+    "name": "eyebrow",
+    "label": "Eyebrow (tagline)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Mucho más que solo una Universidad."
+  },
+  {
+    "id": "eyebrow_tag",
+    "name": "eyebrow_tag",
+    "label": "Etiqueta HTML de «eyebrow»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Descubre por qué ser un León Anáhuac"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Texto de introducción",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Conoce por qué vivirás una experiencia universitaria única con nosotros."
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML de «intro»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "cta_text",
+    "name": "cta_text",
+    "label": "Botón · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Conoce la experiencia Anáhuac"
+  },
+  {
+    "id": "cta_link",
+    "name": "cta_link",
+    "label": "Botón · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "slides",
+    "name": "slides",
+    "label": "Tarjetas de experiencia",
+    "help_text": "Cada tarjeta muestra un título, descripción e imagen.",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "slides.title",
+        "name": "title",
+        "label": "Título (H3)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Título de la tarjeta"
+      },
+      {
+        "id": "slides.title_tag",
+        "name": "title_tag",
+        "label": "Etiqueta HTML de «title»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "slides.description",
+        "name": "description",
+        "label": "Descripción",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Descripción de la experiencia."
+      },
+      {
+        "id": "slides.video",
+        "name": "video",
+        "label": "Video de la tarjeta (opcional)",
+        "help_text": "Si se sube un video, sustituye a la imagen y se reproduce en bucle sin sonido. La imagen se usa como póster mientras carga. Déjalo vacío para mostrar solo la imagen.",
+        "type": "file",
+        "picker": "file",
+        "default": null
+      },
+      {
+        "id": "slides.image",
+        "name": "image",
+        "label": "Imagen",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "Experiencia Anáhuac"
+        }
+      },
+      {
+        "id": "slides.color_titulo",
+        "name": "color_titulo",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "slides.color_texto",
+        "name": "color_texto",
+        "label": "Color del párrafo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "title": "Un futuro con más posibilidades",
+        "description": "Desarrolla las habilidades, conocimientos y experiencia que necesitas para construir un perfil integral. Nuestro modelo educativo integra formación profesional, intelectual, humana, social y espiritual.",
+        "image": {
+          "src": "",
+          "alt": "Estudiantes Anáhuac en actividad"
+        }
+      },
+      {
+        "title": "Oportunidades internacionales",
+        "description": "Amplía tu experiencia con intercambios, convenios y opciones académicas que amplían tu perspectiva y enriquecen tu formación dentro y fuera del aula.",
+        "image": {
+          "src": "",
+          "alt": "Estudiantes en programa de intercambio internacional"
+        }
+      },
+      {
+        "title": "Una vida universitaria que te haga crecer",
+        "description": "Haz deporte, participa en actividades culturales, involúcrate en proyectos sociales y forma parte de una comunidad activa.",
+        "image": {
+          "src": "",
+          "alt": "Vida universitaria y deporte en Anáhuac"
+        }
+      },
+      {
+        "title": "Espacios que impulsan tu experiencia",
+        "description": "Disfruta de espacios creados para tu desarrollo integral: deportes, salud, innovación y recursos únicos que encontrarás en la Universidad Anáhuac.",
+        "image": {
+          "src": "",
+          "alt": "Campus y espacios de la Universidad Anáhuac"
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_intro",
+        "name": "color_intro",
+        "label": "Color del texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_fondo",
+        "name": "color_card_fondo",
+        "label": "Tarjetas · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_titulo",
+        "name": "color_card_titulo",
+        "label": "Tarjetas · color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_texto",
+        "name": "color_card_texto",
+        "label": "Tarjetas · color del párrafo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Botón · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Botón · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

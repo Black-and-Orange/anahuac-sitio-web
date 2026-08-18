@@ -1,0 +1,360 @@
+[
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H1)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Forma tu futuro en Anáhuac México"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h1"
+  },
+  {
+    "id": "heading_color",
+    "name": "heading_color",
+    "label": "Color del título",
+    "type": "color",
+    "default": {
+      "color": "",
+      "opacity": 100
+    }
+  },
+  {
+    "id": "offer_text",
+    "name": "offer_text",
+    "label": "Tarjeta de oferta",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "display_width": null,
+    "default": "<p>Descubre una educación que te prepara para generar un impacto real. Explora nuestras licenciaturas y encuentra tu camino.</p>"
+  },
+  {
+    "id": "primary_btn_text",
+    "name": "primary_btn_text",
+    "label": "Botón primario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Ver licenciaturas"
+  },
+  {
+    "id": "primary_btn_link",
+    "name": "primary_btn_link",
+    "label": "Botón primario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#licenciaturas"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "secondary_btn_text",
+    "name": "secondary_btn_text",
+    "label": "Botón secundario · texto",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Proceso de admisión"
+  },
+  {
+    "id": "secondary_btn_link",
+    "name": "secondary_btn_link",
+    "label": "Botón secundario · destino",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "show_advanced_rel_options": false,
+    "type": "link",
+    "display_width": null,
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "#admisiones"
+      },
+      "open_in_new_tab": false
+    }
+  },
+  {
+    "id": "mostrar_botones",
+    "name": "mostrar_botones",
+    "label": "Mostrar botones",
+    "type": "boolean",
+    "display": "toggle",
+    "default": true
+  },
+  {
+    "id": "image_1",
+    "name": "image_1",
+    "label": "Imagen 1 (arriba izquierda)",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Estudiante Anáhuac con tablet"
+    }
+  },
+  {
+    "id": "image_2",
+    "name": "image_2",
+    "label": "Imagen 2 (destacada grande)",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Estudiantes Anáhuac"
+    }
+  },
+  {
+    "id": "image_3",
+    "name": "image_3",
+    "label": "Imagen 3 (media)",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Estudiante de medicina Anáhuac"
+    }
+  },
+  {
+    "id": "image_4",
+    "name": "image_4",
+    "label": "Imagen 4 / poster (banda inferior)",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Jugadores Anáhuac"
+    }
+  },
+  {
+    "picker": "file",
+    "id": "video_1",
+    "name": "video_1",
+    "label": "Video 1 (arriba izquierda) · mp4",
+    "required": false,
+    "locked": false,
+    "type": "file",
+    "display_width": null,
+    "default": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiante-tablet.mp4"
+  },
+  {
+    "picker": "file",
+    "id": "video_2",
+    "name": "video_2",
+    "label": "Video 2 (destacado) · mp4",
+    "required": false,
+    "locked": false,
+    "type": "file",
+    "display_width": null,
+    "default": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiantes-saltando.mp4"
+  },
+  {
+    "picker": "file",
+    "id": "video_3",
+    "name": "video_3",
+    "label": "Video 3 (medio) · mp4",
+    "required": false,
+    "locked": false,
+    "type": "file",
+    "display_width": null,
+    "default": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiante-medicina.mp4"
+  },
+  {
+    "picker": "file",
+    "id": "video_4",
+    "name": "video_4",
+    "label": "Video 4 (banda inferior) · mp4",
+    "required": false,
+    "locked": false,
+    "type": "file",
+    "display_width": null,
+    "default": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/jugadores-corriendo.mp4"
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_panel_fondo",
+        "name": "color_panel_fondo",
+        "label": "Recuadro naranja · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_panel_texto",
+        "name": "color_panel_texto",
+        "label": "Recuadro naranja · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_panel",
+        "name": "tamano_panel",
+        "label": "Recuadro naranja · tamaño del texto",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-22",
+            "Pequeño"
+          ],
+          [
+            "size-26",
+            "Mediano"
+          ],
+          [
+            "lead-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "size-36",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ]
+        ],
+        "default": "lead-size"
+      },
+      {
+        "id": "grupo_estilos.color_boton1_fondo",
+        "name": "color_boton1_fondo",
+        "label": "Botón 1 · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton1_texto",
+        "name": "color_boton1_texto",
+        "label": "Botón 1 · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_fondo",
+        "name": "color_boton2_fondo",
+        "label": "Botón 2 · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_texto",
+        "name": "color_boton2_texto",
+        "label": "Botón 2 · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

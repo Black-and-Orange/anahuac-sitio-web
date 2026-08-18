@@ -12,19 +12,19 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Proyecto:** Sitio web institucional Universidad Anáhuac México — rediseño 2026.
 - **Plataforma:** HubSpot (CMS Hub).
 - **Fuentes configuradas:** Figma UI Kit, Figma Home, Figma Relume export.
-- **Ingesta de Figma:** En progreso (tokens y foundations poblados; componentes pendientes).
+- **Ingesta de Figma:** Completada y habilitada en `project.json`.
 - **Tokens:** Colores, tipografía, espaciado y radios poblados en `design/01-tokens.md`.
 - **Foundations:** Contenedor, breakpoints, nav-height y escala de espaciado en `design/02-foundations.md`.
 - **Interactions:** Efectos base del Home documentados en `design/interactions.md`.
-- **Componentes:** Pendiente — inventariar los componentes del UI Kit y Home.
-- **Specs:** Home pendiente de documentar secciones; sitemap pendiente de Relume.
+- **Componentes:** Ocho contratos de la LP Apoyos Económicos documentados; componentes generales del UI Kit y Home continúan pendientes.
+- **Specs:** `specs/apoyos-economicos.md` documenta la versión local aprobada y el contrato para la futura migración a HubSpot.
 
 ### Siguiente paso
-1. Completar ingesta de componentes del UI Kit → `design/components/*.md`.
-2. Documentar secciones del Home → `specs/home.md`.
-3. Poblar sitemap desde Relume → `specs/sitemap.md`.
-4. Marcar `figmaIngested = true` cuando todo esté sin `TODO`.
-5. Proponer primer componente a construir en HubSpot.
+1. Completar la revisión humana de la versión local de Apoyos Económicos.
+2. Confirmar el contenido definitivo de las fichas que aún contienen texto temporal.
+3. Tras aprobación explícita, derivar los módulos HubSpot desde los ocho contratos documentados.
+4. Confirmar el mapeo institucional completo de preparatorias para CDMX y Estado de México.
+5. Mantener asesoría con fuente local hasta definir la tabla y columnas de HubDB.
 
 ## Preferencias del proyecto
 > Reglas/gustos específicos de este sitio que emergen y deben respetarse siempre.
@@ -45,6 +45,19 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - Decisión: usar Zilla Slab en toda la implementación digital para evitar costos de licencia.
 - Referencia: `design/01-tokens.md → --font-heading`.
 
+### 2026-07-30 — Apoyos Económicos se valida primero en local
+- La LP se actualiza y revisa completamente en `apoyos-economicos.html` antes de crear o publicar módulos en HubSpot.
+- Se documentaron ocho contratos autoadministrables como fuente neutral para los futuros `fields.json`.
+- La sección de asesoría debe aceptar una fuente HubDB futura sin cambiar el contrato de render.
+- Origen: instrucciones y capturas de revisión humana recibidas el 2026-07-30.
+
+### 2026-07-30 — Asesoría usa una cascada de procedencia de tres niveles
+- Primer nivel: `Extranjero` o `México`; segundo nivel: país o entidad federativa.
+- El tercer selector aparece solo para Ciudad de México y Estado de México.
+- El formulario público de Atención Preuniversitaria expone un catálogo plano de preparatorias, pero no la relación completa por estado; la versión local usa únicamente planteles con ubicación explícita y `Otra preparatoria`.
+- La asignación del asesor continúa dependiendo del segundo nivel hasta definir una relación institucional por plantel.
+- Origen: revisión humana del módulo de Asesoría recibida el 2026-07-30.
+
 ### 2026-06-08 — Framework de design system instanciado (onboarding)
 - Se clonó el template `averasteguibno/BnO-website-design-system` en el workspace del proyecto.
 - Se configuró `project.json` con los 3 links de Figma y plataforma HubSpot.
@@ -59,3 +72,4 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 - ¿Hay páginas internas ya diseñadas en Figma además del Home? (el usuario indicó que sí, pendiente links concretos).
 - ¿Se tiene cuenta sandbox de HubSpot para deploy?
+- ¿Cuál es el mapeo institucional completo de preparatorias para Ciudad de México y Estado de México?

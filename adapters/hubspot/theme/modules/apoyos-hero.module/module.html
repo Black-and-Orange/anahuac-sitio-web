@@ -1,0 +1,48 @@
+{# ===== Apoyos · Hero =====
+   Clases .apo-hero* viven en css/main.css. El H1 de la página vive aquí.
+   Los colores del grupo "Estilos" caen al token del design system si se dejan
+   vacíos; el color de botón aplica al primer botón (el principal). #}
+{% set c = module.grupo_contenido %}
+{% set b = module.grupo_botones %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-hero-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--support-hero-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--support-hero-primary-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--support-hero-primary-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
+
+<section class="apo-hero section-pad" id="inicio" aria-labelledby="apoyos-page-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container apo-hero-inner">
+    <div class="apo-hero-copy">
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline reveal" data-reveal{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h1', true) }} class="reveal" id="apoyos-page-title" data-reveal{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h1', true) }}>
+      {% endif %}
+    </div>
+
+    <div class="apo-hero-info reveal" data-reveal>
+      <img class="apo-hero-img"
+           src="{{ module.grupo_imagen.image.src or get_asset_url('../../images/apoyos-economicos/hero-apoyos.jpg') }}"
+           alt="{{ module.grupo_imagen.image.alt }}" />
+      <div class="apo-hero-info-copy">
+        {% if c.intro %}
+          <div class="hero-card">{{ c.intro }}</div>
+        {% endif %}
+        {% if b.mostrar_botones and module.botones %}
+          <div class="button-row">
+            {% for boton in module.botones %}
+              {% if boton.texto %}
+                <a class="btn {{ boton.estilo }}" href="{{ boton.enlace.url.href|default('#', true) }}"
+                   {% if boton.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{% if boton.texto_tag and boton.texto_tag != 'ninguna' %}<{{ boton.texto_tag }}{% if boton.texto_color.color %} style="color:{{ boton.texto_color.color }}"{% endif %}>{{ boton.texto }}</{{ boton.texto_tag }}>{% elif boton.texto_color.color %}<span style="color:{{ boton.texto_color.color }}">{{ boton.texto }}</span>{% else %}{{ boton.texto }}{% endif %}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

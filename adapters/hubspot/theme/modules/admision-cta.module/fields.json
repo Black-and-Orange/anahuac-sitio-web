@@ -1,0 +1,401 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Comienza tu solicitud hoy"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.texto",
+        "name": "texto",
+        "label": "Texto secundario",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "El primer paso es el más importante. Regístrate ahora y avanza en tu camino."
+      },
+      {
+        "id": "grupo_contenido.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_boton1",
+    "name": "grupo_boton1",
+    "label": "Botón 1",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_boton1.mostrar",
+        "name": "mostrar",
+        "label": "Mostrar botón 1",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_boton1.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Iniciar proceso"
+      },
+      {
+        "id": "grupo_boton1.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_boton1.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_boton1.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_boton2",
+    "name": "grupo_boton2",
+    "label": "Botón 2",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_boton2.mostrar",
+        "name": "mostrar",
+        "label": "Mostrar botón 2",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_boton2.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Hablar con un asesor"
+      },
+      {
+        "id": "grupo_boton2.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Envuelve el texto en la etiqueta elegida sin alterar su estilo. «Ninguna» lo deja como está.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna (texto simple)"
+          ],
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "ninguna"
+      },
+      {
+        "id": "grupo_boton2.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_boton2.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto_principal",
+        "name": "color_texto_principal",
+        "label": "Color del texto principal (título)",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto_secundario",
+        "name": "color_texto_secundario",
+        "label": "Color del texto secundario",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton1_fondo",
+        "name": "color_boton1_fondo",
+        "label": "Botón 1 · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton1_texto",
+        "name": "color_boton1_texto",
+        "label": "Botón 1 · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_boton2_texto",
+        "name": "color_boton2_texto",
+        "label": "Botón 2 · color de texto y borde",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  }
+]

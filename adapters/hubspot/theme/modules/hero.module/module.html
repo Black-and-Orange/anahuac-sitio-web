@@ -1,0 +1,62 @@
+{# ===== Hero — título + oferta + CTAs + grid de imágenes =====
+   Los colores del grupo "Estilos" se inyectan como custom properties sobre la
+   sección; vacíos, el CSS cae al token del design system y el render no cambia. #}
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_panel_fondo.color %}{% set estilo = estilo ~ "--home-hero-panel-bg:" ~ e.color_panel_fondo.color ~ ";" %}{% endif %}
+{% if e.color_panel_texto.color %}{% set estilo = estilo ~ "--home-hero-panel-text:" ~ e.color_panel_texto.color ~ ";" %}{% endif %}
+{% if e.tamano_panel %}{% set estilo = estilo ~ "--home-hero-panel-size:var(--" ~ e.tamano_panel ~ ");" %}{% endif %}
+{% if module.heading_color.color %}{% set estilo = estilo ~ "--home-hero-heading-color:" ~ module.heading_color.color ~ ";" %}{% endif %}
+{% if e.color_boton1_fondo.color %}{% set estilo = estilo ~ "--home-hero-cta1-bg:" ~ e.color_boton1_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton1_texto.color %}{% set estilo = estilo ~ "--home-hero-cta1-text:" ~ e.color_boton1_texto.color ~ ";" %}{% endif %}
+{% if e.color_boton2_fondo.color %}{% set estilo = estilo ~ "--home-hero-cta2-bg:" ~ e.color_boton2_fondo.color ~ ";" %}{% endif %}
+{% if e.color_boton2_texto.color %}{% set estilo = estilo ~ "--home-hero-cta2-text:" ~ e.color_boton2_texto.color ~ ";" %}{% endif %}
+
+<section class="hero section-pad" id="inicio"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      {% if module.heading %}
+        <{{ module.heading_tag|default('h1', true) }} class="reveal" data-reveal>{{ module.heading }}</{{ module.heading_tag|default('h1', true) }}>
+      {% endif %}
+
+      <div class="hero-actions">
+        {% if module.offer_text %}
+          <div class="hero-card reveal" data-reveal>{{ module.offer_text }}</div>
+        {% endif %}
+        {% if module.mostrar_botones %}
+          <div class="button-row reveal" data-reveal>
+            {% if module.primary_btn_text %}
+              <a class="btn btn-dark" href="{{ module.primary_btn_link.url.href|default('#', true) }}"
+                 {% if module.primary_btn_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.primary_btn_text }}</a>
+            {% endif %}
+            {% if module.secondary_btn_text %}
+              <a class="btn btn-light" href="{{ module.secondary_btn_link.url.href|default('#', true) }}"
+                 {% if module.secondary_btn_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ module.secondary_btn_text }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hero-grid reveal" data-reveal>
+      {% set imgs = [module.image_1, module.image_2, module.image_3, module.image_4] %}
+      {% set vids = [module.video_1, module.video_2, module.video_3, module.video_4] %}
+      {% set fallbacks = ["hero-grid-fallback-imgs/estudiante-tablet.png", "hero-grid-fallback-imgs/estudiantes-saltando.png", "hero-grid-fallback-imgs/estudiante-medicina.png", "hero-grid-fallback-imgs/jugadores-corriendo.png"] %}
+      {% set offsets = ["1.5", "", "3", ""] %}
+      {% for img in imgs %}
+        {% set vid = vids[loop.index0] %}
+        {% set poster = img.src or get_asset_url('../../images/' ~ fallbacks[loop.index0]) %}
+        <figure class="hero-media pos-{{ loop.index0 }}">
+          {% if vid %}
+            <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ poster }}"{% if offsets[loop.index0] %} data-offset="{{ offsets[loop.index0] }}"{% endif %}>
+              <source src="{{ vid }}" type="video/mp4" />
+            </video>
+          {% else %}
+            <img src="{{ poster }}" alt="{{ img.alt|default('Estudiantes Anáhuac México', true) }}" loading="eager" fetchpriority="{% if loop.index0 == 1 %}high{% else %}auto{% endif %}" />
+          {% endif %}
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

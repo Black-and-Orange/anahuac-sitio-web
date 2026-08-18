@@ -1,0 +1,402 @@
+[
+  {
+    "id": "eyebrow",
+    "name": "eyebrow",
+    "label": "Eyebrow (tagline)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Prestigio Anáhuac"
+  },
+  {
+    "id": "eyebrow_tag",
+    "name": "eyebrow_tag",
+    "label": "Etiqueta HTML de «eyebrow»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Título (H2)",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Excelencia en cifras"
+  },
+  {
+    "id": "heading_tag",
+    "name": "heading_tag",
+    "label": "Etiqueta HTML de «heading»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "h2"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Introducción",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "Datos que hablan de nuestro compromiso con la calidad educativa."
+  },
+  {
+    "id": "intro_tag",
+    "name": "intro_tag",
+    "label": "Etiqueta HTML de «intro»",
+    "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "h1",
+        "Título 1 (H1)"
+      ],
+      [
+        "h2",
+        "Título 2 (H2)"
+      ],
+      [
+        "h3",
+        "Título 3 (H3)"
+      ],
+      [
+        "h4",
+        "Título 4 (H4)"
+      ],
+      [
+        "h5",
+        "Título 5 (H5)"
+      ],
+      [
+        "h6",
+        "Título 6 (H6)"
+      ],
+      [
+        "p",
+        "Párrafo"
+      ]
+    ],
+    "default": "p"
+  },
+  {
+    "id": "youtube_id",
+    "name": "youtube_id",
+    "label": "ID del video de YouTube",
+    "help_text": "Solo el ID (ej. x3jzZcZOewk). El JS del theme lo usa para reproducir el video.",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "type": "text",
+    "display_width": null,
+    "default": "x3jzZcZOewk"
+  },
+  {
+    "id": "video_thumb",
+    "name": "video_thumb",
+    "label": "Miniatura del video",
+    "help_text": "Opcional. Si se deja vacía se usa la miniatura de YouTube (hqdefault).",
+    "required": false,
+    "locked": false,
+    "responsive": true,
+    "resizable": true,
+    "show_loading": false,
+    "type": "image",
+    "display_width": null,
+    "default": {
+      "src": "",
+      "alt": "Universidad Anáhuac México — Reproducir video"
+    }
+  },
+  {
+    "id": "stats",
+    "name": "stats",
+    "label": "Cifras",
+    "help_text": "Cada tarjeta anima su número. 'Valor' es el número final; usa prefijo/sufijo para signos.",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "stats.value",
+        "name": "value",
+        "label": "Valor (número final)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "0"
+      },
+      {
+        "id": "stats.prefix",
+        "name": "prefix",
+        "label": "Prefijo",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": ""
+      },
+      {
+        "id": "stats.suffix",
+        "name": "suffix",
+        "label": "Sufijo",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": ""
+      },
+      {
+        "id": "stats.text",
+        "name": "text",
+        "label": "Etiqueta",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "type": "text",
+        "display_width": null,
+        "default": "Etiqueta"
+      },
+      {
+        "id": "stats.color_cuadro",
+        "name": "color_cuadro",
+        "label": "Color de este cuadro",
+        "help_text": "Vacío = el color que le toca por posición en el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "stats.color_cifra",
+        "name": "color_cifra",
+        "label": "Color de la cifra",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "stats.color_texto",
+        "name": "color_texto",
+        "label": "Color del texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "display_width": null,
+    "default": [
+      {
+        "value": "70",
+        "prefix": "",
+        "suffix": "%",
+        "text": "Egresados con trabajo"
+      },
+      {
+        "value": "65000",
+        "prefix": "+",
+        "suffix": "",
+        "text": "Egresados Anáhuac"
+      },
+      {
+        "value": "290",
+        "prefix": "+",
+        "suffix": "",
+        "text": "Convenios internacionales activos"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_heading",
+        "name": "color_heading",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_intro",
+        "name": "color_intro",
+        "label": "Color del texto bajo el título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_cifras",
+        "name": "color_cifras",
+        "label": "Color de todas las cifras",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_cifras",
+        "name": "tamano_cifras",
+        "label": "Tamaño de las cifras",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-64",
+            "Pequeño"
+          ],
+          [
+            "size-70",
+            "Mediano"
+          ],
+          [
+            "heading-2-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-1-size",
+            "Grande"
+          ]
+        ],
+        "default": "heading-2-size"
+      },
+      {
+        "id": "grupo_estilos.color_textos",
+        "name": "color_textos",
+        "label": "Color de los textos de cifra",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_textos",
+        "name": "tamano_textos",
+        "label": "Tamaño de los textos de cifra",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "paragraph-size",
+            "Pequeño"
+          ],
+          [
+            "heading-6-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-5-size",
+            "Grande"
+          ],
+          [
+            "size-22",
+            "Muy grande"
+          ]
+        ],
+        "default": "heading-6-size"
+      }
+    ]
+  }
+]

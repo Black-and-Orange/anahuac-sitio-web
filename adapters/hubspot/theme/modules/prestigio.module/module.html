@@ -1,0 +1,53 @@
+{# ===== Prestigio — split heading + video + cifras animadas =====
+   El color de cada cuadro se puede fijar por tarjeta; sin valor manda la clase
+   .purple-N que asigna el diseño según la posición. #}
+{% set e = module.grupo_estilos %}
+{% set estilo = "" %}
+{% if e.color_heading.color %}{% set estilo = estilo ~ "--home-prestigio-heading:" ~ e.color_heading.color ~ ";" %}{% endif %}
+{% if e.color_intro.color %}{% set estilo = estilo ~ "--home-prestigio-intro:" ~ e.color_intro.color ~ ";" %}{% endif %}
+{% if e.color_cifras.color %}{% set estilo = estilo ~ "--home-prestigio-cifra-color:" ~ e.color_cifras.color ~ ";" %}{% endif %}
+{% if e.tamano_cifras %}{% set estilo = estilo ~ "--home-prestigio-cifra-size:var(--" ~ e.tamano_cifras ~ ");" %}{% endif %}
+{% if e.color_textos.color %}{% set estilo = estilo ~ "--home-prestigio-texto-color:" ~ e.color_textos.color ~ ";" %}{% endif %}
+{% if e.tamano_textos %}{% set estilo = estilo ~ "--home-prestigio-texto-size:var(--" ~ e.tamano_textos ~ ");" %}{% endif %}
+
+<section class="prestige section-pad" id="prestigio"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="split-heading">
+      <div class="section-intro reveal" data-reveal>
+        {% if module.eyebrow %}
+          <{{ module.eyebrow_tag|default('p', true) }} class="tagline"><span></span>{{ module.eyebrow }}</{{ module.eyebrow_tag|default('p', true) }}>
+        {% endif %}
+        {% if module.heading %}
+          <{{ module.heading_tag|default('h2', true) }}{% if e.color_heading.color %} style="color:{{ e.color_heading.color }}"{% endif %}>{{ module.heading }}</{{ module.heading_tag|default('h2', true) }}>
+        {% endif %}
+        {% if module.intro %}
+          <{{ module.intro_tag|default('p', true) }}{% if e.color_intro.color %} style="color:{{ e.color_intro.color }}"{% endif %}>{{ module.intro }}</{{ module.intro_tag|default('p', true) }}>
+        {% endif %}
+      </div>
+      <div class="video-card reveal" data-reveal data-yt-id="{{ module.youtube_id }}">
+        <img
+          src="{{ module.video_thumb.src or 'https://img.youtube.com/vi/' ~ module.youtube_id ~ '/hqdefault.jpg' }}"
+          alt="{{ module.video_thumb.alt|default('Universidad Anáhuac México — Reproducir video', true) }}"
+          loading="lazy"
+        />
+        <button class="video-play-btn" type="button" aria-label="Reproducir video">
+          <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      {% for s in module.stats %}
+        {% set card = "" %}
+        {% if s.color_cuadro.color %}{% set card = card ~ "--home-prestigio-card-bg:" ~ s.color_cuadro.color ~ ";" %}{% endif %}
+        {% if s.color_cifra.color %}{% set card = card ~ "--home-prestigio-cifra-color:" ~ s.color_cifra.color ~ ";" %}{% endif %}
+        {% if s.color_texto.color %}{% set card = card ~ "--home-prestigio-texto-color:" ~ s.color_texto.color ~ ";" %}{% endif %}
+        <article class="stat-card purple-{{ loop.index }} reveal" data-reveal{% if card %} style="{{ card }}"{% endif %}>
+          <strong data-count-to="{{ s.value }}" data-count-prefix="{{ s.prefix }}" data-count-suffix="{{ s.suffix }}">{{ s.prefix }}0{{ s.suffix }}</strong>
+          <span>{{ s.text }}</span>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

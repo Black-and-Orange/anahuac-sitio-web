@@ -1,0 +1,16 @@
+{
+  "global": true,
+  "content_types": [
+    "LANDING_PAGE",
+    "SITE_PAGE"
+  ],
+  "categories": [
+    "BODY_CONTENT"
+  ],
+  "host_template_types": [
+    "PAGE"
+  ],
+  "module_id": 216442353253,
+  "label": "El siguiente paso — Anáhuac",
+  "is_available_for_new_content": true
+}

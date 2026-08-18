@@ -1,0 +1,52 @@
+{# ===== Apoyos · Consideraciones generales =====
+   Los iconos son un catálogo cerrado del design system (campo choice): el
+   editor elige, no pega SVG. Así el trazo y el tamaño quedan bloqueados. #}
+{% macro icono_consideracion(clave) %}
+  {% if clave == "porcentaje" %}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+  {% elif clave == "comite" %}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  {% elif clave == "ingreso" %}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+  {% elif clave == "campus" %}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+  {% else %}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg>
+  {% endif %}
+{% endmacro %}
+
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "--support-consideration-bg:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "--support-consideration-text:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% if e.color_icono.color %}{% set estilo = estilo ~ "--support-consideration-icon:" ~ e.color_icono.color ~ ";" %}{% endif %}
+
+<section class="apo-consideraciones section-pad" id="consideraciones" aria-labelledby="consideraciones-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline"{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}><span aria-hidden="true"></span>{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="consideraciones-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+
+    <ul class="consideraciones-grid reveal" data-reveal>
+      {% for item in module.items %}
+        <li class="consideracion">
+          {% if v.mostrar_iconos %}
+            <span class="consideracion-icon" aria-hidden="true">{{ icono_consideracion(item.icono) }}</span>
+          {% endif %}
+          <div>
+            {% if item.titulo %}<{{ item.titulo_tag|default('h3', true) }}{% if item.titulo_color.color %} style="color:{{ item.titulo_color.color }}"{% endif %}>{{ item.titulo }}</{{ item.titulo_tag|default('h3', true) }}>{% endif %}
+            {% if item.texto %}<{{ item.texto_tag|default('p', true) }}{% if item.texto_color.color %} style="color:{{ item.texto_color.color }}"{% endif %}>{{ item.texto }}</{{ item.texto_tag|default('p', true) }}>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
