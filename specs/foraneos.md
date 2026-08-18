@@ -186,6 +186,25 @@ se quiere una variante propia para foráneos, habrá que dejar de usar el global
 - **`FAQPage` y `BreadcrumbList`** se implementan; `CollegeOrUniversity` también,
   con las dos sedes.
 
+## Conformidad con el handoff (verificada, no asumida)
+
+Se cruzaron las **102 frases de copy literal** del documento contra el HTML.
+Todo el copy de cuerpo está presente. Quedan dos desviaciones, ambas por causas
+externas al diseño:
+
+**1. Cinco de los diez `alt text` no se pueden aplicar.** El handoff da un texto
+alternativo por módulo, pero cinco corresponden a fotos que la página no tiene:
+la calculadora (M5), el mapa (M8), salud (M9), comunidad (M10) y admisión (M13)
+se resolvieron sin imagen porque no existe material real y el propio handoff
+prohíbe el stock. Los cinco restantes sí están aplicados literalmente. En cuanto
+haya banco de fotografía, esos cinco textos entran con su imagen.
+
+**2. El newsletter del módulo 16 usa el copy del footer global**, no el que
+especifica el handoff («Mantente al día con la comunidad foránea Anáhuac»). El
+footer es un componente compartido por todo el sitio: cambiar su copy afectaría
+a las siete páginas. Requiere decisión — o se acepta el genérico, o el footer
+necesita un newsletter configurable por página.
+
 ## Pendientes heredados del handoff
 
 Bloqueantes: WhatsApp de René Islas, Inés y Carlos · el 301 de
