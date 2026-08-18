@@ -17,7 +17,7 @@ inconsistencias detectadas, que se listan **antes** de tocar contenido.
 | 3 · Calendario | **ver decisión abajo** | — |
 | 4 · Siguiente paso | `.siguiente-cards` / `.siguiente-card` | `proceso-de-admision.html` |
 | 5 · FAQ | `.faq-list` / `.faq-item` (`<details>` nativo) | compartido |
-| 6 · Asesor | `.apo-asesoria` completo (cascada + tarjeta de asesor) | `apoyos-economicos.html` |
+| 6 · Dudas | `.questions` / `.questions-card` (imagen + tarjeta con dos CTA) | `Inicio.html` |
 | 7 · Footer | footer global del theme | `pie-de-pagina.module` |
 
 El **módulo 4 ya existe con el mismo H2** («Elige el siguiente paso para tu futuro»)

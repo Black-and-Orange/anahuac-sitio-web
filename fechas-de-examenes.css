@@ -2,8 +2,8 @@
    FECHAS DE EXAMEN DE ADMISIÓN
    Página utilitaria de fondo de embudo. Reutiliza el design system: el
    calendario es el componente de acordeón por campus ya aprobado en Proceso
-   de admisión, los chips vienen de la página de carrera y el módulo de asesor
-   es el de Apoyos Económicos. Aquí solo vive lo específico de esta página.
+   de admisión, los chips vienen de la página de carrera y el módulo de dudas
+   es el .questions del home. Aquí solo vive lo específico de esta página.
    ============================================= */
 
 /* Oculto visualmente pero anunciado por lectores de pantalla. El theme de
@@ -283,16 +283,6 @@
   line-height: 1.5;
   color: var(--text-gray);
   text-align: center;
-}
-
-.fex-callout {
-  margin-top: 40px;
-  padding: 20px 24px;
-  border-left: 4px solid var(--orange);
-  background: rgba(0, 0, 0, 0.02);
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--text-gray);
 }
 
 /* ===== 4. Elige el siguiente paso =====
