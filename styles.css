@@ -688,6 +688,14 @@ h2 {
   margin-top: 40px;
 }
 
+/* Variante chica del botón. Vivía en oferta.css, pero es la que usa la tarjeta
+   de área/carrera —ahora compartida—, así que sin ella el botón se queda sin
+   padding en cualquier página que no cargue esa hoja. */
+.btn-sm {
+  font-size: 14px !important;
+  padding: 10px 24px !important;
+}
+
 .button-row .btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -3079,4 +3087,135 @@ h2 {
     min-height: 75px;
     height: 75px;
   }
+}
+
+
+/* =============================================================================
+   COMPONENTES COMPARTIDOS ENTRE PÁGINAS
+   Vivían en la hoja de la página que los estrenó y subieron aquí al aparecer un
+   segundo consumidor. Las reglas responsive propias de cada página se quedaron
+   en su hoja: al cargarse después de ésta, siguen ganando donde deben.
+   ========================================================================== */
+
+/* ---- Tarjeta de área/carrera (estrenada en Oferta Académica) ----
+   Presenta las ÁREAS en Oferta Académica y las CARRERAS en la página de área:
+   el mismo componente en dos escalones del embudo. Lo del carrusel
+   (.area-grid, .area-track, .area-card--hidden) sigue en oferta.css porque es
+   de esa página; aquí solo está la tarjeta. */
+.area-card {
+  height: auto;
+  min-height: 380px;
+  padding: 40px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.area-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 5;
+}
+
+.area-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.area-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+
+.area-hook {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+
+.area-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  flex: 1;
+  text-wrap: balance;
+}
+
+.area-card-body .btn-sm {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ---- Mini-destacado con icono (estrenado en Apoyos económicos) ---- */
+.consideraciones-grid {
+  display: grid;
+  /* min(340px, 100%) evita que el track fuerce 340px y se desborde en pantallas
+     angostas: ahí el mínimo pasa a ser el 100% del contenedor. */
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.consideracion {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+  padding: 28px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+/* En móvil el icono va arriba (alineado a la izquierda) y el texto debajo */
+@media (max-width: 640px) {
+  .consideracion {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+.consideracion-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(93, 66, 140, 0.1); /* tinte de --purple-2 */
+  color: var(--support-consideration-icon, var(--cta-bg-purple));
+}
+
+.consideracion-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.consideracion h3 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.consideracion p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
 }

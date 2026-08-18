@@ -3,11 +3,6 @@
    Uses tokens from styles.css (shared DS)
    ============================================= */
 
-.btn-sm {
-  font-size: 14px !important;
-  padding: 10px 24px !important;
-}
-
 /* ===== 1. HERO ===== */
 .oferta-hero {
   position: relative;
@@ -121,64 +116,8 @@
   gap: 20px;
 }
 
-.area-card {
-  height: auto;
-  min-height: 380px;
-  padding: 40px;
-  background: var(--white);
-  color: var(--black);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
 .area-card--hidden {
   /* controlled by JS carousel */
-}
-
-.area-card > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius);
-  aspect-ratio: 4 / 5;
-}
-
-.area-card-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.area-card-body h3 {
-  font-family: var(--font-heading);
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 10px;
-  text-wrap: balance;
-}
-
-.area-hook {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--orange);
-  margin-bottom: 8px;
-  text-wrap: balance;
-}
-
-.area-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--color-text-secondary);
-  flex: 1;
-  text-wrap: balance;
-}
-
-.area-card-body .btn-sm {
-  margin-top: auto;
-  align-self: flex-start;
 }
 
 /* ===== 3. ELIGE TU CAMINO ===== */
