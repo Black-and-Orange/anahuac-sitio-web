@@ -2090,31 +2090,6 @@
   border-radius: var(--radius);
 }
 
-/* Enlace a LinkedIn (esquina superior derecha de la card) */
-.docente-linkedin {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  color: var(--color-text-secondary);
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.docente-linkedin:hover,
-.docente-linkedin:focus-visible {
-  color: #0a66c2;
-  transform: translateY(-1px);
-}
-
-.docente-linkedin svg {
-  width: 20px;
-  height: 20px;
-}
-
 /* Contorno intercalado naranja/morado (mismo patrón que las cards de instalaciones) */
 .docente-card:nth-child(odd) {
   border-color: var(--orange);
@@ -2128,8 +2103,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 10px;
   border-radius: 50%;
   object-fit: cover;
@@ -2159,26 +2134,18 @@
   text-wrap: balance;
 }
 
-.docente-grado {
+/* Una sola línea de semblanza en lugar de grado + materia: lo que importa es el
+   cargo o el logro profesional. Va en tono secundario y no en el acento del
+   contorno: al quedar como único texto bajo el nombre, pintarla de naranja o
+   morado en cada tarjeta competiría con el propio nombre. `pretty` evita que la
+   última línea quede huérfana cuando la semblanza es larga. */
+.docente-cargo {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.2px;
   color: var(--color-text-secondary);
-}
-
-.docente-area {
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: 0.2px;
-  font-weight: 500;
-  color: var(--purple-2);
-}
-
-/* En las cards de contorno naranja, el área también va en naranja */
-.docente-card:nth-child(odd) .docente-area {
-  color: var(--orange);
+  text-wrap: pretty;
 }
 
 @media (max-width: 900px) {
