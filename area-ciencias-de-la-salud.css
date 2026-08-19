@@ -99,9 +99,20 @@
 
    Esto separa deliberadamente el hero de área del hero de licenciatura, donde
    la relación es la contraria porque allí el H1 —el nombre de la carrera— sí es
-   lo que el usuario vino a buscar. */
+   lo que el usuario vino a buscar.
+
+   PERO el H1 no puede bajar de los 56px del H2. Al hacer dominante el claim lo
+   había dejado en 39, y con eso el título de la PÁGINA quedaba más chico que
+   todos los títulos de SECCIÓN: una inversión de jerarquía a nivel documento.
+
+   A 56 se arregla y el claim sigue mandando: 70/56 = 1.25×, que es un escalón
+   completo de la escala. El hero crece 80px y el H1 pasa a dos líneas; es el
+   precio de que el título de la página no parezca un antetítulo.
+
+   H1 y H2 comparten los 56 y no pasa nada: nunca se ven juntos, y en el hero el
+   H1 va enmarcado por el eyebrow arriba y el claim abajo. */
 .salud-hero h1 {
-  font-size: clamp(26px, 2.7vw, 40px);
+  font-size: clamp(26px, 3.9vw, 56px);
   line-height: 1.1;
 }
 
@@ -623,15 +634,18 @@
    a 58 ya ninguno pasa de 2 y el alto máximo cae a 110px (12%). De 58 para
    abajo la ganancia se agota —52 solo ahorra 11px— y se pierde presencia.
 
-   El copy no se puede acortar, así que se ajusta el tamaño. 58 ya existe en el
-   inventario del sitio: no es un valor nuevo.
+   El copy no se puede acortar, así que se ajusta el tamaño. 56 —y no 58, que fue
+   el primer valor medido— porque es el escalón que le corresponde en la escala
+   de razón constante, y porque es el mismo que usa foráneos: dos valores para
+   el mismo papel no son un sistema. Comprobado: a 56 tampoco hay ningún título
+   de 3 líneas aquí.
 
    Va con clamp y no con un valor fijo: fijándolo se anulaban los breakpoints del
    sitio y en móvil el H2 se quedaba en 58px, con títulos de 8 líneas que se
    salían de la pantalla.
    -------------------------------------------------------------------------- */
 .escala-2026 main h2 {
-  font-size: clamp(32px, 4.6vw, 58px);
+  font-size: clamp(32px, 4.6vw, 56px);
   line-height: 1; /* 0.9 aprieta las descendentes cuando el título va a 2 líneas */
 }
 
