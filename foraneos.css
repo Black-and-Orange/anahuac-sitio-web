@@ -1305,3 +1305,163 @@
     padding-top: 160px;
   }
 }
+
+/* =============================================================================
+   PILOTO — ESCALA TIPOGRÁFICA (la misma que en la página de área)
+
+   Prefijado con `.escala-2026` (clase en el <body>) para poder comparar y
+   revertir quitando esa clase.
+
+   NO es una copia de lo aplicado en Ciencias de la Salud. Lo que se transfiere
+   es lo universal —la medida de lectura y los escalones de titular—; lo que
+   depende del contenido se midió aquí de nuevo y en dos casos dio distinto:
+
+   · El H2 se queda en 72px. Los 58 de la página de área respondían a que sus
+     títulos están escritos para SEO y promedian 45 caracteres. Los de foráneos
+     promedian 31 —como los de Inicio (29) y Oferta (30)— y solo 1 de 14 pasa de
+     2 líneas, y ese lo hace por ir en columna estrecha, no por tamaño.
+
+   · No se toca el hero. La inversión claim/H1 era una instrucción del handoff
+     del área, no una regla del sistema.
+   ========================================================================== */
+
+/* ---- 1. Medida: ningún texto corrido pasa de ~70 caracteres ----
+   Es la corrección de más impacto: 17 bloques pasaban de 80 caracteres y la
+   nota del mapa llegaba a 150 en una sola línea.
+
+   Solo se acotan bloques e items flex, NUNCA un contenedor flex. Acotar el
+   contenedor arrastra lo que va alineado al otro extremo: en la página de área
+   eso despegó el «+» del FAQ de su borde derecho. Por eso aquí quedan fuera
+   `.faq-item summary` (flex con el «+» al final) y las bandas `.for-calc-nota`
+   y `.for-mapa-nota`, de las que se acota su texto, no la banda. */
+.escala-2026 .for-faq .faq-answer p,
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .for-calc-intro,
+.escala-2026 .for-mapa-intro,
+.escala-2026 .for-calc-nota p,
+.escala-2026 .for-caf-nota,
+.escala-2026 .for-disclaimer,
+.escala-2026 .for-calc-zonas {
+  max-width: 62ch;
+}
+
+/* Las dos notas en banda se comportan distinto y por eso se tratan distinto.
+   `.for-calc-nota` lleva un botón al extremo derecho, así que la banda se queda
+   a todo el ancho y solo se acota su texto. `.for-mapa-nota` es solo texto: a
+   todo el ancho quedaban 717px de gris vacío a la derecha —el mismo hueco que
+   dejó la banda morada en la página de área—, así que se acota la banda entera
+   y queda como lo que es, una nota al margen. */
+.escala-2026 .for-mapa-nota {
+  max-width: 62ch;
+}
+
+/* ---- 2. Titulares: se sube lo que cae por debajo del piso ----
+   El piso son 20px y no es una convención: la 'x' de Zilla Slab mide 0.447em y
+   la de Roboto 0.528em, así que por debajo de 18.9px un titular en Zilla tiene
+   las minúsculas más chicas que el párrafo de 16px que encabeza. En foráneos
+   había titulares a 17 y a 18. */
+.escala-2026 .for-categoria h3,
+.escala-2026 .consideracion h3,
+.escala-2026 .for-contacto-nombre {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+/* Y se colapsa el tramo 22/23/24, que son el mismo escalón repetido. */
+.escala-2026 .plan-bloque h3,
+.escala-2026 .for-campus-cuerpo h3,
+/* Todos los acordeones, no solo el del FAQ: el de trámite migratorio cumple el
+   mismo papel. Se les cambia el tamaño, nunca el ancho — la fila del summary es
+   un flex que empuja el «+» al borde derecho. */
+.escala-2026 .faq-item summary {
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+/* ---- 3. Cuerpo: el dato destacado al escalón de párrafo grande ---- */
+.escala-2026 .for-dato {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* ---- Lo que deliberadamente NO se toca ----
+   `.path-title` se queda en su tamaño. Está por debajo del piso, pero su
+   `.path-card` tiene altura fija (68 y 86px) con `overflow: hidden`: subirlo
+   recorta el texto. Es el caso donde arreglar la tipografía rompe la
+   estructura, y manda la estructura. Se resuelve el día que la tarjeta deje de
+   tener altura fija.
+
+   Los h3 de 40px tampoco: están muy por encima del piso y sus tarjetas también
+   llevan altura fija. */
+
+/* -----------------------------------------------------------------------------
+   ESCALA DE RAZÓN CONSTANTE — 72 · 56 · 40 · 32 · 24 · 20 · 18 · 16 · 13
+
+   Lo anterior corregía tamaños sueltos; esto arregla los intervalos, que era el
+   problema de fondo. Tres cosas:
+
+   1) Aparece 56. El salto de 72 a 40 era de 1.80×, cuando todos los demás
+      escalones están entre 1.20 y 1.35: la página caía del título de sección al
+      título de tarjeta sin nada en medio. 56 tapa ese hueco.
+
+   2) El H1 baja de 88 a 72. Con el H2 en 56, mantener 88 arriba dejaba el
+      contraste display/cuerpo en 4.5× —proporción de revista— para una página
+      cuyo trabajo es que alguien encuentre datos y decida. A 72 queda en 3.5×,
+      dentro del rango institucional, sin perder la voz del slab a gran tamaño.
+
+   3) Desaparece el escalón de 15px. Entre 16 y 15 la razón es 1.07: por debajo
+      del umbral en que el ojo distingue un cambio de tamaño. Cuatro escalones
+      que no se perciben no son jerarquía, son mantenimiento.
+
+   Los 14px NO desaparecen, pero salen de la escala de lectura: son el nivel de
+   ETIQUETA (eyebrow, chip, rol bajo un nombre), en versalitas o con tracking, y
+   se comparan entre sí, no con el cuerpo del texto.
+
+   REGLA que queda abierta: no poner un párrafo de 18px justo debajo de un
+   titular de 20px. Sobre el papel el titular es 25% mayor, pero la 'x' de Roboto
+   es 18% más alta que la de Zilla y en pantalla el párrafo se ve 6% MÁS GRANDE
+   que su propio titular. En esta página no ocurre en ningún sitio; conviene no
+   estrenarlo.
+   -------------------------------------------------------------------------- */
+.escala-2026 main h1 {
+  font-size: clamp(34px, 5vw, 72px);
+}
+
+.escala-2026 main h2 {
+  font-size: clamp(30px, 3.9vw, 56px);
+}
+
+/* Las tres frases destacadas —puente, cierre y remate— cumplen el mismo papel y
+   estaban a 21 y 22px, que son el mismo escalón escrito de dos maneras. */
+.escala-2026 .for-puente-frase,
+.escala-2026 .for-cierre-calido,
+.escala-2026 .for-admision-remate {
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+/* El escalón de 15px sube a 16: es texto de apoyo, no un pie de foto.
+   Los dos intros llevan el selector completo porque el original es
+   `.section-intro > p.for-calc-intro` y le gana a una clase suelta. */
+.escala-2026 .plan-bloque p,
+.escala-2026 .section-intro > p.for-calc-intro,
+.escala-2026 .section-intro > p.for-mapa-intro,
+.escala-2026 .consideracion p,
+.escala-2026 .fex-paso p,
+.escala-2026 .for-calc-nota p,
+.escala-2026 .for-mapa-nota,
+.escala-2026 .for-calc-zonas,
+.escala-2026 .for-caf-nota,
+.escala-2026 .for-disclaimer,
+.escala-2026 .siguiente-card p,
+.escala-2026 .for-precio-rubros li,
+.escala-2026 .for-migratorio-pasos li,
+/* Los enlaces de contacto del asesor y sus redes son contenido que se lee, no
+   etiquetas de interfaz: van al cuerpo. Así el nivel de 14px queda solo para lo
+   que sí es etiqueta —eyebrow, chip y rol bajo un nombre— y no se mezcla. */
+.escala-2026 .asesor-link,
+.escala-2026 .for-red {
+  font-size: 16px;
+  line-height: 1.6;
+}
