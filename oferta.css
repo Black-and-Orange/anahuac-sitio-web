@@ -14,19 +14,6 @@
     var(--white);
 }
 
-.oferta-hero-inner {
-  display: grid;
-  grid-template-columns: 610px auto 505px;
-  align-items: end;
-}
-
-.oferta-hero-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 610px;
-  grid-column: 1;
-}
 
 .oferta-hero-copy .tagline,
 .oferta-hero-copy h1 {
@@ -35,13 +22,6 @@
 
 
 
-.oferta-hero-info {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  max-width: 505px;
-  grid-column: 3;
-}
 
 .oferta-hero .hero-card {
   background: var(--purple-2);
@@ -51,12 +31,6 @@
   text-wrap: balance;
 }
 
-.oferta-hero-info .button-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 0;
-}
 
 /* ===== 2. ÁREAS ACADÉMICAS ===== */
 .oferta-areas {
@@ -924,10 +898,6 @@
   .oferta-hero-copy,
   .oferta-hero-info {
     grid-column: auto;
-  }
-
-  .oferta-hero-info {
-    justify-self: end;
   }
 
   .area-card {
