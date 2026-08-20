@@ -18,13 +18,15 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Interactions:** Efectos base del Home documentados en `design/interactions.md`.
 - **Componentes:** Ocho contratos de la LP Apoyos Económicos documentados; componentes generales del UI Kit y Home continúan pendientes.
 - **Specs:** `specs/apoyos-economicos.md` documenta la versión local aprobada y el contrato para la futura migración a HubSpot.
+- **Foráneos:** La revisión humana del 2026-08-20 está aplicada en la maqueta local; no se ha publicado ni migrado a HubSpot.
 
 ### Siguiente paso
-1. Completar la revisión humana de la versión local de Apoyos Económicos.
-2. Confirmar el contenido definitivo de las fichas que aún contienen texto temporal.
-3. Tras aprobación explícita, derivar los módulos HubSpot desde los ocho contratos documentados.
-4. Confirmar el mapeo institucional completo de preparatorias para CDMX y Estado de México.
-5. Mantener asesoría con fuente local hasta definir la tabla y columnas de HubDB.
+1. Completar la revisión humana de Foráneos en local.
+2. Completar la revisión humana de la versión local de Apoyos Económicos.
+3. Confirmar el contenido definitivo de las fichas que aún contienen texto temporal.
+4. Tras aprobación explícita, derivar los módulos HubSpot desde los contratos documentados.
+5. Confirmar el mapeo institucional completo de preparatorias para CDMX y Estado de México.
+6. Mantener asesoría con fuente local hasta definir la tabla y columnas de HubDB.
 
 ## Preferencias del proyecto
 > Reglas/gustos específicos de este sitio que emergen y deben respetarse siempre.
@@ -35,6 +37,14 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Radio estándar:** 20px para tarjetas y elementos medianos; 10px para botones; 40px para secciones grandes.
 
 ## Decisiones
+
+### 2026-08-20 — Foráneos se valida primero en local
+- Los ajustes de mapa, asesoría y admisión se revisan en `foraneos.html` antes de cualquier publicación o migración a HubSpot.
+- En móvil, la categoría del mapa usa `select` y el paginador avanza tres tarjetas; el selector de campus conserva las dos opciones visibles.
+- Asesoría reutiliza el patrón visual de Apoyos Económicos y Proceso de admisión conserva un único mensaje general para toda la audiencia.
+- La auditoría responsive mantiene los módulos dentro del viewport entre 320 y 900px; las razones de CDMX son fluidas al apilarse y la tarjeta horizontal del asesor conserva foto y datos dentro de sus límites.
+- El aviso de responsabilidades del trámite migratorio deja `--space-9` antes de «Tramita tu visa» para que ambos bloques no se perciban pegados.
+- Origen: revisión humana recibida el 2026-08-20.
 
 ### 2026-06-08 — Plataforma HubSpot (onboarding)
 - Elegida por el usuario durante el onboarding interactivo.

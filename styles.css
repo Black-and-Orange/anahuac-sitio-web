@@ -99,6 +99,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* El header es `fixed` y su borde inferior queda en 121px (113 en móvil), así
+     que sin esto todo enlace de ancla deja su destino tapado por el header: se
+     salta al sitio correcto pero el título no se ve. Son 95 enlaces de ancla en
+     las 8 páginas. 140 deja unos 20px de aire por debajo del header. */
+  scroll-padding-top: 140px;
   overflow-x: clip;
 }
 

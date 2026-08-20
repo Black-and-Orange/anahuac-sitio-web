@@ -214,3 +214,39 @@ experiencia y los mini-testimonios del hero · ubicación, horario y foto del CA
 Importantes: vigencia del dato 20%/3% · roster de asesores · listado del mapa de
 servicios · contactos de servicio médico y Bienestar · canal de roomies de ADEFA
 · datos exactos de los tres testimonios del M11.
+
+---
+
+## Revisión humana local — 2026-08-20
+
+Decisiones aceptadas para la maqueta local:
+
+- El mapa de servicios filtra primero por Campus Norte o Campus Sur y después
+  por categoría. En móvil, la categoría usa un `select`; en escritorio conserva
+  las píldoras. La paginación avanza de 10 en 10 en escritorio y de 3 en 3 en
+  móvil.
+- El módulo de asesoría reutiliza la composición de Apoyos Económicos: fondo
+  naranja punteado, copy blanco de mayor escala y tarjeta vertical del asesor.
+  El texto editorial queda fijado a las tres piezas entregadas en revisión:
+  título, explicación por estado/país y fallback a
+  `preuniversitarios@anahuac.mx`.
+- El H2 del módulo 13 es «Proceso de admisión». Debajo lleva un solo párrafo:
+  «El proceso de admisión de la Universidad Anáhuac México es el mismo para
+  todos. Conoce el proceso completo de admisión en un solo lugar.»
+- El acordeón internacional se titula «Si vienes de otro país recuerda tu
+  trámite migratorio».
+- En móvil, las tarjetas de «Mucho más que solo una Universidad» usan una
+  variante local de tarjetas apilables durante el scroll. El efecto no modifica
+  el componente global y se desactiva si el viewport no permite mostrar una
+  tarjeta completa (menos de 560px de alto) o si el usuario prefiere movimiento
+  reducido. En la variante se compactan imagen y espaciado, sin ocultar copy.
+- La auditoría responsive conserva un margen efectivo uniforme de 44px en los
+  módulos con `section-pad`. Al apilarse, las razones de CDMX ocupan el ancho del
+  contenedor; entre 661 y 900px la ficha horizontal del asesor recupera el ancho
+  intrínseco de la foto para que sus datos permanezcan dentro de la tarjeta.
+- En el acordeón migratorio, el aviso de responsabilidades conserva
+  `--space-9` de separación antes de la lista que comienza con «Tramita tu
+  visa»; la regla del acordeón no debe colapsar ese margen.
+
+Esta revisión sigue en etapa local; no autoriza publicación ni migración a
+HubSpot.

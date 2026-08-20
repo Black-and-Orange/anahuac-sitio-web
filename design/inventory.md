@@ -17,13 +17,14 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 |---|---|---|---|
 | `hero` | `design/components/hero.md` | pendiente | Home |
 | `stats-section` | `design/components/stats-section.md` | pendiente | Home, Descubre Anáhuac |
-| `path-card` | `design/components/path-card.md` | pendiente | Home |
+| `path-card` | `design/components/path-card.md` | pendiente | Home, Foráneos |
 | `area-card` | `design/components/area-card.md` | pendiente | Home, Oferta Académica |
 | `feature-section` | `design/components/feature-section.md` | pendiente | Home, Descubre Anáhuac |
 | `story-card` | `design/components/story-card.md` | pendiente | Home |
 | `step-card` | `design/components/step-card.md` | pendiente | Home, Admisiones |
 | `event-card` | `design/components/event-card.md` | pendiente | Home |
 | `cta-section` | `design/components/cta-section.md` | pendiente | Home |
+| `experience` | `design/components/experience.md` | pendiente | Home, Psicología, Foráneos |
 | `support-hero` | `design/components/support-hero.md` | construido (`apoyos-hero.module`) | Apoyos Económicos |
 | `support-overview` | `design/components/support-overview.md` | construido (`apoyos-panorama.module`) | Apoyos Económicos |
 | `support-detail` | `design/components/support-detail.md` | construido (`apoyos-detalle.module`) | Apoyos Económicos |
@@ -31,7 +32,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `support-considerations` | `design/components/support-considerations.md` | construido (`apoyos-consideraciones.module`) | Apoyos Económicos |
 | `support-steps` | `design/components/support-steps.md` | construido (`apoyos-pasos.module`) | Apoyos Económicos |
 | `support-faq` | `design/components/support-faq.md` | construido (`apoyos-faq.module`) | Apoyos Económicos |
-| `support-advisor` | `design/components/support-advisor.md` | construido (`apoyos-asesoria.module`) | Apoyos Económicos |
+| `support-advisor` | `design/components/support-advisor.md` | construido (`apoyos-asesoria.module`) | Apoyos Económicos, Foráneos |
 
 ## Componentes atómicos (UI Kit)
 

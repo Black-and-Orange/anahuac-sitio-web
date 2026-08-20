@@ -5,6 +5,36 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-20 — Foráneos: filtros móviles, asesoría y admisión
+
+- El filtro de categorías del mapa cambia de píldoras a `select` por debajo de
+  640px; el campus conserva dos pestañas visibles. Ambos controles comparten el
+  mismo estado y el menú del `select` se eleva sobre las tarjetas animadas.
+- El mapa pagina en bloques de 10 tarjetas en escritorio y de 3 en móvil; al
+  cambiar campus o categoría vuelve al primer bloque.
+- `¿De dónde nos contactas?` reutiliza la composición visual de
+  `support-advisor`: banda naranja punteada, texto blanco de display y tarjeta
+  vertical del asesor.
+- Las tarjetas dobles de Comunidad foránea y «¿Quién es foráneo?» se apilan en
+  una sola columna por debajo de 900px; el breakpoint iguala la especificidad de
+  la retícula base para evitar que la segunda tarjeta quede recortada.
+- Las cuatro tarjetas de «Mucho más que solo una Universidad» incorporan una
+  variante local de *stacking cards* en móvil: cada tarjeta queda sticky y la
+  siguiente se superpone durante el scroll. La lista normal se conserva con
+  movimiento reducido o en viewports menores a 560px de alto; dentro del efecto
+  se compactan imagen, padding y separación para mantener el contenido visible.
+- La auditoría móvil completa corrige dos desbordes locales: las razones de CDMX
+  pasan de ancho fijo al ancho de su contenedor cuando la composición se apila,
+  y la ficha horizontal del asesor recupera el ancho intrínseco de su foto entre
+  661 y 900px. Se verificó sin recortes entre 320 y 900px. El aviso del trámite
+  migratorio conserva además `--space-9` antes de la lista de pasos; una regla
+  compartida del acordeón anulaba por especificidad el margen previsto.
+- El módulo `Proceso de admisión` elimina el calificativo «para foráneos», deja
+  un solo párrafo introductorio y renombra el acordeón internacional como
+  «Si vienes de otro país recuerda tu trámite migratorio».
+- Alcance local: no se publicaron cambios ni se modificó el theme de HubSpot.
+- Origen: revisión humana recibida el 2026-08-20.
+
 ## 2026-08-04 — HubSpot: arranca la migración de Proceso de admisión
 
 - Spec completa en `specs/proceso-de-admision-hubspot.md`: 9 módulos, campos por
