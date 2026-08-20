@@ -81,55 +81,38 @@
   padding-right: var(--section-pad-x);
 }
 
-/* Jerarquía tipográfica del hero: el claim manda, no el H1.
+/* Hero apilado (patrón de Apoyos económicos): el H1 ocupa todo el ancho del
+   contenedor y debajo van la foto y el bloque de claim + CTA.
 
-   El handoff lo pide dos veces —«el claim lleva el tratamiento tipográfico
-   grande» y «Claim (dominante)»— y es lo correcto para una página de área: el
-   H1 es una etiqueta de categoría («Licenciaturas en Ciencias de la Salud»),
-   mientras que el claim es la promesa. Liderar con la etiqueta hace que los
-   primeros 8 segundos los ocupe un rótulo de catálogo.
+   88px con interlínea 0.8 son los valores de display del sitio, los mismos del
+   H1 de Oferta Académica.
 
-   Se invierte el tamaño, no la semántica: el H1 sigue siendo el H1.
+   `text-wrap: balance` reparte el título en «Licenciaturas en / Ciencias de la
+   Salud». Sin él el corte cae en «…Ciencias de la / Salud», que parte el nombre
+   del área. Se resuelve con balance y no con un <br> porque el <br> obliga a
+   ese corte en todos los anchos y en todas las áreas; balance recalcula.
 
-   El tamaño está medido, no elegido: a 70px caben 3 líneas con un rag de 36px
-   —casi justificado—; a 78 salta a 4 líneas con un rag de 203 y el hero engorda
-   130px. 70 deja el claim al 1.8× del H1, que es lo que pide el handoff, y a
-   2px de los H2: la diferencia no se ve, así que el hero no compite con las
-   secciones.
-
-   Esto separa deliberadamente el hero de área del hero de licenciatura, donde
-   la relación es la contraria porque allí el H1 —el nombre de la carrera— sí es
-   lo que el usuario vino a buscar.
-
-   PERO el H1 no puede bajar de los 56px del H2. Al hacer dominante el claim lo
-   había dejado en 39, y con eso el título de la PÁGINA quedaba más chico que
-   todos los títulos de SECCIÓN: una inversión de jerarquía a nivel documento.
-
-   A 56 se arregla y el claim sigue mandando: 70/56 = 1.25×, que es un escalón
-   completo de la escala. El hero crece 80px y el H1 pasa a dos líneas; es el
-   precio de que el título de la página no parezca un antetítulo.
-
-   H1 y H2 comparten los 56 y no pasa nada: nunca se ven juntos, y en el hero el
-   H1 va enmarcado por el eyebrow arriba y el claim abajo. */
+   NOTA para la decisión de la escala: 88 queda por encima del escalón superior
+   del piloto (72, el que usa foráneos). Si la escala se aprueba, lo coherente
+   es que Oferta baje a 72, no que ésta suba a 88 — pero mientras Oferta esté en
+   88, esta página tiene que verse igual que ella. */
 .salud-hero h1 {
-  font-size: clamp(26px, 3.9vw, 56px);
-  line-height: 1.1;
-}
-
-.salud-hero .lic-hero-claim {
-  font-size: clamp(32px, 4.9vw, 70px);
-  line-height: 1.05;
+  font-size: clamp(34px, 6.1vw, 88px);
+  line-height: 0.8;
   text-wrap: balance;
 }
 
-.salud-hero-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: 0 24px 48px rgba(67, 47, 100, 0.16);
+
+
+/* Morado, como el hero de Oferta Académica, y al tamaño base del componente. */
+.salud-hero .hero-card {
+  background: var(--purple-2);
 }
+
+.salud-hero .hero-card p {
+  text-wrap: pretty;
+}
+
 
 /* -----------------------------------------------------------------------------
    MÓDULO 2 — Afinidad
@@ -383,18 +366,17 @@
 
 /* -----------------------------------------------------------------------------
    MÓDULO 6 — Campus
-   El componente entero se hereda. Solo se coloca el cierre sobre los
-   laboratorios, que en el handoff va después de las dos tarjetas.
+   El componente entero se hereda. Lo único propio es destacar qué se imparte en
+   cada campus: es el dato que el aspirante viene a buscar y estaba disuelto al
+   final de la dirección postal.
    -------------------------------------------------------------------------- */
-.salud-campus-cierre {
-  margin: 40px auto 0;
-  max-width: 920px;
-  text-align: center;
-  font-size: 17px;
-  line-height: 1.6;
+.campus-imparte {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
   color: var(--color-text);
-  text-wrap: balance;
 }
+
 
 /* -----------------------------------------------------------------------------
    MÓDULO 7 — Clínicas internas
@@ -430,12 +412,39 @@
 /* Banda de cierre del módulo: el trabajo interdisciplinario es la idea que
    sostiene las tres clínicas, y por eso va como bloque destacado y no como una
    cuarta tarjeta. */
+/* Dos columnas: el texto acotado a medida de lectura y los CTA al otro extremo.
+   Antes el texto iba centrado en una banda a todo el ancho y dejaba 717px de
+   morado vacío; ahora ese lado lo ocupan los botones. */
 .salud-clinicas-banda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
   margin-top: 40px;
   padding: 44px;
   border-radius: var(--radius);
   background: var(--surface-accent);
   color: var(--color-text-invert);
+}
+
+.salud-clinicas-banda .button-row {
+  flex-shrink: 0;
+  margin-top: 0;
+  gap: 12px;
+}
+
+/* Sobre morado los dos van en claro: un `btn-dark` (negro) sobre morado oscuro
+   casi no se despega del fondo. */
+.salud-clinicas-banda .btn-light {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--color-text);
+}
+
+.salud-clinicas-banda .btn-light:hover {
+  background: transparent;
+  color: var(--white);
 }
 
 .salud-clinicas-banda p {
@@ -590,7 +599,6 @@
 .escala-2026 .faq-item p,
 .escala-2026 .section-intro > p:not(.tagline),
 .escala-2026 .salud-afinidad-cierre,
-.escala-2026 .salud-campus-cierre,
 .escala-2026 .salud-clinicas-banda p,
 .escala-2026 .campus-address,
 /* En la tarjeta ancha, el gancho y el dato ocupan los 720px del cuerpo. */
@@ -603,21 +611,11 @@
 }
 
 /* Los remates centrados conservan su centrado al acotarse. */
-.escala-2026 .salud-afinidad-cierre,
-.escala-2026 .salud-campus-cierre {
+.escala-2026 .salud-afinidad-cierre {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* La banda de clínicas ocupa todo el ancho, así que al acotar el texto a medida
-   de lectura quedaban 569px de morado vacío a la derecha: media banda hueca.
-   El texto sigue alineado a la izquierda —se lee mejor que centrado en 5
-   líneas— pero el bloque se centra, y el aire queda repartido a los dos lados
-   en vez de amontonado en uno. */
-.escala-2026 .salud-clinicas-banda p {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /* ---- 2. Titulares ---- */
 
@@ -676,7 +674,6 @@
 /* Párrafo L — intro de sección y remates */
 .escala-2026 .section-intro > p:not(.tagline),
 .escala-2026 .salud-afinidad-cierre,
-.escala-2026 .salud-campus-cierre,
 .escala-2026 .salud-clinicas-banda p {
   font-size: 18px;
   line-height: 1.6;
@@ -741,7 +738,6 @@
   /* El cuerpo no encoge en móvil; solo el escalón L, que es el más grande. */
   .escala-2026 .section-intro > p:not(.tagline),
   .escala-2026 .salud-afinidad-cierre,
-  .escala-2026 .salud-campus-cierre,
   .escala-2026 .salud-clinicas-banda p {
     font-size: 17px;
   }
