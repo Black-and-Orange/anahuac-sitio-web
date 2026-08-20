@@ -21,26 +21,9 @@
     var(--white);
 }
 
-.apo-hero-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
 
 /* Copy a todo el ancho del contenedor, centrado */
-.apo-hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  max-width: 100%;
-  margin: 0 auto;
-}
 
-.apo-hero-copy .tagline {
-  justify-content: center;
-}
 
 .apo-hero-copy .tagline,
 .apo-hero-copy h1 {
@@ -48,25 +31,8 @@
 }
 
 /* Info: 2 columnas — imagen izquierda + contenido (card + botones) derecha */
-.apo-hero-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
 
-.apo-hero-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
 
-.apo-hero-info-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
 
 .apo-hero .hero-card {
   background: var(--support-hero-panel-bg);
@@ -77,12 +43,6 @@
   text-wrap: balance;
 }
 
-.apo-hero-info .button-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 0;
-}
 
 .apo-hero .btn-dark {
   background: var(--support-hero-primary-bg);
@@ -101,26 +61,10 @@
     padding-right: 60px;
   }
 
-  .apo-hero-copy {
-    max-width: none;
-  }
-
   .apo-hero h1 {
     font-size: 72px;
   }
 
-  /* La info pasa a 1 columna: imagen arriba, contenido abajo */
-  .apo-hero-info {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* En una columna (rango intermedio) la imagen se reduce para no lucir tan grande */
-@media (min-width: 769px) and (max-width: 1180px) {
-  .apo-hero-img {
-    width: 70%;
-    justify-self: center;
-  }
 }
 
 @media (max-width: 768px) {

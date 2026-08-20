@@ -3219,3 +3219,168 @@ h2 {
   color: var(--color-text-secondary);
   text-wrap: pretty;
 }
+
+
+/* ---- Hero partido: copy a la izquierda, tarjeta + CTA a la derecha ----
+   Estrenado en Oferta Académica y ahora también en las páginas de área. Sube
+   aquí al aparecer el segundo consumidor, como el resto de componentes
+   compartidos. Los nombres `.oferta-hero-*` se conservan como alias para no
+   tocar la página que lo estrenó; lo nuevo usa `.hero-split`. */
+.hero-split,
+.oferta-hero-inner {
+  display: grid;
+  grid-template-columns: 610px auto 505px;
+  align-items: end;
+}
+
+.hero-split-copy,
+.oferta-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 610px;
+  grid-column: 1;
+}
+
+.hero-split-info,
+.oferta-hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 505px;
+  grid-column: 3;
+}
+
+.hero-split-info .button-row,
+.oferta-hero-info .button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+@media (max-width: 1440px) {
+  .hero-split,
+  .oferta-hero-inner {
+    grid-template-columns: 6fr 5fr;
+    gap: var(--grid-gutter, 20px);
+    align-items: start;
+  }
+
+  .hero-split-copy,
+  .hero-split-info,
+  .oferta-hero-copy,
+  .oferta-hero-info {
+    grid-column: auto;
+  }
+
+  /* La columna derecha mide 505 dentro de un track más ancho: sin esto se queda
+     pegada al centro y la tarjeta no llega al borde derecho de la retícula. */
+  .hero-split-info,
+  .oferta-hero-info {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 1180px) {
+  .hero-split,
+  .oferta-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-split-copy,
+  .hero-split-info,
+  .oferta-hero-copy,
+  .oferta-hero-info {
+    max-width: none;
+  }
+}
+
+
+/* ---- Hero apilado: título a todo el ancho, y debajo media + tarjeta ----
+   Estrenado en Apoyos económicos. Es el tercer patrón de hero compartido y el
+   único que deja sitio a la fotografía, así que es el que usan las páginas de
+   área, cuyo handoff pide media real en el hero.
+   Los nombres `.apo-hero-*` quedan como alias para no tocar la página que lo
+   estrenó; lo nuevo usa `.hero-stack`. */
+.hero-stack,
+.apo-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.hero-stack-copy,
+.apo-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hero-stack-copy .tagline,
+.apo-hero-copy .tagline {
+  justify-content: center;
+}
+
+.hero-stack-body,
+.apo-hero-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-stack-img,
+.apo-hero-img {
+  width: 100%;
+  /* `height: auto` es obligatorio: si el <img> trae atributos width/height —que
+     conviene ponerlos para reservar el espacio y evitar saltos de layout—, el
+     alto del atributo gana sobre aspect-ratio y la foto sale con su tamaño
+     natural. Aquí eso la dejaba en 1080px de alto en vez de 450. */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.hero-stack-panel,
+.apo-hero-info-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-stack-body .button-row,
+.apo-hero-info .button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+@media (max-width: 1180px) {
+  /* Una columna: imagen arriba, tarjeta y CTA debajo. */
+  .hero-stack-body,
+  .apo-hero-info {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stack-copy,
+  .apo-hero-copy {
+    max-width: none;
+  }
+}
+
+/* En una sola columna la foto a todo el ancho luce enorme: se reduce y centra. */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .hero-stack-img,
+  .apo-hero-img {
+    width: 70%;
+    justify-self: center;
+  }
+}

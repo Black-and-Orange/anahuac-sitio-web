@@ -302,41 +302,44 @@
            estudiantil. La foto de aquí es de relleno.
            ===================================================================== -->
       <section class="lic-hero salud-hero section-pad" id="inicio">
-        <div class="container lic-hero-inner">
-          <div class="lic-hero-copy">
-            <nav class="lic-breadcrumb" aria-label="Ruta de navegación">
-              <ol>
-                <li><a href="Inicio.html">Inicio</a></li>
-                <li><a href="oferta-academica.html">Oferta Académica</a></li>
-                <li aria-current="page">Ciencias de la Salud</li>
-              </ol>
-            </nav>
+        <div class="container hero-stack">
+          <!-- El breadcrumb va fuera del bloque centrado: es chrome de navegación,
+               no parte del titular, y centrado se leería como un adorno. -->
+          <nav class="lic-breadcrumb" aria-label="Ruta de navegación">
+            <ol>
+              <li><a href="Inicio.html">Inicio</a></li>
+              <li><a href="oferta-academica.html">Oferta Académica</a></li>
+              <li aria-current="page">Ciencias de la Salud</li>
+            </ol>
+          </nav>
 
-            <p class="tagline reveal" data-reveal><span></span>Área académica</p>
+          <div class="hero-stack-copy">
+            <p class="tagline reveal" data-reveal><span aria-hidden="true"></span>Área académica</p>
             <h1 class="reveal" data-reveal>Licenciaturas en Ciencias de la Salud</h1>
-            <p class="lic-hero-claim reveal" data-reveal>
-              Conviértete en quien cuida y transforma la salud de las personas.
-            </p>
-
-            <!-- Los CTA van con el copy, no bajo la imagen: sin los chips de la
-                 página de licenciatura esa columna queda corta, y el handoff
-                 agrupa eyebrow + H1 + claim + CTAs como un solo bloque.
-                 Primario «Agenda tu visita» · secundario, ancla al módulo 4. -->
-            <div class="button-row reveal" data-reveal>
-              <a class="btn btn-dark" href="#">Agenda tu visita</a>
-              <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
-            </div>
           </div>
 
-          <div class="lic-hero-media reveal" data-reveal>
+          <!-- Patrón del hero de Apoyos económicos: el H1 ocupa todo el ancho y
+               debajo van la foto y el bloque de claim + CTA. Es el único de los
+               tres heros compartidos que deja sitio a la fotografía, que es lo
+               que pide el handoff para esta página. -->
+          <div class="hero-stack-body reveal" data-reveal>
             <img
-              class="salud-hero-img"
+              class="hero-stack-img"
               src="assets/hero-medicine.jpg"
               alt="Estudiantes de la Facultad de Ciencias de la Salud de la Universidad Anáhuac México en prácticas clínicas"
               width="1920"
               height="1080"
               fetchpriority="high"
             />
+            <div class="hero-stack-panel">
+              <div class="hero-card">
+                <p>Conviértete en quien cuida y transforma la salud de las personas.</p>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="#">Agenda tu visita</a>
+                <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -733,10 +736,10 @@
               </span>
               <div>
                 <h3>Consultorio propio / clínica particular</h3>
-                <p>
-                  aplica en Medicina, Odontología, Nutrición y Terapia Física y Rehabilitación (no en
-                  Biotecnología, orientada a investigación e industria).
-                </p>
+                <!-- [DECISIÓN DE LA CLIENTA] se retira la precisión del handoff «aplica en
+                     Medicina, Odontología, Nutrición y Terapia Física y Rehabilitación (no en
+                     Biotecnología, orientada a investigación e industria)». Era el único
+                     ámbito con matiz y el que aclaraba que Biotecnología queda fuera. -->
               </div>
             </li>
 
@@ -777,14 +780,16 @@
             </li>
           </ul>
 
+          <!-- Los CTA van a la izquierda, alineados con el eje de la página; la nota
+               —secundaria— pasa a la derecha. -->
           <div class="salud-campo-remate reveal" data-reveal>
-            <p class="salud-campo-nota">
-              <a href="#carreras">Conoce el detalle de campo laboral de cada licenciatura en su página</a>
-            </p>
             <div class="button-row">
               <a class="btn btn-dark" href="proceso-de-admision.html">Inicia tu admisión</a>
               <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
             </div>
+            <p class="salud-campo-nota">
+              <a href="#carreras">Conoce el detalle de campo laboral de cada licenciatura en su página</a>
+            </p>
           </div>
         </div>
       </section>
@@ -805,7 +810,14 @@
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
                         <h2>Instalaciones y campus de la Facultad de Ciencias de la Salud</h2>
-            <p>Transporte intercampus gratuito · 38 hectáreas de instalaciones de la Red Anáhuac.</p>
+            <!-- [DECISIÓN DE LA CLIENTA] la línea de apoyo del handoff decía «Transporte
+                 intercampus gratuito · 38 hectáreas de instalaciones de la Red Anáhuac» y el
+                 cierre iba después de las tarjetas. Se retira la mención a las 38 hectáreas y
+                 el cierre sube aquí, recortado. -->
+            <p>
+              Transporte intercampus gratuito.<br />
+              Laboratorios actualizados, con equipo estandarizado y bien cuidado
+            </p>
           </div>
 
           <div class="campus-grid reveal" data-reveal>
@@ -818,9 +830,10 @@
               </span>
               <h3>Campus Norte</h3>
               <p class="campus-address">
-                Av. Universidad Anáhuac 46, Col. Lomas Anáhuac, Huixquilucan, Edo. Méx. Aquí se imparten
-                las 5 licenciaturas del área: Médico Cirujano, Cirujano Dentista, Nutrición, Terapia
-                Física y Rehabilitación, y Biotecnología.
+                Av. Universidad Anáhuac 46, Col. Lomas Anáhuac, Huixquilucan, Edo. Méx.
+                <strong class="campus-imparte">Aquí se imparten las 5 licenciaturas del área: Médico
+                Cirujano, Cirujano Dentista, Nutrición, Terapia Física y Rehabilitación, y
+                Biotecnología.</strong>
               </p>
 
               <div class="campus-slider" data-campus-slider>
@@ -858,8 +871,8 @@
               </span>
               <h3>Campus Sur</h3>
               <p class="campus-address">
-                Av. de los Tanques 865, Col. Torres de Potrero, Álvaro Obregón, CDMX. Aquí se imparten
-                Médico Cirujano y Nutrición.
+                Av. de los Tanques 865, Col. Torres de Potrero, Álvaro Obregón, CDMX.
+                <strong class="campus-imparte">Aquí se imparten Médico Cirujano y Nutrición.</strong>
               </p>
 
               <div class="campus-slider" data-campus-slider>
@@ -889,10 +902,6 @@
             </article>
           </div>
 
-          <p class="salud-campus-cierre reveal" data-reveal>
-            Laboratorios actualizados, con equipo estandarizado y bien cuidado — un diferenciador que los
-            propios estudiantes valoran al comparar con otras instituciones.
-          </p>
         </div>
       </section>
 
@@ -959,6 +968,10 @@
             </article>
           </div>
 
+          <!-- La banda pasa de ser un remate de texto a un cierre con acción: texto a la
+               izquierda y los dos CTA a la derecha. De paso se llena el morado que quedaba
+               vacío, que era consecuencia de acotar el texto a medida de lectura dentro de
+               un bloque a todo el ancho. -->
           <div class="salud-clinicas-banda reveal" data-reveal>
             <p>
               Gracias a estas clínicas internas, un mismo paciente puede ser atendido por varios de estos
@@ -967,6 +980,10 @@
               trabajo en equipo entre carreras que se aprende desde el salón, llevado a la práctica
               clínica real.
             </p>
+            <div class="button-row">
+              <a class="btn btn-light" href="proceso-de-admision.html">Inicia tu admisión</a>
+              <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
+            </div>
           </div>
         </div>
       </section>
