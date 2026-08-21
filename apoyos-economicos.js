@@ -397,11 +397,15 @@
   const regionSelect = document.getElementById("asesoria-region");
   const estadoSelect = document.getElementById("asesoria-estado");
   const preparatoriaSelect = document.getElementById("asesoria-preparatoria");
-  const preparatoriaWrap = document.querySelector(".asesoria-preparatoria-wrap");
+  const asesoriaSection = regionSelect?.closest(".apo-asesoria");
+  const preparatoriaWrap = asesoriaSection?.querySelector(".asesoria-preparatoria-wrap");
   if (regionSelect && estadoSelect && preparatoriaSelect && preparatoriaWrap) {
-    const foto = document.querySelector(".asesor-foto");
-    const nombreEl = document.querySelector(".asesor-nombre");
-    const waEl = document.querySelector(".asesor-wa");
+    /* Todos los nodos del resultado se buscan dentro de la misma instancia del
+       componente. Foráneos también tiene contactos de hospedaje con clases de
+       asesor; una búsqueda global actualizaría a la persona equivocada. */
+    const foto = asesoriaSection.querySelector(".asesor-col .asesor-foto");
+    const nombreEl = asesoriaSection.querySelector(".asesor-col .asesor-nombre");
+    const waEl = asesoriaSection.querySelector(".asesor-col .asesor-wa");
 
     const PAISES = [
       "Alemania", "Bolivia", "Brasil", "Canadá", "Chile", "Colombia",

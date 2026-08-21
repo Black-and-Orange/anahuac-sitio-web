@@ -27,7 +27,7 @@ existen.** Solo dos son realmente nuevos.
 | 9 | Salud y bienestar | `.consideraciones-grid` + `.fex-pasos` | `apoyos-economicos.html` + `fechas-de-examenes.html` | Reutilizar |
 | 10 | Comunidad ADEFA + CAF | `.plan-bloques` + carrusel `.colab-docentes` | `psicologia.html` | Componer |
 | 11 | Historias | `.stories` completo | `Inicio.html` | Reutilizar sin tocar |
-| 12 | ¿De dónde nos contactas? | `.asesor-card` | `apoyos-economicos.html` | Reutilizar — **ver observación 1** |
+| 12 | ¿De dónde nos contactas? | `.apo-asesoria` / `support-advisor` completo | `apoyos-economicos.html` | Reutilizar cascada y tarjeta — **ver observación 1** |
 | 13 | Proceso de admisión | `.adm-cta` (banda morada, 2 CTAs) + `.faq-item` para el H3 | `proceso-de-admision.html` | Componer |
 | 14 | FAQ | `.faq-list` / `.faq-item` | compartido | Reutilizar sin tocar |
 | 15 | Elige el siguiente paso | `.apo-siguiente-layout` + `.siguiente-cards` | `psicologia.html` | Reutilizar — **ver observación 2** |
@@ -82,22 +82,18 @@ JS se muestran todas las categorías, una tras otra: los filtros nunca son la
 
 ## Observaciones que requieren decisión
 
-### 1. El M12 se contradice consigo mismo — la más importante
+### 1. M12 resuelto por revisión humana — cascada completa
 
 El handoff pide para el módulo 12 «**exactamente el mismo componente de
 apoyos-economicos.html**» y, en la misma línea, «**sin selector de estado**».
 
-Son incompatibles. El componente de Apoyos **es** un selector: una cascada
-región → estado → preparatoria cuyo propósito es resolver a qué asesor te toca.
-La tarjeta de asesor es su resultado, no el componente entero.
+Eran incompatibles: el componente de Apoyos **es** una cascada región →
+estado/país → preparatoria cuyo resultado es la tarjeta del asesor.
 
-Como el M12 declara un asesor único y confirmado (Angel René Islas, con tres
-estados), lo coherente es montar **solo `.asesor-card`** —foto, nombre, rol,
-WhatsApp, agenda y correo— sin la cascada. Eso es lo que asumo.
-
-Si en cambio se quiere que cada persona vea a su asesor según su estado, entonces
-sí hace falta la cascada completa, y lo que sobra es la frase «sin selector».
-Hay que decidir cuál de las dos.
+La revisión humana del 2026-08-21 resolvió la contradicción a favor del
+componente completo. Foráneos reutiliza los mismos tres grupos, catálogos y
+asignaciones que Apoyos Económicos; no mantiene una copia independiente de los
+datos. La indicación anterior «sin selector de estado» queda supersedida.
 
 ### 2. «Elige el siguiente paso» pide 5 tarjetas y el componente tiene 4
 
@@ -248,5 +244,18 @@ Decisiones aceptadas para la maqueta local:
   `--space-9` de separación antes de la lista que comienza con «Tramita tu
   visa»; la regla del acordeón no debe colapsar ese margen.
 
-Esta revisión sigue en etapa local; no autoriza publicación ni migración a
-HubSpot.
+La versión correspondiente a esta revisión fue publicada después de su
+aprobación explícita. Esto no autoriza por sí solo cambios posteriores ni una
+migración a HubSpot.
+
+## Revisión humana local — 2026-08-21
+
+- El módulo 12 incorpora las opciones de dónde estudia o estudió la persona su
+  preparatoria: zona, estado o país y plantel cuando corresponde.
+- Se reutiliza la cascada completa de Apoyos Económicos y su catálogo estático;
+  no se duplican listas ni asignaciones de asesores en `foraneos.js`.
+- El código compartido limita la actualización a la tarjeta del módulo 12 para
+  conservar intactos los contactos de hospedaje que aparecen antes en la página.
+
+Este ajuste permanece en local y queda pendiente de revisión antes de cualquier
+nueva publicación o migración a HubSpot.

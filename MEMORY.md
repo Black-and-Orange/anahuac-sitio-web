@@ -18,10 +18,13 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Interactions:** Efectos base del Home documentados en `design/interactions.md`.
 - **Componentes:** Ocho contratos de la LP Apoyos Económicos documentados; componentes generales del UI Kit y Home continúan pendientes.
 - **Specs:** `specs/apoyos-economicos.md` documenta la versión local aprobada y el contrato para la futura migración a HubSpot.
-- **Foráneos:** La revisión humana del 2026-08-20 está aplicada en la maqueta local; no se ha publicado ni migrado a HubSpot.
+- **Foráneos:** La revisión del 2026-08-20 fue publicada en GitHub Pages. El
+  ajuste del 2026-08-21 que incorpora la cascada completa de preparatoria está
+  aplicado solo en la maqueta local y pendiente de revisión; no se ha migrado a
+  HubSpot.
 
 ### Siguiente paso
-1. Completar la revisión humana de Foráneos en local.
+1. Revisar en local la cascada de preparatoria incorporada a Foráneos.
 2. Completar la revisión humana de la versión local de Apoyos Económicos.
 3. Confirmar el contenido definitivo de las fichas que aún contienen texto temporal.
 4. Tras aprobación explícita, derivar los módulos HubSpot desde los contratos documentados.
@@ -37,6 +40,19 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Radio estándar:** 20px para tarjetas y elementos medianos; 10px para botones; 40px para secciones grandes.
 
 ## Decisiones
+
+### 2026-08-21 — Foráneos reutiliza la cascada completa de asesoría
+- La indicación humana de agregar las opciones de dónde se estudió la
+  preparatoria resuelve la ambigüedad del handoff a favor del componente
+  `support-advisor` completo, no solo su tarjeta final.
+- Foráneos consume los mismos catálogos y asignaciones estáticas de Apoyos
+  Económicos: `Interior de la república`, `Estado de México y CDMX` y
+  `Extranjeros`, con preparatoria únicamente para las dos entidades de la zona
+  metropolitana.
+- La lógica compartida debe consultar y actualizar nodos dentro de su propia
+  sección, porque Foráneos contiene otras tarjetas de contacto con clases
+  visuales coincidentes.
+- Origen: revisión humana recibida el 2026-08-21.
 
 ### 2026-08-20 — Foráneos se valida primero en local
 - Los ajustes de mapa, asesoría y admisión se revisan en `foraneos.html` antes de cualquier publicación o migración a HubSpot.
@@ -62,7 +78,8 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - Origen: instrucciones y capturas de revisión humana recibidas el 2026-07-30.
 
 ### 2026-07-30 — Asesoría usa una cascada de procedencia de tres niveles
-- Primer nivel: `Extranjero` o `México`; segundo nivel: país o entidad federativa.
+- Primer nivel vigente: `Interior de la república`, `Estado de México y CDMX` o
+  `Extranjeros`; segundo nivel: país o entidad federativa.
 - El tercer selector aparece solo para Ciudad de México y Estado de México.
 - El formulario público de Atención Preuniversitaria expone un catálogo plano de preparatorias, pero no la relación completa por estado; la versión local usa únicamente planteles con ubicación explícita y `Otra preparatoria`.
 - La asignación del asesor continúa dependiendo del segundo nivel hasta definir una relación institucional por plantel.

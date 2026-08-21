@@ -5,6 +5,19 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-21 — Foráneos: cascada completa de preparatoria en asesoría
+
+- `¿De dónde nos contactas?` deja de mostrar una tarjeta fija y reutiliza el
+  componente `support-advisor` completo de Apoyos Económicos.
+- La primera selección ofrece `Interior de la república`, `Estado de México y
+  CDMX` y `Extranjeros`; la segunda carga el estado o país correspondiente y la
+  tercera aparece solo para CDMX y Estado de México.
+- Los catálogos y asignaciones permanecen en una sola fuente compartida. Las
+  consultas del resultado se acotan a la instancia del componente para no
+  alterar las tarjetas de contacto del módulo de hospedaje de Foráneos.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-21.
+
 ## 2026-08-20 — Foráneos: filtros móviles, asesoría y admisión
 
 - El filtro de categorías del mapa cambia de píldoras a `select` por debajo de
