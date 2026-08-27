@@ -33,6 +33,10 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `support-steps` | `design/components/support-steps.md` | construido (`apoyos-pasos.module`) | Apoyos Económicos |
 | `support-faq` | `design/components/support-faq.md` | construido (`apoyos-faq.module`) | Apoyos Económicos |
 | `support-advisor` | `design/components/support-advisor.md` | construido (`apoyos-asesoria.module`) | Apoyos Económicos, Foráneos |
+| `services-map` | `specs/foraneos.md` (`.mapa-*`) | construido local | Foráneos |
+| `location-dialog` | `design/interactions.md` + `specs/foraneos.md` | construido local | Foráneos |
+| `health-overview` | `specs/foraneos.md` (M9) | construido local | Foráneos |
+| `tips-anahuac` | `specs/foraneos.md` (M6 + M9) | construido local | Foráneos |
 
 ## Componentes atómicos (UI Kit)
 

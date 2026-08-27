@@ -5,6 +5,55 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-27 — Foráneos: Salud, #TIPSANÁHUAC y admisión en línea
+
+- Salud y bienestar cambia su jerarquía: cuatro tarjetas antes del párrafo de
+  acompañamiento, en una retícula local 2×2 que se apila en móvil.
+- Las tarjetas actualizan Servicios de salud y Seguro, e incorporan Gimnasio
+  Anáhuac con una variante de `consideracion` que admite imagen institucional.
+- La guía de enfermedad se mueve al contenedor `#TIPSANÁHUAC` bajo el subtítulo
+  «¿Te enfermaste?» y conserva cuatro opciones generales enlazadas.
+- Proceso de admisión y la primera pregunta frecuente explicitan que el proceso
+  se realiza en línea; el énfasis naranja conserva la misma escala tipográfica
+  que el resto de la respuesta y el JSON-LD refleja el mismo contenido.
+- Se mejora localmente el contraste del texto en las tarjetas de roomies, sin
+  modificar el componente compartido.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
+## 2026-08-27 — Foráneos: áreas generales y modal de ubicación
+
+- El mapa reduce los filtros a cinco áreas generales: Salud, Entretenimiento,
+  Servicios, Religión y Cultura, más la vista inicial «Todas».
+- Los tipos específicos permanecen en las fichas y se agrupan por una relación
+  documentada; una ficha puede participar también en Cultura cuando corresponde.
+- Cada ficha recibe por mejora progresiva el CTA `Ver ubicación` y una modal
+  accesible con Google Maps centrado en la zona de referencia, cierre por
+  botón/backdrop/Escape, trampa de foco y retorno al disparador.
+- El mapa externo se carga solo después de abrir la modal y ofrece continuidad
+  en Google Maps. La dirección exacta del proveedor queda pendiente del
+  directorio institucional validado.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
+## 2026-08-27 — Foráneos: ajustes editoriales de costos y hospedaje
+
+- La calculadora de costo de vida incorpora al final el aviso institucional que
+  aclara el carácter aproximado y orientativo de los montos y recomienda
+  verificarlos directamente con cada proveedor.
+- El aviso reutiliza el tratamiento tipográfico `for-disclaimer` y añade solo
+  una variante de espaciado local para la calculadora; no altera el patrón del
+  trámite migratorio ni componentes compartidos.
+- La calculadora suma el rótulo «Estimado de inversión», elimina el rubro Salud
+  y recalcula los totales de ambos campus para mantenerlos alineados con los
+  cuatro rubros visibles.
+- Inés Vásquez cambia su puesto visible a «Coordinadora de Alumnos Foráneos» y
+  el bloque de roomies incorpora el encabezado destacado `#TIPSANÁHUAC`.
+- La maqueta local incorpora los tokens tipográficos de título que ya existen
+  en el adapter de HubSpot, evitando valores sueltos en los dos rótulos nuevos.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
 ## 2026-08-21 — Foráneos: cascada completa de preparatoria en asesoría
 
 - `¿De dónde nos contactas?` deja de mostrar una tarjeta fija y reutiliza el

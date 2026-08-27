@@ -33,6 +33,12 @@
     /* Tipografía */
     --font-heading: "Zilla Slab", serif;
     --font-body: "Roboto", sans-serif;
+    --heading-3-size: 40px;
+    --heading-4-size: 24px;
+    --heading-5-size: 20px;
+    --weight-semibold: 600;
+    --lh-heading: 1.2;
+    --lh-body: 1.6;
 
     /* Espaciado */
     --space-1: 4px;

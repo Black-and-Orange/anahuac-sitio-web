@@ -53,10 +53,10 @@
   else window.addEventListener("load", precargar, { once: true });
 
   /* ---- Mapa de servicios: dos niveles de filtro ----
-     Primero el campus, que cambia el listado entero, y después la categoría.
+     Primero el campus, que cambia el listado entero, y después el área.
      Los dos son mejora progresiva: sin JS se ven todos los lugares de los dos
      campus, que es información útil, no una pantalla rota. Por eso el filtro de
-     categoría nace oculto en el HTML y solo se revela aquí. */
+     área nace oculto en el HTML y solo se revela aquí. */
   const mapa = document.querySelector(".for-mapa");
 
   if (mapa) {
@@ -68,6 +68,25 @@
     const botonVerMas = mapa.querySelector("[data-ver-mas]");
     const conteo = mapa.querySelector("[data-conteo]");
     const selectCategoria = mapa.querySelector("[data-filtro-select]");
+    const modalUbicacion = mapa.querySelector("[data-ubicacion-modal]");
+    const dialogoUbicacion = modalUbicacion?.querySelector("[role='dialog']");
+    const tituloUbicacion = modalUbicacion?.querySelector("[data-ubicacion-titulo]");
+    const metaUbicacion = modalUbicacion?.querySelector("[data-ubicacion-meta]");
+    const etiquetaUbicacion = modalUbicacion?.querySelector("[data-ubicacion-etiqueta]");
+    const mapaUbicacion = modalUbicacion?.querySelector("[data-ubicacion-mapa]");
+    const enlaceUbicacion = modalUbicacion?.querySelector("[data-ubicacion-enlace]");
+
+    /* Las áreas generales agrupan los tipos concretos sin borrar ese detalle de
+       las tarjetas. Cultura puede compartir lugares con otra área: un cine o un
+       mercado siguen siendo entretenimiento/servicio y también una referencia
+       cultural. Esas excepciones se declaran en el HTML con `data-area-extra`. */
+    const serviciosPorArea = {
+      salud: ["clinicas", "farmacias"],
+      entretenimiento: ["plazas", "gimnasios"],
+      servicios: ["supermercados", "lavanderias"],
+      religion: ["templos"],
+      cultura: []
+    };
 
     /* Cuántas tarjetas se muestran de golpe. En móvil cada tarjeta ocupa un
        renglón entero, así que diez de golpe son diez pantallas de scroll: ahí
@@ -77,7 +96,7 @@
     let mostradas = paso();
 
     /* Estado de los dos filtros. Se aplican juntos: cada tarjeta tiene que
-       cumplir campus Y categoría, y cambiar uno no deshace el otro. */
+       cumplir campus Y área, y cambiar uno no deshace el otro. */
     let campus = "norte";
     let categoria = "todas";
 
@@ -88,7 +107,10 @@
       const coinciden = [];
       lugares.forEach((lugar) => {
         const mismoCampus = lugar.dataset.campus === campus;
-        const mismaCategoria = categoria === "todas" || lugar.dataset.servicio === categoria;
+        const areasExtra = (lugar.dataset.areaExtra || "").split(" ").filter(Boolean);
+        const mismaCategoria = categoria === "todas"
+          || serviciosPorArea[categoria]?.includes(lugar.dataset.servicio)
+          || areasExtra.includes(categoria);
         if (mismoCampus && mismaCategoria) coinciden.push(lugar);
         else lugar.hidden = true;
       });
@@ -172,6 +194,97 @@
         aplicar();
       });
     }
+
+    /* ---- Propuesta de ubicación ----
+       El directorio aún no tiene direcciones oficiales. El CTA abre una modal
+       con Google Maps centrado en la zona ya presente en la ficha, sin convertir
+       un dato aproximado en una ubicación exacta. El iframe se crea solo al abrir
+       para no cargar un mapa externo por cada tarjeta. */
+    let ultimoFoco = null;
+
+    const cerrarUbicacion = () => {
+      if (!modalUbicacion || modalUbicacion.hidden) return;
+      modalUbicacion.hidden = true;
+      if (mapaUbicacion) mapaUbicacion.replaceChildren();
+      document.body.classList.remove("for-modal-abierta");
+      if (ultimoFoco instanceof HTMLElement) ultimoFoco.focus();
+    };
+
+    const abrirUbicacion = (lugar, boton) => {
+      if (!modalUbicacion || !dialogoUbicacion) return;
+      const titulo = lugar.querySelector("h3")?.textContent.trim() || "Servicio cercano";
+      const meta = lugar.querySelector(".for-lugar-meta")?.textContent.trim() || "Zona por confirmar";
+      const etiqueta = lugar.querySelector(".for-lugar-etiqueta")?.textContent.trim() || "Mapa de servicios";
+      const zona = meta.split(" · ")[0];
+      const campus = lugar.dataset.campus === "sur" ? "Sur" : "Norte";
+      const consulta = zona.toLowerCase().includes("dentro del campus")
+        ? `Universidad Anáhuac México Campus ${campus}`
+        : `${zona}, México`;
+      const consultaCodificada = encodeURIComponent(consulta);
+
+      ultimoFoco = boton;
+      if (tituloUbicacion) tituloUbicacion.textContent = titulo;
+      if (metaUbicacion) metaUbicacion.textContent = meta;
+      if (etiquetaUbicacion) etiquetaUbicacion.textContent = etiqueta;
+      if (mapaUbicacion) {
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.google.com/maps?q=${consultaCodificada}&output=embed`;
+        iframe.title = `Mapa de Google Maps: ${consulta}`;
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        iframe.allowFullscreen = true;
+        mapaUbicacion.replaceChildren(iframe);
+      }
+      if (enlaceUbicacion) {
+        enlaceUbicacion.href = `https://www.google.com/maps/search/?api=1&query=${consultaCodificada}`;
+        enlaceUbicacion.setAttribute("aria-label", `Ver ${consulta} en Google Maps (abre en una pestaña nueva)`);
+      }
+      modalUbicacion.hidden = false;
+      document.body.classList.add("for-modal-abierta");
+      dialogoUbicacion.focus();
+    };
+
+    lugares.forEach((lugar) => {
+      if (lugar.querySelector(".for-lugar-ubicacion")) return;
+      const boton = document.createElement("button");
+      boton.className = "for-lugar-ubicacion";
+      boton.type = "button";
+      boton.textContent = "Ver ubicación";
+      boton.setAttribute("aria-haspopup", "dialog");
+      const etiqueta = lugar.querySelector(".for-lugar-etiqueta");
+      if (etiqueta) etiqueta.before(boton); else lugar.append(boton);
+      lugar.classList.add("has-ubicacion");
+      boton.addEventListener("click", () => abrirUbicacion(lugar, boton));
+    });
+
+    modalUbicacion?.querySelectorAll("[data-ubicacion-cerrar]").forEach((control) => {
+      control.addEventListener("click", cerrarUbicacion);
+    });
+
+    document.addEventListener("keydown", (evento) => {
+      if (!modalUbicacion || modalUbicacion.hidden) return;
+      if (evento.key === "Escape") {
+        cerrarUbicacion();
+        return;
+      }
+      if (evento.key !== "Tab") return;
+      const enfocables = [...modalUbicacion.querySelectorAll("button, [href], iframe, [tabindex]:not([tabindex='-1'])")]
+        .filter((elemento) => !elemento.hidden);
+      if (!enfocables.length) {
+        evento.preventDefault();
+        dialogoUbicacion?.focus();
+        return;
+      }
+      const primero = enfocables[0];
+      const ultimo = enfocables[enfocables.length - 1];
+      if (evento.shiftKey && (document.activeElement === primero || document.activeElement === dialogoUbicacion)) {
+        evento.preventDefault();
+        ultimo.focus();
+      } else if (!evento.shiftKey && document.activeElement === ultimo) {
+        evento.preventDefault();
+        primero.focus();
+      }
+    });
 
     if (botonVerMas) {
       botonVerMas.addEventListener("click", () => {
