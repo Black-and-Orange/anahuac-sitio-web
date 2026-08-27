@@ -18,13 +18,14 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Interactions:** Efectos base del Home documentados en `design/interactions.md`.
 - **Componentes:** Ocho contratos de la LP Apoyos Económicos documentados; componentes generales del UI Kit y Home continúan pendientes.
 - **Specs:** `specs/apoyos-economicos.md` documenta la versión local aprobada y el contrato para la futura migración a HubSpot.
-- **Foráneos:** La revisión del 2026-08-20 fue publicada en GitHub Pages. El
-  ajuste del 2026-08-21 que incorpora la cascada completa de preparatoria está
-  aplicado solo en la maqueta local y pendiente de revisión; no se ha migrado a
-  HubSpot.
+- **Foráneos:** La revisión del 2026-08-20 fue publicada y la cascada completa
+  de preparatoria del 2026-08-21 está versionada en `origin/main`. Los ajustes
+  editoriales de costos, hospedaje y mapa de servicios solicitados el 2026-08-27
+  están aplicados solo en la maqueta local y pendientes de revisión; no se han
+  migrado a HubSpot.
 
 ### Siguiente paso
-1. Revisar en local la cascada de preparatoria incorporada a Foráneos.
+1. Revisar en local los ajustes editoriales de costos, hospedaje y mapa de servicios de Foráneos.
 2. Completar la revisión humana de la versión local de Apoyos Económicos.
 3. Confirmar el contenido definitivo de las fichas que aún contienen texto temporal.
 4. Tras aprobación explícita, derivar los módulos HubSpot desde los contratos documentados.
@@ -40,6 +41,43 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - **Radio estándar:** 20px para tarjetas y elementos medianos; 10px para botones; 40px para secciones grandes.
 
 ## Decisiones
+
+### 2026-08-27 — El mapa agrupa servicios por área y propone una modal de ubicación
+- El filtro mantiene la decisión de campus y reemplaza los tipos específicos
+  por Salud, Entretenimiento, Servicios, Religión y Cultura; los tipos siguen
+  visibles dentro de cada tarjeta.
+- `Ver ubicación` abre una modal accesible con Google Maps centrado en la zona
+  existente y un enlace para continuar en Google Maps. La dirección exacta del
+  proveedor no se inventa mientras el directorio institucional siga pendiente.
+- Cine, mercado y plaza de convivencia pueden aparecer también en Cultura sin
+  perder su clasificación primaria.
+- Origen: revisión humana recibida el 2026-08-27.
+
+### 2026-08-27 — Salud prioriza servicios y la guía pasa a #TIPSANÁHUAC
+- El módulo de Salud muestra primero cuatro tarjetas en una retícula 2×2 y baja
+  el párrafo introductorio debajo de ellas.
+- Se incorporan el catálogo ampliado de «Servicios de salud», el uso del seguro
+  desde el primer día y «Gimnasio Anáhuac» con una imagen institucional
+  deportiva ya disponible en el repositorio.
+- «¿Qué hacer si te enfermas?» se convierte en «¿Te enfermaste?» dentro de
+  `#TIPSANÁHUAC`, con cuatro opciones generales actualizadas.
+- Proceso de admisión y la primera respuesta del FAQ explicitan que el proceso
+  es completamente en línea; el FAQ resalta la frase aprobada en naranja y
+  mantiene sincronizados HTML y datos estructurados.
+- Origen: revisión humana recibida el 2026-08-27.
+
+### 2026-08-27 — La calculadora explicita el carácter orientativo de sus costos
+- El módulo de costo de vida termina con el disclaimer institucional entregado
+  en revisión, después del enlace a apoyos socioeconómicos.
+- El aviso aclara que los montos son aproximados, no constituyen una cotización
+  oficial y deben verificarse con cada proveedor.
+- Es un cambio de contenido local: reutiliza el patrón `for-disclaimer` sin
+  modificar su variante migratoria ni otro componente compartido.
+- La misma revisión agrega «Estimado de inversión», elimina Salud del desglose
+  y recalcula los totales; también actualiza el puesto de Inés Vásquez a
+  «Coordinadora de Alumnos Foráneos» e incorpora `#TIPSANÁHUAC` en el bloque de
+  roomies.
+- Origen: revisión humana recibida el 2026-08-27.
 
 ### 2026-08-21 — Foráneos reutiliza la cascada completa de asesoría
 - La indicación humana de agregar las opciones de dónde se estudió la

@@ -15,6 +15,7 @@ para que sea reutilizable y consistente. Los efectos que aporte la revisión hum
 | Hover botón | `:hover` en `.btn-*` | Cambio de color/opacidad al pasar el cursor | Todos los botones |
 | Hamburger menú | `.menu-open` en `body` | Transición del menú mobile con slide y overlay | Navegación mobile |
 | Scroller horizontal | `.scroller` | Scroll horizontal con controles de flecha y dots | Carrusel de programas |
+| Modal informativa | `[role="dialog"][aria-modal="true"]` | Abre detalle contextual sobre un backdrop; cierra con botón, backdrop o Escape, conserva el foco dentro y lo devuelve al disparador | Video de Minors, ubicación de servicios en Foráneos |
 
 ## Tokens de motion
 
@@ -33,3 +34,8 @@ para que sea reutilizable y consistente. Los efectos que aporte la revisión hum
 
 ## Efectos añadidos por revisión humana
 > Se van listando aquí conforme se aprueban (con fecha y página/origen). Ver `docs/human-review.md` y `design/CHANGELOG.md`.
+
+- **2026-08-27 · Foráneos:** las tarjetas del mapa incorporan una modal
+  informativa de ubicación. Google Maps se carga bajo demanda y se centra en la
+  zona ya visible en la tarjeta; la dirección exacta del proveedor permanece
+  identificada como pendiente de validación institucional.

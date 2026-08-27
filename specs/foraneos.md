@@ -74,9 +74,21 @@ y el acordeón lo mantiene disponible sin imponerlo al resto.
 ### `.mapa-*` — filtros del mapa de servicios (M8)
 
 Los chips de filtro se toman de `.search-filters` del buscador de licenciaturas;
-lo nuevo es solo el agrupado por categoría dentro de cada columna de campus. Sin
-JS se muestran todas las categorías, una tras otra: los filtros nunca son la
-única vía al contenido.
+lo nuevo es el agrupado en cinco áreas generales —Salud, Entretenimiento,
+Servicios, Religión y Cultura— dentro de cada campus. Los tipos concretos
+(clínicas, farmacias, supermercados, plazas, lavanderías, gimnasios y templos)
+permanecen en cada ficha. Un lugar puede pertenecer a más de un área cuando su
+uso lo justifica; por ejemplo, cine o mercado también pueden aparecer en
+Cultura. Sin JS se muestran todas las fichas: los filtros nunca son la única vía
+al contenido.
+
+Cada tarjeta recibe por mejora progresiva el CTA `Ver ubicación`, que abre una
+modal accesible con título, campus/tipo, zona, tiempo de referencia y un mapa de
+Google Maps cargado bajo demanda. La modal cierra con botón, backdrop o Escape,
+atrapa el foco y lo devuelve al CTA; también ofrece continuidad en Google Maps.
+La consulta usa la zona disponible —o el campus cuando la ficha indica «dentro
+del campus»— y no presenta una dirección exacta hasta que el directorio
+institucional la valide.
 
 ---
 
@@ -256,6 +268,52 @@ migración a HubSpot.
   no se duplican listas ni asignaciones de asesores en `foraneos.js`.
 - El código compartido limita la actualización a la tarjeta del módulo 12 para
   conservar intactos los contactos de hospedaje que aparecen antes en la página.
+
+Este ajuste permanece en local y queda pendiente de revisión antes de cualquier
+nueva publicación o migración a HubSpot.
+
+## Revisión humana local — 2026-08-27
+
+- La calculadora de costo de vida cierra, después del enlace a apoyos
+  socioeconómicos, con el disclaimer institucional entregado en revisión:
+  «Los costos presentados son aproximados y se basan en la experiencia de
+  estudiantes foráneos. Esta información es únicamente de carácter orientativo
+  y no representa una cotización oficial por parte de Universidad Anáhuac
+  México. Te recomendamos verificar precios directamente con cada proveedor.»
+- El texto reutiliza el patrón local `for-disclaimer`; no modifica componentes
+  compartidos ni el orden previo de tarjetas, CTA y enlace terciario.
+- La calculadora incorpora el rótulo «Estimado de inversión» antes de las dos
+  tarjetas y omite el rubro Salud en ambos campus. Al retirar ese rubro, los
+  totales se recalculan a `$14,300 – $26,500` para Norte y
+  `$12,500 – $23,500` para Sur.
+- La ficha de Inés Vásquez cambia su puesto a «Coordinadora de Alumnos
+  Foráneos»; Carlos Vázquez conserva su puesto actual.
+- El bloque de recomendaciones de hospedaje incorpora `#TIPSANÁHUAC` en escala
+  destacada por encima de «Antes de firmar con roomies».
+- El mapa sustituye las siete categorías específicas por cinco áreas generales:
+  Salud, Entretenimiento, Servicios, Religión y Cultura; conserva «Todas» como
+  vista inicial y mantiene el tipo concreto dentro de cada tarjeta.
+- Cada servicio incorpora `Ver ubicación`. La acción abre una modal con Google
+  Maps centrado en la zona y mantiene visible el tiempo aproximado existente.
+  La dirección exacta no se presenta como validada hasta que llegue el
+  directorio institucional.
+- En Salud y bienestar, el H2 precede directamente a una retícula 2×2 de cuatro
+  tarjetas. El párrafo «Si te enfermas o necesitas apoyo emocional…» pasa
+  debajo de la retícula para que las opciones sean lo primero que se escanea.
+- La primera tarjeta se titula «Servicios de salud» y enumera servicio médico,
+  nutrición, terapia física y rehabilitación, apoyo psicopedagógico y clínica
+  odontológica con costos preferenciales. La tercera se titula «Usa tu seguro
+  de gastos médicos» y aclara que la cobertura contratada puede utilizarse
+  desde el primer día de clases.
+- La cuarta tarjeta incorpora «Gimnasio Anáhuac» con una imagen institucional
+  deportiva existente; la variante con media permanece local al módulo de
+  Salud y no modifica `consideracion` compartido.
+- La guía de cuatro pasos deja Salud y se integra dentro de `#TIPSANÁHUAC` como
+  «¿Te enfermaste?». Sus opciones remiten a servicios de salud, mapa de
+  servicios, seguro y CAF.
+- El mensaje general de Proceso de admisión explicita que se realiza
+  completamente en línea. La primera respuesta del FAQ usa el copy aprobado y
+  destaca «es totalmente en línea» en naranja; el JSON-LD queda sincronizado.
 
 Este ajuste permanece en local y queda pendiente de revisión antes de cualquier
 nueva publicación o migración a HubSpot.

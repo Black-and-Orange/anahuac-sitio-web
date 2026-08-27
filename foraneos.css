@@ -412,6 +412,15 @@
 /* Especificidad: al vivir dentro del .section-intro, `.section-intro > p` le
    gana a una clase suelta. */
 
+.for-calc-estimado {
+  margin: 0 0 var(--space-7);
+  font-family: var(--font-heading);
+  font-size: var(--heading-4-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
 .for-calc-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -552,7 +561,19 @@
   margin-top: 0;
 }
 
-.for-guia a {
+/* Nota institucional que cierra la calculadora. Reutiliza la medida de lectura
+   de `.for-disclaimer`, pero conserva un tratamiento local sin convertir el
+   aviso en una segunda banda ni competir con el CTA anterior. */
+.for-calc-disclaimer {
+  margin: var(--space-7) 0 0;
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.for-guia a,
+.for-tips-salud a {
   color: var(--orange);
 }
 
@@ -704,6 +725,16 @@
   background: var(--gray);
 }
 
+.for-roomies-tag {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--heading-3-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-secondary);
+  text-wrap: balance;
+}
+
 .for-roomies h3 {
   font-family: var(--font-heading);
   font-size: 20px;
@@ -713,6 +744,26 @@
 
 .for-roomies-grid {
   margin-top: 0;
+}
+
+.for-roomies-grid .consideracion p {
+  color: var(--color-text);
+}
+
+.for-tips-salud {
+  margin-top: var(--space-10);
+  padding-top: var(--space-10);
+}
+
+.for-tips-salud .fex-paso p,
+.for-tips-salud .fex-paso a {
+  color: var(--color-text);
+}
+
+.for-tips-salud .fex-paso a {
+  font-weight: var(--weight-semibold);
+  text-decoration-color: var(--color-brand-primary);
+  text-underline-offset: var(--space-1);
 }
 
 /* ===== 7. Dos videos ===== */
@@ -796,7 +847,7 @@
   margin: 0 0 20px;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--text-gray);
+  color: var(--color-text);
 }
 
 .for-mapa-viendo strong {
@@ -842,6 +893,189 @@
   color: var(--purple-2);
 }
 
+/* El CTA aparece únicamente cuando JavaScript puede abrir la modal. La clase
+   de estado conserva el rótulo al pie y alinea la acción entre tarjetas con
+   títulos de distinta longitud. */
+.for-lugar.has-ubicacion .for-lugar-etiqueta {
+  margin-top: 0;
+}
+
+.for-lugar-ubicacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: var(--space-4) var(--space-6);
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--cta-bg-purple);
+  color: var(--color-text-invert);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-body);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease),
+    transform var(--motion-duration-fast) var(--motion-ease);
+}
+
+.for-lugar-ubicacion:hover {
+  background: var(--surface-accent);
+  transform: translateY(calc(var(--space-1) * -1));
+}
+
+.for-lugar-ubicacion:focus-visible,
+.for-ubicacion-cerrar:focus-visible {
+  outline: var(--space-1) solid var(--color-brand-primary);
+  outline-offset: var(--space-1);
+}
+
+/* Modal de ubicación de referencia. Google Maps se carga al abrirla y se centra
+   en la zona disponible; la dirección exacta sigue pendiente de validación. */
+.for-modal-abierta {
+  overflow: hidden;
+}
+
+.for-ubicacion-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.for-ubicacion-modal[hidden] {
+  display: none;
+}
+
+.for-ubicacion-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--surface-accent) 78%, transparent);
+}
+
+.for-ubicacion-dialog {
+  position: relative;
+  width: min(100%, calc(var(--space-14) * 5));
+  max-height: calc(100vh - (var(--space-8) * 2));
+  overflow-y: auto;
+  padding: var(--space-10);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--color-text);
+}
+
+.for-ubicacion-dialog:focus {
+  outline: none;
+}
+
+.for-ubicacion-cerrar {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-10);
+  height: var(--space-10);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gray);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.for-ubicacion-cerrar svg {
+  width: var(--space-7);
+  height: var(--space-7);
+}
+
+.for-ubicacion-eyebrow {
+  margin: 0 var(--space-11) var(--space-2) 0;
+  color: var(--purple-2);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+}
+
+.for-ubicacion-dialog h3 {
+  margin: 0 var(--space-11) var(--space-3) 0;
+  font-family: var(--font-heading);
+  font-size: var(--heading-4-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+}
+
+.for-ubicacion-meta {
+  margin: 0 0 var(--space-8);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+}
+
+.for-ubicacion-preview {
+  min-height: calc(var(--space-14) * 2);
+  margin-bottom: var(--space-8);
+  border-radius: var(--radius);
+  background: var(--gray);
+  overflow: hidden;
+}
+
+.for-ubicacion-preview iframe {
+  display: block;
+  width: 100%;
+  min-height: calc(var(--space-14) * 2);
+  border: 0;
+}
+
+.for-ubicacion-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  color: var(--purple-2);
+  font-weight: var(--weight-semibold);
+  text-underline-offset: var(--space-1);
+}
+
+.for-ubicacion-enlace:hover,
+.for-ubicacion-enlace:focus-visible {
+  color: var(--surface-accent);
+}
+
+.for-ubicacion-nota {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--lh-body);
+}
+
+@media (max-width: 640px) {
+  .for-ubicacion-modal {
+    align-items: flex-end;
+    padding: var(--space-4);
+  }
+
+  .for-ubicacion-dialog {
+    max-height: calc(100vh - var(--space-8));
+    padding: var(--space-8);
+    border-radius: var(--radius) var(--radius) var(--radius-button) var(--radius-button);
+  }
+
+  .for-ubicacion-cerrar {
+    top: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .for-ubicacion-preview {
+    min-height: calc(var(--space-14) + var(--space-12));
+  }
+
+  .for-ubicacion-preview iframe {
+    min-height: calc(var(--space-14) + var(--space-12));
+  }
+}
+
 .for-mapa-filtros {
   display: flex;
   flex-wrap: wrap;
@@ -873,8 +1107,8 @@
   color: var(--white);
 }
 
-/* Las siete categorías del directorio, visibles aunque el listado no exista
-   todavía: el módulo pasa de «no hay nada» a «esto vas a encontrar». */
+/* Las cinco áreas generales del directorio agrupan los tipos de servicio sin
+   ocultar el detalle concreto que conserva cada tarjeta. */
 .for-categorias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -931,24 +1165,39 @@
   background: var(--gray);
 }
 
-.for-guia {
-  margin-top: 50px;
+.for-salud-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.for-guia h3 {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  text-wrap: balance;
+.for-salud-grid .consideracion p {
+  color: var(--color-text);
 }
 
-/* La guía usa las tarjetas numeradas de Fechas de examen, pero sin título por
-   paso: cada una es una sola instrucción. */
-.for-guia-pasos .fex-paso p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-gray);
+.for-salud-card-imagen {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  padding: 0;
+  overflow: hidden;
+}
+
+.for-salud-card-imagen > img {
+  width: 100%;
+  height: 100%;
+  min-height: calc(var(--space-14) * 2);
+  object-fit: cover;
+}
+
+.for-salud-card-cuerpo {
+  align-self: center;
+  padding: var(--space-9);
+}
+
+.for-salud-copy {
+  max-width: calc(var(--space-14) * 6);
+  margin: var(--space-10) 0 0;
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
 }
 
 /* ===== 10. Comunidad =====
@@ -1182,6 +1431,21 @@
 
 .for-admision .section-intro > p {
   max-width: none;
+}
+
+.for-faq .faq-answer .for-en-linea {
+  color: var(--color-brand-primary);
+  font-size: inherit;
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.for-faq .faq-item:first-child .faq-answer p {
+  color: var(--color-text);
+}
+
+.for-faq .faq-item:first-child .faq-answer a {
+  color: var(--purple-2);
 }
 
 /* Tarjeta blanca sobre el morado: el contraste separa «esto solo aplica a
@@ -1423,6 +1687,10 @@
     grid-template-columns: 1fr;
   }
 
+  .for-salud-grid {
+    grid-template-columns: 1fr;
+  }
+
   .for-guia-pasos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1461,6 +1729,10 @@
 }
 
 @media (max-width: 768px) {
+  .for-roomies-tag {
+    font-size: var(--heading-4-size);
+  }
+
   .for-hero {
     padding-top: 140px;
     padding-bottom: 60px;
@@ -1482,6 +1754,17 @@
 
   .for-guia-pasos {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .for-salud-card-imagen {
+    grid-template-columns: 1fr;
+  }
+
+  .for-salud-card-imagen > img {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -1751,7 +2034,7 @@
 .for-mapa-conteo {
   font-size: 15px;
   line-height: 1.5;
-  color: var(--text-gray);
+  color: var(--color-text);
 }
 
 /* El botón del paginador.
