@@ -514,13 +514,28 @@
   height: 100%;
 }
 
-/* Las flechas del componente miden 30px y son casi invisibles: nacieron para
-   flotar sobre una miniatura de 100px. Sobre tarjetas de 400 necesitan cuerpo,
-   y salen del área de la foto para no taparla. */
+/* Las flechas del componente miden 30px y solo aparecen al pasar el cursor.
+   Las dos cosas están bien para lo que nacieron —adornos sobre una tira de
+   miniaturas de 100px dentro de una tarjeta de campus— y las dos están mal aquí.
+
+   El tamaño: sobre tarjetas de 400px una flecha de 30 se pierde.
+
+   La visibilidad: en las miniaturas de campus, esconderlas no cuesta nada
+   porque la tira se ve entera y las fotos no llevan texto. Aquí son la única
+   señal de que el módulo continúa —hay seis instalaciones y se ven tres—, así
+   que ocultarlas hasta el hover equivale a esconder el contenido: quien no pase
+   el cursor por encima no sabe que hay más. Se quedan siempre a la vista.
+
+   La flecha deshabilitada sí sigue oculta, que es la regla del componente: en la
+   primera posición no hay «anterior» y un control muerto solo estorba. */
 .salud-inst-slider .campus-slider-arrow {
   width: 44px;
   height: 44px;
   background: var(--purple-2);
+  opacity: 1;
+  /* Media flecha cae sobre la foto y media sobre el fondo de sección: la sombra
+     la despega de las dos. */
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
 }
 
 .salud-inst-slider .campus-slider-arrow svg {
