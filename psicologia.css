@@ -844,7 +844,25 @@
 }
 
 /* Número del semestre, destacado sobre la palabra "Semestre" */
+/* El número va en la tipografía de cuerpo y la etiqueta se queda en la slab.
+
+   Motivo: las cifras de Zilla Slab son de estilo antiguo (ver «CIFRAS DE
+   DISPLAY» en styles.css) y en una fila de pestañas eso se nota mucho más que en
+   cualquier otro sitio, porque el ojo compara los ocho números entre sí: el 1 y
+   el 2 quedan bajos, el 3, 4, 5 y 7 cuelgan por debajo de la línea y el 6 sobra
+   por arriba. La fila se ve descuadrada.
+
+   Se cambia solo el número, no la pestaña entera: pasar la etiqueta también
+   dejaría estas pestañas sin el carácter slab que tiene el resto de la interfaz
+   —chips, botones—. Y como el número ya va un escalón más grande y más pesado
+   que la etiqueta, el cambio de familia se lee como parte de ese énfasis y no
+   como una mezcla accidental.
+
+   El <select> equivalente de ≤540px NO se toca: ahí el número va dentro de una
+   etiqueta suelta, sin otros con los que compararse, y a 16px el estilo antiguo
+   es justo lo que le toca. */
 .plan-tab-num {
+  font-family: var(--font-body);
   font-size: 21px;
   font-weight: 700;
   line-height: 1;

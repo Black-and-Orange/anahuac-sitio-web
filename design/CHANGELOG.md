@@ -5,6 +5,40 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-28 — El número de las pestañas del plan, a la tipografía de cuerpo
+
+- Mismo origen que las cifras de display: en una fila de pestañas el estilo
+  antiguo se nota **más** que en cualquier otro sitio, porque el ojo compara los
+  ocho números entre sí. El 1 y el 2 quedaban bajos, el 3, 4, 5 y 7 colgaban por
+  debajo de la línea y el 6 sobraba por arriba: la fila se veía descuadrada.
+- Se cambia solo el número (`.plan-tab-num`), no la pestaña entera: pasar también
+  la etiqueta dejaría estas pestañas sin el carácter slab del resto de la
+  interfaz. Como el número ya va más grande y más pesado que la etiqueta, el
+  cambio de familia se lee como parte de ese énfasis.
+- El `<select>` equivalente de ≤540px **no** se toca: ahí el número va en una
+  etiqueta suelta, sin otros con los que compararse, y a 16px el estilo antiguo
+  es lo correcto.
+- Beneficia igual a Psicología, que tiene el mismo componente.
+
+### Inventario pendiente del mismo defecto
+
+El barrido de las 10 páginas encontró más cifras en slab a ≥16px. **No se tocan
+todavía**: viven en páginas que no están en revisión y una de ellas tiene rama
+propia en curso (`cotizador-anahuac`). Decisión de la clienta.
+
+| Tamaño | Clase | Ejemplo | Página |
+|---|---|---|---|
+| 100 / 80px | `stat` (`strong`) | «15», «18» | Inicio |
+| 52px | `price-big` | «$85,000» | Costos y becas |
+| 44px | `for-precio-monto` | «$14,300 – $26,500» | Foráneos |
+| 40 / 26px | `panorama-rango` · `detalle-rango` | «10% – 50%» | Apoyos económicos |
+| 30px | `for-dato-cifra` | «20%», «3%» | Foráneos |
+| 22px | `fex-paso-num` | «1» | Foráneos |
+| 20 / 18px | `step-num` · `step-card-num` · `steps-nav-dot` | «1», «2» | Admisión, Apoyos |
+
+Los números **dentro de texto corrido** quedan fuera del inventario a propósito:
+ahí el estilo antiguo es lo correcto y se ve bien.
+
 ## 2026-08-28 — Las cifras de display pasan a la tipografía de cuerpo
 
 Zilla Slab trae **cifras de estilo antiguo** y su build de Google Fonts **no
