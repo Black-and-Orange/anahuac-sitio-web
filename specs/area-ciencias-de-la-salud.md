@@ -37,10 +37,10 @@ Esto resuelve además el requisito del molde —«5 en Salud; hasta 11 en otras
 |---|---|---|---|---|
 | 1 | Hero | patrón de hero del sistema (eyebrow + H1 + claim + 2 CTAs + media) | `apoyos-economicos.html` | **Reutilizable** |
 | 2 | ¿Te interesa el cuerpo humano? | `.afinidad-grid` (4 tarjetas, icono + texto) | `psicologia.html` | **Reutilizable** |
-| 3 | Por qué elegir el área | `.porque-grid` (3 col → 3+3 con 6 tarjetas) | `psicologia.html` | **Reutilizable** |
+| 3 | Por qué elegir el área | `.porque-grid` con tarjeta protagonista (2×2 con foto + 5 secundarias) | `psicologia.html` | **Variable** |
 | 4 | **Encuentra la carrera** | **`.area-card` + su carrusel** | `oferta-academica.html` | **Núcleo del sistema** |
 | 5 | Campo laboral | `.consideraciones-grid` (6 ámbitos) | `apoyos-economicos.html` | **Reutilizable** |
-| 6 | Instalaciones y campus | **`.campus-grid` / `.campus-card`** | `psicologia.html` | **Global** |
+| 6 | Instalaciones | **`.campus-slider`** con tarjeta de instalación (absorbió el módulo 7) | `psicologia.html` | **Variable** |
 | 7 | Clínicas internas | `.porque-card` con foto + banda destacada | `psicologia.html` | **Variable** |
 | 8 | Historias Anáhuac | `.stories` completo | `Inicio.html` | **Global** |
 | 9 | FAQ | `.faq-list` / `.faq-item` | compartido | **Global** |
@@ -160,9 +160,20 @@ esconder cuatro detrás de una flecha trabaja justo en contra de la
 micro-conversión. Van todas a la vista.
 
 **Cómo soporta el número variable de tarjetas.** Dos columnas y, cuando el total
-es impar, la última ocupa el renglón completo — CSS puro, sin JS. Da 2+2+1 con
-cinco carreras y 2+2+2+2+2+1 con once. Al duplicar la página basta con poner las
-tarjetas que haya.
+es impar, la **primera** ocupa el renglón completo — CSS puro, sin JS. Da 1+2+2
+con cinco carreras y 1+2+2+2+2+2 con once. Al duplicar la página basta con poner
+las tarjetas que haya.
+
+Estaba en la última y se movió a la primera en la revisión del 2026-08-27: el
+tamaño doble tiene que premiar a la carrera ancla del área —aquí Médico
+Cirujano—, no a la que quede al final de la lista. El selector
+`:first-child:nth-last-child(odd)` lee «primera de un conjunto impar».
+
+**Los dos campus van como dos chips, no como «Bicampus».** Las carreras que se
+imparten en Norte y Sur llevan dos indicadores de campus con la misma marca que
+usan las carreras de un solo campus. El chip único «Bicampus (Norte y Sur)»
+obligaba al aspirante a traducir vocabulario interno, y ya nombraba los dos
+campus entre paréntesis: la diferencia la lleva el número de chips.
 
 **La foto de la tarjeta ancha lleva proporción fija, no `height: 100%`.** Con
 `height: 100%` la altura la acaba marcando el tamaño natural del archivo: esa
@@ -240,6 +251,17 @@ varias páginas verá los mismos tres perfiles.
 El handoff exige media 100% real y prohíbe el stock, y marca como pendientes las
 fotos de las 3 clínicas, el Hospital Virtual, los testimonios y las 5 imágenes de
 carrera. La maqueta va con relleno, marcado en los comentarios del HTML.
+
+La del Hospital Virtual pasa a ser la más urgente de las tres: desde la revisión
+del 2026-08-27 esa tarjeta es la protagonista del módulo 3 y su fotografía ocupa
+el bloque más grande de la sección.
+
+### 4b. «Hospital Virtual» es un nombre provisional
+
+El espacio todavía no tiene nombre definitivo. Cuando la clienta lo comparta hay
+que sustituirlo en tres sitios: el `<h3>` de la tarjeta destacada del módulo 3,
+el `alt` de su fotografía y las menciones de este documento. Queda marcado con
+`[VERIFICAR CON CLIENTE]` en el HTML.
 
 De las 100 piezas de copy literal del handoff, **88 están en la maqueta**. De las
 12 restantes, 7 son textos alternativos de módulos que no llevan imagen o

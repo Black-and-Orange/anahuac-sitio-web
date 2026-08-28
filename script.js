@@ -657,16 +657,25 @@ window.enhanceSelect = function enhanceSelect(select) {
 
 document.querySelectorAll("select.js-select").forEach((s) => window.enhanceSelect(s));
 
-/* ===== Tira de fotos 1:1 dentro de una card de campus =====
-   Componente global: lo usan la página de licenciatura y las de área de
-   afinidad, donde el módulo de campus es idéntico en las 8. Vivía en
-   psicologia.js; subió aquí al aparecer el segundo consumidor.
-   Se ven 3 miniaturas y el resto quedan ocultas. Se desliza de a una foto con
-   flechas discretas (hover) + puntos por posición + swipe táctil. */
+/* ===== Deslizador de tarjetas (fotos de campus · instalaciones) =====
+   Componente global: lo usan la página de licenciatura, las de área de afinidad
+   y el módulo de instalaciones. Vivía en psicologia.js; subió aquí al aparecer
+   el segundo consumidor.
+
+   CUÁNTAS SE VEN A LA VEZ LO DECIDE EL CSS, NO ESTE ARCHIVO. Antes era una
+   constante 3, y eso rompía cualquier uso con otra retícula: el módulo de
+   instalaciones muestra 3 tarjetas en escritorio y 1 en móvil, y con el 3 fijo
+   en móvil las tarjetas se salían de la pantalla sin forma de llegar a ellas
+   —el guard `slides.length <= 3` impedía además que se montara la navegación—.
+
+   Ahora se deduce midiendo: cuántas diapositivas caben en el viewport. Para las
+   tiras de miniaturas de campus da 3, igual que antes, así que su comportamiento
+   no cambia. Se recalcula al redimensionar, por si el CSS cambia de escalón.
+
+   Se desliza de a una con flechas (hover) + puntos por posición + swipe táctil. */
 (function () {
   "use strict";
 
-  const PER_VIEW = 3;
   const sliders = Array.from(document.querySelectorAll("[data-campus-slider]"));
   if (!sliders.length) return;
 
@@ -675,24 +684,39 @@ document.querySelectorAll("select.js-select").forEach((s) => window.enhanceSelec
     const track = slider.querySelector(".campus-slides");
     const slides = Array.from(slider.querySelectorAll(".campus-slides > li"));
     const dotsWrap = slider.querySelector(".campus-slider-dots");
-    /* Con 3 o menos fotos caben todas: no hace falta navegación. */
-    if (!viewport || !track || slides.length <= PER_VIEW) return;
+    if (!viewport || !track || !slides.length) return;
 
-    const maxIndex = slides.length - PER_VIEW; /* se desliza de a una foto */
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
     const prev = slider.querySelector(".campus-slider-prev");
     const next = slider.querySelector(".campus-slider-next");
     let i = 0;
+    let perView = 1;
+    let maxIndex = 0;
+    let dots = [];
 
-    /* Un punto por cada posición del deslizamiento. */
-    const dots = [];
-    if (dotsWrap) {
+    function step() {
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return slides[0].getBoundingClientRect().width + gap;
+    }
+
+    /* Cuántas caben: ancho útil entre el paso de una diapositiva. El redondeo
+       absorbe los decimales de un `calc()` con porcentajes. */
+    function measure() {
+      const st = step();
+      if (!st) return 1;
+      return Math.max(1, Math.round(viewport.getBoundingClientRect().width / st));
+    }
+
+    function buildDots() {
+      if (!dotsWrap) return;
       dotsWrap.innerHTML = "";
+      dots = [];
+      /* Sin nada que deslizar no hay paginación que mostrar. */
+      if (maxIndex < 1) return;
       for (let p = 0; p <= maxIndex; p++) {
         const b = document.createElement("button");
         b.type = "button";
-        b.className = "campus-dot" + (p === 0 ? " is-active" : "");
-        b.setAttribute("aria-label", "Ver desde la foto " + (p + 1));
+        b.className = "campus-dot" + (p === i ? " is-active" : "");
+        b.setAttribute("aria-label", "Ver desde la diapositiva " + (p + 1));
         b.addEventListener("click", () => go(p));
         dotsWrap.appendChild(b);
         dots.push(b);
@@ -701,34 +725,47 @@ document.querySelectorAll("select.js-select").forEach((s) => window.enhanceSelec
 
     function go(n) {
       i = Math.max(0, Math.min(n, maxIndex));
-      /* El paso es el ancho de una miniatura más el hueco. */
-      const step = slides[0].getBoundingClientRect().width + gap;
-      track.style.transform = "translateX(" + -i * step + "px)";
+      track.style.transform = "translateX(" + -i * step() + "px)";
       dots.forEach((d, di) => d.classList.toggle("is-active", di === i));
       if (prev) prev.disabled = i === 0;
       if (next) next.disabled = i === maxIndex;
     }
 
+    /* Caben todas: el deslizador se comporta como una fila fija y esconde sus
+       controles en vez de dejarlos inertes. */
+    function layout() {
+      const antes = perView;
+      perView = measure();
+      maxIndex = Math.max(0, slides.length - perView);
+      const navegable = maxIndex > 0;
+      slider.classList.toggle("is-static", !navegable);
+      [prev, next].forEach((b) => {
+        if (!b) return;
+        b.hidden = !navegable;
+      });
+      if (antes !== perView || dots.length !== maxIndex + 1) buildDots();
+      go(Math.min(i, maxIndex));
+    }
+
     if (prev) prev.addEventListener("click", () => go(i - 1));
     if (next) next.addEventListener("click", () => go(i + 1));
 
-    /* Swipe táctil (una foto por gesto). */
+    /* Swipe táctil (una diapositiva por gesto). */
     let x0 = null;
     slider.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     slider.addEventListener("touchend", (e) => {
-      if (x0 === null) return;
+      if (x0 === null || maxIndex < 1) return;
       const dx = e.changedTouches[0].clientX - x0;
       if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
       x0 = null;
     });
 
-    /* El ancho de la miniatura cambia con el viewport: recalcular. */
     let raf = null;
     window.addEventListener("resize", () => {
       if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => go(i));
+      raf = requestAnimationFrame(layout);
     });
 
-    go(0);
+    layout();
   });
 })();

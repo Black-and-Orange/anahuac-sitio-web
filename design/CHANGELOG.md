@@ -5,6 +5,173 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-28 — Cierre de la revisión
+
+- **Área · módulo 6.** El H2 pasa a «Instalaciones de la Facultad de Ciencias de
+  la Salud»: al salir las tarjetas de campus, «y campus» prometía un contenido
+  que el módulo ya no tiene.
+- **Área · deslizador.** Sube de 3 a 6 instalaciones para que el carrusel se lea
+  como carrusel. Las tres nuevas salen del handoff, no se inventaron: el
+  servicio médico de la Facultad (nombrado al cierre de la ficha dental), los
+  laboratorios (copy literal, que estaba suelto en la intro del módulo) y el
+  Hospital Virtual. Dos quedan marcadas `[VERIFICAR CON CLIENTE]`: el servicio
+  médico no tiene descripción propia en el handoff, y el Hospital Virtual repite
+  el módulo 3, donde el handoff pide que viva en exclusiva.
+- **Nutrición · perfil de egreso.** Dos defectos más del molde: `.plan-aeo`
+  llevaba `max-width: 530px` y quedaba 180px más estrecha que la tarjeta de
+  arriba con la que comparte columna, y `.plan-top-media` iba con
+  `align-self: end`, que dejaba 346px de morado vacío arriba a la derecha y dos
+  columnas de 953 contra 635. Se igualan anchos y la foto ocupa el alto de la
+  columna.
+- **Nutrición · perfil de egreso en móvil.** El molde centra el módulo y lo acota
+  al 75% por debajo de 900px. Con este copy la medida caía a ~30 caracteres por
+  línea y era el único módulo centrado de la página. Se apila alineado a la
+  izquierda y a ancho completo.
+- Alcance local: nada publicado ni migrado a HubSpot.
+- Origen: revisión humana del 2026-08-28.
+
+## 2026-08-28 — Ciencias de la Salud: los módulos 6 y 7 se fusionan
+
+- Las dos tarjetas de Campus Norte / Sur desaparecen y el módulo 6 pasa a
+  mostrar las instalaciones de la Facultad en un deslizador de tarjetas con
+  fotografía. El antiguo módulo 7 (clínicas internas) se elimina: sus tres
+  tarjetas son ahora las diapositivas.
+- La banda de cierre con `#TIPSANÁHUAC` se conserva y baja con el módulo 6.
+- La distribución de carreras por campus no se pierde: los chips de Campus Norte
+  y Sur de las fichas del módulo 4 ya la llevaban. Las direcciones postales
+  quedan solo en el footer.
+- El módulo deja de ser GLOBAL replicable a las 8 áreas: las instalaciones que
+  muestra son propias del área.
+- La numeración de módulos NO se recorre: son los números del handoff de la
+  clienta y renumerarlos desincronizaría el código de su documento.
+- **Mejora del componente compartido `campus-slider`** (`script.js`): cuántas
+  diapositivas se ven a la vez se deducía de una constante `3` en el JS. Ahora se
+  mide del layout, así que los breakpoints viven en el CSS. Sin esto, el módulo
+  de instalaciones se rompía en móvil —tres tarjetas a un tercio de ancho, fuera
+  de pantalla y sin navegación, porque el guard `slides.length <= 3` impedía
+  montarla—. Para las tiras de miniaturas de campus el cálculo da 3 y su
+  comportamiento no cambia: verificado en Psicología a 1440/1100/900/390.
+- Los dos CTA de la banda morada dejan de desbordar en móvil: llevaban
+  `flex-shrink: 0` para no aplastarse junto al texto y, apilados, se salían.
+- Alcance local: no publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-28.
+
+## 2026-08-28 — Nutrición: revisión de diseño
+
+Diez ajustes, todos prefijados con `.pagina-nutricion` porque **corrigen defectos
+del molde compartido** (`psicologia.css`), no de esta página. Se acotan para no
+mover Psicología sin revisarla; quedan propuestos para promoción al componente.
+
+- **Medida de línea.** El molde no acota el texto corrido en ningún sitio: las
+  respuestas del FAQ y las intros de sección corrían a 155 caracteres por línea,
+  más del doble de lo legible. Se acota a 62ch.
+- **Escala de titulares.** El H1 caía en cuatro renglones (282px) y, al bajarlo,
+  apareció la inversión de fondo: H1 88 / H2 72. La escala del molde está
+  calibrada para titulares de ~29 caracteres y los de una página de carrera pasan
+  de 54. Queda 64 / 56 / 24.
+- **Jerarquía de CTA.** Los botones del hero medían 195×38 con tipo de 16 y todos
+  los CTA secundarios de más abajo, 53 de alto con tipo de 21: el botón de la
+  conversión principal era el más pequeño de la página. Se igualan al tamaño
+  grande. El CTA de la banda del Modelo Anáhuac se queda chico a propósito.
+- **Ritmo vertical.** El hueco intro → contenido tenía tres valores distintos
+  (32 / 40 / 50 / 60) para el mismo papel. Se unifica en 50.
+- **Aliados.** La rejilla de 4 columnas fijas dejaba 1, 2 y 3 huecos al final de
+  cada grupo, y con 18 tiles de 92px «¿Con quién te formas?» era la sección más
+  alta de la página (1810px) por encima de las de conversión. Pasa a flujo
+  horizontal: 1388px y sin huecos.
+- **Eje izquierdo.** El módulo de campus era el único centrado de la página y
+  rompía el eje a mitad del scroll. Se alinea el módulo completo —intro, rejilla
+  y nota—, no solo la intro. Verificado: las 13 secciones arrancan en el mismo x.
+- **Acordeón del FAQ.** Medía 1240px contra un titular de 690: hasta 600px de
+  naranja vacío entre la pregunta y su «+». Se acota a 1000.
+- **Campo bloqueado del formulario.** «Nutrición» venía prellenado pero pintado
+  con el gris de texto secundario: idéntico a un placeholder. Se invierte —valor
+  en color pleno, campo sin relleno y con contorno— para que se lea como dato
+  resuelto y no como campo pendiente.
+- **Campo laboral.** La proporción 4/5 de la foto está calibrada para los siete
+  ámbitos de Psicología; con los seis de Nutrición sobraban 170px por debajo de
+  los tiles. Se cuadra a 1/1 y las dos columnas cierran a la misma altura.
+- **Botones de dos renglones.** `.btn` centra el bloque de texto pero no el texto
+  dentro: al partirse, el segundo renglón se pegaba a la izquierda.
+- Alcance local: no publicado ni migrado a HubSpot.
+- Origen: revisión de diseño solicitada el 2026-08-28.
+
+## 2026-08-27 — Nutrición: segunda página de licenciatura sobre el molde
+
+- Nueva página `nutricion.html`, construida 1:1 sobre el molde validado en
+  `psicologia.html`. Es la primera vez que el molde de licenciatura se reutiliza,
+  y aguantó: **cero componentes nuevos**. Los 14 módulos salen de `psicologia.css`
+  y el JS compartido (`script.js` + `psicologia.js`) funciona sin tocarlo.
+- `nutricion.css` solo lleva lo que el contenido de esta carrera desvía del
+  molde:
+  - `.plan-tabs-nav` a 5 columnas: el plan tiene 10 pestañas (8 semestres + los
+    periodos 09 y 10 de servicio social) y 8/4/2 dejaba filas cojas. La cascada
+    pasa a 5 → 2 → dropdown, que son los divisores exactos de 10.
+  - `.plan-aeo-datos` a 3 columnas: la tarjeta de datos duros de Nutrición lleva
+    un tercer dato —el año de servicio social— que hoy el sitio vivo omite y que
+    es lo que distingue de verdad la duración de la carrera.
+  - Tres piezas de texto auxiliar que el molde no tenía: la nota del plan de
+    referencia, el panel de los periodos de servicio social y el dato de Facultad
+    de M9, este último al tamaño de nota para que no se lea como cifra de la
+    carrera.
+- El tercer bloque del Modelo Anáhuac se rotula **«Bloque Electivo»**, no
+  «Interdisciplinario»: es la única carrera del lote con esa denominación. Se
+  conserva la clase `--inter` porque es la del color del componente, no la del
+  nombre.
+- Alcance local: la página no se ha publicado ni migrado a HubSpot.
+- Origen: handoff de diseño «Licenciatura en Nutrición v1», recibido el 2026-08-27.
+
+## 2026-08-27 — Ciencias de la Salud: remate de campo laboral y #TIPSANÁHUAC
+
+- El remate del módulo 5 pasa de fila con `space-between` a columna contra el eje
+  izquierdo: primero la nota «Conoce el detalle de campo laboral…» y debajo los
+  dos CTA. Enfrentadas a los dos extremos del renglón, la nota quedaba flotando
+  sola a la derecha sin nada con qué alinearse.
+- La banda de cierre del módulo 7 estrena el rótulo `#TIPSANÁHUAC` y cambia su
+  texto por el que entrega la clienta. El rótulo reutiliza el tratamiento de
+  Foráneos (`.for-roomies-tag`) con el color adaptado al fondo morado: `--lilac-1`
+  da 4.9:1 donde el marrón de acento no se ve y el naranja se queda en 3.7:1.
+  Va como `<p>` con clase y no como `<h3>`: es etiqueta, no nivel de encabezado.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
+## 2026-08-27 — Ciencias de la Salud: router de carreras (módulo 4)
+
+- La tarjeta a doble ancho pasa de la última posición a la primera: la regla del
+  molde ahora es `:first-child:nth-last-child(odd)`. Con 5 carreras da 1+2+2 en
+  lugar de 2+2+1, y el tamaño doble lo recibe Médico Cirujano —la carrera ancla
+  del área— en vez de Biotecnología, que lo tenía solo por ir al final.
+- Se retira la variante `.salud-campus--bi`: las carreras de Norte y Sur llevan
+  ahora dos chips de campus, uno por sede, con la misma marca que las de campus
+  único. «Bicampus» era vocabulario interno y el chip ya nombraba ambos campus
+  entre paréntesis. Nuevo contenedor `.salud-campus-grupo` (flex con wrap).
+- Los cinco `.salud-dato` cambian de registro: dejan de ser datos distintivos
+  (descuentos, semestres, convenios con farmacéuticas) y pasan a ser la
+  descripción de la carrera. Es contenido que entrega la clienta.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
+## 2026-08-27 — Ciencias de la Salud: tarjeta protagonista en «Por qué elegir»
+
+- Nueva variante de `.porque-grid`: una tarjeta puede ocupar 2 columnas × 2 filas
+  y llevar fotografía a sangre en lugar de icono suelto. Las demás se reparten
+  alrededor (columna derecha) y debajo (fila inferior), y la retícula queda
+  llena: con 6 tarjetas y 3 columnas es la única distribución sin huecos.
+- Se estrena en el módulo 3 del Área de Ciencias de la Salud con el Hospital
+  Virtual, que estaba resuelto como una más de seis tarjetas idénticas siendo el
+  diferenciador más memorable del área.
+- La tarjeta destacada sube un escalón de titular (H3-L, 32px) y un escalón de
+  cuerpo (párrafo L, 18px) sobre las secundarias, dentro del piloto `escala-2026`.
+- A 2 columnas la destacada pasa a fila completa y gira a horizontal —foto a la
+  izquierda—; la última secundaria toma la fila entera para no quedar huérfana.
+  A 1 columna vuelve a apilarse.
+- La variante va prefijada por `.salud-porque-grid` y **no toca** `.porque-card`:
+  el componente es compartido con Psicología y con el módulo 7 de esta página.
+- Pendiente: fotografía real del edificio (hoy va relleno) y el nombre definitivo
+  del espacio — «Hospital Virtual» es provisional.
+- Alcance local: este ajuste no se ha publicado ni migrado a HubSpot.
+- Origen: revisión humana recibida el 2026-08-27.
+
 ## 2026-08-27 — Foráneos: Salud, #TIPSANÁHUAC y admisión en línea
 
 - Salud y bienestar cambia su jerarquía: cuatro tarjetas antes del párrafo de

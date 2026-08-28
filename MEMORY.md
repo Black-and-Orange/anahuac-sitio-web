@@ -42,6 +42,76 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-08-28 — Instalaciones absorbe a clínicas; el campus sale de la página de área
+- Resuelto el pendiente del 2026-08-27: se eliminan las dos tarjetas de Campus
+  Norte / Sur y el módulo 6 muestra las instalaciones en un deslizador. El
+  módulo 7 (clínicas internas) desaparece; sus tarjetas son las diapositivas.
+- El módulo 6 deja de ser GLOBAL replicable a las 8 áreas: lo que muestra son
+  instalaciones propias del área. En HubSpot ya no se edita una vez para ocho.
+- La numeración de módulos no se recorre: son los números del handoff de la
+  clienta y renumerarlos desincroniza el código de su documento.
+- Aprendizaje del componente: `campus-slider` tenía «3 por vista» fijo en el JS,
+  y eso lo hacía inservible para cualquier retícula distinta —en móvil las
+  tarjetas se salían de pantalla sin navegación—. Ahora el número se mide del
+  layout y los breakpoints viven en el CSS. Regla general para este repo: un
+  componente compartido no debe llevar en JS una cifra que es de maquetación.
+- Origen: revisión humana del 2026-08-28.
+
+### 2026-08-28 — El molde de licenciatura tiene deuda de diseño acumulada
+- La revisión de diseño de Nutrición encontró diez defectos y **ninguno es de esa
+  página**: todos vienen de `psicologia.css` y Psicología los tiene igual. Los
+  tres de fondo: el molde no acota el texto corrido en ningún sitio (155
+  caracteres por línea en el FAQ), su escala de titulares está calibrada para
+  títulos de ~29 caracteres y los de página de carrera pasan de 54, y el CTA del
+  hero es más pequeño que cualquier CTA secundario de más abajo.
+- Se corrigieron acotados con `.pagina-nutricion` para no mover Psicología sin
+  revisarla. Están listados en `design/CHANGELOG.md` como candidatos a promoción.
+- Preferencia de trabajo que confirma esto: cuando un arreglo toca un componente
+  compartido, se acota a la página y se propone la promoción; no se cambia la
+  base en silencio.
+- Origen: revisión de diseño solicitada el 2026-08-28.
+
+### 2026-08-27 — El molde de licenciatura aguantó su segunda página
+- `nutricion.html` se construye 1:1 sobre `psicologia.html` sin estrenar ni un
+  componente. Es la prueba de que el molde de carrera es reutilizable: las 8
+  áreas pueden replicarlo.
+- Lo único que una carrera nueva necesita es una hoja propia con sus desviaciones
+  de retícula. En Nutrición son dos: 10 pestañas de plan (5 columnas en vez de 8)
+  y 3 datos duros (3 columnas en vez de 2).
+- Regla que sale de aquí: si una desviación se repitiera en una tercera carrera,
+  deja de ser hoja de página y su sitio pasa a ser el componente en
+  `psicologia.css`.
+- El JS compartido (`script.js` + `psicologia.js`) no necesitó cambios: engancha
+  todo por clase y no por página.
+- Origen: handoff «Licenciatura en Nutrición v1», 2026-08-27.
+
+### 2026-08-27 — El router de carreras destaca la primera, no la última
+- La tarjeta a doble ancho del módulo 4 se mueve al inicio de la retícula: el
+  tamaño lo merece la carrera ancla del área (Médico Cirujano), no la que quede
+  al final de la lista.
+- «Bicampus» se retira del vocabulario de cara al aspirante: las carreras de
+  Norte y Sur llevan dos chips de campus, uno por sede.
+- Los datos distintivos de las 5 carreras se sustituyen por descripciones de la
+  carrera. Se pierden datos concretos que sí traía el handoff —28% de descuento
+  en instrumental dental, servicio social del último año de Nutrición, cátedras
+  con Opella/Roche/Novo Nordisk, práctica desde 2º y 4º semestre—; siguen en
+  `Docs-REF/area-ciencias-de-la-salud.md` por si se quieren recuperar en las
+  páginas de carrera.
+- Origen: revisión humana recibida el 2026-08-27.
+
+### 2026-08-27 — El Hospital Virtual es el protagonista del módulo 3 de Salud
+- La revisión humana pide que deje de ser una de seis tarjetas iguales: pasa a
+  una tarjeta 2×2 con fotografía y las otras cinco quedan como diferenciadores
+  secundarios alrededor y debajo.
+- Se resuelve como variante local (`.salud-porque-grid`) sin tocar
+  `.porque-card`, que comparten Psicología y el módulo 7 de esta misma página.
+- «Hospital Virtual» es un **nombre provisional**: se sustituye en el `<h3>`, en
+  el `alt` de la foto y en `specs/area-ciencias-de-la-salud.md` cuando la
+  clienta comparta el nombre definitivo del espacio.
+- La fotografía de la tarjeta es de relleno; el handoff exige media real del
+  edificio y ahora ocupa el bloque más grande del módulo.
+- Origen: revisión humana recibida el 2026-08-27.
+
 ### 2026-08-27 — El mapa agrupa servicios por área y propone una modal de ubicación
 - El filtro mantiene la decisión de campus y reemplaza los tipos específicos
   por Salud, Entretenimiento, Servicios, Religión y Cultura; los tipos siguen
@@ -138,3 +208,13 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - ¿Hay páginas internas ya diseñadas en Figma además del Home? (el usuario indicó que sí, pendiente links concretos).
 - ¿Se tiene cuenta sandbox de HubSpot para deploy?
 - ¿Cuál es el mapeo institucional completo de preparatorias para Ciudad de México y Estado de México?
+- **¿Se promueven al molde los diez arreglos de diseño de Nutrición?** Hoy están
+  acotados con `.pagina-nutricion`; Psicología conserva los defectos. Requiere
+  revisar Psicología con los cambios aplicados. Ver `design/CHANGELOG.md`
+  (2026-08-28).
+- **Nutrición · ALPHA en el módulo 12.** El handoff admite mencionar ALPHA
+  «dentro de los 9 Programas de Liderazgo», pero el módulo compartido de
+  experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un
+  módulo marcado «no rediseñar». ¿Se adapta el módulo compartido o se deja fuera?
+- ¿Cuál es el nombre definitivo del espacio que hoy figura como «Hospital Virtual»? (bloquea el copy de la tarjeta protagonista del módulo 3 del Área de Ciencias de la Salud).
+

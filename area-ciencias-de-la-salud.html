@@ -422,7 +422,11 @@
 
       <!-- =====================================================================
            MÓDULO 3 — Por qué elegir Ciencias de la Salud · [AIDA: Interés]
-           Componente .porque-grid (3 columnas → 3+3 con 6 tarjetas).
+           Componente .porque-grid con una tarjeta protagonista: el Hospital
+           Virtual ocupa 2 columnas × 2 filas y lleva fotografía; las otras cinco
+           quedan como diferenciadores secundarios alrededor (columna derecha) y
+           debajo (fila inferior). El contenido más memorable del área no puede
+           tener el mismo tratamiento visual que los otros cinco puntos.
            Diferenciadores TRANSVERSALES: las clínicas por nombre viven en el
            módulo 7 y no se repiten aquí. Sin barra de cifras institucionales.
            ===================================================================== -->
@@ -432,7 +436,40 @@
                         <h2>Por qué elegir Ciencias de la Salud en la Universidad Anáhuac México</h2>
           </div>
 
-          <div class="porque-grid reveal" data-reveal>
+          <div class="porque-grid salud-porque-grid reveal" data-reveal>
+            <!-- Tarjeta protagonista del módulo.
+
+                 [VERIFICAR CON CLIENTE] «Hospital Virtual» es un nombre
+                 PROVISIONAL. Cuando nos compartan el nombre definitivo del
+                 espacio hay que sustituirlo en tres sitios: este <h3>, el alt de
+                 la foto y specs/area-ciencias-de-la-salud.md.
+
+                 PENDIENTE: fotografía real del edificio (Fase 1 de fotografía).
+                 La de aquí es de relleno, igual que las del módulo 7. -->
+            <article class="porque-card salud-destacada">
+              <img
+                class="salud-destacada-foto"
+                src="assets/psicologia/campo-hospitales.webp"
+                alt="Hospital Virtual de la Facultad de Ciencias de la Salud, Universidad Anáhuac México, edificio de simulación"
+                loading="lazy"
+              />
+              <div class="salud-destacada-copy">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4.5" y="3" width="15" height="18" rx="1.5" />
+                    <path d="M4.5 7.5h15M4.5 12h15M4.5 16.5h15" />
+                    <path d="M12 4.2v2.1M9.9 5.2h4.2" />
+                  </svg>
+                </span>
+                <h3>Hospital Virtual</h3>
+                <p>
+                  Edificio de simulación de <b class="salud-cifra">5</b> pisos (en construcción):
+                  consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas
+                  las carreras del área.
+                </p>
+              </div>
+            </article>
+
             <article class="porque-card">
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -447,22 +484,6 @@
                 Más de <b class="salud-cifra">350</b> sitios y campos clínicos, y convenios con más de
                 <b class="salud-cifra">53</b> hospitales en <b class="salud-cifra">8</b> estados:
                 practicas con pacientes reales desde temprano.
-              </p>
-            </article>
-
-            <article class="porque-card">
-              <span class="porque-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4.5" y="3" width="15" height="18" rx="1.5" />
-                  <path d="M4.5 7.5h15M4.5 12h15M4.5 16.5h15" />
-                  <path d="M12 4.2v2.1M9.9 5.2h4.2" />
-                </svg>
-              </span>
-              <h3>Hospital Virtual</h3>
-              <p>
-                Edificio de simulación de <b class="salud-cifra">5</b> pisos (en construcción):
-                consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas
-                las carreras del área.
               </p>
             </article>
 
@@ -575,12 +596,22 @@
                 <h3>Médico Cirujano</h3>
                 <p class="area-hook">Si tu vocación es transformar vidas y tu pasión es la ciencia.</p>
                 <p class="salud-dato">
-                  Alto interés por la especialización — muchos egresados la cursan en el extranjero.
+                  Transforma tu vocación por la salud en la capacidad de diagnosticar, tratar y mejorar
+                  la vida de las personas a través de la ciencia.
                 </p>
-                <p class="salud-campus salud-campus--bi">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
-                  Bicampus (Norte y Sur)
-                </p>
+                <!-- Dos chips y no uno que diga «Bicampus»: la revisión pide nombrar
+                     los dos campus con la misma marca que usan las carreras de uno
+                     solo. «Bicampus» obligaba a traducir un término interno. -->
+                <div class="salud-campus-grupo">
+                  <p class="salud-campus">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                    Campus Norte
+                  </p>
+                  <p class="salud-campus">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                    Campus Sur
+                  </p>
+                </div>
                 <a
                   class="btn btn-dark btn-sm"
                   href="#"
@@ -602,8 +633,8 @@
                   Te gusta lo práctico y manual, y buscas independencia profesional desde temprano.
                 </p>
                 <p class="salud-dato">
-                  Primer contacto con pacientes desde 2º semestre · 28% de descuento en instrumental y
-                  material dental (convenio con el depósito dental más grande de México).
+                  Previene, diagnostica y trata problemas de salud bucal para mejorar la salud y calidad
+                  de vida de las personas.
                 </p>
                 <p class="salud-campus">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
@@ -631,13 +662,22 @@
                   emprendimiento.
                 </p>
                 <p class="salud-dato">
-                  Tu último año es de servicio social con acompañamiento — cuenta como experiencia laboral
-                  real, y puedes cursar en paralelo el 1er año de posgrado.
+                  Mejora la salud y el bienestar integral de las personas a través de la alimentación y el
+                  acompañamiento nutricional.
                 </p>
-                <p class="salud-campus salud-campus--bi">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
-                  Bicampus (Norte y Sur)
-                </p>
+                <!-- Dos chips y no uno que diga «Bicampus»: la revisión pide nombrar
+                     los dos campus con la misma marca que usan las carreras de uno
+                     solo. «Bicampus» obligaba a traducir un término interno. -->
+                <div class="salud-campus-grupo">
+                  <p class="salud-campus">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                    Campus Norte
+                  </p>
+                  <p class="salud-campus">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                    Campus Sur
+                  </p>
+                </div>
                 <a class="btn btn-dark btn-sm" href="#" aria-label="Conoce la Licenciatura en Nutrición"
                   >Conoce la carrera</a
                 >
@@ -654,8 +694,8 @@
                 <h3>Terapia Física y Rehabilitación</h3>
                 <p class="area-hook">Te motiva acompañar la recuperación física de las personas.</p>
                 <p class="salud-dato">
-                  Verás pacientes reales desde 4º semestre, con exposición a oncología y fisioterapia
-                  deportiva.
+                  Acompaña la recuperación de las personas a través del movimiento para mejorar su
+                  movilidad, funcionalidad y calidad de vida.
                 </p>
                 <p class="salud-campus">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
@@ -681,10 +721,9 @@
                 <p class="area-hook">
                   Te apasiona la ciencia y la investigación biomédica, más allá del consultorio clínico.
                 </p>
-                <!-- PENDIENTE: verificar la ortografía de los tres laboratorios. -->
                 <p class="salud-dato">
-                  Cátedras con farmacéuticas (Opella, Roche, Novo Nordisk) y proyectos de investigación
-                  ligados a tu titulación.
+                  Aplica la ciencia y la innovación para desarrollar soluciones que respondan a nuevos
+                  retos en salud y calidad de vida.
                 </p>
                 <p class="salud-campus">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
@@ -780,192 +819,191 @@
             </li>
           </ul>
 
-          <!-- Los CTA van a la izquierda, alineados con el eje de la página; la nota
-               —secundaria— pasa a la derecha. -->
+          <!-- Nota arriba y CTA debajo, ambos contra el eje izquierdo de la página.
+               La nota es el remate de lectura del módulo —cierra la lista de ámbitos—
+               y los botones son la acción que sigue: en esa secuencia se leen, no
+               enfrentados a los dos extremos del renglón. -->
           <div class="salud-campo-remate reveal" data-reveal>
+            <p class="salud-campo-nota">
+              <a href="#carreras">Conoce el detalle de campo laboral de cada licenciatura en su página</a>
+            </p>
             <div class="button-row">
               <a class="btn btn-dark" href="proceso-de-admision.html">Inicia tu admisión</a>
               <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
             </div>
-            <p class="salud-campo-nota">
-              <a href="#carreras">Conoce el detalle de campo laboral de cada licenciatura en su página</a>
-            </p>
           </div>
         </div>
       </section>
 
       <!-- =====================================================================
-           MÓDULO 6 — Instalaciones y campus · [AIDA: Deseo]
-           Componente .campus-grid / .campus-card, idéntico al de la página de
-           licenciatura. Módulo GLOBAL: mismo contenido en las 8 áreas, así que
-           en HubSpot debe ser un módulo global (editar una vez, cambiar en todas).
-           Su carrusel de fotos subió de psicologia.js a script.js al aparecer
-           este segundo consumidor.
+           MÓDULO 6 — Instalaciones de la Facultad · [AIDA: Deseo]
 
-           PENDIENTE: fotografía real de cada campus. Las de aquí son de relleno.
-           [VERIFICAR CON CLIENTE: distribución de campus, confirmada
-           verbalmente el 2026-08-17 — falta validarla por escrito.]
+           Este módulo absorbió al antiguo módulo 7 (clínicas internas) en la
+           revisión del 2026-08-28: eran dos bloques hablando de espacios físicos
+           seguidos, y el de campus repetía en dos tarjetas lo que las fichas de
+           carrera del módulo 4 ya dicen con sus chips de Campus Norte / Sur.
+
+           Deja de ser un módulo GLOBAL replicable a las 8 áreas: las
+           instalaciones que se muestran son las propias del área. En HubSpot ya
+           no puede editarse una vez para las ocho.
+
+           La numeración de módulos NO se recorre al desaparecer el 7: los
+           números son los del handoff de la clienta y renumerarlos aquí
+           desincronizaría el código de su documento. Después del 6 viene el 8.
+
+           El H2 dice «Instalaciones» y no «Instalaciones y campus»: al salir las
+           tarjetas de campus, la palabra prometía un contenido que el módulo ya
+           no tiene (confirmado por la clienta el 2026-08-28).
+
+           La distribución de carreras por campus, que vivía en estas tarjetas,
+           no se pierde: las fichas del módulo 4 la llevan en sus chips de Campus
+           Norte / Sur. Las direcciones postales quedan solo en el footer.
            ===================================================================== -->
       <section class="lic-campus salud-campus-sec section-pad" id="instalaciones">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
-                        <h2>Instalaciones y campus de la Facultad de Ciencias de la Salud</h2>
+                        <h2>Instalaciones de la Facultad de Ciencias de la Salud</h2>
             <!-- [DECISIÓN DE LA CLIENTA] la línea de apoyo del handoff decía «Transporte
-                 intercampus gratuito · 38 hectáreas de instalaciones de la Red Anáhuac» y el
-                 cierre iba después de las tarjetas. Se retira la mención a las 38 hectáreas y
-                 el cierre sube aquí, recortado. -->
+                 intercampus gratuito · 38 hectáreas de instalaciones de la Red Anáhuac».
+                 Se retira la mención a las 38 hectáreas.
+
+                 La línea de laboratorios que acompañaba a ésta bajó al deslizador como
+                 ficha propia: en un módulo de instalaciones, un laboratorio es un espacio
+                 más y le toca ficha, no pie de sección. -->
             <p>
-              Transporte intercampus gratuito.<br />
-              Laboratorios actualizados, con equipo estandarizado y bien cuidado
+              Transporte intercampus gratuito entre Campus Norte y Campus Sur.
             </p>
           </div>
 
-          <div class="campus-grid reveal" data-reveal>
-            <article class="campus-card campus-card--orange">
-              <span class="campus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-              </span>
-              <h3>Campus Norte</h3>
-              <p class="campus-address">
-                Av. Universidad Anáhuac 46, Col. Lomas Anáhuac, Huixquilucan, Edo. Méx.
-                <strong class="campus-imparte">Aquí se imparten las 5 licenciaturas del área: Médico
-                Cirujano, Cirujano Dentista, Nutrición, Terapia Física y Rehabilitación, y
-                Biotecnología.</strong>
-              </p>
+          <!-- Las instalaciones van en un deslizador y no en una rejilla fija: la
+               lista crece —hoy son las 3 clínicas internas, mañana los laboratorios
+               y el Hospital Virtual— y una rejilla obligaría a rediseñar el módulo
+               cada vez que se sume un espacio.
 
-              <div class="campus-slider" data-campus-slider>
-                <div class="campus-slider-viewport">
-                  <ul class="campus-slides">
-                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Instalaciones del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Espacios del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-investigacion.webp" alt="Laboratorios del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-educativos.webp" alt="Aulas del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-empresas.webp" alt="Áreas comunes del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Vida estudiantil en el Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                  </ul>
-                </div>
-                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Foto anterior">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
-                </button>
-                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Foto siguiente">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-                </button>
-                <div class="campus-slider-dots" aria-label="Fotos del campus"></div>
-              </div>
+               Reutiliza el componente de deslizador de las tarjetas de campus
+               (`data-campus-slider`, JS en script.js): mismo comportamiento
+               —flechas, puntos, swipe— con tarjeta grande en vez de miniatura.
 
-              <a class="campus-cta" href="#" aria-label="Conoce el Campus Norte">
-                Conoce el campus
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </a>
-            </article>
+               Seis espacios y tres a la vista: el módulo desliza en las tres medidas.
+               Si la lista bajara de cuatro, el JS esconde flechas y puntos a propósito
+               —caben todos a la vista— y vuelve a leerse como una fila fija.
 
-            <article class="campus-card campus-card--purple">
-              <span class="campus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-              </span>
-              <h3>Campus Sur</h3>
-              <p class="campus-address">
-                Av. de los Tanques 865, Col. Torres de Potrero, Álvaro Obregón, CDMX.
-                <strong class="campus-imparte">Aquí se imparten Médico Cirujano y Nutrición.</strong>
-              </p>
-
-              <div class="campus-slider" data-campus-slider>
-                <div class="campus-slider-viewport">
-                  <ul class="campus-slides">
-                    <li><img src="assets/psicologia/campo-educativos.webp" alt="Instalaciones del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-empresas.webp" alt="Espacios del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Aulas del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Laboratorios del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Áreas comunes del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-rehabilitacion.webp" alt="Vida estudiantil en el Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                  </ul>
-                </div>
-                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Foto anterior">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
-                </button>
-                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Foto siguiente">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-                </button>
-                <div class="campus-slider-dots" aria-label="Fotos del campus"></div>
-              </div>
-
-              <a class="campus-cta" href="#" aria-label="Conoce el Campus Sur">
-                Conoce el campus
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </a>
-            </article>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- =====================================================================
-           MÓDULO 7 — Clínicas universitarias internas · [AIDA: Deseo]
-           El único módulo cuyo CONCEPTO no se replica fuera de esta área. En el
-           sistema su posición es «instalación diferenciadora del área»: en
-           Negocios serían las aulas bursátiles; en Comunicación, los estudios de
-           TV. La estructura —3 tarjetas con foto + banda destacada— no cambia.
-
-           Componente: .porque-card con fotografía en lugar de icono, y banda de
-           cierre con el mismo tratamiento que .porque-plan.
-
-           PENDIENTE: fotografía real de las 3 clínicas (Fase 1 de fotografía).
-           ===================================================================== -->
-      <section class="salud-clinicas section-pad" id="clinicas">
-        <div class="container">
-          <div class="section-intro wide reveal" data-reveal>
-                        <h2>Clínicas universitarias internas</h2>
-            <p>
-              Aquí no solo aprendes cómo se atiende a un paciente: lo haces tú, dentro de las clínicas
-              propias de la Facultad.
-            </p>
-          </div>
-
-          <div class="porque-grid reveal" data-reveal>
-            <article class="porque-card salud-clinica">
-              <img
-                class="salud-clinica-foto"
-                src="assets/psicologia/campo-comunitarios.webp"
-                alt="Clínica de Nutrición Anáhuac, Facultad de Ciencias de la Salud, Universidad Anáhuac México"
-                loading="lazy"
-              />
-              <h3>Clínica de Nutrición Anáhuac</h3>
-              <p>
-                los propios estudiantes de Nutrición atienden pacientes reales, con acompañamiento de
-                tutores.
-              </p>
-            </article>
-
-            <article class="porque-card salud-clinica">
-              <img
-                class="salud-clinica-foto"
-                src="assets/psicologia/campo-rehabilitacion.webp"
-                alt="Clínica universitaria de Fisioterapia, Universidad Anáhuac México, estudiante en sesión de electroterapia"
-                loading="lazy"
-              />
-              <h3>Clínica universitaria de Fisioterapia</h3>
-              <p>electroterapia, ultrasonido, láser y entrenamiento funcional, dentro del campus.</p>
-            </article>
-
-            <article class="porque-card salud-clinica">
-              <img
-                class="salud-clinica-foto"
-                src="assets/psicologia/campo-clinicas.webp"
-                alt="Clínica dental universitaria, Facultad de Ciencias de la Salud, Universidad Anáhuac México, estudiante atendiendo a un paciente"
-                loading="lazy"
-              />
-              <h3>Clínica dental universitaria</h3>
-              <p>
-                consultorios de Odontología donde los estudiantes atienden a su primer paciente desde
-                etapas tempranas de la carrera, además del servicio médico de la Facultad.
-              </p>
-            </article>
+               PENDIENTE: fotografía real de cada espacio. Las de aquí son de relleno. -->
+          <div class="campus-slider salud-inst-slider reveal" data-campus-slider data-reveal>
+            <div class="campus-slider-viewport">
+              <ul class="campus-slides">
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-comunitarios.webp"
+                        alt="Clínica de Nutrición Anáhuac, Facultad de Ciencias de la Salud, Universidad Anáhuac México"
+                        loading="lazy"
+                      />
+                      <h3>Clínica de Nutrición Anáhuac</h3>
+                      <p>
+                        los propios estudiantes de Nutrición atienden pacientes reales, con acompañamiento de
+                        tutores.
+                      </p>
+                    </article>
+                  </li>
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-rehabilitacion.webp"
+                        alt="Clínica universitaria de Fisioterapia, Universidad Anáhuac México, estudiante en sesión de electroterapia"
+                        loading="lazy"
+                      />
+                      <h3>Clínica universitaria de Fisioterapia</h3>
+                      <p>
+                        electroterapia, ultrasonido, láser y entrenamiento funcional, dentro del campus.
+                      </p>
+                    </article>
+                  </li>
+                  <!-- El «además del servicio médico de la Facultad» que cerraba esta tarjeta pasa a
+                       ser diapositiva propia: es otro espacio, no un anexo de la clínica dental. -->
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-clinicas.webp"
+                        alt="Clínica dental universitaria, Facultad de Ciencias de la Salud, Universidad Anáhuac México, estudiante atendiendo a un paciente"
+                        loading="lazy"
+                      />
+                      <h3>Clínica dental universitaria</h3>
+                      <p>
+                        consultorios de Odontología donde los estudiantes atienden a su primer paciente desde
+                        etapas tempranas de la carrera.
+                      </p>
+                    </article>
+                  </li>
+                  <!-- [VERIFICAR CON CLIENTE] el espacio está nombrado en el handoff —cierra la ficha de
+                       la clínica dental— pero no tiene descripción propia. La de aquí se deduce de
+                       ese contexto: confirmar antes de publicar. -->
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-hospitales.webp"
+                        alt="Servicio médico de la Facultad de Ciencias de la Salud, Universidad Anáhuac México"
+                        loading="lazy"
+                      />
+                      <h3>Servicio médico de la Facultad</h3>
+                      <p>
+                        atención médica dentro del campus, en coordinación con las clínicas universitarias del
+                        área.
+                      </p>
+                    </article>
+                  </li>
+                  <!-- Copy literal del handoff. Estaba como línea suelta en la intro del módulo y baja
+                       aquí: en un módulo de instalaciones, un laboratorio es un espacio más y le
+                       toca ficha, no pie de sección. -->
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-investigacion.webp"
+                        alt="Laboratorios de la Facultad de Ciencias de la Salud, Universidad Anáhuac México, estudiantes trabajando con equipo de análisis"
+                        loading="lazy"
+                      />
+                      <h3>Laboratorios de la Facultad</h3>
+                      <p>
+                        actualizados, con equipo estandarizado y bien cuidado — un diferenciador que los propios
+                        estudiantes valoran al comparar con otras instituciones.
+                      </p>
+                    </article>
+                  </li>
+                  <!-- [VERIFICAR CON CLIENTE] dos cosas. Una: «Hospital Virtual» es un nombre provisional,
+                       igual que en el módulo 3. Dos: el handoff pide que el Hospital Virtual viva
+                       SOLO en el módulo 3, y aquí aparece por segunda vez. Se incluye porque es la
+                       instalación más importante del área y este módulo es el inventario de
+                       espacios; allá el argumento es «por qué elegir el área» y aquí es «qué hay».
+                       Si prefieren respetar la regla al pie de la letra, esta ficha se retira. -->
+                  <li>
+                    <article class="porque-card salud-clinica">
+                      <img
+                        class="salud-clinica-foto"
+                        src="assets/psicologia/campo-educativos.webp"
+                        alt="Hospital Virtual de la Facultad de Ciencias de la Salud, Universidad Anáhuac México, edificio de simulación en construcción"
+                        loading="lazy"
+                      />
+                      <h3>Hospital Virtual</h3>
+                      <p>
+                        edificio de simulación de 5 pisos, hoy en construcción: consultorios, quirófanos, realidad
+                        virtual, robots y actores estandarizados, para todas las carreras del área.
+                      </p>
+                    </article>
+                  </li>
+              </ul>
+            </div>
+            <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Instalación anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Instalación siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+            <div class="campus-slider-dots" aria-label="Instalaciones de la Facultad"></div>
           </div>
 
           <!-- La banda pasa de ser un remate de texto a un cierre con acción: texto a la
@@ -973,18 +1011,21 @@
                vacío, que era consecuencia de acotar el texto a medida de lectura dentro de
                un bloque a todo el ancho. -->
           <div class="salud-clinicas-banda reveal" data-reveal>
-            <p>
-              Gracias a estas clínicas internas, un mismo paciente puede ser atendido por varios de estos
-              servicios a la vez — la Facultad está desarrollando un sistema de historias clínicas
-              compartidas entre las áreas, para que los equipos trabajen de forma coordinada. Es el mismo
-              trabajo en equipo entre carreras que se aprende desde el salón, llevado a la práctica
-              clínica real.
-            </p>
+            <div class="salud-clinicas-banda-copy">
+              <p class="salud-tips-titulo">#TIPSANÁHUAC</p>
+              <p>
+                Como estudiante del área de Ciencias de la Salud, tendrás la oportunidad de conocer el
+                historial clínico completo de un paciente y comprender su atención desde distintas
+                disciplinas, adquiriendo mayor experiencia para enfrentarte a situaciones de la vida
+                real.
+              </p>
+            </div>
             <div class="button-row">
               <a class="btn btn-light" href="proceso-de-admision.html">Inicia tu admisión</a>
               <a class="btn btn-light" href="#carreras">Explorar licenciaturas</a>
             </div>
           </div>
+
         </div>
       </section>
 
