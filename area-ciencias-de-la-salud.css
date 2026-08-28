@@ -33,19 +33,15 @@
   background: var(--surface);
 }
 
-/* Blanco, no gris: el módulo 6 ya es gris y dos grises seguidos borran el
-   ritmo. Lo que separa este módulo del 3 —también tarjetas— es la fotografía. */
-.salud-clinicas {
-  background: var(--surface);
+/* El módulo 6 heredó de las clínicas su cierre con banda de color, y con él la
+   excepción de ritmo: 60 abajo en vez de 100.
 
-  /* 60 abajo en vez de 100. Medido, el hueco hasta Historias era de 202px: la
-     mediana exacta de la página, ni un píxel más que las otras transiciones.
-     Pero es la única sección que cierra con un bloque de color a todo el ancho,
-     y un bloque relleno cierra por sí solo: los mismos 200px que tras un texto
-     se leen como respiración, tras la banda se leen como hueco.
-
-     Es una excepción a la regla de 200px, no un descuido de ella: la condición
-     que la justifica —cerrar con banda de color— solo se da aquí. */
+   Medido en su día, el hueco hasta Historias era de 202px, la mediana exacta de
+   la página. Pero un bloque relleno cierra por sí solo: los mismos 200px que
+   tras un texto se leen como respiración, tras la banda se leen como hueco. La
+   condición que justifica la excepción —cerrar con banda a todo el ancho— hoy
+   se da aquí y en ningún otro sitio. */
+.salud-campus-sec {
   padding-bottom: 60px;
 }
 
@@ -56,12 +52,13 @@
    se habían quedado en 40 por herencia, y con eso la página bajaba con saltos
    de 50/50/40/40/60/40. Se igualan.
 
-   Las dos excepciones son de sus componentes y no se tocan: campus usa 60 y
-   Historias 100, igual que en la página de licenciatura.
+   La única excepción que queda es Historias, que usa 100 por su componente,
+   igual que en la página de licenciatura. Campus usaba 60 por herencia y entra
+   en la regla al pasar a ser el módulo de instalaciones.
    -------------------------------------------------------------------------- */
 .salud-carreras .section-intro,
 .salud-campo .section-intro,
-.salud-clinicas .section-intro {
+.salud-campus-sec .section-intro {
   margin-bottom: 50px;
 }
 
@@ -148,6 +145,96 @@
 }
 
 
+/* --- Tarjeta protagonista: el Hospital Virtual -------------------------------
+
+   El edificio de simulación es lo más memorable del área y estaba resuelto como
+   una de seis tarjetas idénticas: el contenido más cinematográfico con el
+   tratamiento visual más plano. Aquí pasa a ocupar 2 columnas × 2 filas dentro
+   de la misma retícula y gana fotografía.
+
+   Por qué 2×2 y no una banda a todo el ancho: con 6 tarjetas y 3 columnas, una
+   banda arriba deja 5 sueltas —3 + 2— y un hueco en la esquina inferior derecha.
+   El bloque 2×2 llena la retícula exacta:
+
+       ┌───────────────┬───────┐
+       │               │   1   │
+       │   DESTACADA   ├───────┤
+       │               │   2   │
+       ├───────┬───────┼───────┤
+       │   3   │   4   │   5   │
+       └───────┴───────┴───────┘
+
+   …y deja a las otras cinco «alrededor y debajo», que es lo que pide la
+   revisión, sin inventar un componente nuevo: sigue siendo .porque-card.
+
+   La variante va prefijada por .salud-porque-grid y no toca .porque-card: el
+   componente es compartido con la página de licenciatura (psicologia.css) y con
+   el módulo 7 de esta misma página.
+   -------------------------------------------------------------------------- */
+.salud-porque-grid .salud-destacada {
+  grid-column: span 2;
+  grid-row: span 2;
+  /* .porque-card alinea sus hijos a flex-start; aquí la foto y el bloque de
+     texto tienen que ocupar el ancho entero de la tarjeta. */
+  align-items: stretch;
+  /* La foto sangra a los bordes, igual que en las tarjetas de clínica. */
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* La foto es flexible, no de proporción fija: la tarjeta mide lo que midan las
+   dos tarjetas de la columna derecha, y lo que sobre después del texto es la
+   foto. Con `aspect-ratio` fijo la tarjeta o se pasaba de alto o dejaba un
+   hueco blanco al pie. */
+.salud-porque-grid .salud-destacada-foto {
+  width: 100%;
+  /* base 0, no `auto`: con `auto` la foto parte de su alto intrínseco (1250px)
+     y es ella la que estira las dos filas de la retícula, dejando las tarjetas
+     de la columna derecha medio vacías. Partiendo de 0 la tarjeta mide lo que
+     miden esas dos, y la foto crece hasta llenar lo que sobra. */
+  flex: 1 1 0;
+  min-height: 240px;
+  object-fit: cover;
+  /* Recorte pesado hacia arriba: es donde está el sujeto tanto en una foto de
+     personas como en una del edificio. Revisar al sustituir la foto real. */
+  object-position: center 30%;
+  border-radius: 0;
+}
+
+.salud-porque-grid .salud-destacada-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 30px;
+}
+
+/* Un escalón de titular por encima de las secundarias (H3-L, el de las tarjetas
+   de carrera): es la jerarquía, y sin ella la foto sola no basta para que se
+   lea como protagonista. El piloto de escala lo repite más abajo. */
+.salud-porque-grid .salud-destacada h3 {
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.salud-porque-grid .salud-destacada p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* La cifra sube con el párrafo: dentro de la destacada, «5 pisos» en 21px se
+   quedaba por debajo del cuerpo que la rodea. */
+.salud-porque-grid .salud-destacada .salud-cifra {
+  font-size: 24px;
+}
+
+.salud-porque-grid .salud-destacada .porque-icon svg {
+  width: 44px;
+  height: 44px;
+}
+
+
 /* -----------------------------------------------------------------------------
    MÓDULO 9 — FAQ
    Sobre la banda naranja el enlace hereda el blanco del párrafo: queda del
@@ -171,10 +258,19 @@
    Aquí NO va en carrusel: con 5 carreras, esconder cuatro tras una flecha
    trabaja en contra de la micro-conversión.
 
-   La regla del molde: dos columnas y, cuando el total es impar, la última
+   La regla del molde: dos columnas y, cuando el total es impar, la PRIMERA
    tarjeta ocupa el renglón completo. Así ningún número de carreras deja un
-   hueco — 5 da 2+2+1, 11 da 2+2+2+2+2+1. Es CSS puro: al duplicar la página
+   hueco — 5 da 1+2+2, 11 da 1+2+2+2+2+2. Es CSS puro: al duplicar la página
    para otra área basta con poner las tarjetas que haya.
+
+   Iba en la última y se movió a la primera en la revisión del 2026-08-27: la
+   carrera ancla del área —aquí Médico Cirujano— es la que merece el tamaño
+   doble, y es la que encabeza la lista. Con la destacada al final el tamaño
+   premiaba a la última carrera por serlo, no por su peso.
+
+   `:first-child:nth-last-child(odd)` = «primera de un conjunto impar»: contada
+   desde el final, la primera ocupa la posición nº total. Sigue siendo la misma
+   regla genérica, solo cambia de extremo.
    -------------------------------------------------------------------------- */
 .salud-carreras-grid {
   display: grid;
@@ -182,7 +278,7 @@
   gap: 20px;
 }
 
-.salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+.salud-carreras-grid > .area-card:first-child:nth-last-child(odd) {
   grid-column: 1 / -1;
   /* A todo el ancho la imagen no puede seguir siendo la mitad de la tarjeta:
      pasa a una franja fija. */
@@ -197,7 +293,7 @@
    marcando el tamaño natural del archivo —esta misma tarjeta pasaba de 380 a
    605 px solo por cambiar de foto—, que es de donde salían las tarjetas
    bailando en foráneos. */
-.salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+.salud-carreras-grid > .area-card:first-child:nth-last-child(odd) > img {
   aspect-ratio: 7 / 5;
 }
 
@@ -205,11 +301,11 @@
    fondo —que es lo correcto cuando las tarjetas van en pareja y hay que
    alinearlos— deja un hueco. Aquí el bloque se centra contra la foto y el botón
    sigue al texto. */
-.salud-carreras-grid > .area-card:last-child:nth-child(odd) .area-card-body {
+.salud-carreras-grid > .area-card:first-child:nth-last-child(odd) .area-card-body {
   justify-content: center;
 }
 
-.salud-carreras-grid > .area-card:last-child:nth-child(odd) .btn-sm {
+.salud-carreras-grid > .area-card:first-child:nth-last-child(odd) .btn-sm {
   margin-top: 4px;
 }
 
@@ -268,13 +364,25 @@
   color: var(--purple-2);
 }
 
-/* Bicampus se distingue con borde y color de icono, además del texto. */
-.salud-campus--bi {
-  border-color: var(--lilac-1);
+/* Carreras en los dos campus: dos chips, uno por campus, con la misma marca que
+   los de campus único. Antes iba un solo chip «Bicampus (Norte y Sur)» con
+   borde e icono de acento; la revisión del 2026-08-27 lo sustituye porque
+   «bicampus» es vocabulario interno y obligaba al aspirante a traducirlo, y
+   porque el propio chip ya nombraba los dos campus entre paréntesis. Ahora la
+   diferencia la lleva el número de chips y no un color que hay que descifrar.
+
+   El grupo hereda el margen inferior que traía el chip suelto: dentro del grupo
+   los chips van a cero para no sumar dos márgenes. */
+.salud-campus-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-self: flex-start;
 }
 
-.salud-campus--bi svg {
-  color: var(--orange);
+.salud-campus-grupo .salud-campus {
+  margin-bottom: 0;
 }
 
 .salud-carrera .area-card-body .btn-sm {
@@ -334,12 +442,16 @@
   margin-bottom: 6px;
 }
 
+/* Una columna contra el eje izquierdo: primero la nota, después los CTA.
+   Antes iba en fila con `space-between` —botones a la izquierda, nota al otro
+   extremo—, y la nota quedaba flotando sola a la derecha, lejos del texto que
+   remata y sin nada con qué alinearse. Apiladas, las dos piezas comparten el
+   eje de la retícula y se leen en el orden en que se usan. */
 .salud-campo-remate {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
   margin-top: 40px;
 }
 
@@ -365,26 +477,115 @@
 }
 
 /* -----------------------------------------------------------------------------
-   MÓDULO 6 — Campus
-   El componente entero se hereda. Lo único propio es destacar qué se imparte en
-   cada campus: es el dato que el aspirante viene a buscar y estaba disuelto al
-   final de la dirección postal.
+   MÓDULO 6 — Instalaciones de la Facultad
+
+   La tarjeta de instalación es la misma que la de los diferenciadores, pero
+   encabezada por fotografía en vez de icono. Esa diferencia —foto contra
+   icono— es la que evita que los módulos 3 y 6 se lean como el mismo bloque
+   repetido, ahora que el 6 dejó de ser una rejilla de campus.
+
+   DESLIZADOR. Reutiliza el componente de las tarjetas de campus
+   (`.campus-slider`, JS en script.js), que estaba pensado para una tira de
+   miniaturas 1:1 dentro de una tarjeta. Aquí las diapositivas son tarjetas
+   completas a todo el ancho del contenedor, así que hay que rehacer tres cosas
+   del componente: la proporción de la diapositiva, el hueco entre ellas y el
+   tamaño de los controles, que a 30px se perdían contra una tarjeta de 400.
+
+   Va prefijado con `.salud-inst-slider`: `.campus-slider` es compartido con
+   psicologia.html y no se toca.
    -------------------------------------------------------------------------- */
-.campus-imparte {
-  display: block;
-  margin-top: 10px;
-  font-weight: 600;
-  color: var(--color-text);
+.salud-inst-slider .campus-slides {
+  /* 20px es el hueco de todas las rejillas de tarjeta de la página; el 8 del
+     componente es el de una tira de miniaturas pegadas. */
+  gap: 20px;
+}
+
+.salud-inst-slider .campus-slides > li {
+  flex: 0 0 calc((100% - 40px) / 3);
+  /* Sin proporción fija: la diapositiva es una tarjeta y su alto lo marca el
+     texto. `stretch` iguala las tres a la más alta. */
+  aspect-ratio: auto;
+  align-self: stretch;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.salud-inst-slider .campus-slides > li > .salud-clinica {
+  height: 100%;
+}
+
+/* Las flechas del componente miden 30px y son casi invisibles: nacieron para
+   flotar sobre una miniatura de 100px. Sobre tarjetas de 400 necesitan cuerpo,
+   y salen del área de la foto para no taparla. */
+.salud-inst-slider .campus-slider-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--purple-2);
+}
+
+.salud-inst-slider .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.salud-inst-slider .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.salud-inst-slider .campus-slider-prev {
+  left: -22px;
+}
+
+.salud-inst-slider .campus-slider-next {
+  right: -22px;
+}
+
+.salud-inst-slider .campus-slider-dots {
+  margin-top: 24px;
+}
+
+/* Cuántas tarjetas se ven a la vez es decisión de CSS: el JS lo deduce midiendo.
+   Tres caben mientras cada una conserve ~380px; por debajo, el titular de la
+   instalación empieza a partirse en cuatro renglones y la foto pierde el sujeto.
+
+   Medido: a 1100px de viewport la tarjeta cae a 330 y «Clínica universitaria de
+   Fisioterapia» ocupa 3 renglones; a 760, a 220 y son 5. Los escalones se ponen
+   justo antes de cada uno de esos dos puntos.
+
+   En cuanto se ve menos de la totalidad, el módulo empieza a deslizarse de
+   verdad y aparecen flechas y puntos. */
+@media (max-width: 1180px) {
+  .salud-inst-slider .campus-slides > li {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+/* Una tarjeta por vista, pero no entera: se deja asomar la siguiente para que se
+   vea que hay más. Sin ese recorte, un deslizador de una tarjeta parece una
+   tarjeta suelta y nadie desliza. */
+@media (max-width: 760px) {
+  .salud-inst-slider .campus-slides > li {
+    flex: 0 0 86%;
+  }
+
+  /* A este ancho las flechas fuera del contenedor se salen de la pantalla:
+     vuelven adentro y se quedan visibles, porque en táctil no hay hover. */
+  .salud-inst-slider .campus-slider-arrow {
+    opacity: 1;
+    width: 38px;
+    height: 38px;
+  }
+
+  .salud-inst-slider .campus-slider-prev {
+    left: 8px;
+  }
+
+  .salud-inst-slider .campus-slider-next {
+    right: 8px;
+  }
 }
 
 
-/* -----------------------------------------------------------------------------
-   MÓDULO 7 — Clínicas internas
-   Misma tarjeta que los diferenciadores, pero encabezada por fotografía en vez
-   de icono: el handoff pide peso visual propio y foto real de cada clínica.
-   Esa diferencia —foto contra icono, más el cambio de fondo de sección— es la
-   que evita que los módulos 3 y 7 se lean como el mismo bloque repetido.
-   -------------------------------------------------------------------------- */
 .salud-clinica {
   padding: 0 0 30px;
   overflow: hidden;
@@ -409,9 +610,10 @@
   margin-top: 26px;
 }
 
-/* Banda de cierre del módulo: el trabajo interdisciplinario es la idea que
-   sostiene las tres clínicas, y por eso va como bloque destacado y no como una
-   cuarta tarjeta. */
+/* Banda de cierre del módulo (la clase conserva el nombre `clinicas` porque es
+   el mismo bloque que cerraba el antiguo módulo 7, del que viene): el trabajo
+   interdisciplinario es la idea que sostiene las clínicas, y por eso va como
+   bloque destacado y no como una tarjeta más del deslizador. */
 /* Dos columnas: el texto acotado a medida de lectura y los CTA al otro extremo.
    Antes el texto iba centrado en una banda a todo el ancho y dejaba 717px de
    morado vacío; ahora ese lado lo ocupan los botones. */
@@ -445,6 +647,24 @@
 .salud-clinicas-banda .btn-light:hover {
   background: transparent;
   color: var(--white);
+}
+
+/* Rótulo #TIPSANÁHUAC. Mismo tratamiento que el de Foráneos —el sitio ya tiene
+   este recurso y no se inventa otro—, con el color adaptado al fondo: sobre el
+   morado de la banda el marrón de acento no se ve, y el naranja se queda en
+   3.7:1. `--lilac-1` da 4.9:1 y es el claro que esta página ya usa sobre morado.
+
+   Va como <p> con clase y no como <h3>: es una etiqueta de sección, no un nivel
+   de encabezado — colgarlo del H2 rompería el esquema semántico del módulo. */
+.salud-clinicas-banda .salud-tips-titulo {
+  max-width: none;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--heading-3-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0;
+  color: var(--lilac-1);
 }
 
 .salud-clinicas-banda p {
@@ -484,13 +704,61 @@
 
   /* En una columna ya no hay huérfanas que compensar: la última tarjeta vuelve a
      ser una tarjeta normal. */
-  .salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+  .salud-carreras-grid > .area-card:first-child:nth-last-child(odd) {
     grid-column: auto;
     grid-template-columns: 2fr 3fr;
   }
 
-  .salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+  .salud-carreras-grid > .area-card:first-child:nth-last-child(odd) > img {
     aspect-ratio: 3 / 4;
+  }
+}
+
+/* A 2 columnas (breakpoint de .porque-grid) el bloque 2×2 dejaría de caber sin
+   partir la retícula: la destacada pasa a ocupar la fila completa y gira a
+   horizontal —foto a la izquierda, texto a la derecha—, que es donde una tarjeta
+   ancha y baja se lee mejor.
+
+   Con la destacada ocupando una fila entera quedan 5 secundarias en 2 columnas
+   —2 + 2 + 1— y la última se quedaba huérfana con medio hueco al lado. Se le da
+   la fila completa, igual que se hace en la retícula de carreras. */
+@media (max-width: 1180px) {
+  .salud-porque-grid .salud-destacada {
+    grid-row: span 1;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 320px;
+  }
+
+  .salud-porque-grid .salud-destacada-foto {
+    flex: 0 0 42%;
+    /* En fila, `min-width: auto` de flex vale el ancho intrínseco de la foto
+       (1000px): sin anularlo la imagen ocupa la tarjeta entera y empuja el
+       texto fuera. Mismo motivo que el `flex-basis: 0` de la versión apilada. */
+    min-width: 0;
+    min-height: 0;
+    /* En fila la foto se estira al alto de la tarjeta, pero su alto INTRÍNSECO
+       —vertical, 4:5— es el que fija ese alto: a 1100px salían 520px de tarjeta
+       con la mitad derecha vacía. Con una proporción declarada manda el
+       min-height de la tarjeta y no las proporciones del archivo. */
+    aspect-ratio: 4 / 3;
+  }
+
+  .salud-porque-grid .salud-destacada-copy {
+    min-width: 0;
+    justify-content: center;
+    padding: 36px 30px;
+  }
+
+  .salud-porque-grid > .porque-card:last-child {
+    grid-column: span 2;
+  }
+
+  /* Al ocupar la fila entera, su párrafo pasa a correr a 109 caracteres por
+     línea mientras las demás tarjetas se quedan en 60. Se acota a la misma
+     medida: la tarjeta es ancha, el texto no tiene por qué serlo. */
+  .salud-porque-grid > .porque-card:last-child p {
+    max-width: 62ch;
   }
 }
 
@@ -500,7 +768,7 @@
    hoja, afinado para su carrusel; aquí toca hacerlo para esta retícula.) */
 @media (max-width: 760px) {
   .salud-carrera,
-  .salud-carreras-grid > .area-card:last-child:nth-child(odd) {
+  .salud-carreras-grid > .area-card:first-child:nth-last-child(odd) {
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 24px;
@@ -508,7 +776,7 @@
   }
 
   .salud-carrera > img,
-  .salud-carreras-grid > .area-card:last-child:nth-child(odd) > img {
+  .salud-carreras-grid > .area-card:first-child:nth-last-child(odd) > img {
     aspect-ratio: 16 / 10;
   }
 
@@ -541,12 +809,6 @@
 }
 
 @media (max-width: 768px) {
-  .salud-campo-remate {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .salud-clinica h3,
   .salud-clinica p {
     padding: 0 24px;
@@ -554,6 +816,48 @@
 
   .salud-clinica {
     padding-bottom: 24px;
+  }
+}
+
+/* Una sola columna: la destacada vuelve a apilarse —foto arriba, texto debajo—
+   y ni ella ni la última secundaria tienen ya nada que abarcar. Es el mismo
+   breakpoint en el que .porque-grid cae a 1 columna (640). */
+@media (max-width: 640px) {
+  .salud-porque-grid .salud-destacada {
+    grid-column: span 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .salud-porque-grid .salud-destacada-foto {
+    flex: 0 0 auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .salud-porque-grid .salud-destacada-copy {
+    padding: 26px 24px;
+  }
+
+  .salud-porque-grid > .porque-card:last-child {
+    grid-column: span 1;
+  }
+}
+
+/* Los dos CTA de la banda llevan `flex-shrink: 0` para no aplastarse cuando
+   comparten renglón con el texto. En móvil eso los dejaba desbordando la banda:
+   «Explorar licenciaturas» se salía de la pantalla. Al apilarse ya no compiten
+   con nada, así que se les devuelve la capacidad de encoger y de partir el
+   renglón, y cada uno ocupa el ancho que necesite. */
+@media (max-width: 600px) {
+  .salud-clinicas-banda .button-row {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .salud-clinicas-banda .button-row .btn {
+    flex: 1 1 auto;
+    text-align: center;
   }
 }
 
@@ -603,6 +907,9 @@
 .escala-2026 .campus-address,
 /* En la tarjeta ancha, el gancho y el dato ocupan los 720px del cuerpo. */
 .escala-2026 .salud-carrera .area-hook,
+/* La destacada del módulo 3 es la única .porque-card lo bastante ancha como
+   para pasarse de medida: su cuerpo llega a ~680px. */
+.escala-2026 .salud-porque-grid .salud-destacada p,
 .escala-2026 .salud-dato,
 /* Footer: el aviso del newsletter y la línea legal también son texto corrido. */
 .escala-2026 .site-footer .newsletter p,
@@ -649,7 +956,11 @@
 
 /* H3-L — nombre de carrera y de campus */
 .escala-2026 .salud-carrera h3,
-.escala-2026 .campus-card h3 {
+.escala-2026 .campus-card h3,
+.escala-2026 .salud-clinicas-banda .salud-tips-titulo,
+/* La tarjeta protagonista del módulo 3 sube un escalón sobre las secundarias:
+   es lo que la separa de las otras cinco además de la fotografía. */
+.escala-2026 .salud-porque-grid .salud-destacada h3 {
   font-size: 32px;
   line-height: 1.1;
 }
@@ -674,7 +985,8 @@
 /* Párrafo L — intro de sección y remates */
 .escala-2026 .section-intro > p:not(.tagline),
 .escala-2026 .salud-afinidad-cierre,
-.escala-2026 .salud-clinicas-banda p {
+.escala-2026 .salud-clinicas-banda p,
+.escala-2026 .salud-porque-grid .salud-destacada p {
   font-size: 18px;
   line-height: 1.6;
   letter-spacing: 0.2px;
@@ -721,7 +1033,9 @@
 /* ---- Móvil: los titulares también escalan ---- */
 @media (max-width: 760px) {
   .escala-2026 .salud-carrera h3,
-  .escala-2026 .campus-card h3 {
+  .escala-2026 .campus-card h3,
+  .escala-2026 .salud-clinicas-banda .salud-tips-titulo,
+  .escala-2026 .salud-porque-grid .salud-destacada h3 {
     font-size: 26px;
   }
 
@@ -738,7 +1052,8 @@
   /* El cuerpo no encoge en móvil; solo el escalón L, que es el más grande. */
   .escala-2026 .section-intro > p:not(.tagline),
   .escala-2026 .salud-afinidad-cierre,
-  .escala-2026 .salud-clinicas-banda p {
+  .escala-2026 .salud-clinicas-banda p,
+  .escala-2026 .salud-porque-grid .salud-destacada p {
     font-size: 17px;
   }
 }

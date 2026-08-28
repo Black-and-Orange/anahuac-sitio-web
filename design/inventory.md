@@ -24,7 +24,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `step-card` | `design/components/step-card.md` | pendiente | Home, Admisiones |
 | `event-card` | `design/components/event-card.md` | pendiente | Home |
 | `cta-section` | `design/components/cta-section.md` | pendiente | Home |
-| `experience` | `design/components/experience.md` | pendiente | Home, Psicología, Foráneos |
+| `experience` | `design/components/experience.md` | pendiente | Home, Psicología, Foráneos, Nutrición |
 | `support-hero` | `design/components/support-hero.md` | construido (`apoyos-hero.module`) | Apoyos Económicos |
 | `support-overview` | `design/components/support-overview.md` | construido (`apoyos-panorama.module`) | Apoyos Económicos |
 | `support-detail` | `design/components/support-detail.md` | construido (`apoyos-detalle.module`) | Apoyos Económicos |
@@ -37,6 +37,10 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `location-dialog` | `design/interactions.md` + `specs/foraneos.md` | construido local | Foráneos |
 | `health-overview` | `specs/foraneos.md` (M9) | construido local | Foráneos |
 | `tips-anahuac` | `specs/foraneos.md` (M6 + M9) | construido local | Foráneos |
+| `porque-card--destacada` | `specs/area-ciencias-de-la-salud.md` (M3) | construido local | Área Ciencias de la Salud |
+| `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `psicologia.html` | construido local | Psicología, Nutrición |
+| `salud-campus-grupo` | `specs/area-ciencias-de-la-salud.md` (M4) | construido local | Área Ciencias de la Salud |
+| `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud |
 
 ## Componentes atómicos (UI Kit)
 
