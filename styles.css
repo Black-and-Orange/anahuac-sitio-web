@@ -869,10 +869,42 @@ h2 {
   justify-content: space-between;
 }
 
+/* =============================================================================
+   CIFRAS DE DISPLAY
+
+   Zilla Slab trae **cifras de estilo antiguo** y no incluye juego de caja alta:
+   comprobado, ni `font-variant-numeric: lining-nums` ni
+   `font-feature-settings: 'lnum' 1` cambian nada, porque el juego alternativo no
+   viene en la fuente. Medido a 200px, así se comporta cada dígito:
+
+     0 · 2 · 8   a altura de mayúscula
+     1 · 2       a altura de x (más bajos)
+     3 4 5 7 9   bajan de la línea base
+     6           sube por encima de la mayúscula
+
+   En texto corrido eso es una virtud: las cifras se mezclan con las minúsculas
+   sin dar saltos. Por eso los números dentro de un párrafo —`.salud-cifra`— se
+   quedan como están.
+
+   En una cifra de display es un defecto: a 64 o 90px, «398» se lee con el 3 y el
+   9 caídos de la línea y el 8 flotando, y parece un error de render, no una
+   decisión. El «+1» de Nutrición se veía directamente más pequeño que el «8» de
+   al lado siendo del mismo cuerpo.
+
+   Las cifras grandes pasan a la tipografía de cuerpo, que sí tiene cifras de
+   caja alta con altura uniforme. Es la excepción deliberada a «todo titular va
+   en la slab»: aquí no es un titular, es un dato, y necesita leerse como un
+   conjunto parejo.
+
+   Afecta a los tres bloques de cifra del sitio: .stat-card (Inicio y Descubre),
+   .plan-aeo-dato (páginas de licenciatura) y .campo-stat.
+   ========================================================================== */
 .stat-card strong {
-  font-family: "Zilla Slab", serif;
+  font-family: var(--font-body);
   font-size: 90px;
   line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .stat-card span {

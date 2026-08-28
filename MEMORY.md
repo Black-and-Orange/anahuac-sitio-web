@@ -200,6 +200,12 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 ## Aprendizajes / gotchas
 > Qué se intentó, qué falló, qué evitar.
 
+- **Zilla Slab solo tiene cifras de estilo antiguo.** El 3, 4, 5, 7 y 9 bajan de
+  la línea base, el 1 y el 2 se quedan a altura de x y el 6 sube. Su build de
+  Google Fonts **no trae juego de caja alta**: `lining-nums` y
+  `font-feature-settings: 'lnum' 1` no hacen nada, comprobado. Cualquier cifra
+  grande —stat cards, datos duros— tiene que ir en `--font-body`; en texto
+  corrido, en cambio, el estilo antiguo es lo correcto y se deja.
 - El repositorio del design system es privado en GitHub; `read_url_content` no puede leer raw URLs. Usar `git clone` o el GitHub MCP para acceder al contenido.
 
 ## Preguntas abiertas
