@@ -5,6 +5,40 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-28 — Las cifras de display pasan a la tipografía de cuerpo
+
+Zilla Slab trae **cifras de estilo antiguo** y su build de Google Fonts **no
+incluye juego de caja alta**: comprobado, ni `font-variant-numeric: lining-nums`
+ni `font-feature-settings: 'lnum' 1` cambian nada, porque el juego alternativo no
+viene en el archivo. Medido a 200px:
+
+| Dígitos | Comportamiento |
+|---|---|
+| 0 · 8 | altura de mayúscula |
+| 1 · 2 | altura de x (más bajos) |
+| 3 · 4 · 5 · 7 · 9 | bajan de la línea base |
+| 6 | sube por encima de la mayúscula |
+
+En texto corrido es una virtud: las cifras se mezclan con las minúsculas sin dar
+saltos. En una cifra de display es un defecto: a 64px, «398» se lee con el 3 y el
+9 caídos y el 8 flotando, y el «+1» se veía más pequeño que el «8» de al lado
+siendo del mismo cuerpo. Parece un error de render, no una decisión.
+
+- Las tres clases de cifra de display del sitio pasan a `--font-body`, que sí
+  tiene cifras de caja alta: `.stat-card strong` (Inicio, Descubre),
+  `.plan-aeo-dato strong` (páginas de licenciatura) y `.campo-stat > strong`.
+  Peso 700 y `letter-spacing: -1px` para compensar el cambio de familia.
+- **Los números dentro de un párrafo NO cambian** (`.salud-cifra`): ahí el estilo
+  antiguo es lo correcto y se ve bien.
+- Es la excepción deliberada a «todo titular va en la slab»: una cifra de display
+  no es un titular, es un dato, y necesita leerse como un conjunto parejo. El
+  porqué queda documentado en la sección «CIFRAS DE DISPLAY» de `styles.css`.
+- **Este sí toca el componente compartido**, a diferencia del resto de la
+  revisión: acotarlo a Nutrición habría dejado sus cifras distintas de las de
+  Psicología y las de Inicio, que es la inconsistencia que se quería evitar.
+  Verificado en las tres.
+- Origen: revisión humana del 2026-08-28.
+
 ## 2026-08-28 — Las flechas del deslizador dejan de esconderse
 
 - `.campus-slider-arrow` solo aparece al pasar el cursor. Es correcto en su uso

@@ -771,11 +771,16 @@
   text-align: center;
 }
 
+/* Cifra de display: va en la tipografía de cuerpo y no en la slab porque Zilla
+   Slab solo trae cifras de estilo antiguo (el 3, 4, 5, 7 y 9 bajan de la línea
+   base; el 1 y el 2 se quedan a altura de x). El porqué completo, en la sección
+   «CIFRAS DE DISPLAY» de styles.css. */
 .plan-aeo-dato strong {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 64px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -1px;
   color: var(--purple-2);
 }
 
@@ -1461,12 +1466,14 @@
   min-width: 0;
 }
 
+/* Misma razón que .plan-aeo-dato strong: ver «CIFRAS DE DISPLAY» en styles.css. */
 .campo-stat > strong {
   flex-shrink: 0;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 96px;
   line-height: 0.85;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .campo-stat-copy {
