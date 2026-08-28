@@ -5,6 +5,18 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-28 — Las flechas del deslizador dejan de esconderse
+
+- `.campus-slider-arrow` solo aparece al pasar el cursor. Es correcto en su uso
+  original —adorno sobre una tira de miniaturas dentro de una tarjeta de campus,
+  que se ve entera— y es un error en el deslizador de instalaciones: hay seis
+  fichas y se ven tres, así que la flecha es la única señal de que el módulo
+  continúa. Escondida hasta el hover, esconde el contenido. Se queda siempre a la
+  vista, con sombra para despegarla de la foto y del fondo de sección.
+- La flecha deshabilitada sigue oculta: en la primera posición no hay «anterior».
+- Solo se cambia en `.salud-inst-slider`; las tiras de miniaturas de campus de
+  Psicología y Nutrición conservan su comportamiento.
+
 ## 2026-08-28 — Cierre de la revisión
 
 - **Área · módulo 6.** El H2 pasa a «Instalaciones de la Facultad de Ciencias de
