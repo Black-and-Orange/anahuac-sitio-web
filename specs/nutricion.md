@@ -15,13 +15,13 @@
 >   de dejarla vacía; el copy sí los nombra.
 > - **Testimonios (M8):** citas con la plantilla literal a la vista. No se
 >   inventan personas ni se reutilizan las de Psicología.
-> - **Claustro y logos de aliados (M9):** nombres entre corchetes y tiles de
->   texto. `.colab-logo` ya está previsto para funcionar sin archivo de logo.
->   **La clienta pidió el 2026-08-28 usar logotipos como en Psicología.** De los
->   18 aliados solo uno tiene archivo en el repo (Universidad Francisco de
->   Vitoria, compartido con Psicología); faltan 17. La lista exacta de archivos,
->   su especificación y los dos cambios a aplicar están en
->   `assets/nutricion/logos/README.md`.
+> - **Claustro y logos de aliados (M9):** nombres del claustro entre corchetes.
+>   **La clienta pidió el 2026-08-28 que los aliados vayan como logotipos** y que
+>   los que falten queden marcados para saber qué archivos nos debe pasar. De los
+>   18 solo la Universidad Francisco de Vitoria tiene archivo (compartido con
+>   Psicología) y ya va con su `<img>`; los otros 17 usan la variante
+>   `.colab-logo-pendiente` — **[PLACEHOLDER], no mergeable**. Nombres de archivo
+>   y especificación en `assets/nutricion/logos/README.md`.
 > - **ALPHA en M12:** sin insertar. El molde compartido no enumera los 9
 >   Programas de Liderazgo, así que no hay dónde ponerlo sin rediseñar un módulo
 >   marcado «no rediseñar». Pendiente de decisión.
@@ -406,6 +406,7 @@ Header
 | 9 | Testimonios reales con nombre y consentimiento | M8 | 🟡 | Cliente |
 | 10 | Claustro docente: nombres, fotos y cargos | M9 | 🟡 | Facultad |
 | 11 | Logotipos de Nestlé, Danone y Herdez con autorización de uso | M6 | 🟡 | Cliente |
+| 11b | Los 17 logotipos de aliados que faltan (la UFV ya está puesta) | M9 | 🟡 | Cliente / Facultad |
 | 12 | Fotos reales de la Clínica de Nutrición, laboratorios y equipo de diagnóstico | M1, M4, M7, M13 | 🟡 | Producción fotográfica |
 | 13 | ID del video institucional | M1 | 🟡 | Cliente |
 | 14 | Conexión del formulario a HubSpot | M13 | 🟡 | HubSpot |

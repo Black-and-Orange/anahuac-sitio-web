@@ -41,6 +41,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `psicologia.html` | construido local | Psicología, Nutrición |
 | `salud-campus-grupo` | `specs/area-ciencias-de-la-salud.md` (M4) | construido local | Área Ciencias de la Salud |
 | `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud |
+| `colab-logo--pendiente` | `psicologia.css` · `assets/nutricion/logos/README.md` | construido local · **[PLACEHOLDER]** | Nutrición |
 
 ## Componentes atómicos (UI Kit)
 

@@ -1,20 +1,24 @@
 # Logotipos de aliados — Licenciatura en Nutrición
 
-Los tiles del módulo 9 («¿Con quién te formas?») van hoy **como texto**. El
-componente `.colab-logo` acepta las dos cosas —imagen o nombre— y en cuanto
-existan los archivos de esta carpeta se cambian por logotipos, igual que en
-`psicologia.html`.
+El módulo 9 («¿Con quién te formas?») se lee **como muro de logotipos**. Solo la
+Universidad Francisco de Vitoria tiene archivo; los otros 17 tiles usan la
+variante `.colab-logo-pendiente`, que los pinta como huecos por llenar —borde
+punteado y la etiqueta «Logotipo pendiente»— para que se vea de un vistazo qué
+archivos faltan.
+
+> **[PLACEHOLDER] Ningún tile con esa clase puede llegar a producción.** O llega
+> el logotipo y se sustituye por su `<img>`, o el aliado sale de la lista.
 
 ## Qué hace falta
 
-**17 archivos.** De los 18 aliados de Nutrición, solo uno tiene ya su logotipo en
+**17 archivos.** De los 18 aliados de Nutrición, solo uno tenía ya su logotipo en
 el repositorio: la Universidad Francisco de Vitoria, que comparte con Psicología
-(`assets/psicologia/logos/ufv.webp`).
+(`assets/psicologia/logos/ufv.webp`). **Ese ya está conectado** desde el
+2026-08-28; los 17 de la tabla siguen pendientes.
 
 | Grupo | Aliado | Nombre de archivo |
 |---|---|---|
 | Internacionales | Universidad Finis Terrae (Chile) | `finis-terrae.webp` |
-| Internacionales | Universidad Francisco de Vitoria (España) | ya existe → `../../psicologia/logos/ufv.webp` |
 | Internacionales | Pontificia Universidad Javeriana (Colombia) | `javeriana.webp` |
 | Nacionales | ISEM | `isem.webp` |
 | Nacionales | Hospital General | `hospital-general.webp` |
@@ -51,10 +55,17 @@ permiso para publicarlo, igual que con Nestlé y Danone en el módulo 6.
 
 ## Qué hay que cambiar cuando lleguen
 
-1. En `nutricion.html`, módulo 9: sustituir el texto de cada `<li class="colab-logo">`
-   por `<img src="assets/nutricion/logos/ARCHIVO.webp" alt="NOMBRE" loading="lazy" />`.
-   Los tiles internacionales conservan además su `<span>` de país.
-2. En `nutricion.css`, retirar el bloque **«5. ALIADOS»**: ese tratamiento de
-   chips en flujo horizontal se hizo *porque* los tiles eran texto de longitudes
-   muy distintas («3M» junto a «Instituto Nacional de Perinatología»). Con
-   logotipos de ancho parejo, la rejilla del molde vuelve a ser lo correcto.
+1. En `nutricion.html`, módulo 9: sustituir el `<li class="colab-logo colab-logo-pendiente">`
+   completo por
+   `<li class="colab-logo"><img src="assets/nutricion/logos/ARCHIVO.webp" alt="NOMBRE" loading="lazy" /></li>`.
+   Los tiles internacionales conservan además su `<span>` de país. El de la UFV
+   ya está así y sirve de molde.
+2. Cuando no quede ningún tile pendiente, revisar el bloque **«5. ALIADOS»** de
+   `nutricion.css`: las 3 columnas se eligieron porque 3, 6 y 9 dividen exacto y
+   así no queda ningún hueco punteado suelto. Con los 18 logotipos puestos, un
+   tile solo en su fila pesa mucho menos, así que se puede volver a las 4
+   columnas del molde. La bajada a una columna en ≤640px sí se revierte: existe
+   solo porque «LOGOTIPO PENDIENTE» no cabe en una celda de 155px.
+3. La variante `.colab-logo-pendiente` de `psicologia.css` puede quedarse: es
+   reutilizable para el mismo problema en otras páginas. Lo que no puede quedarse
+   es un tile que la use.

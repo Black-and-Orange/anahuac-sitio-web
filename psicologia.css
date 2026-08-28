@@ -2040,6 +2040,49 @@
   color: var(--color-text-secondary);
 }
 
+/* Variante: hueco de logotipo pendiente.
+   El aliado existe y va en la lista, pero todavía no tenemos su archivo. En vez
+   de dejar el nombre como si fuera el diseño final —que se lee como una
+   decisión y nadie pide nada— el tile se pinta como un hueco por llenar: borde
+   punteado, sin fondo, y una etiqueta que dice qué falta. Así el cliente ve de
+   un vistazo cuántos archivos nos debe pasar.
+
+   [PLACEHOLDER] Ningún tile con esta clase debe llegar a producción: o llega el
+   logotipo y se sustituye por su <img>, o el aliado sale de la lista. */
+.colab-logo-pendiente {
+  background: none;
+  border-style: dashed;
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.colab-logo-pendiente:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* El nombre recupera la tipografía del tile: `.colab-logo span` viste TODO span
+   como si fuera la etiqueta de país (12px, versalitas, gris), y aquí el nombre
+   es el contenido principal. Se gana por especificidad de dos clases. */
+.colab-logo .colab-logo-nombre {
+  margin-top: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--color-text);
+}
+
+.colab-logo .colab-logo-falta {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
 /* Planta docente (nombres ficticios; fotos pendientes → avatar de iniciales) */
 /* Encabezado: título + flechas del carrusel */
 .colab-docentes-head {

@@ -5,6 +5,33 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-28 — Nutrición · muro de logotipos con los huecos marcados
+
+- La clienta pidió que el módulo 9 se lea **como logotipos**, no como una lista
+  de nombres, y que los que todavía no tenemos queden señalados para saber qué
+  archivos hace falta que nos pasen.
+- De los 18 aliados solo la UFV tiene archivo en el repositorio
+  (`assets/psicologia/logos/ufv.webp`, compartido con Psicología). Ese tile va
+  con su `<img>`; los otros 17 estrenan variante.
+- **Variante nueva `.colab-logo-pendiente`** (aditiva, en el componente
+  compartido): borde punteado, sin fondo, el nombre del aliado y la etiqueta
+  «Logotipo pendiente». Marcada `[PLACEHOLDER]` — ningún tile con esa clase
+  puede llegar a producción. Psicología no la usa y no cambia.
+- **Se revierte el tratamiento de chips** de la revisión de diseño: se hizo
+  *porque* los tiles eran texto de longitudes muy dispares, y con slots de ancho
+  parejo la rejilla del molde vuelve a ser lo correcto. Va a **3 columnas** y no
+  a las 4 del molde: los grupos tienen 3, 6 y 9 aliados, así que a 3 por fila
+  dividen exacto —1, 2 y 3 filas llenas, cero huecos— mientras que a 4 quedaban
+  1, 2 y 3 celdas vacías y el noveno tile de cátedras solo en su fila.
+- En ≤640px la lista baja a **una columna**: a dos, la celda mide 155px y
+  «LOGOTIPO PENDIENTE» no cabe en un renglón. Alarga el módulo en móvil; es
+  temporal y se revierte con los archivos reales.
+- **No se reutiliza `psicologia/logos/inp.webp`** para el Instituto Nacional de
+  Perinatología: ese archivo es el Instituto Nacional de **Psiquiatría**.
+- Verificado a 1440, 820 y 390.
+
+---
+
 ## 2026-08-28 — El número de las pestañas del plan, a la tipografía de cuerpo
 
 - Mismo origen que las cifras de display: en una fila de pestañas el estilo
