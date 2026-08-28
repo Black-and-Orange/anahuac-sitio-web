@@ -218,6 +218,13 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
   acotados con `.pagina-nutricion`; Psicología conserva los defectos. Requiere
   revisar Psicología con los cambios aplicados. Ver `design/CHANGELOG.md`
   (2026-08-28).
+- **Nutrición · 17 logotipos de aliados.** La clienta pidió el 2026-08-28 usar
+  logotipos en el módulo 9 en vez de tiles de texto. Solo existe el de la
+  Universidad Francisco de Vitoria (compartido con Psicología). Nueve de los
+  que faltan son marcas comerciales y necesitan autorización de uso, igual que
+  Nestlé y Danone en el módulo 6. Lista y especificación en
+  `assets/nutricion/logos/README.md`. OJO: `psicologia/logos/inp.webp` es el
+  Instituto Nacional de **Psiquiatría**, no el de Perinatología — no reutilizar.
 - **Nutrición · ALPHA en el módulo 12.** El handoff admite mencionar ALPHA
   «dentro de los 9 Programas de Liderazgo», pero el módulo compartido de
   experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un

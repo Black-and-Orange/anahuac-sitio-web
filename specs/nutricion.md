@@ -17,6 +17,11 @@
 >   inventan personas ni se reutilizan las de Psicología.
 > - **Claustro y logos de aliados (M9):** nombres entre corchetes y tiles de
 >   texto. `.colab-logo` ya está previsto para funcionar sin archivo de logo.
+>   **La clienta pidió el 2026-08-28 usar logotipos como en Psicología.** De los
+>   18 aliados solo uno tiene archivo en el repo (Universidad Francisco de
+>   Vitoria, compartido con Psicología); faltan 17. La lista exacta de archivos,
+>   su especificación y los dos cambios a aplicar están en
+>   `assets/nutricion/logos/README.md`.
 > - **ALPHA en M12:** sin insertar. El molde compartido no enumera los 9
 >   Programas de Liderazgo, así que no hay dónde ponerlo sin rediseñar un módulo
 >   marcado «no rediseñar». Pendiente de decisión.
