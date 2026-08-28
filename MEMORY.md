@@ -218,6 +218,16 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
   acotados con `.pagina-nutricion`; Psicología conserva los defectos. Requiere
   revisar Psicología con los cambios aplicados. Ver `design/CHANGELOG.md`
   (2026-08-28).
+- **Nutrición · faltan 17 logotipos de aliados. 🚫 BLOQUEA EL MERGE DEL M9.** La
+  clienta pidió el 2026-08-28 que el módulo 9 se lea como muro de logotipos y que
+  los que falten queden marcados en la página para saber qué nos debe pasar. El
+  único con archivo es el de la Universidad Francisco de Vitoria (compartido con
+  Psicología) y ya está puesto; los otros 17 llevan `.colab-logo-pendiente`, que
+  es **[PLACEHOLDER] y no puede llegar a producción**. Nueve de los que faltan
+  son marcas comerciales y necesitan autorización de uso, igual que Nestlé y
+  Danone en el módulo 6. Lista y especificación en
+  `assets/nutricion/logos/README.md`. OJO: `psicologia/logos/inp.webp` es el
+  Instituto Nacional de **Psiquiatría**, no el de Perinatología — no reutilizar.
 - **Nutrición · ALPHA en el módulo 12.** El handoff admite mencionar ALPHA
   «dentro de los 9 Programas de Liderazgo», pero el módulo compartido de
   experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un

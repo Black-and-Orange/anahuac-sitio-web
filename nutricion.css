@@ -303,34 +303,38 @@
 }
 
 /* -----------------------------------------------------------------------------
-   5. ALIADOS: LA REJILLA DEJABA FILAS COJAS Y PESABA DE MÁS
+   5. ALIADOS: LA REJILLA DE 4 COLUMNAS DEJABA FILAS COJAS
 
-   Dos problemas medidos. Uno de composición: `.colab-logos` es una rejilla de 4
-   columnas fijas y los tres grupos tienen 3, 6 y 9 elementos — o sea 1, 2 y 3
-   huecos vacíos al final de cada bloque. Uno de balance: con 18 tiles de 92px de
-   alto mínimo, «¿Con quién te formas?» mide 1810px y es la sección MÁS ALTA de
-   la página, por encima de campo laboral (1626) y del plan (1252). Un módulo de
-   respaldo pesaba más que los de conversión.
+   La clienta pidió el 2026-08-28 que el módulo se lea como un muro de logotipos
+   —no como una lista de nombres— y que los que todavía no tenemos queden
+   marcados para saber qué archivos hace falta que nos pasen. De los 18 aliados
+   solo la UFV tiene logotipo en el repositorio; los otros 17 usan la variante
+   `.colab-logo-pendiente`.
 
-   Se cambia a flujo horizontal: cada tile mide lo que mide su contenido y las
-   filas se llenan solas. Con nombres de longitudes tan distintas —«3M» y
-   «Instituto Nacional de Perinatología» en la misma lista— la rejilla rígida
-   era el problema, no la solución.
+   Con tiles de ancho parejo la rejilla del molde vuelve a ser lo correcto, pero
+   no con sus 4 columnas: los tres grupos tienen 3, 6 y 9 aliados, así que a 4
+   por fila quedaban 1, 2 y 3 celdas vacías y el noveno tile de las cátedras se
+   quedaba solo en su fila. A 3 columnas los tres grupos dividen exacto —1, 2 y 3
+   filas llenas, cero huecos— y la celda pasa de 271 a 364px, holgura que las
+   etiquetas de pendiente agradecen.
 
-   [REVISAR al sustituir por logotipos reales] con imágenes de ancho parejo, una
-   rejilla vuelve a tener sentido. Este tratamiento es el correcto mientras los
-   aliados sean texto.
+   [REVISAR al sustituir por logotipos reales] cuando los 18 sean imagen, esta
+   regla puede volver a las 4 columnas del molde: 3, 6 y 9 siguen sin dividir
+   exacto, pero un logotipo suelto en su fila pesa mucho menos que un hueco
+   punteado.
    -------------------------------------------------------------------------- */
 .pagina-nutricion .colab-logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.pagina-nutricion .colab-logo {
-  flex: 0 0 auto;
-  min-height: 0;
-  padding: 14px 22px;
+/* El molde baja a 2 columnas en ≤640px y la regla de arriba, por especificidad,
+   se lo comía: hay que repetir el corte. A esa anchura la celda mide 155px y
+   «Asociación Mexicana de Diabetes» más su etiqueta de pendiente no caben sin
+   partirse en cinco renglones, así que estos tiles van a una sola columna. */
+@media (max-width: 640px) {
+  .pagina-nutricion .colab-logos {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Los tres grupos son listas del mismo rango: se separan entre sí con el mismo
