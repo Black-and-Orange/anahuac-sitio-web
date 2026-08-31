@@ -11,10 +11,15 @@ archivos faltan.
 
 ## Qué hace falta
 
-**17 archivos.** De los 18 aliados de Nutrición, solo uno tenía ya su logotipo en
+**8 archivos.** De los 9 aliados de Nutrición, solo uno tenía ya su logotipo en
 el repositorio: la Universidad Francisco de Vitoria, que comparte con Psicología
 (`assets/psicologia/logos/ufv.webp`). **Ese ya está conectado** desde el
-2026-08-28; los 17 de la tabla siguen pendientes.
+2026-08-28; los 8 de la tabla siguen pendientes.
+
+Eran 18 aliados y 17 archivos hasta el 2026-08-31, cuando la clienta **retiró el
+grupo de cátedras corporativas** —3M, Toks, Seguros Atlas, PwC, Phillips, Oracle,
+Manpower, Hospital Ángeles y GE— y renombró los otros dos grupos a «Aliados
+nacionales» y «Aliados internacionales», en ese orden.
 
 | Grupo | Aliado | Nombre de archivo |
 |---|---|---|
@@ -26,23 +31,15 @@ el repositorio: la Universidad Francisco de Vitoria, que comparte con Psicologí
 | Nacionales | Asociación Mexicana de Diabetes | `amd.webp` |
 | Nacionales | AMANC | `amanc.webp` |
 | Nacionales | Herdez | `herdez.webp` |
-| Cátedras | 3M | `3m.webp` |
-| Cátedras | Toks | `toks.webp` |
-| Cátedras | Seguros Atlas | `seguros-atlas.webp` |
-| Cátedras | PwC | `pwc.webp` |
-| Cátedras | Phillips | `phillips.webp` |
-| Cátedras | Oracle | `oracle.webp` |
-| Cátedras | Manpower | `manpower.webp` |
-| Cátedras | Hospital Ángeles | `hospital-angeles.webp` |
-| Cátedras | GE | `ge.webp` |
 
 **⚠️ No confundir:** `assets/psicologia/logos/inp.webp` es el **Instituto Nacional
 de Psiquiatría**, no el de Perinatología. Las siglas se parecen; las
 instituciones no. No reutilizar ese archivo aquí.
 
-**⚠️ Autorización de uso.** Varias son marcas comerciales (3M, Oracle, PwC, GE,
-Herdez, Toks, Phillips, Manpower, Seguros Atlas). Hace falta el archivo oficial y
-permiso para publicarlo, igual que con Nestlé y Danone en el módulo 6.
+**⚠️ Autorización de uso.** Al irse las cátedras corporativas, de los ocho que
+faltan **solo Herdez es marca comercial**: es el único que necesita archivo
+oficial y permiso de publicación, igual que Nestlé y Danone en el módulo 6. Los
+otros siete son instituciones académicas y de salud.
 
 ## Especificación del archivo
 

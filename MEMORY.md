@@ -229,17 +229,25 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 ## Preguntas abiertas
 > Decisiones pendientes que bloquean o condicionan trabajo futuro.
 
+- **🔴 Nutrición · ¿cómo se protege `carrera de nutriologa`?** Esa keyword está
+  hoy en **posición 1** y el 2026-08-31 la clienta pidió quitar «o nutrióloga»
+  del H2 de campo laboral, que era su sitio más fuerte. El femenino ya no aparece
+  en ningún encabezado: solo queda en los `data-alt` de cuatro tiles de M6. O se
+  asume la pérdida, o se devuelve «nutrióloga» a texto indexable en otro sitio
+  —intro de M6, un tile, el FAQ o el alt de `og:image`—. Ver
+  `specs/nutricion.md` § 3.
 - ¿Hay páginas internas ya diseñadas en Figma además del Home? (el usuario indicó que sí, pendiente links concretos).
 - ¿Se tiene cuenta sandbox de HubSpot para deploy?
 - ¿Cuál es el mapeo institucional completo de preparatorias para Ciudad de México y Estado de México?
-- **Nutrición · faltan 17 logotipos de aliados. 🚫 BLOQUEA EL MERGE DEL M9.** La
+- **Nutrición · faltan 8 logotipos de aliados. 🚫 BLOQUEA EL MERGE DEL M9.** La
   clienta pidió el 2026-08-28 que el módulo 9 se lea como muro de logotipos y que
   los que falten queden marcados en la página para saber qué nos debe pasar. El
   único con archivo es el de la Universidad Francisco de Vitoria (compartido con
-  Psicología) y ya está puesto; los otros 17 llevan `.colab-logo-pendiente`, que
-  es **[PLACEHOLDER] y no puede llegar a producción**. Nueve de los que faltan
-  son marcas comerciales y necesitan autorización de uso, igual que Nestlé y
-  Danone en el módulo 6. Lista y especificación en
+  Psicología) y ya está puesto; los otros 8 llevan `.colab-logo-pendiente`, que
+  es **[PLACEHOLDER] y no puede llegar a producción**. Eran 17 hasta el
+  2026-08-31, cuando la clienta retiró el grupo de cátedras corporativas: con eso
+  se fueron ocho de las nueve marcas comerciales y **solo Herdez** necesita ya
+  autorización de uso. Lista y especificación en
   `assets/nutricion/logos/README.md`. OJO: `psicologia/logos/inp.webp` es el
   Instituto Nacional de **Psiquiatría**, no el de Perinatología — no reutilizar.
 - **Nutrición · ALPHA en el módulo 12.** El handoff admite mencionar ALPHA

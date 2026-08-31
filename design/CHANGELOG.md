@@ -5,6 +5,73 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — Nutrición · el muro de aliados se queda en dos grupos, y fuera una pregunta del FAQ
+
+Segunda tanda de la misma revisión.
+
+**Aliados (M9).** «Convenios nacionales» y «Convenios académicos
+internacionales» pasan a **«Aliados nacionales»** y **«Aliados internacionales»**,
+y cambian de orden: **nacionales primero**. El tercer grupo, «Cátedras
+corporativas» —3M, Toks, Seguros Atlas, PwC, Phillips, Oracle, Manpower, Hospital
+Ángeles y GE—, **se elimina**.
+
+- **La rejilla de 3 columnas sigue siendo la correcta.** Se eligió porque los
+  grupos de 3, 6 y 9 dividían exacto; ahora son 6 y 3 y siguen dividiendo exacto:
+  dos filas llenas y una, cero huecos. El comentario del bloque 5 de
+  `nutricion.css` queda actualizado.
+- **Buena noticia para el bloqueante de logotipos:** los pendientes bajan de 17 a
+  **8**, y con las cátedras se fueron ocho de las nueve marcas comerciales. De
+  los que faltan, **solo Herdez** necesita autorización de uso.
+
+**FAQ (M11).** Se elimina «¿Es lo mismo estudiar Nutrición que Medicina en la
+Anáhuac?» —del acordeón y de su entrada en el `FAQPage`, que se validó después
+del corte—. El acordeón queda en 7 preguntas y la 2, la que sostiene
+`qué materias se ven en la carrera de nutricion`, no se mueve de su sitio.
+
+⚠️ **Esa pregunta estaba marcada en el spec como no removible:** respondía una
+objeción documentada por la Facultad, igual que la tarjeta de afinidad que se
+retiró en la tanda anterior. Con las dos fuera, la página ya no contrasta
+Nutrición con Medicina en ningún sitio. Es decisión de la clienta y queda
+registrada por si la Facultad la revisa.
+
+---
+
+## 2026-08-31 — Nutrición · ajustes de copy de la clienta, y el H1 vuelve al molde
+
+Once cambios de contenido pedidos en revisión. Dos tienen consecuencia en el
+sistema:
+
+**El bloque 2 (H1 a 64px) se elimina.** El titular pasó de «Licenciatura en
+Nutrición en la Universidad Anáhuac México» (54 caracteres, cuatro renglones a
+88px) a «Licenciatura en Nutrición» (25). Esa excepción existía *por* la longitud
+del titular: con 25 caracteres el molde vuelve a ser correcto y, de paso, las dos
+páginas de carrera comparten por fin el mismo tamaño de H1 —Psicología tiene 26
+caracteres—. Verificado a 1440, 820 y 390.
+
+**Mueren dos reglas con su contenido.** `.nut-aeo-nota` (la línea de créditos por
+bloque bajo las cifras del perfil de egreso) y `.nut-plan-nota` (la salvedad del
+plan de referencia bajo las pestañas): la clienta retiró los dos textos, así que
+se borran las reglas en vez de dejarlas huérfanas. Con eso las desviaciones de
+`nutricion.css` sobre el molde bajan de tres a dos: quedan la rejilla de aliados
+(bloque 5) y la proporción de la foto de campo laboral (bloque 9).
+
+El resto son cambios de texto y viven en `specs/nutricion.md`: las cuatro
+tarjetas de afinidad, la intro del plan, los tres Prácticum sin negrita, el texto
+de los bloques Profesional y Electivo, el RVOE sin fecha, y el H2 y la intro de
+campo laboral.
+
+### 🔴 Consecuencia de SEO que hay que decidir
+
+El H2 de campo laboral pasa de «¿Dónde puedes ejercer como nutriólogo o
+nutrióloga?» a «¿Dónde puedes ejercer como nutriólogo?». La keyword
+`carrera de nutriologa` (260 búsquedas/mes) **está hoy en posición 1**, y el
+propio spec advertía que el femenino tenía que seguir en ese H2 para no perderla.
+Ahora «nutrióloga» no aparece en ningún encabezado de la página: solo sobrevive
+en los `data-alt` de cuatro de los seis tiles de M6. Detalle y opciones en
+`specs/nutricion.md` § 3.
+
+---
+
 ## 2026-08-31 — La revisión de diseño de Nutrición sube al molde y llega a Psicología
 
 Cierra la pregunta abierta del 2026-08-28. Se revisó Psicología con los cambios
