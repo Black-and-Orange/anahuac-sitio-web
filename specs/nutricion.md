@@ -180,9 +180,9 @@
 - **Tarjeta AEO (H3):** «¿Cuánto dura la carrera de Nutrición?»
   - Dato 1: **«8»** / «Semestres académicos (4 años)»
   - Dato 2: **«398»** / «Créditos totales»
-  - Dato 3: **«+1»** / «Año de servicio social (periodos 09 y 10)»
-  - **Sin línea de apoyo bajo los números.** La llevaba —el desglose de créditos por bloque y la explicación del año de servicio social— y **la clienta la retiró el 2026-08-31**. El «+1» queda sin glosa: se sostiene solo con su etiqueta «Año de servicio social (periodos 09 y 10)».
-  - **✅ Resuelto con el folleto oficial:** el plan de referencia rotula los periodos **09 y 10 como «Servicio social»**, después de los 8 semestres académicos. La denominación oficial es simplemente **«Servicio social»**. Los créditos totales (398) **no lo incluyen**.
+  - Dato 3: **«+1»** / «Año de servicio social (periodos 9 y 10)»
+  - **Sin línea de apoyo bajo los números.** La llevaba —el desglose de créditos por bloque y la explicación del año de servicio social— y **la clienta la retiró el 2026-08-31**. El «+1» queda sin glosa: se sostiene solo con su etiqueta «Año de servicio social (periodos 9 y 10)».
+  - **✅ Resuelto con el folleto oficial:** el plan de referencia rotula los periodos **09 y 10 como «Servicio social»**, después de los 8 semestres académicos. La denominación oficial es simplemente **«Servicio social»**. Los créditos totales (398) **no lo incluyen**. *(En pantalla el primero va como «9» y no «09»: decisión de la clienta del 2026-08-31. El cero de relleno solo vive ya en los `id` de la pestaña y su panel.)*
 - **Alt de la foto:** «Estudiante de Nutrición de la Anáhuac atendiendo a un paciente en la Clínica de Nutrición.»
 
 ---
@@ -191,7 +191,7 @@
 
 **Componente:** `lic-plan-est` — intro + `plan-tabs` (`<select>` en ≤540px) + 3 tarjetas `plan-bloque` + `plan-cta` + `plan-rvoe`.
 
-**⚠️ 10 tabs: 8 semestres + «Servicio social 09» y «Servicio social 10»**, tal como los rotula el plan de referencia oficial. Las dos últimas no listan materias: llevan solo la nota de cierre.
+**⚠️ 10 tabs: 8 semestres + «Servicio social 9» y «Servicio social 10»**. El plan de referencia oficial los rotula «09» y «10»; el cero de relleno se retiró de la pantalla el 2026-08-31 por decisión de la clienta. Las dos últimas no listan materias: llevan solo la nota de cierre.
 
 - **Eyebrow:** «Plan de estudios» · **H2:** «¿Cuál es el plan de estudios de la Licenciatura en Nutrición?»
 - **Sin intro.** La tenía —«Tu plan avanza semestre a semestre…»— y la clienta la retiró el 2026-08-31: el módulo abre con el H2 y las pestañas.
@@ -206,7 +206,7 @@
   | **Semestre 6** | Nutrición del adulto en condiciones especiales · Nutrigenómica y metabolómica · Alimentos funcionales · Nutrición artificial · Educación nutricional · Electiva profesional I · Electiva libre I · Liderazgo |
   | **Semestre 7** | Nutrición poblacional · Emprendimiento e innovación · Legislación alimentaria · Gestión y dirección de servicios de salud · Prácticum II — Nutrición integrada en el individuo con patologías · Electiva profesional II · Electiva libre II · Taller o actividad II |
   | **Semestre 8** | Políticas públicas en alimentación · Calidad y seguridad del paciente en Ciencias de la Salud · Economía alimentaria · Gestión en servicios de alimentos · Prácticum III — Nutrición integrada especializada · Electiva profesional III · Electiva profesional IV · Taller o actividad III |
-  | **Servicio social 09** | Periodo de servicio social supervisado, con acompañamiento de un tutor |
+  | **Servicio social 9** | Periodo de servicio social supervisado, con acompañamiento de un tutor |
   | **Servicio social 10** | Periodo de servicio social supervisado, con acompañamiento de un tutor |
 - **Sin nota al pie de las tabs.** Venía del folleto («Este plan de referencia muestra un orden sugerido…») y la clienta la retiró el 2026-08-31.
 - **Créditos por semestre** (del folleto, útiles si el componente los muestra): 45 · 50 · 56 · 49 · 54 · 51 · 48 · 45.

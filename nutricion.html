@@ -452,7 +452,7 @@
                        aria-label lo enuncia completo y el signo queda decorativo. -->
                   <p class="plan-aeo-dato">
                     <strong aria-hidden="true">+1</strong>
-                    <span><span class="sr-only">Más un </span>Año de servicio social (periodos 09 y 10)</span>
+                    <span><span class="sr-only">Más un </span>Año de servicio social (periodos 9 y 10)</span>
                   </p>
                 </div>
               </article>
@@ -484,9 +484,11 @@
             <h2>¿Cuál es el plan de estudios de la Licenciatura en Nutrición?</h2>
           </div>
 
-          <!-- 10 pestañas: 8 semestres + los periodos 09 y 10, que el plan de
-               referencia oficial rotula «Servicio social». Las dos últimas no
-               listan materias: llevan solo la nota de cierre.
+          <!-- 10 pestañas: 8 semestres + los dos periodos de servicio social,
+               que el plan de referencia oficial rotula «09» y «10». En pantalla
+               van como «9» y «10» por decisión de la clienta (2026-08-31); los
+               `id` conservan el cero (`tab-ss09`) porque son anclas internas.
+               Las dos últimas no listan materias: llevan solo la nota de cierre.
 
                Créditos por semestre según el folleto (hoy el componente no los
                muestra): 45 · 50 · 56 · 49 · 54 · 51 · 48 · 45.
@@ -508,7 +510,7 @@
                 <option value="tab-sem6">Semestre 6</option>
                 <option value="tab-sem7">Semestre 7</option>
                 <option value="tab-sem8">Semestre 8</option>
-                <option value="tab-ss09">Servicio social 09</option>
+                <option value="tab-ss09">Servicio social 9</option>
                 <option value="tab-ss10">Servicio social 10</option>
             </select>
             <div class="plan-tabs-nav" role="tablist" aria-label="Asignaturas por semestre">
@@ -520,7 +522,7 @@
                 <button class="plan-tab" type="button" role="tab" id="tab-sem6" aria-controls="panel-sem6" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">6</span></button>
                 <button class="plan-tab" type="button" role="tab" id="tab-sem7" aria-controls="panel-sem7" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">7</span></button>
                 <button class="plan-tab" type="button" role="tab" id="tab-sem8" aria-controls="panel-sem8" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">8</span></button>
-                <button class="plan-tab plan-tab--ss" type="button" role="tab" id="tab-ss09" aria-controls="panel-ss09" aria-selected="false" tabindex="-1">Servicio social<span class="plan-tab-num">09</span></button>
+                <button class="plan-tab plan-tab--ss" type="button" role="tab" id="tab-ss09" aria-controls="panel-ss09" aria-selected="false" tabindex="-1">Servicio social<span class="plan-tab-num">9</span></button>
                 <button class="plan-tab plan-tab--ss" type="button" role="tab" id="tab-ss10" aria-controls="panel-ss10" aria-selected="false" tabindex="-1">Servicio social<span class="plan-tab-num">10</span></button>
             </div>
 
