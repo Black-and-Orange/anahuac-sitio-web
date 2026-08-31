@@ -109,7 +109,7 @@
 - **Breadcrumb:** Inicio › Oferta Académica › Ciencias de la Salud › Nutrición
 - **Eyebrow (`tagline`):** «Ciencias de la Salud»
 - **H1:** «Licenciatura en Nutrición en la Universidad Anáhuac México»
-- **Claim (`lic-hero-claim`):** «Mejora la calidad de vida de las personas mediante la promoción de una alimentación sana.» *(texto oficial vigente del sitio — esta carrera **no** tiene conflicto de claims)*
+- **Claim (`lic-hero-claim`):** «Nutre. Previene. Transforma.» *(sustituido por la clienta el 2026-08-31. El anterior —«Mejora la calidad de vida de las personas mediante la promoción de una alimentación sana.»— era el texto oficial vigente del sitio; el nuevo adopta la cadencia de tres verbos del molde, la misma de «Escucha. Entiende. Ayuda.» en Psicología.)*
 - **Chips (3, `lic-chip`):** «8 semestres» · «Modalidad presencial» · «Bicampus · Norte - Sur»
 - **CTA primario (`btn btn-dark`):** «Solicitar información» → `#solicita`
 - **CTA secundario (`btn btn-light`):** «Explorar licenciatura» → `#plan-estudios`
