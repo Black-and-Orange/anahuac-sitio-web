@@ -5,6 +5,22 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — Nutrición · el claim del hero adopta la cadencia del molde
+
+- «Mejora la calidad de vida de las personas mediante la promoción de una
+  alimentación sana.» → **«Nutre. Previene. Transforma.»**
+- Cierra el hero: con el H1 ya de vuelta al tamaño del molde, el módulo queda
+  estructuralmente idéntico al de Psicología —titular en dos renglones, claim de
+  tres verbos en uno solo, chips—. Psicología usa «Escucha. Entiende. Ayuda.»;
+  la cadencia es ahora un patrón del molde de carrera y no una decisión suelta de
+  una página.
+- El claim anterior era el **texto oficial vigente del sitio**. Lo sustituye una
+  decisión de la clienta; queda anotado en `specs/nutricion.md` por si hay que
+  recuperarlo.
+- Verificado a 1440 y 390.
+
+---
+
 ## 2026-08-31 — Nutrición · el muro de aliados se queda en dos grupos, y fuera una pregunta del FAQ
 
 Segunda tanda de la misma revisión.
