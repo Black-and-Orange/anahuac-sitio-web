@@ -5,6 +5,26 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — Nutrición · las pestañas de servicio social vuelven al cuerpo del molde
+
+- Iban a **16px el rótulo y 18px el número**, contra los 18/21 de las ocho
+  pestañas de semestre. A cuerpo distinto se leían como si fueran de otra
+  categoría, cuando son la misma fila y el mismo control.
+- La excepción se puso dando por hecho que «Servicio social 10» no cabía en un
+  renglón dentro de una columna de ~180px. **Medido, no era cierto:** el rótulo
+  ocupa 175px con su padding, y la celda más estrecha de las cinco columnas —a
+  1025px, justo antes de que la retícula baje a dos— mide 179. Cabe en todo el
+  tramo.
+- Se retiran las dos declaraciones de `font-size` y también el bloque de
+  `≤1024px` que las restauraba: con la base ya correcta, era redundante.
+- **Se conserva el `flex-wrap`** como red de seguridad: si el rótulo cambiara y
+  dejara de caber, parte en dos renglones en vez de desbordar la pestaña.
+- Verificado a 1440, 1280, 1100, 1030, 1025, 1024, 900, 700 y 560px: mismo
+  cuerpo, misma altura de pestaña (50px), un solo renglón y sin desbordes en
+  ninguno.
+
+---
+
 ## 2026-08-31 — Nutrición · el claim del hero adopta la cadencia del molde
 
 - «Mejora la calidad de vida de las personas mediante la promoción de una
