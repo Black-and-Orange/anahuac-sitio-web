@@ -2731,3 +2731,311 @@
     padding-bottom: 60px;
   }
 }
+
+/* =============================================================================
+   REVISIÓN DE DISEÑO DEL MOLDE — 2026-08-28, aplicada a Psicología 2026-08-31
+
+   Estas correcciones nacieron revisando Nutrición y vivieron un tiempo acotadas
+   con `.pagina-nutricion` en su hoja de página, para no cambiar Psicología sin
+   revisarla. Ya se revisó: son defectos del molde y las dos páginas los tenían
+   igual, así que suben aquí.
+
+   Van prefijadas con `.pagina-carrera` y NO sin prefijo, aunque corrijan el
+   molde. El motivo es que `psicologia.css` lo cargan tres páginas y la tercera
+   —Área de Ciencias de la Salud— no es una página de carrera: tiene su propio
+   piloto `escala-2026`, que ya resuelve por su cuenta la medida de línea y la
+   escala de titulares, y está en revisión aparte. Meterle estas reglas sería
+   pisar trabajo de otra rama. Cuando ese piloto cierre, el prefijo se puede
+   retirar y estas reglas pasan a ser el molde a secas.
+
+   Tres correcciones de aquella revisión NO subieron, porque dependen del
+   contenido de Nutrición y no del molde: el tamaño del H1 (calibrado para un
+   titular de 54 caracteres), la rejilla de aliados a 3 columnas (3, 6 y 9
+   aliados dividen exacto; los 8 y 6 de Psicología dividen mejor entre 4) y la
+   proporción de la foto de campo laboral (depende de cuántos ámbitos haya: 6 en
+   Nutrición, 7 en Psicología). Siguen en `nutricion.css`.
+
+   Cada bloque conserva la medición que lo motivó. Ninguno cambia contenido,
+   copy ni identidad de marca: solo medida, jerarquía y ritmo.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. MEDIDA DE LÍNEA — el problema de legibilidad más grave de la página
+
+   Medido a 1440px: las respuestas del FAQ y las intros de sección corren a
+   **155 caracteres por línea**; la intro de campo laboral, 155; la de
+   colaboradores, 155; la nota de la banda morada, 145. Lo cómodo son 60-75: por
+   encima de ~85 el ojo pierde el renglón al volver a la izquierda y hay que
+   releer.
+
+   No es un problema de esta página: el molde no acota el texto corrido en
+   ningún sitio. Se acota a 62ch, que da unos 70 caracteres reales (la unidad
+   `ch` mide el cero, más ancho que la media de las minúsculas). Es el mismo
+   valor que ya usa el piloto de escala de la página de área.
+
+   Los titulares NO se acotan: su longitud la controla `text-wrap: balance`.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .section-intro > p:not(.tagline),
+.pagina-carrera .faq-item p,
+.pagina-carrera .campo-stat-note,
+.pagina-carrera .plan-perfil-list li,
+.pagina-carrera .lic-hero-claim,
+.pagina-carrera .campus-address,
+.pagina-carrera .site-footer .newsletter p {
+  max-width: 62ch;
+}
+
+/* La intro de la sección de historias y la del módulo de experiencia van
+   centradas: al acotarlas hay que conservar el centrado. */
+.pagina-carrera .stories .section-intro > p:not(.tagline) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -----------------------------------------------------------------------------
+   2b. …Y AL BAJARLO APARECIÓ LA INVERSIÓN DE VERDAD: H1 88 / H2 72
+
+   Con el H1 a 64 los H2 se quedaban en 72: el titular de página más pequeño que
+   los de sus secciones. La escala del molde está calibrada para los H2 de Inicio
+   y Oferta, que promedian 29 caracteres. Los de una página de carrera vienen
+   escritos para SEO y son mucho más largos:
+
+     «¿Cuál es el plan de estudios de la Licenciatura en Nutrición?»  60 car.
+     «¿Con qué perfil egresas de la Licenciatura en Nutrición?»       55 car.
+     «Preguntas frecuentes sobre la Licenciatura en Nutrición»        54 car.
+
+   A 72px el del perfil de egreso caía en CUATRO renglones dentro de su columna,
+   y los de ancho completo en dos de más de 100px de alto cada uno.
+
+   Se baja a 56, el mismo escalón que ya está medido y validado en la página de
+   área para exactamente este problema. Con eso la escala de la página queda
+   64 / 56 / 24 y la jerarquía vuelve a leerse de arriba abajo.
+
+   Va con clamp para no anular los breakpoints del molde en móvil.
+   -------------------------------------------------------------------------- */
+.pagina-carrera main h2 {
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1; /* 0.9 aprieta las descendentes cuando el título va a 2 renglones */
+}
+
+/* -----------------------------------------------------------------------------
+   3. EL CTA PRINCIPAL ERA EL BOTÓN MÁS PEQUEÑO DE LA PÁGINA
+
+   Medido: los dos botones del hero, 195×38px con tipo de 16px. Los de plan de
+   estudios, campo laboral, experiencia y formulario: 53px de alto con tipo de
+   21px. O sea, el botón que abre la conversión principal —«Solicitar
+   información»— se veía un 28% más bajo que cualquier CTA secundario de más
+   abajo. Es una inversión de jerarquía, no una decisión de escala.
+
+   Se igualan al tamaño grande del sitio. No se cambian los colores: dark +
+   light es el par del molde y es identidad de marca.
+
+   El CTA de la banda del Modelo Anáhuac (`porque-plan-cta`) SÍ se queda en el
+   tamaño chico: ahí es un remate secundario dentro de una banda, y competir con
+   el del hero sería el error contrario.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .lic-hero-media .button-row .btn {
+  padding: 15px 30px;
+  font-size: 21px;
+}
+
+/* -----------------------------------------------------------------------------
+   4. RITMO VERTICAL: EL HUECO INTRO → CONTENIDO ERA DISTINTO EN CADA SECCIÓN
+
+   Medido de arriba abajo: 50 · 50 · 32 · 50 · 60 · 40 · 50 · 50 · 40. Tres
+   valores distintos para el mismo papel. Se unifican en 50, que es el que ya
+   usan seis de las nueve.
+
+   Dos excepciones que se conservan porque no son el mismo caso: el perfil de
+   egreso (4px) porque su intro vive dentro de una columna y la tarjeta la sigue
+   inmediatamente, y el formulario (0) porque el bloque de campos hace de
+   contenido pegado.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .lic-plan-est .section-intro,
+.pagina-carrera .lic-campus .section-intro,
+.pagina-carrera .stories .section-intro {
+  margin-bottom: 50px;
+}
+
+/* -----------------------------------------------------------------------------
+   6. EL MÓDULO DE CAMPUS ERA EL ÚNICO CENTRADO DE LA PÁGINA
+
+   Todas las secciones alinean su intro contra el eje izquierdo del contenedor
+   —afinidad, porqué, perfil, plan, campo laboral, colaboradores, siguiente paso,
+   FAQ y formulario—. El de campus llega centrado desde el molde y rompe ese eje
+   justo a mitad del scroll: el ojo, que venía bajando por una línea recta, se va
+   al centro y vuelve.
+
+   Se alinea con el resto. El `max-width: 840px` del molde también se retira: era
+   lo que sostenía el centrado, y la medida del párrafo ya la fija la regla 1.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .lic-campus .section-intro {
+  align-items: flex-start;
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Alinear solo la intro dejaba el módulo peor que antes: las tarjetas siguen en
+   una caja de 900px centrada y la nota del pie también, así que el titular
+   arrancaba en el eje de la página y su contenido 170px más adentro. El módulo
+   completo pasa a ocupar el contenedor y a alinearse a la izquierda; así el
+   ancho de las dos tarjetas iguala al de las rejillas de arriba y abajo, que es
+   lo que hace que la página se lea como una sola retícula. */
+.pagina-carrera .campus-grid,
+.pagina-carrera .campus-note {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.pagina-carrera .campus-note {
+  justify-content: flex-start;
+  gap: 16px 40px;
+}
+
+/* -----------------------------------------------------------------------------
+   7. EL ACORDEÓN DEL FAQ ERA MÁS ANCHO QUE SU PROPIO TITULAR
+
+   Medido: el H2 ocupa 690px en dos renglones y las filas del acordeón, 1240. La
+   pregunta más larga llega a 570px, así que entre el final del texto y el «+»
+   quedaban hasta 600px de naranja vacío. No es un problema de clic —toda la fila
+   es el disparador— sino de lectura: el signo que indica «esto se abre» queda
+   tan lejos de la pregunta que deja de leerse como parte de ella.
+
+   Se acota a 1000px, cerca del ancho del titular que encabeza la lista. Las
+   respuestas siguen con su medida de 62ch de la regla 1.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .faq-list {
+  max-width: 1000px;
+}
+
+/* -----------------------------------------------------------------------------
+   8. EL CAMPO BLOQUEADO DEL FORMULARIO PARECÍA UN CAMPO VACÍO
+
+   «Nutrición» viene prellenado y es de solo lectura, pero el molde lo pinta con
+   el gris de texto secundario sobre el mismo fondo gris que los demás: idéntico
+   a un placeholder. Quien lo mira no distingue un dato ya resuelto de un campo
+   que le falta llenar, y en un formulario de siete campos eso es fricción.
+
+   Se invierte el tratamiento: el valor se pinta como valor —color de texto
+   pleno y semibold— y lo que señala el bloqueo es el chrome del campo, sin
+   relleno y con un contorno fino. Relleno = escribe aquí; contorno = ya está.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .lic-form-card input[readonly] {
+  color: var(--color-text);
+  font-weight: 600;
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+   10. EL TEXTO DE UN BOTÓN DE DOS RENGLONES SE ALINEABA A LA IZQUIERDA
+
+   `.btn` es `inline-flex` con `justify-content: center`, que centra el bloque de
+   texto pero no el texto dentro de él. Mientras el rótulo cabe en un renglón no
+   se nota; en cuanto parte —«Descargar plan de estudios» en móvil— el segundo
+   renglón se queda pegado a la izquierda y el botón se ve roto.
+
+   Es un defecto del botón del sitio, no de esta página: le pasa a cualquier CTA
+   largo en pantalla estrecha. Se corrige aquí y queda propuesto para promoción.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .btn {
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------------
+   11. PERFIL DE EGRESO: DOS TARJETAS DESALINEADAS Y MEDIO MÓDULO VACÍO
+
+   Dos defectos del molde que en Psicología no se notan y aquí sí.
+
+   (a) ANCHOS DISTINTOS. `.plan-aeo` lleva `max-width: 530px`. Apilada bajo la
+       tarjeta de perfil, que ocupa los 712px de la columna, las dos comparten
+       borde izquierdo y no el derecho: se lee como un error de maquetación, no
+       como una decisión. El tope de 530 está calibrado para la tarjeta de
+       Psicología —un titular corto y dos cifras—; la de Nutrición lleva tres
+       cifras y una nota de cinco renglones, y ahí el tope aprieta en vez de
+       acotar. Se retira: las dos tarjetas miden la columna.
+
+   (b) MEDIO MÓDULO EN MORADO VACÍO. `.plan-top-media` va con `align-self: end`,
+       así que la foto se pega al fondo de la retícula. Medido: la columna de
+       texto arranca en 3487 y la foto en 3833 — 346px de morado vacío arriba a
+       la derecha, y una columna de 953px contra otra de 635.
+
+       La foto pasa a ocupar el alto de la columna. Las dos cierran juntas, el
+       hueco desaparece y el módulo deja de verse partido por la mitad.
+       `object-position` sube el encuadre porque al estirarse a formato muy
+       vertical el recorte centrado se comía las caras.
+   -------------------------------------------------------------------------- */
+.pagina-carrera .plan-aeo {
+  max-width: none;
+}
+
+.pagina-carrera .plan-top {
+  align-items: stretch;
+}
+
+.pagina-carrera .plan-top-media {
+  align-self: stretch;
+}
+
+.pagina-carrera .plan-top-media img {
+  height: 100%;
+  aspect-ratio: auto;
+  object-position: center 25%;
+}
+
+/* -----------------------------------------------------------------------------
+   12. …Y AL APILARSE, EL MÓDULO SE CENTRABA Y SE ENCOGÍA AL 75%
+
+   El molde, por debajo de 900px, centra el contenido del perfil de egreso y lo
+   acota al 75% del ancho. Funciona con el copy de Psicología —dos bullets
+   cortos y una tarjeta de dos cifras—; con el de Nutrición no:
+
+   - En un móvil de 390px, el 75% deja la medida en ~30 caracteres por línea. Un
+     bullet de tres renglones pasa a ocupar siete.
+   - Centrado, el texto queda dentado por los dos lados y el ojo pierde el punto
+     de retorno en cada salto de línea. Con tres bullets largos y una nota de
+     cinco renglones eso es mucho pedir.
+   - Es además el único módulo de la página que se centra en móvil: todos los
+     demás mantienen el eje izquierdo.
+
+   Se apila, pero alineado a la izquierda y a ancho completo.
+
+   La foto también hay que devolverla: con `height: 100%` (regla 11) y una sola
+   columna, la fila no tiene alto que llenar y la imagen se quedaba en una
+   miniatura. Recupera su proporción 4/5 en cuanto deja de haber dos columnas.
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .pagina-carrera .lic-plan .section-intro,
+  .pagina-carrera .lic-plan .plan-card {
+    width: 100%;
+    margin-inline: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .pagina-carrera .lic-plan .section-intro .tagline {
+    justify-content: flex-start;
+  }
+
+  /* La palomita vuelve a su posición absoluta: alineados a la izquierda, los
+     bullets recuperan su sangría y la marca no empuja la primera línea. */
+  .pagina-carrera .plan-perfil-list li {
+    padding-left: 30px;
+  }
+
+  .pagina-carrera .plan-perfil-list li::before {
+    position: absolute;
+    display: block;
+    vertical-align: baseline;
+    margin-right: 0;
+  }
+
+  .pagina-carrera .plan-top-media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
