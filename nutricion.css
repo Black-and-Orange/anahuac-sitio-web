@@ -34,18 +34,19 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-/* «Servicio social» no cabe en una línea en una columna de ~180px, y forzarlo a
-   caber encogiendo el tipo lo separaría de los otros ocho. Se le permite el
-   segundo renglón y el número baja con él. */
+/* Las dos pestañas de servicio social van al MISMO cuerpo que las de semestre
+   —18px el rótulo y 21px el número, los del molde—. Estuvieron a 16/18 hasta el
+   2026-08-31 porque se dio por hecho que «Servicio social 10» no cabía en un
+   renglón; medido, ocupa 175px y la celda más estrecha de las cinco columnas
+   —a 1025px, justo antes de que la retícula baje a dos— mide 179. Cabe en todo
+   el tramo, y a cuerpo distinto se leían como si fueran de otra categoría.
+
+   Se conserva el `flex-wrap` como red: si el rótulo cambiara y dejara de caber,
+   parte en dos renglones en vez de desbordar la pestaña. */
 .nut-plan-tabs .plan-tab--ss {
   flex-wrap: wrap;
   row-gap: 0;
-  font-size: 16px;
   text-align: center;
-}
-
-.nut-plan-tabs .plan-tab--ss .plan-tab-num {
-  font-size: 18px;
 }
 
 /* Los dos periodos de servicio social no listan materias: el panel lleva solo la
@@ -112,16 +113,6 @@
 @media (max-width: 1024px) {
   .nut-plan-tabs .plan-tabs-nav {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* A dos columnas hay ancho de sobra: el rótulo de servicio social vuelve a
-     caber en un renglón y se alinea con el de los semestres. */
-  .nut-plan-tabs .plan-tab--ss {
-    font-size: 18px;
-  }
-
-  .nut-plan-tabs .plan-tab--ss .plan-tab-num {
-    font-size: 21px;
   }
 }
 
