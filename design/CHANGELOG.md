@@ -5,6 +5,60 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — La revisión de diseño de Nutrición sube al molde y llega a Psicología
+
+Cierra la pregunta abierta del 2026-08-28. Se revisó Psicología con los cambios
+puestos y **diez de los trece bloques suben** a `psicologia.css`: eran defectos
+del molde y las dos páginas los tenían igual.
+
+| # | Corrección | Efecto en Psicología |
+|---|---|---|
+| 1 | Medida de línea a 62ch | El texto corrido bajaba de 155 caracteres por línea |
+| 2b | H2 a 56px | «¿Con qué perfil egresas…» pasa de 4 renglones a 2 |
+| 3 | CTA del hero al tamaño grande | Deja de ser el botón más chico de la página |
+| 4 | Hueco intro → contenido unificado en 50 | Tres valores distintos para el mismo papel |
+| 6 | Campus alineado a la izquierda | Era el único módulo centrado del scroll |
+| 7 | FAQ acotado a 1000px | Hasta 600px de naranja vacío entre pregunta y «+» |
+| 8 | Campo bloqueado con contorno | «Psicología» dejaba de parecer un campo vacío |
+| 10 | Texto de botón centrado | Defecto del botón del sitio en pantalla estrecha |
+| 11 | Perfil de egreso: tarjetas a la columna y foto a alto completo | Desaparecen 346px de morado vacío y el borde desalineado |
+| 12 | En móvil el perfil no se centra ni se encoge al 75% | Recupera eje izquierdo y ancho completo |
+
+**Tres NO suben**, porque dependen del contenido de Nutrición y en Psicología
+serían un error. Siguen en `nutricion.css` con su numeración original:
+
+- **2 · tamaño del H1.** Calibrado para un titular de 54 caracteres. El de
+  Psicología tiene 26 y a 88px cae en dos renglones equilibrados; bajarlo a 64
+  sería encoger un titular que funciona.
+- **5 · rejilla de aliados a 3 columnas.** Los grupos de Nutrición tienen 3, 6 y
+  9 aliados y dividen exacto entre 3. Los de Psicología son 8 y 6, que dividen
+  mejor entre las 4 columnas del molde.
+- **9 · foto de campo laboral a 1/1.** Depende del número de ámbitos: 6 en
+  Nutrición, 7 en Psicología. Con siete, la proporción 4/5 del molde ya cierra
+  las dos columnas a la misma altura.
+
+### Por qué van prefijadas con `.pagina-carrera` y no sin prefijo
+
+`psicologia.css` lo cargan **tres** páginas, y la tercera —Área de Ciencias de la
+Salud— no es una página de carrera: tiene su propio piloto `escala-2026`, que ya
+resuelve por su cuenta la medida de línea y la escala de titulares, y está en
+revisión en otra rama. Dejar las reglas sin prefijo le habría pisado ese trabajo.
+
+Se añade `class="pagina-carrera"` al `<body>` de Psicología y Nutrición. Cuando
+el piloto del área cierre, el prefijo se puede retirar y las reglas pasan a ser
+el molde a secas.
+
+### Verificación
+
+- Psicología revisada módulo a módulo a 1440 y el perfil de egreso a 390.
+- **Nutrición queda idéntica al píxel** en los ocho módulos afectados (hero,
+  perfil de egreso, plan, campo laboral, campus, colaboradores, FAQ y
+  formulario): la promoción no cambia lo que ya estaba bien.
+- **Área de Ciencias de la Salud queda idéntica al píxel** en toda la página.
+- `check:tokens` y `check:readiness` pasan.
+
+---
+
 ## 2026-08-28 — Nutrición · muro de logotipos con los huecos marcados
 
 - La clienta pidió que el módulo 9 se lea **como logotipos**, no como una lista

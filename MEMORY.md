@@ -42,6 +42,24 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-08-31 — La revisión de diseño de Nutrición sube al molde; nace `.pagina-carrera`
+- Cierra la pregunta abierta del 2026-08-28. **Diez de los trece bloques** de
+  aquella revisión suben de `nutricion.css` a `psicologia.css` y Psicología
+  queda corregida. Detalle bloque por bloque en `design/CHANGELOG.md`.
+- **Tres no suben** porque dependen del contenido de Nutrición y en Psicología
+  serían un error: el tamaño del H1 (calibrado para 54 caracteres), la rejilla de
+  aliados a 3 columnas (3, 6 y 9 dividen exacto; los 8 y 6 de Psicología dividen
+  mejor entre 4) y la proporción de la foto de campo laboral (6 ámbitos contra
+  7). Siguen en `nutricion.css` con su numeración original.
+- **Alcance nuevo `.pagina-carrera`**, en el `<body>` de Psicología y Nutrición.
+  No van sin prefijo porque `psicologia.css` lo cargan TRES páginas y la tercera
+  —Área de Ciencias de la Salud— no es una carrera: tiene su piloto
+  `escala-2026`, que ya resuelve medida de línea y escala de titulares, y está en
+  revisión en otra rama. Cuando ese piloto cierre se puede retirar el prefijo.
+- Verificado: Nutrición y el Área quedan **idénticas al píxel**; la promoción
+  solo cambia Psicología.
+- **Aún no subido a `main`**: por instrucción, este cambio se queda en local.
+
 ### 2026-08-28 — Instalaciones absorbe a clínicas; el campus sale de la página de área
 - Resuelto el pendiente del 2026-08-27: se eliminan las dos tarjetas de Campus
   Norte / Sur y el módulo 6 muestra las instalaciones en un deslizador. El
@@ -214,10 +232,6 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - ¿Hay páginas internas ya diseñadas en Figma además del Home? (el usuario indicó que sí, pendiente links concretos).
 - ¿Se tiene cuenta sandbox de HubSpot para deploy?
 - ¿Cuál es el mapeo institucional completo de preparatorias para Ciudad de México y Estado de México?
-- **¿Se promueven al molde los diez arreglos de diseño de Nutrición?** Hoy están
-  acotados con `.pagina-nutricion`; Psicología conserva los defectos. Requiere
-  revisar Psicología con los cambios aplicados. Ver `design/CHANGELOG.md`
-  (2026-08-28).
 - **Nutrición · faltan 17 logotipos de aliados. 🚫 BLOQUEA EL MERGE DEL M9.** La
   clienta pidió el 2026-08-28 que el módulo 9 se lea como muro de logotipos y que
   los que falten queden marcados en la página para saber qué nos debe pasar. El
