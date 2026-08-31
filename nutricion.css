@@ -10,8 +10,10 @@
         09 y 10 de servicio social),
      b) la tarjeta de datos duros lleva 3 datos y no 2 (el año de servicio social
         es lo que distingue la duración real de esta carrera),
-     c) tres piezas de texto auxiliar que el molde no tenía: la nota del plan de
-        referencia, el panel de servicio social y el dato de Facultad en M9.
+     c) dos piezas de texto auxiliar que el molde no tenía: el panel de servicio
+        social del plan y el dato de Facultad en M9. (Eran tres: la nota del plan
+        de referencia y la de composición de créditos las retiró la clienta el
+        2026-08-31.)
 
    Si una de estas desviaciones se repitiera en otra carrera, su sitio dejaría de
    ser esta hoja y pasaría a ser el componente en psicologia.css.
@@ -56,18 +58,6 @@
   color: var(--color-text);
 }
 
-/* Nota del folleto bajo las pestañas. Es una salvedad del plan de referencia, no
-   contenido del módulo: va al tamaño de nota y alineada al eje del contenido. */
-.nut-plan-nota {
-  margin-top: 16px;
-  max-width: 62ch;
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 0.2px;
-  color: var(--color-text-secondary);
-}
-
 /* -----------------------------------------------------------------------------
    MÓDULO 4 — Tarjeta de datos duros con TRES datos
 
@@ -85,26 +75,6 @@
    dentro de la tarjeta: la cifra baja un escalón y la etiqueta se mantiene. */
 .nut-aeo .plan-aeo-dato strong {
   font-size: 52px;
-}
-
-/* Línea de apoyo obligatoria bajo los números: es la que explica de qué se
-   compone la duración. Separada por una regla fina para que no se lea como pie
-   del tercer dato, que es solo uno de los tres. */
-.nut-aeo-nota {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  letter-spacing: 0.2px;
-  color: var(--color-text);
-  text-wrap: pretty;
-}
-
-.nut-aeo-nota strong {
-  font-weight: 600;
-  color: var(--purple-2);
 }
 
 /* -----------------------------------------------------------------------------
@@ -176,37 +146,21 @@
 
    De los trece bloques de aquella revisión, diez resultaron ser defectos del
    MOLDE COMPARTIDO y el 2026-08-31 subieron a `psicologia.css`, donde ya
-   benefician también a Psicología. Aquí quedan los tres que dependen del
+   benefician también a Psicología. Aquí quedan los dos que dependen del
    contenido de ESTA carrera y que en Psicología serían un error:
 
-     2. el tamaño del H1 — calibrado para un titular de 54 caracteres,
      5. la rejilla de aliados — 3, 6 y 9 dividen exacto entre 3,
      9. la proporción de la foto de campo laboral — depende de los 6 ámbitos.
+
+   El bloque 2 —el H1 a 64px— murió el 2026-08-31 con su motivo: el titular pasó
+   de «Licenciatura en Nutrición en la Universidad Anáhuac México» (54
+   caracteres, cuatro renglones a 88px) a «Licenciatura en Nutrición» (25), que
+   es la misma medida que el de Psicología. El molde vuelve a ser correcto y las
+   dos páginas de carrera comparten tamaño de titular.
 
    Conservan su numeración original para poder cruzarlos con
    `design/CHANGELOG.md`.
    ========================================================================== */
-
-/* -----------------------------------------------------------------------------
-   2. EL H1 CAÍA EN CUATRO RENGLONES
-
-   Medido: 88px con interlínea 0.8 en una columna de 644px → 282px de titular,
-   cuatro renglones, contra un bloque de media de 364px. El molde está calibrado
-   para «Licenciatura en Psicología» (26 caracteres, 2 renglones); este H1 tiene
-   54 y el doble de altura.
-
-   A 64px cae en tres renglones y baja a ~173px: el hero recupera el equilibrio
-   entre sus dos columnas sin que el titular pierda presencia. La interlínea sube
-   de 0.8 a 0.9 porque a tres renglones las mayúsculas con acento —Á, Ó— quedaban
-   a punto de tocar el renglón de arriba.
-
-   Va con clamp para no anular los breakpoints del molde en móvil.
-   -------------------------------------------------------------------------- */
-.pagina-nutricion .lic-hero h1 {
-  font-size: clamp(34px, 4.6vw, 64px);
-  line-height: 0.9;
-  text-wrap: balance;
-}
 
 /* -----------------------------------------------------------------------------
    5. ALIADOS: LA REJILLA DE 4 COLUMNAS DEJABA FILAS COJAS
@@ -218,11 +172,13 @@
    `.colab-logo-pendiente`.
 
    Con tiles de ancho parejo la rejilla del molde vuelve a ser lo correcto, pero
-   no con sus 4 columnas: los tres grupos tienen 3, 6 y 9 aliados, así que a 4
-   por fila quedaban 1, 2 y 3 celdas vacías y el noveno tile de las cátedras se
-   quedaba solo en su fila. A 3 columnas los tres grupos dividen exacto —1, 2 y 3
-   filas llenas, cero huecos— y la celda pasa de 271 a 364px, holgura que las
+   no con sus 4 columnas: los grupos tienen 6 y 3 aliados, así que a 4 por fila
+   quedaban 2 y 1 celdas vacías. A 3 columnas los dos grupos dividen exacto —2 y
+   1 filas llenas, cero huecos— y la celda pasa de 271 a 364px, holgura que las
    etiquetas de pendiente agradecen.
+
+   (Eran tres grupos de 3, 6 y 9 hasta el 2026-08-31, cuando la clienta retiró
+   las cátedras corporativas. También entonces dividían exacto entre 3.)
 
    [REVISAR al sustituir por logotipos reales] cuando los 18 sean imagen, esta
    regla puede volver a las 4 columnas del molde: 3, 6 y 9 siguen sin dividir

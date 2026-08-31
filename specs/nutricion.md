@@ -71,7 +71,7 @@
   - *Versión propuesta de B&O, **elegida por la clienta** por encima de la del mapeo. ⚠️ Esta es la definitiva: no la sustituyas por la del mapeo ni por otra.*
 - **Keyword principal:** `licenciatura en nutricion` (2,900) · **Secundarias:** `lic en nutricion` (2,900) · `carrera de nutricion` (2,400) · `nutricion universidades` (590) · `carrera de nutriologa` (260 — **hoy en posición 1: no perderla**) · `materias de nutricion` (260) · `plan de estudios nutricion` (140)
 - **⚠️ `qué materias se ven en la carrera de nutricion`** (260, hoy en posición 56) es una pregunta literal y la pregunta 2 del FAQ la reproduce casi verbatim. **No la reescribas.**
-- **⚠️ `carrera de nutriologa` está en posición 1.** Para no perderla, el femenino «nutrióloga» debe seguir apareciendo en el H2 de M6 y en el alt de la preview.
+- **🔴 `carrera de nutriologa` está en posición 1 y el 2026-08-31 perdió su sitio más fuerte.** La clienta pidió cambiar el H2 de M6 de «¿Dónde puedes ejercer como nutriólogo o nutrióloga?» a «¿Dónde puedes ejercer como nutriólogo?». El femenino **ya no aparece en ningún encabezado**; solo sobrevive en los `data-alt` de cuatro de los seis tiles de M6. Es un riesgo real para una keyword que hoy es primera. Si se quiere blindar sin tocar ese H2, hay que devolver «nutrióloga» a texto indexable en otro sitio de la página —intro de M6, un tile, el FAQ o el `og:image` alt—. **Decisión pendiente de la clienta.**
 - **⚠️ Keywords del «Mapeo de Sitio Web 2025» (documento del cliente):** `licenciatura en nutricion` (2,900) · `lic en nutricion` (2,900) · `carrera de nutricion` (2,400) · `nutricion universidades` (590) · `anahuac nutricion` (170) · `licenciatura en nutricion cdmx` (140) · `plan de estudios nutricion` (140) · `universidades de nutricion en cdmx` (70). **Aparece un clúster CDMX** que no estaba: menciona «Ciudad de México» de forma natural en M7.
 - **Open Graph:**
   - `og:title`: «Licenciatura en Nutrición — Universidad Anáhuac México»
@@ -81,15 +81,15 @@
 
 ## 4. Mapa de encabezados
 
-- **H1** — «Licenciatura en Nutrición en la Universidad Anáhuac México» (M1, `#inicio`)
+- **H1** — «Licenciatura en Nutrición» (M1, `#inicio`) *(acortado por la clienta el 2026-08-31; antes «…en la Universidad Anáhuac México»)*
   - **H2** «¿Te interesa ayudar a las personas a través de la alimentación y el bienestar?» (M2, `#afinidad`)
   - **H2** «¿Por qué estudiar Nutrición en la Anáhuac?» (M3, `#por-que`)
   - **H2** «¿Con qué perfil egresas de la Licenciatura en Nutrición?» (M4, `#perfil-egreso`) → H3 «Perfil de egreso» · H3 «¿Cuánto dura la carrera de Nutrición?»
   - **H2** «¿Cuál es el plan de estudios de la Licenciatura en Nutrición?» (M5, `#plan-estudios`) → H3 por bloque (Profesional / Anáhuac / Interdisciplinario)
-  - **H2** «¿Dónde puedes ejercer como nutriólogo o nutrióloga?» (M6, `#campo-laboral`) → H3 de la banda destacada
+  - **H2** «¿Dónde puedes ejercer como nutriólogo?» (M6, `#campo-laboral`) → H3 de la banda destacada *(la clienta retiró «o nutrióloga» el 2026-08-31 — ver el aviso de SEO más arriba)*
   - **H2** «Estudia Nutrición en el campus que elijas» (M7, `#instalaciones`) → H3 «Campus Norte» · H3 «Campus Sur»
   - **H2** «Historias Anáhuac» (M8)
-  - **H2** «¿Con quién te formas?» (M9, `#colaboradores`) → H3 «Claustro docente» · H3 «Convenios académicos internacionales» · H3 «Convenios nacionales» · H3 «Cátedras corporativas»
+  - **H2** «¿Con quién te formas?» (M9, `#colaboradores`) → H3 «Claustro docente» · H3 «Aliados nacionales» · H3 «Aliados internacionales» *(renombrados y reordenados por la clienta el 2026-08-31; el H3 «Cátedras corporativas» se eliminó)*
   - **H2** «Elige el siguiente paso para tu futuro» (M10, `#siguiente-paso`)
   - **H2** «Preguntas frecuentes sobre la Licenciatura en Nutrición» (M11, `#faq`) → H3 por pregunta (8)
   - **H2** «Descubre por qué ser un León Anáhuac» (M12, `#experiencia`) → H3 por eje (4)
@@ -122,16 +122,17 @@
 
 **Componente:** `lic-afinidad` — intro + grid de 4 `afinidad-card` + bloque `afinidad-enfoque` (párrafo + dos grupos de chips).
 
-**⚠️ La tarjeta 1 es la que separa a Nutrición de Medicina. No la muevas de la primera posición ni la suavices.**
 
 - **Eyebrow:** «¿Es para ti?»
 - **H2:** «¿Te interesa ayudar a las personas a través de la alimentación y el bienestar?»
 - **Intro:** «Si te reconoces en lo siguiente, la Nutrición puede ser tu lugar.»
 - **Tarjetas (4):**
-  1. «Buscas una carrera con identidad propia: tu propio perfil profesional, plan de estudios y campo laboral — no una alternativa "más sencilla" a Medicina.»
-  2. «Te apasiona la ciencia detrás de la alimentación y su impacto real en la salud de las personas.»
-  3. «Quieres ayudar a otros a mejorar su calidad de vida — con la constancia y la disciplina que exige acompañar procesos de cambio, no solo por vocación.»
-  4. «Te imaginas con tu propio consultorio o tu propia marca de productos alimentarios.»
+  1. «Te interesa descubrir cómo la alimentación puede transformar la salud y el bienestar.»
+  2. «Te gusta la ciencia y quieres aplicarla para entender la relación entre alimentación y salud.»
+  3. «Te motiva acompañar a las personas en el camino hacia hábitos más saludables.»
+  4. «Te gustaría crear tu propio consultorio, proyecto o emprendimiento relacionado con la nutrición.»
+
+  *Copy sustituido por la clienta el 2026-08-31. La versión anterior abría separando Nutrición de Medicina («no una alternativa "más sencilla"»); la nueva no toca esa comparación. Los iconos se conservan.*
 - **Párrafo del bloque de enfoque:** «En la Anáhuac te formamos como un **profesional de la salud** que previene, evalúa, diagnostica y trata el estado de nutrición de las personas y de la población.»
 - **Chips — grupo «Ámbitos»:** «Clínica» · «Deportiva» · «Poblacional» · «Industria alimentaria»
 - **Chips — grupo «Herramientas»:** «Bioimpedancia» · «Bod Pod» · «Nutrigenómica» · «Dietoterapia»
@@ -180,7 +181,7 @@
   - Dato 1: **«8»** / «Semestres académicos (4 años)»
   - Dato 2: **«398»** / «Créditos totales»
   - Dato 3: **«+1»** / «Año de servicio social (periodos 09 y 10)»
-  - **Línea de apoyo obligatoria bajo los números:** «Bloque Profesional 311 + Bloque Anáhuac 42 + Bloque Electivo 45. Al concluir los 8 semestres cumples un año de **servicio social** con acompañamiento de un tutor, en un hospital, clínica o institución afín. **Cuenta como experiencia laboral formal** que puedes incluir en tu CV y, si lo decides, puedes cursarlo en paralelo con el primer año de un posgrado dentro de la misma universidad.»
+  - **Sin línea de apoyo bajo los números.** La llevaba —el desglose de créditos por bloque y la explicación del año de servicio social— y **la clienta la retiró el 2026-08-31**. El «+1» queda sin glosa: se sostiene solo con su etiqueta «Año de servicio social (periodos 09 y 10)».
   - **✅ Resuelto con el folleto oficial:** el plan de referencia rotula los periodos **09 y 10 como «Servicio social»**, después de los 8 semestres académicos. La denominación oficial es simplemente **«Servicio social»**. Los créditos totales (398) **no lo incluyen**.
 - **Alt de la foto:** «Estudiante de Nutrición de la Anáhuac atendiendo a un paciente en la Clínica de Nutrición.»
 
@@ -193,7 +194,7 @@
 **⚠️ 10 tabs: 8 semestres + «Servicio social 09» y «Servicio social 10»**, tal como los rotula el plan de referencia oficial. Las dos últimas no listan materias: llevan solo la nota de cierre.
 
 - **Eyebrow:** «Plan de estudios» · **H2:** «¿Cuál es el plan de estudios de la Licenciatura en Nutrición?»
-- **Intro:** «Tu plan avanza semestre a semestre, de las bases científicas a la práctica clínica con pacientes reales.»
+- **Sin intro.** La tenía —«Tu plan avanza semestre a semestre…»— y la clienta la retiró el 2026-08-31: el módulo abre con el H2 y las pestañas.
 - **Tabs (8):**
   | Tab | Materias |
   |---|---|
@@ -201,20 +202,20 @@
   | **Semestre 2** | Epidemiología y salud pública · Cálculo dietético · Anatomía y fisiología del aparato digestivo · Bioquímica · Bromatología · Microbiología de alimentos · Comunicación nutriólogo-paciente · Persona y sentido de vida |
   | **Semestre 3** | Fisiología general · Nutrición en el individuo sano · Evaluación del estado de nutrición I · Bioquímica de la nutrición · Análisis de alimentos · Preparación de alimentos · Ética |
   | **Semestre 4** | Sistemas de información en salud basados en evidencias · Evaluación del estado de nutrición II · Psicología de la nutrición · Fisiopatología · Selección y conservación de alimentos · Dietoterapia · Toxicología · Persona y trascendencia |
-  | **Semestre 5** | Metodología de la investigación para la salud · Nutrición del niño en condiciones especiales · Farmacología en nutrición · Responsabilidad social y sustentable · **Prácticum I — Nutrición integrada en el individuo sano** · Planeación y diseño de menús · Taller o actividad I · Humanismo clásico y contemporáneo |
+  | **Semestre 5** | Metodología de la investigación para la salud · Nutrición del niño en condiciones especiales · Farmacología en nutrición · Responsabilidad social y sustentable · Prácticum I — Nutrición integrada en el individuo sano · Planeación y diseño de menús · Taller o actividad I · Humanismo clásico y contemporáneo |
   | **Semestre 6** | Nutrición del adulto en condiciones especiales · Nutrigenómica y metabolómica · Alimentos funcionales · Nutrición artificial · Educación nutricional · Electiva profesional I · Electiva libre I · Liderazgo |
-  | **Semestre 7** | Nutrición poblacional · Emprendimiento e innovación · Legislación alimentaria · Gestión y dirección de servicios de salud · **Prácticum II — Nutrición integrada en el individuo con patologías** · Electiva profesional II · Electiva libre II · Taller o actividad II |
-  | **Semestre 8** | Políticas públicas en alimentación · Calidad y seguridad del paciente en Ciencias de la Salud · Economía alimentaria · Gestión en servicios de alimentos · **Prácticum III — Nutrición integrada especializada** · Electiva profesional III · Electiva profesional IV · Taller o actividad III |
+  | **Semestre 7** | Nutrición poblacional · Emprendimiento e innovación · Legislación alimentaria · Gestión y dirección de servicios de salud · Prácticum II — Nutrición integrada en el individuo con patologías · Electiva profesional II · Electiva libre II · Taller o actividad II |
+  | **Semestre 8** | Políticas públicas en alimentación · Calidad y seguridad del paciente en Ciencias de la Salud · Economía alimentaria · Gestión en servicios de alimentos · Prácticum III — Nutrición integrada especializada · Electiva profesional III · Electiva profesional IV · Taller o actividad III |
   | **Servicio social 09** | Periodo de servicio social supervisado, con acompañamiento de un tutor |
   | **Servicio social 10** | Periodo de servicio social supervisado, con acompañamiento de un tutor |
-- **Nota al pie de las tabs (del folleto, consérvala):** «Este plan de referencia muestra un orden sugerido; las materias pueden variar según el campus en el que estudies.»
+- **Sin nota al pie de las tabs.** Venía del folleto («Este plan de referencia muestra un orden sugerido…») y la clienta la retiró el 2026-08-31.
 - **Créditos por semestre** (del folleto, útiles si el componente los muestra): 45 · 50 · 56 · 49 · 54 · 51 · 48 · 45.
 - **Bloques del Modelo Anáhuac (3 tarjetas):**
-  - **Bloque Profesional** — «El corazón de tu carrera. Aquí desarrollas las competencias de la profesión, atiendes pacientes en tus tres Prácticum y sigues la ruta de liderazgo y emprendimiento. Además eliges tus [Minors] —diplomas profesionales universitarios— que amplían tu perfil.» *(el enlace «Minors» abre el modal de video, `data-yt-modal="IgwjRh2o2x8"`)*
+  - **Bloque Profesional** — «El corazón de tu carrera. Aquí desarrollas las competencias de la profesión, atiendes pacientes en tus tres Prácticum y sigues la ruta de liderazgo y emprendimiento. Además eliges tus [Minors] —diplomas profesionales universitarios— que amplían tu perfil y te dan versatilidad para el mundo laboral.» *(el enlace «Minors» abre el modal de video, `data-yt-modal="IgwjRh2o2x8"`)*
   - **Bloque Anáhuac** — «El sello que nos distingue. Un espacio de autoconocimiento, ética y sentido de vida que te forma como persona íntegra y como líder de acción positiva, consciente de su vocación y de su impacto en los demás.»
-  - **Bloque Electivo** *(⚠️ en Nutrición se llama así, no «Interdisciplinario»)* — «Cursas electivas profesionales y libres, además de talleres y actividades, para ampliar tu perfil más allá del núcleo de la carrera.»
+  - **Bloque Electivo** *(⚠️ en Nutrición se llama así, no «Interdisciplinario»)* — «Sales de tu carrera para entender el mundo real. Cursas asignaturas de otras disciplinas y conectas saberes que hoy el entorno profesional exige integrados, ampliando tu visión más allá de tu área de estudio.»
 - **CTAs (`plan-cta`) — DOS:** «Descargar plan de estudios» (`btn btn-orange`) · «Descargar folleto» (`btn btn-light`) — ambos → `#solicita`. **✅ El folleto oficial de Nutrición existe** (Facultad de Ciencias de la Salud).
-- **Enlace RVOE (`plan-rvoe`):** «RVOE SEP · D.O.F. 26/11/1982» + icono externo + `sr-only` — **fecha confirmada en el folleto oficial**. **[PENDIENTE: URL del documento público.]**
+- **Enlace RVOE (`plan-rvoe`):** «RVOE SEP · D.O.F.» + icono externo + `sr-only`. La fecha (26/11/1982, confirmada en el folleto oficial) **la retiró la clienta el 2026-08-31**. **[PENDIENTE: URL del documento público.]**
 
 ---
 
@@ -222,8 +223,8 @@
 
 **Componente:** `lic-campo` — intro + `campo-layout` (tiles + `campo-preview`) + banda `campo-band` con los dos CTAs duros.
 
-- **Eyebrow:** «Campo laboral» · **H2:** «¿Dónde puedes ejercer como nutriólogo o nutrióloga?»
-- **Intro:** «Como egresado de Nutrición de la Anáhuac puedes ejercer en hospitales, clínicas y consultorio propio, empresas de la industria alimentaria, instituciones deportivas, escuelas, organismos públicos de salud, proyectos de investigación y desarrollo de nuevos productos, en México o en el extranjero.»
+- **Eyebrow:** «Campo laboral» · **H2:** «¿Dónde puedes ejercer como nutriólogo?»
+- **Intro:** «Tu formación te abre oportunidades en diferentes áreas de la salud, la alimentación y el bienestar.» *(sustituida por la clienta el 2026-08-31; la anterior enumeraba los entornos uno por uno)*
 - **Tiles (6):**
   1. **«Clínica y hospital»** — «Diagnóstico y tratamiento nutricional en hospitales y clínicas públicas y privadas.»
   2. **«Consultorio propio»** — «Práctica independiente y acompañamiento nutricional de tus propios pacientes.»
@@ -274,9 +275,11 @@
 - **Eyebrow:** «Docencia y colaboradores» · **H2:** «¿Con quién te formas?»
 - **Intro:** «Aprendes de profesores con experiencia clínica y académica, y practicas en un entorno respaldado por una amplia red de convenios de la Facultad de Ciencias de la Salud.»
 - **«Claustro docente» (H3):** carrusel de `docente-card` → foto + nombre + **cargo o logro profesional** (⚠️ no el grado ni la materia). **[PENDIENTE: nombres, fotos y cargos reales de docentes de Nutrición.]**
-- **«Convenios académicos internacionales» (H3):** logos con etiqueta de país — **Universidad Finis Terrae** (Chile) · **Universidad Francisco de Vitoria** (Madrid, España) · **Pontificia Universidad Javeriana** (Colombia). *(Confirmados en el folleto oficial.)*
-- **«Convenios nacionales» (H3):** ISEM · Hospital General · Instituto Nacional de Perinatología · Asociación Mexicana de Diabetes · AMANC · Herdez
-- **«Cátedras corporativas» (H3):** 3M · Toks · Seguros Atlas · PwC · Phillips · Oracle · Manpower · Hospital Ángeles · GE
+**⚠️ DOS grupos, y en este orden: nacionales primero.** Decisión de la clienta del 2026-08-31, en la misma revisión en que se renombraron —eran «Convenios nacionales» y «Convenios académicos internacionales»— y en que se retiró el tercer grupo.
+
+- **«Aliados nacionales» (H3):** ISEM · Hospital General · Instituto Nacional de Perinatología · Asociación Mexicana de Diabetes · AMANC · Herdez
+- **«Aliados internacionales» (H3):** logos con etiqueta de país — **Universidad Finis Terrae** (Chile) · **Universidad Francisco de Vitoria** (Madrid, España) · **Pontificia Universidad Javeriana** (Colombia). *(Confirmados en el folleto oficial.)*
+- **~~«Cátedras corporativas»~~ — eliminado el 2026-08-31.** Eran 3M · Toks · Seguros Atlas · PwC · Phillips · Oracle · Manpower · Hospital Ángeles · GE. Se anotan aquí por si hay que reponerlos.
 - **Dato de respaldo de Facultad (usar solo si el diseño necesita una cifra, y siempre atribuido a la Facultad, no a la carrera):** «La Facultad de Ciencias de la Salud cuenta con más de 350 campos clínicos y convenios con más de 53 hospitales en 8 estados de la República.»
 
 ---
@@ -301,18 +304,17 @@
 
 **Componente:** `lic-faq` — acordeón `details.faq-item` con `name` compartido, fondo naranja, + `FAQPage` en JSON-LD.
 
-**⚠️ Las preguntas 4 y 5 responden objeciones reales documentadas por la Facultad. No las quites ni las suavices.**
+**⚠️ La pregunta 4 responde una objeción real documentada por la Facultad. No la quites ni la suavices.** La 5 —«¿Es lo mismo estudiar Nutrición que Medicina en la Anáhuac?»— respondía otra, pero **la clienta la eliminó el 2026-08-31**, en la misma revisión en que retiró la tarjeta de afinidad que hacía esa misma distinción. La página ya no contrasta Nutrición con Medicina en ningún sitio.
 
 - **Eyebrow:** «Preguntas frecuentes» · **H2:** «Preguntas frecuentes sobre la Licenciatura en Nutrición»
-- **Acordeón (8 preguntas):**
+- **Acordeón (7 preguntas):**
   1. **«¿Cuántos años dura la carrera de Nutrición?»** → «El plan académico de la Licenciatura en Nutrición dura 8 semestres, es decir, 4 años, en modalidad presencial. Al terminarlo, realizas un año de servicio social con acompañamiento de un tutor, requisito para obtener tu título.»
   2. **«¿Qué materias se ven en la carrera de Nutrición?»** → «Cursarás materias como Nutriología, Bioquímica de la nutrición, Dietoterapia, Nutrigenómica y metabolómica, Nutrición poblacional y Políticas públicas en alimentación, entre otras, organizadas semestre por semestre.»
   3. **«¿La Licenciatura en Nutrición tiene prácticas profesionales?»** → «Sí. Desde el 5º semestre atiendes pacientes reales, supervisado por docentes, en la Clínica de Nutrición Anáhuac, a través de los Prácticum I, II y III.»
   4. **«¿Es cierto que el último año de Nutrición es servicio social?»** → «Sí. Después de tus 8 semestres académicos realizas un año de servicio social con acompañamiento de un tutor, en un hospital, clínica o institución afín. Ese año cuenta como experiencia laboral formal para tu CV y, si lo decides, puedes cursarlo en paralelo con el primer año de un posgrado dentro de la misma universidad.»
-  5. **«¿Es lo mismo estudiar Nutrición que Medicina en la Anáhuac?»** → «No. Aunque ambas forman parte de la Facultad de Ciencias de la Salud, la Nutrición tiene un perfil, un plan de estudios y un campo laboral propios —enfocados en la evaluación, prevención y tratamiento nutricional— y no es una alternativa "más sencilla" a la Medicina.»
-  6. **«¿En qué puedo trabajar al terminar la carrera de Nutrición?»** → «Puedes ejercer en hospitales, clínicas y consultorio propio, empresas de alimentos, instituciones deportivas, escuelas, organismos públicos de salud y proyectos de investigación y desarrollo de productos.»
-  7. **«¿En qué campus se imparte Nutrición en la Anáhuac?»** → «En Campus Norte (Huixquilucan, Edo. de México) y Campus Sur (Álvaro Obregón, CDMX), ambos en modalidad presencial.»
-  8. **«¿Cuánto cuesta estudiar Nutrición en la Anáhuac?»** → «Puedes calcular tu colegiatura y conocer opciones de beca en nuestro cotizador.» *(enlace a `/cotizador`)*
+  5. **«¿En qué puedo trabajar al terminar la carrera de Nutrición?»** → «Puedes ejercer en hospitales, clínicas y consultorio propio, empresas de alimentos, instituciones deportivas, escuelas, organismos públicos de salud y proyectos de investigación y desarrollo de productos.»
+  6. **«¿En qué campus se imparte Nutrición en la Anáhuac?»** → «En Campus Norte (Huixquilucan, Edo. de México) y Campus Sur (Álvaro Obregón, CDMX), ambos en modalidad presencial.»
+  7. **«¿Cuánto cuesta estudiar Nutrición en la Anáhuac?»** → «Puedes calcular tu colegiatura y conocer opciones de beca en nuestro cotizador.» *(enlace a `/cotizador`)*
 - **⚠️ El texto del `FAQPage` debe ser idéntico al del acordeón, sin markup dentro.**
 
 ---
@@ -406,7 +408,7 @@ Header
 | 9 | Testimonios reales con nombre y consentimiento | M8 | 🟡 | Cliente |
 | 10 | Claustro docente: nombres, fotos y cargos | M9 | 🟡 | Facultad |
 | 11 | Logotipos de Nestlé, Danone y Herdez con autorización de uso | M6 | 🟡 | Cliente |
-| 11b | Los 17 logotipos de aliados que faltan (la UFV ya está puesta) | M9 | 🟡 | Cliente / Facultad |
+| 11b | Los 8 logotipos de aliados que faltan (la UFV ya está puesta) | M9 | 🟡 | Cliente / Facultad |
 | 12 | Fotos reales de la Clínica de Nutrición, laboratorios y equipo de diagnóstico | M1, M4, M7, M13 | 🟡 | Producción fotográfica |
 | 13 | ID del video institucional | M1 | 🟡 | Cliente |
 | 14 | Conexión del formulario a HubSpot | M13 | 🟡 | HubSpot |
