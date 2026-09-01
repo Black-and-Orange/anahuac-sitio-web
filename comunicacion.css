@@ -1,0 +1,432 @@
+/* =============================================================================
+   LICENCIATURA EN COMUNICACIÓN — hoja de página
+
+   Esta hoja NO define componentes. El molde entero —hero, afinidad, porqué,
+   plan, campo, campus, historias, colaboradores, pasos, FAQ, experiencia y
+   formulario— vive en psicologia.css y se reutiliza tal cual.
+
+   El `<body>` lleva además `pagina-carrera`, así que la página nace con las diez
+   correcciones del molde promovidas el 2026-08-31 (medida de línea, escala de
+   titulares, CTA del hero, ritmo vertical, campus alineado, FAQ acotado, campo
+   bloqueado, botón centrado y perfil de egreso). **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de Comunicación:
+
+     a) las 9 pestañas del plan van por ÁREA TEMÁTICA y no por semestre, con
+        rótulos que son frases largas y sin número,
+     b) el módulo de campus abre con la lista de instalaciones de la Facultad,
+        que es el activo más fuerte de la carrera,
+     c) los cuatro grupos de M9 son heterogéneos: logotipos, chips y texto suelto,
+     d) el hero lleva un subtítulo que el molde no tiene,
+     e) los huecos de fotografía, mientras no haya banco de imágenes.
+
+   Si alguna de estas desviaciones se repitiera en otra carrera, su sitio dejaría
+   de ser esta hoja y pasaría a ser el componente en psicologia.css.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   0. (retirada) HUECOS DE FOTOGRAFÍA
+
+   Aquí vivía la variante `.media-pendiente` y sus modificadores: el tratamiento
+   de hueco marcado —contorno punteado y la escena escrita dentro— con el que la
+   página se montó mientras no hubo una sola fotografía.
+
+   Deja de hacer falta el 2026-08-31: con las 14 fotos de la sesión RUA 2022,
+   repetidas donde hizo falta por decisión de la clienta, no queda ningún hueco.
+   La regla se retira en vez de quedarse huérfana; está en el historial de
+   `design/CHANGELOG.md` si hay que reponerla.
+
+   ⚠️ Que no haya huecos NO significa que la fotografía esté resuelta. Lo que
+   falta y por qué, en `assets/comunicacion/README.md`.
+   -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+   1. EL SUBTÍTULO DEL HERO
+
+   El molde tiene titular y claim, y nada más. Esta página necesita un tercer
+   nivel: es donde entra la variante natural de la keyword principal —«carrera de
+   Comunicación»— dentro de las primeras 100 palabras, y donde arranca la
+   respuesta a la objeción que sostiene la página entera. Es obligatorio y no se
+   elimina.
+
+   Va por debajo del claim en peso y por encima del cuerpo: el claim son tres
+   palabras a 30px y esto es una frase de tres renglones, así que se separa por
+   tamaño y color, no por familia.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-hero-sub {
+  margin-top: 16px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  /* 18 y no 17: la escala del sitio es 14 · 15 · 16 · 18 · 21, y 17 no existe en
+     ella. Como entrada del hero le toca el escalón por encima del cuerpo. */
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-comunicacion .com-hero-sub strong {
+  font-weight: 600;
+}
+
+/* Los chips se separan del subtítulo con el mismo hueco que el molde usa entre
+   claim y chips: si no, el bloque de texto y la fila de chips se pegan. */
+.pagina-comunicacion .com-hero-sub + .lic-chips {
+  margin-top: 24px;
+}
+
+/* -----------------------------------------------------------------------------
+   2. LAS 9 PESTAÑAS DEL PLAN VAN POR ÁREA, NO POR SEMESTRE
+
+   Es la única carrera del lote así. El molde reparte 8 pestañas cortas
+   —«Semestre 3», dos palabras y un número— en 8 → 4 → 2 columnas, siempre
+   divisores exactos de 8. Aquí los rótulos son frases de hasta 43 caracteres
+   («Comunicación estratégica y organizacional») y no hay número que poner.
+
+   Van a 3 columnas: 9 divide exacto entre 3, así que quedan tres filas llenas y
+   ningún hueco. Es el mismo criterio del 5×2 de Nutrición y de las 3 columnas de
+   sus aliados. A 1120px de contenedor la celda mide 366px, que da para dos
+   renglones cómodos.
+
+   El rótulo se centra y se le permite partir: `align-items: baseline` del molde
+   está pensado para alinear la palabra con el número, y sin número deja el texto
+   pegado arriba.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pagina-comunicacion .com-plan-tabs .plan-tab {
+  align-items: center;
+  min-height: 72px;
+  padding: 14px 18px;
+  /* Se queda en los 18px del molde. Bajarlo a 17 fue una precaución de más:
+     medido a 1440, 1280, 1100 y 950px, ningún rótulo gana un renglón por subir
+     ese punto, y las nueve pestañas quedan al cuerpo de las de las otras dos
+     carreras. */
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Por debajo de 900px tres columnas dejan la celda en 240px y «Narrativa, guion
+   y contenidos inmersivos» se parte en cuatro renglones. Se baja a dos, que
+   deja una fila coja de una —9 no divide entre 2— pero es preferible a cuatro
+   renglones por pestaña. A ≤540px el molde ya sustituye la barra por el
+   dropdown y esto deja de aplicar. */
+@media (max-width: 900px) {
+  .pagina-comunicacion .com-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   3. LA NOTA DE CRÉDITOS DE LA TARJETA AEO
+
+   Dos datos duros, como el molde, pero con una línea de apoyo debajo: el
+   desglose por bloque del Modelo 2025, que es el plan que enlaza el RVOE.
+   Separada por una regla fina para que no se lea como pie del segundo dato.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-aeo-nota {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   4. «DÓNDE TRABAJAN NUESTROS EGRESADOS»
+
+   Va entre los tiles y la banda, y es texto de apoyo: son ejemplos agregados,
+   sin autor. Se distingue del cuerpo por tamaño, no por caja: meterlo en una
+   tarjeta lo haría competir con la banda que viene justo debajo, que es la que
+   carga los dos CTAs duros de la página.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-campo-egresados {
+  margin-top: 34px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  /* 16, el cuerpo del sitio: es texto de apoyo, del mismo rango que el de la
+     banda que viene justo debajo (`campo-doble-text`, 16px). A 17 competía con
+     ella sin ser más importante. */
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-comunicacion .com-campo-egresados strong {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   5. LA LISTA DE INSTALACIONES DE LA FACULTAD
+
+   Va ANTES de las dos tarjetas de campus y con peso propio: es el activo más
+   fuerte de la carrera y el handoff pide explícitamente que no quede escondida
+   debajo. También pide que sea texto navegable y no una imagen, por
+   accesibilidad.
+
+   No estrena componente: cada ítem es la misma pareja icono + texto que ya usa
+   `campus-note` en este mismo módulo, en una retícula de tres columnas. Diez
+   ítems en tres columnas dejan una fila de uno; se acepta, porque el alternativo
+   —dos columnas— alarga el bloque hasta empujar las tarjetas de campus fuera de
+   la primera pantalla, que es justo lo que hay que evitar.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-instalaciones {
+  margin-bottom: 40px;
+}
+
+.pagina-comunicacion .com-inst-title {
+  /* 16 de separación, el mismo que `colab-group-title`: los dos son rótulos de
+     grupo del mismo rango y estaban a 20 y 16. */
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.pagina-comunicacion .com-inst-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-comunicacion .com-inst-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  /* 16 para igualar a `campus-note-item`, que es el componente del que sale esta
+     pareja icono + texto y vive en este mismo módulo, 40px más abajo. A 15 los
+     dos bloques se leían como de rangos distintos sin serlo. */
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-comunicacion .com-inst-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--purple-2);
+}
+
+.pagina-comunicacion .com-inst-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .pagina-comunicacion .com-inst-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-comunicacion .com-inst-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   6. LOS CUATRO GRUPOS DE M9 SON HETEROGÉNEOS
+
+   El molde da por hecho que todo grupo de `colab-aliados` es una rejilla de
+   logotipos. Aquí solo el primero lo es: el segundo son chips de destino y el
+   tercero es un párrafo suelto. Cada uno necesita su texto de apoyo antes de su
+   contenido, cosa que el molde tampoco contempla.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-colab-grupo-texto {
+  margin: 0 0 16px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-comunicacion .com-colab-grupo-texto strong {
+  font-weight: 600;
+}
+
+/* Los destinos de intercambio son chips, no logotipos: son nombres de ciudad y
+   país, no marcas con archivo. */
+.pagina-comunicacion .com-colab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* La nota del claustro cierra el carrusel, no lo encabeza: va debajo y al
+   tamaño de nota al pie. */
+.pagina-comunicacion .com-colab-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* COMPOSICIÓN: los tres grupos NO son del mismo tamaño, y apilarlos a todo lo
+   ancho hacía dos cosas malas.
+
+   Medido: «¿Con quién te formas?» llegaba a 1801px y era el segundo módulo más
+   alto de la página, por encima de campo laboral (1746) —un módulo de respaldo
+   pesando más que uno de conversión, que es justo el defecto que la revisión de
+   Nutrición corrigió en su día—. Y el ritmo se volvía monótono: cuatro bandas
+   seguidas del mismo ancho, cada una un rótulo con su párrafo debajo.
+
+   Los tres grupos no piden el mismo espacio. «Vinculación profesional» trae una
+   rejilla de siete tiles y necesita el ancho completo. «Internacionalización» es
+   un párrafo con una fila de chips y «Movilidad Anáhuac» es un párrafo solo: los
+   dos caben de sobra en media columna y ganan al leerse en paralelo, porque son
+   las dos caras de lo mismo —irte fuera o moverte dentro de la Red—.
+
+   Se separan con 28 en vertical, el valor de agrupación de la página, y con 40
+   en horizontal, que es el que ya usan las dos columnas de campus. */
+.pagina-comunicacion .colab-aliados {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+.pagina-comunicacion .colab-group:first-child {
+  grid-column: 1 / -1;
+}
+
+/* Por debajo de 900px media columna deja los párrafos en ~35 caracteres por
+   línea: vuelven a apilarse. */
+@media (max-width: 900px) {
+  .pagina-comunicacion .colab-aliados {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Siete tiles de texto en la rejilla de 4 columnas del molde dejan la última
+   fila con tres huecos. A 3 columnas quedan dos filas llenas y una de uno, que
+   es el mejor reparto posible para siete. */
+.pagina-comunicacion .colab-logos {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 640px) {
+  .pagina-comunicacion .colab-logos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   7. (retirada) EL AVATAR VACÍO DEL CLAUSTRO
+
+   Aquí vivía el tratamiento de hueco para `.docente-avatar` vacío: el molde lo
+   pinta como un disco de 200px relleno del acento de la tarjeta, y sin foto
+   quedaban cuatro discos macizos que eran lo más contrastado del módulo sin
+   comunicar nada.
+
+   Deja de hacer falta el 2026-08-31: por decisión de la clienta, el claustro usa
+   los mismos seis retratos de relleno que nutricion.html. La regla se retira en
+   vez de quedarse huérfana. Si esos retratos se quitaran, hay que reponerla —
+   está en el historial de `design/CHANGELOG.md`.
+   -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+   8. LA BAJADA DE HISTORIAS NO SE ALINEABA CON SU PROPIO TITULAR
+
+   Medido: el H2 «Historias Anáhuac» arranca en x=100 y su bajada en x=434, con
+   las dos a `text-align: start`. No es texto centrado: es el bloque el que está
+   desplazado, porque la corrección 1 del molde acota la bajada a 62ch y le deja
+   `margin-inline: auto` para «conservar el centrado». El titular no está
+   centrado, así que ese auto no conserva nada: descuadra.
+
+   Se alinea con el titular, como el resto de la página.
+
+   ⚠️ Es un defecto de la regla 1 promovida hoy, no de esta página: Psicología y
+   Nutrición lo tienen igual. Se acota aquí para no tocar el molde sin revisarlo
+   y queda propuesto para su propia pasada. Ver design/CHANGELOG.md.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .stories .section-intro > p:not(.tagline) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   9. EL RECORTE DE LA FOTO DEL FORMULARIO
+
+   `lic-form-media` es un 4:5 y la foto que le tocó es apaisada (1000×750): al
+   recortarla al centro, que es lo que hace el molde, la estudiante se salía por
+   la derecha y quedaba media pantalla de monitores vacíos.
+
+   El encuadre se corre a la derecha para conservarla. Es un ajuste de esta foto
+   concreta: si se sustituye por una vertical, esta regla se retira.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-form-foto {
+  object-position: 72% center;
+}
+
+/* -----------------------------------------------------------------------------
+   10. LA FOTO DE LA BANDA DEL FORO NO ES UN LOGO
+
+   `campo-doble-logo` mide 150px porque en Psicología lleva el logotipo del
+   partner de doble titulación, y un logotipo se lee a ese tamaño. Aquí el slot
+   lleva la fotografía que el handoff llama «la imagen más importante de la
+   página» —la cabina de control con la de grabación al fondo—, y a 150px no se
+   distingue qué es.
+
+   Sube a 320px y recorta a cuadrado: la banda es una fila con el texto al lado,
+   así que la foto tiene que ser compacta en horizontal. Con `object-fit: cover`
+   el encuadre se queda en el centro, donde está la consola.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-campo-foto-banda {
+  width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* La banda es `flex-wrap: wrap` y su columna de texto no declara `flex`: mide lo
+   que mide su contenido. Con el logo de 150px de Psicología eso cabe; con una
+   foto de 320 no, y la banda partía en dos filas —foto arriba, texto debajo— en
+   vez de leerse como la fila que es. La columna pasa a repartirse el espacio
+   restante. */
+.pagina-comunicacion .campo-band--doble .campo-doble-copy {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .pagina-comunicacion .com-campo-foto-banda {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}

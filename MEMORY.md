@@ -42,6 +42,23 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-08-31 — Comunicación: tercera carrera sobre el molde, y la primera fuera de Ciencias de la Salud
+- Maqueta en `comunicacion.html` + `comunicacion.css`, sobre el molde de
+  `psicologia.css`. Nace con `pagina-carrera`, así que hereda de entrada las diez
+  correcciones promovidas ese mismo día: **no hubo que repetir la revisión de
+  diseño**. Es la prueba de que la promoción valió la pena.
+- Cinco desviaciones propias, todas en `comunicacion.css`: las 9 pestañas del
+  plan van por área temática y no por semestre (rejilla 3×3, porque 9 divide
+  exacto entre 3), la lista de instalaciones de la Facultad antes de las tarjetas
+  de campus, los cuatro grupos heterogéneos de M9, el subtítulo del hero y los
+  huecos de fotografía.
+- **Toda la fotografía va como hueco marcado, no con relleno de otra carrera.**
+  Es la primera página del lote fuera de Ciencias de la Salud: el banco de
+  Psicología no sirve porque son escenas clínicas, y `AGENTS.md` prohíbe el stock
+  ajeno al dominio. Variante `.media-pendiente`, marcada `[PLACEHOLDER]`.
+- El breadcrumb **no enlaza el área**: `Comunicación, Arquitectura y Diseño` no
+  tiene página en el repositorio todavía. En cuanto exista, se enlaza.
+
 ### 2026-08-31 — La revisión de diseño de Nutrición sube al molde; nace `.pagina-carrera`
 - Cierra la pregunta abierta del 2026-08-28. **Diez de los trece bloques** de
   aquella revisión suben de `nutricion.css` a `psicologia.css` y Psicología
@@ -229,6 +246,27 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 ## Preguntas abiertas
 > Decisiones pendientes que bloquean o condicionan trabajo futuro.
 
+- **¿Se corrige en el molde la bajada de Historias Anáhuac?** La corrección 1
+  promovida el 2026-08-31 acota esa bajada a 62ch y le deja `margin-inline: auto`
+  para conservar un centrado que no existe: el H2 va a la izquierda y la bajada
+  queda desplazada 334px. Verificado en Psicología, Nutrición y Comunicación.
+  Corregido solo en Comunicación, acotado con `.pagina-comunicacion`. Requiere una
+  pasada propia sobre el molde.
+- **Comunicación · 14 fotos cubriendo 35 posiciones. 🚫 BLOQUEA LA PUBLICACIÓN.**
+  Ya no hay huecos en pantalla —la clienta autorizó repetir el 2026-08-31— pero
+  **tres repeticiones afirman algo que no consta**: la tira del Campus Norte lleva
+  fotos del Sur, los seis ámbitos de campo laboral se ilustran con instalaciones
+  de la Facultad, y el claustro sigue con los retratos de relleno de Psicología.
+  Donde se pudo, el daño se acota en el `alt`: ninguno afirma lo que no consta.
+  Detalle y prioridades en `assets/comunicacion/README.md`.
+- **Comunicación · los 7 logotipos de vinculación son todos marcas comerciales**
+  (Televisa, TV Azteca, Google, Microsoft, PepsiCo, Coca-Cola, OCESA): los siete
+  necesitan archivo oficial y permiso de publicación. Van con
+  `.colab-logo-pendiente`.
+- **¿Se menciona el programa de liderazgo del área en el módulo compartido de
+  experiencia?** Es el mismo pendiente en las tres carreras —ALPHA en Nutrición y
+  Medicina, CREA en Comunicación— y el módulo está marcado «no rediseñar».
+  Conviene resolverlo una sola vez, para las tres.
 - **🔴 Nutrición · ¿cómo se protege `carrera de nutriologa`?** Esa keyword está
   hoy en **posición 1** y el 2026-08-31 la clienta pidió quitar «o nutrióloga»
   del H2 de campo laboral, que era su sitio más fuerte. El femenino ya no aparece

@@ -5,6 +5,270 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — Comunicación · se llenan todos los huecos repitiendo fotos
+
+Por decisión de la clienta, las 14 fotos disponibles se repiten hasta cubrir las
+35 posiciones de la página. **Cero huecos en pantalla.**
+
+### Lo que se gana: el módulo de campo laboral vuelve a la vida
+
+Era el mayor coste del estado anterior: seis `<button>` que no respondían al
+clic. Con `data-img` en cada tile y el `<img class="campo-media">` de vuelta, el
+manejador de `psicologia.js` entra y el módulo funciona.
+
+También el Campus Norte estrena slider y los ocho retratos que faltaban en
+Historias quedan cubiertos.
+
+### Lo que cuesta, y cómo se acota
+
+Las fotos son de instalaciones de la Facultad, y tres de los sitios donde se
+repiten **prometen otra cosa**: la tira del Campus Norte (son del Sur), los seis
+ámbitos de campo laboral (son entornos profesionales, no el campus) y el claustro
+(siguen los retratos de relleno de Psicología).
+
+Donde no se puede evitar la repetición, se acota en el **`alt`**: ninguno afirma
+lo que no consta. Los del Campus Norte describen la instalación sin nombrar el
+campus; los de campo laboral dicen «cabina de radio de la Facultad» y no «set de
+televisión». La imagen ilustra la carrera, no el lugar.
+
+**Queda documentado en `assets/comunicacion/README.md` como requisito de
+publicación, no como mejora.**
+
+### Se retira la sección 0 de `comunicacion.css`
+
+La variante `.media-pendiente` y sus modificadores quedan sin uso: 90 líneas que
+no pintan nada. Se retiran en vez de dejarse huérfanas, con el puntero al
+historial por si hay que reponerlas.
+
+---
+
+## 2026-08-31 — Comunicación · segunda tanda de fotos: la banda del foro estrena imagen
+
+Siete archivos más de la sesión RUA 2022 · Campus Sur, todos de Radio Anáhuac y
+cabina de control. **Van 14 de 27; quedan 13 huecos.**
+
+- **La banda del foro (M6) estrena la fotografía que le faltaba.** El handoff la
+  llamaba «la imagen más importante de la página» y era el único módulo que
+  afirmaba algo sin enseñarlo. La foto elegida muestra la cabina de control con
+  la de grabación al fondo, a través del cristal: es la instalación completa, que
+  es de lo que habla la banda.
+- **El slider del Campus Sur se completa** con sus seis fotos del molde.
+- **Dos retratos y dos contextos** entran en Historias Anáhuac.
+
+### Dos reglas nuevas, las dos por la foto de la banda
+
+**Regla 10 — la foto no es un logo.** El slot `campo-doble-logo` mide 150px
+porque en Psicología lleva el logotipo del partner de doble titulación. Una
+instalación a 150px no se distingue: sube a 320 y recorta a cuadrado.
+
+**Y ese cambio destapó otro:** la banda es `flex-wrap: wrap` y su columna de texto
+no declara `flex`, así que mide lo que mide su contenido. Con el logo de 150px
+cabe; con 320 no, y la banda **partía en dos filas** —foto arriba, texto debajo—
+en vez de leerse como la fila que es. La columna pasa a repartirse el espacio
+restante. Es un defecto latente del molde que solo aparece si el slot crece;
+acotado a esta página.
+
+### Lo que deliberadamente NO se hizo
+
+**El módulo de campo laboral sigue inerte.** Necesita seis escenas profesionales
+fuera del campus —un set de TV comercial, una redacción, una agencia— y todo lo
+entregado es cabina de radio universitaria. Ponerla bajo «Publicidad y
+mercadotecnia» o «Industrias no mediáticas» sería afirmar algo falso. Es el hueco
+que más pesa de los 13 que quedan.
+
+---
+
+## 2026-08-31 — Comunicación · entran las primeras 7 fotografías reales
+
+De la sesión **RUA 2022 · Campus Sur** (Jaxon Media Group, material de la Red
+Anáhuac). Ocho archivos entregados, siete usados.
+
+| Hueco | Foto |
+|---|---|
+| Portada del hero (M1) | Cabina de radio, estudiante en consola con los micrófonos de la A |
+| Perfil de egreso (M4) | Estudiante en estación de edición — vertical, llena el alto de la columna |
+| Formulario (M13) | Estudiante en la sala de cómputo |
+| Historias, retrato 1 de 12 | Retrato de egresada al aire libre |
+| Tira del Campus Sur (3) | Cabina de Radio Anáhuac, mesa de programa y micrófonos |
+
+- **El slider del Campus Sur vuelve a ser el del molde**, con sus tres fotos
+  reales. El Campus Norte conserva el hueco marcado: **la sesión es del Sur y
+  repartirlas entre los dos campus sería afirmar algo que no consta.** Faltan
+  tres para completar las seis del molde.
+- **Regla 9 nueva:** la foto del formulario es apaisada y su slot es 4:5. Al
+  recortar al centro, la estudiante se salía por la derecha; el encuadre se corre
+  a `72%`. Es un ajuste de esa foto concreta y se retira si se sustituye por una
+  vertical.
+- **Una foto entregada no se usó:** dos estudiantes en el laboratorio de finanzas
+  —pantallas de cotizaciones, «GANA 10,000 USD»—. Es de Negocios.
+- Conversión a WebP a calidad 82 (74 en el hero, para bajar de 200 KB). Pesos:
+  171 KB el hero y entre 34 y 90 KB el resto.
+
+**Quedan 20 huecos**, todos marcados: 11 retratos de historias, los 6 ámbitos de
+campo laboral —que mantienen el módulo inerte—, la tira del Campus Norte y las
+instalaciones que la sesión no cubre (MOCAP, doblaje y Foley, eventos masivos).
+
+---
+
+## 2026-08-31 — Comunicación · el claustro estrena los retratos de relleno de Nutrición
+
+Por decisión de la clienta, las seis tarjetas del claustro usan los mismos
+retratos que `nutricion.html` (`assets/psicologia/docentes/*.webp`) en lugar del
+hueco punteado.
+
+- **El motivo es de revisión, no de diseño:** seis círculos vacíos no dejan
+  juzgar el módulo. Con caras dentro se ve el ritmo del carrusel, el recorte
+  circular y cómo conviven con el contorno alternado de las tarjetas.
+- **Se retira la regla 7** de `comunicacion.css` (el tratamiento de hueco para
+  `.docente-avatar` vacío), que queda sin uso. No se deja huérfana; si esos
+  retratos se quitaran, hay que reponerla.
+- **El retrato es el único relleno que se admite en esta página.** El resto de
+  huecos sigue marcado: un retrato de estudio es genérico —una cara sobre fondo
+  neutro— mientras que una escena clínica afirma algo falso sobre el lugar.
+
+🔴 **Sigue sin poder publicarse.** Son las mismas seis caras en Psicología,
+Nutrición y Comunicación, y son personas reales presentadas como claustro de tres
+facultades distintas. Sustituirlas es requisito de publicación. Anotado en el
+HTML, en `specs/comunicacion.md` y en `assets/comunicacion/README.md`.
+
+---
+
+## 2026-08-31 — Comunicación · revisión de diseño de la página recién montada
+
+Ocho correcciones sobre la maqueta. Ninguna toca contenido ni identidad.
+
+### 🐛 Un defecto propio
+
+**Los doce huecos de Historias Anáhuac eran invisibles.** Los había tratado como
+si el módulo tuviera fondo morado —blanco translúcido sobre blanco translúcido—
+cuando su fondo es un degradado lavanda muy claro. Resultado: doce rectángulos
+blancos sobre blanco, con la etiqueta apenas legible. La regla de «sobre morado»
+se acota ahora a `.lic-plan`, que es el único módulo oscuro de la página.
+
+### Escala tipográfica: 17px no existe en el sistema
+
+La escala del sitio es 14 · 15 · 16 · 18 · 21. Había metido dos textos a 17 y uno
+a 15 donde tocaba 16:
+
+| Elemento | Antes | Ahora | Por qué |
+|---|---|---|---|
+| Subtítulo del hero | 17px | **18px** | Es la entrada del hero: le toca el escalón sobre el cuerpo |
+| «Dónde trabajan nuestros egresados» | 17px | **16px** | Texto de apoyo, del mismo rango que la banda que le sigue |
+| Ítems de instalaciones | 15px | **16px** | Iguala a `campus-note-item`, el componente del que salen, 40px más abajo en el mismo módulo |
+| Rótulo de instalaciones | mb 20px | **mb 16px** | Iguala a `colab-group-title`, rótulo del mismo rango |
+| Pestañas del plan | 17px | **18px** | Vuelven al cuerpo del molde. Bajarlas fue precaución de más: medido a 1440, 1280, 1100 y 950px, ningún rótulo gana un renglón por subir ese punto |
+
+### Composición: un módulo de respaldo pesaba más que uno de conversión
+
+Medido: «¿Con quién te formas?» llegaba a **1801px** y era el segundo módulo más
+alto de la página, por encima de campo laboral (1746). Es el mismo defecto que la
+revisión de Nutrición corrigió en su día. Y el ritmo se volvía monótono: cuatro
+bandas seguidas del mismo ancho, cada una un rótulo con su párrafo debajo.
+
+Los tres grupos no piden el mismo espacio. «Vinculación profesional» trae una
+rejilla de siete tiles y se queda a ancho completo; «Internacionalización» y
+«Movilidad Anáhuac» son un párrafo con chips y un párrafo solo, y pasan a
+compartir fila. **1801 → 1672px**, por debajo de campo laboral, y las dos caras de
+la movilidad —irte fuera o moverte dentro de la Red— se leen ahora en paralelo.
+
+### El hueco no puede ser lo más contrastado de su sección
+
+El molde pinta `.docente-avatar` como un disco de 200px relleno del acento de la
+tarjeta, pensado para llevar iniciales. Vacío quedaban **cuatro discos macizos de
+naranja y morado** que eran lo primero que se veía del módulo sin comunicar nada.
+Pasan al mismo tratamiento que el resto de huecos de la página —contorno
+punteado y etiqueta—, y el color vuelve a vivir en el contorno de la tarjeta, que
+es donde el molde lo tenía pensado.
+
+### ⚠️ Un defecto de la regla 1 promovida hoy
+
+**La bajada de Historias no se alinea con su propio titular.** Medido: el H2
+arranca en x=100 y su bajada en x=434, las dos a `text-align: start`. No es texto
+centrado: es el bloque, porque la corrección 1 acota la bajada a 62ch y le deja
+`margin-inline: auto` «para conservar el centrado». El titular no está centrado,
+así que ese auto no conserva nada.
+
+Se corrige acotado a `.pagina-comunicacion`. **Psicología y Nutrición lo tienen
+igual** —verificado—: es un defecto de la regla promovida, no de esta página, y
+queda propuesto para su propia pasada.
+
+### Verificación
+
+- Revisada módulo a módulo a 1440, y los afectados a 820 y 390.
+- Altura total 18757 → **18634px**.
+- `check:tokens` y `check:readiness` pasan.
+
+---
+
+## 2026-08-31 — Comunicación: tercera carrera sobre el molde, y la primera fuera de Ciencias de la Salud
+
+Maqueta nueva en `comunicacion.html` + `comunicacion.css`, a partir del handoff
+de la clienta. Cero componentes nuevos: los 13 módulos salen de `psicologia.css`.
+
+**El molde promovido se paga solo.** La página lleva `pagina-carrera` en el
+`<body>`, así que hereda de entrada las diez correcciones que subieron hoy mismo
+—medida de línea, escala de titulares, CTA del hero, ritmo vertical, campus
+alineado, FAQ acotado, campo bloqueado, botón centrado y perfil de egreso en
+escritorio y en móvil—. **No hubo que repetir la revisión de diseño.** Es la
+primera prueba de que la promoción valió la pena.
+
+### Cinco desviaciones propias, todas en la hoja de página
+
+1. **Las 9 pestañas del plan van por área temática, no por semestre.** Única
+   carrera del lote así. Rótulos de hasta 43 caracteres y sin número, así que no
+   llevan `plan-tab-num`. Rejilla de **3×3**: 9 divide exacto entre 3 —tres filas
+   llenas, cero huecos— y la celda de 366px deja los nueve rótulos en un solo
+   renglón. Mismo criterio que el 5×2 de Nutrición.
+2. **La lista de instalaciones de la Facultad** abre el módulo de campus. Es el
+   activo más fuerte de la carrera y el handoff pide que no quede escondida
+   debajo de las tarjetas. No estrena componente: es la pareja icono + texto de
+   `campus-note` en una retícula de tres columnas.
+3. **Los cuatro grupos de M9 son heterogéneos** —logotipos, chips de destino y
+   texto suelto—; el molde da por hecho que todo grupo es una rejilla de logos.
+4. **El subtítulo del hero**, que el molde no tiene y aquí es obligatorio: lleva
+   la keyword principal en las primeras 100 palabras.
+5. **Los huecos de fotografía** (ver abajo).
+
+### 🔴 Variante `media-pendiente` — la página no tiene una sola foto
+
+Es la primera página del lote fuera de Ciencias de la Salud, y ahí el atajo de
+Nutrición deja de servir: el banco de Psicología son escenas clínicas y una
+consulta médica no ilustra un foro de televisión. `AGENTS.md` y `design/assets.md`
+prohíben el stock ajeno al dominio, así que **ninguno de los 20 huecos se rellena
+con foto prestada**: cada uno se pinta como lo que es, con la escena que le toca
+escrita dentro y en su `aria-label`.
+
+Mismo criterio que `.colab-logo-pendiente`: si algo falta, que se vea que falta.
+La variante vive en `comunicacion.css` y **no** en el molde, porque hoy solo la
+usa esta página; sube a `psicologia.css` cuando una segunda la necesite, no antes.
+
+**Consecuencia que hay que conocer: el módulo 6 queda inerte.** Sin
+`.campo-media` el manejador de `psicologia.js` sale en su primera guarda. Es
+deliberado y es el único modo de fallar limpio: con `data-img` apuntando a
+archivos inexistentes, el manejador pediría URLs rotas y en ≤900px insertaría una
+imagen rota sobre la tarjeta activa. Se reactiva con dos cambios, anotados en el
+HTML.
+
+### Dos ajustes heredados que valen para las tres carreras
+
+- **El preview de campo laboral va a 1:1 y no a 4:5.** Con seis ámbitos la
+  columna de tiles termina 175px antes que la imagen. Es exactamente el mismo
+  ajuste que ya lleva Nutrición, que también tiene seis: **si aparece una tercera
+  carrera de seis ámbitos, esta regla es candidata a subir al molde.**
+- **El avatar del claustro usa el fallback del molde**, no un hueco nuevo:
+  `.docente-avatar` ya es un círculo de color con tipografía de titular, pensado
+  para iniciales cuando no hay foto. Se descubrió al montarlo.
+
+### Verificación
+
+- Los 13 módulos revisados a 1440 y los críticos a 390.
+- Estructura: 137 `<div>` abiertos y cerrados, 13 `<section>`, tres bloques
+  JSON-LD válidos (`BreadcrumbList`, `Course`, `FAQPage`).
+- **Sin errores de JS en consola** en ninguna corrida.
+- `check:tokens` y `check:readiness` pasan.
+
+---
+
 ## 2026-08-31 — Nutrición · las pestañas de servicio social vuelven al cuerpo del molde
 
 - Iban a **16px el rótulo y 18px el número**, contra los 18/21 de las ocho
