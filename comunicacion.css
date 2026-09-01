@@ -432,48 +432,14 @@
 }
 
 /* -----------------------------------------------------------------------------
-   11. EL H1 DEJABA «EN» SOLO EN UN RENGLÓN
+   11. (promovida) EL H1 DEJABA «EN» SOLO EN UN RENGLÓN
 
-   «Licenciatura en Comunicación» se partía en TRES renglones —«Licenciatura» /
-   «en» / «Comunicación»— con la preposición huérfana en medio. Sus dos hermanas
-   no: Psicología y Nutrición leen «Licenciatura» / «en Psicología» en dos
-   renglones limpios, a cualquier anchura.
+   Al montar Gastronomía resultó que su titular —11 caracteres en la última
+   palabra— se rompe en los MISMOS tres tramos y pide los MISMOS valores que este.
+   No era «la palabra», entonces: es que la escala del molde no aguanta una última
+   palabra de 11 caracteres o más.
 
-   No es un defecto del molde: es la palabra. «Comunicación» tiene 12 caracteres
-   contra los 10 de «Psicología» y los 9 de «Nutrición», y la escala del molde
-   está calibrada para esas. Medido, el titular se rompe en tres tramos:
-
-     ≥1441px — el molde sube el tipo a 110px, pero `.container` deja de crecer en
-               1280 y la columna se queda clavada en 695px: el tipo crece y su
-               caja no. Aguanta 94px.
-     1181–1440 — el molde deja 88px fijos mientras la columna baja de 644 a 556.
-               A 1440 aguanta los 88; a 1181, 75. El corte inferior es 1181 y no
-               1200 porque en 1180 el molde ya pasa el hero a una sola columna y
-               el tipo a 72, y ahí vuelve a caber solo.
-     ≤480px  — 52px fijos en una columna de 328. Aguanta 41.
-
-   En los tramos que faltan (481–1180) el molde ya acierta y no se toca.
-
-   El objetivo de cada valor es el mismo: que «en Comunicación» quepa en el
-   segundo renglón, que es como se leen las otras dos carreras.
+   La regla sube a `psicologia.css` como variante opt-in `lic-hero--titulo-largo`,
+   que esta página pide en su `<section class="lic-hero">`. Es opt-in porque
+   Psicología y Nutrición no la necesitan.
    -------------------------------------------------------------------------- */
-@media (min-width: 1441px) {
-  .pagina-comunicacion .lic-hero h1 {
-    font-size: 94px;
-  }
-}
-
-/* Aquí no vale un valor fijo: la columna se estrecha 88px a lo largo del tramo
-   y el tipo tiene que seguirla. 6.1vw da 87.8px a 1440 y 72.0 a 1181, dentro del
-   límite en los dos extremos. */
-@media (min-width: 1181px) and (max-width: 1440px) {
-  .pagina-comunicacion .lic-hero h1 {
-    font-size: min(6.1vw, 88px);
-  }
-}
-
-@media (max-width: 480px) {
-  .pagina-comunicacion .lic-hero h1 {
-    font-size: 41px;
-  }
-}

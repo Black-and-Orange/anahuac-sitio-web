@@ -1,0 +1,327 @@
+/* =============================================================================
+   LICENCIATURA EN GASTRONOMÍA — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual.
+
+   El `<body>` lleva además `pagina-carrera`, así que la página nace con las diez
+   correcciones del molde promovidas el 2026-08-31 (medida de línea, escala de
+   titulares, CTA del hero, ritmo vertical, campus alineado, FAQ acotado, campo
+   bloqueado, botón centrado y perfil de egreso). **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de Gastronomía:
+
+     a) las 7 pestañas del plan van por ÁREA TEMÁTICA y no por semestre,
+     b) los tres grupos de M9 y ninguno es una rejilla de logotipos: categorías
+        de convenio y 33 chips de destino,
+     c) tres piezas de texto auxiliar que el molde no tiene,
+     d) los huecos de fotografía, mientras no haya banco de imágenes.
+
+   Si alguna se repitiera en otra carrera, su sitio dejaría de ser esta hoja y
+   pasaría a ser el componente en psicologia.css.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro. Escala tipográfica: 14 · 15 · 16 · 18 · 21.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   0. COMPOSICIÓN DEL H1
+
+   «Licenciatura» y «en Gastronomía» forman dos renglones controlados. El segundo
+   conserva juntas sus dos palabras y baja ligeramente de escala para no invadir
+   la columna de la imagen en pantallas anchas.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-hero-title-tail {
+  display: block;
+  white-space: nowrap;
+  font-size: 0.88em;
+}
+
+/* -----------------------------------------------------------------------------
+   0b. (retirada) HUECOS DE FOTOGRAFÍA
+
+   Aquí vivía la variante `.media-pendiente`: el hueco marcado con el que la
+   página se montó mientras no había una sola fotografía.
+
+   Deja de hacer falta el 2026-09-01: con las dos fotos reales de cocina y las
+   del banco de Comunicación admitidas por la clienta, no queda ningún hueco. La
+   regla se retira en vez de quedarse huérfana; está en el historial de
+   `design/CHANGELOG.md`.
+
+   ⚠️ Que no haya huecos NO significa que la fotografía esté resuelta. Lo que
+   falta y por qué, en `assets/gastronomia/README.md`.
+   -------------------------------------------------------------------------- */
+
+/* La foto del formulario es la única del banco de Comunicación y es apaisada en
+   un slot 4:5: al recortar al centro, la estudiante se sale por la derecha. El
+   encuadre se corre, igual que en su página de origen. Se retira si se sustituye
+   por una vertical propia. */
+.pagina-gastronomia .gas-form-foto {
+  object-position: 72% center;
+}
+
+/* -----------------------------------------------------------------------------
+   1. LAS 7 PESTAÑAS DEL PLAN VAN POR ÁREA, NO POR SEMESTRE
+
+   Como en Comunicación: el folleto no reparte las materias en semestres, así que
+   los rótulos son frases y no llevan número.
+
+   Pero aquí son SIETE, y siete es primo: no hay reparto sin hueco. A 4 columnas
+   quedan 4+3 —un solo hueco, el mínimo posible—; a 3 quedarían 3+3+1, con dos
+   huecos y una pestaña sola en su fila. Se elige 4.
+
+   A 1120px de contenedor la celda mide 271px, que basta para dos renglones de
+   los rótulos más largos («Fundamentos y manejo de alimentos», 32 caracteres).
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pagina-gastronomia .gas-plan-tabs .plan-tab {
+  align-items: center;
+  min-height: 72px;
+  padding: 14px 18px;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Por debajo de 900px cuatro columnas dejan la celda en 190px y los rótulos se
+   parten en cuatro renglones. Se baja a dos: 7 deja una fila coja de una, pero
+   es preferible. A ≤540px el molde ya sustituye la barra por el dropdown. */
+@media (max-width: 900px) {
+  .pagina-gastronomia .gas-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* La salvedad del minor de vinos es una nota del panel, no una materia: no puede
+   ir como un `<li>` más de la lista. */
+.pagina-gastronomia .gas-plan-nota {
+  margin: 16px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   2. LA NOTA DE CRÉDITOS DE LA TARJETA AEO
+
+   Dos datos duros, como el molde, con el desglose por bloque del Modelo 2025
+   debajo. Separada por una regla fina para que no se lea como pie del segundo
+   dato.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-aeo-nota {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   3. EL CIERRE DE LA OBJECIÓN, EN CAMPO LABORAL
+
+   «Gastronomía es mucho más que cocinar» es la respuesta que el padre o la madre
+   vienen buscando, y cierra el hilo que abre M2. Va entre los tiles y la banda,
+   como texto de apoyo: meterlo en una tarjeta lo haría competir con la banda de
+   Le Cordon Bleu, que es la pieza de mayor peso de la página.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-campo-objecion {
+  margin-top: 34px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-gastronomia .gas-campo-objecion strong {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   4. LA LÍNEA DEL VIÑEDO, BAJO LA NOTA DE CAMPUS
+
+   El Viñedo Anáhuac no está en ninguno de los dos campus —está en Querétaro—,
+   así que no puede ir dentro de ninguna de las dos tarjetas. Cierra el módulo
+   como línea aparte, al mismo tamaño de nota que `campus-note`.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-campus-vinedo {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+.pagina-gastronomia .gas-campus-vinedo strong {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   5. M9: TRES GRUPOS Y NINGUNO ES UNA REJILLA DE LOGOTIPOS
+
+   El molde da por hecho que todo grupo de `colab-aliados` es una rejilla de
+   logos. Aquí el primero son categorías de convenio —texto, no marca— y el
+   segundo son 33 chips de ciudad. La fuente no nombra empresas y no se inventan.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .colab-aliados {
+  gap: 28px;
+}
+
+.pagina-gastronomia .gas-colab-grupo-texto {
+  margin: 0 0 16px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* Siete en 4 columnas dan 4+3: UN hueco. En 3 dan 3+3+1: dos huecos y una
+   pestaña sola en su fila. Cuatro es el mejor reparto para siete, el mismo
+   criterio que la barra de pestañas de esta página.
+
+   (Aquí decía lo contrario hasta la revisión del 2026-09-01: la cuenta estaba
+   mal hecha. 7 entre 4 deja un hueco, no tres.) */
+/* Solo por encima de 900: por debajo, la cascada del molde —3 y luego 2
+   columnas— ya es la correcta para estos rótulos cortos, y forzar 4 los apretaba
+   a 180px, o 1 los estiraba en una columna de siete cajas. La regla se acota en
+   vez de repetir toda la cascada. */
+@media (min-width: 901px) {
+  .pagina-gastronomia .colab-logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Estos tiles son categorías, no marcas: no llevan el peso de un logotipo ni
+   deben leerse como uno. Van al cuerpo del sitio y no a la tipografía de titular
+   que el molde usa para el nombre de un aliado sin archivo.
+
+   Y por lo mismo pierden el `min-height: 92px` del molde, que existe para dar
+   sitio a un logotipo de 48px con su aire. Aquí dentro hay UN RENGLÓN de texto:
+   con esa altura, los siete tiles sumaban 330px de cajas casi vacías y el módulo
+   —que es de respaldo— rozaba en alto al de campo laboral, que es de conversión. */
+.pagina-gastronomia .gas-colab-categoria {
+  min-height: 0;
+  padding: 18px 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.pagina-gastronomia .gas-destinos {
+  display: grid;
+  gap: 24px;
+}
+
+.pagina-gastronomia .gas-destinos-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.pagina-gastronomia .gas-destinos-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-gastronomia .gas-colab-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   6. EL CARRUSEL DEL CLAUSTRO ENSEÑABA UNA TARJETA REPETIDA
+
+   `psicologia.js` clona el set completo para que el bucle no tenga costura, y el
+   molde deja cuatro tarjetas visibles. Con las seis de Psicología los clones
+   quedan fuera de cuadro; con las TRES de la coordinación de Gastronomía, el
+   primer clon entraba en el cuarto hueco y se veía «Mtro. José Ángel Díaz
+   Rebolledo» dos veces en la misma fila.
+
+   La tarjeta pasa a un tercio: las tres llenan el viewport y el clon vuelve a
+   quedar fuera. Es la solución honesta —no se inventa una cuarta persona— y se
+   revierte sola: cuando lleguen los chefs pendientes y sean cuatro o más, esta
+   regla se retira y el molde vuelve a acertar.
+
+   Por debajo de 900px el molde ya baja a dos tarjetas y a 640 a una, donde el
+   clon tampoco estorba.
+   -------------------------------------------------------------------------- */
+@media (min-width: 901px) {
+  .pagina-gastronomia .colab-docentes-track > .docente-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   7. EN CAMPO LABORAL, LA FOTO SOBRABA 177px POR DEBAJO DE LOS TILES
+
+   Medido a 1440px: la columna de tiles termina en 573px de alto y la imagen sigue
+   hasta 750. La proporción 4/5 de `.campo-media` está calibrada para los SIETE
+   ámbitos de Psicología; Gastronomía tiene seis, igual que Nutrición y
+   Comunicación, y ese tile de menos deja la columna izquierda acabada mucho antes
+   que la derecha.
+
+   Se cuadra la foto: a 1/1 mide ~600px y las dos columnas cierran juntas.
+
+   ⚠️ Es el TERCER módulo de seis ámbitos que necesita este mismo ajuste
+   —Nutrición lo tiene desde su revisión y Comunicación desde que se montó—. La
+   proporción del molde solo acierta con siete. Candidata clara a subir a
+   `psicologia.css` en la próxima pasada del molde.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .campo-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* -----------------------------------------------------------------------------
+   8. LAS INSTALACIONES DE CADA CAMPUS NO SON SU DIRECCIÓN
+
+   Iban dentro del `<p class="campus-address">`, en negrita: el resultado era
+   texto en negrita del gris de dirección, que es énfasis sin contraste —el ojo
+   registra el peso pero el color le dice que sigue siendo el mismo dato—.
+
+   Y no son el mismo dato. El handoff subraya que cada campus tiene instalaciones
+   DISTINTAS y que su copy no es intercambiable: es el argumento por el que
+   alguien elige campus, no un renglón más de la dirección. Sale a su propio
+   párrafo, en color de texto pleno.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-campus-inst {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  color: var(--color-text);
+}

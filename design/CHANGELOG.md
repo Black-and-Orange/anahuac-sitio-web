@@ -5,6 +5,213 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-01 — Gastronomía · «en Gastronomía» no se separa
+
+La revisión humana señaló que el H1 llegaba a componerse en tres renglones. Se
+fijan dos líneas —«Licenciatura» / «en Gastronomía»— y la segunda baja a `0.88em`:
+las palabras permanecen juntas sin desbordarse hacia la imagen.
+
+Es un ajuste local; no modifica el molde compartido ni la variante
+`lic-hero--titulo-largo`. `check:titulos` ahora recorre todos los nodos de texto
+del H1 para poder validar también títulos con composición interna.
+
+## 2026-09-01 — El H1 huérfano se cierra de raíz, y se automatiza el chequeo
+
+La clienta señaló que este defecto **se ha repetido en cada página**. Tenía razón,
+y el barrido lo confirma: no era una página, era un patrón, y cada vez se detectó
+a ojo y tarde.
+
+### Lo que faltaba encontrar
+
+Barriendo las cuatro carreras de 320 a 2560px **con las fuentes cargadas** —el
+matiz importa: sin Zilla Slab las métricas cambian y el defecto no aparece, que es
+exactamente cómo se me coló la primera vez— salieron dos tramos que ningún vistazo
+iba a encontrar:
+
+| Tramo | Quién se rompía | Por qué |
+|---|---|---|
+| **≤380px** | **las cuatro** | El molde deja 52px fijos desde 768 hacia abajo, pero la columna sigue estrechándose hasta los 240px de un iPhone SE |
+| **1181–1190px** | **Psicología** | Diez píxeles justo antes de que el hero pase a una columna: sigue a dos, con la de texto en 502px, y el H1 clavado en 88 |
+
+Los dos se corrigen **en el molde**, no en las páginas: los tienen todas.
+
+- **≤380px:** el valor fijo pasa a `10.8vw`, que a 320px da 34.6 —lo que aguanta
+  el titular más largo del lote— y a 380 da 41.
+- **1181–1440px:** el tipo pasa a seguir a su columna con `min(6.1vw, 88px)`. Sale
+  de la variante `lic-hero--titulo-largo`, donde vivía por error: **no es cosa de
+  los títulos largos**, le pasa hasta a «Psicología», de 10 caracteres. Va acotado
+  a `.pagina-carrera` porque el Área de Ciencias de la Salud usa el mismo
+  componente con otra retícula.
+
+### Y sobre todo: `npm run check:titulos`
+
+Un script nuevo, `scripts/check-titulos.mjs`, que barre el H1 de las cuatro
+carreras en **32 anchuras** —los cortes del molde, sus vecinos y un barrido fino
+del tramo estrecho— y falla si algún renglón queda con tres caracteres o menos.
+Espera a `document.fonts.ready` antes de medir.
+
+**Es el arreglo de verdad.** Los otros dos son los síntomas de hoy; esto es lo que
+impide que el de mañana llegue a producción. Ya demostró que sirve: encontró la
+franja de diez píxeles de Psicología en la primera corrida.
+
+Queda en la **Definición de Hecho** de `AGENTS.md` como requisito de cualquier
+página de carrera. No entra en `npm run validate` porque necesita el servidor
+local y un navegador, y ese comando tiene que poder correr en CI.
+
+---
+
+## 2026-09-01 — Gastronomía · revisión de diseño de la página recién montada
+
+Cinco correcciones. Ninguna toca contenido ni identidad.
+
+### 🐛 Un comentario que mentía
+
+**El preview de campo laboral sobraba 177px por debajo de los tiles.** El
+comentario del HTML decía «1:1 y no 4:5» —y explicaba por qué—, pero **la regla
+nunca se escribió**: el hueco marcado traía su proporción en la clase
+`--1x1`, y al sustituirlo por el `<img class="campo-media">` real volvió al 4/5
+del molde sin que nada lo dijera.
+
+Medido: la columna de tiles termina en 573px y la imagen seguía hasta 750. Con el
+1/1 escrito de verdad, 600 y 573: **desfase de 177 a 27px**.
+
+⚠️ Es el **tercer** módulo de seis ámbitos que necesita este ajuste —Nutrición y
+Comunicación ya lo llevan—. La proporción del molde solo acierta con siete.
+**Candidata clara a subir a `psicologia.css`.**
+
+### 🐛 Y una cuenta mal hecha, en mi propio comentario
+
+Los tiles de categoría iban a 3 columnas, justificado así: «siete en 4 columnas
+dejan la última fila con tres huecos». **Falso:** 7 en 4 columnas es 4+3, **un**
+hueco; en 3 columnas es 3+3+1, **dos** huecos y un tile solo en su fila. Cuatro es
+el mejor reparto para siete, que es justo el criterio que ya usaba la barra de
+pestañas de esta misma página. Corregido, y el comentario también.
+
+### Composición: un módulo de respaldo rozaba al de conversión
+
+Medido: «¿Con quién te formas?» llegaba a **1746px** contra los 1879 de campo
+laboral. La causa: los siete tiles de categoría heredaban el `min-height: 92px`
+del molde, que existe para dar sitio a un **logotipo de 48px con su aire**. Dentro
+hay un renglón de texto: 330px de cajas casi vacías.
+
+Pierden el mínimo. **1746 → 1578px**, holgadamente por debajo de campo laboral.
+
+### Las instalaciones de cada campus no son su dirección
+
+Iban dentro del `<p class="campus-address">`, en negrita: negrita **del gris de
+dirección**, que es énfasis sin contraste —el ojo registra el peso pero el color
+le dice que sigue siendo el mismo dato—. Y no lo es: el handoff subraya que cada
+campus tiene instalaciones distintas y que ese copy no es intercambiable. Es el
+argumento por el que alguien elige campus. Sale a su propio párrafo, en color de
+texto pleno.
+
+### Un override demasiado ancho
+
+La rejilla de categorías forzaba sus 4 columnas a **todas** las anchuras, y por
+debajo de 900px las apretaba a 180px o las estiraba en una columna de siete cajas.
+Se acota a ≥901px y por debajo vuelve la cascada del molde, que para rótulos
+cortos ya es la correcta.
+
+### Verificación
+
+- Revisada módulo a módulo a 1440, y los afectados a 820 y 390.
+- Altura total 18101 → **17829px**. Orden de pesos corregido: campo laboral
+  (1729) por encima de colaboradores (1578).
+- `check:tokens` y `check:readiness` pasan, sin errores de JS.
+
+---
+
+## 2026-09-01 — El H1 de título largo sube al molde como variante opt-in
+
+Al montar Gastronomía, su titular —«Gastronomía», 11 caracteres— se rompió en los
+**mismos tres tramos** y pidió los **mismos valores** que el de Comunicación, que
+tiene 12. Medido por separado en las dos páginas: 94px · `min(6.1vw, 88px)` · 41px.
+
+Eso cambia el diagnóstico que dejé ayer. **No era «la palabra»: es que la escala
+del molde no aguanta una última palabra de 11 caracteres o más.** Con
+«Licenciatura en» sin espacio en su renglón, la preposición se queda huérfana en
+medio.
+
+La regla sale de `comunicacion.css` y sube a `psicologia.css` como
+**`lic-hero--titulo-largo`**. Las dos páginas la piden en su `<section>`.
+
+**Es opt-in y no automática** porque Psicología (10 caracteres) y Nutrición (9) no
+la necesitan, y aplicársela sería encoger dos titulares que funcionan.
+
+### ⚠️ Y el barrido destapó dos defectos más, sin tocar
+
+Verificando las cuatro carreras a once anchuras:
+
+| Página | Dónde se rompe todavía |
+|---|---|
+| Psicología | **1181px** y **≤360px** |
+| Nutrición | **≤360px** |
+| Comunicación · Gastronomía | en ninguna |
+
+Son el mismo defecto del molde en su tramo más estrecho. **No se tocan**:
+Psicología y Nutrición están mergeadas y arreglarlas pide su propia pasada de
+verificación. No sirve simplemente opt-in a la variante —les bajaría el titular a
+94px por encima de 1441, donde hoy funcionan a 110—: necesitan solo los tramos de
+1181 y 360. Queda en `MEMORY.md`.
+
+---
+
+## 2026-09-01 — Gastronomía: cuarta carrera sobre el molde
+
+Maqueta nueva en `gastronomia.html` + `gastronomia.css`. Trece módulos, cero
+componentes nuevos. Nace con `pagina-carrera`, así que hereda las diez
+correcciones del molde y no hubo que repetir la revisión de diseño.
+
+### Cuatro desviaciones propias
+
+1. **7 pestañas por área temática, no por semestre** —como Comunicación, porque
+   el folleto no reparte las materias en semestres—. Pero aquí son **siete, que
+   es primo**: no hay reparto sin hueco. A 4 columnas quedan 4+3, un solo hueco,
+   el mínimo posible; a 3 quedarían 3+3+1, con dos huecos y una pestaña sola.
+2. **Los tres grupos de M9 y ninguno es una rejilla de logotipos**, que es lo que
+   el molde da por hecho: coordinación (carrusel), categorías de convenio y 33
+   chips de ciudad. **La fuente no nombra empresas** —da categorías y destinos— y
+   no se inventan marcas. Los tiles de categoría van al cuerpo del sitio y no a la
+   tipografía de titular con que el molde viste el nombre de un aliado sin
+   archivo: no son marcas y no deben leerse como tales.
+3. **Tres piezas de texto auxiliar** que el molde no tiene: la nota del minor de
+   vinos, el cierre de la objeción en campo laboral y la línea del Viñedo Anáhuac
+   —que no está en ninguno de los dos campus, sino en Querétaro, así que no puede
+   ir dentro de ninguna de las dos tarjetas—.
+4. **Los huecos de fotografía**, con la variante `.media-pendiente` de vuelta:
+   Comunicación la estrenó y la retiró al llegar sus fotos.
+
+### 🐛 Bug del molde: el carrusel enseñaba una tarjeta repetida
+
+`psicologia.js` clona el set completo para que el bucle no tenga costura, y el
+molde deja **cuatro** tarjetas visibles. Con las seis de Psicología los clones
+quedan fuera de cuadro. Con las **tres** de la coordinación de Gastronomía, el
+primer clon entraba en el cuarto hueco y se leía «Mtro. José Ángel Díaz
+Rebolledo» **dos veces en la misma fila**.
+
+La tarjeta pasa a un tercio en esta página: las tres llenan el viewport y el clon
+vuelve a quedar fuera. Es la solución honesta —no se inventa una cuarta persona—
+y se revierte sola cuando lleguen los chefs pendientes y sean cuatro o más.
+
+**Es un defecto latente del molde**, no de esta página: le pasará a cualquier
+carrera con menos de cuatro docentes. Acotado aquí y anotado.
+
+### Verificación
+
+- Los 13 módulos a 1440, y los críticos a 820 y 390.
+- Estructura balanceada (136 `<div>`, 13 `<section>`), tres bloques JSON-LD
+  válidos, sin errores de JS.
+- `check:tokens` y `check:readiness` pasan.
+
+### 🚫 No publicable
+
+18 huecos de fotografía, ninguna imagen de Gastronomía en el repositorio y ningún
+banco del proyecto sirve. Falta además el **logotipo de Le Cordon Bleu**, que es
+la marca de la pieza de mayor peso persuasivo de la página. Detalle y prioridades
+en `assets/gastronomia/README.md`.
+
+---
+
 ## 2026-08-31 — Comunicación · el H1 dejaba «en» solo en un renglón
 
 «Licenciatura en Comunicación» se partía en **tres** renglones —«Licenciatura» /
