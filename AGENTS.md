@@ -55,6 +55,12 @@ Un componente o página se puede mergear solo si:
 - [ ] Reutiliza componentes existentes donde aplica.
 - [ ] Declara su contrato de fields (editable vs bloqueado) y este se materializó en el adapter.
 - [ ] Es visualmente consistente con el home / referencia canónica.
+- [ ] **En una página de carrera, `npm run check:titulos` pasa.** Barre el H1 del
+      hero en 32 anchuras y falla si una palabra queda huérfana en su renglón
+      —«Licenciatura» / «en» / «X»—. Necesita el servidor local levantado. Es un
+      defecto que depende del ancho de la COLUMNA y no del viewport: se coló en
+      cuatro páginas seguidas porque mirar dos anchuras no basta. Si una página
+      necesita un cuerpo menor, pide la variante `lic-hero--titulo-largo`.
 - [ ] Pasa accesibilidad básica (contraste, foco, jerarquía semántica).
 - [ ] Ningún cambio destructivo se aplicó sin permiso explícito; las variantes nuevas quedaron documentadas.
 - [ ] Las instrucciones de revisión humana aceptadas se promovieron a documentos base y se registraron en `design/CHANGELOG.md`.

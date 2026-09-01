@@ -3039,3 +3039,94 @@
     aspect-ratio: 4 / 5;
   }
 }
+
+
+/* =============================================================================
+   VARIANTE `lic-hero--titulo-largo` — 2026-09-01
+
+   La escala del H1 del molde —110 / 88 / 72 / 52px— está calibrada para
+   «Licenciatura en Psicología» (26 caracteres) y «Licenciatura en Nutrición»
+   (25). Con una última palabra de 11 caracteres o más, «Licenciatura en» deja de
+   caber en su renglón y la preposición se queda huérfana en medio:
+
+       Licenciatura            en vez de     Licenciatura
+       en                                    en Gastronomía
+       Gastronomía
+
+   Le pasa a Comunicación (12) y a Gastronomía (11) con los MISMOS tres tramos y
+   los MISMOS valores, medidos por separado en las dos páginas. Por eso la regla
+   vive aquí y no duplicada en cada hoja: es del molde, no de una carrera.
+
+   Es OPT-IN y no automática porque Psicología y Nutrición no la necesitan, y
+   aplicársela sería encoger dos titulares que funcionan.
+
+     ≥1441px — el molde sube a 110px, pero `.container` deja de crecer en 1280 y
+               la columna se queda en 695px: el tipo crece y su caja no.
+     ≤480px  — 52px fijos en una columna de 310. Aguanta 41.
+
+   El tramo 1181–1440 salió de aquí el 2026-09-01: resultó que lo necesitan las
+   CUATRO carreras —Psicología se rompía a 1181px— así que vive abajo, con el
+   resto de arreglos del H1 del molde.
+
+   En 481–1180px el molde ya acierta y no se toca.
+   ========================================================================== */
+@media (min-width: 1441px) {
+  .lic-hero--titulo-largo h1 {
+    font-size: 94px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lic-hero--titulo-largo h1 {
+    font-size: 41px;
+  }
+}
+
+
+/* =============================================================================
+   H1 DEL HERO EN PANTALLA ESTRECHA — 2026-09-01
+
+   Por debajo de ~380px el H1 se partía en TRES renglones con «en» huérfano en
+   medio, en LAS CUATRO carreras: Psicología y Nutrición hasta 370 y 360, y
+   Comunicación y Gastronomía hasta 350 pese a su variante de título largo.
+
+   Medido con las fuentes cargadas —importa: sin la webfont las métricas cambian
+   y el defecto no aparece—. El molde deja 52px fijos desde 768px hacia abajo,
+   pero la columna sigue estrechándose hasta los 240px de un iPhone SE: el tipo
+   deja de caber y la preposición se queda sola.
+
+   Se cambia el valor fijo por uno que sigue al viewport en ese tramo. A 320px da
+   34.6px, que es lo que aguanta el titular más largo del lote («Comunicación»,
+   12 caracteres); a 380 da 41. Es un arreglo del molde y no de una página porque
+   las cuatro lo tienen igual.
+   ========================================================================== */
+@media (max-width: 380px) {
+  .lic-hero h1 {
+    font-size: 10.8vw;
+  }
+}
+
+
+/* =============================================================================
+   H1 DEL HERO EN EL TRAMO DE DOS COLUMNAS ESTRECHO — 2026-09-01
+
+   Entre 1181 y 1440px el hero sigue a dos columnas pero la de texto se estrecha
+   de 644 a 502px, mientras el H1 se queda clavado en los 88px del `h1` global.
+   En el extremo inferior el titular ya no cabe y «en» se queda huérfano.
+
+   Lo destapó `check:titulos` en Psicología, que fallaba en una franja de diez
+   píxeles —1181 a 1190— justo antes de que el molde pase a una columna. Diez
+   píxeles que ningún vistazo a ojo iba a encontrar.
+
+   Estaba en la variante `lic-hero--titulo-largo`, pero no es cosa de los títulos
+   largos: le pasa a las cuatro carreras, con «Psicología» de 10 caracteres
+   incluida. Así que el tipo pasa a seguir a su columna en todo el tramo.
+
+   Va acotado a `.pagina-carrera` y no al `.lic-hero` a secas porque el Área de
+   Ciencias de la Salud usa el mismo componente con otra retícula.
+   ========================================================================== */
+@media (min-width: 1181px) and (max-width: 1440px) {
+  .pagina-carrera .lic-hero h1 {
+    font-size: min(6.1vw, 88px);
+  }
+}

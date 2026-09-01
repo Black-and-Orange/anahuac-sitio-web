@@ -9,7 +9,8 @@
     "check:readiness": "node scripts/check-readiness.mjs",
     "lint:css": "stylelint \"adapters/**/*.css\" --allow-empty-input",
     "a11y": "echo 'Configura pa11y-ci/axe contra la preview del adapter (ver docs/quality.md)'",
-    "validate": "npm run check:readiness && npm run check:tokens && npm run lint:css"
+    "validate": "npm run check:readiness && npm run check:tokens && npm run lint:css",
+    "check:titulos": "node scripts/check-titulos.mjs"
   },
   "devDependencies": {
     "stylelint": "^16.0.0"

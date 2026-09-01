@@ -42,6 +42,26 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-01 — Gastronomía: cuarta carrera sobre el molde
+- Maqueta en `gastronomia.html` + `gastronomia.css`. Nace con `pagina-carrera`,
+  así que hereda las diez correcciones del molde. Cero componentes nuevos.
+- El H1 fija dos líneas —«Licenciatura» / «en Gastronomía»—. La segunda conserva
+  juntas sus palabras y baja a `0.88em`: evita tanto el tercer renglón como el
+  desbordamiento detrás de la imagen, sin tocar el molde compartido.
+- **7 pestañas por área temática.** Siete es primo: a 4 columnas quedan 4+3, un
+  solo hueco, que es el mínimo posible. A 3 quedarían 3+3+1.
+- **Los tres grupos de M9 y ninguno es rejilla de logotipos**, que es lo que el
+  molde da por hecho: coordinación (carrusel), categorías de convenio (texto, no
+  marcas) y 33 chips de ciudad. **La fuente no nombra empresas y no se inventan.**
+- **Los tres nombres de la coordinación son reales** y salen del folleto, así que
+  van tal cual. Van sin foto —el handoff marca `[VERIFICAR]` la autorización— y
+  usan el avatar de iniciales, que es el recurso propio del molde.
+- **Bug del molde encontrado:** `psicologia.js` clona el set del carrusel para el
+  bucle, y el molde deja cuatro tarjetas visibles. Con seis docentes los clones
+  quedan fuera de cuadro; con TRES, el primer clon entraba en el cuarto hueco y
+  se veía la misma persona dos veces. La tarjeta pasa a un tercio en esta página.
+  Se revierte sola cuando lleguen los chefs pendientes y sean cuatro o más.
+
 ### 2026-08-31 — Comunicación: tercera carrera sobre el molde, y la primera fuera de Ciencias de la Salud
 - Maqueta en `comunicacion.html` + `comunicacion.css`, sobre el molde de
   `psicologia.css`. Nace con `pagina-carrera`, así que hereda de entrada las diez
@@ -233,6 +253,16 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - Se configuró `project.json` con los 3 links de Figma y plataforma HubSpot.
 
 ## Aprendizajes / gotchas
+
+### 2026-09-01 — Medir tipografía sin esperar a la webfont da un falso negativo
+`document.fonts.ready` antes de medir, siempre. El H1 huérfano de las páginas de
+carrera —«Licenciatura» / «en» / «X»— no aparece si Zilla Slab todavía no cargó:
+las métricas de la fuente de respaldo son otras. Así se coló el defecto en cuatro
+páginas seguidas, y así lo dejó pasar mi primer barrido.
+
+Corolario: **este defecto depende del ancho de la COLUMNA, no del viewport.** Solo
+aparece en tramos concretos —uno de ellos, en Psicología, de diez píxeles— así que
+mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 32.
 > Qué se intentó, qué falló, qué evitar.
 
 - **Zilla Slab solo tiene cifras de estilo antiguo.** El 3, 4, 5, 7 y 9 bajan de
@@ -246,6 +276,18 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 ## Preguntas abiertas
 > Decisiones pendientes que bloquean o condicionan trabajo futuro.
 
+- **¿Sube al molde la proporción 1:1 del preview de campo laboral?** Es el
+  **tercer** módulo de SEIS ámbitos que la necesita —Nutrición, Comunicación y
+  Gastronomía—: el 4/5 de `.campo-media` solo acierta con los siete de Psicología.
+  Hoy va repetida en las tres hojas de página. Requiere comprobar Psicología antes
+  de promoverla.
+- **Gastronomía · sin una sola fotografía. 🚫 BLOQUEA LA PUBLICACIÓN.** 18 huecos
+  marcados. Los 12 de cocinas e instalaciones son prioridad 1: son el argumento de
+  la carrera, y **cada campus tiene instalaciones distintas** (mixología en el
+  Norte, cocina de vanguardia en el Sur), así que las fotos no son
+  intercambiables. Falta además el **logotipo de Le Cordon Bleu**, que es la marca
+  de la pieza de mayor peso persuasivo de la página. Detalle en
+  `assets/gastronomia/README.md`.
 - **¿Se corrige en el molde la bajada de Historias Anáhuac?** La corrección 1
   promovida el 2026-08-31 acota esa bajada a 62ch y le deja `margin-inline: auto`
   para conservar un centrado que no existe: el H2 va a la izquierda y la bajada
@@ -293,4 +335,3 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
   experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un
   módulo marcado «no rediseñar». ¿Se adapta el módulo compartido o se deja fuera?
 - ¿Cuál es el nombre definitivo del espacio que hoy figura como «Hospital Virtual»? (bloquea el copy de la tarjeta protagonista del módulo 3 del Área de Ciencias de la Salud).
-
