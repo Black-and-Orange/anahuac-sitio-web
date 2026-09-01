@@ -39,6 +39,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `tips-anahuac` | `specs/foraneos.md` (M6 + M9) | construido local | Foráneos |
 | `porque-card--destacada` | `specs/area-ciencias-de-la-salud.md` (M3) | construido local | Área Ciencias de la Salud |
 | `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `specs/comunicacion.md` · `specs/gastronomia.md` · `psicologia.html` | construido local | Psicología, Nutrición, Comunicación, Gastronomía |
+| `campo-band--cta-lateral` | `specs/nutricion.md` (M6) · `nutricion.css` § 10 | construido local | Nutrición |
 | `.pagina-carrera` (alcance del molde corregido) | `psicologia.css` § revisión de diseño · `design/CHANGELOG.md` (2026-08-31) | construido local | Psicología, Nutrición — **no** Área de Ciencias de la Salud |
 | `media-pendiente` | `gastronomia.css` § 0 | construido local · **[PLACEHOLDER]** | Gastronomía |
 | `gas-destinos` (chips de destino) | `specs/gastronomia.md` (M9) · `gastronomia.css` § 5 | construido local | Gastronomía |

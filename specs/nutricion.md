@@ -233,11 +233,11 @@
   5. **«Educación y salud pública»** — «Escuelas, organismos públicos y diseño de políticas de alimentación.»
   6. **«Investigación y desarrollo»** — «Proyectos de investigación en nutrición humana y desarrollo de nuevos productos.»
 - **Preview:** formato 4:5, alt descriptivo por ámbito (p. ej. «Nutrióloga egresada de la Anáhuac atendiendo a un paciente en consultorio»).
-- **Dato de empleabilidad:** «En la Red Anáhuac, el 70% de nuestros egresados se emplea al poco tiempo de graduarse (Top 10 de América Latina en el QS Graduate Employability Ranking).» **[VERIFICAR: cifra propia de Nutrición.]**
 - **Banda destacada (`campo-band`)** — mismo componente que la banda de doble titulación de Psicología:
   - **H3:** «Vinculación con la industria alimentaria»
   - Texto: «Cuentas con convenios de vinculación empresarial con **Nestlé, Danone y Herdez** para prácticas profesionales y proyectos de investigación y desarrollo de producto. Es la puerta a un campo laboral que va mucho más allá del consultorio.»
   - CTAs: «Iniciar proceso de admisión» (`btn btn-orange`) → `/admision-general` · «Solicitar más información» (`btn btn-light`) → `#solicita`
+  - **Composición local `campo-band--cta-lateral`:** en escritorio, copy a la izquierda y los dos CTA apilados a la derecha; en tablet y móvil, los CTA vuelven debajo. Sustituye el lateral vacío tras retirar la cifra de empleabilidad por revisión humana del 2026-09-01.
   - Logos: Nestlé · Danone · Herdez **[PENDIENTE: archivos de logotipo con autorización de uso]**
 
 ---

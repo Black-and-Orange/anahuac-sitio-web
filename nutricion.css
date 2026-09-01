@@ -213,6 +213,51 @@
   aspect-ratio: 1 / 1;
 }
 
+/* -----------------------------------------------------------------------------
+   10. BANDA DE VINCULACIÓN: CTA LATERAL
+
+   Tras retirar la cifra institucional de empleabilidad, el costado derecho de
+   la banda quedaba vacío. No se inventa un icono ni se usan los logotipos de las
+   empresas sin autorización: los dos CTA ocupan ese lateral en una columna.
+   En tablet y móvil vuelven debajo del copy para conservar botones amplios.
+   -------------------------------------------------------------------------- */
+.pagina-nutricion .campo-band--cta-lateral {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+}
+
+.pagina-nutricion .campo-band--cta-lateral .campo-cta {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  min-width: 270px;
+  margin-top: 0;
+}
+
+.pagina-nutricion .campo-band--cta-lateral .campo-cta .btn {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .pagina-nutricion .campo-band--cta-lateral {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pagina-nutricion .campo-band--cta-lateral .campo-cta {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-nutricion .campo-band--cta-lateral .campo-cta {
+    flex-direction: column;
+  }
+}
+
 /* Con los tres datos a lo ancho de la columna entera, las cifras recuperan el
    tamaño del molde: el 52px de la regla 2 era para caber en 530px. */
 .pagina-nutricion .nut-aeo .plan-aeo-dato strong {
