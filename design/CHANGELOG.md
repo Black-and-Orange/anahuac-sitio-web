@@ -5,6 +5,38 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-08-31 — Comunicación · el H1 dejaba «en» solo en un renglón
+
+«Licenciatura en Comunicación» se partía en **tres** renglones —«Licenciatura» /
+«en» / «Comunicación»— con la preposición huérfana en medio. Sus dos hermanas no:
+Psicología y Nutrición leen «Licenciatura» / «en Psicología» en dos renglones
+limpios a cualquier anchura.
+
+**No es un defecto del molde: es la palabra.** «Comunicación» tiene 12 caracteres
+contra los 10 de «Psicología» y los 9 de «Nutrición», y la escala del molde está
+calibrada para esas. Verificado en las tres páginas.
+
+Medido en 16 anchuras, el titular se rompía en tres tramos y por motivos
+distintos:
+
+| Tramo | Qué pasaba | Aguanta |
+|---|---|---|
+| **≥1441px** | El molde sube el tipo a 110px, pero `.container` deja de crecer en 1280 y la columna se queda clavada en 695px: **el tipo crece y su caja no** | 94px |
+| **1181–1440px** | El molde deja 88px fijos mientras la columna baja de 644 a 556 | 88 a 1440 · 75 a 1181 |
+| **≤480px** | 52px fijos en una columna de 328 | 41px |
+
+En 481–1180px el molde ya acierta y no se toca.
+
+En el tramo medio no vale un valor fijo —la columna se estrecha 88px de punta a
+punta—, así que el tipo la sigue con `min(6.1vw, 88px)`: 87.8px a 1440 y 72.0 a
+1181, dentro del límite en los dos extremos.
+
+**Verificado a 1920, 1700, 1600, 1500, 1440, 1400, 1361, 1300, 1200, 1100, 1024,
+900, 768, 600, 480 y 390px:** en las dieciséis, dos renglones y «en Comunicación»
+junto en el segundo.
+
+---
+
 ## 2026-08-31 — Comunicación · se llenan todos los huecos repitiendo fotos
 
 Por decisión de la clienta, las 14 fotos disponibles se repiten hasta cubrir las
