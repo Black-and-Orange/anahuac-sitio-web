@@ -38,8 +38,10 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `health-overview` | `specs/foraneos.md` (M9) | construido local | Foráneos |
 | `tips-anahuac` | `specs/foraneos.md` (M6 + M9) | construido local | Foráneos |
 | `porque-card--destacada` | `specs/area-ciencias-de-la-salud.md` (M3) | construido local | Área Ciencias de la Salud |
-| `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `psicologia.html` | construido local | Psicología, Nutrición |
+| `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `specs/comunicacion.md` · `psicologia.html` | construido local | Psicología, Nutrición, Comunicación |
 | `.pagina-carrera` (alcance del molde corregido) | `psicologia.css` § revisión de diseño · `design/CHANGELOG.md` (2026-08-31) | construido local | Psicología, Nutrición — **no** Área de Ciencias de la Salud |
+| `media-pendiente` | `comunicacion.css` § 0 | construido local · **[PLACEHOLDER]** | Comunicación |
+| `com-inst-grid` (instalaciones de la Facultad) | `specs/comunicacion.md` (M7) · `comunicacion.css` § 5 | construido local | Comunicación |
 | `salud-campus-grupo` | `specs/area-ciencias-de-la-salud.md` (M4) | construido local | Área Ciencias de la Salud |
 | `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud |
 | `colab-logo--pendiente` | `psicologia.css` · `assets/nutricion/logos/README.md` | construido local · **[PLACEHOLDER]** | Nutrición |
