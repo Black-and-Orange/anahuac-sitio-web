@@ -42,6 +42,12 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-01 — Nutrición: CTA lateral en la banda de vinculación
+- La revisión humana retira el texto institucional del 70% de empleabilidad.
+- Los dos CTA ocupan el lateral derecho en escritorio y vuelven debajo en tablet
+  y móvil. Es una variante local: no se inventa un icono ni se usan logotipos de
+  Nestlé, Danone o Herdez sin autorización, y no cambia la banda compartida.
+
 ### 2026-09-01 — Gastronomía: cuarta carrera sobre el molde
 - Maqueta en `gastronomia.html` + `gastronomia.css`. Nace con `pagina-carrera`,
   así que hereda las diez correcciones del molde. Cero componentes nuevos.

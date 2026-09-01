@@ -5,6 +5,18 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-01 — Nutrición · la banda de vinculación lleva los CTA al lateral
+
+La revisión humana retira de M6 el texto institucional de empleabilidad del 70%.
+Sin ese párrafo, la banda quedaba cargada a la izquierda y vacía a la derecha.
+
+Se incorpora la variante local `campo-band--cta-lateral`: en escritorio mantiene
+el copy a la izquierda y apila los dos CTA a la derecha; por debajo de 900px los
+devuelve bajo el contenido. Se eligió esta composición en vez de inventar un
+icono o usar logotipos de Nestlé, Danone y Herdez sin archivos autorizados.
+
+No cambia la banda base que comparten las demás páginas.
+
 ## 2026-09-01 — Gastronomía · «en Gastronomía» no se separa
 
 La revisión humana señaló que el H1 llegaba a componerse en tres renglones. Se
