@@ -1,36 +1,465 @@
 {
-  "encabezado":            { "estado": "Approved",    "tier": "global",        "variantes": [], "notas": "Header global. Se incluye con {% module path=\"../modules/encabezado\" %}, no por dnd.", "paginas_portal": [] },
-  "pie-de-pagina":         { "estado": "Approved",    "tier": "global",        "variantes": [], "notas": "Footer global.", "paginas_portal": [] },
-  "experiencia":           { "estado": "Approved",    "tier": "global",        "variantes": [], "notas": "meta.global:true; usado en Home.", "paginas_portal": [] },
-  "siguiente-paso":        { "estado": "Approved",    "tier": "global",        "variantes": [], "notas": "meta.global:true; cierre en Home.", "paginas_portal": [] },
-  "hero":                  { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "Único módulo con module.css propio (excepción a la convención de module.css vacío).", "paginas_portal": [] },
-  "historias":             { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "", "paginas_portal": [] },
-  "eventos":               { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "", "paginas_portal": [] },
-  "prestigio":             { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "", "paginas_portal": [] },
-  "licenciaturas":         { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "", "paginas_portal": [] },
-  "comienza-tu-camino":    { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "", "paginas_portal": [] },
-  "dudas-contacto":        { "estado": "Approved",    "tier": "reusable",      "variantes": [], "notas": "meta.categories: FORMS_AND_BUTTONS.", "paginas_portal": [] },
-  "admision-hero":         { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-pasos":        { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-fechas":       { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Consume HubDB (calendario de fechas).", "paginas_portal": [] },
-  "admision-cta":          { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-propedeuticos":{ "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-siguiente-paso":{ "estado": "Approved",   "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-faq":          { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "admision-formulario":   { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "oferta-hero":           { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Página Oferta académica viva en el portal; su template NO está versionado en el repo (hueco del espejo). Reconciliar con hs cms fetch.", "paginas_portal": ["Oferta académica"] },
-  "oferta-areas":          { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Template de Oferta no versionado.", "paginas_portal": ["Oferta académica"] },
-  "oferta-search":         { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Buscador de licenciaturas. Template de Oferta no versionado.", "paginas_portal": ["Oferta académica"] },
-  "oferta-experiencia":    { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Template de Oferta no versionado.", "paginas_portal": ["Oferta académica"] },
-  "oferta-form":           { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Template de Oferta no versionado.", "paginas_portal": ["Oferta académica"] },
-  "descubre":              { "estado": "Approved",    "tier": "page-specific", "variantes": [], "notas": "Descubre tu licenciatura (Oferta). Template de Oferta no versionado.", "paginas_portal": ["Oferta académica"] },
-  "apoyos-hero":           { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "Página Apoyos económicos aún no migrada al portal.", "paginas_portal": [] },
-  "apoyos-panorama":       { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-detalle":        { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-financiamiento": { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-consideraciones":{ "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-pasos":          { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-asesoria":       { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-faq":            { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] },
-  "apoyos-formulario":     { "estado": "Development",  "tier": "page-specific", "variantes": [], "notas": "", "paginas_portal": [] }
+  "encabezado": {
+    "estado": "Approved",
+    "tier": "global",
+    "familia": null,
+    "capacidades": ["identidad-visual", "navegacion-principal", "submenus-repetibles", "navegacion-movil", "cta-principal"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Header global. Se incluye con {% module path=\"../modules/encabezado\" %}, no por dnd. Su combinación de navegación desktop/móvil y submenús anidados es única en el inventario.",
+    "paginas_portal": []
+  },
+  "pie-de-pagina": {
+    "estado": "Approved",
+    "tier": "global",
+    "familia": null,
+    "capacidades": ["identidad-visual", "newsletter", "columnas-de-enlaces-repetibles", "redes-sociales", "informacion-legal"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Footer global. Su combinación de newsletter, columnas con enlaces anidados, redes sociales y cierre legal es única en el inventario.",
+    "paginas_portal": []
+  },
+  "experiencia": {
+    "estado": "Approved",
+    "tier": "global",
+    "familia": "experiencia",
+    "capacidades": ["contenido-sticky", "slides-multimedia-repetibles", "imagen-o-video", "cta"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "oferta-experiencia",
+        "motivo": "Comparten clases raíz, layout sticky, repeater de slides con imagen o video y CTA; la firma de fields no es idéntica."
+      }
+    ],
+    "notas": "meta.global:true; usado en Home.",
+    "paginas_portal": []
+  },
+  "siguiente-paso": {
+    "estado": "Approved",
+    "tier": "global",
+    "familia": "navegacion-tarjetas",
+    "capacidades": ["navegacion-por-tarjetas", "tarjetas-repetibles", "iconos", "tarjeta-destacada", "estados-hover"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-siguiente-paso",
+        "motivo": "Ambos presentan destinos relacionados como tarjetas repetibles con icono, texto y enlace; difieren en fields, marcado y estados visuales."
+      }
+    ],
+    "notas": "meta.global:true; cierre en Home. La primera tarjeta recibe un tratamiento destacado en el HTML.",
+    "paginas_portal": []
+  },
+  "hero": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": "hero",
+    "capacidades": ["encabezado-principal", "panel-richtext", "doble-cta", "mosaico-multimedia", "imagen-o-video"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Único módulo con module.css propio (excepción a la convención de module.css vacío). El mosaico de cuatro posiciones admite imagen o video por posición, por lo que no es estructuralmente equivalente a los heroes internos.",
+    "paginas_portal": []
+  },
+  "historias": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": null,
+    "capacidades": ["testimonios-repetibles", "carrusel", "doble-imagen", "variantes-de-color", "orden-imagen-cita"],
+    "variantes": ["stories.variant=orange", "stories.variant=purple", "stories.layout=img-first", "stories.layout=quote-first"],
+    "relaciones": [],
+    "notas": "Carrusel de testimonios con dos imágenes opcionales por historia y variantes explícitas de color y orden. No hay otro contrato equivalente en el inventario.",
+    "paginas_portal": []
+  },
+  "eventos": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": null,
+    "capacidades": ["evento-destacado-opcional", "filtros-por-etiqueta", "eventos-repetibles", "paginacion", "metadatos-de-evento"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Listado filtrable con evento destacado opcional y hooks data-filter/data-tags. No se agrupa con catálogos sin comparar su interacción y modelo de fecha.",
+    "paginas_portal": []
+  },
+  "prestigio": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": null,
+    "capacidades": ["video-youtube-diferido", "estadisticas-repetibles", "contadores-animados", "prefijo-y-sufijo-de-cifra"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Combina video diferido y contadores mediante data-yt-id y data-count-*; es un contrato único en el inventario.",
+    "paginas_portal": []
+  },
+  "licenciaturas": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": "exploracion-academica",
+    "capacidades": ["navegacion-academica", "programas-repetibles", "carrusel-horizontal", "conteo-por-programa", "cta-por-tarjeta"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Explora programas mediante tarjetas en scroller; comparte intención con otros módulos académicos, no necesariamente compatibilidad estructural.",
+    "paginas_portal": []
+  },
+  "comienza-tu-camino": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": "navegacion-tarjetas",
+    "capacidades": ["navegacion-por-tarjetas", "tarjetas-repetibles", "imagen-hover", "estado-expandido", "cta-por-tarjeta"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Navegación de caminos con una imagen principal y una imagen hover por tarjeta; sus estados dependen del marcado path-*.",
+    "paginas_portal": []
+  },
+  "dudas-contacto": {
+    "estado": "Approved",
+    "tier": "reusable",
+    "familia": "cta",
+    "capacidades": ["bloque-contacto", "doble-cta", "imagen", "contenido-promocional"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-cta",
+        "motivo": "Ambos son cierres promocionales con encabezado, texto y dos CTA; dudas-contacto añade imagen y usa un contrato de fields plano."
+      }
+    ],
+    "notas": "meta.categories: FORMS_AND_BUTTONS. No contiene un field de formulario ni un elemento form; funcionalmente es un CTA de contacto.",
+    "paginas_portal": []
+  },
+  "admision-hero": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "hero",
+    "capacidades": ["encabezado-principal", "eyebrow", "panel-richtext", "botones-repetibles", "variantes-de-boton"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "oferta-hero",
+        "motivo": "Comparten estructura de hero interno, panel informativo y hasta dos CTA; difieren en agrupación de fields y control de botones."
+      }
+    ],
+    "notas": "Hero interno sin media; el panel informativo y los botones son editables. No confundir con el hero Home de mosaico multimedia.",
+    "paginas_portal": []
+  },
+  "admision-pasos": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "pasos",
+    "capacidades": ["linea-de-tiempo", "pasos-repetibles", "paneles-sincronizados", "imagen-o-video", "video-youtube-diferido", "cta-por-paso"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "apoyos-pasos",
+        "motivo": "Ambos modelan procesos repetibles; admision-pasos requiere timeline, paneles sincronizados y media, mientras apoyos-pasos usa tarjetas y navegación móvil."
+      }
+    ],
+    "notas": "Los hooks data-step/data-panel y data-yt-id son parte del contrato funcional y requieren el JS compartido del theme.",
+    "paginas_portal": []
+  },
+  "admision-fechas": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": null,
+    "capacidades": ["hubdb", "limite-de-registros", "dos-campus", "acordeon", "tabla-de-fechas", "estado-vacio"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Consume HubDB (calendario de fechas). Es el único módulo con field hubdbtable y no tiene module.css/module.js propios.",
+    "paginas_portal": []
+  },
+  "admision-cta": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "cta",
+    "capacidades": ["contenido-promocional", "doble-cta", "visibilidad-independiente-de-botones", "roles-primario-secundario"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "dudas-contacto",
+        "motivo": "Ambos son cierres promocionales con encabezado, texto y dos CTA; admision-cta no incluye imagen y separa los botones por rol."
+      }
+    ],
+    "notas": "Los dos botones tienen grupos independientes porque cumplen roles primario y secundario; no son un repeater intercambiable.",
+    "paginas_portal": []
+  },
+  "admision-propedeuticos": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": null,
+    "capacidades": ["tabs", "paneles-sincronizados", "cursos-repetibles", "video-youtube-diferido", "cta-por-curso", "variantes-de-acento"],
+    "variantes": ["cursos.acento=naranja", "cursos.acento=morado"],
+    "relaciones": [],
+    "notas": "Cursos en tabs con paneles enlazados por data-prop/data-prop-panel; el acento naranja o morado es una variante real del repeater.",
+    "paginas_portal": []
+  },
+  "admision-siguiente-paso": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "navegacion-tarjetas",
+    "capacidades": ["navegacion-por-tarjetas", "tarjetas-repetibles", "icono-configurable", "visibilidad-por-tarjeta", "cta-por-tarjeta"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "siguiente-paso",
+        "motivo": "Ambos presentan destinos relacionados como tarjetas repetibles con icono, texto y enlace; difieren en fields, marcado y estados visuales."
+      }
+    ],
+    "notas": "Cada tarjeta puede ocultarse y elegir icono predefinido o imagen; no hereda automáticamente el contrato del siguiente-paso global.",
+    "paginas_portal": []
+  },
+  "admision-faq": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "faq",
+    "capacidades": ["preguntas-repetibles", "acordeon-nativo", "respuestas-richtext", "enlaces-en-respuesta"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "apoyos-faq",
+        "motivo": "Comparten details/summary, repeater de preguntas y respuestas richtext; difieren en fields introductorios y hooks/clases."
+      }
+    ],
+    "notas": "FAQ con acordeón details/summary nativo; no depende de JS propio.",
+    "paginas_portal": []
+  },
+  "admision-formulario": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "formulario",
+    "capacidades": ["formulario-hubspot", "contenido-introductorio", "imagen-mascota", "fallback-estatico"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "apoyos-formulario",
+        "motivo": "Ambos renderizan un field form de HubSpot con fallback y media lateral; cambian la agrupación de imagen y el bloque visual."
+      },
+      {
+        "tipo": "candidato",
+        "referencia": "oferta-form",
+        "motivo": "Comparte intención visual y layout general, pero oferta-form no contiene un elemento form, no usa un field type=form de HubSpot y no envía datos."
+      }
+    ],
+    "notas": "Usa un field form nativo de HubSpot y conserva marcado de respaldo cuando no hay formulario configurado.",
+    "paginas_portal": []
+  },
+  "oferta-hero": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "hero",
+    "capacidades": ["encabezado-principal", "eyebrow", "panel-richtext", "doble-cta", "visibilidad-independiente-de-botones"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-hero",
+        "motivo": "Comparten estructura de hero interno, panel informativo y hasta dos CTA; difieren en agrupación de fields y control de botones."
+      }
+    ],
+    "notas": "Página Oferta académica viva en el portal; su template NO está versionado en el repo (hueco del espejo). Reconciliar con hs cms fetch. Si llega a ser necesario, hacerlo únicamente hacia staging y comparar; nunca sobre la ruta canónica.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "oferta-areas": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "exploracion-academica",
+    "capacidades": ["navegacion-academica", "areas-repetibles", "tarjetas-con-imagen", "revelado-progresivo", "cta-por-tarjeta"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Template de Oferta no versionado. Las tarjetas posteriores a la cuarta usan una clase de ocultamiento inicial y controles de revelado.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "oferta-search": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "exploracion-academica",
+    "capacidades": ["busqueda-de-programas", "filtros-por-area", "filtros-por-campus", "programas-repetibles", "paginacion", "conteo-de-resultados"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Buscador de licenciaturas. Template de Oferta no versionado. Los hooks de búsqueda, dropdowns, filtros data-area/data-campus/data-mode y paginación forman parte del contrato.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "oferta-experiencia": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "experiencia",
+    "capacidades": ["contenido-sticky", "slides-multimedia-repetibles", "imagen-o-video", "cta"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "experiencia",
+        "motivo": "Comparten clases raíz, layout sticky, repeater de slides con imagen o video y CTA; oferta-experiencia omite fields semánticos y de estilo presentes en experiencia."
+      }
+    ],
+    "notas": "Template de Oferta no versionado. Es candidato fuerte para reutilizar experiencia, sujeto a comparar fields, defaults, estilos y uso en portal.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "oferta-form": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "formulario",
+    "capacidades": ["interfaz-formulario-estatica", "inputs-sin-envio", "campos-fijos", "control-consentimiento-visual", "imagen-mascota"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-formulario",
+        "motivo": "Comparte intención visual y layout general, pero no contiene un elemento form, no usa un field type=form de HubSpot y no envía datos; esa brecha impide asumir compatibilidad."
+      },
+      {
+        "tipo": "candidato",
+        "referencia": "apoyos-formulario",
+        "motivo": "Comparte intención visual y layout general, pero no contiene un elemento form, no usa un field type=form de HubSpot y no envía datos; esa brecha impide asumir compatibilidad."
+      }
+    ],
+    "notas": "Template de Oferta no versionado. Es únicamente una reproducción visual: pinta inputs, textarea, checkbox y botón fuera de un elemento form; no expone un field type=form de HubSpot y no captura ni envía datos.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "descubre": {
+    "estado": "Approved",
+    "tier": "page-specific",
+    "familia": "exploracion-academica",
+    "capacidades": ["navegacion-academica", "tarjetas-repetibles", "variantes-de-color", "imagen", "cta-por-tarjeta"],
+    "variantes": ["cards.variant=descubre-card--orange", "cards.variant=descubre-card--purple"],
+    "relaciones": [],
+    "notas": "Descubre tu licenciatura (Oferta). Template de Oferta no versionado. Las variantes naranja y morada pertenecen a cada tarjeta del repeater.",
+    "paginas_portal": ["Oferta académica"]
+  },
+  "apoyos-hero": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "hero",
+    "capacidades": ["encabezado-principal", "eyebrow", "panel-richtext", "imagen-destacada", "botones-repetibles", "variantes-de-boton"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Página Apoyos económicos aún no migrada al portal. Hero interno con una imagen destacada; no equivale al mosaico multimedia de hero ni al hero sin media de Admisión.",
+    "paginas_portal": []
+  },
+  "apoyos-panorama": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "catalogo-apoyos",
+    "capacidades": ["resumen-de-apoyos", "tarjetas-repetibles", "carrusel-responsive", "metadatos-de-apoyo", "anclas-a-detalle"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "complementa",
+        "referencia": "apoyos-detalle",
+        "motivo": "Las tarjetas de panorama enlazan por ancla a las fichas extensas del módulo de detalle; cumplen responsabilidades distintas."
+      }
+    ],
+    "notas": "Vista resumida del catálogo de apoyos; sus cards y navegación responsive requieren comparar JS y breakpoints antes de adaptar.",
+    "paginas_portal": []
+  },
+  "apoyos-detalle": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "catalogo-apoyos",
+    "capacidades": ["detalle-de-apoyos", "fichas-repetibles", "anclas-por-ficha", "metadatos-configurables", "imagen-lateral", "cta-por-ficha"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "complementa",
+        "referencia": "apoyos-panorama",
+        "motivo": "Recibe las anclas del panorama y desarrolla las fichas; comparte el dominio pero no el contrato de render."
+      }
+    ],
+    "notas": "Detalle extenso con visibilidad configurable de rango, descripción, perfil, requisito, evaluación, notas y CTA.",
+    "paginas_portal": []
+  },
+  "apoyos-financiamiento": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": null,
+    "capacidades": ["opciones-financieras-repetibles", "logos", "metadatos-financieros", "cta-por-opcion", "documentos-desplegables", "columnas-repetibles"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Combina cards de opciones financieras y un bloque details/summary de documentos; no hay otro contrato equivalente en el inventario.",
+    "paginas_portal": []
+  },
+  "apoyos-consideraciones": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": null,
+    "capacidades": ["consideraciones-repetibles", "iconos-predefinidos", "visibilidad-global-de-iconos", "contenido-informativo"],
+    "variantes": [],
+    "relaciones": [],
+    "notas": "Grid informativo de consideraciones con iconos seleccionables; no es navegación ni proceso y no se fuerza a una familia de cards.",
+    "paginas_portal": []
+  },
+  "apoyos-pasos": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "pasos",
+    "capacidades": ["pasos-repetibles", "tarjetas-de-paso", "imagenes-por-paso", "aviso-opcional", "navegacion-movil", "cta-final"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-pasos",
+        "motivo": "Ambos modelan procesos repetibles; apoyos-pasos usa tarjetas y navegación móvil, mientras admision-pasos requiere timeline, paneles sincronizados y media flexible."
+      }
+    ],
+    "notas": "Proceso por tarjetas con navegación móvil y CTA final; no comparte los hooks data-step/data-panel de Admisión.",
+    "paginas_portal": []
+  },
+  "apoyos-asesoria": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "asesoria",
+    "capacidades": ["seleccion-de-region", "seleccion-de-estado", "seleccion-de-preparatoria", "asignacion-estatica-de-asesor", "contacto-whatsapp", "cita-opcional", "correo-opcional", "fuente-hubdb-futura"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "consumido-por",
+        "referencia": "admision-asesoria",
+        "motivo": "La sección lógica de Admisión reutiliza este módulo físico con contenido/configuración propia; admision-asesoria no es ni debe convertirse en una clave o carpeta física."
+      }
+    ],
+    "notas": "Único módulo físico de asesoría. La fuente actual es estática (data-source=static) y declara una fuente HubDB futura; la relación lógica admision-asesoria → apoyos-asesoria no autoriza duplicarlo.",
+    "paginas_portal": []
+  },
+  "apoyos-faq": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "faq",
+    "capacidades": ["preguntas-repetibles", "acordeon-nativo", "respuestas-richtext", "enlaces-en-respuesta"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-faq",
+        "motivo": "Comparten details/summary, repeater de preguntas y respuestas richtext; difieren en fields introductorios y hooks/clases."
+      }
+    ],
+    "notas": "FAQ con acordeón details/summary nativo y anclaje/aria-labelledby propios; no depende de JS propio.",
+    "paginas_portal": []
+  },
+  "apoyos-formulario": {
+    "estado": "Development",
+    "tier": "page-specific",
+    "familia": "formulario",
+    "capacidades": ["formulario-hubspot", "contenido-introductorio", "imagen-lateral", "fallback-estatico"],
+    "variantes": [],
+    "relaciones": [
+      {
+        "tipo": "candidato",
+        "referencia": "admision-formulario",
+        "motivo": "Ambos renderizan un field form de HubSpot con fallback y media lateral; cambian la agrupación de imagen y el bloque visual."
+      },
+      {
+        "tipo": "candidato",
+        "referencia": "oferta-form",
+        "motivo": "Comparte intención visual y layout general, pero oferta-form no contiene un elemento form, no usa un field type=form de HubSpot y no envía datos."
+      }
+    ],
+    "notas": "Usa un field form nativo de HubSpot y conserva marcado de respaldo cuando no hay formulario configurado.",
+    "paginas_portal": []
+  }
 }
