@@ -61,15 +61,99 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`licenciaturas` es la banda naranja del Home que invita a explorar la oferta académica
+por área. Deriva literalmente de `<section class="programs section-pad" id="licenciaturas">`
+de la página aprobada `Inicio.html` (líneas 248-293): eyebrow «Áreas académicas», H2,
+intro, botón «Ver todas» y siete `article.program-card` —imagen, nombre del área, conteo
+de programas y enlace— dentro de un scroller horizontal, con la fila de puntos y flechas
+de `.slider-ui` debajo.
+
+La migración hizo una traducción deliberada. En `Inicio.html` los puntos están escritos a
+mano (`<div class="dots">` con siete `<span>`, uno con `.active`); `module.html` emite
+`<div class="dots"></div>` **vacío** y es `js/main.js` (líneas 176-296) quien crea un
+`<button>` por tarjeta original, clona todas las tarjetas (`.is-clone`, `aria-hidden="true"`)
+para el bucle infinito y conecta las dos flechas. El paginador es, por tanto, función del
+número de items del repeater `programs`, no un field. `main.css` conserva reglas para las
+dos formas (`.dots span` y `.dots button`, líneas 1112-1129), así que la maqueta estática y
+el módulo se ven igual.
+
+`programs.count` es `type: text` con default «5 programas»: la capacidad curada
+`conteo-por-programa` describe una **etiqueta editorial**, no un conteo calculado. No hay
+HubDB ni consulta dinámica en ninguna parte del módulo.
+
+Los fields de color no pintan nada por sí mismos: el HubL los convierte en custom
+properties en el `style` de la sección y quien las consume es `main.css` —`--programs-bg`
+en `.programs` (línea 958) y `--home-lic-heading`, `--home-lic-intro`, `--home-lic-cta-bg`,
+`--home-lic-cta-text` en el bloque «Módulo 4 · Licenciaturas» (líneas 5045-5051)—, siempre
+con fallback al token. Con los campos vacíos el render es el aprobado.
+
+**Defecto verificado y no corregido aquí:** `module.html` (líneas 9-10) abre el `<section>`
+con **dos** atributos `style` condicionales, uno para `bg_color` y otro para
+`grupo_estilos`. Como `bg_color` trae default `#FF5900`, el primero se emite casi siempre y
+el analizador HTML descarta el segundo, de modo que los cuatro colores de `grupo_estilos`
+no llegan a aplicarse salvo que se vacíe `bg_color`. Es un defecto del módulo, no del
+catálogo; se documenta porque cambia lo que un editor puede esperar del panel de estilos.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Páginas `LANDING_PAGE` o `SITE_PAGE` cuyo diseño pide exactamente esta composición:
+  banda de color a sangre, intro a la izquierda, CTA «Ver todas» a la derecha, carrusel
+  **horizontal** de tarjetas imagen + título + conteo + enlace, y controles debajo.
+- Sólo desde un template que cargue `css/tokens.css`, `css/main.css` y `js/main.js`, como
+  hace `templates/pagina.html` (línea 72). `module.css` y `module.js` están vacíos: no
+  aportan nada por sí solos.
+- Cuando cada página necesita su propio contenido: `tier: reusable` con
+  `meta.global: false`, así que dos páginas con `licenciaturas` no comparten configuración.
+- Con 1 a 20 áreas (`occurrence` `min: 0`, `max: 20`, `default: 7`). Los siete respaldos de
+  imagen (`area-salud.jpg` … `area-educacion.jpg`) se recorren con módulo
+  (`loop.index0 % (fallbacks|length)`), así que a partir de la octava se repiten; con cero
+  items el carrusel simplemente no se inicializa (`if (!totalOriginal) return`).
+- Se admite **más de una instancia por página**: el JS itera
+  `document.querySelectorAll(".program-scroller")` y resuelve puntos y flechas con
+  `scroller.closest(".programs")`, de modo que cada instancia es autónoma. Lo único que se
+  duplicaría es `id="licenciaturas"`, escrito en el marcado.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- **Si el patrón es un revelado progresivo vertical, compara primero con `oferta-areas`**
+  (candidato 0.555).
+  La coincidencia es de intención —familia `exploracion-academica`, `navegacion-academica`,
+  `cta-por-tarjeta`, `BODY_CONTENT`—, no de mecánica: `oferta-areas` emite
+  `section.oferta-areas > .container > .area-grid > article.area-card`, marca con
+  `.area-card--hidden` todo lo que pase del índice 4 y su JS (`main.js` 576-731) envuelve
+  las tarjetas en un `.area-track` creado en runtime y desplaza **filas de dos columnas**
+  con transición de altura. Sus fields tampoco encajan: `areas.hook` y `areas.desc` no
+  existen aquí, y aquí `programs.count` no existe allá. Cambian la clase raíz, el árbol y
+  los selectores compartidos: brechas de `html/raíz`, `html/jerarquía` y `css` →
+  **bloqueantes** (§9). Añadido operativo: el JS de `oferta-areas` es *singleton*
+  (`document.querySelector(".area-grid")`), así que no sirve para repetir el carrusel
+  varias veces en una página; `licenciaturas` sí.
+- **Si el patrón son dos o tres tarjetas de color que llevan a herramientas, compara
+  primero con `descubre`**
+  (candidato 0.461). Ahí la tarjeta entera es el enlace (`<a class="descubre-card {{ card.variant }}">`),
+  el color lo decide la variante declarada en el registry (`cards.variant=descubre-card--orange`,
+  `…--purple`), hay una imagen de sección y **no hay carrusel ni JS**. `licenciaturas` no
+  tiene field `variant` ni variantes verificadas: reproducir ese comportamiento exige un
+  field nuevo *y* reglas nuevas en `main.css` → bloqueante por `css`.
+- **Si se evalúa una sección para Oferta académica, compara primero con `oferta-areas` y
+  `descubre`.** Son
+  `tier: page-specific` con `paginas_portal: ["Oferta académica"]` y su template no está
+  versionado; meter `licenciaturas` ahí duplicaría responsabilidad y clases (`.programs-head`,
+  `.arrow-buttons`) que esa página ya usa.
+- **En la misma página que `oferta-search`, sin revisar antes.** `oferta-search` también
+  emite `.program-card`, y el bloque de búsqueda de `main.js` (781-1005) hace
+  `document.querySelectorAll(".program-card")` y ejecuta `renderPage()` al cargar, añadiendo
+  `.hidden` a toda tarjeta fuera de la página actual —incluidas las de `licenciaturas`—.
+  Hoy es visualmente inocuo porque la única regla que oculta está acotada
+  (`.oferta-search .program-card.hidden`, línea 3388), pero el acoplamiento es real y
+  cualquier cambio a esa regla lo convierte en bug.
+- **Si se necesita una descripción por tarjeta, filtros, badges o paginación.** El contrato
+  de `programs` sólo tiene imagen, nombre, conteo, texto y enlace; lo demás es
+  `oferta-search`.
+- **Si el template destino no marca `<html class="no-js">` y además no carga `js/main.js`.**
+  Sin la clase de rescate (`main.css` línea 189) los `[data-reveal]` nunca reciben
+  `.is-visible` y la sección se queda en `opacity: 0`; con ella, la sección se ve pero
+  quedan un `.dots` vacío y dos flechas inertes.
 
 ## Fields editables
 
@@ -98,6 +182,97 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_boton_fondo` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_boton_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+Recorrido por las dimensiones que evalúa `evaluateCompatibility` (`metadata`, `fields`,
+`html`, `css`, `js/hooks`, `variantes`, `responsive`, `assets`, `dependencias`, `paginas`),
+separando contrato duro de margen real. Las severidades siguen la tabla de `README.md` §9.
+
+**`metadata`.** Duro: las capacidades observables. `carrusel-horizontal` y
+`conteo-por-programa` son las dos que ningún otro miembro de la familia tiene, y una brecha
+`falta capacidad:` sobre ellas responde «no hace lo mismo» y corta la cadena en el paso 2.
+`estado: Approved` es curaduría del registry, no confirmación del portal. `tier: reusable`
+con `meta.global: false` es coherente (0
+discrepancias en el catálogo). Solo nota: `familia: exploracion-academica`, que amplía la
+búsqueda pero no decide compatibilidad (TAXONOMY). Flexible/adaptable: `categories`
+(`BODY_CONTENT`) y `content_types` (`LANDING_PAGE`, `SITE_PAGE`) son aditivos en
+`meta.json` y no tocan marcado ni contenido guardado.
+
+**`fields`.** Duro: `programs` es el único repeater y va **a nivel raíz**, no anidado en un
+grupo —anidarlo pierde todos los items en la primera edición (aviso de
+`adapters/hubspot/README.md`)—; su `occurrence` (`min: 0`, `max: 20`, `default: 7`) y su
+condición de repeater forman parte de la firma del contenido guardado. `view_all_link` y
+`programs.cta_link` son `type: link` y el HubL lee `…url.href`: convertirlos en `text`
+rompe. Ningún field es `required`, así que el módulo tolera contenido vacío en todos ellos.
+Cambiar tipo, `required`, `single/repeater` u `occurrence` de un path existente es
+**bloqueante** (§9) y lo prohíbe §10. La firma incluye todos los defaults —textos, `alt`,
+colores y el `#FF5900` de `bg_color`—: cambiarlos produce una brecha bloqueante aunque la
+diferencia sea editorial. Ampliar las listas de `eyebrow_tag`, `heading_tag`, `intro_tag`
+y `programs.program_name_tag` es un cambio aditivo fuera de la firma actual.
+
+**`html`.** Duro: raíz `<section class="programs section-pad">`. `.programs` es lo que usan
+`main.css` (958-1010 y 5045-5051) y el JS (`scroller.closest(".programs")`) para encontrar
+puntos y flechas. También son contrato `.container`, `.programs-head`,
+`.section-intro.on-orange`, `.tagline` con su `<span>` vacío, `.btn.btn-white-arrow`,
+`.program-scroller`, `article.program-card` con el orden `img` → `div` → (`h3`, `p`, `a`),
+`.slider-ui`, `.dots` vacío y `.arrow-buttons` con **exactamente dos** `<button>` (el JS
+desestructura `[prevButton, nextButton]`). `.reveal` y `[data-reveal]` son un par: la clase
+pone `opacity: 0` (178-186) y el atributo es el hook del observador; falta cualquiera y la
+sección no aparece. Flexible: `id="licenciaturas"`, que no aparece ni en `main.css` ni en
+`main.js` y sólo sirve de ancla de navegación. `formulario-operativo: false` es correcto y
+no hay intención de que cambie.
+
+**`css`.** `module.css` está **vacío**, como 32 de los 34 módulos del theme: *todos* los
+selectores que lista el bloque AUTO viven en `theme/css/main.css`, así que cualquier brecha
+`falta selector:` es **bloqueante** —cerrarla implica editar CSS transversal— y dar
+contenido al `module.css` también lo es, por convención del theme (§9). Alcance real a
+tener en cuenta: `.program-card` **no es exclusivo** (las reglas base 1029-1098 las
+comparte con `oferta-search`, que las especializa en 3341-3491), y `.programs-head` y
+`.arrow-buttons` los emiten además `oferta-areas` y `apoyos-panorama`. Editar cualquiera de
+esos selectores toca varias páginas a la vez.
+
+**`js`/`hooks`.** `module.js` está vacío, como los 34 del theme; todo el comportamiento es
+de `js/main.js`: el carrusel infinito (176-296) y `[data-reveal]` (78-150, con el
+MutationObserver que rescata al editor de HubSpot). Duro: `.program-scroller`,
+`.program-card`, `.programs`, `.dots`, `.arrow-buttons button` y `[data-reveal]`. Una
+brecha `falta hook:` es **bloqueante** por construcción: no hay `module.js` donde alojar el
+comportamiento sin romper la convención. Riesgo cruzado ya descrito en «Cuándo no usar»: el
+filtro de `oferta-search` selecciona `.program-card` en todo el documento.
+
+**`variantes`.** `registry.variantes` está vacío y el bloque AUTO reporta «Variantes
+verificadas: —». Los colores y los `*_tag` son configuración por instancia, no variantes en
+el sentido de TAXONOMY. Añadir una es aditivo (**adaptable**) y obliga a declararla en
+`registry.variantes` y aquí.
+
+**`responsive`.** Ninguna regla es propia. Las que gobiernan esta sección son
+`@media (max-width: 90em)` (1163-1177: ancho del intro, botón y `--program-card-size`),
+`@media (max-width: 73.75em)` (1179-1197: `.programs-head` en columna) y
+`@media (max-width: 40em)` (1199-1224 más la auditoría tipográfica de 4133). Las otras tres
+que aparecen en la evidencia —`68.75em`, `48em`, `29.6875em`— entran por clases compartidas
+(`.oferta-search .program-card` en 3566/3636/3666, `.oferta-areas .programs-head` en
+3036/2956, `.apo-panorama .programs-head` en 4690): confirman que el responsive es
+transversal. Toda brecha `falta regla responsive:` es, por origen, **bloqueante**.
+
+**`assets`.** Una sola referencia:
+`get_asset_url('../../images/' ~ fallbacks[loop.index0 % (fallbacks|length)])` sobre siete
+nombres literales de `module.html`. Los siete existen en `theme/images/` (verificado:
+`area-salud`, `area-ingenierias`, `area-negocios`, `area-derecho`, `area-comunicacion`,
+`area-artes`, `area-educacion`, todos `.jpg`). Duro: mientras el editor no suba imagen,
+esos archivos deben estar. Sustituirlos o añadir otros es **adaptable**, recordando que el
+Design Manager descarta `.webp` en silencio.
+
+**`dependencias`.** Declaradas: `css/main.css` y `js/main.js`. Ningún módulo del theme usa
+`require_css`/`require_js`; la carga es explícita en el `<head>`/`<body>` del template.
+Según §9 eso es **solo nota** mientras el template destino cargue ambos, y pasa a
+**adaptable** si hubiera que declarar un `require_*`. En la práctica `main.js` no es una
+nota para este módulo: sin él no hay puntos ni flechas.
+
+**`paginas`.** Uso observado: `Home`, derivado de `templates/pagina.html:72`;
+`paginas_portal` vacío. Reutilizarlo en otra página produce `uso objetivo no observado:`
+(solo nota). Cualquier cambio produce `impacto existente a revisar: Home` y obliga al
+análisis de impacto de §10, con el recordatorio de que el `dnd_area` no se propaga a
+páginas ya creadas: cada página guarda su snapshot y hay que verificarla una por una.
 
 ## Checklist de compatibilidad
 

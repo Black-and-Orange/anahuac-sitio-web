@@ -6,7 +6,7 @@
     "capacidades": ["identidad-visual", "navegacion-principal", "submenus-repetibles", "navegacion-movil", "cta-principal"],
     "variantes": [],
     "relaciones": [],
-    "notas": "Header global. Se incluye con {% module path=\"../modules/encabezado\" %}, no por dnd. Su combinación de navegación desktop/móvil y submenús anidados es única en el inventario.",
+    "notas": "Header global. Se incluye con {% module path=\"../modules/encabezado\" %}, no por dnd. No tiene candidatos con evidencia suficiente en el catálogo; la ausencia de candidato no demuestra unicidad.",
     "paginas_portal": []
   },
   "pie-de-pagina": {
@@ -16,7 +16,7 @@
     "capacidades": ["identidad-visual", "newsletter", "columnas-de-enlaces-repetibles", "redes-sociales", "informacion-legal"],
     "variantes": [],
     "relaciones": [],
-    "notas": "Footer global. Su combinación de newsletter, columnas con enlaces anidados, redes sociales y cierre legal es única en el inventario.",
+    "notas": "Footer global. No tiene candidatos con evidencia suficiente en el catálogo; la ausencia de candidato no demuestra unicidad.",
     "paginas_portal": []
   },
   "experiencia": {
@@ -68,7 +68,7 @@
     "capacidades": ["testimonios-repetibles", "carrusel", "doble-imagen", "variantes-de-color", "orden-imagen-cita"],
     "variantes": ["stories.variant=orange", "stories.variant=purple", "stories.layout=img-first", "stories.layout=quote-first"],
     "relaciones": [],
-    "notas": "Carrusel de testimonios con dos imágenes opcionales por historia y variantes explícitas de color y orden. No hay otro contrato equivalente en el inventario.",
+    "notas": "Carrusel de testimonios con dos imágenes opcionales por historia y variantes explícitas de color y orden. No tiene candidatos con evidencia suficiente; la búsqueda humana sigue siendo obligatoria.",
     "paginas_portal": []
   },
   "eventos": {
@@ -88,7 +88,7 @@
     "capacidades": ["video-youtube-diferido", "estadisticas-repetibles", "contadores-animados", "prefijo-y-sufijo-de-cifra"],
     "variantes": [],
     "relaciones": [],
-    "notas": "Combina video diferido y contadores mediante data-yt-id y data-count-*; es un contrato único en el inventario.",
+    "notas": "Combina video diferido y contadores mediante data-yt-id y data-count-*. No tiene candidatos con evidencia suficiente; la ausencia de candidato no demuestra unicidad.",
     "paginas_portal": []
   },
   "licenciaturas": {
