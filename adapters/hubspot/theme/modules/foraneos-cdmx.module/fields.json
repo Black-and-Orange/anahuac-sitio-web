@@ -1,0 +1,353 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Por qué estudiar y vivir en la CDMX?"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto introductorio",
+        "help_text": "Admite negritas porque el texto aprobado resalta una frase dentro del párrafo.",
+        "type": "richtext",
+        "default": "<p>Vivir en la Ciudad de México como estudiante foráneo te pone en la capital del país, en la zona con <strong>mayor densidad de oportunidades profesionales y prácticas</strong> de México, con alta oferta cultural, gran conectividad y presencia de los eventos y foros más importantes del país.</p>"
+      },
+      {
+        "id": "grupo_contenido.foto",
+        "name": "foto",
+        "label": "Foto grande",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "La Ciudad de México como entorno de vida para estudiantes foráneos de la Universidad Anáhuac México."
+        },
+        "help_text": "Es la foto que se ve al cargar la sección. Al pasar el cursor por cada razón se sustituye por la imagen de esa razón. Si la dejas vacía se usa hero-friends.jpg del theme."
+      }
+    ]
+  },
+  {
+    "id": "razones",
+    "name": "razones",
+    "label": "Razones",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "razones.imagen",
+        "name": "imagen",
+        "label": "Imagen de la razón",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "help_text": "Se muestra en la foto grande al pasar el cursor o el foco por esta razón. Si la dejas vacía se usa la imagen de respaldo del theme. PENDIENTE en la razón 6: su imagen definitiva es extranjeros.webp y el Design Manager de HubSpot descarta los .webp en silencio; mientras tanto cae a hero-student.jpg. Sube la versión en JPG o PNG y selecciónala aquí."
+      },
+      {
+        "id": "razones.numero",
+        "name": "numero",
+        "label": "Número",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "1",
+        "help_text": "El indicador redondo antes del título. Es decorativo (aria-hidden): déjalo vacío para ocultarlo."
+      },
+      {
+        "id": "razones.titulo",
+        "name": "titulo",
+        "label": "Título de la razón",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Eres parte de la capital del país."
+      },
+      {
+        "id": "razones.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "razones.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Máximo 8. Cada razón es una tarjeta que cambia la foto grande.",
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 6
+    },
+    "default": [
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "1",
+        "titulo": "Eres parte de la capital del país.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "2",
+        "titulo": "Estás en la zona con mayor densidad de oportunidades profesionales y prácticas.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "3",
+        "titulo": "Tienes la mayor oferta cultural y de entretenimiento de México a la mano.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "4",
+        "titulo": "Vives cerca de los eventos y foros más importantes del país.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "5",
+        "titulo": "Te mueves con la mayor conectividad: aeropuerto internacional y red de transporte.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "imagen": {
+          "src": "",
+          "alt": ""
+        },
+        "numero": "6",
+        "titulo": "Vives en una de las ciudades más importantes de Latinoamérica.",
+        "titulo_tag": "h3",
+        "titulo_color": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_intro",
+        "name": "color_intro",
+        "label": "Color del texto introductorio",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_fondo",
+        "name": "color_card_fondo",
+        "label": "Tarjeta cerrada · color de fondo",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_texto",
+        "name": "color_card_texto",
+        "label": "Tarjeta cerrada · color de texto",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_abierta_fondo",
+        "name": "color_card_abierta_fondo",
+        "label": "Tarjeta activa · color de fondo",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_card_abierta_texto",
+        "name": "color_card_abierta_texto",
+        "label": "Tarjeta activa · color de texto",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

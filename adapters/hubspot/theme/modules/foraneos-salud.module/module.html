@@ -1,0 +1,47 @@
+{# ===== Foráneos · Salud y bienestar =====
+   Porta <section class="for-salud section-pad" id="salud"> de foraneos.html sin
+   cambiar el marcado. El CSS ya vive en theme/css/main.css (bloque 9), por eso
+   module.css va vacío.
+
+   Los iconos son SVG en línea con if/elif y no un {% macro %}: un macro con un
+   atributo ausente hace desaparecer el módulo entero sin error. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+<section class="for-salud section-pad" id="salud" aria-labelledby="salud-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="salud-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+    </div>
+
+    {% if module.servicios %}
+      <ul class="consideraciones-grid for-salud-grid reveal" data-reveal>
+        {% for item in module.servicios %}
+          <li class="consideracion">
+            <span class="consideracion-icon" aria-hidden="true">
+              {% if item.icono == 'mensaje' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+              {% elif item.icono == 'escudo' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+              {% elif item.icono == 'mancuerna' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>
+              {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="10"/></svg>
+              {% endif %}
+            </span>
+            <div>
+              {% if item.titulo %}<{{ item.titulo_tag|default('h3', true) }}>{{ item.titulo }}</{{ item.titulo_tag|default('h3', true) }}>{% endif %}
+              {% if item.texto %}<p>{{ item.texto }}</p>{% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if c.copy %}
+      <{{ c.copy_tag|default('p', true) }} class="for-salud-copy reveal" data-reveal{% if c.copy_color.color %} style="color:{{ c.copy_color.color }}"{% endif %}>{{ c.copy }}</{{ c.copy_tag|default('p', true) }}>
+    {% endif %}
+  </div>
+</section>

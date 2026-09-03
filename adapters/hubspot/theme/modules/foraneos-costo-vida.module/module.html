@@ -1,0 +1,76 @@
+{# ===== Foráneos · Costo de vida =====
+   Porta <section class="for-calc section-pad" id="costo-de-vida"> de
+   foraneos.html sin cambiar el marcado.
+
+   Los cuatro rubros son pares de campos fijos, no un repeater: un repeater
+   dentro de otro repeater pierde sus items en la primera edición. Cada fila se
+   pinta solo si tiene concepto o monto, así que dejar los dos vacíos la borra.
+
+   main.css no consume ninguna custom property en .for-calc, así que los colores
+   editables van en línea sobre el elemento. #}
+{% set c = module.grupo_contenido %}
+{% set n = module.grupo_nota %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+{% set estilo_monto = "" %}
+{% if e.color_monto.color %}{% set estilo_monto = estilo_monto ~ "color:" ~ e.color_monto.color ~ ";" %}{% endif %}
+{% if e.tamano_monto %}{% set estilo_monto = estilo_monto ~ "font-size:var(--" ~ e.tamano_monto ~ ");" %}{% endif %}
+
+<section class="for-calc section-pad" id="costo-de-vida" aria-labelledby="calc-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="calc-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if c.intro %}
+        <{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>
+      {% endif %}
+    </div>
+
+    {% if c.estimado %}
+      <{{ c.estimado_tag|default('p', true) }} class="for-calc-estimado reveal" data-reveal{% if c.estimado_color.color %} style="color:{{ c.estimado_color.color }}"{% endif %}>{{ c.estimado }}</{{ c.estimado_tag|default('p', true) }}>
+    {% endif %}
+
+    <div class="for-calc-grid reveal" data-reveal>
+      {% for campus in module.campus %}
+        <article class="for-precio {{ campus.variante|default('for-precio--norte', true) }}"{% if e.color_tarjeta_fondo.color %} style="background:{{ e.color_tarjeta_fondo.color }}"{% endif %}>
+          <div class="for-precio-top">
+            <{{ campus.nombre_tag|default('h3', true) }}>{{ campus.nombre }}</{{ campus.nombre_tag|default('h3', true) }}>
+            <span class="for-precio-monto"{% if estilo_monto %} style="{{ estilo_monto }}"{% endif %}>{{ campus.monto }}</span>
+            <span class="for-precio-periodo">{{ campus.periodo }}</span>
+            {% if campus.zonas %}<p class="for-precio-zonas">{{ campus.zonas }}</p>{% endif %}
+          </div>
+          <ul class="for-precio-rubros">
+            {% if campus.rubro1_label or campus.rubro1_dato %}<li><span>{{ campus.rubro1_label }}</span><span class="for-precio-dato">{{ campus.rubro1_dato }}</span></li>{% endif %}
+            {% if campus.rubro2_label or campus.rubro2_dato %}<li><span>{{ campus.rubro2_label }}</span><span class="for-precio-dato">{{ campus.rubro2_dato }}</span></li>{% endif %}
+            {% if campus.rubro3_label or campus.rubro3_dato %}<li><span>{{ campus.rubro3_label }}</span><span class="for-precio-dato">{{ campus.rubro3_dato }}</span></li>{% endif %}
+            {% if campus.rubro4_label or campus.rubro4_dato %}<li><span>{{ campus.rubro4_label }}</span><span class="for-precio-dato">{{ campus.rubro4_dato }}</span></li>{% endif %}
+          </ul>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if n.nota_texto or n.nota_boton_texto %}
+      <div class="for-calc-nota reveal" data-reveal>
+        {% if n.nota_texto %}<p>{{ n.nota_texto }}</p>{% endif %}
+        {% if n.nota_boton_texto %}
+          <div class="button-row">
+            <a class="btn {{ n.nota_boton_estilo|default('btn-dark', true) }}" href="{{ n.nota_boton_enlace.url.href|default('#', true) }}"{% if n.nota_boton_enlace.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ n.nota_boton_texto }}</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if n.enlace_texto %}
+      <p class="for-link-terciario-wrap reveal" data-reveal><a class="for-link-terciario" href="{{ n.enlace_destino.url.href|default('#', true) }}"{% if n.enlace_destino.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ n.enlace_texto }} <span aria-hidden="true">→</span></a></p>
+    {% endif %}
+
+    {% if n.disclaimer %}
+      <p class="for-disclaimer for-calc-disclaimer reveal" data-reveal{% if e.color_disclaimer.color %} style="color:{{ e.color_disclaimer.color }}"{% endif %}>{{ n.disclaimer }}</p>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,54 @@
+{# ===== Foráneos · Explora lo que tenemos para ti =====
+   Porta <section class="for-explora section-pad" id="explora"> de foraneos.html
+   sin cambiar el marcado.
+
+   No son CTA de conversión, son navegación interna: por eso van dentro de un
+   <nav> con aria-label y usan .for-categoria .for-ancla (tarjeta con icono), no
+   la píldora de color de los botones. El desplazamiento suave es global.
+
+   Los iconos son un catálogo cerrado (campo choice): el editor elige, no pega
+   SVG. Sin macro: un macro con un atributo ausente hace desaparecer el módulo
+   entero sin error. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+<section class="for-explora section-pad" id="explora" aria-labelledby="explora-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="explora-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+    </div>
+
+    {% if module.anclas %}
+      <nav class="for-categorias for-anclas reveal" data-reveal aria-label="{{ c.nav_aria|default('Secciones de esta página', true)|escape }}">
+        {% for ancla in module.anclas %}
+          <a class="for-categoria for-ancla" href="{{ ancla.enlace.url.href|default('#', true) }}"
+             {% if ancla.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+            <span class="for-categoria-icono" aria-hidden="true"{% if e.color_icono.color %} style="color:{{ e.color_icono.color }}"{% endif %}>
+              {% if ancla.icono == "casa" %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+              {% elif ancla.icono == "mapa" %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3z"/><path d="M9 3v15M15 6v15"/></svg>
+              {% elif ancla.icono == "personas" %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20v-1.3A3.7 3.7 0 0 1 6.7 15h4.6a3.7 3.7 0 0 1 3.7 3.7V20"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M17 15h1.2a3.3 3.3 0 0 1 3.3 3.3V20"/></svg>
+              {% elif ancla.icono == "documento" %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3.5" width="12" height="17" rx="2"/><path d="M9 3.5h6v2H9z"/><path d="M9 12l2 2 4-4"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13l6-4v12"/><path d="M2 21h20"/><path d="M7 12h0M7 16h0M11 12h0M11 16h0"/></svg>
+              {% endif %}
+            </span>
+            {% if ancla.titulo %}
+              <{{ ancla.titulo_tag|default('h3', true) }}{% if ancla.titulo_color.color %} style="color:{{ ancla.titulo_color.color }}"{% endif %}>{{ ancla.titulo }}</{{ ancla.titulo_tag|default('h3', true) }}>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </div>
+</section>

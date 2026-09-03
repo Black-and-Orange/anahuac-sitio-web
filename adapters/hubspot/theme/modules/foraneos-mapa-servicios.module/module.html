@@ -1,0 +1,119 @@
+{# ===== Foráneos · Mapa de servicios =====
+   Porta <section class="for-mapa section-pad" id="mapa-servicios"> de
+   foraneos.html sin cambiar el marcado.
+
+   CONTRATO CON main.js — NO renombrar nada de esto:
+   clases .for-mapa-campus, .for-campus-tab, .for-mapa-filtros, .for-filtro,
+   .for-lugar, .for-categoria, .for-mapa-paginador, .for-lugar-meta;
+   atributos data-servicio, data-campus, data-area-extra, data-campus-nombre,
+   data-ver-mas, data-conteo, data-filtro-select, data-ubicacion-modal,
+   data-ubicacion-titulo, data-ubicacion-meta, data-ubicacion-etiqueta,
+   data-ubicacion-mapa, data-ubicacion-enlace, data-ubicacion-cerrar;
+   e ids #mapa-servicios, #filtro-categoria, #ubicacion-title, #ubicacion-description.
+
+   El atributo `hidden` de .for-mapa-filtros, .for-mapa-paginador y
+   .for-ubicacion-modal es mejora progresiva: sin JS se ven todos los lugares y
+   un filtro que no filtra sería peor que ninguno. El JS los revela. Va escrito
+   siempre, nunca condicionado a un field.
+
+   Lo que rellena el JS y por eso NO es editable: el nombre del campus dentro de
+   [data-campus-nombre], el conteo «Mostrando X de Y lugares», el botón
+   «Ver ubicación» de cada tarjeta, y el título/zona/etiqueta de la modal. #}
+{% set c = module.grupo_contenido %}
+{% set m = module.grupo_modal %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+{% set estilo_intro = "" %}
+{% if e.tamano_intro and e.tamano_intro != 'heredado' %}{% set estilo_intro = estilo_intro ~ "font-size:var(--" ~ e.tamano_intro ~ ");" %}{% endif %}
+{% if c.intro_color.color %}{% set estilo_intro = estilo_intro ~ "color:" ~ c.intro_color.color ~ ";" %}{% endif %}
+
+<section class="for-mapa section-pad" id="mapa-servicios" aria-labelledby="mapa-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="mapa-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if estilo_intro %} style="{{ estilo_intro }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+      {% if c.intro_mapa %}<p class="for-mapa-intro"{% if c.intro_mapa_color.color %} style="color:{{ c.intro_mapa_color.color }}"{% endif %}>{{ c.intro_mapa }}</p>{% endif %}
+    </div>
+
+    {% if module.campus_tabs %}
+      <div class="for-mapa-campus reveal" data-reveal role="group" aria-label="{{ c.aria_campus|default('Elige tu campus', true) }}">
+        {% for tab in module.campus_tabs %}
+          <button class="for-campus-tab{% if loop.first %} is-active{% endif %}" type="button" data-campus="{{ tab.valor|default('norte', true) }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}">{{ tab.etiqueta }}</button>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if module.areas %}
+      <div class="for-mapa-select reveal" data-reveal>
+        <label class="visually-hidden" for="filtro-categoria">{{ c.label_filtro|default('Filtrar por área', true) }}</label>
+        <select class="js-select" id="filtro-categoria" data-filtro-select aria-label="{{ c.aria_filtro|default('Filtrar servicios por área', true) }}">
+          {% for area in module.areas %}
+            <option value="{{ area.valor|default('todas', true) }}"{% if loop.first %} selected{% endif %}>{{ area.etiqueta_select|default(area.etiqueta, true) }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="for-mapa-filtros reveal" data-reveal role="group" aria-label="{{ c.aria_filtro|default('Filtrar servicios por área', true) }}" hidden>
+        {% for area in module.areas %}
+          <button class="for-filtro{% if loop.first %} is-active{% endif %}" type="button" data-categoria="{{ area.valor|default('todas', true) }}">{{ area.etiqueta }}</button>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if v.mostrar_rotulo and c.texto_viendo %}
+      <p class="for-mapa-viendo reveal" data-reveal{% if c.texto_viendo_color.color %} style="color:{{ c.texto_viendo_color.color }}"{% endif %}>{{ c.texto_viendo }} <strong data-campus-nombre>{{ c.campus_nombre_inicial|default('Campus Norte', true) }}</strong></p>
+    {% endif %}
+
+    {% if module.lugares %}
+      <ul class="for-categorias for-lugares-grid reveal" data-reveal>
+        {% for lugar in module.lugares %}
+          <li class="for-categoria for-lugar" data-servicio="{{ lugar.servicio|default('clinicas', true) }}"{% if lugar.area_extra and lugar.area_extra != 'ninguna' %} data-area-extra="{{ lugar.area_extra }}"{% endif %} data-campus="{{ lugar.campus|default('norte', true) }}">
+            <span class="for-categoria-icono" aria-hidden="true">
+              {% set icono = lugar.icono|default('clinicas', true) %}
+              {% if icono == 'farmacias' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M12 8v8M8 12h8"/></svg>
+              {% elif icono == 'supermercados' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+              {% elif icono == 'plazas' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/></svg>
+              {% elif icono == 'lavanderias' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M8 6h.01M12 6h.01"/></svg>
+              {% elif icono == 'gimnasios' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16M18 4v16M2 9h4M18 9h4M6 12h12"/></svg>
+              {% elif icono == 'templos' %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6M5 22V11l7-4 7 4v11"/><path d="M10 22v-6h4v6"/></svg>
+              {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="10"/></svg>{% endif %}
+            </span>
+            {% if lugar.nombre %}<{{ lugar.nombre_tag|default('h3', true) }}>{{ lugar.nombre }}</{{ lugar.nombre_tag|default('h3', true) }}>{% endif %}
+            <p class="for-lugar-meta">{{ lugar.meta }}</p>
+            <p class="for-lugar-etiqueta">{{ lugar.etiqueta }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="for-mapa-paginador" hidden>
+      <p class="for-mapa-conteo" role="status" aria-live="polite" data-conteo></p>
+      <button class="btn btn-light for-ver-mas" type="button" data-ver-mas>
+        {{ c.texto_ver_mas|default('Ver más', true) }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    {% if v.mostrar_modal %}
+      <div class="for-ubicacion-modal" data-ubicacion-modal hidden>
+        <div class="for-ubicacion-backdrop" data-ubicacion-cerrar></div>
+        <div class="for-ubicacion-dialog" role="dialog" aria-modal="true" aria-labelledby="ubicacion-title" aria-describedby="ubicacion-description" tabindex="-1">
+          <button class="for-ubicacion-cerrar" type="button" data-ubicacion-cerrar aria-label="{{ m.aria_cerrar|default('Cerrar ubicación', true) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+          <p class="for-ubicacion-eyebrow" data-ubicacion-etiqueta></p>
+          <h3 id="ubicacion-title" data-ubicacion-titulo></h3>
+          <p class="for-ubicacion-meta" data-ubicacion-meta></p>
+          <div class="for-ubicacion-preview" data-ubicacion-mapa></div>
+          <a class="for-ubicacion-enlace" href="#" target="_blank" rel="noopener noreferrer" data-ubicacion-enlace>{{ m.enlace_texto|default('Ver en Google Maps', true) }} <span aria-hidden="true">↗</span></a>
+          <p class="for-ubicacion-nota" id="ubicacion-description">{{ m.nota }}</p>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

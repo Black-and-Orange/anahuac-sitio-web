@@ -1,0 +1,42 @@
+{# ===== Foráneos · Siguiente paso =====
+   Porta <section class="apo-siguiente"> de foraneos.html sin cambiar el marcado.
+
+   Es un módulo propio y NO reutiliza `admision-siguiente-paso`, cuyo marcado es
+   `.adm-siguiente` y cuyos iconos son otros. El CSS de `.apo-siguiente` ya vive
+   en theme/css/main.css.
+
+   Los iconos van en línea con if/elif y sin macros: un macro con un atributo
+   ausente borra el módulo entero sin dar error.
+
+   main.css no define custom properties para `.apo-siguiente`: los colores
+   editables se escriben en línea sobre el elemento. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+{% set estilo_card = "" %}
+{% if e.color_tarjeta_fondo.color %}{% set estilo_card = estilo_card ~ "background:" ~ e.color_tarjeta_fondo.color ~ ";" %}{% endif %}
+{% if e.color_tarjeta_texto.color %}{% set estilo_card = estilo_card ~ "color:" ~ e.color_tarjeta_texto.color ~ ";" %}{% endif %}
+
+<section class="apo-siguiente section-pad" id="siguiente-paso" aria-labelledby="siguiente-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container apo-siguiente-layout">
+    <div class="section-intro reveal" data-reveal>
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="siguiente-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+      {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+    </div>
+    <div class="siguiente-cards reveal" data-reveal>
+      {% for t in module.tarjetas %}
+        <article class="siguiente-card"{% if estilo_card %} style="{{ estilo_card }}"{% endif %}>
+          <svg class="siguiente-icon" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"{% if e.color_icono.color %} style="color:{{ e.color_icono.color }}"{% endif %}>{% if t.icono == 'apoyos' %}<path d="M24 6a18 18 0 1 0 0 36 18 18 0 0 0 0-36Zm2 27h-4v-4h4v4Zm0-8h-4V15h4v10Z"/>{% elif t.icono == 'calendario' %}<path d="M38 8h-4V4h-4v4H18V4h-4v4h-4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V12a4 4 0 0 0-4-4Zm0 32H10V20h28v20Z"/>{% elif t.icono == 'admision' %}<path d="M24 6 2 17l22 11 18-9v12h4V17L24 6ZM8 24.5V33c0 3.3 7.2 8 16 8s16-4.7 16-8v-8.5l-16 8-16-8Z"/>{% else %}<path d="M24 4 4 14v20l20 10 20-10V14L24 4Zm0 4.6L38.6 16 24 23.4 9.4 16 24 8.6Z"/>{% endif %}</svg>
+          {% if t.titulo %}<{{ t.titulo_tag|default('h3', true) }}{% if t.titulo_color.color %} style="color:{{ t.titulo_color.color }}"{% endif %}>{{ t.titulo }}</{{ t.titulo_tag|default('h3', true) }}>{% endif %}
+          {% if t.texto %}<p{% if t.texto_color.color %} style="color:{{ t.texto_color.color }}"{% endif %}>{{ t.texto }}</p>{% endif %}
+          {% if t.enlace_texto %}<a href="{{ t.enlace.url.href|default('#', true) }}"{% if t.enlace.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}{% if t.enlace_color.color %} style="color:{{ t.enlace_color.color }}"{% endif %}>{{ t.enlace_texto }}</a>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

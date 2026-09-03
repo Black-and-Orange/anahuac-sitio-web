@@ -1,0 +1,68 @@
+{# ===== Foráneos · Comunidad ADEFA + CAF =====
+   Porta <section class="for-comunidad section-pad" id="comunidad"> de
+   foraneos.html sin cambiar el marcado. El CSS ya vive en theme/css/main.css
+   (bloque 10), por eso module.css va vacío.
+
+   El título lleva dos campos: «ADEFA + CAF» baja de línea con
+   <span class="for-h2-linea">, que main.css pinta en bloque. El span solo se
+   emite si «heading_linea2» tiene valor.
+
+   Las redes de cada bloque van como dos pares fijos de campos y no como un
+   repeater anidado: un repeater dentro de otro grupo pierde sus items en la
+   primera edición. El SVG de Instagram va en línea, sin {% macro %}. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+<section class="for-comunidad section-pad" id="comunidad" aria-labelledby="comunidad-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading or c.heading_linea2 %}
+        <{{ c.heading_tag|default('h2', true) }} id="comunidad-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}{% if c.heading_linea2 %} <span class="for-h2-linea">{{ c.heading_linea2 }}</span>{% endif %}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if c.intro %}
+        <{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>
+      {% endif %}
+    </div>
+
+    {% if module.bloques %}
+      <div class="plan-bloques for-comunidad-bloques reveal" data-reveal>
+        {% for bloque in module.bloques %}
+          <article class="plan-bloque {{ bloque.variante|default('plan-bloque--prof', true) }}">
+            {% if bloque.titulo %}<{{ bloque.titulo_tag|default('h3', true) }}>{{ bloque.titulo }}</{{ bloque.titulo_tag|default('h3', true) }}>{% endif %}
+            {% if bloque.texto %}<p>{{ bloque.texto }}</p>{% endif %}
+            {% if bloque.red1_texto or bloque.red2_texto %}
+              <div class="for-redes">
+                {% if bloque.red1_texto %}
+                  <a class="for-red" href="{{ bloque.red1_url.url.href|default('#', true) }}"{% if bloque.red1_url.open_in_new_tab %} target="_blank" rel="noopener"{% endif %} aria-label="{{ bloque.red1_aria|default(bloque.red1_texto, true) }}">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                    <span>{{ bloque.red1_texto }}</span>
+                  </a>
+                {% endif %}
+                {% if bloque.red2_texto %}
+                  <a class="for-red" href="{{ bloque.red2_url.url.href|default('#', true) }}"{% if bloque.red2_url.open_in_new_tab %} target="_blank" rel="noopener"{% endif %} aria-label="{{ bloque.red2_aria|default(bloque.red2_texto, true) }}">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                    <span>{{ bloque.red2_texto }}</span>
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if module.botones %}
+      <div class="button-row for-comunidad-cta reveal" data-reveal>
+        {% for boton in module.botones %}
+          {% if boton.texto %}
+            <a class="btn {{ boton.estilo|default('btn-light', true) }}" href="{{ boton.enlace.url.href|default('#', true) }}"{% if boton.enlace.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ boton.texto }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,276 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Tu salud y bienestar, en buenas manos",
+        "help_text": "Es el título accesible de la sección (id «salud-title»)."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.copy",
+        "name": "copy",
+        "label": "Párrafo de cierre",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Si te enfermas o necesitas apoyo emocional en la Ciudad de México, en la Universidad Anáhuac México tienes el servicio médico de tu campus, el área de Bienestar y tu seguro de gastos médicos para acompañarte, aunque tu familia no esté en la ciudad."
+      },
+      {
+        "id": "grupo_contenido.copy_tag",
+        "name": "copy_tag",
+        "label": "Etiqueta HTML del párrafo de cierre",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.copy_color",
+        "name": "copy_color",
+        "label": "Color del párrafo de cierre",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "servicios",
+    "name": "servicios",
+    "label": "Servicios",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "servicios.icono",
+        "name": "icono",
+        "label": "Icono",
+        "help_text": "Iconos del design system. No acepta SVG libre.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "cruz-medica",
+            "Cruz médica"
+          ],
+          [
+            "mensaje",
+            "Mensaje"
+          ],
+          [
+            "escudo",
+            "Escudo con palomita"
+          ],
+          [
+            "mancuerna",
+            "Mancuerna"
+          ]
+        ],
+        "default": "cruz-medica"
+      },
+      {
+        "id": "servicios.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Servicios de salud"
+      },
+      {
+        "id": "servicios.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "servicios.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "En cada Campus hay un servicio médico, clínica de nutrición, terapia física y rehabilitación, apoyo psicopedagógico y clínica odontología (Con costos preferenciales)."
+      }
+    ],
+    "default": [
+      {
+        "icono": "cruz-medica",
+        "titulo": "Servicios de salud",
+        "titulo_tag": "h3",
+        "texto": "En cada Campus hay un servicio médico, clínica de nutrición, terapia física y rehabilitación, apoyo psicopedagógico y clínica odontología (Con costos preferenciales)."
+      },
+      {
+        "icono": "mensaje",
+        "titulo": "Bienestar y apoyo psicopedagógico",
+        "titulo_tag": "h3",
+        "texto": "¿Necesitas hablar con alguien? El área de Bienestar te acompaña con apoyo psicopedagógico."
+      },
+      {
+        "icono": "escudo",
+        "titulo": "Usa tu seguro de gastos médicos",
+        "titulo_tag": "h3",
+        "texto": "Si contrataste el seguro de gastos médicos mayores de la Universidad, recuerda que puedes utilizarlo a partir de tu primer día de clases."
+      },
+      {
+        "icono": "mancuerna",
+        "titulo": "Gimnasio Anáhuac",
+        "titulo_tag": "h3",
+        "texto": "Mantente activo y complementa tu bienestar en las instalaciones deportivas y el gimnasio de tu campus."
+      }
+    ],
+    "help_text": "Máximo 6. El diseño aprobado usa una retícula de dos columnas."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

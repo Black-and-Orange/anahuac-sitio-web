@@ -1,0 +1,71 @@
+{# ===== Foráneos · ¿Quién es foráneo? =====
+   Porta <section class="for-quien section-pad" id="quien-es-foraneo"> de
+   foraneos.html sin cambiar el marcado.
+
+   Contrato con el JS del theme (main.js): data-count-to y data-count-suffix del
+   <strong class="for-dato-cifra">. El contador animado los lee y reescribe el
+   textContent; por eso «cifra» es solo el número y el símbolo va aparte.
+
+   Los iconos son un catálogo cerrado (campo choice): el editor elige, no pega
+   SVG. Así el trazo y el tamaño quedan bloqueados. Sin macro: un macro con un
+   atributo ausente hace desaparecer el módulo entero sin error. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+<section class="for-quien section-pad" id="quien-es-foraneo" aria-labelledby="quien-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="quien-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if c.intro %}
+        <{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>
+      {% endif %}
+    </div>
+
+    {% if module.bloques %}
+      <div class="plan-bloques for-quien-bloques reveal" data-reveal>
+        {% for bloque in module.bloques %}
+          <article class="plan-bloque {{ bloque.variante|default('plan-bloque--prof', true) }}">
+            <span class="for-tipo-icono" aria-hidden="true">
+              {% if bloque.icono == "globo" %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              {% endif %}
+            </span>
+            {% if bloque.titulo %}
+              <{{ bloque.titulo_tag|default('h3', true) }}{% if bloque.titulo_color.color %} style="color:{{ bloque.titulo_color.color }}"{% endif %}>{{ bloque.titulo }}</{{ bloque.titulo_tag|default('h3', true) }}>
+            {% endif %}
+            {% if bloque.texto %}
+              <{{ bloque.texto_tag|default('p', true) }}{% if bloque.texto_color.color %} style="color:{{ bloque.texto_color.color }}"{% endif %}>{{ bloque.texto }}</{{ bloque.texto_tag|default('p', true) }}>
+            {% endif %}
+            {% if bloque.cifra %}
+              <p class="for-bloque-dato">
+                <strong class="for-dato-cifra{% if bloque.variante_cifra == 'for-dato-cifra--morada' %} for-dato-cifra--morada{% endif %}" data-count-to="{{ bloque.cifra }}" data-count-suffix="{{ bloque.cifra_sufijo }}">{{ bloque.cifra }}{{ bloque.cifra_sufijo }}</strong>
+                {{ bloque.cifra_texto }}
+              </p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if c.puente_frase or c.puente_enlace_texto %}
+      <div class="for-puente reveal" data-reveal>
+        {% if c.puente_frase %}
+          <p class="for-puente-frase"{% if c.puente_frase_color.color %} style="color:{{ c.puente_frase_color.color }}"{% endif %}>{{ c.puente_frase }}</p>
+        {% endif %}
+        {% if c.puente_enlace_texto %}
+          <a class="for-link-terciario" href="{{ c.puente_enlace.url.href|default('#', true) }}"
+             {% if c.puente_enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ c.puente_enlace_texto }} <span aria-hidden="true">→</span></a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>

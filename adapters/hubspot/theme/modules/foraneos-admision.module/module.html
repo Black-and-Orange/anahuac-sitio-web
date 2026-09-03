@@ -1,0 +1,61 @@
+{# ===== Foráneos · Proceso de admisión =====
+   Porta <section class="for-admision"> de foraneos.html sin cambiar el marcado.
+
+   El trámite migratorio vive en su propio <aside class="for-migratorio"> con un
+   <details class="faq-item" open>: siempre abierto y SIN atributo `name`, porque
+   es el único acordeón de esa lista (el `name` compartido solo se usa en el FAQ).
+
+   main.css no define custom properties para `.for-admision`, así que los colores
+   editables se escriben en línea sobre el elemento, no como variables CSS. #}
+{% set c = module.grupo_contenido %}
+{% set m = module.grupo_migratorio %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+{% set estilo_aside = "" %}
+{% if e.color_migratorio_fondo.color %}{% set estilo_aside = estilo_aside ~ "background:" ~ e.color_migratorio_fondo.color ~ ";" %}{% endif %}
+{% if e.color_migratorio_texto.color %}{% set estilo_aside = estilo_aside ~ "color:" ~ e.color_migratorio_texto.color ~ ";" %}{% endif %}
+
+<section class="for-admision section-pad" id="admision" aria-labelledby="admision-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container for-admision-layout">
+    <div class="for-admision-copy">
+      <div class="section-intro reveal" data-reveal>
+        {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="admision-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+        {% if c.intro %}<{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>{% endif %}
+      </div>
+
+      {% if module.botones %}
+        <div class="button-row reveal" data-reveal>
+          {% for boton in module.botones %}
+            {% if boton.texto %}
+              <a class="btn {{ boton.estilo|default('btn-dark', true) }}" href="{{ boton.enlace.url.href|default('#', true) }}"{% if boton.enlace.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}{% if boton.texto_color.color %} style="color:{{ boton.texto_color.color }}"{% endif %}>{{ boton.texto }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <aside class="for-migratorio reveal" data-reveal aria-label="Trámite migratorio para estudiantes internacionales"{% if estilo_aside %} style="{{ estilo_aside }}"{% endif %}>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>{% if m.titulo %}<{{ m.titulo_tag|default('h3', true) }}{% if m.titulo_color.color %} style="color:{{ m.titulo_color.color }}"{% endif %}>{{ m.titulo }}</{{ m.titulo_tag|default('h3', true) }}>{% endif %}</summary>
+          <div class="faq-answer">
+            {% if m.disclaimer %}<p class="for-disclaimer"{% if m.disclaimer_color.color %} style="color:{{ m.disclaimer_color.color }}"{% endif %}>{{ m.disclaimer }}</p>{% endif %}
+            {% if module.pasos_migratorios %}
+              <ol class="for-migratorio-pasos">
+                {% for paso in module.pasos_migratorios %}
+                  {% if paso.texto %}<li>{{ paso.texto }}</li>{% endif %}
+                {% endfor %}
+              </ol>
+            {% endif %}
+            {{ m.cierre }}
+          </div>
+        </details>
+      </div>
+    </aside>
+  </div>
+</section>

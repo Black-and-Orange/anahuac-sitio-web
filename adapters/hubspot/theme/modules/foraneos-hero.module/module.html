@@ -1,0 +1,74 @@
+{# ===== Foráneos · Hero =====
+   Porta <section class="for-hero section-pad" id="hero"> de foraneos.html sin
+   cambiar el marcado.
+
+   Contrato con el JS del theme (main.js): las clases .for-hero-video y
+   .for-video-pausa y los atributos autoplay/muted/loop/playsinline del <video>.
+   Si se renombran, el botón de pausa deja de funcionar y se rompe el requisito
+   de accesibilidad. No las toques.
+
+   El «bloque morado» es .hero-card, no el fondo de la sección: son dos campos
+   distintos. Los colores vacíos caen al token del design system. #}
+{% set c = module.grupo_contenido %}
+{% set v = module.grupo_visibilidad %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+{% set estilo_panel = "" %}
+{% if e.color_panel_fondo.color %}{% set estilo_panel = estilo_panel ~ "background:" ~ e.color_panel_fondo.color ~ ";" %}{% endif %}
+{% if e.color_panel_texto.color %}{% set estilo_panel = estilo_panel ~ "color:" ~ e.color_panel_texto.color ~ ";" %}{% endif %}
+{% if e.tamano_panel %}{% set estilo_panel = estilo_panel ~ "font-size:var(--" ~ e.tamano_panel ~ ");" %}{% endif %}
+
+<section class="for-hero section-pad" id="hero" aria-labelledby="for-page-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container for-hero-inner">
+    <div class="for-hero-copy">
+      {% if c.eyebrow %}
+        <{{ c.eyebrow_tag|default('p', true) }} class="tagline reveal" data-reveal{% if c.eyebrow_color.color %} style="color:{{ c.eyebrow_color.color }}"{% endif %}>{% if v.mostrar_flecha %}<span aria-hidden="true"></span>{% endif %}{{ c.eyebrow }}</{{ c.eyebrow_tag|default('p', true) }}>
+      {% endif %}
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h1', true) }} class="reveal" id="for-page-title" data-reveal{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h1', true) }}>
+      {% endif %}
+    </div>
+
+    <div class="for-hero-info reveal" data-reveal>
+      {% if v.mostrar_video and c.video %}
+        <div class="for-hero-media">
+          <video
+            class="for-hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="{{ c.poster.src or get_asset_url('../../images/hero-friends.jpg') }}"
+            aria-label="{{ c.video_aria|escape }}"
+          >
+            <source src="{{ c.video }}" type="video/mp4" />
+          </video>
+          {% if c.boton_pausa_texto %}
+            <button class="for-video-pausa" type="button" aria-label="{{ c.boton_pausa_aria|default('Pausar el video', true)|escape }}">{{ c.boton_pausa_texto }}</button>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="for-hero-info-copy">
+        {% if c.texto_panel %}
+          <div class="hero-card"{% if estilo_panel %} style="{{ estilo_panel }}"{% endif %}>{{ c.texto_panel }}</div>
+        {% endif %}
+        {% if v.mostrar_botones and module.botones %}
+          <div class="button-row">
+            {% for boton in module.botones %}
+              {% if boton.texto %}
+                <a class="btn {{ boton.estilo|default('btn-dark', true) }}" href="{{ boton.enlace.url.href|default('#', true) }}"
+                   {% if boton.enlace.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>{{ boton.texto }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

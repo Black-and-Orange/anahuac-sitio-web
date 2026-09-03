@@ -1,0 +1,400 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Comunidad Foránea Anáhuac México"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título principal (H1)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Tu segunda casa sin importar de dónde vengas",
+        "help_text": "Es el único H1 de la página. No agregues otro en los demás módulos."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h1"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "picker": "file",
+        "id": "grupo_contenido.video",
+        "name": "video",
+        "label": "Video del hero · mp4",
+        "help_text": "Archivo mp4 del gestor de archivos de HubSpot. Si se deja vacío no se pinta el video.",
+        "required": false,
+        "locked": false,
+        "type": "file",
+        "display_width": null,
+        "default": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiantes-saltando.mp4"
+      },
+      {
+        "id": "grupo_contenido.poster",
+        "name": "poster",
+        "label": "Poster del video",
+        "help_text": "Imagen que se ve antes de que cargue el video. Vacío usa la del diseño.",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": "Estudiantes foráneos Anáhuac México"
+        }
+      },
+      {
+        "id": "grupo_contenido.video_aria",
+        "name": "video_aria",
+        "label": "Descripción accesible del video (aria-label)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Estudiantes foráneos de la Universidad Anáhuac México compartiendo su experiencia de vivir lejos de casa, Campus Norte y Campus Sur.",
+        "help_text": "La lee el lector de pantalla. Describe lo que se ve, no lo que se siente."
+      },
+      {
+        "id": "grupo_contenido.boton_pausa_texto",
+        "name": "boton_pausa_texto",
+        "label": "Texto del botón de pausa",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Pausar",
+        "help_text": "Control de accesibilidad obligatorio: el video arranca solo."
+      },
+      {
+        "id": "grupo_contenido.boton_pausa_aria",
+        "name": "boton_pausa_aria",
+        "label": "aria-label del botón de pausa",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Pausar el video"
+      },
+      {
+        "id": "grupo_contenido.texto_panel",
+        "name": "texto_panel",
+        "label": "Texto del panel morado",
+        "type": "richtext",
+        "default": "<p>Encuentra todo lo que necesitas: opciones de hospedaje, servicios alrededor de tu campus, la comunidad que te espera y tu proceso de admisión.</p>"
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_flecha",
+        "name": "mostrar_flecha",
+        "label": "Mostrar la flecha del eyebrow",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true,
+        "help_text": "El elemento decorativo que antecede al texto pequeño."
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_video",
+        "name": "mostrar_video",
+        "label": "Mostrar el video",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_botones",
+        "name": "mostrar_botones",
+        "label": "Mostrar botones",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "botones",
+    "name": "botones",
+    "label": "Botones",
+    "help_text": "Máximo 3. En el diseño aprobado el primero es oscuro y el segundo claro.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "botones.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Descubrir experiencia foránea"
+      },
+      {
+        "id": "botones.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#primer-mes"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "botones.estilo",
+        "name": "estilo",
+        "label": "Estilo",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-light",
+            "Claro"
+          ]
+        ],
+        "default": "btn-dark"
+      }
+    ],
+    "default": [
+      {
+        "texto": "Descubrir experiencia foránea",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#primer-mes"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-dark"
+      },
+      {
+        "texto": "Habla con un asesor",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#contacto-asesores"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-light"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_panel_fondo",
+        "name": "color_panel_fondo",
+        "label": "Color de fondo del panel morado",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_panel_texto",
+        "name": "color_panel_texto",
+        "label": "Color de texto del panel",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_panel",
+        "name": "tamano_panel",
+        "label": "Tamaño del texto del panel",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-22",
+            "Pequeño"
+          ],
+          [
+            "size-26",
+            "Mediano"
+          ],
+          [
+            "lead-size",
+            "Normal (el del diseño)"
+          ],
+          [
+            "size-36",
+            "Grande"
+          ],
+          [
+            "heading-3-size",
+            "Muy grande"
+          ]
+        ],
+        "default": "lead-size",
+        "help_text": "Tamaños del design system; no acepta valores libres."
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

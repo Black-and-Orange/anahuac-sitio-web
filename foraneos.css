@@ -735,6 +735,21 @@
   text-wrap: balance;
 }
 
+/* "Tips" en script con degradado naranja→morado (propuesta, evoca la referencia
+   de posgrados). "ANÁHUAC" no cambia: conserva Zilla Slab y el café de marca. */
+.for-tips-script {
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  /* El script tiene menor altura-x; se agranda para equilibrar con las mayúsculas. */
+  font-size: 1.35em;
+  line-height: 1;
+  background: linear-gradient(100deg, var(--orange) 0%, var(--purple-2) 70%, var(--purple-1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
 .for-roomies h3 {
   font-family: var(--font-heading);
   font-size: 20px;
@@ -1171,25 +1186,6 @@
 
 .for-salud-grid .consideracion p {
   color: var(--color-text);
-}
-
-.for-salud-card-imagen {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-  padding: 0;
-  overflow: hidden;
-}
-
-.for-salud-card-imagen > img {
-  width: 100%;
-  height: 100%;
-  min-height: calc(var(--space-14) * 2);
-  object-fit: cover;
-}
-
-.for-salud-card-cuerpo {
-  align-self: center;
-  padding: var(--space-9);
 }
 
 .for-salud-copy {
@@ -1754,17 +1750,6 @@
 
   .for-guia-pasos {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .for-salud-card-imagen {
-    grid-template-columns: 1fr;
-  }
-
-  .for-salud-card-imagen > img {
-    min-height: 0;
-    aspect-ratio: 16 / 9;
   }
 }
 

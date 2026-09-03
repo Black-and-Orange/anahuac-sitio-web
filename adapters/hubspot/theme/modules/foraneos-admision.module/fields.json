@@ -1,0 +1,426 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Proceso de admisión",
+        "help_text": "Es el título que anuncia la sección (aria-labelledby)."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "El proceso de admisión de la Universidad Anáhuac México es el mismo para todos y se realiza completamente en línea. Conoce el proceso completo de admisión en un solo lugar."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_migratorio",
+    "name": "grupo_migratorio",
+    "label": "Trámite migratorio (tarjeta blanca)",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_migratorio.titulo",
+        "name": "titulo",
+        "label": "Título del acordeón",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Si vienes de otro país recuerda tu trámite migratorio"
+      },
+      {
+        "id": "grupo_migratorio.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "grupo_migratorio.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_migratorio.disclaimer",
+        "name": "disclaimer",
+        "label": "Aviso de responsabilidad",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Estos trámites los realizas tú directamente ante las autoridades correspondientes — INM, SRE, consulados, SEP —; son externos a la universidad. La Anáhuac te orienta, pero no los tramita por ti.",
+        "help_text": "Es el bloque destacado con la línea naranja, antes de los pasos."
+      },
+      {
+        "id": "grupo_migratorio.disclaimer_color",
+        "name": "disclaimer_color",
+        "label": "Color de texto del aviso",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_migratorio.cierre",
+        "name": "cierre",
+        "label": "Párrafo de cierre",
+        "type": "richtext",
+        "default": "<p>¿Tienes dudas sobre este trámite? Escribe a tu asesor de admisión internacional — conócelo en <a href=\"#contacto-asesores\">¿De dónde nos contactas?</a>.</p>",
+        "help_text": "Va después de la lista de pasos. Admite enlaces."
+      }
+    ],
+    "help_text": "La tarjeta solo aplica a estudiantes internacionales."
+  },
+  {
+    "id": "botones",
+    "name": "botones",
+    "label": "Botones",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "botones.texto",
+        "name": "texto",
+        "label": "Texto del botón",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Inicia tu admisión"
+      },
+      {
+        "id": "botones.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto del botón",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "botones.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "botones.estilo",
+        "name": "estilo",
+        "label": "Estilo",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-light",
+            "Claro"
+          ],
+          [
+            "btn-orange",
+            "Naranja"
+          ]
+        ],
+        "default": "btn-dark"
+      }
+    ],
+    "default": [
+      {
+        "texto": "Inicia tu admisión",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-dark"
+      },
+      {
+        "texto": "Conocer pasos del proceso",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "proceso-de-admision.html"
+          },
+          "open_in_new_tab": false
+        },
+        "estilo": "btn-light"
+      }
+    ],
+    "help_text": "Máximo 3. El diseño aprobado usa dos: uno oscuro y uno claro."
+  },
+  {
+    "id": "pasos_migratorios",
+    "name": "pasos_migratorios",
+    "label": "Pasos del trámite migratorio",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "pasos_migratorios.texto",
+        "name": "texto",
+        "label": "Paso",
+        "type": "richtext",
+        "default": "Escribe aquí el paso.",
+        "help_text": "Es un <li> de la lista numerada. Admite enlaces (por ejemplo, el de la SEP)."
+      }
+    ],
+    "default": [
+      {
+        "texto": "Tramita tu visa de estudiante en el consulado o la embajada de México en tu país de origen."
+      },
+      {
+        "texto": "Realiza tu trámite ante el Instituto Nacional de Migración (INM) al llegar a México."
+      },
+      {
+        "texto": "Tramita tu tarjeta de residente dentro de los primeros 30 días naturales desde tu ingreso al país."
+      },
+      {
+        "texto": "Si cursaste tu bachillerato en el extranjero, revalida tus estudios ante la SEP: <a href=\"https://www.gob.mx/sep/acciones-y-programas/solicitud-de-revalidacion-de-estudios-para-el-nivel-medio-superior-de-bachillerato-sep-25-004\" target=\"_blank\" rel=\"noopener\">Solicitud de revalidación de estudios de bachillerato (SEP-25-004)</a>."
+      },
+      {
+        "texto": "Apostilla tus documentos de origen."
+      }
+    ],
+    "help_text": "Lista numerada dentro de la tarjeta del trámite migratorio."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_migratorio_fondo",
+        "name": "color_migratorio_fondo",
+        "label": "Tarjeta migratoria · color de fondo",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_migratorio_texto",
+        "name": "color_migratorio_texto",
+        "label": "Tarjeta migratoria · color de texto",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

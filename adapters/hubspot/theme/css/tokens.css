@@ -43,6 +43,9 @@
   /* Tipografía (editable → theme.typography.*) */
   --font-heading: "Zilla Slab", serif;
   --font-body: "Roboto", sans-serif;
+  /* Manuscrita decorativa — solo el sello «Tips ANÁHUAC» de Foráneos.
+     La carga la plantilla foraneos.html; el resto de páginas no la pide. */
+  --font-script: "Kaushan Script", cursive;
 
   /* Escala tipográfica — headings (Zilla Slab) */
   --heading-1-size: 110px;
@@ -87,6 +90,9 @@
   --size-70: 70px;
   --event-date-size: 80px;
   --event-date-lg-size: 100px;
+  /* Añadidos por la LP de Foráneos (2026-09-03) */
+  --size-23: 23px;
+  --size-44: 44px;
 
   --weight-medium: 500;
   --weight-semibold: 600;
@@ -175,6 +181,15 @@
   --text-invert-70: rgba(255, 255, 255, 0.7);
   --purple-tint: rgba(93, 66, 140, 0.1);      /* tinte de --purple-2 */
   --surface-tint-soft: rgba(0, 0, 0, 0.02);
+  /* Añadidos por la LP de Foráneos (2026-09-03) */
+  --orange-tint: rgba(255, 89, 0, 0.1);       /* tinte de --orange */
+  --purple-tint-soft: rgba(93, 66, 140, 0.08);
+  --surface-tint: rgba(0, 0, 0, 0.03);
+  --surface-tint-medium: rgba(0, 0, 0, 0.04);
+  --surface-invert-soft: rgba(255, 255, 255, 0.18);
+  --overlay-control: rgba(0, 0, 0, 0.62);     /* botón de pausa sobre video */
+  --overlay-control-hover: rgba(0, 0, 0, 0.82);
+  --overlay-modal: color-mix(in srgb, var(--surface-accent) 78%, transparent);
 
   /* Decorativos de sección (gradientes / blobs / patrones) */
   --glow-orange: radial-gradient(circle, rgba(255, 89, 0, 0.08), rgba(255, 89, 0, 0) 65%);

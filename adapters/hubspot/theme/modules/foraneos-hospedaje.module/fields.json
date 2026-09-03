@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Hospedaje: tu segunda casa"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Intro",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Sí. En la Universidad Anáhuac México te acompañamos a encontrar dónde vivir, con una persona de contacto real en cada campus dedicada a orientarte en tu hospedaje."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_contenido.cierre",
+        "name": "cierre",
+        "label": "Texto de cierre cálido",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "No tienes que resolver esto solo, ni tu familia tampoco: agenda una sesión y te ayudamos a encontrar una opción de hospedaje segura y cercana a tu campus."
+      },
+      {
+        "id": "grupo_contenido.cierre_tag",
+        "name": "cierre_tag",
+        "label": "Etiqueta HTML de «cierre»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.cierre_color",
+        "name": "cierre_color",
+        "label": "Color de texto de «cierre»",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_contenido.cta_texto",
+        "name": "cta_texto",
+        "label": "Texto del botón",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ver listado de hospedaje"
+      },
+      {
+        "id": "grupo_contenido.cta_enlace",
+        "name": "cta_enlace",
+        "label": "Destino del botón",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://mexico.anahuac.mx/resultados-de-hospedaje"
+          },
+          "open_in_new_tab": true
+        }
+      },
+      {
+        "id": "grupo_contenido.cta_estilo",
+        "name": "cta_estilo",
+        "label": "Estilo del botón",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-light",
+            "Claro"
+          ],
+          [
+            "btn-orange",
+            "Naranja"
+          ]
+        ],
+        "default": "btn-dark"
+      }
+    ]
+  },
+  {
+    "id": "campus",
+    "name": "campus",
+    "label": "Campus",
+    "help_text": "Máximo 2, como el diseño aprobado: Norte a la izquierda y Sur a la derecha.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 2,
+      "sorting_label_field": "campus.nombre",
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "campus.variante",
+        "name": "variante",
+        "label": "Variante de color",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "for-campus--norte",
+            "Norte (naranja)"
+          ],
+          [
+            "for-campus--sur",
+            "Sur (morado)"
+          ]
+        ],
+        "default": "for-campus--norte"
+      },
+      {
+        "id": "campus.foto",
+        "name": "foto",
+        "label": "Foto del campus",
+        "type": "image",
+        "responsive": true,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "help_text": "Si la dejas vacía se usa la imagen del diseño aprobado."
+      },
+      {
+        "id": "campus.foto_default",
+        "name": "foto_default",
+        "label": "Imagen del diseño (nombre de archivo)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "hero-friends.jpg",
+        "help_text": "Archivo dentro de theme/images/ que se usa cuando «Foto del campus» está vacía."
+      },
+      {
+        "id": "campus.foto_alt",
+        "name": "foto_alt",
+        "label": "Texto alternativo de la foto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Estudiantes celebran su vida universitaria en la Universidad Anáhuac México."
+      },
+      {
+        "id": "campus.aria_label",
+        "name": "aria_label",
+        "label": "Etiqueta accesible de la tarjeta",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Hospedaje en Campus Norte"
+      },
+      {
+        "id": "campus.nombre",
+        "name": "nombre",
+        "label": "Nombre del campus",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "campus.nombre_tag",
+        "name": "nombre_tag",
+        "label": "Etiqueta HTML del nombre",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "campus.nombre_color",
+        "name": "nombre_color",
+        "label": "Color del nombre",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "campus.zonas",
+        "name": "zonas",
+        "label": "Zonas (una por línea)",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Interlomas\nBosques\nLomas Anáhuac\nHuixquilucan centro\nSanta Fe",
+        "help_text": "Una zona por línea. Cada línea se pinta como una píldora."
+      },
+      {
+        "id": "campus.asesor_nombre",
+        "name": "asesor_nombre",
+        "label": "Nombre del contacto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Inés Vásquez"
+      },
+      {
+        "id": "campus.asesor_rol",
+        "name": "asesor_rol",
+        "label": "Puesto del contacto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Coordinadora de Alumnos Foráneos"
+      },
+      {
+        "id": "campus.asesor_genero",
+        "name": "asesor_genero",
+        "label": "Avatar por defecto",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "f",
+            "Foto institucional femenina"
+          ],
+          [
+            "m",
+            "Foto institucional masculina"
+          ]
+        ],
+        "default": "f",
+        "help_text": "Define la foto y el color del avatar cuando no subes una imagen propia."
+      },
+      {
+        "id": "campus.asesor_foto",
+        "name": "asesor_foto",
+        "label": "Foto del contacto",
+        "type": "image",
+        "responsive": true,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "help_text": "Opcional. Sustituye al avatar institucional."
+      },
+      {
+        "id": "campus.whatsapp_texto",
+        "name": "whatsapp_texto",
+        "label": "Texto del enlace de WhatsApp",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "WhatsApp"
+      },
+      {
+        "id": "campus.whatsapp_aria",
+        "name": "whatsapp_aria",
+        "label": "Etiqueta accesible de WhatsApp",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Escribir por WhatsApp a Inés Vásquez"
+      },
+      {
+        "id": "campus.whatsapp_enlace",
+        "name": "whatsapp_enlace",
+        "label": "Enlace de WhatsApp",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "help_text": "PENDIENTE de verificación: número real de WhatsApp."
+      },
+      {
+        "id": "campus.cita_texto",
+        "name": "cita_texto",
+        "label": "Texto del enlace de agenda",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Agenda una cita"
+      },
+      {
+        "id": "campus.cita_aria",
+        "name": "cita_aria",
+        "label": "Etiqueta accesible de la agenda",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Agendar una cita con Inés Vásquez"
+      },
+      {
+        "id": "campus.cita_enlace",
+        "name": "cita_enlace",
+        "label": "Enlace de agenda",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "help_text": "PENDIENTE de verificación: URL real de agenda."
+      },
+      {
+        "id": "campus.correo",
+        "name": "correo",
+        "label": "Correo de contacto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "ines.vasquez@anahuac.mx"
+      }
+    ],
+    "default": [
+      {
+        "variante": "for-campus--norte",
+        "foto": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "foto_default": "hero-friends.jpg",
+        "foto_alt": "Estudiantes celebran su vida universitaria en la Universidad Anáhuac México.",
+        "aria_label": "Hospedaje en Campus Norte",
+        "nombre": "Campus Norte",
+        "nombre_tag": "h3",
+        "nombre_color": {
+          "color": "",
+          "opacity": 100
+        },
+        "zonas": "Interlomas\nBosques\nLomas Anáhuac\nHuixquilucan centro\nSanta Fe",
+        "asesor_nombre": "Inés Vásquez",
+        "asesor_rol": "Coordinadora de Alumnos Foráneos",
+        "asesor_genero": "f",
+        "asesor_foto": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "whatsapp_texto": "WhatsApp",
+        "whatsapp_aria": "Escribir por WhatsApp a Inés Vásquez",
+        "whatsapp_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "cita_texto": "Agenda una cita",
+        "cita_aria": "Agendar una cita con Inés Vásquez",
+        "cita_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "correo": "ines.vasquez@anahuac.mx"
+      },
+      {
+        "variante": "for-campus--sur",
+        "foto": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "foto_default": "camino.jpg",
+        "foto_alt": "Entorno de Campus Sur de la Universidad Anáhuac México, en Álvaro Obregón.",
+        "aria_label": "Hospedaje en Campus Sur",
+        "nombre": "Campus Sur",
+        "nombre_tag": "h3",
+        "nombre_color": {
+          "color": "",
+          "opacity": 100
+        },
+        "zonas": "Coapa\nTlalpan\nXochimilco\nContadero/Cuajimalpa",
+        "asesor_nombre": "Carlos Vázquez",
+        "asesor_rol": "Encargado de hospedaje, Campus Sur",
+        "asesor_genero": "m",
+        "asesor_foto": {
+          "src": "",
+          "alt": "",
+          "loading": "lazy"
+        },
+        "whatsapp_texto": "WhatsApp",
+        "whatsapp_aria": "Escribir por WhatsApp a Carlos Vázquez",
+        "whatsapp_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "cita_texto": "Agenda una cita",
+        "cita_aria": "Agendar una cita con Carlos Vázquez",
+        "cita_enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        },
+        "correo": "c.vazquez@anahuac.mx"
+      }
+    ]
+  },
+  {
+    "id": "grupo_roomies",
+    "name": "grupo_roomies",
+    "label": "Bloque «Antes de firmar con roomies»",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_roomies.tag_script",
+        "name": "tag_script",
+        "label": "Palabra en fuente script",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Tips",
+        "help_text": "Se pinta con la tipografía Kaushan Script del diseño. Cámbiala solo si de verdad hace falta."
+      },
+      {
+        "id": "grupo_roomies.tag_resto",
+        "name": "tag_resto",
+        "label": "Resto del rótulo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "ANÁHUAC"
+      },
+      {
+        "id": "grupo_roomies.tag_color",
+        "name": "tag_color",
+        "label": "Color del rótulo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_roomies.heading",
+        "name": "heading",
+        "label": "Título del bloque",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Antes de firmar con roomies"
+      },
+      {
+        "id": "grupo_roomies.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "grupo_roomies.heading_color",
+        "name": "heading_color",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      }
+    ]
+  },
+  {
+    "id": "roomies_tips",
+    "name": "roomies_tips",
+    "label": "Consideraciones antes de firmar",
+    "help_text": "Cada tarjeta del bloque de roomies.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 6
+    },
+    "children": [
+      {
+        "id": "roomies_tips.icono",
+        "name": "icono",
+        "label": "Icono",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "documento",
+            "Documento (contrato)"
+          ],
+          [
+            "identidad",
+            "Identidad verificada"
+          ],
+          [
+            "referencias",
+            "Referencias"
+          ],
+          [
+            "reglas",
+            "Reglas por escrito"
+          ],
+          [
+            "casa",
+            "Casa"
+          ],
+          [
+            "comunidad",
+            "Comunidad"
+          ]
+        ],
+        "default": "documento",
+        "help_text": "Iconos del diseño aprobado; no acepta SVG libre."
+      },
+      {
+        "id": "roomies_tips.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "richtext",
+        "default": "<p>Pide y lee el contrato completo antes de firmar.</p>"
+      }
+    ],
+    "default": [
+      {
+        "icono": "documento",
+        "texto": "<p>Pide y lee el contrato completo antes de firmar.</p>"
+      },
+      {
+        "icono": "identidad",
+        "texto": "<p>Confirma la identidad de quien renta o de tus posibles roomies.</p>"
+      },
+      {
+        "icono": "referencias",
+        "texto": "<p>Pide referencias de inquilinos anteriores.</p>"
+      },
+      {
+        "icono": "reglas",
+        "texto": "<p>Deja por escrito las reglas de convivencia (visitas, ruido, gastos compartidos).</p>"
+      },
+      {
+        "icono": "casa",
+        "texto": "<p>Pregunta quién más vive ahí, y desde cuándo.</p>"
+      },
+      {
+        "icono": "comunidad",
+        "texto": "<p>¿Buscas roomies? Usa el canal de ADEFA para conectar con otros estudiantes foráneos.</p>"
+      }
+    ]
+  },
+  {
+    "id": "grupo_salud",
+    "name": "grupo_salud",
+    "label": "Bloque «¿Te enfermaste?»",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_salud.heading",
+        "name": "heading",
+        "label": "Título del bloque",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Te enfermaste?"
+      },
+      {
+        "id": "grupo_salud.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "grupo_salud.heading_color",
+        "name": "heading_color",
+        "label": "Color del título",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      }
+    ]
+  },
+  {
+    "id": "salud_pasos",
+    "name": "salud_pasos",
+    "label": "Pasos de «¿Te enfermaste?»",
+    "help_text": "El número de cada paso se numera solo según el orden.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "salud_pasos.texto",
+        "name": "texto",
+        "label": "Texto del paso",
+        "type": "richtext",
+        "default": "<p>Acude a los servicios de salud de tu campus.</p>"
+      }
+    ],
+    "default": [
+      {
+        "texto": "<p>Acude a los servicios de salud de tu campus.</p>"
+      },
+      {
+        "texto": "<p>Si necesitas algo más, busca la clínica más cercana en el <a href=\"#mapa-servicios\">Mapa de servicios por campus</a>.</p>"
+      },
+      {
+        "texto": "<p>Usa tu seguro de gastos médicos.</p>"
+      },
+      {
+        "texto": "<p>Avisa al CAF para que te acompañen (ver <a href=\"#comunidad\">Comunidad foránea</a>).</p>"
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_cierre",
+        "name": "mostrar_cierre",
+        "label": "Mostrar el texto de cierre",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_cta",
+        "name": "mostrar_cta",
+        "label": "Mostrar el botón de listado",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_roomies",
+        "name": "mostrar_roomies",
+        "label": "Mostrar el bloque de roomies y salud",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_salud",
+        "name": "mostrar_salud",
+        "label": "Mostrar el bloque «¿Te enfermaste?»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_estilos.tamano_intro",
+        "name": "tamano_intro",
+        "label": "Tamaño del texto de intro",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "heredado",
+            "El del diseño (recomendado)"
+          ],
+          [
+            "size-19",
+            "Pequeño"
+          ],
+          [
+            "size-22",
+            "Mediano"
+          ],
+          [
+            "size-26",
+            "Grande"
+          ],
+          [
+            "lead-size",
+            "Muy grande"
+          ],
+          [
+            "size-36",
+            "Enorme"
+          ]
+        ],
+        "default": "heredado",
+        "help_text": "Tamaños del design system; no acepta valores libres. «El del diseño» deja que el CSS decida, incluidos sus ajustes por breakpoint."
+      },
+      {
+        "id": "grupo_estilos.color_boton_fondo",
+        "name": "color_boton_fondo",
+        "label": "Botón · color de fondo",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      },
+      {
+        "id": "grupo_estilos.color_boton_texto",
+        "name": "color_boton_texto",
+        "label": "Botón · color de texto",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        },
+        "help_text": "Déjalo vacío para usar el color que define el diseño."
+      }
+    ]
+  }
+]

@@ -1,0 +1,173 @@
+<!--
+  templateType: page
+  label: Foráneos — Anáhuac
+  isAvailableForNewContent: true
+-->
+<!doctype html>
+<html class="no-js" lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page_meta.html_title }}</title>
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+
+    {{ standard_header_includes }}
+
+    {# Fuentes Google (Zilla Slab + Roboto) — con preconnect y display=swap (CWV).
+       Kaushan Script se pide SOLO aquí: es el sello «Tips ANÁHUAC» del módulo de
+       hospedaje y ninguna otra página del theme la usa. #}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+    {# CSS del theme — carga explícita y confiable (tokens ANTES que main) #}
+    <link rel="stylesheet" href="{{ get_asset_url('../css/tokens.css') }}" />
+    <link rel="stylesheet" href="{{ get_asset_url('../css/main.css') }}" />
+
+    {# Colores principales configurables → sobreescriben los defaults de tokens.css #}
+    <style>
+      :root {
+        --orange: {{ theme.colors.brand_primary.color }};
+        --brown: {{ theme.colors.brand_secondary.color }};
+        --black: {{ theme.colors.surface_dark.color }};
+        --purple-2: {{ theme.colors.accent_purple.color }};
+        --font-heading: {{ theme.typography.heading_font.font }}, "Zilla Slab", serif;
+        --font-body: {{ theme.typography.body_font.font }}, "Roboto", sans-serif;
+      }
+    </style>
+
+    {# FIX editor: HubSpot no re-ejecuta el JS del theme al editar un módulo, así que
+       los .reveal (opacity:0) quedarían invisibles. Se fuerzan visibles SOLO dentro
+       del editor; en el sitio publicado la animación de scroll funciona normal. #}
+    {% if is_in_editor %}
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+    {% endif %}
+  </head>
+  <body class="{{ builtin_body_classes }}">
+    {% module "header" path="../modules/encabezado", label="Encabezado (global)" %}
+
+    <main id="contenido">
+      {# Los módulos vienen precargados en el orden aprobado de la página. Marketing
+         puede reordenarlos, ocultarlos o agregar otros desde el editor.
+         Ojo con los anclajes: #hero, #quien-es-foraneo, #explora, #por-que-cdmx,
+         #costo-de-vida, #hospedaje, #primer-mes, #mapa-servicios, #salud,
+         #comunidad, #leon-anahuac, #contacto-asesores, #admision, #faq y
+         #siguiente-paso los usan los enlaces internos entre módulos. #}
+      {% dnd_area "contenido" label="Contenido de la página" %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-hero" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-quien" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-explora" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-cdmx" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-costo-vida" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-hospedaje" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-videos" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-mapa-servicios" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-salud" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-comunidad" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {# Módulo compartido, reutilizado sin cambios. #}
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/historias" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {# Módulo compartido. Aquí usa la variante «for-experience» (tarjetas
+           apiladas) y el ancla #leon-anahuac; en Inicio y Psicología sigue con
+           sus valores por defecto. #}
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}
+              {% dnd_module path="../modules/experiencia",
+                            clase_extra="for-experience",
+                            ancla_id="leon-anahuac" %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-asesoria" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-admision" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-faq" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+        {% dnd_section %}
+          {% dnd_column %}
+            {% dnd_row %}{% dnd_module path="../modules/foraneos-siguiente-paso" %}{% end_dnd_module %}{% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+
+      {% end_dnd_area %}
+    </main>
+
+    {% module "footer" path="../modules/pie-de-pagina", label="Pie de página (global)" %}
+
+    {{ standard_footer_includes }}
+    <script src="{{ get_asset_url('../js/main.js') }}" defer></script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Explora lo que tenemos para ti"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.nav_aria",
+        "name": "nav_aria",
+        "label": "Descripción accesible de la navegación (aria-label)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Secciones de esta página",
+        "help_text": "La lee el lector de pantalla al entrar al bloque de enlaces."
+      }
+    ]
+  },
+  {
+    "id": "anclas",
+    "name": "anclas",
+    "label": "Anclas de navegación",
+    "help_text": "Máximo 8. No son CTA de conversión: son navegación interna a secciones de esta misma página.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 8,
+      "sorting_label_field": null,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "anclas.icono",
+        "name": "icono",
+        "label": "Icono",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ciudad",
+            "Ciudad (edificios)"
+          ],
+          [
+            "casa",
+            "Casa"
+          ],
+          [
+            "mapa",
+            "Mapa plegado"
+          ],
+          [
+            "personas",
+            "Personas"
+          ],
+          [
+            "documento",
+            "Documento con palomita"
+          ]
+        ],
+        "default": "ciudad",
+        "help_text": "Catálogo cerrado del design system: el editor elige, no pega SVG."
+      },
+      {
+        "id": "anclas.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Vida en la CDMX"
+      },
+      {
+        "id": "anclas.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «título»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "anclas.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «título»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "anclas.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#por-que-cdmx"
+          },
+          "open_in_new_tab": false
+        },
+        "help_text": "Un ancla de esta misma página, por ejemplo #hospedaje."
+      }
+    ],
+    "default": [
+      {
+        "icono": "ciudad",
+        "titulo": "Vida en la CDMX",
+        "titulo_tag": "h3",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#por-que-cdmx"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "casa",
+        "titulo": "Hospedaje",
+        "titulo_tag": "h3",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#hospedaje"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "mapa",
+        "titulo": "Servicios cerca del campus",
+        "titulo_tag": "h3",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#mapa-servicios"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "personas",
+        "titulo": "Experiencia de alumnos foráneos",
+        "titulo_tag": "h3",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#primer-mes"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "documento",
+        "titulo": "Proceso de admisión",
+        "titulo_tag": "h3",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#admision"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_icono",
+        "name": "color_icono",
+        "label": "Color del icono de las tarjetas",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

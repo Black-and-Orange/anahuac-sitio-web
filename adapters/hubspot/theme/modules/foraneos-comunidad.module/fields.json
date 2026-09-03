@@ -1,0 +1,471 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Comunidad foránea:",
+        "help_text": "Primera línea del título (id «comunidad-title»)."
+      },
+      {
+        "id": "grupo_contenido.heading_linea2",
+        "name": "heading_linea2",
+        "label": "Segunda línea del título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "ADEFA + CAF",
+        "help_text": "Se pinta en su propia línea dentro del mismo título. Déjalo vacío para un título de una sola línea."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de entrada",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Sí. En la Universidad Anáhuac México existe una comunidad organizada de estudiantes foráneos y un área institucional dedicada a tu bienestar."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "bloques",
+    "name": "bloques",
+    "label": "Bloques",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 4,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "bloques.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "ADEFA — Asociación de Estudiantes Foráneos Anáhuac"
+      },
+      {
+        "id": "bloques.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML del título",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "bloques.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Una red de estudiantes foráneos que se apoyan entre pares: integración, eventos y comunidad desde el primer día."
+      },
+      {
+        "id": "bloques.variante",
+        "name": "variante",
+        "label": "Color de acento",
+        "help_text": "Variantes del design system para el contorno del bloque.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "plan-bloque--prof",
+            "Acento 1 (naranja)"
+          ],
+          [
+            "plan-bloque--anahuac",
+            "Acento 2 (morado)"
+          ]
+        ],
+        "default": "plan-bloque--prof"
+      },
+      {
+        "id": "bloques.red1_url",
+        "name": "red1_url",
+        "label": "Red social 1 · enlace",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefanorte/"
+          },
+          "open_in_new_tab": true
+        }
+      },
+      {
+        "id": "bloques.red1_texto",
+        "name": "red1_texto",
+        "label": "Red social 1 · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "@adefanorte",
+        "help_text": "Déjalo vacío para no pintar esta red."
+      },
+      {
+        "id": "bloques.red1_aria",
+        "name": "red1_aria",
+        "label": "Red social 1 · texto accesible",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Instagram de ADEFA Campus Norte",
+        "help_text": "Lo lee el lector de pantalla en lugar del texto visible."
+      },
+      {
+        "id": "bloques.red2_url",
+        "name": "red2_url",
+        "label": "Red social 2 · enlace",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefa_sur/"
+          },
+          "open_in_new_tab": true
+        }
+      },
+      {
+        "id": "bloques.red2_texto",
+        "name": "red2_texto",
+        "label": "Red social 2 · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "@adefa_sur",
+        "help_text": "Déjalo vacío para no pintar esta red."
+      },
+      {
+        "id": "bloques.red2_aria",
+        "name": "red2_aria",
+        "label": "Red social 2 · texto accesible",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Instagram de ADEFA Campus Sur",
+        "help_text": "Lo lee el lector de pantalla en lugar del texto visible."
+      }
+    ],
+    "default": [
+      {
+        "titulo": "ADEFA — Asociación de Estudiantes Foráneos Anáhuac",
+        "titulo_tag": "h3",
+        "texto": "Una red de estudiantes foráneos que se apoyan entre pares: integración, eventos y comunidad desde el primer día.",
+        "variante": "plan-bloque--prof",
+        "red1_url": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefanorte/"
+          },
+          "open_in_new_tab": true
+        },
+        "red1_texto": "@adefanorte",
+        "red1_aria": "Instagram de ADEFA Campus Norte",
+        "red2_url": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefa_sur/"
+          },
+          "open_in_new_tab": true
+        },
+        "red2_texto": "@adefa_sur",
+        "red2_aria": "Instagram de ADEFA Campus Sur"
+      },
+      {
+        "titulo": "CAF — Centro de Atención a Foráneos",
+        "titulo_tag": "h3",
+        "texto": "El área de la universidad dedicada al bienestar de estudiantes foráneos, tanto nacionales como internacionales.",
+        "variante": "plan-bloque--anahuac",
+        "red1_url": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": true
+        },
+        "red1_texto": "",
+        "red1_aria": "",
+        "red2_url": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": ""
+          },
+          "open_in_new_tab": true
+        },
+        "red2_texto": "",
+        "red2_aria": ""
+      }
+    ],
+    "help_text": "Máximo 4. Las redes sociales solo se pintan si el texto tiene valor."
+  },
+  {
+    "id": "botones",
+    "name": "botones",
+    "label": "Botones",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 3,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "botones.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Conoce a la comunidad · Norte"
+      },
+      {
+        "id": "botones.enlace",
+        "name": "enlace",
+        "label": "Destino",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefanorte/"
+          },
+          "open_in_new_tab": true
+        }
+      },
+      {
+        "id": "botones.estilo",
+        "name": "estilo",
+        "label": "Estilo",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-light",
+            "Claro"
+          ],
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-orange",
+            "Naranja"
+          ]
+        ],
+        "default": "btn-light"
+      }
+    ],
+    "default": [
+      {
+        "texto": "Conoce a la comunidad · Norte",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefanorte/"
+          },
+          "open_in_new_tab": true
+        },
+        "estilo": "btn-light"
+      },
+      {
+        "texto": "Conoce a la comunidad · Sur",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://www.instagram.com/adefa_sur/"
+          },
+          "open_in_new_tab": true
+        },
+        "estilo": "btn-light"
+      }
+    ],
+    "help_text": "Máximo 3. Si no hay botones, la fila no se pinta."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

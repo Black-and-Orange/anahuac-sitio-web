@@ -1,0 +1,414 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Elige el siguiente paso",
+        "help_text": "Es el título que anuncia la sección (aria-labelledby)."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de introducción",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "¿Aún no quieres llenar un formulario? Elige por dónde seguir a tu ritmo."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "tarjetas",
+    "name": "tarjetas",
+    "label": "Tarjetas",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "sorting_label_field": null,
+      "default": 4
+    },
+    "children": [
+      {
+        "id": "tarjetas.icono",
+        "name": "icono",
+        "label": "Icono",
+        "help_text": "Los cuatro iconos del diseño aprobado.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "cotiza",
+            "Cotizador (cubo)"
+          ],
+          [
+            "apoyos",
+            "Apoyos (información)"
+          ],
+          [
+            "calendario",
+            "Calendario"
+          ],
+          [
+            "admision",
+            "Admisión (birrete)"
+          ]
+        ],
+        "default": "cotiza"
+      },
+      {
+        "id": "tarjetas.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Cotiza tu carrera"
+      },
+      {
+        "id": "tarjetas.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «titulo»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "tarjetas.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «titulo»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Conoce la inversión de tu licenciatura y arma tu plan."
+      },
+      {
+        "id": "tarjetas.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Texto del enlace",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ir al cotizador ›"
+      },
+      {
+        "id": "tarjetas.enlace_color",
+        "name": "enlace_color",
+        "label": "Color del enlace",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "tarjetas.enlace",
+        "name": "enlace",
+        "label": "Destino del enlace",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "costos-becas.html"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "default": [
+      {
+        "icono": "cotiza",
+        "titulo": "Cotiza tu carrera",
+        "titulo_tag": "h3",
+        "texto": "Conoce la inversión de tu licenciatura y arma tu plan.",
+        "enlace_texto": "Ir al cotizador ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "costos-becas.html"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "apoyos",
+        "titulo": "Apoyos socioeconómicos",
+        "titulo_tag": "h3",
+        "texto": "Revisa las opciones de apoyo y financiamiento disponibles.",
+        "enlace_texto": "Ver apoyos ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "apoyos-economicos.html"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "calendario",
+        "titulo": "Fechas de examen",
+        "titulo_tag": "h3",
+        "texto": "Consulta el calendario vigente y elige tu fecha.",
+        "enlace_texto": "Ver fechas ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "fechas-de-examenes.html"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "icono": "admision",
+        "titulo": "Inicia tu admisión",
+        "titulo_tag": "h3",
+        "texto": "Comienza tu registro en línea y aparta tu lugar.",
+        "enlace_texto": "Iniciar admisión ›",
+        "enlace": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "proceso-de-admision.html"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ],
+    "help_text": "Máximo 6. La retícula es de dos columnas: el diseño aprobado usa cuatro."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_fondo",
+        "name": "color_tarjeta_fondo",
+        "label": "Tarjetas · color de fondo",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_texto",
+        "name": "color_tarjeta_texto",
+        "label": "Tarjetas · color de texto",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_icono",
+        "name": "color_icono",
+        "label": "Tarjetas · color del icono",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

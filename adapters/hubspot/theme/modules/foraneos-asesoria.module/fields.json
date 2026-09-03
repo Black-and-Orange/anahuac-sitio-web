@@ -1,0 +1,452 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.eyebrow",
+        "name": "eyebrow",
+        "label": "Eyebrow (tagline)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Asesoría"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_tag",
+        "name": "eyebrow_tag",
+        "label": "Etiqueta HTML de «eyebrow»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.eyebrow_color",
+        "name": "eyebrow_color",
+        "label": "Color de texto de «eyebrow»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿De dónde nos contactas?",
+        "help_text": "Es el título accesible de la sección (id «asesor-title»)."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto de entrada",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Conoce a la persona que te va a acompañar en tu proceso de acuerdo a tu estado o país de residencia."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.label_selector",
+        "name": "label_selector",
+        "label": "Etiqueta de los selectores",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Dónde estudias o estudiaste la preparatoria/bachillerato?",
+        "help_text": "Aplica a los dos primeros selectores (región y estado o país)."
+      },
+      {
+        "id": "grupo_contenido.label_preparatoria",
+        "name": "label_preparatoria",
+        "label": "Etiqueta del selector de preparatoria",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Selecciona tu preparatoria",
+        "help_text": "Este selector solo aparece cuando la región lo requiere; lo controla el JS del tema."
+      }
+    ]
+  },
+  {
+    "id": "grupo_fallback",
+    "name": "grupo_fallback",
+    "label": "Texto de respaldo",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_fallback.fallback_intro",
+        "name": "fallback_intro",
+        "label": "Texto antes del correo",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "¿Tu estado o país aún no tiene asesor asignado? Escríbenos a "
+      },
+      {
+        "id": "grupo_fallback.fallback_correo",
+        "name": "fallback_correo",
+        "label": "Correo de respaldo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "preuniversitarios@anahuac.mx",
+        "help_text": "Se pinta como enlace mailto y como texto visible."
+      },
+      {
+        "id": "grupo_fallback.fallback_cierre",
+        "name": "fallback_cierre",
+        "label": "Texto después del correo",
+        "type": "text",
+        "allow_new_line": true,
+        "default": " y te conectamos con la persona correcta."
+      }
+    ],
+    "help_text": "Se parte en tres campos porque el enlace va dentro del párrafo: un richtext metería un <p> anidado."
+  },
+  {
+    "id": "grupo_asesor",
+    "name": "grupo_asesor",
+    "label": "Tarjeta de asesor (estado inicial)",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_asesor.nombre",
+        "name": "nombre",
+        "label": "Nombre",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Edwin Florencio Jarquín Santiago"
+      },
+      {
+        "id": "grupo_asesor.nombre_tag",
+        "name": "nombre_tag",
+        "label": "Etiqueta HTML del nombre",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "grupo_asesor.rol",
+        "name": "rol",
+        "label": "Rol",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Asesor preuniversitario"
+      },
+      {
+        "id": "grupo_asesor.genero",
+        "name": "genero",
+        "label": "Fotografía",
+        "help_text": "Retratos del design system. El JS del tema la cambia según el asesor.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "m",
+            "Retrato masculino"
+          ],
+          [
+            "f",
+            "Retrato femenino"
+          ]
+        ],
+        "default": "m"
+      },
+      {
+        "id": "grupo_asesor.whatsapp",
+        "name": "whatsapp",
+        "label": "WhatsApp · enlace",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "https://wa.link/h5vrw3"
+          },
+          "open_in_new_tab": true
+        }
+      },
+      {
+        "id": "grupo_asesor.whatsapp_texto",
+        "name": "whatsapp_texto",
+        "label": "WhatsApp · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "WhatsApp"
+      },
+      {
+        "id": "grupo_asesor.mostrar_cita",
+        "name": "mostrar_cita",
+        "label": "Mostrar «Agenda una cita»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_asesor.cita",
+        "name": "cita",
+        "label": "Agenda una cita · enlace",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "grupo_asesor.cita_texto",
+        "name": "cita_texto",
+        "label": "Agenda una cita · texto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Agenda una cita"
+      },
+      {
+        "id": "grupo_asesor.mostrar_correo",
+        "name": "mostrar_correo",
+        "label": "Mostrar el correo",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_asesor.correo",
+        "name": "correo",
+        "label": "Correo del asesor",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "asesores@anahuac.mx"
+      }
+    ],
+    "help_text": "Es el estado inicial de la tarjeta: el JS del tema la reemplaza al elegir estado o país."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto sobre la banda",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_texto",
+        "name": "color_tarjeta_texto",
+        "label": "Color de texto de la tarjeta",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

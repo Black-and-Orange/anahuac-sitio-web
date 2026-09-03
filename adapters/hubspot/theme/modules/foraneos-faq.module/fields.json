@@ -1,0 +1,183 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título (H2)",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Preguntas frecuentes sobre foráneos en la Anáhuac",
+        "help_text": "Es el título que anuncia la sección (aria-labelledby)."
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "preguntas",
+    "name": "preguntas",
+    "label": "Preguntas y respuestas",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 20,
+      "sorting_label_field": null,
+      "default": 7
+    },
+    "children": [
+      {
+        "id": "preguntas.pregunta",
+        "name": "pregunta",
+        "label": "Pregunta",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Escribe aquí la pregunta."
+      },
+      {
+        "id": "preguntas.respuesta",
+        "name": "respuesta",
+        "label": "Respuesta",
+        "type": "richtext",
+        "default": "<p>Escribe aquí la respuesta.</p>",
+        "help_text": "Admite negritas y enlaces a otras secciones de la página."
+      },
+      {
+        "id": "preguntas.abierta",
+        "name": "abierta",
+        "label": "Abierta por defecto",
+        "help_text": "Solo una puede estar abierta a la vez: si marcas varias, el navegador deja abierta la última.",
+        "type": "boolean",
+        "display": "toggle",
+        "default": false
+      }
+    ],
+    "default": [
+      {
+        "pregunta": "¿El proceso de admisión es distinto si soy de otro estado o de otro país?",
+        "respuesta": "<p>No. Es exactamente el mismo proceso para todos y <strong class=\"for-en-linea\">es totalmente en línea</strong>; solo cambia la documentación de origen. Ver el detalle en <a href=\"#admision\">Proceso de admisión</a>.</p>",
+        "abierta": true
+      },
+      {
+        "pregunta": "¿Qué necesito si vengo de otro país para poder inscribirme?",
+        "respuesta": "<p>Necesitas los documentos equivalentes de tu país y, si cursaste bachillerato en el extranjero, revalidarlo ante la SEP; además, gestionas tu trámite migratorio en paralelo a tu admisión. Ver <a href=\"#admision\">Proceso de admisión</a>.</p>",
+        "abierta": false
+      },
+      {
+        "pregunta": "¿La universidad me ayuda a encontrar dónde vivir?",
+        "respuesta": "<p>Sí, tienes una persona de contacto en cada campus dedicada a acompañarte en tu hospedaje. Ver <a href=\"#hospedaje\">Hospedaje: tu segunda casa</a>.</p>",
+        "abierta": false
+      },
+      {
+        "pregunta": "¿Hay una comunidad de estudiantes foráneos?",
+        "respuesta": "<p>Sí: ADEFA y CAF. Ver <a href=\"#comunidad\">Comunidad foránea: ADEFA + CAF</a>.</p>",
+        "abierta": false
+      },
+      {
+        "pregunta": "¿A quién contacto si tengo alguna duda?",
+        "respuesta": "<p>Conoce a tu asesor y contáctalo directo por WhatsApp o correo. Ver <a href=\"#contacto-asesores\">¿De dónde nos contactas?</a>.</p>",
+        "abierta": false
+      },
+      {
+        "pregunta": "¿Es segura la zona donde voy a vivir?",
+        "respuesta": "<p>Las zonas que recomendamos por campus están cerca de tu vida universitaria diaria. Consulta las <a href=\"#hospedaje\">zonas recomendadas por campus</a> y el <a href=\"#mapa-servicios\">mapa de servicios cercanos</a>.</p>",
+        "abierta": false
+      },
+      {
+        "pregunta": "¿Qué hago los fines de semana que no puedo ir a casa?",
+        "respuesta": "<p>La comunidad foránea organiza eventos todo el ciclo escolar. Ver <a href=\"#comunidad\">Comunidad foránea: ADEFA + CAF</a>.</p>",
+        "abierta": false
+      }
+    ],
+    "help_text": "Acordeón: al abrir una, las demás se cierran solas."
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

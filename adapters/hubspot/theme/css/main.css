@@ -7446,7 +7446,7 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
 .fechas-vacio {
   padding: 1.75rem;
   border-radius: var(--radius);
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--surface-tint);
   font-size: var(--size-16);
   line-height: 1.5;
   color: var(--color-text-secondary);
@@ -8131,4 +8131,2083 @@ body.ready .reveal { transition-delay: var(--reveal-delay, 0ms); }
   /* El cuerpo vuelve a todo el ancho para no quedar angosto en móvil */ .step-panel-body {
     width: 100%;
       }
+}
+
+/* ===== FORÁNEOS (hero video, CDMX, mapa de servicios, salud) ===== */
+/* =============================================
+   FORÁNEOS
+   Página de soporte y comunidad. Reutiliza el design system: los bloques de
+   acento vienen de psicologia.css, las dos columnas por campus y la tarjeta de
+   asesor de apoyos-economicos.css, y «experience» / «stories» de styles.css.
+   Aquí solo vive lo específico de esta página.
+   ============================================= */
+
+/* El atributo `hidden` es `display:none` con especificidad cero, así que
+   cualquier regla que declare `display` lo derrota en silencio. Pasó con
+   `.button-row` y con los filtros del mapa: nacían con `hidden` y se veían
+   igual. Esta regla lo vuelve fiable en toda la página. */
+.for-mapa [hidden],
+.for-asesor [hidden] {
+  display: none !important;
+}
+
+/* ===== 1. Hero =====
+   Misma estructura y ritmo que el hero de Apoyos: copy centrado arriba y,
+   debajo, media + panel en dos columnas. El H1 usa la escala del sistema. */
+.for-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 11.9375rem;
+  padding-bottom: 6.25rem;
+  background:
+    var(--hero-glow),
+    var(--white);
+}
+
+.for-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem;
+}
+
+.for-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  max-width: 100%;
+}
+
+.for-hero-copy .tagline {
+  justify-content: center;
+}
+
+.for-hero-copy .tagline,
+.for-hero-copy h1 {
+  text-wrap: balance;
+}
+
+.for-hero-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.for-hero-media {
+  position: relative;
+}
+
+.for-hero-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* El control de pausa es requisito de accesibilidad para cualquier media que
+   arranca sola. Se mantiene visible, no aparece solo al pasar el cursor. */
+.for-video-pausa {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--overlay-control);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--size-13);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.for-video-pausa:hover,
+.for-video-pausa:focus-visible {
+  background: var(--overlay-control-hover);
+}
+
+.for-hero-info-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.for-hero-info-copy .button-row {
+  margin-top: 0;
+}
+
+.for-hero .hero-card {
+  background: var(--cta-bg-purple);
+}
+
+.for-hero .hero-card p {
+  text-wrap: balance;
+}
+
+/* ===== 2. ¿Quién es foráneo? ===== */
+.for-quien {
+  background: var(--gray);
+}
+
+/* Medida de línea de los intros. Sin esto el párrafo corre a los 1240px del
+   contenedor, que son unos 150 caracteres por línea. */
+.for-quien .section-intro > p,
+.for-cdmx .section-intro > p,
+.for-calc .section-intro > p,
+.for-hospedaje .section-intro > p,
+.for-videos .section-intro > p,
+.for-mapa .section-intro > p,
+.for-salud .section-intro > p,
+.for-comunidad .section-intro > p,
+.for-admision .section-intro > p {
+  max-width: 44.6875rem;
+  text-wrap: pretty;
+}
+
+/* Cuando el intro va ENCIMA del contenido, el sistema lo separa con 50px: es lo
+   que hacen .apo-consideraciones, .apo-faq y .adm-fechas. Los 2.5rem del valor
+   base son para los módulos cuyo intro vive en una columna lateral —experience,
+   siguiente paso, asesoría—, que es otra relación. */
+.for-quien .section-intro,
+.for-cdmx .section-intro,
+.for-calc .section-intro,
+.for-hospedaje .section-intro,
+.for-videos .section-intro,
+.for-mapa .section-intro,
+.for-salud .section-intro,
+.for-comunidad .section-intro,
+.for-admision .section-intro,
+.for-faq .section-intro {
+  margin-bottom: 3.125rem;
+}
+
+/* Dos tarjetas en vez de las tres del plan de estudios. Se encadena la clase
+   del componente para ganar en especificidad: la regla portada de .plan-bloques
+   vive más abajo en este archivo y si no, gana por orden. */
+.plan-bloques.for-quien-bloques,
+.plan-bloques.for-comunidad-bloques {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Icono de tipo de foráneo: mismo tratamiento que los del mapa de servicios —
+   cuadro redondeado con el color de acento de su tarjeta. */
+.for-tipo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.25rem;
+  border-radius: var(--radius);
+}
+
+.for-tipo-icono svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.plan-bloque--prof .for-tipo-icono {
+  background: var(--orange-tint);
+  color: var(--orange);
+}
+
+.plan-bloque--anahuac .for-tipo-icono {
+  background: var(--purple-tint);
+  color: var(--purple-2);
+}
+
+/* El dato de composición usa el contador animado del sistema: son cifras reales
+   y merecen el momento de movimiento. La frase se mantiene en tono de apoyo;
+   solo los números ganan peso. */
+/* La cifra dentro de su tarjeta. Va al pie, después de la descripción: el
+   titular sigue siendo quién es cada tipo de foráneo, y el porcentaje es el
+   dato que lo respalda, no el encabezado. */
+.for-bloque-dato {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: var(--paragraph-size);
+  line-height: 1.4;
+  color: var(--text-gray);
+}
+
+.for-dato-cifra {
+  font-family: var(--font-heading);
+  font-size: var(--size-30);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--orange);
+}
+
+/* Cada cifra toma el color de su tarjeta, que es lo que las hace distinguibles
+   de un vistazo sin leer el rótulo. */
+.for-dato-cifra--morada {
+  color: var(--purple-2);
+}
+
+/* Las tarjetas de contenido responden al puntero igual que el resto de la
+   página. `.consideracion` se repite quince veces aquí y era la única sin
+   estado; `.fex-paso` tampoco lo tenía. Se acota a esta página para no alterar
+   los componentes en sus maquetas de origen. */
+.for-cdmx .consideracion,
+.for-salud .consideracion,
+.for-roomies-grid .consideracion,
+.for-guia-pasos .fex-paso {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.for-cdmx .consideracion:hover,
+.for-salud .consideracion:hover,
+.for-roomies-grid .consideracion:hover,
+.for-guia-pasos .fex-paso:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.125rem 2.75rem rgba(0, 0, 0, 0.1);
+}
+
+.for-cdmx .consideracion:hover,
+.for-salud .consideracion:hover {
+  border-color: var(--lilac-1);
+}
+
+.for-puente {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.for-puente-frase {
+  font-family: var(--font-heading);
+  font-size: var(--size-22);
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--purple-2);
+  text-wrap: balance;
+}
+
+/* Enlace terciario: no es un botón, por decisión del handoff */
+.for-link-terciario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: var(--meta-size);
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.25rem;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.for-link-terciario:hover,
+.for-link-terciario:focus-visible {
+  color: var(--purple-2);
+}
+
+.for-link-terciario-wrap {
+  margin-top: 1.25rem;
+}
+
+/* ===== 3. ¿Por qué la CDMX? =====
+   Monta el componente .path del home: al pasar por cada razón cambia la foto
+   grande. Era el módulo más aspiracional de la página y el único sin ningún
+   momento de interacción propio.
+
+   Las tarjetas del home llevan un título corto y revelan su descripción al
+   abrirse; aquí cada razón es una frase completa del handoff, así que la altura
+   fija de 5.3125rem no sirve. Se libera la altura y el hover se queda con lo que
+   importa: cambiar la foto y encender el acento. */
+.for-cdmx {
+  background: var(--white);
+}
+
+/* El componente fija la altura de la tarjeta por breakpoint —85px de base, 65
+   entre 1181 y 1440— con `.path-card:not(:hover):not(.is-open)`, tres clases de
+   especificidad. Aquí cada razón es una frase completa y a altura fija se
+   recortaban cinco de las seis, así que hay que igualar ese selector para
+   liberarla. `flex-shrink: 0` evita además que la columna se comprima contra
+   la foto. */
+.for-cdmx .path-card,
+.for-cdmx .path-card:not(:hover):not(.is-open),
+.for-cdmx .path-card:hover,
+.for-cdmx .path-card.is-open {
+  height: auto;
+  min-height: 0;
+  flex-shrink: 0;
+  padding: 1.25rem 1.375rem;
+  justify-content: center;
+}
+
+/* El reparto del home es 925/315 porque allí los títulos son de dos palabras.
+   Aquí cada tarjeta lleva una frase completa y a 19.6875rem se partía en cuatro y
+   cinco líneas. Se le da más ancho a la columna de texto a costa de la foto, y
+   `stretch` hace que la foto termine donde terminan las tarjetas en vez de
+   dejarlas colgando sobre el fondo. */
+.for-cdmx-layout {
+  margin-top: 3.125rem;
+}
+
+.for-cdmx .path-layout {
+  grid-template-columns: minmax(0, 1fr) 29.375rem;
+  /* `center` en lugar de `start`: la columna de tarjetas es más corta que la
+     foto, y alineada arriba dejaba la primera a ras y un hueco solo al final.
+     Centrada, el margen es el mismo arriba y abajo. Es seguro porque la foto ya
+     tiene proporción fija: su altura no cambia al pasar de una tarjeta a otra. */
+  align-items: center;
+}
+
+.for-cdmx .path-photo {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+/* Sin `space-between`: repartir el sobrante entre las tarjetas hace que los
+   huecos se recalculen en cada cambio de estado y la columna «baile». */
+.for-cdmx .path-cards {
+  width: 34.6875rem;
+  gap: 0.875rem;
+}
+
+.for-cdmx .path-title {
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* El componente fija el tamaño del título con `.path-card:not(:hover):not(.is-open)
+   .path-title h3` —cuatro clases— y por breakpoint: 1.875rem arriba de 1440, 22 por
+   debajo. Con frases completas eso daba cuatro y cinco líneas. Hay que igualar
+   el selector para bajarlo. */
+.for-cdmx .path-card h3,
+.for-cdmx .path-card:not(:hover):not(.is-open) .path-title h3,
+.for-cdmx .path-card:hover .path-title h3,
+.for-cdmx .path-card.is-open .path-title h3 {
+  font-family: var(--font-heading);
+  font-size: var(--meta-size);
+  line-height: 1.35;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+/* El número sustituye al icono del componente original: la numeración ya viene
+   en el contenido y da un ancla visual sin inventar iconografía. */
+.for-razon-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface-invert-soft);
+  font-family: var(--font-heading);
+  font-size: var(--size-15);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* El intro del componente va centrado en el home; aquí la página alinea todo a
+   la izquierda y romperlo desalinearía este módulo con los otros catorce. */
+.for-cdmx .section-intro {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ===== 5. Calculadora =====
+   Toma el lenguaje del cotizador: dos tarjetas de precio en paralelo con el
+   monto como ancla visual y el desglose por rubro debajo. El sitio ya resuelve
+   así «hablar de dinero», y el módulo dejaba de tener cualquier peso visual
+   siendo solo un párrafo y una caja gris. */
+.for-calc {
+  background: var(--gray);
+}
+
+/* Especificidad: al vivir dentro del .section-intro, `.section-intro > p` le
+   gana a una clase suelta. */
+
+.for-calc-estimado {
+  margin: 0 0 var(--space-7);
+  font-family: var(--font-heading);
+  font-size: var(--heading-4-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.for-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.for-precio {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--white);
+  border: 0.125rem solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.for-precio:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.125rem 2.75rem rgba(0, 0, 0, 0.1);
+}
+
+/* El acento por campus es el mismo que en el resto de la página: Norte naranja,
+   Sur morado. Así las dos columnas se reconocen sin leer el título. */
+.for-precio--norte {
+  border-color: var(--orange);
+}
+
+.for-precio--sur {
+  border-color: var(--purple-2);
+}
+
+.for-precio-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.08);
+}
+
+.for-precio-top h3 {
+  font-family: var(--font-heading);
+  font-size: var(--heading-5-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025rem;
+}
+
+.for-precio--norte .for-precio-top h3 {
+  color: var(--orange);
+}
+
+.for-precio--sur .for-precio-top h3 {
+  color: var(--purple-2);
+}
+
+/* El monto es el ancla visual del módulo. Mientras no haya cifras reales dice
+   «Por definir», con el mismo peso tipográfico que tendrá el número. */
+.for-precio-monto {
+  font-family: var(--font-heading);
+  font-size: var(--size-44);
+  line-height: 1.05;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Sin cifra real, el monto no puede ser el elemento más grande del módulo. */
+
+.for-precio-periodo {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  color: var(--text-gray);
+}
+
+/* Las zonas cierran la cabecera de la tarjeta: son la letra pequeña que hace
+   interpretable el rango. Van en gris y a cuerpo chico porque cualifican al
+   monto, no compiten con él. */
+.for-precio-zonas {
+  margin-top: 0.625rem;
+  font-size: var(--eyebrow-size);
+  line-height: 1.45;
+  color: var(--text-gray);
+  text-wrap: pretty;
+}
+
+.for-precio-rubros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.for-precio-rubros li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--size-15);
+  line-height: 1.4;
+  color: var(--text-gray);
+}
+
+.for-precio-dato {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Aviso de dato pendiente. Mismo tratamiento en la calculadora y en el mapa:
+   son el mismo tipo de mensaje y antes cada uno tenía el suyo. */
+.for-calc-nota,
+.for-mapa-nota {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 0.25rem solid var(--orange);
+  border-radius: var(--radius);
+  background: var(--surface-tint);
+  font-size: var(--size-15);
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.for-calc-nota p {
+  flex: 1 1 26.25rem;
+  font-size: var(--size-15);
+  line-height: 1.5;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.for-calc-nota .button-row {
+  margin-top: 0;
+}
+
+/* Nota institucional que cierra la calculadora. Reutiliza la medida de lectura
+   de `.for-disclaimer`, pero conserva un tratamiento local sin convertir el
+   aviso en una segunda banda ni competir con el CTA anterior. */
+.for-calc-disclaimer {
+  margin: var(--space-7) 0 0;
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.for-guia a,
+.for-tips-salud a {
+  color: var(--orange);
+}
+
+/* ===== 6. Hospedaje =====
+   Una sola tarjeta por campus. Antes eran cinco bloques sueltos apilados —foto,
+   título, etiqueta, chips y una tarjeta de asesor de 38rem— con dos imágenes
+   compitiendo por columna. Ahora hay una imagen grande (el entorno del campus),
+   un avatar pequeño para la persona de contacto, y una jerarquía interna clara:
+   dónde → quién → cómo contactarle. */
+.for-hospedaje {
+  background: var(--white);
+}
+
+.for-campus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.for-campus {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 0.125rem solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.for-campus:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.125rem 2.75rem rgba(0, 0, 0, 0.1);
+}
+
+.for-campus--norte {
+  border-color: var(--orange);
+}
+
+.for-campus--sur {
+  border-color: var(--purple-2);
+}
+
+/* La foto es el encabezado de la tarjeta: va a sangre, sin radio propio, y el
+   `overflow: hidden` del contenedor la recorta contra las esquinas. */
+.for-campus-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+.for-campus-cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.for-campus-cuerpo h3 {
+  font-family: var(--font-heading);
+  font-size: var(--size-23);
+  line-height: 1.15;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025rem;
+}
+
+.for-campus--norte .for-campus-cuerpo h3 {
+  color: var(--orange);
+}
+
+.for-campus--sur .for-campus-cuerpo h3 {
+  color: var(--purple-2);
+}
+
+/* Las zonas reservan dos filas de chips. Norte tiene cinco y Sur cuatro, así
+   que sin esto el bloque de contacto arrancaba a distinta altura en cada
+   tarjeta y las dos columnas dejaban de sincronizar. */
+.for-campus .for-zonas {
+  min-height: 4.875rem;
+  align-content: flex-start;
+}
+
+/* La persona de contacto va sobre una divisoria: separa el «dónde» del «quién»
+   sin necesidad de otra caja. */
+.for-contacto {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid rgba(0, 0, 0, 0.08);
+}
+
+/* `.asesor-foto` trae `min-width: 280px` para su uso en Apoyos; aquí el avatar
+   es pequeño y hay que anularlo o el min-width gana. */
+.for-contacto-avatar {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  height: 3.5rem;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center top;
+}
+
+.for-contacto-nombre {
+  font-family: var(--font-heading);
+  font-size: var(--size-19);
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.for-contacto-rol {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  line-height: 1.4;
+  color: var(--text-gray);
+}
+
+.for-contacto-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.for-cierre-calido {
+  margin-top: 3.125rem;
+  font-family: var(--font-heading);
+  font-size: var(--size-22);
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--purple-2);
+  text-wrap: balance;
+  max-width: 56.25rem;
+}
+
+.for-hospedaje-cta {
+  margin-top: 2rem;
+}
+
+.for-roomies {
+  margin-top: 3.125rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--gray);
+}
+
+.for-roomies-tag {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--heading-3-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-secondary);
+  text-wrap: balance;
+}
+
+/* "Tips" en script con degradado naranja→morado (propuesta, evoca la referencia
+   de posgrados). "ANÁHUAC" no cambia: conserva Zilla Slab y el café de marca. */
+.for-tips-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  /* El script tiene menor altura-x; se agranda para equilibrar con las mayúsculas. */
+  font-size: calc(1em * 1.35);
+  line-height: 1;
+  background: linear-gradient(100deg, var(--orange) 0%, var(--purple-2) 70%, var(--purple-1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
+.for-roomies h3 {
+  font-family: var(--font-heading);
+  font-size: var(--heading-5-size);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.for-roomies-grid {
+  margin-top: 0;
+}
+
+.for-roomies-grid .consideracion p {
+  color: var(--color-text);
+}
+
+.for-tips-salud {
+  margin-top: var(--space-10);
+  padding-top: var(--space-10);
+}
+
+.for-tips-salud .fex-paso p,
+.for-tips-salud .fex-paso a {
+  color: var(--color-text);
+}
+
+.for-tips-salud .fex-paso a {
+  font-weight: var(--weight-semibold);
+  text-decoration-color: var(--color-brand-primary);
+  text-underline-offset: var(--space-1);
+}
+
+/* ===== 7. Dos videos ===== */
+.for-videos {
+  background: var(--gray);
+}
+
+.for-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.for-video {
+  margin: 0;
+}
+
+.for-video video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--black);
+  display: block;
+}
+
+.for-video figcaption {
+  margin-top: 1rem;
+  font-size: var(--size-15);
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+/* ===== 8. Mapa de servicios ===== */
+.for-mapa {
+  background: var(--white);
+}
+
+/* Los filtros son mejora progresiva: nacen ocultos y el JS los revela. Sin JS
+   se ven todas las categorías, así que nunca son la única vía al contenido. */
+/* Primer nivel de filtro: el campus. Va como par de pestañas grandes y no como
+   píldoras, para que se lea que acota a las categorías de abajo y no que es
+   otra fila del mismo control. */
+.for-mapa-campus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.for-campus-tab {
+  padding: 0.875rem 1.75rem;
+  border: 0.125rem solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-heading);
+  font-size: var(--heading-6-size);
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.for-campus-tab:hover {
+  border-color: var(--purple-2);
+}
+
+.for-campus-tab.is-active {
+  background: var(--purple-2);
+  border-color: var(--purple-2);
+  color: var(--white);
+}
+
+.for-campus-tab:focus-visible {
+  outline: 0.1875rem solid var(--purple-2);
+  outline-offset: 0.1875rem;
+}
+
+/* Rótulo de confirmación: dice en texto qué campus se está viendo. */
+.for-mapa-viendo {
+  margin: 0 0 1.25rem;
+  font-size: var(--paragraph-size);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.for-mapa-viendo strong {
+  color: var(--purple-2);
+}
+
+/* Un lugar por tarjeta. Reutiliza `.for-categoria` —la tarjeta con icono en
+   chip— y solo añade lo suyo: el dato de zona y tiempo, y la etiqueta de campus
+   y categoría al pie.
+
+   Esa etiqueta no sobra aunque haya filtros arriba: sin JS se ven las 32
+   tarjetas a la vez, y sin ella no habría forma de saber a qué campus pertenece
+   cada una. */
+.for-lugares-grid {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.for-lugar {
+  gap: 0.75rem;
+}
+
+.for-lugar h3 {
+  font-size: var(--meta-size);
+  line-height: 1.3;
+}
+
+.for-lugar-meta {
+  font-size: var(--size-15);
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.for-lugar-etiqueta {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 0.0625rem solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+  font-family: var(--font-heading);
+  font-size: var(--micro-size);
+  font-weight: 600;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: var(--purple-2);
+}
+
+/* El CTA aparece únicamente cuando JavaScript puede abrir la modal. La clase
+   de estado conserva el rótulo al pie y alinea la acción entre tarjetas con
+   títulos de distinta longitud. */
+.for-lugar.has-ubicacion .for-lugar-etiqueta {
+  margin-top: 0;
+}
+
+.for-lugar-ubicacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: var(--space-4) var(--space-6);
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--cta-bg-purple);
+  color: var(--color-text-invert);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-body);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease),
+    transform var(--motion-duration-fast) var(--motion-ease);
+}
+
+.for-lugar-ubicacion:hover {
+  background: var(--surface-accent);
+  transform: translateY(calc(var(--space-1) * -1));
+}
+
+.for-lugar-ubicacion:focus-visible,
+.for-ubicacion-cerrar:focus-visible {
+  outline: var(--space-1) solid var(--color-brand-primary);
+  outline-offset: var(--space-1);
+}
+
+/* Modal de ubicación de referencia. Google Maps se carga al abrirla y se centra
+   en la zona disponible; la dirección exacta sigue pendiente de validación. */
+.for-modal-abierta {
+  overflow: hidden;
+}
+
+.for-ubicacion-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.for-ubicacion-modal[hidden] {
+  display: none;
+}
+
+.for-ubicacion-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-modal);
+}
+
+.for-ubicacion-dialog {
+  position: relative;
+  width: min(100%, calc(var(--space-14) * 5));
+  max-height: calc(100vh - (var(--space-8) * 2));
+  overflow-y: auto;
+  padding: var(--space-10);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--color-text);
+}
+
+.for-ubicacion-dialog:focus {
+  outline: none;
+}
+
+.for-ubicacion-cerrar {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-10);
+  height: var(--space-10);
+  padding: var(--space-2);
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--gray);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.for-ubicacion-cerrar svg {
+  width: var(--space-7);
+  height: var(--space-7);
+}
+
+.for-ubicacion-eyebrow {
+  margin: 0 var(--space-11) var(--space-2) 0;
+  color: var(--purple-2);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+}
+
+.for-ubicacion-dialog h3 {
+  margin: 0 var(--space-11) var(--space-3) 0;
+  font-family: var(--font-heading);
+  font-size: var(--heading-4-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-heading);
+}
+
+.for-ubicacion-meta {
+  margin: 0 0 var(--space-8);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+}
+
+.for-ubicacion-preview {
+  min-height: calc(var(--space-14) * 2);
+  margin-bottom: var(--space-8);
+  border-radius: var(--radius);
+  background: var(--gray);
+  overflow: hidden;
+}
+
+.for-ubicacion-preview iframe {
+  display: block;
+  width: 100%;
+  min-height: calc(var(--space-14) * 2);
+  border: 0;
+}
+
+.for-ubicacion-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  color: var(--purple-2);
+  font-weight: var(--weight-semibold);
+  text-underline-offset: var(--space-1);
+}
+
+.for-ubicacion-enlace:hover,
+.for-ubicacion-enlace:focus-visible {
+  color: var(--surface-accent);
+}
+
+.for-ubicacion-nota {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--lh-body);
+}
+
+@media (max-width: 40em) {
+  .for-ubicacion-modal {
+    align-items: flex-end;
+    padding: var(--space-4);
+  }
+
+  .for-ubicacion-dialog {
+    max-height: calc(100vh - var(--space-8));
+    padding: var(--space-8);
+    border-radius: var(--radius) var(--radius) var(--radius-button) var(--radius-button);
+  }
+
+  .for-ubicacion-cerrar {
+    top: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .for-ubicacion-preview {
+    min-height: calc(var(--space-14) + var(--space-12));
+  }
+
+  .for-ubicacion-preview iframe {
+    min-height: calc(var(--space-14) + var(--space-12));
+  }
+}
+
+.for-mapa-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 2.5rem;
+}
+
+.for-filtro {
+  padding: 0.5625rem 1rem;
+  border: 0.09375rem solid var(--lilac-1);
+  border-radius: var(--radius-button);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.for-filtro:hover,
+.for-filtro:focus-visible {
+  border-color: var(--purple-2);
+}
+
+.for-filtro.is-active {
+  background: var(--purple-2);
+  border-color: var(--purple-2);
+  color: var(--white);
+}
+
+/* Las cinco áreas generales del directorio agrupan los tipos de servicio sin
+   ocultar el detalle concreto que conserva cada tarjeta. */
+.for-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.for-categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: var(--white);
+  border: 0.125rem solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.for-categoria:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.125rem 2.75rem rgba(0, 0, 0, 0.1);
+  border-color: var(--lilac-1);
+}
+
+.for-categoria-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius);
+  background: var(--purple-tint-soft);
+  color: var(--purple-2);
+}
+
+.for-categoria-icono svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.for-categoria h3 {
+  font-family: var(--font-heading);
+  font-size: var(--meta-size);
+  line-height: 1.25;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* ===== 9. Salud y bienestar ===== */
+.for-salud {
+  background: var(--gray);
+}
+
+.for-salud-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.for-salud-grid .consideracion p {
+  color: var(--color-text);
+}
+
+.for-salud-copy {
+  max-width: calc(var(--space-14) * 6);
+  margin: var(--space-10) 0 0;
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+/* ===== 10. Comunidad =====
+   «ADEFA + CAF» baja a su propia línea. Se hace con un span en bloque y no con
+   un <br>: el texto del título no cambia y el salto se puede desactivar por
+   breakpoint si algún día estorba. */
+.for-h2-linea {
+  display: block;
+}
+
+.for-comunidad {
+  background: var(--white);
+}
+
+.for-redes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.for-red {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--size-15);
+  font-weight: 500;
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.for-red svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.for-red:hover,
+.for-red:focus-visible {
+  color: var(--purple-2);
+}
+
+.for-comunidad-cta {
+  margin-top: 2.5rem;
+}
+
+/* ===== 11b. León Anáhuac · variante móvil de tarjetas apilables =====
+   El componente `.experience` es global, así que el efecto se acota a la clase
+   local `.for-experience`. En pantallas móviles cada tarjeta queda fija
+   mientras la siguiente sube y la cubre, dejando visibles los bordes superiores
+   de la pila. En viewports extremadamente bajos se conserva la lista normal:
+   una tarjeta más alta que la ventana podría dejar contenido inaccesible. */
+@media (max-width: 48em) and (min-height: 35em) and (prefers-reduced-motion: no-preference) {
+  .for-experience .experience-slides {
+    gap: 0;
+    isolation: isolate;
+    padding-bottom: var(--space-11);
+  }
+
+  .for-experience .experience-card {
+    position: sticky;
+    top: var(--space-11);
+    margin-bottom: var(--space-10);
+    padding: var(--space-7);
+    gap: var(--space-7);
+    transform-origin: center top;
+  }
+
+  /* Las imágenes se acotan para que tarjeta + offset siempre quepan dentro de
+     un viewport elegible; el recorte sigue usando `object-fit: cover`. */
+  .for-experience .experience-card img {
+    height: clamp(
+      var(--space-14),
+      24vh,
+      calc((var(--space-14) * 2) + var(--space-11))
+    );
+  }
+
+  .for-experience .experience-card:nth-child(1) {
+    z-index: 1;
+  }
+
+  .for-experience .experience-card:nth-child(2) {
+    top: calc(var(--space-11) + var(--space-2));
+    z-index: 2;
+  }
+
+  .for-experience .experience-card:nth-child(3) {
+    top: calc(var(--space-11) + var(--space-6));
+    z-index: 3;
+  }
+
+  .for-experience .experience-card:nth-child(4) {
+    top: calc(var(--space-11) + var(--space-8));
+    z-index: 4;
+    margin-bottom: 0;
+  }
+
+  /* El hover global desplaza la tarjeta; en una pila alteraría el borde que
+     sirve como referencia de posición. */
+  .for-experience .experience-card:hover {
+    transform: none;
+  }
+}
+
+/* El rol del asesor en el módulo 12; su regla vivía en el bloque de hospedaje
+   que se reescribió. */
+.for-asesor-rol {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  line-height: 1.4;
+  color: var(--text-gray);
+  margin-bottom: 0.75rem;
+}
+
+.for-contacto-quien {
+  min-width: 0;
+}
+
+/* ===== 12. Asesor =====
+   Reutiliza el patrón de Apoyos: banda naranja con puntos, copy amplio a la
+   izquierda y tarjeta vertical del asesor a la derecha. */
+.for-asesor {
+  background: var(--orange);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Misma retícula que el módulo de asesoría de Apoyos económicos: la columna de
+   la tarjeta se estrecha a 360 y el texto se queda con el resto. Estaba al
+   revés —610 para la tarjeta y 570 para el texto—, y por eso la tarjeta salía
+   ancha y baja en vez de alta, y el titular tenía menos sitio del que le toca. */
+.for-asesor-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 22.5rem);
+  gap: 3.75rem;
+  align-items: center;
+}
+
+/* Sobre la banda naranja el texto va en blanco, como en Apoyos económicos.
+   Estaba en negro: además de romper la convención, negro sobre naranja pesa
+   mucho más de lo que le toca a un módulo de contacto. */
+.for-asesor .section-intro h2,
+.for-asesor .section-intro p {
+  color: var(--white);
+  text-wrap: balance;
+}
+
+.for-asesor .section-intro p a {
+  color: var(--white);
+}
+
+/* El titular sube al escalón de 72, igual que el de Apoyos. Es la excepción de
+   los módulos de banda a todo el ancho: el bloque de color pide un titular que
+   lo sostenga. Si se aprueba la escala del piloto, los dos bajan juntos. */
+.for-asesor .section-intro h2 {
+  font-size: clamp(2.125rem, 5vw, 4.5rem);
+}
+
+.for-asesor-layout .section-intro {
+  width: auto;
+}
+
+/* La tarjeta vuelve a la disposición vertical del componente —foto arriba,
+   datos abajo—: con la columna estrechada a 360 la fila ya no cabe, y esa
+   vertical es la que usa Apoyos económicos. */
+.for-asesor .asesor-card {
+  width: 100%;
+  max-width: none;
+}
+/* La foto vuelve a los 280px del componente. Se había reducido a 200 cuando la
+   tarjeta iba en fila dentro de una columna de 610. */
+.for-asesor .asesor-foto {
+  width: 100%;
+}
+
+.for-asesor .asesor-info {
+  max-width: none;
+  gap: 0.75rem;
+}
+
+/* Sobre la banda naranja, el enlace del correo tiene que ser blanco: en naranja
+   quedaba con contraste 1:1, invisible. */
+.for-asesor-fallback {
+  margin-top: 1.25rem;
+  font-size: var(--size-15);
+  line-height: 1.6;
+}
+
+.for-asesor-fallback a {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 0.125rem;
+}
+
+/* ===== 13. Proceso de admisión =====
+   Dos columnas en vez de tres bandas apiladas. A la izquierda el mensaje que
+   aplica a todos —el proceso es el mismo— con sus dos CTA; a la derecha, en su
+   propia tarjeta, el trámite migratorio, que solo concierne a los
+   internacionales. El panel blanco anterior era una barra de 1240×169 para una
+   sola línea de texto. */
+.for-admision {
+  background: var(--purple-1);
+  color: var(--white);
+}
+
+.for-admision-copy {
+  min-width: 0;
+}
+
+.for-admision-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 35rem);
+  gap: 3.75rem;
+  align-items: start;
+}
+
+.for-admision .section-intro {
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.for-admision .section-intro h2,
+.for-admision .section-intro p {
+  color: var(--white);
+}
+
+.for-admision .section-intro > p {
+  max-width: none;
+}
+
+.for-faq .faq-answer .for-en-linea {
+  color: var(--color-brand-primary);
+  font-size: inherit;
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.for-faq .faq-item:first-child .faq-answer p {
+  color: var(--color-text);
+}
+
+.for-faq .faq-item:first-child .faq-answer a {
+  color: var(--purple-2);
+}
+
+/* Tarjeta blanca sobre el morado: el contraste separa «esto solo aplica a
+   algunos» del mensaje general, y el texto oscuro se lee mejor que el blanco
+   sobre morado que tenía antes. */
+.for-migratorio {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--color-text);
+}
+
+.for-migratorio .faq-list {
+  margin-bottom: 0;
+}
+
+.for-migratorio .faq-item {
+  border: 0;
+}
+
+.for-migratorio summary {
+  padding-top: 0;
+}
+
+.for-migratorio summary h3 {
+  display: inline;
+  font-family: var(--font-heading);
+  font-size: var(--heading-5-size);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.for-migratorio .faq-answer .for-disclaimer {
+  padding: 1rem 1.25rem;
+  /* `.faq-answer p` elimina los márgenes de párrafo; este bloque informativo
+     necesita conservar separación antes de la lista de pasos. */
+  margin-bottom: var(--space-9);
+  border-left: 0.25rem solid var(--orange);
+  background: var(--surface-tint-medium);
+  font-size: var(--size-15);
+  line-height: 1.5;
+  color: var(--text-gray);
+}
+
+.for-migratorio-pasos {
+  margin: 0 0 1.25rem;
+  padding-left: 1.375rem;
+}
+
+.for-migratorio-pasos li {
+  margin-bottom: 0.75rem;
+  font-size: var(--size-15);
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+.for-migratorio .faq-answer p {
+  color: var(--text-gray);
+}
+
+.for-migratorio .faq-answer a {
+  color: var(--orange);
+}
+
+/* ===== 14. FAQ ===== */
+.for-faq {
+  background: var(--surface-tint-soft);
+}
+
+.for-faq .section-intro {
+  text-align: left;
+}
+
+/* ===== Componentes portados de otras maquetas =====
+   En el theme de HubSpot todos viven en main.css y no haría falta duplicarlos;
+   aquí sí, porque cada maqueta carga solo su propia hoja. Se copian tal cual,
+   sin retocar valores, para que el componente se vea idéntico a su origen. */
+
+/* Bloques con contorno de acento — psicologia.css (módulos 2 y 10) */
+.plan-bloques {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.plan-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 2rem;
+  background: var(--white);
+  border: 0.125rem solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.plan-bloque--prof {
+  border-color: var(--orange);
+}
+
+.plan-bloque--anahuac {
+  border-color: var(--purple-2);
+}
+
+.plan-bloque h3 {
+  font-family: var(--font-heading);
+  font-size: var(--size-23);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.plan-bloque p {
+  font-family: var(--font-body);
+  font-size: var(--size-15);
+  line-height: 1.6;
+  letter-spacing: 0.0125rem;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* Chips — psicologia.css (zonas recomendadas por campus) */
+.lic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lic-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5625rem 1rem;
+  border: 0.09375rem solid var(--lilac-1);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.0125rem;
+  color: var(--purple-1);
+}
+
+/* Estado vacío — fechas-de-examenes.css. Sin esta regla base, los módulos que
+   aún no tienen datos reales mostraban el mensaje como texto suelto. */
+/* Tarjetas numeradas — fechas-de-examenes.css (guía de 4 pasos del módulo 9) */
+.fex-pasos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.fex-paso {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 0.75rem 1.5rem rgba(67, 47, 100, 0.08);
+}
+
+.fex-paso-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: var(--size-22);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 73.75em) {
+  .for-hero {
+    padding-top: 11.25rem;
+  }
+
+  /* Al apilar foto y razones, la columna deja de tener el ancho fijo de la
+     composición de escritorio y respeta el contenedor disponible. */
+  .for-cdmx .path-cards {
+    width: 100%;
+  }
+
+  .for-hero-copy {
+    max-width: none;
+  }
+
+  .for-hero h1 {
+    font-size: var(--h2-1440);
+  }
+
+  .for-hero-info {
+    grid-template-columns: 1fr;
+  }
+
+  .for-admision-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 56.25em) {
+  /* La regla base usa dos clases (`.plan-bloques.for-*-bloques`); el
+     breakpoint necesita la misma especificidad para poder reemplazar sus dos
+     columnas. Con una sola clase la segunda tarjeta quedaba fuera del viewport
+     y `overflow-x: clip` ocultaba el problema. */
+  .plan-bloques.for-quien-bloques,
+  .plan-bloques.for-comunidad-bloques,
+  .for-videos-grid,
+  .for-calc-grid,
+  .for-campus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .for-salud-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .for-guia-pasos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .for-puente {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .for-link-terciario {
+    white-space: normal;
+  }
+
+  .for-asesor-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .for-asesor-layout .section-intro {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* El componente compartido coloca la ficha del asesor en fila cuando hay
+   espacio intermedio. En ese estado la foto recupera su ancho intrínseco; si
+   conserva el 100% de la variante vertical, empuja los datos fuera de la card. */
+@media (min-width: 41.3125em) and (max-width: 56.25em) {
+  .for-asesor .asesor-foto {
+    width: auto;
+  }
+}
+
+@media (max-width: 48em) {
+  .for-roomies-tag {
+    font-size: var(--heading-4-size);
+  }
+
+  .for-hero {
+    padding-top: 8.75rem;
+    padding-bottom: 3.75rem;
+  }
+
+  .for-hero h1 {
+    font-size: var(--size-52);
+  }
+
+  .for-migratorio,
+  .for-roomies,
+  .for-precio {
+    padding: 1.5rem;
+  }
+
+  .for-precio-monto {
+    font-size: var(--size-36);
+  }
+
+  .for-guia-pasos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 40.0625em) and (max-width: 48em) {
+  .for-hero {
+    padding-top: 10rem;
+  }
+}
+
+/* =============================================================================
+   PILOTO — ESCALA TIPOGRÁFICA (la misma que en la página de área)
+
+   Prefijado con `.escala-2026` (clase en el <body>) para poder comparar y
+   revertir quitando esa clase.
+
+   NO es una copia de lo aplicado en Ciencias de la Salud. Lo que se transfiere
+   es lo universal —la medida de lectura y los escalones de titular—; lo que
+   depende del contenido se midió aquí de nuevo y en dos casos dio distinto:
+
+   · El H2 se queda en 4.5rem. Los 58 de la página de área respondían a que sus
+     títulos están escritos para SEO y promedian 45 caracteres. Los de foráneos
+     promedian 31 —como los de Inicio (29) y Oferta (30)— y solo 1 de 14 pasa de
+     2 líneas, y ese lo hace por ir en columna estrecha, no por tamaño.
+
+   · No se toca el hero. La inversión claim/H1 era una instrucción del handoff
+     del área, no una regla del sistema.
+   ========================================================================== */
+
+/* ---- 1. Medida: ningún texto corrido pasa de ~70 caracteres ----
+   Es la corrección de más impacto: 17 bloques pasaban de 80 caracteres y la
+   nota del mapa llegaba a 150 en una sola línea.
+
+   Solo se acotan bloques e items flex, NUNCA un contenedor flex. Acotar el
+   contenedor arrastra lo que va alineado al otro extremo: en la página de área
+   eso despegó el «+» del FAQ de su borde derecho. Por eso aquí quedan fuera
+   `.faq-item summary` (flex con el «+» al final) y las bandas `.for-calc-nota`
+   y `.for-mapa-nota`, de las que se acota su texto, no la banda. */
+.escala-2026 .for-faq .faq-answer p,
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .for-mapa-intro,
+.escala-2026 .for-calc-nota p,
+.escala-2026 .for-disclaimer {
+  max-width: 62ch;
+}
+
+/* Las dos notas en banda se comportan distinto y por eso se tratan distinto.
+   `.for-calc-nota` lleva un botón al extremo derecho, así que la banda se queda
+   a todo el ancho y solo se acota su texto. `.for-mapa-nota` es solo texto: a
+   todo el ancho quedaban 44.8125rem de gris vacío a la derecha —el mismo hueco que
+   dejó la banda morada en la página de área—, así que se acota la banda entera
+   y queda como lo que es, una nota al margen. */
+.escala-2026 .for-mapa-nota {
+  max-width: 62ch;
+}
+
+/* ---- 2. Titulares: se sube lo que cae por debajo del piso ----
+   El piso son 1.25rem y no es una convención: la 'x' de Zilla Slab mide 0.447em y
+   la de Roboto 0.528em, así que por debajo de 1.18125rem un titular en Zilla tiene
+   las minúsculas más chicas que el párrafo de 1rem que encabeza. En foráneos
+   había titulares a 17 y a 18. */
+.escala-2026 .for-categoria h3,
+.escala-2026 .consideracion h3,
+.escala-2026 .for-contacto-nombre {
+  font-size: var(--heading-5-size);
+  line-height: 1.2;
+}
+
+/* Y se colapsa el tramo 22/23/24, que son el mismo escalón repetido. */
+.escala-2026 .plan-bloque h3,
+.escala-2026 .for-campus-cuerpo h3,
+/* Todos los acordeones, no solo el del FAQ: el de trámite migratorio cumple el
+   mismo papel. Se les cambia el tamaño, nunca el ancho — la fila del summary es
+   un flex que empuja el «+» al borde derecho. */
+.escala-2026 .faq-item summary {
+  font-size: var(--heading-4-size);
+  line-height: 1.15;
+}
+
+/* ---- 3. Cuerpo: el dato destacado al escalón de párrafo grande ---- */
+.escala-2026 .for-dato {
+  font-size: var(--heading-6-size);
+  line-height: 1.6;
+  letter-spacing: 0.0125rem;
+}
+
+/* ---- Lo que deliberadamente NO se toca ----
+   `.path-title` se queda en su tamaño. Está por debajo del piso, pero su
+   `.path-card` tiene altura fija (68 y 5.375rem) con `overflow: hidden`: subirlo
+   recorta el texto. Es el caso donde arreglar la tipografía rompe la
+   estructura, y manda la estructura. Se resuelve el día que la tarjeta deje de
+   tener altura fija.
+
+   Los h3 de 2.5rem tampoco: están muy por encima del piso y sus tarjetas también
+   llevan altura fija. */
+
+/* -----------------------------------------------------------------------------
+   ESCALA DE RAZÓN CONSTANTE — 72 · 56 · 40 · 32 · 24 · 20 · 18 · 16 · 13
+
+   Lo anterior corregía tamaños sueltos; esto arregla los intervalos, que era el
+   problema de fondo. Tres cosas:
+
+   1) Aparece 56. El salto de 72 a 40 era de 1.80×, cuando todos los demás
+      escalones están entre 1.20 y 1.35: la página caía del título de sección al
+      título de tarjeta sin nada en medio. 56 tapa ese hueco.
+
+   2) El H1 baja de 88 a 72. Con el H2 en 56, mantener 88 arriba dejaba el
+      contraste display/cuerpo en 4.5× —proporción de revista— para una página
+      cuyo trabajo es que alguien encuentre datos y decida. A 72 queda en 3.5×,
+      dentro del rango institucional, sin perder la voz del slab a gran tamaño.
+
+   3) Desaparece el escalón de 0.9375rem. Entre 16 y 15 la razón es 1.07: por debajo
+      del umbral en que el ojo distingue un cambio de tamaño. Cuatro escalones
+      que no se perciben no son jerarquía, son mantenimiento.
+
+   Los 0.875rem NO desaparecen, pero salen de la escala de lectura: son el nivel de
+   ETIQUETA (eyebrow, chip, rol bajo un nombre), en versalitas o con tracking, y
+   se comparan entre sí, no con el cuerpo del texto.
+
+   REGLA que queda abierta: no poner un párrafo de 1.125rem justo debajo de un
+   titular de 1.25rem. Sobre el papel el titular es 25% mayor, pero la 'x' de Roboto
+   es 18% más alta que la de Zilla y en pantalla el párrafo se ve 6% MÁS GRANDE
+   que su propio titular. En esta página no ocurre en ningún sitio; conviene no
+   estrenarlo.
+   -------------------------------------------------------------------------- */
+.escala-2026 main h1 {
+  font-size: clamp(2.125rem, 5vw, 4.5rem);
+}
+
+.escala-2026 main h2 {
+  font-size: clamp(1.875rem, 3.9vw, 3.5rem);
+}
+
+/* Las tres frases destacadas —puente, cierre y remate— cumplen el mismo papel y
+   estaban a 21 y 1.375rem, que son el mismo escalón escrito de dos maneras. */
+.escala-2026 .for-puente-frase,
+.escala-2026 .for-cierre-calido {
+  font-size: var(--heading-4-size);
+  line-height: 1.25;
+}
+
+/* El escalón de 15px sube a 16: es texto de apoyo, no un pie de foto.
+   El intro del mapa lleva el selector completo porque el original es
+   `.section-intro > p.for-mapa-intro` y le gana a una clase suelta. */
+.escala-2026 .plan-bloque p,
+.escala-2026 .section-intro > p.for-mapa-intro,
+.escala-2026 .consideracion p,
+.escala-2026 .fex-paso p,
+.escala-2026 .for-calc-nota p,
+.escala-2026 .for-mapa-nota,
+.escala-2026 .for-disclaimer,
+.escala-2026 .siguiente-card p,
+.escala-2026 .for-precio-rubros li,
+.escala-2026 .for-migratorio-pasos li,
+/* Los enlaces de contacto del asesor y sus redes son contenido que se lee, no
+   etiquetas de interfaz: van al cuerpo. Así el nivel de 0.875rem queda solo para lo
+   que sí es etiqueta —eyebrow, chip y rol bajo un nombre— y no se mezcla. */
+.escala-2026 .asesor-link,
+.escala-2026 .for-red {
+  font-size: var(--paragraph-size);
+  line-height: 1.6;
+}
+
+/* -----------------------------------------------------------------------------
+   PUNTO DE DECISIÓN — «Explora lo que tenemos para ti»
+
+   Cinco anclas a los bloques que más se buscan, para quien llega con algo
+   concreto en mente y no debería recorrer la página entera.
+
+   Son NAVEGACIÓN, no conversión, y eso tiene que verse: reutilizan la tarjeta
+   del mapa de servicios —icono en chip + rótulo— en vez de parecerse a los
+   botones de acción, que son píldoras de color sólido. Lo único que se añade es
+   lo propio de un enlace: la flecha, el subrayado del rótulo al pasar y un foco
+   visible por teclado.
+   -------------------------------------------------------------------------- */
+.for-explora {
+  background: var(--gray);
+}
+
+/* El resto de la página separa la intro de su contenido 51px; este módulo se
+   había quedado en 41 y el H2 se veía pegado a las tarjetas. */
+.for-explora .section-intro {
+  margin-bottom: 3.125rem;
+}
+
+/* Cinco en línea en escritorio. El auto-fit del componente ya apila solo en
+   pantallas angostas, así que no hace falta un breakpoint propio. */
+.for-anclas {
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 0;
+}
+
+/* Las cinco tarjetas se igualan a la más alta —«Experiencia de alumnos
+   foráneos» ocupa tres renglones—, así que en las cortas sobra sitio abajo.
+   Centrando el bloque, ese aire se reparte arriba y abajo y se lee como
+   margen en vez de como hueco.
+
+   El padding se queda en los 1.75rem del componente: cambiarlo a 24 era desviar
+   la tarjeta que se está reutilizando por un ajuste que el centrado ya resuelve. */
+.for-ancla {
+  position: relative;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* La flecha es lo que dice «esto te lleva a otro sitio de la página». */
+.for-ancla::after {
+  content: "↓";
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  font-size: var(--heading-6-size);
+  line-height: 1;
+  color: var(--purple-2);
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.for-ancla:hover::after,
+.for-ancla:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.for-ancla:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 0.1875rem;
+}
+
+.for-ancla:focus-visible {
+  outline: 0.1875rem solid var(--purple-2);
+  outline-offset: 0.1875rem;
+}
+
+/* Con el icono a la izquierda y la flecha arriba a la derecha, el rótulo
+   necesita no meterse debajo de ella. */
+.for-ancla h3 {
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 73.75em) {
+  .for-anclas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 40em) {
+  .for-anclas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   PAGINADOR DEL MAPA DE SERVICIOS
+   Las tarjetas salen de 10 en 10. El conteo va junto al botón y no dentro de él:
+   el botón dice qué hace y el texto dice dónde vas, que son dos cosas distintas.
+   -------------------------------------------------------------------------- */
+.for-mapa-paginador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.for-mapa-conteo {
+  font-size: var(--size-15);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+/* El botón del paginador.
+
+   `.btn` solo recibe su padding dentro de `.button-row`; suelto se queda con el
+   del navegador y salía de 72×1.25rem. Aquí se le da explícito porque no va en una
+   fila de botones: es uno solo y centrado.
+
+   Es una acción de utilidad, no un CTA de conversión, así que se queda en la
+   variante clara y se apoya en el ancho y en la flecha —no en el color— para
+   pesar lo justo. */
+.for-ver-mas {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 12.5rem;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  border-width: 0.125rem;
+}
+
+.for-ver-mas svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: transform 200ms ease;
+}
+
+/* La flecha baja al pasar: dice que lo que viene aparece debajo, no en otra
+   página. */
+.for-ver-mas:hover svg,
+.for-ver-mas:focus-visible svg {
+  transform: translateY(0.1875rem);
+}
+
+/* La tarjeta recibe el foco al desplegar más, así que necesita anillo propio;
+   sin él el salto de foco sería invisible. */
+.for-lugar:focus-visible {
+  outline: 0.1875rem solid var(--purple-2);
+  outline-offset: 0.1875rem;
+}
+
+/* -----------------------------------------------------------------------------
+   FILTROS EN MÓVIL
+   En escritorio manda la fila de píldoras; en móvil ocupaba cuatro renglones
+   (10.875rem) y pasa a un select, que ocupa uno. Los dos controles existen siempre
+   en el DOM y el JS los mantiene sincronizados: aquí solo se decide cuál se ve.
+   -------------------------------------------------------------------------- */
+/* `position: relative` + z-index no son decorativos: la animación de entrada
+   aplica `transform` a cada bloque con [data-reveal], y un transform crea una
+   capa de apilamiento propia. Sin esto el menú desplegable —que tiene z-index 60
+   dentro de SU capa— queda por debajo del rótulo y de las tarjetas, que son
+   capas hermanas posteriores. Se veía el menú abierto pero pintado detrás. */
+.for-mapa-select {
+  position: relative;
+  z-index: 5;
+  display: none;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 40em) {
+  .for-mapa-select {
+    display: block;
+  }
+
+  /* El !important es necesario porque el JS revela la fila de píldoras poniendo
+     `hidden = false`, y esa propiedad tiene más peso que un display normal. */
+  .for-mapa-filtros {
+    display: none !important;
+  }
+
+  /* Las dos pestañas de campus se partían en dos renglones (118px de alto).
+     Con menos padding y cuerpo caben en uno solo. */
+  .for-campus-tab {
+    flex: 1 1 0;
+    padding: 0.75rem 1rem;
+    font-size: var(--paragraph-size);
+  }
 }

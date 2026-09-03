@@ -1,0 +1,449 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Quién es foráneo en la Anáhuac México?"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto introductorio",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "En la Universidad Anáhuac México eres foráneo si vives en un estado de México distinto a la Ciudad de México o el Estado de México (foráneo nacional), o si vienes de otro país (foráneo internacional)."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.puente_frase",
+        "name": "puente_frase",
+        "label": "Frase del puente",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Sin importar cuál seas, el camino hacia la Anáhuac es el mismo."
+      },
+      {
+        "id": "grupo_contenido.puente_frase_color",
+        "name": "puente_frase_color",
+        "label": "Color de texto de «frase del puente»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.puente_enlace_texto",
+        "name": "puente_enlace_texto",
+        "label": "Texto del enlace del puente",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ver el proceso de admisión"
+      },
+      {
+        "id": "grupo_contenido.puente_enlace",
+        "name": "puente_enlace",
+        "label": "Destino del enlace del puente",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#admision"
+          },
+          "open_in_new_tab": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "bloques",
+    "name": "bloques",
+    "label": "Bloques de tipo de foráneo",
+    "help_text": "Máximo 2, como el diseño aprobado: nacional (naranja) e internacional (morado).",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 2,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "bloques.icono",
+        "name": "icono",
+        "label": "Icono",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ubicacion",
+            "Ubicación (pin de mapa)"
+          ],
+          [
+            "globo",
+            "Globo terráqueo"
+          ]
+        ],
+        "default": "ubicacion",
+        "help_text": "Catálogo cerrado del design system: el trazo y el tamaño quedan bloqueados."
+      },
+      {
+        "id": "bloques.variante",
+        "name": "variante",
+        "label": "Color de la tarjeta",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "plan-bloque--prof",
+            "Naranja (foráneo nacional)"
+          ],
+          [
+            "plan-bloque--anahuac",
+            "Morado (foráneo internacional)"
+          ]
+        ],
+        "default": "plan-bloque--prof"
+      },
+      {
+        "id": "bloques.titulo",
+        "name": "titulo",
+        "label": "Título",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Foráneo nacional"
+      },
+      {
+        "id": "bloques.titulo_tag",
+        "name": "titulo_tag",
+        "label": "Etiqueta HTML de «título»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "bloques.titulo_color",
+        "name": "titulo_color",
+        "label": "Color de texto de «título»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "bloques.texto",
+        "name": "texto",
+        "label": "Texto",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Vives en México, fuera de la Ciudad de México y el Estado de México. Llegas de tu estado a construir tu nueva vida universitaria en la capital."
+      },
+      {
+        "id": "bloques.texto_tag",
+        "name": "texto_tag",
+        "label": "Etiqueta HTML de «texto»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "bloques.texto_color",
+        "name": "texto_color",
+        "label": "Color de texto de «texto»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "bloques.cifra",
+        "name": "cifra",
+        "label": "Cifra",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "20",
+        "help_text": "Solo el número. El contador animado del sitio lo lee de aquí (data-count-to)."
+      },
+      {
+        "id": "bloques.cifra_sufijo",
+        "name": "cifra_sufijo",
+        "label": "Sufijo de la cifra",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "%",
+        "help_text": "Se pega al número al terminar la animación (data-count-suffix)."
+      },
+      {
+        "id": "bloques.cifra_texto",
+        "name": "cifra_texto",
+        "label": "Texto que acompaña la cifra",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "de nuestra comunidad"
+      },
+      {
+        "id": "bloques.variante_cifra",
+        "name": "variante_cifra",
+        "label": "Color de la cifra",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "normal",
+            "Naranja (el del diseño)"
+          ],
+          [
+            "for-dato-cifra--morada",
+            "Morado"
+          ]
+        ],
+        "default": "normal"
+      }
+    ],
+    "default": [
+      {
+        "icono": "ubicacion",
+        "variante": "plan-bloque--prof",
+        "titulo": "Foráneo nacional",
+        "titulo_tag": "h3",
+        "texto": "Vives en México, fuera de la Ciudad de México y el Estado de México. Llegas de tu estado a construir tu nueva vida universitaria en la capital.",
+        "texto_tag": "p",
+        "cifra": "20",
+        "cifra_sufijo": "%",
+        "cifra_texto": "de nuestra comunidad",
+        "variante_cifra": "normal"
+      },
+      {
+        "icono": "globo",
+        "variante": "plan-bloque--anahuac",
+        "titulo": "Foráneo internacional",
+        "titulo_tag": "h3",
+        "texto": "Vienes de otro país a estudiar tu licenciatura en la Anáhuac México, en una de las ciudades más importantes de Latinoamérica.",
+        "texto_tag": "p",
+        "cifra": "3",
+        "cifra_sufijo": "%",
+        "cifra_texto": "de nuestra comunidad",
+        "variante_cifra": "for-dato-cifra--morada"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

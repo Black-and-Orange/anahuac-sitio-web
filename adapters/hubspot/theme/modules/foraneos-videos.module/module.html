@@ -1,0 +1,44 @@
+{# ===== Foráneos · Videos de experiencia =====
+   Porta <section class="for-videos section-pad" id="primer-mes"> de
+   foraneos.html sin cambiar el marcado.
+
+   El campo de video es de tipo `file`: devuelve la URL directa, no un objeto,
+   por eso se usa {{ v.video }} y no {{ v.video.src }}. No lleva respaldo porque
+   los mp4 del diseño (estudiante-tablet.mp4, estudiantes-humo.mp4) todavía no
+   existen en theme/images: sin archivo se pinta el <video> con su póster, que
+   es el estado de espera correcto, y no un <source> roto.
+
+   El póster sí cae a un asset del theme para que la tarjeta nunca quede negra. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set poster_fallbacks = ["hero-student.jpg", "hero-friends.jpg"] %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+
+<section class="for-videos section-pad" id="primer-mes" aria-labelledby="videos-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="videos-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {% if c.intro %}
+        <{{ c.intro_tag|default('p', true) }}{% if c.intro_color.color %} style="color:{{ c.intro_color.color }}"{% endif %}>{{ c.intro }}</{{ c.intro_tag|default('p', true) }}>
+      {% endif %}
+    </div>
+
+    <div class="for-videos-grid reveal" data-reveal>
+      {% for v in module.videos %}
+        {% set poster_fb = poster_fallbacks[loop.index0] or "hero-student.jpg" %}
+        <figure class="for-video">
+          <video controls preload="metadata" poster="{{ v.poster.src or get_asset_url('../../images/' ~ poster_fb) }}"{% if v.aria_label %} aria-label="{{ v.aria_label }}"{% endif %}>
+            {% if v.video %}<source src="{{ v.video }}" type="video/mp4" />{% endif %}
+          </video>
+          {% if v.figcaption %}<figcaption{% if e.color_pie.color %} style="color:{{ e.color_pie.color }}"{% endif %}>{{ v.figcaption }}</figcaption>{% endif %}
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

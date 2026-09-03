@@ -9,7 +9,7 @@
 {% if e.color_boton_fondo.color %}{% set estilo = estilo ~ "--home-exp-cta-bg:" ~ e.color_boton_fondo.color ~ ";" %}{% endif %}
 {% if e.color_boton_texto.color %}{% set estilo = estilo ~ "--home-exp-cta-text:" ~ e.color_boton_texto.color ~ ";" %}{% endif %}
 
-<section class="experience" id="experiencia"
+<section class="experience{% if module.clase_extra %} {{ module.clase_extra }}{% endif %}" id="{{ module.ancla_id|default('experiencia', true) }}"
          {% if estilo %}style="{{ estilo }}"{% endif %}>
   <div class="container experience-layout">
     <div class="experience-sticky">

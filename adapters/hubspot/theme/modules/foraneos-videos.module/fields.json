@@ -1,0 +1,241 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Experiencia de nuestros foráneos en la CDMX"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto introductorio",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "De bajar del avión a sentirte en casa: así viven la CDMX los foráneos de la Anáhuac, en su propia voz."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "videos",
+    "name": "videos",
+    "label": "Videos",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "videos.video",
+        "name": "video",
+        "label": "Archivo de video (MP4)",
+        "help_text": "Súbelo al administrador de archivos en MP4. PENDIENTE: los videos definitivos aún no existen en el theme; sin archivo la tarjeta muestra solo el póster.",
+        "type": "file",
+        "picker": "file",
+        "default": null
+      },
+      {
+        "id": "videos.poster",
+        "name": "poster",
+        "label": "Póster",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "type": "image",
+        "display_width": null,
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "help_text": "La imagen que se ve antes de reproducir. Si la dejas vacía se usa una foto de respaldo del theme."
+      },
+      {
+        "id": "videos.aria_label",
+        "name": "aria_label",
+        "label": "Descripción para lectores de pantalla",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Estudiantes foráneos de la Universidad Anáhuac México contando su experiencia de vivir en la Ciudad de México.",
+        "help_text": "Es el nombre accesible del reproductor. Descríbelo por su contenido, no por el formato."
+      },
+      {
+        "id": "videos.figcaption",
+        "name": "figcaption",
+        "label": "Pie del video",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Testimonio de experiencia foránea"
+      }
+    ],
+    "help_text": "Máximo 4. El diseño los reparte en dos columnas.",
+    "occurrence": {
+      "min": 0,
+      "max": 4,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "default": [
+      {
+        "video": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiante-tablet.mp4",
+        "poster": {
+          "src": "",
+          "alt": ""
+        },
+        "aria_label": "Estudiantes foráneos de la Universidad Anáhuac México contando su experiencia de vivir en la Ciudad de México.",
+        "figcaption": "Testimonio de experiencia foránea"
+      },
+      {
+        "video": "https://3807214.fs1.hubspotusercontent-na1.net/hubfs/3807214/sitioweb26/videos/estudiantes-humo.mp4",
+        "poster": {
+          "src": "",
+          "alt": ""
+        },
+        "aria_label": "Estudiantes foráneos de la Universidad Anáhuac México contando su experiencia de vivir en la Ciudad de México.",
+        "figcaption": "Testimonio de experiencia foránea"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_pie",
+        "name": "color_pie",
+        "label": "Color del pie de los videos",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

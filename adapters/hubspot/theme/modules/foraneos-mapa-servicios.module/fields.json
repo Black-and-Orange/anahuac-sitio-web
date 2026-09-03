@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Mapa de servicios cerca de los campus"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Intro",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Cerca de cada campus de la Universidad Anáhuac México encuentras opciones de salud, entretenimiento, servicios, religión y cultura para que resuelvas tu día a día sin complicarte."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro_mapa",
+        "name": "intro_mapa",
+        "label": "Instrucción de uso (.for-mapa-intro)",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Elige tu campus y filtra por área. Vive tu día a día sin sorpresas."
+      },
+      {
+        "id": "grupo_contenido.intro_mapa_color",
+        "name": "intro_mapa_color",
+        "label": "Color de la instrucción de uso",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.texto_viendo",
+        "name": "texto_viendo",
+        "label": "Rótulo «Servicios cerca de»",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Servicios cerca de",
+        "help_text": "El nombre del campus que va después lo escribe el JS del theme (Campus Norte / Campus Sur); aquí solo defines el texto que lo antecede."
+      },
+      {
+        "id": "grupo_contenido.campus_nombre_inicial",
+        "name": "campus_nombre_inicial",
+        "label": "Campus mostrado al cargar",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte",
+        "help_text": "Valor inicial del rótulo antes de que el JS del theme tome el control."
+      },
+      {
+        "id": "grupo_contenido.texto_viendo_color",
+        "name": "texto_viendo_color",
+        "label": "Color del rótulo",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.label_filtro",
+        "name": "label_filtro",
+        "label": "Etiqueta del filtro en móvil",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Filtrar por área",
+        "help_text": "Solo la leen los lectores de pantalla: la etiqueta del <select> compacto."
+      },
+      {
+        "id": "grupo_contenido.aria_filtro",
+        "name": "aria_filtro",
+        "label": "Etiqueta accesible del filtro",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Filtrar servicios por área"
+      },
+      {
+        "id": "grupo_contenido.aria_campus",
+        "name": "aria_campus",
+        "label": "Etiqueta accesible del selector de campus",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Elige tu campus"
+      },
+      {
+        "id": "grupo_contenido.texto_ver_mas",
+        "name": "texto_ver_mas",
+        "label": "Texto del botón «Ver más»",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ver más"
+      }
+    ]
+  },
+  {
+    "id": "campus_tabs",
+    "name": "campus_tabs",
+    "label": "Pestañas de campus",
+    "help_text": "Máximo 2. La primera nace activa. El valor (norte/sur) es el contrato con el JS del theme: no lo cambies sin cambiar también el de cada lugar.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 2,
+      "sorting_label_field": "campus_tabs.etiqueta",
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "campus_tabs.etiqueta",
+        "name": "etiqueta",
+        "label": "Texto de la pestaña",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "campus_tabs.valor",
+        "name": "valor",
+        "label": "Campus",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "norte",
+            "Norte"
+          ],
+          [
+            "sur",
+            "Sur"
+          ]
+        ],
+        "default": "norte"
+      }
+    ],
+    "default": [
+      {
+        "etiqueta": "Campus Norte",
+        "valor": "norte"
+      },
+      {
+        "etiqueta": "Campus Sur",
+        "valor": "sur"
+      }
+    ]
+  },
+  {
+    "id": "areas",
+    "name": "areas",
+    "label": "Filtros por área",
+    "help_text": "Alimentan a la vez las píldoras de escritorio y el desplegable de móvil, para que nunca se desincronicen. El primero nace activo y debe ser «Todas».",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 6,
+      "sorting_label_field": "areas.etiqueta",
+      "default": 6
+    },
+    "children": [
+      {
+        "id": "areas.valor",
+        "name": "valor",
+        "label": "Área",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "todas",
+            "Todas"
+          ],
+          [
+            "salud",
+            "Salud"
+          ],
+          [
+            "entretenimiento",
+            "Entretenimiento"
+          ],
+          [
+            "servicios",
+            "Servicios"
+          ],
+          [
+            "religion",
+            "Religión"
+          ],
+          [
+            "cultura",
+            "Cultura"
+          ]
+        ],
+        "default": "todas",
+        "help_text": "Contrato con el JS del theme: agrupa los tipos de servicio. No inventes valores nuevos."
+      },
+      {
+        "id": "areas.etiqueta",
+        "name": "etiqueta",
+        "label": "Texto de la píldora",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Todas"
+      },
+      {
+        "id": "areas.etiqueta_select",
+        "name": "etiqueta_select",
+        "label": "Texto en el desplegable de móvil",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Todas las áreas"
+      }
+    ],
+    "default": [
+      {
+        "valor": "todas",
+        "etiqueta": "Todas",
+        "etiqueta_select": "Todas las áreas"
+      },
+      {
+        "valor": "salud",
+        "etiqueta": "Salud",
+        "etiqueta_select": "Salud"
+      },
+      {
+        "valor": "entretenimiento",
+        "etiqueta": "Entretenimiento",
+        "etiqueta_select": "Entretenimiento"
+      },
+      {
+        "valor": "servicios",
+        "etiqueta": "Servicios",
+        "etiqueta_select": "Servicios"
+      },
+      {
+        "valor": "religion",
+        "etiqueta": "Religión",
+        "etiqueta_select": "Religión"
+      },
+      {
+        "valor": "cultura",
+        "etiqueta": "Cultura",
+        "etiqueta_select": "Cultura"
+      }
+    ]
+  },
+  {
+    "id": "lugares",
+    "name": "lugares",
+    "label": "Lugares",
+    "help_text": "Un lugar por tarjeta. «Zona y distancia» debe empezar por la zona seguida de « · »: el JS del theme parte ahí para centrar el mapa de Google.",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "occurrence": {
+      "min": 0,
+      "max": 60,
+      "sorting_label_field": "lugares.nombre",
+      "default": 32
+    },
+    "children": [
+      {
+        "id": "lugares.nombre",
+        "name": "nombre",
+        "label": "Nombre del lugar",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Hospital privado con urgencias 24 h"
+      },
+      {
+        "id": "lugares.nombre_tag",
+        "name": "nombre_tag",
+        "label": "Etiqueta HTML del nombre",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "lugares.meta",
+        "name": "meta",
+        "label": "Zona y distancia",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Interlomas · 8 min en coche",
+        "help_text": "Formato «Zona · distancia». La parte anterior a « · » es la que se busca en Google Maps."
+      },
+      {
+        "id": "lugares.etiqueta",
+        "name": "etiqueta",
+        "label": "Etiqueta de la tarjeta",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte · Clínicas y hospitales"
+      },
+      {
+        "id": "lugares.icono",
+        "name": "icono",
+        "label": "Icono",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "clinicas",
+            "Cruz médica"
+          ],
+          [
+            "farmacias",
+            "Botiquín"
+          ],
+          [
+            "supermercados",
+            "Bolsa de compras"
+          ],
+          [
+            "plazas",
+            "Maletín / comercio"
+          ],
+          [
+            "lavanderias",
+            "Lavadora"
+          ],
+          [
+            "gimnasios",
+            "Pesa"
+          ],
+          [
+            "templos",
+            "Templo"
+          ]
+        ],
+        "default": "clinicas",
+        "help_text": "Iconos del diseño aprobado; no acepta SVG libre."
+      },
+      {
+        "id": "lugares.servicio",
+        "name": "servicio",
+        "label": "Tipo de servicio",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "clinicas",
+            "Clínicas y hospitales"
+          ],
+          [
+            "farmacias",
+            "Farmacias"
+          ],
+          [
+            "supermercados",
+            "Supermercados"
+          ],
+          [
+            "plazas",
+            "Plazas comerciales"
+          ],
+          [
+            "lavanderias",
+            "Lavanderías"
+          ],
+          [
+            "gimnasios",
+            "Gimnasios"
+          ],
+          [
+            "templos",
+            "Templos"
+          ]
+        ],
+        "default": "clinicas",
+        "help_text": "Contrato con el JS del theme (data-servicio). Define en qué área cae el lugar al filtrar."
+      },
+      {
+        "id": "lugares.area_extra",
+        "name": "area_extra",
+        "label": "Área adicional",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "ninguna",
+            "Ninguna"
+          ],
+          [
+            "salud",
+            "Salud"
+          ],
+          [
+            "entretenimiento",
+            "Entretenimiento"
+          ],
+          [
+            "servicios",
+            "Servicios"
+          ],
+          [
+            "religion",
+            "Religión"
+          ],
+          [
+            "cultura",
+            "Cultura"
+          ]
+        ],
+        "default": "ninguna",
+        "help_text": "Opcional. Hace que el lugar aparezca también en otra área (data-area-extra), como un cine que además es referencia cultural."
+      },
+      {
+        "id": "lugares.campus",
+        "name": "campus",
+        "label": "Campus",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "norte",
+            "Campus Norte"
+          ],
+          [
+            "sur",
+            "Campus Sur"
+          ]
+        ],
+        "default": "norte",
+        "help_text": "Contrato con el JS del theme (data-campus)."
+      }
+    ],
+    "default": [
+      {
+        "nombre": "Hospital privado con urgencias 24 h",
+        "nombre_tag": "h3",
+        "meta": "Interlomas · 8 min en coche",
+        "etiqueta": "Campus Norte · Clínicas y hospitales",
+        "icono": "clinicas",
+        "servicio": "clinicas",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Clínica de consulta general",
+        "nombre_tag": "h3",
+        "meta": "Huixquilucan · 12 min en coche",
+        "etiqueta": "Campus Norte · Clínicas y hospitales",
+        "icono": "clinicas",
+        "servicio": "clinicas",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Laboratorio de análisis clínicos",
+        "nombre_tag": "h3",
+        "meta": "Lomas Anáhuac · 6 min en coche",
+        "etiqueta": "Campus Norte · Clínicas y hospitales",
+        "icono": "clinicas",
+        "servicio": "clinicas",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Hospital privado con urgencias 24 h",
+        "nombre_tag": "h3",
+        "meta": "Tlalpan · 10 min en coche",
+        "etiqueta": "Campus Sur · Clínicas y hospitales",
+        "icono": "clinicas",
+        "servicio": "clinicas",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Centro de salud público",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 7 min en coche",
+        "etiqueta": "Campus Sur · Clínicas y hospitales",
+        "icono": "clinicas",
+        "servicio": "clinicas",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Farmacia de cadena 24 h",
+        "nombre_tag": "h3",
+        "meta": "Lomas Anáhuac · 5 min caminando",
+        "etiqueta": "Campus Norte · Farmacias",
+        "icono": "farmacias",
+        "servicio": "farmacias",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Farmacia con consultorio",
+        "nombre_tag": "h3",
+        "meta": "Interlomas · 9 min caminando",
+        "etiqueta": "Campus Norte · Farmacias",
+        "icono": "farmacias",
+        "servicio": "farmacias",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Farmacia de cadena 24 h",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 6 min caminando",
+        "etiqueta": "Campus Sur · Farmacias",
+        "icono": "farmacias",
+        "servicio": "farmacias",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Farmacia con servicio a domicilio",
+        "nombre_tag": "h3",
+        "meta": "Contadero/Cuajimalpa · 4 min en coche",
+        "etiqueta": "Campus Sur · Farmacias",
+        "icono": "farmacias",
+        "servicio": "farmacias",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Farmacia con consultorio",
+        "nombre_tag": "h3",
+        "meta": "Tlalpan · 8 min caminando",
+        "etiqueta": "Campus Sur · Farmacias",
+        "icono": "farmacias",
+        "servicio": "farmacias",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Supermercado grande",
+        "nombre_tag": "h3",
+        "meta": "Interlomas · 7 min en coche",
+        "etiqueta": "Campus Norte · Supermercados",
+        "icono": "supermercados",
+        "servicio": "supermercados",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Tienda de conveniencia",
+        "nombre_tag": "h3",
+        "meta": "Lomas Anáhuac · 3 min caminando",
+        "etiqueta": "Campus Norte · Supermercados",
+        "icono": "supermercados",
+        "servicio": "supermercados",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Súper de barrio",
+        "nombre_tag": "h3",
+        "meta": "Bosques · 5 min caminando",
+        "etiqueta": "Campus Norte · Supermercados",
+        "icono": "supermercados",
+        "servicio": "supermercados",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Supermercado grande",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 9 min en coche",
+        "etiqueta": "Campus Sur · Supermercados",
+        "icono": "supermercados",
+        "servicio": "supermercados",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Mercado público",
+        "nombre_tag": "h3",
+        "meta": "Xochimilco · 6 min caminando",
+        "etiqueta": "Campus Sur · Supermercados",
+        "icono": "supermercados",
+        "servicio": "supermercados",
+        "area_extra": "cultura",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Centro comercial con cine",
+        "nombre_tag": "h3",
+        "meta": "Interlomas · 10 min en coche",
+        "etiqueta": "Campus Norte · Plazas comerciales",
+        "icono": "plazas",
+        "servicio": "plazas",
+        "area_extra": "cultura",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Corporativo y comercios",
+        "nombre_tag": "h3",
+        "meta": "Santa Fe · 15 min en coche",
+        "etiqueta": "Campus Norte · Plazas comerciales",
+        "icono": "plazas",
+        "servicio": "plazas",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Centro comercial con cine",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 12 min en coche",
+        "etiqueta": "Campus Sur · Plazas comerciales",
+        "icono": "plazas",
+        "servicio": "plazas",
+        "area_extra": "cultura",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Plaza de barrio con cafeterías",
+        "nombre_tag": "h3",
+        "meta": "Tlalpan · 8 min caminando",
+        "etiqueta": "Campus Sur · Plazas comerciales",
+        "icono": "plazas",
+        "servicio": "plazas",
+        "area_extra": "cultura",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Lavandería de autoservicio",
+        "nombre_tag": "h3",
+        "meta": "Lomas Anáhuac · 4 min caminando",
+        "etiqueta": "Campus Norte · Lavanderías",
+        "icono": "lavanderias",
+        "servicio": "lavanderias",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Tintorería",
+        "nombre_tag": "h3",
+        "meta": "Huixquilucan · 8 min caminando",
+        "etiqueta": "Campus Norte · Lavanderías",
+        "icono": "lavanderias",
+        "servicio": "lavanderias",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Lavandería con entrega el mismo día",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 5 min caminando",
+        "etiqueta": "Campus Sur · Lavanderías",
+        "icono": "lavanderias",
+        "servicio": "lavanderias",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Lavandería de autoservicio",
+        "nombre_tag": "h3",
+        "meta": "Tlalpan · 10 min caminando",
+        "etiqueta": "Campus Sur · Lavanderías",
+        "icono": "lavanderias",
+        "servicio": "lavanderias",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Gimnasio de cadena",
+        "nombre_tag": "h3",
+        "meta": "Interlomas · 6 min en coche",
+        "etiqueta": "Campus Norte · Gimnasios",
+        "icono": "gimnasios",
+        "servicio": "gimnasios",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Estudio de yoga y funcional",
+        "nombre_tag": "h3",
+        "meta": "Bosques · 9 min caminando",
+        "etiqueta": "Campus Norte · Gimnasios",
+        "icono": "gimnasios",
+        "servicio": "gimnasios",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Gimnasio de cadena",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 8 min en coche",
+        "etiqueta": "Campus Sur · Gimnasios",
+        "icono": "gimnasios",
+        "servicio": "gimnasios",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Deportivo público con alberca",
+        "nombre_tag": "h3",
+        "meta": "Tlalpan · 11 min en coche",
+        "etiqueta": "Campus Sur · Gimnasios",
+        "icono": "gimnasios",
+        "servicio": "gimnasios",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Estudio de spinning",
+        "nombre_tag": "h3",
+        "meta": "Contadero/Cuajimalpa · 7 min en coche",
+        "etiqueta": "Campus Sur · Gimnasios",
+        "icono": "gimnasios",
+        "servicio": "gimnasios",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Parroquia católica",
+        "nombre_tag": "h3",
+        "meta": "Lomas Anáhuac · 5 min caminando",
+        "etiqueta": "Campus Norte · Templos",
+        "icono": "templos",
+        "servicio": "templos",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Capilla universitaria",
+        "nombre_tag": "h3",
+        "meta": "dentro del campus",
+        "etiqueta": "Campus Norte · Templos",
+        "icono": "templos",
+        "servicio": "templos",
+        "area_extra": "ninguna",
+        "campus": "norte"
+      },
+      {
+        "nombre": "Parroquia católica",
+        "nombre_tag": "h3",
+        "meta": "Coapa · 7 min caminando",
+        "etiqueta": "Campus Sur · Templos",
+        "icono": "templos",
+        "servicio": "templos",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      },
+      {
+        "nombre": "Capilla universitaria",
+        "nombre_tag": "h3",
+        "meta": "dentro del campus",
+        "etiqueta": "Campus Sur · Templos",
+        "icono": "templos",
+        "servicio": "templos",
+        "area_extra": "ninguna",
+        "campus": "sur"
+      }
+    ]
+  },
+  {
+    "id": "grupo_modal",
+    "name": "grupo_modal",
+    "label": "Modal de ubicación",
+    "help_text": "El título, la zona y la etiqueta de la modal los rellena el JS del theme con los datos de la tarjeta que abrió; aquí solo van los textos fijos.",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_modal.aria_cerrar",
+        "name": "aria_cerrar",
+        "label": "Etiqueta accesible del botón de cerrar",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Cerrar ubicación"
+      },
+      {
+        "id": "grupo_modal.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Texto del enlace a Google Maps",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Ver en Google Maps"
+      },
+      {
+        "id": "grupo_modal.nota",
+        "name": "nota",
+        "label": "Nota al pie de la modal",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "El mapa muestra la zona de referencia disponible en la propuesta. La ubicación exacta de cada proveedor se incorporará cuando el directorio institucional sea validado."
+      }
+    ]
+  },
+  {
+    "id": "grupo_visibilidad",
+    "name": "grupo_visibilidad",
+    "label": "Visibilidad",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_visibilidad.mostrar_rotulo",
+        "name": "mostrar_rotulo",
+        "label": "Mostrar el rótulo «Servicios cerca de»",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true
+      },
+      {
+        "id": "grupo_visibilidad.mostrar_modal",
+        "name": "mostrar_modal",
+        "label": "Permitir abrir la ubicación en un mapa",
+        "type": "boolean",
+        "display": "toggle",
+        "default": true,
+        "help_text": "Si lo apagas, el JS del theme no encuentra la modal y no pinta el botón «Ver ubicación» en las tarjetas."
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "help_text": "Déjalos vacíos para usar los colores del design system.",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_texto",
+        "name": "color_texto",
+        "label": "Color de texto de la sección",
+        "type": "color",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_intro",
+        "name": "tamano_intro",
+        "label": "Tamaño del texto de intro",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "heredado",
+            "El del diseño (recomendado)"
+          ],
+          [
+            "size-19",
+            "Pequeño"
+          ],
+          [
+            "size-22",
+            "Mediano"
+          ],
+          [
+            "size-26",
+            "Grande"
+          ],
+          [
+            "lead-size",
+            "Muy grande"
+          ],
+          [
+            "size-36",
+            "Enorme"
+          ]
+        ],
+        "default": "heredado",
+        "help_text": "Tamaños del design system; no acepta valores libres. «El del diseño» deja que el CSS decida, incluidos sus ajustes por breakpoint."
+      }
+    ]
+  }
+]

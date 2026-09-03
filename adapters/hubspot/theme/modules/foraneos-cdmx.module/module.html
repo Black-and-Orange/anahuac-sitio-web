@@ -1,0 +1,59 @@
+{# ===== Foráneos · ¿Por qué la CDMX? =====
+   Porta <section class="for-cdmx path section-pad" id="por-que-cdmx"> de
+   foraneos.html sin cambiar el marcado.
+
+   `data-img` de cada .path-card es el contrato con main.js: de ahí lee la foto
+   del cross-fade y ahí precarga las seis imágenes al terminar la carga. Si el
+   atributo llega vacío la foto grande se apaga al primer hover, así que siempre
+   cae a un asset del theme.
+
+   La sección también lleva la clase `path`, así que main.css ya consume
+   --home-camino-* para los colores de las tarjetas y del intro. Por eso esos
+   colores van como custom property y no en línea. El del título va en línea
+   porque el selector de main.css exige un <h2> y la etiqueta es editable.
+
+   PENDIENTE: la razón 6 usaba assets/extranjeros.webp. El Design Manager de
+   HubSpot descarta los .webp en silencio, así que su respaldo es
+   hero-student.jpg hasta que exista la imagen definitiva en JPG o PNG. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set img_fallbacks = ["hero-friends.jpg", "area-negocios.jpg", "area-artes.jpg", "historia-3.jpg", "area-derecho.jpg", "hero-student.jpg"] %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_intro.color %}{% set estilo = estilo ~ "--home-camino-intro-color:" ~ e.color_intro.color ~ ";" %}{% endif %}
+{% if e.color_card_fondo.color %}{% set estilo = estilo ~ "--home-camino-card-bg:" ~ e.color_card_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_texto.color %}{% set estilo = estilo ~ "--home-camino-card-text:" ~ e.color_card_texto.color ~ ";" %}{% endif %}
+{% if e.color_card_abierta_fondo.color %}{% set estilo = estilo ~ "--home-camino-card-open-bg:" ~ e.color_card_abierta_fondo.color ~ ";" %}{% endif %}
+{% if e.color_card_abierta_texto.color %}{% set estilo = estilo ~ "--home-camino-card-open-text:" ~ e.color_card_abierta_texto.color ~ ";" %}{% endif %}
+
+<section class="for-cdmx path section-pad" id="por-que-cdmx" aria-labelledby="cdmx-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}
+        <{{ c.heading_tag|default('h2', true) }} id="cdmx-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>
+      {% endif %}
+      {{ c.intro }}
+    </div>
+
+    <div class="path-layout for-cdmx-layout">
+      <img class="path-photo reveal"
+           src="{{ c.foto.src or get_asset_url('../../images/hero-friends.jpg') }}"
+           alt="{{ c.foto.alt|default('La Ciudad de México como entorno de vida para estudiantes foráneos de la Universidad Anáhuac México.', true) }}"
+           data-reveal />
+      <div class="path-cards reveal" data-reveal>
+        {% for razon in module.razones %}
+          {% set img_fb = img_fallbacks[loop.index0] or "hero-friends.jpg" %}
+          <article class="path-card" tabindex="0" data-img="{{ razon.imagen.src or get_asset_url('../../images/' ~ img_fb) }}">
+            <div class="path-title">
+              {% if razon.numero %}<span class="for-razon-num" aria-hidden="true">{{ razon.numero }}</span>{% endif %}
+              <{{ razon.titulo_tag|default('h3', true) }}{% if razon.titulo_color.color %} style="color:{{ razon.titulo_color.color }}"{% endif %}>{{ razon.titulo }}</{{ razon.titulo_tag|default('h3', true) }}>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

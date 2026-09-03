@@ -1,0 +1,584 @@
+[
+  {
+    "id": "grupo_contenido",
+    "name": "grupo_contenido",
+    "label": "Contenido",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_contenido.heading",
+        "name": "heading",
+        "label": "Título de la sección",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Cuánto te costará vivir en la CDMX?"
+      },
+      {
+        "id": "grupo_contenido.heading_tag",
+        "name": "heading_tag",
+        "label": "Etiqueta HTML de «heading»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h2"
+      },
+      {
+        "id": "grupo_contenido.heading_color",
+        "name": "heading_color",
+        "label": "Color de texto de «heading»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.intro",
+        "name": "intro",
+        "label": "Texto introductorio",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Calcula un aproximado de cuánto necesitas para vivir como estudiante foráneo en la Ciudad de México: te damos un desglose por renta, alimentos, transporte e imprevistos, comparando zonas cercanas al Campus Norte o al Campus Sur."
+      },
+      {
+        "id": "grupo_contenido.intro_tag",
+        "name": "intro_tag",
+        "label": "Etiqueta HTML de «intro»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.intro_color",
+        "name": "intro_color",
+        "label": "Color de texto de «intro»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_contenido.estimado",
+        "name": "estimado",
+        "label": "Antetítulo de las tarjetas",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Estimado de inversión",
+        "help_text": "El texto que encabeza las dos tarjetas de precio."
+      },
+      {
+        "id": "grupo_contenido.estimado_tag",
+        "name": "estimado_tag",
+        "label": "Etiqueta HTML de «estimado»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "p"
+      },
+      {
+        "id": "grupo_contenido.estimado_color",
+        "name": "estimado_color",
+        "label": "Color de texto de «estimado»",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "grupo_nota",
+    "name": "grupo_nota",
+    "label": "Nota con cita",
+    "type": "group",
+    "expanded": false,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "grupo_nota.nota_texto",
+        "name": "nota_texto",
+        "label": "Texto de la nota",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Agenda una sesión con nuestro asesor de hospedaje según el campus de tu elección para resolver cualquier duda sobre dónde podrías vivir y costos específicos por zona."
+      },
+      {
+        "id": "grupo_nota.nota_boton_texto",
+        "name": "nota_boton_texto",
+        "label": "Texto del botón",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Agenda una cita"
+      },
+      {
+        "id": "grupo_nota.nota_boton_enlace",
+        "name": "nota_boton_enlace",
+        "label": "Destino del botón",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#hospedaje"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "grupo_nota.nota_boton_estilo",
+        "name": "nota_boton_estilo",
+        "label": "Estilo del botón",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "btn-dark",
+            "Oscuro"
+          ],
+          [
+            "btn-light",
+            "Claro"
+          ],
+          [
+            "btn-orange",
+            "Naranja"
+          ]
+        ],
+        "default": "btn-dark"
+      },
+      {
+        "id": "grupo_nota.enlace_texto",
+        "name": "enlace_texto",
+        "label": "Texto del enlace terciario",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "¿Buscas apoyos para cubrir más? Ver apoyos socioeconómicos",
+        "help_text": "La flecha final es decorativa y la pinta el módulo. Déjalo vacío para ocultar el enlace."
+      },
+      {
+        "id": "grupo_nota.enlace_destino",
+        "name": "enlace_destino",
+        "label": "Destino del enlace terciario",
+        "type": "link",
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "show_advanced_rel_options": false,
+        "default": {
+          "url": {
+            "type": "EXTERNAL",
+            "href": "#siguiente-paso"
+          },
+          "open_in_new_tab": false
+        }
+      },
+      {
+        "id": "grupo_nota.disclaimer",
+        "name": "disclaimer",
+        "label": "Aviso legal",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "Los costos presentados son aproximados y se basan en la experiencia de estudiantes foráneos. Esta información es únicamente de carácter orientativo y no representa una cotización oficial por parte de Universidad Anáhuac México. Te recomendamos verificar precios directamente con cada proveedor."
+      }
+    ]
+  },
+  {
+    "id": "campus",
+    "name": "campus",
+    "label": "Campus",
+    "type": "group",
+    "expanded": true,
+    "tab": "CONTENT",
+    "children": [
+      {
+        "id": "campus.nombre",
+        "name": "nombre",
+        "label": "Nombre del campus",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Campus Norte"
+      },
+      {
+        "id": "campus.nombre_tag",
+        "name": "nombre_tag",
+        "label": "Etiqueta HTML de «nombre»",
+        "help_text": "Cambia solo la etiqueta HTML; el estilo visual no cambia.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "h1",
+            "Título 1 (H1)"
+          ],
+          [
+            "h2",
+            "Título 2 (H2)"
+          ],
+          [
+            "h3",
+            "Título 3 (H3)"
+          ],
+          [
+            "h4",
+            "Título 4 (H4)"
+          ],
+          [
+            "h5",
+            "Título 5 (H5)"
+          ],
+          [
+            "h6",
+            "Título 6 (H6)"
+          ],
+          [
+            "p",
+            "Párrafo"
+          ]
+        ],
+        "default": "h3"
+      },
+      {
+        "id": "campus.monto",
+        "name": "monto",
+        "label": "Monto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "$14,300 – $26,500",
+        "help_text": "El rango grande. Es el ancla visual de la tarjeta."
+      },
+      {
+        "id": "campus.periodo",
+        "name": "periodo",
+        "label": "Periodo",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Estimado mensual (ejemplo)"
+      },
+      {
+        "id": "campus.zonas",
+        "name": "zonas",
+        "label": "Zonas",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Interlomas, Huixquilucan, Lomas Anáhuac, Bosques, Santa Fe",
+        "help_text": "Sin las zonas el rango no se puede interpretar: la introducción promete comparar zonas."
+      },
+      {
+        "id": "campus.variante",
+        "name": "variante",
+        "label": "Color de acento",
+        "help_text": "Norte usa naranja y Sur morado, como el resto de la página.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "for-precio--norte",
+            "Naranja (Campus Norte)"
+          ],
+          [
+            "for-precio--sur",
+            "Morado (Campus Sur)"
+          ]
+        ],
+        "default": "for-precio--norte"
+      },
+      {
+        "id": "campus.rubro1_label",
+        "name": "rubro1_label",
+        "label": "Rubro 1 · concepto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Renta",
+        "help_text": "Deja el concepto y el dato vacíos para no mostrar esta fila."
+      },
+      {
+        "id": "campus.rubro1_dato",
+        "name": "rubro1_dato",
+        "label": "Rubro 1 · monto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "$8,000 – $15,000"
+      },
+      {
+        "id": "campus.rubro2_label",
+        "name": "rubro2_label",
+        "label": "Rubro 2 · concepto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Alimentos"
+      },
+      {
+        "id": "campus.rubro2_dato",
+        "name": "rubro2_dato",
+        "label": "Rubro 2 · monto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "$4,000 – $6,500"
+      },
+      {
+        "id": "campus.rubro3_label",
+        "name": "rubro3_label",
+        "label": "Rubro 3 · concepto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Transporte"
+      },
+      {
+        "id": "campus.rubro3_dato",
+        "name": "rubro3_dato",
+        "label": "Rubro 3 · monto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "$800 – $2,000"
+      },
+      {
+        "id": "campus.rubro4_label",
+        "name": "rubro4_label",
+        "label": "Rubro 4 · concepto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "Imprevistos"
+      },
+      {
+        "id": "campus.rubro4_dato",
+        "name": "rubro4_dato",
+        "label": "Rubro 4 · monto",
+        "type": "text",
+        "allow_new_line": false,
+        "default": "$1,500 – $3,000"
+      }
+    ],
+    "help_text": "Máximo 2 tarjetas: el diseño reparte la fila en dos columnas.",
+    "occurrence": {
+      "min": 0,
+      "max": 2,
+      "sorting_label_field": null,
+      "default": 2
+    },
+    "default": [
+      {
+        "nombre": "Campus Norte",
+        "nombre_tag": "h3",
+        "monto": "$14,300 – $26,500",
+        "periodo": "Estimado mensual (ejemplo)",
+        "zonas": "Interlomas, Huixquilucan, Lomas Anáhuac, Bosques, Santa Fe",
+        "variante": "for-precio--norte",
+        "rubro1_label": "Renta",
+        "rubro1_dato": "$8,000 – $15,000",
+        "rubro2_label": "Alimentos",
+        "rubro2_dato": "$4,000 – $6,500",
+        "rubro3_label": "Transporte",
+        "rubro3_dato": "$800 – $2,000",
+        "rubro4_label": "Imprevistos",
+        "rubro4_dato": "$1,500 – $3,000"
+      },
+      {
+        "nombre": "Campus Sur",
+        "nombre_tag": "h3",
+        "monto": "$12,500 – $23,500",
+        "periodo": "Estimado mensual (ejemplo)",
+        "zonas": "Coapa, Tlalpan, Xochimilco, Contadero/Cuajimalpa",
+        "variante": "for-precio--sur",
+        "rubro1_label": "Renta",
+        "rubro1_dato": "$6,500 – $12,000",
+        "rubro2_label": "Alimentos",
+        "rubro2_dato": "$3,500 – $6,000",
+        "rubro3_label": "Transporte",
+        "rubro3_dato": "$1,000 – $2,500",
+        "rubro4_label": "Imprevistos",
+        "rubro4_dato": "$1,500 – $3,000"
+      }
+    ]
+  },
+  {
+    "id": "grupo_estilos",
+    "name": "grupo_estilos",
+    "label": "Estilos",
+    "type": "group",
+    "expanded": true,
+    "tab": "STYLE",
+    "children": [
+      {
+        "id": "grupo_estilos.color_fondo",
+        "name": "color_fondo",
+        "label": "Color de fondo de la sección",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_tarjeta_fondo",
+        "name": "color_tarjeta_fondo",
+        "label": "Color de fondo de las tarjetas",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.color_monto",
+        "name": "color_monto",
+        "label": "Color del monto",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "grupo_estilos.tamano_monto",
+        "name": "tamano_monto",
+        "label": "Tamaño del monto",
+        "help_text": "Tamaños del design system; no acepta valores libres.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          [
+            "size-26",
+            "Pequeño"
+          ],
+          [
+            "size-36",
+            "Mediano"
+          ],
+          [
+            "size-44",
+            "Normal (el del diseño)"
+          ],
+          [
+            "heading-3-size",
+            "Grande"
+          ]
+        ],
+        "default": "size-44"
+      },
+      {
+        "id": "grupo_estilos.color_disclaimer",
+        "name": "color_disclaimer",
+        "label": "Color del aviso legal",
+        "help_text": "Déjalo vacío para usar el color que define el diseño.",
+        "type": "color",
+        "default": {
+          "color": "",
+          "opacity": 100
+        }
+      }
+    ],
+    "help_text": "Déjalos vacíos para usar los colores del design system."
+  }
+]

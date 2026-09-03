@@ -346,6 +346,34 @@
     ]
   },
   {
+    "id": "clase_extra",
+    "name": "clase_extra",
+    "label": "Variante de maquetación (clase extra)",
+    "help_text": "Déjalo vacío para la maquetación estándar (Inicio, Psicología). «for-experience» apila las tarjetas en modo sticky, como en la página de Foráneos.",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "",
+        "Estándar (sin variante)"
+      ],
+      [
+        "for-experience",
+        "Foráneos · tarjetas apiladas"
+      ]
+    ],
+    "default": ""
+  },
+  {
+    "id": "ancla_id",
+    "name": "ancla_id",
+    "label": "Ancla de la sección (id)",
+    "help_text": "Id HTML al que apuntan los enlaces internos. Vacío = «experiencia».",
+    "type": "text",
+    "allow_new_line": false,
+    "default": "experiencia"
+  },
+  {
     "id": "grupo_estilos",
     "name": "grupo_estilos",
     "label": "Estilos",

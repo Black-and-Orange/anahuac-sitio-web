@@ -1,0 +1,36 @@
+{# ===== Foráneos · Preguntas frecuentes =====
+   Porta <section class="for-faq"> de foraneos.html sin cambiar el marcado.
+
+   CRÍTICO: el atributo name="faq-foraneos" debe ser idéntico en TODOS los
+   <details>. Ese nombre compartido es lo que hace que el navegador cierre las
+   demás al abrir una, sin JS. Si se pierde, el acordeón deja de excluirse.
+
+   La respuesta es richtext porque lleva enlaces y <strong class="for-en-linea">,
+   que main.css estiliza (.for-faq .faq-answer .for-en-linea).
+
+   main.css no define custom properties para `.for-faq`: los colores editables
+   se escriben en línea sobre el elemento. #}
+{% set c = module.grupo_contenido %}
+{% set e = module.grupo_estilos %}
+
+{% set estilo = "" %}
+{% if e.color_fondo.color %}{% set estilo = estilo ~ "background:" ~ e.color_fondo.color ~ ";" %}{% endif %}
+{% if e.color_texto.color %}{% set estilo = estilo ~ "color:" ~ e.color_texto.color ~ ";" %}{% endif %}
+
+<section class="for-faq section-pad" id="faq" aria-labelledby="faq-title"
+         {% if estilo %}style="{{ estilo }}"{% endif %}>
+  <div class="container">
+    <div class="section-intro wide reveal" data-reveal>
+      {% if c.heading %}<{{ c.heading_tag|default('h2', true) }} id="faq-title"{% if c.heading_color.color %} style="color:{{ c.heading_color.color }}"{% endif %}>{{ c.heading }}</{{ c.heading_tag|default('h2', true) }}>{% endif %}
+    </div>
+
+    <div class="faq-list reveal" data-reveal>
+      {% for item in module.preguntas %}
+        <details class="faq-item" name="faq-foraneos"{% if item.abierta %} open{% endif %}>
+          <summary>{{ item.pregunta }}</summary>
+          <div class="faq-answer">{{ item.respuesta }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
