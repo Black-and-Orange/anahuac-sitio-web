@@ -7,6 +7,7 @@ import test from 'node:test';
 
 import {
   buildSemanticProfile,
+  collectCatalog,
   derivePageUsage,
   discoverModules,
   evaluateCompatibility,
@@ -14,6 +15,7 @@ import {
   extractHtmlEvidence,
   findSemanticCandidates,
   flattenFields,
+  generateCatalog,
   replaceAutoBlock,
   validateRegistry,
 } from './hs-catalogo.mjs';
@@ -89,6 +91,68 @@ function record({
     },
     pages,
   };
+}
+
+function integrationFixture(t) {
+  const root = tempDir(t);
+  const theme = path.join(root, 'theme');
+  const output = path.join(root, 'generated-docs');
+  const moduleDefinition = ({ name, global = false, rootClass, hook }) => {
+    write(theme, `modules/${name}.module/meta.json`, JSON.stringify({
+      global,
+      label: name,
+      categories: ['BODY_CONTENT'],
+      content_types: ['SITE_PAGE'],
+    }));
+    write(theme, `modules/${name}.module/fields.json`, JSON.stringify([{
+      name: 'pasos',
+      type: 'group',
+      occurrence: { min: 1, max: 6, default: 3 },
+      children: [{ name: 'titulo', type: 'text', required: true, default: 'Paso' }],
+    }]));
+    write(
+      theme,
+      `modules/${name}.module/module.html`,
+      `<section class="${rootClass}"><button ${hook}="0"></button><article data-panel="0"></article></section>`,
+    );
+    write(theme, `modules/${name}.module/module.css`, `.${rootClass} { display: grid; }\n@media (max-width: 40em) { .${rootClass} { display: block; } }`);
+    write(theme, `modules/${name}.module/module.js`, `document.querySelector('[${hook}]')?.addEventListener('click', () => {});`);
+  };
+
+  moduleDefinition({ name: 'apoyos-asesoria', rootClass: 'advisor', hook: 'data-advisor' });
+  moduleDefinition({ name: 'ruta-academica', global: true, rootClass: 'journey', hook: 'data-step' });
+  moduleDefinition({ name: 'itinerario-ingreso', rootClass: 'journey', hook: 'data-step' });
+  write(theme, 'templates/home.html', `
+    {% module "advisor" path="../modules/apoyos-asesoria" %}
+    {% dnd_module path="../modules/ruta-academica" %}
+    {% dnd_module path="../modules/itinerario-ingreso" %}`);
+
+  const common = {
+    estado: 'Approved',
+    tier: 'reusable',
+    familia: 'pasos',
+    capacidades: ['pasos-repetibles', 'paneles-sincronizados'],
+    variantes: [],
+    relaciones: [],
+    notas: '',
+    paginas_portal: [],
+  };
+  const registry = {
+    'apoyos-asesoria': {
+      ...common,
+      familia: 'asesoria',
+      capacidades: ['seleccion-geografica', 'contacto-asesor'],
+      relaciones: [{
+        tipo: 'consumido-por',
+        referencia: 'admision-asesoria',
+        motivo: 'Admisión reutiliza este módulo físico; admision-asesoria no es una carpeta física.',
+      }],
+    },
+    'itinerario-ingreso': { ...common },
+    'ruta-academica': { ...common },
+  };
+  const registryPath = write(root, 'registry.json', `${JSON.stringify(registry, null, 2)}\n`);
+  return { root, theme, output, registry, registryPath };
 }
 
 test('discoverModules descubre únicamente directorios .module, ordenados y con metadata disponible', (t) => {
@@ -638,6 +702,19 @@ Cierre humano.`);
   assert.throws(() => replaceAutoBlock(document, 'inexistente', 'x'), /inexistente/);
 });
 
+test('replaceAutoBlock conserva montos y cualquier secuencia dollar como texto literal', () => {
+  const document = `<!-- AUTO:fields:START -->
+anterior
+<!-- AUTO:fields:END -->`;
+  const replacement = 'Financia hasta $100,000; referencias literales $1, $2 y $&.';
+
+  const updated = replaceAutoBlock(document, 'fields', replacement);
+
+  assert.equal(updated, `<!-- AUTO:fields:START -->
+${replacement}
+<!-- AUTO:fields:END -->`);
+});
+
 test('las funciones de Task 2 son de solo lectura respecto al theme real', () => {
   const modulesDir = path.join(themeRoot, 'modules');
   const before = digest(themeRoot);
@@ -648,4 +725,120 @@ test('las funciones de Task 2 son de solo lectura respecto al theme real', () =>
 
   assert.equal(modules.length, 34);
   assert.equal(after, before);
+});
+
+test('collectCatalog reporta missing, orphan y tier/global sin modificar registry ni metadata', (t) => {
+  const fixture = integrationFixture(t);
+  const invalidRegistry = structuredClone(fixture.registry);
+  delete invalidRegistry['itinerario-ingreso'];
+  invalidRegistry.huerfano = {
+    estado: 'Draft', tier: 'page-specific', familia: null, capacidades: [], variantes: [],
+    relaciones: [], notas: '', paginas_portal: [],
+  };
+  fs.writeFileSync(fixture.registryPath, `${JSON.stringify(invalidRegistry, null, 2)}\n`);
+  const beforeRegistry = fs.readFileSync(fixture.registryPath, 'utf8');
+  const beforeTheme = digest(fixture.theme);
+
+  const result = collectCatalog({
+    themeDir: fixture.theme,
+    registryPath: fixture.registryPath,
+    pageNames: { 'home.html': 'Home fixture' },
+  });
+
+  assert.deepEqual(result.validation.missing, ['itinerario-ingreso']);
+  assert.deepEqual(result.validation.orphaned, ['huerfano']);
+  assert.deepEqual(result.validation.tierGlobalDiscrepancies, [{
+    module: 'ruta-academica', tier: 'reusable', metaGlobal: true,
+  }]);
+  assert.equal(fs.readFileSync(fixture.registryPath, 'utf8'), beforeRegistry);
+  assert.equal(digest(fixture.theme), beforeTheme);
+});
+
+test('generateCatalog crea exactamente N docs físicos, excluye el alias y explica candidatos sin declararlos compatibles', (t) => {
+  const fixture = integrationFixture(t);
+  const beforeTheme = digest(fixture.theme);
+  const result = generateCatalog({
+    themeDir: fixture.theme,
+    registryPath: fixture.registryPath,
+    outputDir: fixture.output,
+    pageNames: { 'home.html': 'Home fixture' },
+  });
+  const moduleDocs = fs.readdirSync(fixture.output)
+    .filter((name) => name.endsWith('.md') && name !== 'CATALOG.md')
+    .sort();
+
+  assert.equal(result.errors.length, 0);
+  assert.equal(result.records.length, 3);
+  assert.deepEqual(moduleDocs, [
+    'apoyos-asesoria.md',
+    'itinerario-ingreso.md',
+    'ruta-academica.md',
+  ]);
+  assert.equal(fs.existsSync(path.join(fixture.output, 'admision-asesoria.md')), false);
+  assert.match(result.catalog, /admision-asesoria.*reutiliza el módulo físico/s);
+  assert.match(result.catalog, /no equivalen a compatibilidad/i);
+  assert.match(result.catalog, /Discrepancia sin autocorrección: registry\.tier=reusable y meta\.global=true/);
+  const candidates = result.candidatesByName.get('ruta-academica');
+  const related = candidates.find(({ name }) => name === 'itinerario-ingreso');
+  assert.ok(related);
+  assert.equal(related.isCandidate, true);
+  assert.equal('compatible' in related, false);
+  assert.ok(related.reasons.some((reason) => reason.startsWith('fields:')));
+  assert.ok(related.reasons.some((reason) => reason.startsWith('html:')));
+  assert.match(result.documents.get('ruta-academica'), /Un candidato es una invitación a comparar evidencia/);
+  assert.match(result.documents.get('ruta-academica'), /itinerario-ingreso/);
+  assert.equal(digest(fixture.theme), beforeTheme);
+});
+
+test('generateCatalog es idempotente por hashes y conserva prosa humana fuera de AUTO', (t) => {
+  const fixture = integrationFixture(t);
+  const options = {
+    themeDir: fixture.theme,
+    registryPath: fixture.registryPath,
+    outputDir: fixture.output,
+    pageNames: { 'home.html': 'Home fixture' },
+  };
+  const beforeTheme = digest(fixture.theme);
+  const first = generateCatalog(options);
+  const firstHash = digest(fixture.output);
+  const second = generateCatalog(options);
+  const secondHash = digest(fixture.output);
+
+  assert.equal(first.errors.length, 0);
+  assert.equal(first.written.length, 4);
+  assert.equal(second.written.length, 0);
+  assert.equal(secondHash, firstHash);
+
+  const target = path.join(fixture.output, 'ruta-academica.md');
+  const edited = fs.readFileSync(target, 'utf8').replace(
+    '> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.',
+    'Descripción humana que el generador debe preservar exactamente.',
+  );
+  fs.writeFileSync(target, edited);
+  generateCatalog(options);
+  const regenerated = fs.readFileSync(target, 'utf8');
+  assert.match(regenerated, /Descripción humana que el generador debe preservar exactamente\./);
+  assert.equal(digest(fixture.theme), beforeTheme);
+});
+
+test('generateCatalog no escribe documentos cuando registry tiene faltantes o huérfanos', (t) => {
+  const fixture = integrationFixture(t);
+  const invalidRegistry = structuredClone(fixture.registry);
+  delete invalidRegistry['ruta-academica'];
+  invalidRegistry.huerfano = {
+    estado: 'Draft', tier: 'page-specific', familia: null, capacidades: [], variantes: [],
+    relaciones: [], notas: '', paginas_portal: [],
+  };
+  fs.writeFileSync(fixture.registryPath, `${JSON.stringify(invalidRegistry, null, 2)}\n`);
+
+  const result = generateCatalog({
+    themeDir: fixture.theme,
+    registryPath: fixture.registryPath,
+    outputDir: fixture.output,
+  });
+
+  assert.ok(result.errors.some(({ type, module }) => type === 'missing' && module === 'ruta-academica'));
+  assert.ok(result.errors.some(({ type, module }) => type === 'orphaned' && module === 'huerfano'));
+  assert.deepEqual(result.written, []);
+  assert.equal(fs.existsSync(fixture.output), false);
 });

@@ -5,6 +5,7 @@
   "description": "Framework multiagente/multiplataforma de design systems con consistencia verificada",
   "type": "module",
   "scripts": {
+    "docs:modulos": "node scripts/hs-catalogo.mjs",
     "check:tokens": "node scripts/check-tokens.mjs",
     "check:readiness": "node scripts/check-readiness.mjs",
     "lint:css": "stylelint \"adapters/**/*.css\" --allow-empty-input",

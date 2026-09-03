@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const VALID_STATES = new Set(['Draft', 'Development', 'Approved', 'Deprecated']);
 const VALID_TIERS = new Set(['global', 'reusable', 'page-specific']);
@@ -1385,5 +1386,443 @@ export function replaceAutoBlock(document, blockName, content) {
   }
   const pattern = new RegExp(`(${escapeRegex(start)}[^\\S\\r\\n]*\\r?\\n)[\\s\\S]*?(\\r?\\n${escapeRegex(end)})`);
   const normalized = String(content).replace(/^\r?\n|\r?\n$/g, '');
-  return String(document).replace(pattern, `$1${normalized}$2`);
+  return String(document).replace(pattern, (_match, prefix, suffix) => `${prefix}${normalized}${suffix}`);
 }
+
+const DEFAULT_PAGE_NAMES = Object.freeze({
+  'apoyos-economicos.html': 'Apoyos Económicos',
+  'pagina-interna.html': 'Página interna flexible',
+  'pagina.html': 'Home',
+  'proceso-de-admision.html': 'Proceso de admisión',
+});
+
+let temporaryFileSequence = 0;
+
+function markdownCell(value) {
+  const text = value === undefined
+    ? 'undefined'
+    : (typeof value === 'string' ? value : stableValue(value));
+  return String(text)
+    .replaceAll('\\', '\\\\')
+    .replaceAll('|', '\\|')
+    .replace(/\r?\n/g, ' ')
+    .trim() || '—';
+}
+
+function inlineCode(value) {
+  const text = markdownCell(value).replaceAll('`', '\\`');
+  return text === '—' ? text : `\`${text}\``;
+}
+
+function readableBoolean(value) {
+  if (value === true) return 'sí';
+  if (value === false) return 'no';
+  return 'sin evidencia';
+}
+
+function readableList(values, empty = '—') {
+  const items = uniqueSorted(values ?? []);
+  return items.length ? items.map(inlineCode).join(', ') : empty;
+}
+
+function relationText(relation) {
+  return `${inlineCode(relation.tipo)} → ${inlineCode(relation.referencia)} — ${markdownCell(relation.motivo)}`;
+}
+
+function candidateReason(candidate) {
+  const dimensions = uniqueSorted(candidate.evidence.map(({ dimension }) => dimension));
+  const matches = candidate.evidence
+    .flatMap(({ matches }) => matches ?? [])
+    .filter((value) => value !== 'candidato')
+    .slice(0, 6);
+  const detail = matches.length ? `; coincidencias: ${matches.map(inlineCode).join(', ')}` : '';
+  return `score ${candidate.score.toFixed(3)}; evidencia: ${dimensions.map(inlineCode).join(', ')}${detail}`;
+}
+
+function validationMessagesFor(name, validation, moduleRecord) {
+  const messages = [];
+  const discrepancy = validation.tierGlobalDiscrepancies.find(({ module }) => module === name);
+  if (discrepancy) {
+    messages.push(`Discrepancia sin autocorrección: registry.tier=${discrepancy.tier} y meta.global=${discrepancy.metaGlobal}.`);
+  }
+  if (moduleRecord.metaError) messages.push(`meta.json inválido: ${moduleRecord.metaError}`);
+  if (moduleRecord.fieldsError) messages.push(`fields.json inválido: ${moduleRecord.fieldsError}`);
+  if (!moduleRecord.moduleHtmlPresent) messages.push('module.html ausente.');
+  return messages;
+}
+
+function renderFieldsBlock(record) {
+  if (!record.fields.length) return '_Sin fields declarados en `fields.json`._';
+  const rows = record.fields.map((field) => [
+    inlineCode(field.path),
+    inlineCode(field.type ?? 'unknown'),
+    field.required ? 'sí' : 'no',
+    inlineCode(field.default),
+    inlineCode(field.occurrence),
+    field.repeater ? 'sí' : 'no',
+    inlineCode(field.parentPath),
+  ].join(' | '));
+  return [
+    '| Path completo | Tipo | Required | Default | Occurrence | Repeater | Padre |',
+    '|---|---|---:|---|---|---:|---|',
+    ...rows.map((row) => `| ${row} |`),
+  ].join('\n');
+}
+
+function renderTechnicalBlock(record, profile, candidates, validation) {
+  const registry = record.registry;
+  const meta = record.meta ?? {};
+  const relations = registry.relaciones ?? [];
+  const messages = validationMessagesFor(record.name, validation, record);
+  const pages = profile.pages;
+  const sharedCss = record.files.shared?.css ?? [];
+  const sharedJs = record.files.shared?.js ?? [];
+
+  return [
+    '| Dato | Evidencia |',
+    '|---|---|',
+    `| Nombre físico | ${inlineCode(`${record.name}.module`)} |`,
+    `| Label HubSpot | ${markdownCell(meta.label)} |`,
+    `| Estado | ${inlineCode(registry.estado)} |`,
+    `| Familia funcional | ${inlineCode(registry.familia)} |`,
+    `| Tier del equipo | ${inlineCode(registry.tier)} |`,
+    `| Global técnico (meta.global) | ${inlineCode(meta.global)} |`,
+    `| Categorías HubSpot | ${readableList(meta.categories)} |`,
+    `| Content types | ${readableList(meta.content_types)} |`,
+    `| Capacidades curadas | ${readableList(registry.capacidades)} |`,
+    `| Variantes verificadas | ${readableList(registry.variantes)} |`,
+    `| Notas curatoriales | ${markdownCell(registry.notas)} |`,
+    `| Páginas conocidas | ${readableList(pages)} |`,
+    '',
+    '### Relaciones curadas',
+    '',
+    ...(relations.length ? relations.map((relation) => `- ${relationText(relation)}`) : ['_Sin relaciones curadas._']),
+    '',
+    '### Candidatos semánticos',
+    '',
+    '> Un candidato es una invitación a comparar evidencia; no implica compatibilidad ni decide REUTILIZAR / ADAPTAR / CREAR.',
+    '',
+    ...(candidates.length
+      ? candidates.map((candidate) => `- [${inlineCode(candidate.name)}](./${candidate.name}.md): ${candidateReason(candidate)}.`)
+      : ['_Sin candidatos con evidencia semántica suficiente._']),
+    '',
+    '### HTML, clases y hooks',
+    '',
+    `- Raíces: ${readableList(profile.html.rootElements)}.`,
+    `- Clases raíz: ${readableList(profile.html.rootClasses.map((value) => `.${value}`))}.`,
+    `- Elementos: ${readableList(profile.html.elementShape)}.`,
+    `- Estructura padre→hijo: ${readableList(profile.html.parentChildShape)}.`,
+    `- Jerarquías observadas: ${readableList(profile.html.hierarchyShape)}.`,
+    `- Clases: ${readableList(profile.html.classes.map((value) => `.${value}`))}.`,
+    `- IDs: ${readableList(profile.html.ids.map((value) => `#${value}`))}.`,
+    `- Data attributes: ${readableList(profile.html.dataAttributes)}.`,
+    `- Formulario operativo observado: ${readableBoolean(profile.html.forms.operational)}.`,
+    '',
+    '### CSS, JS, responsive, assets y dependencias',
+    '',
+    `- module.css: ${inlineCode(profile.css.state)}; selectores propios/compartidos relevantes: ${readableList(profile.css.selectors)}.`,
+    `- module.js: ${inlineCode(profile.js.state)}; hooks propios/compartidos relevantes: ${readableList(profile.js.hooks)}.`,
+    `- CSS compartido observado: ${readableList(sharedCss.map(({ path: filePath }) => filePath))}.`,
+    `- JS compartido observado: ${readableList(sharedJs.map(({ path: filePath }) => filePath))}.`,
+    `- Responsive: ${readableList(profile.responsive)}.`,
+    `- Assets: ${readableList(profile.assets)}.`,
+    `- Dependencias CSS: ${readableList(profile.dependencies.css)}.`,
+    `- Dependencias JS: ${readableList(profile.dependencies.js)}.`,
+    '',
+    '### Discrepancias y pendientes técnicos',
+    '',
+    ...(messages.length ? messages.map((message) => `- ${message}`) : ['_Sin discrepancias técnicas detectadas._']),
+  ].join('\n');
+}
+
+function newModuleDocument(name, technical, fields) {
+  return `# \`${name}\`
+
+> Documento incremental generado a partir del módulo físico. La evidencia entre bloques AUTO se actualiza a demanda; la prosa humana fuera de ellos se conserva.
+
+## Identidad y evidencia técnica
+
+<!-- AUTO:technical:START -->
+${technical}
+<!-- AUTO:technical:END -->
+
+## Descripción y propósito
+
+> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+
+## Cuándo usar
+
+> TODO: documentar condiciones de reutilización.
+
+## Cuándo no usar
+
+> TODO: documentar límites y casos incompatibles.
+
+## Fields editables
+
+<!-- AUTO:fields:START -->
+${fields}
+<!-- AUTO:fields:END -->
+
+## Checklist de compatibilidad
+
+- [ ] Propósito y capacidades equivalentes.
+- [ ] Fields completos, defaults y repeaters compatibles.
+- [ ] HTML, clases, selectores y hooks compatibles.
+- [ ] CSS, JS y responsive compatibles.
+- [ ] Variantes, assets y dependencias compatibles.
+- [ ] Uso e impacto en páginas revisados.
+- [ ] Decisión humana: REUTILIZAR / ADAPTAR / CREAR.
+
+## Ejemplo HubL
+
+\`\`\`html
+{% dnd_module path="../modules/${name}" %}
+{% end_dnd_module %}
+\`\`\`
+`;
+}
+
+function updateModuleDocument(current, technical, fields) {
+  return `${replaceAutoBlock(
+    replaceAutoBlock(current, 'technical', technical),
+    'fields',
+    fields,
+  ).replace(/\s*$/, '')}\n`;
+}
+
+function catalogIssueSummary(validation, records) {
+  const invalidMetadata = records.flatMap((record) => validationMessagesFor(record.name, validation, record));
+  return [
+    `- Módulos físicos: **${records.length}**.`,
+    `- Registros: **${records.length - validation.missing.length + validation.orphaned.length}**.`,
+    `- Faltantes en registry: ${readableList(validation.missing)}.`,
+    `- Huérfanos en registry: ${readableList(validation.orphaned)}.`,
+    `- Enums inválidos: ${validation.invalidEnums.length}.`,
+    `- Errores de schema: ${validation.schemaErrors.length}.`,
+    `- Discrepancias tier/global: ${validation.tierGlobalDiscrepancies.length}.`,
+    `- Errores de evidencia técnica: ${invalidMetadata.length}.`,
+  ].join('\n');
+}
+
+function renderCatalog(records, profiles, candidatesByName, validation) {
+  const rows = records.map((record) => {
+    const profile = profiles.get(record.name);
+    const candidates = candidatesByName.get(record.name) ?? [];
+    const issues = validationMessagesFor(record.name, validation, record);
+    return [
+      `[${inlineCode(record.name)}](./${record.name}.md)`,
+      readableList(record.meta?.categories),
+      inlineCode(record.registry.familia),
+      readableList(record.registry.capacidades),
+      inlineCode(record.registry.estado),
+      inlineCode(record.registry.tier),
+      inlineCode(record.meta?.global),
+      readableList(profile.pages),
+      candidates.length
+        ? candidates.map((candidate) => `${inlineCode(candidate.name)} (${candidateReason(candidate)})`).join('<br>')
+        : '—',
+      issues.length ? issues.map(markdownCell).join('<br>') : '—',
+    ];
+  });
+  const logicalRelation = records
+    .find(({ name }) => name === LOGICAL_ADMISSION_RELATION.owner)
+    ?.registry.relaciones.find(({ tipo, referencia }) => (
+      tipo === LOGICAL_ADMISSION_RELATION.type && referencia === LOGICAL_ADMISSION_RELATION.reference
+    ));
+
+  return `# Catálogo de módulos HubSpot — Anáhuac
+
+Catálogo generado a demanda desde los módulos físicos y el registry curado. Git es la fuente de verdad del código. \`registry.tier\` es la autoridad arquitectónica y \`meta.global\` se conserva como evidencia técnica separada. Los candidatos son comparaciones por evidencia y **no equivalen a compatibilidad**.
+
+## Estado del inventario
+
+${catalogIssueSummary(validation, records)}
+
+## Relación lógica de Admisión
+
+${logicalRelation
+    ? `\`${LOGICAL_ADMISSION_RELATION.reference}\` reutiliza el módulo físico [\`${LOGICAL_ADMISSION_RELATION.owner}\`](./${LOGICAL_ADMISSION_RELATION.owner}.md). No existe ni debe generarse \`${LOGICAL_ADMISSION_RELATION.reference}.module\` o \`${LOGICAL_ADMISSION_RELATION.reference}.md\`.`
+    : `⚠ No se encontró la relación lógica obligatoria \`${LOGICAL_ADMISSION_RELATION.reference} → ${LOGICAL_ADMISSION_RELATION.owner}\` en el registry.`}
+
+## Inventario
+
+| Módulo | Categoría | Familia | Capacidades | Estado | Tier equipo | meta.global | Páginas | Candidatos y motivos | Discrepancias |
+|---|---|---|---|---|---|---|---|---|---|
+${rows.map((row) => `| ${row.join(' | ')} |`).join('\n')}
+`;
+}
+
+function safeModuleDocumentPath(outputDir, moduleName) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(moduleName)) {
+    throw new Error(`Nombre de módulo inseguro para documentación: ${moduleName}`);
+  }
+  const outputRoot = path.resolve(outputDir);
+  const target = path.resolve(outputRoot, `${moduleName}.md`);
+  if (path.dirname(target) !== outputRoot) throw new Error(`Destino fuera de docs/modules: ${target}`);
+  return target;
+}
+
+function writeAtomic(target, contents) {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  if (fs.existsSync(target) && fs.readFileSync(target, 'utf8') === contents) return false;
+  temporaryFileSequence += 1;
+  const temporary = path.join(
+    path.dirname(target),
+    `.${path.basename(target)}.${process.pid}.${temporaryFileSequence}.tmp`,
+  );
+  try {
+    fs.writeFileSync(temporary, contents, { encoding: 'utf8', flag: 'wx' });
+    fs.renameSync(temporary, target);
+  } finally {
+    if (fs.existsSync(temporary)) fs.unlinkSync(temporary);
+  }
+  return true;
+}
+
+function parseRequiredJson(filePath, label) {
+  const parsed = readJsonIfPresent(filePath);
+  if (parsed.error) return { value: null, error: `${label}: ${parsed.error}` };
+  if (parsed.value === null) return { value: null, error: `${label}: archivo ausente` };
+  return parsed;
+}
+
+export function collectCatalog(options = {}) {
+  const repoRoot = path.resolve(options.repoRoot ?? path.resolve(import.meta.dirname, '..'));
+  const themeDir = path.resolve(options.themeDir ?? path.join(repoRoot, 'adapters/hubspot/theme'));
+  const modulesDir = path.resolve(options.modulesDir ?? path.join(themeDir, 'modules'));
+  const templatesDir = path.resolve(options.templatesDir ?? path.join(themeDir, 'templates'));
+  const registryPath = path.resolve(options.registryPath ?? path.join(repoRoot, 'docs/modules/registry.json'));
+  const registryRead = parseRequiredJson(registryPath, 'registry.json');
+  if (registryRead.error) throw new Error(registryRead.error);
+  const registry = registryRead.value;
+  const discovered = discoverModules(modulesDir);
+  const validation = validateRegistry(discovered, registry);
+  const usage = derivePageUsage(templatesDir, options.pageNames ?? DEFAULT_PAGE_NAMES);
+
+  const records = discovered.map((module) => {
+    const fieldsRead = parseRequiredJson(path.join(module.directory, 'fields.json'), `${module.name}/fields.json`);
+    const moduleHtmlPath = path.join(module.directory, 'module.html');
+    const moduleHtmlPresent = fs.existsSync(moduleHtmlPath);
+    const moduleHtml = moduleHtmlPresent ? fs.readFileSync(moduleHtmlPath, 'utf8') : '';
+    const registryEntry = registry[module.name] ?? {
+      estado: null,
+      tier: null,
+      familia: null,
+      capacidades: [],
+      variantes: [],
+      relaciones: [],
+      notas: '',
+      paginas_portal: [],
+    };
+    const pages = uniqueSorted([...(usage[module.name] ?? []), ...(registryEntry.paginas_portal ?? [])]);
+    return {
+      ...module,
+      metaError: module.metaError ?? (module.meta === null ? `${module.name}/meta.json: archivo ausente` : null),
+      registry: registryEntry,
+      fields: flattenFields(fieldsRead.value ?? []),
+      fieldsError: fieldsRead.error,
+      moduleHtmlPresent,
+      html: extractHtmlEvidence(moduleHtml),
+      files: extractFileEvidence(module.directory, { themeDir }),
+      pages,
+    };
+  });
+  const profiles = new Map(records.map((record) => [record.name, buildSemanticProfile(record)]));
+  const candidatesByName = new Map(records.map((record) => [
+    record.name,
+    findSemanticCandidates(records, record, options.candidateOptions),
+  ]));
+
+  return {
+    repoRoot,
+    themeDir,
+    modulesDir,
+    templatesDir,
+    registryPath,
+    registry,
+    validation,
+    records,
+    profiles,
+    candidatesByName,
+  };
+}
+
+export function generateCatalog(options = {}) {
+  const collected = collectCatalog(options);
+  const outputDir = path.resolve(options.outputDir ?? path.join(collected.repoRoot, 'docs/modules'));
+  const documents = new Map();
+  for (const record of collected.records) {
+    const technical = renderTechnicalBlock(
+      record,
+      collected.profiles.get(record.name),
+      collected.candidatesByName.get(record.name) ?? [],
+      collected.validation,
+    );
+    const fields = renderFieldsBlock(record);
+    const target = safeModuleDocumentPath(outputDir, record.name);
+    const contents = fs.existsSync(target)
+      ? updateModuleDocument(fs.readFileSync(target, 'utf8'), technical, fields)
+      : newModuleDocument(record.name, technical, fields);
+    documents.set(record.name, contents);
+  }
+  const catalog = renderCatalog(
+    collected.records,
+    collected.profiles,
+    collected.candidatesByName,
+    collected.validation,
+  );
+  const staleModuleDocs = fs.existsSync(outputDir)
+    ? fs.readdirSync(outputDir, { withFileTypes: true })
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+      .map((entry) => entry.name.slice(0, -3))
+      .filter((name) => !['CATALOG', 'README', 'TAXONOMY'].includes(name) && !documents.has(name))
+      .sort(compareText)
+    : [];
+  const errors = [
+    ...collected.validation.errors,
+    ...collected.records.flatMap((record) => [
+      ...(record.metaError ? [{ type: 'invalid-meta', module: record.name, detail: record.metaError }] : []),
+      ...(record.fieldsError ? [{ type: 'invalid-fields', module: record.name, detail: record.fieldsError }] : []),
+      ...(!record.moduleHtmlPresent ? [{ type: 'missing-module-html', module: record.name }] : []),
+    ]),
+    ...staleModuleDocs.map((module) => ({ type: 'stale-module-doc', module })),
+  ];
+  const written = [];
+  if (options.write !== false && errors.length === 0) {
+    for (const [name, contents] of documents) {
+      const target = safeModuleDocumentPath(outputDir, name);
+      if (writeAtomic(target, contents)) written.push(target);
+    }
+    const catalogTarget = path.resolve(outputDir, 'CATALOG.md');
+    if (path.dirname(catalogTarget) !== outputDir) throw new Error('Destino inseguro para CATALOG.md.');
+    if (writeAtomic(catalogTarget, catalog)) written.push(catalogTarget);
+  }
+
+  return {
+    ...collected,
+    outputDir,
+    documents,
+    catalog,
+    errors,
+    warnings: collected.validation.warnings,
+    staleModuleDocs,
+    written,
+  };
+}
+
+function main() {
+  const result = generateCatalog();
+  if (result.errors.length) {
+    console.error(`Catálogo no escrito: ${result.errors.length} error(es).`);
+    for (const error of result.errors) console.error(`- ${JSON.stringify(error)}`);
+    process.exitCode = 1;
+    return;
+  }
+  console.log(`Catálogo listo: ${result.records.length} módulos físicos, ${result.documents.size} documentos.`);
+  console.log(`Archivos actualizados: ${result.written.length}. Discrepancias tier/global: ${result.warnings.length}.`);
+}
+
+const executedDirectly = process.argv[1]
+  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+if (executedDirectly) main();
