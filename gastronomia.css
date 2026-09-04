@@ -507,9 +507,32 @@
   }
 }
 
+/* En móvil el mapa NO se oculta: se desplaza. A 320px de ancho un mapamundi
+   completo deja los pines a 4px unos de otros —ni se leen ni se pueden tocar—,
+   así que se le fija un ancho mínimo legible y el contenedor hace scroll
+   horizontal. Los chips siguen debajo como lista de lectura rápida. */
 @media (max-width: 900px) {
+  /* `.colab-aliados` es un grid y sus items nacen con `min-width: auto`, así que
+     se niegan a encoger por debajo de su contenido: el mapa de 720px estiraba la
+     columna y arrastraba con ella al carrusel de convenios, que se salía del
+     ancho de pantalla. Con `min-width: 0` la columna vuelve a caber y el
+     desplazamiento queda confinado al contenedor del mapa, que es lo que se
+     quiere que se deslice. */
+  .pagina-gastronomia .colab-group,
+  .pagina-gastronomia .gas-destinos,
+  .pagina-gastronomia .gas-destinos-grupo,
+  .pagina-gastronomia .gas-mapa-scroll {
+    min-width: 0;
+  }
+
+  .pagina-gastronomia .gas-mapa-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .pagina-gastronomia .gas-mapa {
-    display: none;
+    min-width: 720px;
   }
 }
 
@@ -538,4 +561,36 @@
 .pagina-gastronomia .gas-faq-nota {
   font-size: 15px;
   opacity: 0.88;
+}
+
+/* Aviso de desplazamiento. Se oculta con su PROPIO media query en vez de con una
+   regla base `display:none`: al vivir este bloque al final del archivo, esa regla
+   base pisaba al `display:block` del media query de arriba y el aviso no salía
+   nunca. Con la condición invertida el orden dentro del archivo deja de importar. */
+.pagina-gastronomia .gas-mapa-pista {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* En pantalla táctil no hay hover: el nombre se revela al tocar el pin. */
+.pagina-gastronomia .gas-pin:focus .gas-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-gastronomia .gas-pin:focus .gas-pin-nombre {
+  opacity: 1;
+}
+
+.pagina-gastronomia .gas-pin:focus {
+  z-index: 2;
+  outline: none;
+}
+
+@media (min-width: 901px) {
+  .pagina-gastronomia .gas-mapa-pista {
+    display: none;
+  }
 }
