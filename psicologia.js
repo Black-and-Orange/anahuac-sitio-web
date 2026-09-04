@@ -230,7 +230,16 @@
 
   const originals = Array.from(track.children);
   const count = originals.length;
-  if (count < 2) return;
+
+  /* La vista muestra cuatro tarjetas a la vez. Con cuatro o menos no hay nada
+     que recorrer: se ocultan las flechas y no se monta el carrusel, en vez de
+     dejar controles que desplazan una fila que ya cabía entera. */
+  const VISIBLES = 4;
+  if (count <= VISIBLES) {
+    const controles = document.querySelector(".colab-arrows");
+    if (controles) controles.hidden = true;
+    return;
+  }
 
   const gap = parseFloat(getComputedStyle(track).gap) || 20;
   const prev = document.querySelector(".colab-prev");

@@ -25,19 +25,6 @@
    ========================================================================== */
 
 /* -----------------------------------------------------------------------------
-   0. COMPOSICIÓN DEL H1
-
-   «Licenciatura» y «en Gastronomía» forman dos renglones controlados. El segundo
-   conserva juntas sus dos palabras y baja ligeramente de escala para no invadir
-   la columna de la imagen en pantallas anchas.
-   -------------------------------------------------------------------------- */
-.pagina-gastronomia .gas-hero-title-tail {
-  display: block;
-  white-space: nowrap;
-  font-size: 0.88em;
-}
-
-/* -----------------------------------------------------------------------------
    0b. (retirada) HUECOS DE FOTOGRAFÍA
 
    Aquí vivía la variante `.media-pendiente`: el hueco marcado con el que la
@@ -260,28 +247,6 @@
   color: var(--color-text-secondary);
 }
 
-/* -----------------------------------------------------------------------------
-   6. EL CARRUSEL DEL CLAUSTRO ENSEÑABA UNA TARJETA REPETIDA
-
-   `psicologia.js` clona el set completo para que el bucle no tenga costura, y el
-   molde deja cuatro tarjetas visibles. Con las seis de Psicología los clones
-   quedan fuera de cuadro; con las TRES de la coordinación de Gastronomía, el
-   primer clon entraba en el cuarto hueco y se veía «Mtro. José Ángel Díaz
-   Rebolledo» dos veces en la misma fila.
-
-   La tarjeta pasa a un tercio: las tres llenan el viewport y el clon vuelve a
-   quedar fuera. Es la solución honesta —no se inventa una cuarta persona— y se
-   revierte sola: cuando lleguen los chefs pendientes y sean cuatro o más, esta
-   regla se retira y el molde vuelve a acertar.
-
-   Por debajo de 900px el molde ya baja a dos tarjetas y a 640 a una, donde el
-   clon tampoco estorba.
-   -------------------------------------------------------------------------- */
-@media (min-width: 901px) {
-  .pagina-gastronomia .colab-docentes-track > .docente-card {
-    flex: 0 0 calc((100% - 40px) / 3);
-  }
-}
 
 
 /* -----------------------------------------------------------------------------
@@ -324,4 +289,253 @@
   letter-spacing: 0.2px;
   font-weight: 600;
   color: var(--color-text);
+}
+
+/* -----------------------------------------------------------------------------
+   BANDA DE DOBLE ACREDITACIÓN · CHIPS DE CERTIFICACIÓN
+
+   Las certificaciones de Le Cordon Bleu se listan con el mismo chip del hero
+   (.lic-chip): píldora blanca de borde lila y texto morado. Sobre el morado de
+   la banda da el contraste más alto del componente y no inventa un estilo nuevo.
+   Solo se corrige el aire: el chip trae `margin-top: 4px` pensado para el hero y
+   aquí la columna ya reparte con `gap`, así que se anula y se separa del párrafo
+   que los introduce.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .campo-doble-certs {
+  margin: 4px 0 0;
+  gap: 10px;
+}
+
+.pagina-gastronomia .campo-doble-certs .lic-chip {
+  border-color: transparent;
+}
+
+
+/* -----------------------------------------------------------------------------
+   CONVENIOS DE PRÁCTICAS · MARQUESINA VERTICAL DE LOGOS
+
+   Sustituye a los tiles de categoría. Sin desplazamiento automático: el usuario
+   avanza con las flechas y cada clic mueve una fila. El recorrido da la vuelta,
+   de modo que las flechas nunca llegan a un extremo muerto.
+
+   La retícula es la de cuatro columnas de `.colab-logos` y el viewport se recorta
+   a UNA fila. Las máscaras superior e inferior insinúan que hay más contenido.
+
+   La posición la fija `gastronomia.js` con un `transform`; el suavizado es una
+   `transition` de CSS, así que no depende de requestAnimationFrame. Sin JS se ve
+   la primera fila, quieta y legible.
+   -------------------------------------------------------------------------- */
+/* Cabecera con las flechas de control, mismo molde que el carrusel de docentes. */
+.pagina-gastronomia .gas-convenios-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* De entrada se ve UNA sola fila. La animación sigue corriendo sola y las flechas
+   avanzan o retroceden una fila cada clic (lo resuelve gastronomia.js moviendo el
+   reloj de esta misma animación). El degradado es suave porque con una sola fila
+   una máscara marcada se comería los logos por arriba y por abajo. */
+.pagina-gastronomia .gas-convenios-viewport {
+  --gas-convenio-alto: 92px;
+  --gas-convenio-gap: 14px;
+  height: var(--gas-convenio-alto);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
+.pagina-gastronomia .gas-convenios-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gas-convenio-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pagina-gastronomia .gas-convenio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--gas-convenio-alto);
+  padding: 18px 20px;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+}
+
+.pagina-gastronomia .gas-convenio img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Quien pide movimiento reducido salta de fila sin deslizamiento. */
+@media (prefers-reduced-motion: reduce) {
+  .pagina-gastronomia .gas-convenios-track {
+    transition: none;
+  }
+}
+
+/* A dos columnas el set de ocho ocupa cuatro filas; el viewport sigue mostrando
+   dos y el recorrido es el mismo. */
+@media (max-width: 900px) {
+  .pagina-gastronomia .gas-convenios-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .pagina-gastronomia .gas-convenios-track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   DESTINOS DE PRÁCTICAS · MAPAS CON PINES
+
+   Dos mapas propios (assets/gastronomia/mapas/) generados desde Natural Earth,
+   que es dominio público. Uno del mundo para los 24 destinos internacionales y
+   otro de México para los 9 nacionales: en un mapamundi los nueve mexicanos
+   caían dentro de un cuadro de 90x45px y eran ilegibles.
+
+   El pin se coloca con --x/--y en PORCENTAJE, de modo que sigue al mapa cuando
+   este se reescala. Los pines que se encimaban se separaron y conservan un hilo
+   fino hasta su coordenada real, como en la referencia aprobada.
+
+   Por debajo de 900px el mapa se oculta y vuelven las listas de chips: 24 pines
+   en un mapamundi de 320px no se pueden ni tocar ni leer. La información no se
+   pierde en ningún ancho.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-mapa {
+  position: relative;
+  margin-top: 12px;
+}
+
+.pagina-gastronomia .gas-mapa-fondo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Los hilos se estiran con el mapa (preserveAspectRatio: none), pero el grosor
+   no, gracias a vector-effect en cada línea. */
+.pagina-gastronomia .gas-mapa-hilos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--orange);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.pagina-gastronomia .gas-mapa-pines {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-gastronomia .gas-pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  /* La punta del pin es la que marca el sitio, no su centro. */
+  transform: translate(-50%, -100%);
+  cursor: default;
+}
+
+.pagina-gastronomia .gas-pin-marca {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: var(--orange);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transform: rotate(-45deg);
+  transition: transform var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+/* El nombre solo aparece al señalar: 24 rótulos simultáneos taparían el mapa. */
+.pagina-gastronomia .gas-pin-nombre {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: var(--radius-button);
+  background: var(--black-web);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+.pagina-gastronomia .gas-pin:hover,
+.pagina-gastronomia .gas-pin:focus-visible {
+  z-index: 2;
+  outline: none;
+}
+
+.pagina-gastronomia .gas-pin:hover .gas-pin-marca,
+.pagina-gastronomia .gas-pin:focus-visible .gas-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-gastronomia .gas-pin:hover .gas-pin-nombre,
+.pagina-gastronomia .gas-pin:focus-visible .gas-pin-nombre {
+  opacity: 1;
+}
+
+/* En el mapa el chip sobra; por debajo de 900px es al revés. */
+@media (min-width: 901px) {
+  .pagina-gastronomia .gas-destinos-grupo .gas-destinos-chips {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .pagina-gastronomia .gas-mapa {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-gastronomia .gas-pin-marca,
+  .pagina-gastronomia .gas-pin-nombre {
+    transition: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   FAQ · NOTA AL PIE DE UNA RESPUESTA
+
+   `.faq-item p` reparte el aire con `padding-bottom: 24px`, pensado para
+   respuestas de un solo párrafo. Con dos seguidos se abría un hueco doble entre
+   ellos, y la nota se leía como una respuesta aparte en vez de como el pie de la
+   anterior. Se cierra ese hueco y la nota baja un punto de tamaño.
+
+   El `:has()` solo ajusta el párrafo que va SEGUIDO de la nota; si un navegador
+   no lo soporta, el único efecto es el hueco original: nada se rompe.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .faq-item p:has(+ .gas-faq-nota) {
+  padding-bottom: 10px;
+}
+
+.pagina-gastronomia .gas-faq-nota {
+  font-size: 15px;
+  opacity: 0.88;
 }

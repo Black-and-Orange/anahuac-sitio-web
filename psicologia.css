@@ -2108,6 +2108,12 @@
   flex-shrink: 0;
 }
 
+/* El JS oculta las flechas cuando hay cuatro tarjetas o menos. `display: flex`
+   derrota al atributo `hidden`, así que hay que declararlo. */
+.colab-arrows[hidden] {
+  display: none;
+}
+
 .colab-arrow {
   display: inline-flex;
   align-items: center;
