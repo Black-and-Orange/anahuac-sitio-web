@@ -228,14 +228,6 @@
   color: var(--color-text-secondary);
 }
 
-.pagina-gastronomia .gas-destinos-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
 .pagina-gastronomia .gas-colab-nota {
   margin: 20px 0 0;
@@ -501,12 +493,6 @@
 }
 
 /* En el mapa el chip sobra; por debajo de 900px es al revés. */
-@media (min-width: 901px) {
-  .pagina-gastronomia .gas-destinos-grupo .gas-destinos-chips {
-    display: none;
-  }
-}
-
 /* En móvil el mapa NO se oculta: se desplaza. A 320px de ancho un mapamundi
    completo deja los pines a 4px unos de otros —ni se leen ni se pueden tocar—,
    así que se le fija un ancho mínimo legible y el contenedor hace scroll
