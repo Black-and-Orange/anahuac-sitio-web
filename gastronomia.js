@@ -2,6 +2,38 @@
    GASTRONOMÍA — interacciones propias de la página
    Todo lo de este archivo es opcional: la página funciona completa sin JS.
    ============================================= */
+
+/* ---- Claustro docente: sin carrusel cuando caben todas ----
+   El carrusel de docentes vive en psicologia.js y lo comparten cuatro páginas.
+   La vista muestra cuatro tarjetas; con cuatro o menos no hay nada que recorrer
+   y montarlo hace daño: clona el set para el bucle sin costura y el primer clon
+   asoma en el hueco libre, repitiendo a una persona en la misma fila.
+
+   En vez de tocar el archivo compartido —lo que cambiaría el comportamiento de
+   Psicología, Nutrición y Comunicación— se desactiva SOLO aquí: se cambian las
+   dos clases que psicologia.js busca por equivalentes propias y se retiran las
+   flechas. Al no encontrar sus anclas, el carrusel compartido no se monta y no
+   engancha ni el swipe ni el listener de resize.
+
+   Por eso este archivo se carga ANTES que psicologia.js. Si algún día hay más
+   de cuatro docentes, no se toca nada: las clases se quedan y el carrusel
+   compartido vuelve a montarse solo. */
+(function () {
+  "use strict";
+
+  const VISIBLES = 4;
+  const vista = document.querySelector(".colab-docentes-carousel");
+  const fila = document.querySelector(".colab-docentes-track");
+  if (!vista || !fila) return;
+  if (fila.children.length > VISIBLES) return;
+
+  vista.classList.replace("colab-docentes-carousel", "gas-docentes-vista");
+  fila.classList.replace("colab-docentes-track", "gas-docentes-fila");
+
+  const flechas = document.querySelector(".colab-docentes-head .colab-arrows");
+  if (flechas) flechas.remove();
+})();
+
 (function () {
   "use strict";
 

@@ -594,3 +594,38 @@
     display: none;
   }
 }
+
+/* -----------------------------------------------------------------------------
+   CLAUSTRO DOCENTE SIN CARRUSEL
+
+   gastronomia.js cambia `.colab-docentes-carousel` / `.colab-docentes-track` por
+   estas dos clases cuando hay cuatro docentes o menos, para que el carrusel de
+   psicologia.js —compartido con otras tres páginas— no se monte aquí.
+
+   Al perder esas clases se pierde también su maquetación, así que se replica:
+   misma retícula de cuatro por fila y mismos escalones que el componente
+   original. La única diferencia es `flex-wrap`, que con más de cuatro tarjetas
+   las pasa a una segunda fila en vez de desbordar. Ese caso no se da hoy: con
+   cinco o más, gastronomia.js no interviene y vuelve el carrusel compartido.
+   -------------------------------------------------------------------------- */
+.pagina-gastronomia .gas-docentes-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina-gastronomia .gas-docentes-fila > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .pagina-gastronomia .gas-docentes-fila > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-gastronomia .gas-docentes-fila > .docente-card {
+    flex: 0 0 100%;
+  }
+}
