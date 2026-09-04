@@ -42,6 +42,12 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-04 — Gastronomía: se simplifica campo laboral y los convenios responden al hover
+- La revisión humana retira el párrafo «Gastronomía es mucho más que cocinar»
+  situado entre los ámbitos laborales y la banda de doble acreditación.
+- En M9, las tarjetas de convenios usan gris suave como estado base y blanco en
+  `hover`. El ajuste queda acotado a Gastronomía y no altera el molde compartido.
+
 ### 2026-09-01 — Nutrición: CTA lateral en la banda de vinculación
 - La revisión humana retira el texto institucional del 70% de empleabilidad.
 - Los dos CTA ocupan el lateral derecho en escritorio y vuelven debajo en tablet

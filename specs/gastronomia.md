@@ -230,7 +230,7 @@
   5. **«Consultoría y desarrollo de producto»** — «Asesora a negocios en desarrollo de menús, maridaje, innovación de platillos y conceptualización.»
   6. **«Investigación, educación y cultura»** — «Investigación gastronómica, docencia y promoción de la cultura, historia y tradiciones culinarias.»
 - **Preview:** formato 4:5, alt descriptivo por ámbito (p. ej. «Chef egresado de la Anáhuac dirigiendo la cocina de un restaurante»).
-- **Respuesta a la objeción, bajo los tiles:** «Gastronomía es mucho más que cocinar: tu plan de estudios incluye costos, mercadotecnia, gestión de talento y emprendimiento, así que también puedes dirigir y no solo operar.»
+- **Revisión humana (2026-09-04):** no se muestra texto adicional entre los tiles y la banda destacada.
 - **Dato de empleabilidad:** «En la Red Anáhuac, el 70% de nuestros egresados se emplea al poco tiempo de graduarse (Top 10 de América Latina en el QS Graduate Employability Ranking).» **[VERIFICAR: cifra propia de Gastronomía.]**
 - **Banda destacada (`campo-band`)** — mismo componente que la banda de doble titulación de Psicología. **⚠️ Es el módulo de mayor peso persuasivo de la página: dale la jerarquía visual que tiene la banda de Hull en Psicología.**
   - **H3:** «Doble credencial internacional · Bachelor in Gastronomy, Le Cordon Bleu»
@@ -279,7 +279,7 @@
   - Mtra. María Teresa Hernández del Pando — «Coordinadora Académica»
   - Dra. Jacqueline Moreno Potignon — «Coordinadora de Promoción»
   - **[VERIFICAR: vigencia de nombres y cargos, y autorización para publicar foto y correo institucional.]** **[PENDIENTE: chefs y profesores destacados, distintos de la coordinación administrativa.]**
-- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales»
+- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales». En la variante local de Gastronomía, las tarjetas tienen fondo `--surface-muted` y cambian a `--surface` al pasar el mouse.
 - **«Destinos de prácticas» (H3):** dos listas de chips.
   - **Internacionales:** Montreal · Miami · Aspen · Dallas · Chicago · Orlando · Nueva York · Punta Cana · Buenos Aires · Hong Kong · Ibiza · Barcelona · Madrid · San Sebastián · París · Londres · Roma · Melbourne · Phuket · Seúl · Dubái · Vietnam · Tailandia · Shanghái
   - **Nacionales:** Ciudad de México · Cancún · Ensenada · Los Cabos · Mérida · Oaxaca · Riviera Maya · San Miguel de Allende · Punta Mita

@@ -82,6 +82,7 @@
     --color-brand-primary: var(--orange);
     --color-brand-secondary: var(--brown);
     --surface: var(--white);
+    --surface-muted: var(--gray);
     --surface-dark: var(--black);
     --surface-accent: var(--purple-1);
     --surface-accent-light: var(--lilac-2);

@@ -14,6 +14,7 @@ Dos capas. Los componentes y adapters usan **solo la capa semántica**; nunca pr
 | `--brown` | `#6B3F23` | Café Anáhuac |
 | `--black` | `#000000` | Negro |
 | `--white` | `#FFFFFF` | Blanco |
+| `--gray` | `#F2F2F2` | Gris suave |
 
 ### Colores secundarios — Morada monocromática
 
@@ -128,6 +129,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
 | `--color-brand-primary` | `var(--orange)` | Acentos de marca, CTAs principales, hover |
 | `--color-brand-secondary` | `var(--brown)` | Café institucional, acentos secundarios |
 | `--surface` | `var(--white)` | Fondo base de superficies |
+| `--surface-muted` | `var(--gray)` | Fondo gris suave para superficies secundarias |
 | `--surface-dark` | `var(--black)` | Fondo oscuro (hero, secciones destacadas) |
 | `--surface-accent` | `var(--purple-1)` | Fondo de sección destacada (púrpura) |
 | `--surface-accent-light` | `var(--lilac-2)` | Fondo de sección con acento ligero |
@@ -160,6 +162,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
   --brown: #6B3F23;
   --black: #000000;
   --white: #FFFFFF;
+  --gray: #F2F2F2;
 
   /* Secundarios — morada monocromática */
   --purple-1: #432F64;
@@ -219,6 +222,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
   --color-brand-primary: var(--orange);
   --color-brand-secondary: var(--brown);
   --surface: var(--white);
+  --surface-muted: var(--gray);
   --surface-dark: var(--black);
   --surface-accent: var(--purple-1);
   --surface-accent-light: var(--lilac-2);

@@ -5,6 +5,14 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-04 — Gastronomía · ajustes de campo laboral y convenios
+
+- Se retira el párrafo adicional que cerraba el bloque de campo laboral antes de
+  la banda de doble acreditación.
+- Las tarjetas del carrusel de convenios parten de la superficie gris suave y
+  cambian a blanco al pasar el mouse. El estado se limita a la variante local de
+  Gastronomía y usa tokens semánticos y de movimiento existentes.
+
 ## 2026-09-01 — Nutrición · la banda de vinculación lleva los CTA al lateral
 
 La revisión humana retira de M6 el texto institucional de empleabilidad del 70%.

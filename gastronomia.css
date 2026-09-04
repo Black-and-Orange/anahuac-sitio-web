@@ -14,7 +14,7 @@
      a) las 7 pestañas del plan van por ÁREA TEMÁTICA y no por semestre,
      b) los tres grupos de M9 y ninguno es una rejilla de logotipos: categorías
         de convenio y 33 chips de destino,
-     c) tres piezas de texto auxiliar que el molde no tiene,
+     c) dos piezas de texto auxiliar que el molde no tiene,
      d) los huecos de fotografía, mientras no haya banco de imágenes.
 
    Si alguna se repitiera en otra carrera, su sitio dejaría de ser esta hoja y
@@ -111,29 +111,6 @@
   letter-spacing: 0.2px;
   color: var(--color-text);
   text-wrap: pretty;
-}
-
-/* -----------------------------------------------------------------------------
-   3. EL CIERRE DE LA OBJECIÓN, EN CAMPO LABORAL
-
-   «Gastronomía es mucho más que cocinar» es la respuesta que el padre o la madre
-   vienen buscando, y cierra el hilo que abre M2. Va entre los tiles y la banda,
-   como texto de apoyo: meterlo en una tarjeta lo haría competir con la banda de
-   Le Cordon Bleu, que es la pieza de mayor peso de la página.
-   -------------------------------------------------------------------------- */
-.pagina-gastronomia .gas-campo-objecion {
-  margin-top: 34px;
-  max-width: 62ch;
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  letter-spacing: 0.2px;
-  color: var(--color-text);
-  text-wrap: pretty;
-}
-
-.pagina-gastronomia .gas-campo-objecion strong {
-  font-weight: 600;
 }
 
 /* -----------------------------------------------------------------------------
@@ -354,9 +331,14 @@
   justify-content: center;
   height: var(--gas-convenio-alto);
   padding: 18px 20px;
-  background: var(--white);
+  background: var(--surface-muted);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease);
+}
+
+.pagina-gastronomia .gas-convenio:hover {
+  background: var(--surface);
 }
 
 .pagina-gastronomia .gas-convenio img {
@@ -368,6 +350,10 @@
 /* Quien pide movimiento reducido salta de fila sin deslizamiento. */
 @media (prefers-reduced-motion: reduce) {
   .pagina-gastronomia .gas-convenios-track {
+    transition: none;
+  }
+
+  .pagina-gastronomia .gas-convenio {
     transition: none;
   }
 }

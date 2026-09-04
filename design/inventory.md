@@ -43,6 +43,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `.pagina-carrera` (alcance del molde corregido) | `psicologia.css` § revisión de diseño · `design/CHANGELOG.md` (2026-08-31) | construido local | Psicología, Nutrición — **no** Área de Ciencias de la Salud |
 | `media-pendiente` | `gastronomia.css` § 0 | construido local · **[PLACEHOLDER]** | Gastronomía |
 | `gas-destinos` (chips de destino) | `specs/gastronomia.md` (M9) · `gastronomia.css` § 5 | construido local | Gastronomía |
+| `gas-convenios` (carrusel de convenios) | `specs/gastronomia.md` (M9) · `gastronomia.css` | construido local | Gastronomía |
 | `com-inst-grid` (instalaciones de la Facultad) | `specs/comunicacion.md` (M7) · `comunicacion.css` § 5 | construido local | Comunicación |
 | `salud-campus-grupo` | `specs/area-ciencias-de-la-salud.md` (M4) | construido local | Área Ciencias de la Salud |
 | `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud |
