@@ -1775,7 +1775,10 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="psicologia.js"></script>
+    <!-- gastronomia.js va ANTES que psicologia.js a propósito: neutraliza el
+         carrusel de docentes cuando hay cuatro tarjetas o menos, y psicologia.js
+         decide si se monta al ejecutarse. Invertir el orden lo rompe. -->
     <script src="gastronomia.js"></script>
+    <script src="psicologia.js"></script>
   </body>
 </html>
