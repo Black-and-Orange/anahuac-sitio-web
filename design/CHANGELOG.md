@@ -9,9 +9,11 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 - Se retira el párrafo adicional que cerraba el bloque de campo laboral antes de
   la banda de doble acreditación.
-- Las tarjetas del carrusel de convenios parten de la superficie gris suave y
-  cambian a blanco al pasar el mouse. El estado se limita a la variante local de
-  Gastronomía y usa tokens semánticos y de movimiento existentes.
+- Las tarjetas del carrusel de convenios parten de una superficie gris con
+  contraste suficiente frente al fondo y cambian a blanco al pasar el mouse.
+  Universidad Europea de Roma y Cuna de Tierra compensan localmente la escala de
+  sus archivos para equilibrarse con los logos horizontales. El ajuste se limita
+  a Gastronomía y usa tokens semánticos y de movimiento.
 
 ## 2026-09-01 — Nutrición · la banda de vinculación lleva los CTA al lateral
 

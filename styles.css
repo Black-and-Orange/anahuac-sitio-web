@@ -83,6 +83,7 @@
     --color-brand-secondary: var(--brown);
     --surface: var(--white);
     --surface-muted: var(--gray);
+    --surface-muted-strong: color-mix(in srgb, var(--surface) 88%, var(--color-text));
     --surface-dark: var(--black);
     --surface-accent: var(--purple-1);
     --surface-accent-light: var(--lilac-2);

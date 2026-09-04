@@ -130,6 +130,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
 | `--color-brand-secondary` | `var(--brown)` | Café institucional, acentos secundarios |
 | `--surface` | `var(--white)` | Fondo base de superficies |
 | `--surface-muted` | `var(--gray)` | Fondo gris suave para superficies secundarias |
+| `--surface-muted-strong` | `color-mix(in srgb, var(--surface) 88%, var(--color-text))` | Fondo gris de mayor contraste sobre una superficie gris suave |
 | `--surface-dark` | `var(--black)` | Fondo oscuro (hero, secciones destacadas) |
 | `--surface-accent` | `var(--purple-1)` | Fondo de sección destacada (púrpura) |
 | `--surface-accent-light` | `var(--lilac-2)` | Fondo de sección con acento ligero |
@@ -223,6 +224,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
   --color-brand-secondary: var(--brown);
   --surface: var(--white);
   --surface-muted: var(--gray);
+  --surface-muted-strong: color-mix(in srgb, var(--surface) 88%, var(--color-text));
   --surface-dark: var(--black);
   --surface-accent: var(--purple-1);
   --surface-accent-light: var(--lilac-2);

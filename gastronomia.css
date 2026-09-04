@@ -331,7 +331,7 @@
   justify-content: center;
   height: var(--gas-convenio-alto);
   padding: 18px 20px;
-  background: var(--surface-muted);
+  background: var(--surface-muted-strong);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius);
   transition: background-color var(--motion-duration-fast) var(--motion-ease);
@@ -345,6 +345,17 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+/* Estos dos archivos son verticales o traen mucho aire interno. Los
+   modificadores compensan el lienzo del asset sin alterar los logos
+   horizontales ni reutilizar una escala global que les quedaría grande. */
+.pagina-gastronomia .gas-convenio--universidad img {
+  transform: scale(1.55);
+}
+
+.pagina-gastronomia .gas-convenio--vinedo img {
+  transform: scale(1.2);
 }
 
 /* Quien pide movimiento reducido salta de fila sin deslizamiento. */

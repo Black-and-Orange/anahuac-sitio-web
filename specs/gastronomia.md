@@ -279,7 +279,7 @@
   - Mtra. María Teresa Hernández del Pando — «Coordinadora Académica»
   - Dra. Jacqueline Moreno Potignon — «Coordinadora de Promoción»
   - **[VERIFICAR: vigencia de nombres y cargos, y autorización para publicar foto y correo institucional.]** **[PENDIENTE: chefs y profesores destacados, distintos de la coordinación administrativa.]**
-- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales». En la variante local de Gastronomía, las tarjetas tienen fondo `--surface-muted` y cambian a `--surface` al pasar el mouse.
+- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales». En la variante local de Gastronomía, las tarjetas tienen fondo `--surface-muted-strong` y cambian a `--surface` al pasar el mouse. Los logos verticales o con aire interno usan modificadores locales de escala para conservar un peso visual equivalente.
 - **«Destinos de prácticas» (H3):** dos listas de chips.
   - **Internacionales:** Montreal · Miami · Aspen · Dallas · Chicago · Orlando · Nueva York · Punta Cana · Buenos Aires · Hong Kong · Ibiza · Barcelona · Madrid · San Sebastián · París · Londres · Roma · Melbourne · Phuket · Seúl · Dubái · Vietnam · Tailandia · Shanghái
   - **Nacionales:** Ciudad de México · Cancún · Ensenada · Los Cabos · Mérida · Oaxaca · Riviera Maya · San Miguel de Allende · Punta Mita

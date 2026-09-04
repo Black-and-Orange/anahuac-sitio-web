@@ -36,7 +36,7 @@ para que sea reutilizable y consistente. Los efectos que aporte la revisión hum
 > Se van listando aquí conforme se aprueban (con fecha y página/origen). Ver `docs/human-review.md` y `design/CHANGELOG.md`.
 
 - **2026-09-04 · Gastronomía:** las tarjetas de convenios parten de una superficie
-  gris suave (`--surface-muted`) y pasan a la superficie blanca (`--surface`) en
+  gris de mayor contraste (`--surface-muted-strong`) y pasan a la superficie blanca (`--surface`) en
   `hover`, usando los tokens de transición rápida del sistema.
 - **2026-08-27 · Foráneos:** las tarjetas del mapa incorporan una modal
   informativa de ubicación. Google Maps se carga bajo demanda y se centra en la
