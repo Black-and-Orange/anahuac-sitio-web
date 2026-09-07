@@ -2331,8 +2331,8 @@
   text-align: center;
   height: var(--colab-row, 104px);
   padding: 18px 16px;
-  background: var(--surface-muted-strong);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: var(--radius);
   font-family: var(--font-heading);
   font-size: 15px;
@@ -2340,13 +2340,14 @@
   font-weight: 600;
   color: var(--color-text);
   text-wrap: balance;
-  transition: background-color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
-/* Fondo gris que aclara a blanco en hover (mismo trato que «Convenios de
-   prácticas» de Gastronomía). */
+/* Sin fondo (solo borde gris); en hover se pinta blanco y el logo recupera su
+   color (ver `.colab-logo:hover img`). */
 .colab-logo:hover {
   background: var(--surface);
+  border-color: transparent;
 }
 
 /* Cuando el tile trae logo (img), se muestra en escala de grises y se colorea
@@ -2375,24 +2376,15 @@
   color: var(--color-text-secondary);
 }
 
-/* Variante: hueco de logotipo pendiente.
-   El aliado existe y va en la lista, pero todavía no tenemos su archivo. En vez
-   de dejar el nombre como si fuera el diseño final —que se lee como una
-   decisión y nadie pide nada— el tile se pinta como un hueco por llenar: borde
-   punteado, sin fondo, y una etiqueta que dice qué falta. Así el cliente ve de
-   un vistazo cuántos archivos nos debe pasar.
+/* Variante: logotipo pendiente.
+   El aliado existe y va en la lista, pero todavía no tenemos su archivo. Conserva
+   el mismo marco que el resto del módulo (borde gris sólido, sin fondo) para que
+   se vea consistente; la etiqueta «Logotipo pendiente» es la que indica qué falta.
 
    [PLACEHOLDER] Ningún tile con esta clase debe llegar a producción: o llega el
    logotipo y se sustituye por su <img>, o el aliado sale de la lista. */
 .colab-logo-pendiente {
-  background: none;
-  border-style: dashed;
-  border-color: rgba(0, 0, 0, 0.22);
-}
-
-.colab-logo-pendiente:hover {
-  transform: none;
-  box-shadow: none;
+  background: transparent;
 }
 
 /* El nombre recupera la tipografía del tile: `.colab-logo span` viste TODO span
@@ -2441,6 +2433,13 @@
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+}
+
+/* El JS oculta los controles con [hidden] cuando solo hay una fila; sin esto,
+   `display: flex` de arriba gana al estilo del atributo y las flechas seguirían
+   visibles (pero inertes). */
+.colab-arrows[hidden] {
+  display: none;
 }
 
 .colab-arrow {
