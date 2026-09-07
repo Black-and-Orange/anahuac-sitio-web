@@ -1,0 +1,170 @@
+/* ==========================================================================
+   medicina.css — Ajustes puntuales de la página de Médico Cirujano.
+   El molde completo vive en psicologia.css: esta página NO estrena componentes.
+   Aquí solo van desviaciones de contenido que el molde de Psicología no tenía
+   (12 semestres con etiquetas de etapa, línea de apoyo del dato AEO, dato de
+   respaldo del campo laboral, banda promocional de una sola columna en M6,
+   textos de apoyo de convenios y mensajes de estado del formulario).
+   Todo con tokens semánticos; cero valores hardcodeados.
+   ========================================================================== */
+
+/* ----- M1 · H1 del hero: «Licenciatura en Médico Cirujano» =====
+   «Médico Cirujano» (31 caracteres) es más largo que cualquier título del molde
+   —Comunicación (12) o Gastronomía (11)—, así que ni el molde ni la variante
+   `lic-hero--titulo-largo` lo hacen caber en 2 líneas en los dos extremos: los
+   teléfonos muy estrechos (≤380px) y el hero a dos columnas (≥1181px), donde la
+   columna de texto se estrecha. Se reduce el cuerpo SOLO en esos tramos y SOLO
+   en esta página (`.pagina-medicina`), sin tocar el molde compartido. Verificado
+   con la lógica de check:titulos (≤2 líneas, sin renglón huérfano) de 320 a 2560px. */
+@media (max-width: 380px) {
+  .pagina-medicina .lic-hero h1 {
+    font-size: 8.2vw;
+  }
+}
+
+@media (min-width: 1181px) {
+  .pagina-medicina .lic-hero h1 {
+    font-size: min(4.8vw, 62px);
+  }
+}
+
+/* ----- M5 · Etiquetas de agrupación (etapas) sobre las tabs ----- */
+.plan-etapas {
+  list-style: none;
+  margin: 0 0 var(--space-8);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.plan-etapa {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-7);
+  background: var(--surface-accent-light);
+  border-radius: var(--radius-sm);
+}
+
+.plan-etapa-nom {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--purple-1);
+}
+
+.plan-etapa-rango {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--purple-2);
+}
+
+/* ----- M5 · Créditos, etapa y notas de los paneles de semestre ----- */
+.plan-sem-creditos {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--color-text-secondary);
+}
+
+.plan-sem-etapa {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.plan-sem-etapa strong {
+  font-weight: 600;
+  color: var(--purple-2);
+}
+
+.plan-sem-nota {
+  margin: var(--space-7) 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* ----- M6 · Dato de respaldo bajo los tiles del campo laboral ----- */
+.campo-dato {
+  margin: var(--space-9) 0 0;
+  max-width: 70ch;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* ----- M6 · Banda promocional de una sola columna =====
+   Reutiliza la base .campo-band (morada). A diferencia de la variante --doble
+   de Psicología, aquí hay un solo bloque de copy que ocupa todo el ancho y los
+   CTAs quedan debajo del dato. */
+.campo-band--promo {
+  justify-content: flex-start;
+}
+
+.campo-band--promo .campo-doble-copy {
+  flex: 1 1 100%;
+}
+
+.campo-band--promo .campo-cta {
+  margin-top: var(--space-6);
+}
+
+/* ----- M9 · Texto de apoyo de cada grupo de convenios ----- */
+.colab-group-nota {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.colab-group-nota strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ----- M7 · Línea bajo la nota de campus ----- */
+.campus-note-linea {
+  margin: var(--space-6) 0 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* ----- M13 · Mensajes de estado del formulario ----- */
+.lic-form-msg {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.lic-form-msg--ok {
+  color: var(--purple-2);
+}
+
+.lic-form-msg--error {
+  color: var(--orange);
+}
+
+/* ----- M8 · Historias Anáhuac: intro alineada a la izquierda como en el Home -----
+   El molde de carrera centra la bajada (`margin: auto`); aquí se homologa al
+   Home dejándola contra el eje izquierdo, alineada con el título. */
+.pagina-medicina .stories .section-intro > p:not(.tagline) {
+  margin-left: 0;
+  margin-right: 0;
+}
