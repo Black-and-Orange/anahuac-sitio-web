@@ -16,7 +16,7 @@
     />
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="psicologia.css" />
+    <link rel="stylesheet" href="psicologia.css?v=2" />
 
     <!-- Datos estructurados: BreadcrumbList (ver Anexo A del spec). Course y FAQPage
          se agregarán junto a sus módulos (4 y 10). -->
@@ -596,8 +596,8 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Clínicas y consultorios</span>
-                  <span class="campo-tile-desc">Atención psicológica particular y en consultorio propio.</span>
+                  <span class="campo-tile-title">Psicología Clínica</span>
+                  <span class="campo-tile-desc">Intervención psicoterapéutica privada en diferentes poblaciones y contextos: niños, adolescentes, adultos, parejas, familia, TCA, adicciones, entre otros.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
@@ -610,8 +610,8 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Rehabilitación y neuropsicología</span>
-                  <span class="campo-tile-desc">Centros de rehabilitación clínica y recuperación de funciones.</span>
+                  <span class="campo-tile-title">Neuropsicología</span>
+                  <span class="campo-tile-desc">Evaluación, diagnóstico y tratamiento. Por ejemplo en personas con TEA, TDA-H, demencia, entre otros.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
@@ -626,8 +626,8 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Hospitales e instituciones de salud</span>
-                  <span class="campo-tile-desc">Equipos de salud en instituciones públicas y privadas.</span>
+                  <span class="campo-tile-title">Psicología Hospitalaria</span>
+                  <span class="campo-tile-desc">Acompañamiento a pacientes y familiares hospitalizados y trabajo interdisciplinario con médicos, psiquiatras, nutriólogos, fisioterapeutas, entre otros.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
@@ -641,7 +641,7 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Ambientes educativos</span>
+                  <span class="campo-tile-title">Psicología educativa</span>
                   <span class="campo-tile-desc">Orientación vocacional, evaluación e intervención psicopedagógica.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
@@ -656,8 +656,8 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Empresas y organizaciones</span>
-                  <span class="campo-tile-desc">Comportamiento organizacional, capacitación y desarrollo de talento.</span>
+                  <span class="campo-tile-title">Psicología organización</span>
+                  <span class="campo-tile-desc">Desarrollo de talento, reclutamiento, capacitación en empresas.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
@@ -687,8 +687,8 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Instituciones de investigación</span>
-                  <span class="campo-tile-desc">Estudio del comportamiento humano y generación de conocimiento.</span>
+                  <span class="campo-tile-title">Investigación</span>
+                  <span class="campo-tile-desc">Instituciones dedicadas al estudio del comportamiento humano y generación de conocimiento.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
@@ -699,28 +699,79 @@
             </div>
           </div>
 
-          <div class="campo-band campo-band--doble reveal" data-reveal>
-            <img
-              class="campo-doble-logo"
-              src="assets/psicologia/university-of-hull.png"
-              alt="University of Hull"
-              width="400"
-              height="405"
-              loading="lazy"
-            />
-            <div class="campo-doble-copy">
-              <h3 class="campo-doble-title">Doble titulación · BSc (Hons) Psychological Studies</h3>
-              <p class="campo-doble-text">
-                Obtén un título por parte de la <strong>Universidad Anáhuac México</strong>
-                y un título por la Universidad de Hull en Inglaterra
+          <!-- Doble titulación internacional: un solo módulo que compara las dos
+               rutas (Inglaterra / España) en paralelo. Encabezado, nota y CTAs son
+               compartidos; cada columna es un convenio. La estructura de columnas
+               mapea a un repeater de "opciones" en HubSpot. -->
+          <div class="doble-tit reveal" data-reveal>
+            <div class="doble-tit-head">
+              <p class="doble-tit-eyebrow">Doble titulación internacional</p>
+              <h3 class="doble-tit-title">Gradúate con dos títulos oficiales</h3>
+              <p class="doble-tit-sub">
+                Uno de la Universidad Anáhuac México y otro de una universidad en el extranjero.
               </p>
-              <p class="campo-doble-duracion">
-                <strong>4 años en México</strong> + 1 año en Inglaterra
-              </p>
-              <div class="campo-cta">
-                <a class="btn btn-orange" href="proceso-de-admision.html">Iniciar proceso de admisión</a>
-                <a class="btn btn-light" href="#solicita">Solicitar más información</a>
-              </div>
+            </div>
+
+            <div class="doble-tit-grid">
+              <article class="dt-card">
+                <div class="dt-card-head">
+                  <span class="dt-logo">
+                    <img src="assets/psicologia/university-of-hull.png" alt="University of Hull" width="400" height="405" loading="lazy" />
+                  </span>
+                  <span class="dt-country">
+                    <span class="dt-flag">
+                      <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <clipPath id="ukclip-a"><path d="M0 0h60v30H0z" /></clipPath>
+                        <clipPath id="ukclip-b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z" /></clipPath>
+                        <g clip-path="url(#ukclip-a)">
+                          <path d="M0 0v30h60V0z" fill="#012169" />
+                          <path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6" />
+                          <path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukclip-b)" stroke="#C8102E" stroke-width="4" />
+                          <path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10" />
+                          <path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6" />
+                        </g>
+                      </svg>
+                    </span>
+                    Inglaterra
+                  </span>
+                </div>
+                <h4 class="dt-program">BSc (Hons) Psychological Studies</h4>
+                <p class="dt-uni">University of Hull</p>
+                <p class="dt-duration">
+                  <span class="dt-dur-base">4 años en México</span>
+                  <span class="dt-dur-intl">+ 1 año en Inglaterra</span>
+                </p>
+              </article>
+
+              <article class="dt-card">
+                <div class="dt-card-head">
+                  <span class="dt-logo">
+                    <img src="assets/psicologia/logos/ufv.webp" alt="Universidad Francisco de Vitoria" width="600" height="180" loading="lazy" />
+                  </span>
+                  <span class="dt-country">
+                    <span class="dt-flag">
+                      <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <rect width="60" height="40" fill="#c60b1e" />
+                        <rect y="10" width="60" height="20" fill="#ffc400" />
+                      </svg>
+                    </span>
+                    España
+                  </span>
+                </div>
+                <h4 class="dt-program">Grado en Psicología</h4>
+                <p class="dt-uni">Universidad Francisco de Vitoria</p>
+                <p class="dt-duration">
+                  <span class="dt-dur-base">4 años en México</span>
+                  <span class="dt-dur-intl">+ 1 año en España</span>
+                </p>
+              </article>
+            </div>
+
+            <p class="doble-tit-note">Posterior, puedes aplicar para trabajar y para realizar maestrías.</p>
+
+            <div class="doble-tit-cta">
+              <a class="btn btn-orange" href="proceso-de-admision.html">Iniciar proceso de admisión</a>
+              <a class="dt-cta-ghost" href="#solicita">Solicitar más información</a>
             </div>
           </div>
         </div>
@@ -967,31 +1018,65 @@
             </div>
           </div>
 
+          <!-- Aliados en carrusel vertical (mismo patrón que «Convenios de
+               prácticas» de Gastronomía): el viewport muestra una fila y las
+               flechas ↑/↓ avanzan una fila por clic, con vuelta. Lo maneja
+               psicologia.js sobre cada [data-colab-carousel].
+               PENDIENTE: logotipos de Grupo Punto de Partida, Instituto Nacional
+               de Geriatría, KidZania y Oceánica (tiles marcados como pendientes). -->
           <div class="colab-aliados reveal" data-reveal>
-            <div class="colab-group">
-              <h3 class="colab-group-title">Aliados nacionales</h3>
-              <ul class="colab-logos">
-                <li class="colab-logo"><img src="assets/psicologia/logos/inp.webp" alt="Instituto Nacional de Psiquiatría" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/INNN.webp" alt="Instituto Nacional de Neurología y Neurocirugía" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/hospital-juarez.webp" alt="Hospital Juárez de México" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/hospital-infantil.webp" alt="Hospital Infantil de México «Federico Gómez»" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/CIJ.webp" alt="Centros de Integración Juvenil" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/teleton.webp" alt="Centro de Autismo Teletón" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/dif.webp" alt="DIF Huixquilucan" loading="lazy" /></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/monte-fenix.webp" alt="Monte Fénix" loading="lazy" /></li>
-              </ul>
+            <div class="colab-group" data-colab-carousel>
+              <div class="colab-group-head">
+                <h3 class="colab-group-title">Aliados nacionales</h3>
+                <div class="colab-arrows" role="group" aria-label="Navegación de aliados nacionales">
+                  <button type="button" class="colab-arrow colab-logos-prev" aria-label="Ver aliados anteriores">↑</button>
+                  <button type="button" class="colab-arrow colab-logos-next" aria-label="Ver más aliados">↓</button>
+                </div>
+              </div>
+              <div class="colab-logos-viewport">
+                <ul class="colab-logos">
+                  <li class="colab-logo"><img src="assets/psicologia/logos/inp.webp" alt="Instituto Nacional de Psiquiatría Juan Ramón de la Fuente Muñiz" loading="lazy" /></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/CIJ.webp" alt="Centro de Integración Juvenil" loading="lazy" /></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/dif.webp" alt="DIF Huixquilucan" loading="lazy" /></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/teleton.webp" alt="Teletón" loading="lazy" /></li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Grupo Punto de Partida</span>
+                    <span class="colab-logo-falta">Logo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Instituto Nacional de Geriatría</span>
+                    <span class="colab-logo-falta">Logo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">KidZania</span>
+                    <span class="colab-logo-falta">Logo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Oceánica</span>
+                    <span class="colab-logo-falta">Logo pendiente</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div class="colab-group">
-              <h3 class="colab-group-title">Aliados internacionales</h3>
-              <ul class="colab-logos">
-                <li class="colab-logo"><img src="assets/psicologia/logos/uc-san-diego.webp" alt="UC San Diego" loading="lazy" /><span>Estados Unidos</span></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/sunderland.webp" alt="University of Sunderland" loading="lazy" /><span>Inglaterra</span></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/ufv.webp" alt="Universidad Francisco de Vitoria" loading="lazy" /><span>España</span></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/raimon-gaja.webp" alt="Instituto Raimon Gaja" loading="lazy" /><span>España</span></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/isep.webp" alt="ISEP · Instituto Superior de Estudios Psicológicos" loading="lazy" /><span>España</span></li>
-                <li class="colab-logo"><img src="assets/psicologia/logos/universidad-isabel-i.webp" alt="Universidad Isabel I" loading="lazy" /><span>España</span></li>
-              </ul>
+            <div class="colab-group" data-colab-carousel>
+              <div class="colab-group-head">
+                <h3 class="colab-group-title">Aliados internacionales</h3>
+                <div class="colab-arrows" role="group" aria-label="Navegación de aliados internacionales">
+                  <button type="button" class="colab-arrow colab-logos-prev" aria-label="Ver aliados anteriores">↑</button>
+                  <button type="button" class="colab-arrow colab-logos-next" aria-label="Ver más aliados">↓</button>
+                </div>
+              </div>
+              <div class="colab-logos-viewport">
+                <ul class="colab-logos">
+                  <li class="colab-logo"><img src="assets/psicologia/logos/uc-san-diego.webp" alt="UC San Diego" loading="lazy" /><span>Estados Unidos</span></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/sunderland.webp" alt="University of Sunderland" loading="lazy" /><span>Inglaterra</span></li>
+                  <li class="colab-logo"><img src="assets/psicologia/university-of-hull.png" alt="University of Hull" loading="lazy" /><span>Inglaterra</span></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/ufv.webp" alt="Universidad Francisco de Vitoria" loading="lazy" /><span>España</span></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/raimon-gaja.webp" alt="Instituto Raimon Gaja" loading="lazy" /><span>España</span></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/isep.webp" alt="ISEP · Instituto Superior de Estudios Psicológicos" loading="lazy" /><span>España</span></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -1105,8 +1190,8 @@
               <p>Sí. Realizas prácticas desde el primer semestre en instituciones aliadas, nacionales e internacionales.</p>
             </details>
             <details class="faq-item" name="faq-psico">
-              <summary>¿Qué especialidades puedo elegir dentro de la carrera?</summary>
-              <p>Puedes enfocarte en clínica, neuropsicología, organizacional y educativa, con materias regionales como Psicología Positiva, Forense y Adicciones.</p>
+              <summary>¿Qué áreas puedo elegir dentro de la carrera?</summary>
+              <p>Puedes enfocarte en las áreas de clínica, neuropsicología, organizacional y educativa, con materias como Taller de entrevista, Psicopatología, Neuropsicología, Psicología forense, Taller de intervención psicopedagógica y Capacitación y Desarrollo Organizacional.</p>
             </details>
             <details class="faq-item" name="faq-psico">
               <summary>¿En qué puedo trabajar al egresar?</summary>
@@ -1128,7 +1213,7 @@
               { "@type": "Question", "name": "¿Cuántos años dura la carrera de Psicología?", "acceptedAnswer": { "@type": "Answer", "text": "La Licenciatura en Psicología dura 8 semestres (Modelo 2025), equivalentes a cuatro años." } },
               { "@type": "Question", "name": "¿En qué campus se imparte Psicología?", "acceptedAnswer": { "@type": "Answer", "text": "Es presencial y se imparte en modalidad bicampus: Campus Norte (Huixquilucan, Edo. Méx.) y Campus Sur (Álvaro Obregón, CDMX)." } },
               { "@type": "Question", "name": "¿Psicología tiene prácticas profesionales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Realizas prácticas desde el primer semestre en instituciones aliadas, nacionales e internacionales." } },
-              { "@type": "Question", "name": "¿Qué especialidades puedo elegir dentro de la carrera?", "acceptedAnswer": { "@type": "Answer", "text": "Puedes enfocarte en clínica, neuropsicología, organizacional y educativa, con materias regionales como Psicología Positiva, Forense y Adicciones." } },
+              { "@type": "Question", "name": "¿Qué áreas puedo elegir dentro de la carrera?", "acceptedAnswer": { "@type": "Answer", "text": "Puedes enfocarte en las áreas de clínica, neuropsicología, organizacional y educativa, con materias como Taller de entrevista, Psicopatología, Neuropsicología, Psicología forense, Taller de intervención psicopedagógica y Capacitación y Desarrollo Organizacional." } },
               { "@type": "Question", "name": "¿En qué puedo trabajar al egresar?", "acceptedAnswer": { "@type": "Answer", "text": "En clínicas y consultorios, hospitales, ambientes educativos, empresas, centros comunitarios e instituciones de investigación." } },
               { "@type": "Question", "name": "¿Cuánto cuesta estudiar Psicología en la Anáhuac?", "acceptedAnswer": { "@type": "Answer", "text": "Consulta el costo vigente y las opciones de pago con nuestro cotizador; además hay becas y apoyos disponibles." } }
             ]
@@ -1319,6 +1404,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="psicologia.js"></script>
+    <script src="psicologia.js?v=2"></script>
   </body>
 </html>

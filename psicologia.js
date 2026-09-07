@@ -311,3 +311,81 @@
 
   slideTo(0, false);
 })();
+
+/* ===== Módulo 8 — Aliados: carruseles verticales (nacionales / internacionales) =====
+   Mismo patrón que «Convenios de prácticas» de Gastronomía: el viewport muestra
+   una fila y cada clic mueve exactamente una fila, dando la vuelta al final, así
+   que las flechas nunca quedan en un extremo muerto. El suavizado es una
+   `transition` de CSS sobre el transform (no un tween en JS). Se generaliza a
+   cualquier [data-colab-carousel] para servir a los dos grupos con un solo bloque. */
+(function () {
+  "use strict";
+
+  const carruseles = document.querySelectorAll("[data-colab-carousel]");
+  if (!carruseles.length) return;
+
+  carruseles.forEach((raiz) => {
+    const track = raiz.querySelector(".colab-logos");
+    const arriba = raiz.querySelector(".colab-logos-prev");
+    const abajo = raiz.querySelector(".colab-logos-next");
+    if (!track || !arriba || !abajo) return;
+
+    const tarjetas = Array.from(track.children);
+    if (!tarjetas.length) return;
+
+    const controles = raiz.querySelector(".colab-arrows");
+    let fila = 0;
+
+    /* Las columnas cambian por breakpoint (4 / 3 / 2). Se leen de la retícula ya
+       resuelta en vez de repetir esos valores aquí. */
+    function columnas() {
+      const cols = getComputedStyle(track).gridTemplateColumns;
+      if (!cols || cols === "none") return 1;
+      return cols.split(" ").filter(Boolean).length;
+    }
+
+    function filas() {
+      return Math.ceil(tarjetas.length / columnas());
+    }
+
+    /* Alto de una tarjeta más el hueco entre filas; se mide por si cambia el CSS. */
+    function paso() {
+      const hueco = parseFloat(getComputedStyle(track).rowGap) || 0;
+      return tarjetas[0].getBoundingClientRect().height + hueco;
+    }
+
+    function pintar() {
+      track.style.transform = "translateY(" + -fila * paso() + "px)";
+    }
+
+    function mover(direccion) {
+      const total = filas();
+      if (total <= 1) return;
+      fila = (fila + direccion + total) % total;
+      pintar();
+    }
+
+    abajo.addEventListener("click", () => mover(1));
+    arriba.addEventListener("click", () => mover(-1));
+
+    /* Con una sola fila no hay nada que recorrer: sobran los controles. */
+    function revisarControles() {
+      if (!controles) return;
+      controles.hidden = filas() <= 1;
+    }
+
+    let repintado;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(repintado);
+      repintado = window.setTimeout(() => {
+        const total = filas();
+        if (fila >= total) fila = total - 1;
+        if (fila < 0) fila = 0;
+        revisarControles();
+        pintar();
+      }, 150);
+    });
+
+    revisarControles();
+  });
+})();
