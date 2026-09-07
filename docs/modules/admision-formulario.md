@@ -62,15 +62,54 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+Cierre de conversión de Proceso de admisión: combina a Leonel, contenido introductorio y
+una tarjeta que incrusta un formulario nativo de HubSpot. Está precargado al final del
+`dnd_area` de `templates/proceso-de-admision.html`, después de `admision-faq`, y porta
+`<section class="adm-form section-pad" id="actua">`.
+
+Cuando `grupo_formulario.formulario.form_id` existe, el tag `{% form %}` entrega los datos
+al CRM y respeta `response_type`, mensaje o redirección. Sin `form_id`, el módulo emite
+inputs, textarea, checkbox y botón como **respaldo exclusivamente visual**: no existe un
+elemento `<form>`, por lo que el click en `type="submit"` no genera un evento `submit` y
+el listener compartido de `main.js` sobre `.adm-form` no se activa. El AUTO dice
+«Formulario operativo observado: sí» porque detecta el tag HubL; no garantiza que el
+fallback envíe datos.
+
+En la secuencia aprobada, la necesidad lógica `admision-asesoria` se satisface
+reutilizando [`apoyos-asesoria`](./apoyos-asesoria.md), nunca creando otro módulo. El
+template versionado aún pasa directamente del FAQ a este formulario: integrar la asesoría
+significa invocar el módulo físico existente con configuración de Admisión, no generar
+`admision-asesoria.md` ni una carpeta homónima.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Cuando se necesita captación real mediante un field HubSpot `form`, con contenido e
+  imagen lateral específicos de Admisión.
+- Con un formulario seleccionado. El fallback preserva la composición visual para edición
+  y preview, pero no envía datos.
+- En templates que carguen `css/main.css` y `js/main.js`: `module.css` y `module.js` están
+  vacíos. El CSS compartido define layout, mascota, tarjeta, inputs de fallback y seis
+  breakpoints; el JS compartido maneja reveal y contiene el listener común de fallback.
+- Como una instancia por página: el ID `actua` es fijo y los selectores JS usan
+  `document.querySelector(".apo-form, .adm-form")`, que solo devuelve la primera.
+- Como módulo `page-specific` con configuración propia. Una reutilización fuera de
+  Admisión requiere justificar promoción a `reusable` y revisar el asset/estructura.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No publicar como captación sin seleccionar un formulario y probar envío, consentimiento,
+  respuesta/redirección y llegada al CRM. El respaldo visual no es operativo.
+- No asumir que los inputs generados por HubSpot recibirán el estilo del fallback: las
+  reglas actuales apuntan a descendientes directos de `.adm-form-card`; la spec mantiene
+  pendiente igualar el embed real al diseño aprobado.
+- No sustituir automáticamente por `apoyos-formulario` (score 0.760). Ambos usan field
+  `form`, pero las firmas divergen: Admisión tiene `grupo_visibilidad.mostrar_flecha` y
+  `grupo_imagen.mascota`; Apoyos usa `grupo_imagen.image`. Cambian raíz, clases, fallback,
+  asset y responsive. `oferta-form` es aún menos compatible: no usa field `form` ni envía.
+- No duplicarlo en la página: repetiría `id="actua"`; el JS compartido solo selecciona la
+  primera sección de formulario.
+- No usarlo para cubrir la asesoría lógica pendiente. Esa relación pertenece a
+  `apoyos-asesoria`, con contenido/configuración de Admisión.
 
 ## Fields editables
 
@@ -97,6 +136,54 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_fondo` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+- **`metadata`.** Duro: familia `formulario` y capacidades `contenido-introductorio`,
+  `fallback-estatico`, `formulario-hubspot` e `imagen-mascota`. La ausencia de
+  `formulario-hubspot` corta la cadena: no hace lo mismo. `estado: Approved`,
+  `tier: page-specific`, `meta.global: false`; categories/content types son aditivos y el
+  tier solo cambia mediante decisión de alcance.
+- **`fields`.** Duro: 19 paths exactos, todos opcionales y no repetibles. Los cinco groups
+  raíz (`grupo_contenido`, `grupo_visibilidad`, `grupo_imagen`, `grupo_formulario`,
+  `grupo_estilos`) son single. `grupo_formulario.formulario` es `form` con default
+  `form_type=HUBSPOT`, `response_type=inline`, mensaje y webinar null;
+  `grupo_imagen.mascota` es `image`; `mostrar_flecha` es boolean. Cambiar path, tipo,
+  required o repetición es bloqueante. Los defaults cuentan en la firma del generador,
+  aunque un cambio puramente editorial no equivale por sí solo a incompatibilidad.
+- **`html`.** Duro: `section.adm-form.section-pad#actua > .container >
+  .adm-form-layout`, con `.adm-form-mascot > img` y `.adm-form-content` que contiene
+  `.section-intro.reveal[data-reveal]` más `.adm-form-card.reveal[data-reveal]`. El bloque
+  operativo es el tag `{% form %}` condicional; el fallback conserva exactamente dos
+  inputs, textarea, label/checkbox y button, pero sin `<form>`. Raíz, jerarquía y clases
+  alimentan CSS/JS compartidos y son contrato duro.
+- **`css`.** `module.css` vacío: todos los selectores AUTO viven en `main.css`. Una brecha
+  `falta selector:` o responsive obliga a editar CSS transversal y es bloqueante. La
+  configuración permitida se limita a `--admision-form-bg` y
+  `--admision-form-text`; el resto usa tokens del theme.
+- **`js/hooks`.** `module.js` vacío. `js/main.js` observa `[data-reveal]` y selecciona la
+  primera `.apo-form, .adm-form` para interceptar `submit`. Ese listener sirve solo si hay
+  un evento submit; el fallback actual carece de `<form>`, mientras el embed seleccionado
+  lo controla HubSpot. Añadir/cambiar hooks exige revisar ambos formularios y es
+  bloqueante.
+- **`variantes`.** Ninguna declarada. Mascota, flecha y colores son configuración, no
+  variantes. Una variante futura se añade sin reescribir el contrato y se registra.
+- **`responsive`.** Seis breakpoints observados en `main.css`: 90em, 73.75em, 68.75em,
+  48em, 40em y 29.6875em. Ajustan columnas, orden, altura/posición/tamaño de la mascota y
+  tipografía. Todos son compartidos; cualquier gap responsive es bloqueante.
+- **`assets`.** Fallback físico
+  `images/oferta-academica/formulario/leonel-formulario-1.png`, resuelto con
+  `get_asset_url`; el field `grupo_imagen.mascota` puede sustituirlo. Perder el asset deja
+  la columna visual sin respaldo; cambiarlo es adaptable si se conserva formato admitido,
+  ruta válida y `alt`.
+- **`dependencias`.** `css/main.css` y `js/main.js`, cargados por el template, no por
+  `require_*`. CSS es obligatorio; JS aporta reveal y el intento de feedback del fallback.
+  El formulario real depende además del runtime de HubSpot generado por `{% form %}`.
+- **`paginas`.** Uso observado: `Proceso de admisión`. Está en `dnd_area`, por lo que el
+  contenido tiene snapshot por página; cambios en `module.html`, `main.css` o `main.js`
+  impactan todas las páginas que lo usan. `apoyos-formulario` comparte CSS/JS conceptual,
+  así que cualquier ajuste transversal exige revisar también Apoyos. La asesoría lógica
+  anterior reutiliza `apoyos-asesoria`; no crea un módulo número 35.
 
 ## Checklist de compatibilidad
 

@@ -33,6 +33,8 @@
     /* Tipografía */
     --font-heading: "Zilla Slab", serif;
     --font-body: "Roboto", sans-serif;
+    /* Manuscrita decorativa: sello editorial «Tips ANÁHUAC». */
+    --font-script: "Kaushan Script", cursive;
     --heading-3-size: 40px;
     --heading-4-size: 24px;
     --heading-5-size: 20px;

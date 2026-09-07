@@ -61,15 +61,38 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-siguiente-paso` ofrece destinos posteriores del proceso en una rejilla de
+tarjetas. Porta `.adm-siguiente#siguiente-paso` de `proceso-de-admision.html:507-538` y la
+plantilla lo incluye en `templates/proceso-de-admision.html:92-96`.
+
+El repeater `tarjetas` admite hasta 12 items y permite ocultarlos individualmente. Cada
+tarjeta visible contiene icono, título, descripción y enlace. `icono_imagen.src` tiene
+precedencia; si está vacío, el macro emite uno de cuatro SVG inline según `icono`
+(`calendario`, `documento`, `documento-check`, `contacto`). Los siete fields de estilo se
+convierten en custom properties sobre la sección; el color de icono solo afecta SVG con
+`currentColor`, nunca la imagen subida.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Para una navegación editorial de tarjetas planas con icono, texto y CTA por item.
+- Cuando cada tarjeta deba poder ocultarse sin borrarse y alternar entre icono del design
+  system e imagen subida.
+- Dentro de Proceso de admisión o, tras una decisión explícita de alcance, donde su
+  contrato `page-specific` resulte compatible.
+- Desde un template que cargue `css/main.css`. No tiene JS específico: hover y layout son
+  CSS; `[data-reveal]` es el comportamiento genérico del theme.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No lo sustituyas automáticamente por `siguiente-paso` ni `comienza-tu-camino`. Son
+  candidatos por familia e intención, pero difieren en paths, raíz, jerarquía, iconos y
+  estados. Compara las diez dimensiones antes de decidir.
+- No para tarjetas clicables en toda su superficie: aquí solo el `<a>` final navega.
+- No para contenido rico, imagen principal, badge o estado expandido: el cuerpo usa
+  `text` y la tarjeta tiene una estructura fija.
+- No dos veces en una página sin resolver el `id="siguiente-paso"` duplicado.
+- No si una imagen subida debe recolorearse en hover; las reglas solo apuntan a
+  `.siguiente-icon`, no a `.siguiente-icon-img`.
 
 ## Fields editables
 
@@ -106,6 +129,40 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_tarjeta_enlace` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_icono` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+- **metadata** — Las capacidades observables definen tarjetas navegables, repetibles,
+  ocultables e icono configurable. `familia: navegacion-tarjetas` amplía la búsqueda;
+  tier, global, estado, categoría y content types son notas de alcance/plataforma y no
+  deciden compatibilidad. `Approved` es curaduría del registry, no publicación.
+- **fields** — `tarjetas` es repeater raíz `{min:0, default:4, max:12}` con 13 hijos;
+  `mostrar`, `icono` e `icono_imagen` son parte dura de la capacidad diferencial. La
+  firma exacta incluye defaults y occurrence: cambiar un path existente es bloqueante
+  para el comparador. Un field nuevo debe ser opcional, tener default y lectura tolerante.
+- **html** — Duro: `section.adm-siguiente > .container.adm-siguiente-layout`, intro y
+  `.siguiente-cards` hermanas, y `article.siguiente-card` por item visible. El icono es
+  alternativamente `img.siguiente-icon-img` o `svg.siguiente-icon`; el enlace no envuelve
+  la tarjeta. El AUTO no lista `.siguiente-icon` porque nace dentro de un macro HubL, pero
+  el marcado real y el CSS sí la requieren: es una limitación de evidencia generada.
+- **css** — `module.css` vacío. Las reglas viven en `main.css:4969-4977`, `6423-6515` y
+  `7703-7747`; `.siguiente-*` también es compartido por otras secciones, aunque las custom
+  properties de administración se acotan con `.adm-siguiente`. Toda brecha de selector
+  es bloqueante por origen transversal.
+- **js/hooks** — No hay JS específico ni hooks propios. `module.js` está vacío y el AUTO
+  marca Dependencias JS `—`; no inferir comportamiento por `mostrar` ni por el hover.
+- **variantes** — Ninguna registrada. Los cuatro valores de `icono`, la imagen alternativa
+  y `mostrar` son configuración de contenido, no variantes declaradas.
+- **responsive** — `90em` y `73.75em` recomponen `.adm-siguiente-layout`; `37.5em` lleva
+  `.siguiente-cards` a una columna. Las tres reglas están en `main.css`, así que una brecha
+  responsive es bloqueante y no puede cerrarse localmente en este módulo.
+- **assets** — No hay archivos fallback. Los iconos del design system son SVG inline y
+  las imágenes dependen del field; un `src` vacío activa el SVG.
+- **dependencias** — Solo `css/main.css`, cargado por la plantilla. Es nota si el destino
+  ya la satisface; sin ella desaparecen rejilla, colores, hover y responsive.
+- **paginas** — Uso observado: `Proceso de admisión`. Los scores 0.608/0.462 invitan a
+  comparar `siguiente-paso` y `comienza-tu-camino`; no autorizan REUTILIZAR. Una persona
+  decide REUTILIZAR / ADAPTAR / CREAR después del análisis de impacto.
 
 ## Checklist de compatibilidad
 

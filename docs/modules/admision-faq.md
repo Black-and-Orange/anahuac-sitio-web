@@ -60,15 +60,52 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+FAQ de cierre del proceso de admisión. Presenta una introducción y hasta veinte preguntas
+en un acordeón nativo; cada respuesta es `richtext`, por lo que puede contener formato y
+enlaces sin añadir fields. Corresponde a `<section class="adm-faq" id="dudas">` de la
+maqueta aprobada y está precargado en `templates/proceso-de-admision.html`, dentro del
+`dnd_area`, inmediatamente antes de `admision-formulario`.
+
+La exclusión entre respuestas abiertas no depende de JavaScript: todos los `<details>`
+comparten `name="faq-dudas"`. El navegador mantiene una sola respuesta abierta. Las
+animaciones de entrada de la sección sí dependen del mecanismo compartido
+`[data-reveal]` de `js/main.js`; no hay lógica FAQ en ese archivo.
+
+La arquitectura aprobada también contempla una sección lógica de asesoría entre FAQ y
+formulario. Esa necesidad **no corresponde a un módulo físico `admision-asesoria`**:
+`specs/proceso-de-admision-hubspot.md` ordena reutilizar
+[`apoyos-asesoria`](./apoyos-asesoria.md), con contenido de Admisión y el selector de
+preparatoria oculto. El template versionado hoy salta directamente de este FAQ al
+formulario; esa ausencia es un hueco de integración, no autorización para crear un stub.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- En Proceso de admisión o una página con preguntas breves que requiera una sola respuesta
+  abierta, sin comportamiento JS específico.
+- Con `preguntas` como repeater **de nivel raíz**, `occurrence` exacto
+  `{min: 0, max: 20, default: 5}`. Cada item conserva `pregunta`, `pregunta_tag`,
+  `pregunta_color` y `respuesta`; la respuesta admite enlaces mediante richtext.
+- Cuando el template carga `css/main.css`. `module.css` está vacío y toda la presentación
+  vive en la hoja compartida.
+- Como instancia configurable por página: `tier: page-specific`, `meta.global: false`.
+  Reutilizarlo fuera de Admisión exige revisar si debe promoverse a `reusable`; no se
+  vuelve global por repetirse.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No para varios paneles abiertos simultáneamente: el `name="faq-dudas"` común impone
+  exclusión. Quitar o variar ese atributo cambia una capacidad contractual.
+- No para respuestas de texto plano: `preguntas.respuesta` es `richtext`; cambiar su tipo
+  rompe la firma y el contenido guardado.
+- No como sustituto automático de `apoyos-faq`. El score 0.876 prueba similitud, no
+  compatibilidad. Apoyos añade `eyebrow`, `.faq-answer`, `aria-labelledby="faq-title"` e
+  `id="faq-title"`; también tiene defaults y firma distintos. La raíz `.apo-faq` y la
+  jerarquía de respuesta no coinciden con `.adm-faq`.
+- No para insertar la asesoría pendiente: esa sección reutiliza físicamente
+  `apoyos-asesoria`; nunca se crea `admision-asesoria.md` ni
+  `admision-asesoria.module`.
+- No dos veces sin revisar IDs: `id="dudas"` es fijo. Dos instancias duplicarían el ancla;
+  además compartirían el mismo grupo nativo `name="faq-dudas"` en todo el documento.
 
 ## Fields editables
 
@@ -94,6 +131,49 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_respuesta` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_enlace` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+- **`metadata`.** Duro: familia `faq` y capacidades `acordeon-nativo`,
+  `preguntas-repetibles`, `respuestas-richtext` y `enlaces-en-respuesta`. Si falta una
+  capacidad requerida, no hace lo mismo. `estado: Approved`, `tier: page-specific` y
+  `meta.global: false` son coherentes. Categorías/content types son extensibles de forma
+  aditiva; promover el tier requiere decisión explícita.
+- **`fields`.** Duro: los 19 paths y su firma. `preguntas` es el único repeater, a nivel
+  raíz, con `occurrence` `{min:0,max:20,default:5}`; sus cuatro hijos son no-repeater.
+  `preguntas.respuesta` debe seguir siendo `richtext`; `pregunta_tag` acepta
+  `ninguna|h1..h6|p`. `grupo_contenido` y `grupo_estilos` son groups no repetibles. Ningún
+  field es required. Renombrar, borrar, cambiar tipo/repetición/occurrence es bloqueante;
+  fields nuevos solo opcionales y con default. Cambios de default son editoriales, aunque
+  el generador los incluye en la firma comparada.
+- **`html`.** Duro: raíz `section.adm-faq.section-pad#dudas`, seguida por `.container`,
+  `.section-intro.wide.reveal[data-reveal]` y `.faq-list.reveal[data-reveal]`; dentro del
+  repeater, `details.faq-item[name="faq-dudas"] > summary + respuesta richtext`. El
+  `name` uniforme sostiene la exclusión nativa. `.adm-faq`, `.faq-item`, `.faq-list` y
+  `.section-intro.wide` tienen consumidores CSS. El ID es ancla fija y limita a una
+  instancia. Cambiar raíz o jerarquía es bloqueante.
+- **`css`.** `module.css` está vacío. Todos los selectores del AUTO, incluidas las reglas
+  de `summary`, `[open]`, respuestas y enlaces, vienen de `theme/css/main.css`; cualquier
+  `falta selector:` es bloqueante por origen compartido. Las cinco custom properties
+  `--admision-faq-*` son la superficie de configuración prevista.
+- **`js/hooks`.** No hay hooks FAQ ni dependencia JS declarada. `[data-reveal]` sí es un
+  hook genérico de `js/main.js`, aunque el perfil no lo atribuye como dependencia propia;
+  renombrarlo elimina la animación. El acordeón sigue funcionando sin JS.
+- **`variantes`.** No hay variantes verificadas. Añadir una debe ser aditivo, declararse
+  en el registry y conservar el contrato base; no se infiere una variante por cambiar
+  colores o etiquetas.
+- **`responsive`.** El generador no observa media queries específicas del módulo. El
+  comportamiento estrecho depende de reglas base compartidas y del flujo nativo de
+  `details`; una nueva regla en `main.css` tendría impacto transversal y es bloqueante.
+- **`assets`.** No hay assets de theme ni fields de imagen. Exigir iconos o multimedia
+  sería una ampliación estructural, no compatibilidad automática.
+- **`dependencias`.** `css/main.css` es obligatoria para el render aprobado. No hay
+  `require_css`, `require_js` ni JS propio; la carga depende del template. `js/main.js`
+  aporta únicamente reveal.
+- **`paginas`.** Uso observado: `Proceso de admisión`, en el `dnd_area` del template.
+  Cada página conserva su snapshot de contenido; editar el módulo o `main.css` afecta a
+  todas las páginas que lo usen. La relación lógica de asesoría se resuelve por
+  `apoyos-asesoria` y no amplía el inventario físico.
 
 ## Checklist de compatibilidad
 

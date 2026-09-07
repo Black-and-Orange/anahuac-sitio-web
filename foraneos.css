@@ -738,10 +738,10 @@
 /* "Tips" en script con degradado naranja→morado (propuesta, evoca la referencia
    de posgrados). "ANÁHUAC" no cambia: conserva Zilla Slab y el café de marca. */
 .for-tips-script {
-  font-family: "Kaushan Script", cursive;
+  font-family: var(--font-script);
   font-weight: 400;
   /* El script tiene menor altura-x; se agranda para equilibrar con las mayúsculas. */
-  font-size: 1.35em;
+  font-size: calc(1em * 1.35);
   line-height: 1;
   background: linear-gradient(100deg, var(--orange) 0%, var(--purple-2) 70%, var(--purple-1) 100%);
   -webkit-background-clip: text;

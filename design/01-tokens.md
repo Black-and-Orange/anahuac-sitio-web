@@ -50,6 +50,7 @@ Dos capas. Los componentes y adapters usan **solo la capa semántica**; nunca pr
 |---|---|---|
 | `--font-heading` | `"Zilla Slab", serif` | **Todos** los encabezados (h1–h6), botones, frases destacadas. |
 | `--font-body` | `"Roboto", sans-serif` | Texto de cuerpo, párrafos, UI labels. |
+| `--font-script` | `"Kaushan Script", cursive` | Sello editorial «Tips ANÁHUAC» aprobado en Foráneos. |
 
 > Nota: la tipografía principal original del brand es **Sharp Slab** (comercial, requiere licencia).
 > La alternativa de código abierto oficial es **Zilla Slab** — esta es la que se usa en la implementación digital.

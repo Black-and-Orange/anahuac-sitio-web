@@ -60,15 +60,41 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-cta` es el cierre promocional intermedio de Proceso de admisión: presenta un
+encabezado, un texto de apoyo y dos acciones de rol fijo sobre un fondo morado con trama.
+Porta la sección `.adm-cta#solicitud` de `proceso-de-admision.html:426-437`; la plantilla
+versionada lo coloca en su propio `dnd_section` (`templates/proceso-de-admision.html:80-84`).
+
+Los botones no son un repeater. `grupo_boton1` siempre representa la acción primaria
+`.btn-orange` y `grupo_boton2` la secundaria `.btn-outline`; cada grupo tiene su propio
+`mostrar`, texto, etiqueta opcional, color y enlace. El HubL solo emite `.button-row` si
+alguno está visible y además tiene texto. Los seis fields de `grupo_estilos` generan
+custom properties `--admision-cta-*` en la raíz; los colores de texto definidos dentro
+de `grupo_contenido` y los botones tienen además estilos inline.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- En el cierre de una solicitud que requiera exactamente dos acciones jerarquizadas,
+  primaria naranja y secundaria outline, con visibilidad independiente.
+- Con contenido breve y centrado: `.adm-cta-inner` está limitado a `40rem` y el texto
+  usa `text-wrap: balance` (`main.css:7596-7615`).
+- Desde una plantilla que cargue `css/main.css`; no tiene comportamiento propio ni
+  dependencia JS específica. La animación genérica `[data-reveal]` se degrada de forma
+  segura gracias a `html.no-js`.
+- Como instancia local: `tier: page-specific` y `meta.global: false`. Llevarlo a otra
+  página requiere decisión de alcance, no se deduce de la familia `cta`.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No para captura de datos: no hay `<form>` ni field `form`; los botones solo navegan.
+- No cuando las acciones sean repetibles o intercambiables. El orden y las clases de los
+  dos grupos están cableados al HTML y al CSS.
+- No como sustituto automático de `dudas-contacto`. Es candidato 0.582 por intención,
+  dos CTA y CSS compartido, pero aquel agrega imagen, usa fields planos y otra raíz y
+  jerarquía. Compara las diez dimensiones antes de decidir.
+- No dos veces en una página sin cambiar el ancla fija `id="solicitud"`.
+- No si el segundo botón necesita color de fondo administrable: solo existe
+  `grupo_estilos.color_boton2_texto`; el fondo/hover viene de `main.css:7622-7629`.
 
 ## Fields editables
 
@@ -102,6 +128,40 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_boton1_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_boton2_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+- **metadata** — Las cuatro capacidades describen el comportamiento observable. `familia:
+  cta`, `tier: page-specific`, `meta.global: false`, categoría, content types y estado son
+  notas de búsqueda, alcance y plataforma; no deciden compatibilidad. `Approved` es
+  curaduría del registry, no confirmación de publicación.
+- **fields** — Son duros los 26 paths, tipos y grupos no repetibles. En particular,
+  `grupo_boton1` y `grupo_boton2` no se pueden colapsar a un repeater sin recapturar
+  contenido. La firma exacta incluye `required`, `single/repeater`, `occurrence` y
+  `default`: cambiar cualquiera produce brecha bloqueante para el comparador. Solo es
+  aditivo incorporar un field nuevo opcional con default y lectura tolerante.
+- **html** — Contrato: `section.adm-cta#solicitud > .container > .adm-cta-inner`, seguido
+  por heading, texto y `.button-row`; `.btn-orange` precede a `.btn-outline`.
+  `[data-reveal]` aparece separadamente en heading, texto y fila. El AUTO espurio
+  `data-reveal{%` procede del parser sobre HubL; no es un atributo real ni debe exigirse.
+- **css** — `module.css` está vacío. Todas las reglas viven en `main.css`, incluidas las
+  específicas `5146-5158` y `7564-7629` y las compartidas `.button-row`/`.btn`.
+  Cualquier brecha de selector es bloqueante por origen transversal; dar contenido al
+  `module.css` vacío también rompe la convención del theme.
+- **js/hooks** — `module.js` está vacío y no hay hooks específicos en `main.js`. El
+  único comportamiento es el reveal genérico; no debe inventarse dependencia JS por el
+  nombre CTA.
+- **variantes** — No hay variantes registradas. Los roles de botón y sus booleanos son
+  partes del contrato, no variantes. Una nueva variante debe ser aditiva y declarada.
+- **responsive** — El AUTO observa `@media (max-width: 40em)` desde CSS compartido; por
+  su origen, una brecha responsive es bloqueante. El layout base ya es una columna.
+- **assets** — No usa assets. La trama procede del token CSS `--grid-lines`, no de un
+  archivo del módulo.
+- **dependencias** — Solo `css/main.css`, cargado por la plantilla. La dependencia es
+  nota si el destino ya la satisface; funcionalmente, sin ella se pierde todo el diseño.
+- **paginas** — Uso observado: `Proceso de admisión`. Un uso nuevo exige revisar alcance;
+  una modificación exige analizar su impacto en esa página. Candidato no significa
+  compatible: la persona decide REUTILIZAR / ADAPTAR / CREAR tras comparar brechas.
 
 ## Checklist de compatibilidad
 

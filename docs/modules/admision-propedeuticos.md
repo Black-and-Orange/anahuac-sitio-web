@@ -60,15 +60,39 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-propedeuticos` presenta cursos previos al ingreso como pestañas sincronizadas
+con paneles de contenido. Porta `.adm-prop#propedeuticos` de
+`proceso-de-admision.html:440-502`; la plantilla lo inserta en
+`templates/proceso-de-admision.html:86-90`.
+
+Cada item del repeater `cursos` genera un `.prop-tab[data-prop]` y un
+`.prop-panel[data-prop-panel]` con el mismo `loop.index0`. `main.js:1465-1480` enlaza ambos
+por ese índice y conmuta `.active`. El panel combina poster o miniatura, reproducción
+diferida de YouTube si existe `video_id`, indicador, título, richtext y CTA opcional. El
+choice `acento` se traduce explícitamente: `morado` → clases `--purple`; cualquier otro
+valor cae a `--orange`. Si `mostrar_tabs` es falso, el HubL solo renderiza el primer panel.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Para dos a seis cursos editoriales que necesiten selector por tabs, media, richtext y
+  CTA por curso. El repeater permite cero, pero sin items la sección queda vacía.
+- Cuando las variantes aprobadas de acento sean `cursos.acento=naranja` o `morado`.
+- Cuando el template cargue `css/main.css` y `js/main.js`; sin JS solo queda visible el
+  primer panel activo y las demás pestañas no responden.
+- Para una sola ficha sin tabs, usando `mostrar_tabs=false`: solo el primer item se pinta,
+  aunque los demás permanezcan guardados en el repeater.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No para tabs genéricos: su contrato exige contenido de curso, video YouTube y CTA.
+- No con más de una instancia por página. `main.js` consulta todos los tabs/paneles del
+  documento y busca el panel por índice con `document.querySelector`; dos instancias
+  comparten índices y la segunda puede activar el panel de la primera.
+- No sin `js/main.js` cuando haya más de un curso visible.
+- No para un tercer acento sin añadir choice, clases y reglas CSS: el `else` lo representaría
+  como naranja. Una opción nueva no queda implementada solo por cambiar `fields.json`.
+- No para video que necesite privacidad avanzada, controles propios o proveedor distinto:
+  el hook compartido crea un iframe de YouTube a partir de `data-yt-id`.
 
 ## Fields editables
 
@@ -112,6 +136,44 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_tab_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+- **metadata** — Las capacidades (`tabs`, paneles sincronizados, cursos repetibles,
+  YouTube diferido, CTA y acentos) son funcionales. `familia: null` solo indica que no se
+  agrupó; tier, global, estado y metadata de HubSpot son notas de búsqueda/alcance.
+  `Approved` es curaduría local, no estado de publicación.
+- **fields** — `cursos` es repeater raíz `{min:0, default:2, max:6}` y sus 18 hijos
+  conservan path y tipo; `descripcion` es richtext, `video_poster` image y `cta_enlace`
+  link. La firma incluye defaults y occurrence: cualquier cambio a un path existente es
+  bloqueante para el comparador. Fields nuevos: opcionales, con default y `|default` al
+  leerse dentro de items guardados.
+- **html** — Duro: `section.adm-prop > .container.adm-prop-layout`, tabs antes de
+  `.prop-panels`, correspondencia exacta `data-prop`/`data-prop-panel`, `.active` inicial
+  en el primer par y clases de acento. `.video-card[data-yt-id]` debe contener imagen y
+  `.video-play-btn`. Las etiquetas `*_tag=ninguna` envuelven condicionalmente el texto.
+- **css** — `module.css` vacío; selectores propios y reutilizados viven en `main.css`
+  (`6314-6386`, `7632-7701`) junto con `.video-card`, `.step-tag`, `.button-row` y botones.
+  El bloque AUTO mezcla reglas propias y compartidas: no atribuirlas al módulo. Toda
+  brecha CSS es bloqueante por origen transversal.
+- **js/hooks** — Duro: `.prop-tab[data-prop]`, `.prop-panel[data-prop-panel]`, `.active`
+  y, para video, `.video-play-btn` dentro de `[data-yt-id]`. `module.js` está vacío; el
+  comportamiento vive en `main.js`, de modo que una brecha de hook es bloqueante.
+- **variantes** — Verificadas: `cursos.acento=naranja` y `cursos.acento=morado`. No se
+  infieren variantes de los booleanos de visibilidad. Una tercera exige implementación
+  CSS/HubL y registro conjunto.
+- **responsive** — Los seis breakpoints del AUTO provienen del CSS compartido; varios
+  corresponden a patrones reutilizados (`video-card`, botones), mientras `90em` y
+  `73.75em` cambian `.adm-prop-layout` (`main.css:7690-7700`). Todos son bloqueantes por
+  origen, no evidencia de equivalencia por sí solos.
+- **assets** — Dos posters fallback alternados por índice:
+  `proceso-de-admision/medicina-propedeuticos.jpg` y `musica-propedeuticos.jpg`. Si no hay
+  `video_poster.src`, deben existir en el theme; no son evidencia de video operativo.
+- **dependencias** — `css/main.css` y `js/main.js`, ambas cargadas por la plantilla. Son
+  notas solo si el destino ya las satisface; funcionalmente ambas son necesarias.
+- **paginas** — Solo `Proceso de admisión` observado. La ausencia de candidato generado
+  no demuestra unicidad; antes de CREAR debe hacerse búsqueda humana. Cualquier cambio
+  exige revisar la página existente y terminar con decisión humana.
 
 ## Checklist de compatibilidad
 
