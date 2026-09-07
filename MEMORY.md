@@ -42,6 +42,23 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-07 — Área Ciencias de la Salud: Hospital Virtual y Tips
+- La fotografía de la tarjeta protagonista Hospital Virtual es ahora un
+  carrusel de una imagen por vista que reutiliza el comportamiento compartido
+  de campus (flechas, puntos y swipe) sin alterar las demás tarjetas.
+- Las tres fotos actuales siguen siendo material de ejemplo. Cuando lleguen las
+  imágenes reales del Hospital Virtual deben sustituirse juntas y conservar sus
+  textos alternativos fieles al contenido visible.
+- El cierre dice `Tips ANÁHUAC`, sin `#`; “Tips” comparte Kaushan Script con
+  Foráneos mediante `--font-script`.
+
+### 2026-09-04 — Gastronomía: se simplifica campo laboral y los convenios responden al hover
+- La revisión humana retira el párrafo «Gastronomía es mucho más que cocinar»
+  situado entre los ámbitos laborales y la banda de doble acreditación.
+- En M9, las tarjetas de convenios usan un gris que contrasta con el fondo y
+  blanco en `hover`; los dos logos de formato vertical/compacto compensan su
+  escala localmente. El ajuste no altera el molde compartido.
+
 ### 2026-09-01 — Nutrición: CTA lateral en la banda de vinculación
 - La revisión humana retira el texto institucional del 70% de empleabilidad.
 - Los dos CTA ocupan el lateral derecho en escritorio y vuelven debajo en tablet
@@ -51,9 +68,11 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 ### 2026-09-01 — Gastronomía: cuarta carrera sobre el molde
 - Maqueta en `gastronomia.html` + `gastronomia.css`. Nace con `pagina-carrera`,
   así que hereda las diez correcciones del molde. Cero componentes nuevos.
-- El H1 fija dos líneas —«Licenciatura» / «en Gastronomía»—. La segunda conserva
-  juntas sus palabras y baja a `0.88em`: evita tanto el tercer renglón como el
-  desbordamiento detrás de la imagen, sin tocar el molde compartido.
+- **El handoff adjunto es la fuente literal del contenido.** `specs/gastronomia.md`
+  es idéntico al archivo recibido; no se acorta, reescribe ni añade copy visible.
+- El H1 completo es «Licenciatura en Gastronomía en la Universidad Anáhuac
+  México». Usa escala local y hasta cuatro líneas balanceadas para respetar el
+  texto sin invadir la imagen ni dejar preposiciones huérfanas.
 - **7 pestañas por área temática.** Siete es primo: a 4 columnas quedan 4+3, un
   solo hueco, que es el mínimo posible. A 3 quedarían 3+3+1.
 - **Los tres grupos de M9 y ninguno es rejilla de logotipos**, que es lo que el

@@ -71,7 +71,8 @@ for (const nombre of PAGINAS) {
       const lineas = inicios.map((ini, k) =>
         caracteres.slice(ini, inicios[k + 1] ?? caracteres.length).map((c) => c.letra).join("")
       );
-      if (lineas.length > 2) {
+      const maxLineas = Number(h1.dataset.maxLines || 2);
+      if (lineas.length > maxLineas) {
         return lineas.join(" / ");
       }
       /* Huérfana: un renglón de tres caracteres o menos («en», «de», «y»). */

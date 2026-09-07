@@ -5,6 +5,55 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-07 — Área Ciencias de la Salud · carrusel y sello Tips
+
+- La tarjeta protagonista Hospital Virtual conserva su composición y convierte
+  el área de imagen en un carrusel de tres diapositivas. Reutiliza el contrato
+  compartido `[data-campus-slider]` —flechas, puntos y swipe— mediante la
+  variante local `.salud-destacada-slider`.
+- Las imágenes disponibles permanecen identificadas como fotografías de
+  ejemplo; no se presentan como evidencia visual oficial del Hospital Virtual.
+- La banda de cierre elimina el numeral de `#TIPSANÁHUAC` y pasa a
+  `Tips ANÁHUAC`: “Tips” reutiliza la Kaushan Script de Foráneos y “ANÁHUAC”
+  conserva la tipografía de encabezados.
+- Se promueve `--font-script` al set de tokens estáticos, en paridad con el token
+  que ya existía en el adapter de HubSpot; Foráneos lo consume sin cambio visual.
+
+## 2026-09-04 — Gastronomía · ajustes de campo laboral y convenios
+
+- Se retira el párrafo adicional que cerraba el bloque de campo laboral antes de
+  la banda de doble acreditación.
+- Las tarjetas del carrusel de convenios parten de una superficie gris con
+  contraste suficiente frente al fondo y cambian a blanco al pasar el mouse.
+  Universidad Europea de Roma y Cuna de Tierra compensan localmente la escala de
+  sus archivos para equilibrarse con los logos horizontales. El ajuste se limita
+  a Gastronomía y usa tokens semánticos y de movimiento.
+
+## 2026-09-01 — Gastronomía · el handoff vuelve a ser la fuente literal
+
+La revisión humana detecta que la maqueta contenía texto que no podía localizarse
+en el Markdown entregado. Se auditan los 14 módulos contra
+`licenciatura-gastronomia.md` y se restablece la jerarquía de verdad:
+`specs/gastronomia.md` queda idéntico al archivo recibido.
+
+Correcciones en la página:
+
+- H1 completo: «Licenciatura en Gastronomía en la Universidad Anáhuac México».
+  Una escala local lo balancea hasta en cuatro líneas sin invadir la imagen.
+- Plan de estudios: nota del minor, Prácticum I y II y rótulo de RVOE vuelven al
+  texto literal.
+- Se retiran el párrafo explicativo inventado de Convenios y la nota editorial
+  `[VERIFICAR]` que había quedado visible en M9; los pendientes permanecen como
+  comentarios internos.
+- Se eliminan chips redundantes de acreditaciones y se restituyen la puntuación
+  de la plantilla de testimonios, los destinos de enlaces y los `alt` definidos.
+
+Verificado el texto visible módulo por módulo: las únicas combinaciones que no
+aparecen como frase continua en el Markdown son los pares dato/etiqueta de M4 y
+el texto para lector de pantalla del RVOE, ambos exigidos por el propio handoff.
+
+Esta entrada sustituye la decisión anterior de acortar el H1 a dos líneas.
+
 ## 2026-09-01 — Nutrición · la banda de vinculación lleva los CTA al lateral
 
 La revisión humana retira de M6 el texto institucional de empleabilidad del 70%.

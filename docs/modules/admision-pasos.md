@@ -60,15 +60,44 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-pasos` convierte el proceso de ingreso en una línea de tiempo y un conjunto de
+paneles sincronizados. Porta `.adm-steps` de la maqueta aprobada
+(`proceso-de-admision.html:131`): cada item de `pasos` produce un `.step-dot[data-step]` y
+un `.step-panel[data-panel]` con el mismo `loop.index0`; `main.js:1395-1411` conmuta
+`.active` al seleccionar un paso.
+
+Cada panel admite richtext, tiempo, enlace, CTA e imagen o video diferido de YouTube. La
+numeración visible sale de `loop.index`, no del contenido editorial. Si `tipo_media` es
+`video` y hay `video_id`, se emite `[data-yt-id]` con poster y botón; en otro caso se usa
+la imagen o uno de seis JPEG de respaldo. Es interacción funcional, no decorativa: sin JS
+queda visible el primer panel, pero la línea de tiempo no cambia de panel y el video no
+se abre.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Para procesos secuenciales donde una navegación por pasos controla exactamente un panel
+  por item y cada panel puede llevar media y CTA.
+- Con `pasos` como repeater raíz, de 0 a 12 items (default 6). Agregar, borrar o reordenar
+  mantiene sincronizados dot y panel porque ambos índices se generan juntos.
+- Desde templates que carguen `main.css` y `main.js`. `html.no-js` evita ocultar el
+  contenido si falla JS, pero no sustituye la selección de paneles ni YouTube diferido.
+- Como módulo propio de Proceso de admisión. Promover `tier: page-specific` requiere una
+  decisión explícita y análisis de impacto.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No para un listado de pasos independientes en tarjetas. `apoyos-pasos` es candidato
+  (0.497), pero carece de esta timeline, paneles sincronizados y media; familia y score no
+  deciden sustitución.
+- No dos veces en la misma página: `main.js` recoge todos los dots/paneles globalmente y
+  busca el destino con `document.querySelector`; índices repetidos harían que la segunda
+  instancia active paneles de la primera. Además se duplica `#pasos`.
+- No sin JS si se espera interacción completa. El primer panel queda visible por la clase
+  inicial `active`, pero los demás no son alcanzables desde la timeline.
+- No para Vimeo, video alojado o controles de reproducción: el contrato construye un embed
+  de YouTube a partir de `video_id`.
+- No cambies occurrence, defaults, paths ni los pares `data-step`/`data-panel`; forman
+  parte del contrato de contenido y comportamiento.
 
 ## Fields editables
 
@@ -132,6 +161,57 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_boton_fondo` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_boton_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+**`metadata`.** Duras son las seis capacidades observables, en particular timeline,
+paneles sincronizados, media y YouTube diferido. `familia: pasos` es solo una pista de
+búsqueda; `tier`, `meta.global`, estado y tipos de template son nota o alcance. Un
+candidato no es compatible hasta completar esta comparación.
+
+**`fields`.** `pasos` es repeater raíz con occurrence `{min: 0, default: 6, max: 12}`;
+sus paths y tipos sostienen contenido, visibilidad, enlaces y media. Son especialmente
+duros `tipo_media`, `video_id`, `imagen`, los booleanos `mostrar_*` y los links leídos por
+`.url.href`. La firma incluye defaults y occurrence: modificarlos es bloqueante para el
+comparador. Las opciones nuevas de `choice` pueden ser aditivas solo si HTML/CSS/JS ya
+soportan el valor o se amplían con el impacto correspondiente.
+
+**`html`.** Contrato: `section.adm-steps.section-pad#pasos`, `.steps-timeline` con
+`button.step-dot[data-step]`, `.step-panels` con `article.step-panel[data-panel]`, la clase
+inicial `.active`, y la jerarquía de `.step-panel-body` más su media hermana. Para video,
+`.video-play-btn` debe ser descendiente del nodo `[data-yt-id]`. Las etiquetas dinámicas
+con valor `ninguna` preservan los contenedores; las demás usan respaldo seguro.
+
+**`css`.** `module.css` está vacío; todos los selectores AUTO vienen de `main.css`.
+Existen selectores compartidos (`.step-panel`, `.video-card`, `.button-row`) y reglas
+acotadas por `.adm-steps`. Toda brecha de selector es bloqueante por origen compartido;
+las variables `--admision-pasos-*` son la configuración visual soportada.
+
+**`js/hooks`.** Todo vive en `main.js`: `[data-step]`/`[data-panel]` y `.active` sincronizan
+los paneles; `[data-yt-id]`/`.video-play-btn` reemplazan la card por un iframe. Renombrar
+un hook o cambiar la correspondencia de índices rompe la función. Los selectores de
+documento imponen una sola instancia por página.
+
+**`variantes`.** No hay variantes registradas. `tipo_media=imagen|video` es configuración
+por item observada, no una variante curada del módulo.
+
+**`responsive`.** Las cinco consultas listadas en AUTO proceden de `main.css`; ajustan
+timeline, panel y media. No hay reglas propias, por lo que cualquier brecha responsive es
+bloqueante por origen.
+
+**`assets`.** En modo imagen usa seis JPEG bajo
+`images/proceso-de-admision/`, recorridos en ciclo; desde el séptimo se repiten. En modo
+video, el poster puede venir del field o de `i.ytimg.com`. Sustituir un asset es adaptable;
+la existencia de la rama imagen/video es capacidad dura.
+
+**`dependencias`.** Requiere `css/main.css` y `js/main.js`, cargados por la plantilla; no
+usa `require_css`/`require_js`. Declarar una dependencia nueva puede ser adaptable, pero
+editar las compartidas exige análisis transversal.
+
+**`paginas`.** Uso observado: Proceso de admisión
+(`templates/proceso-de-admision.html:70`). Cambiarlo exige revisar esa página y cualquier
+instancia de portal no registrada; el `dnd_area` no actualiza la configuración guardada de
+páginas existentes.
 
 ## Checklist de compatibilidad
 

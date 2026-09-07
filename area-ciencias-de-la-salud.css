@@ -183,23 +183,75 @@
   overflow: hidden;
 }
 
-/* La foto es flexible, no de proporción fija: la tarjeta mide lo que midan las
-   dos tarjetas de la columna derecha, y lo que sobre después del texto es la
-   foto. Con `aspect-ratio` fijo la tarjeta o se pasaba de alto o dejaba un
-   hueco blanco al pie. */
-.salud-porque-grid .salud-destacada-foto {
+/* El carrusel es flexible, no de proporción fija: la tarjeta mide lo que midan
+   las dos tarjetas de la columna derecha, y lo que sobre después del texto es
+   la galería. Con `aspect-ratio` fijo la tarjeta o se pasaba de alto o dejaba
+   un hueco blanco al pie. */
+.salud-porque-grid .salud-destacada-slider {
   width: 100%;
-  /* base 0, no `auto`: con `auto` la foto parte de su alto intrínseco (1250px)
-     y es ella la que estira las dos filas de la retícula, dejando las tarjetas
-     de la columna derecha medio vacías. Partiendo de 0 la tarjeta mide lo que
-     miden esas dos, y la foto crece hasta llenar lo que sobra. */
   flex: 1 1 0;
   min-height: 240px;
+}
+
+.salud-destacada-slider .campus-slider-viewport,
+.salud-destacada-slider .campus-slides,
+.salud-destacada-slider .campus-slides > li {
+  height: 100%;
+}
+
+.salud-destacada-slider .campus-slides {
+  gap: 0;
+}
+
+.salud-destacada-slider .campus-slides > li {
+  flex: 0 0 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+.salud-porque-grid .salud-destacada-foto {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   /* Recorte pesado hacia arriba: es donde está el sujeto tanto en una foto de
      personas como en una del edificio. Revisar al sustituir la foto real. */
   object-position: center 30%;
   border-radius: 0;
+}
+
+.salud-destacada-slider .campus-slider-arrow {
+  background: var(--purple-2);
+  opacity: 1;
+}
+
+.salud-destacada-slider .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.salud-destacada-slider .campus-slider-dots {
+  position: absolute;
+  right: 0;
+  bottom: var(--space-4);
+  left: 0;
+  z-index: 2;
+  margin-top: 0;
+}
+
+.salud-destacada-slider .campus-dot {
+  background: var(--surface);
+  opacity: 0.58;
+}
+
+.salud-destacada-slider .campus-dot:hover,
+.salud-destacada-slider .campus-dot.is-active {
+  background: var(--surface);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .salud-destacada-slider .campus-slides {
+    transition: none;
+  }
 }
 
 .salud-porque-grid .salud-destacada-copy {
@@ -664,10 +716,8 @@
   color: var(--white);
 }
 
-/* Rótulo #TIPSANÁHUAC. Mismo tratamiento que el de Foráneos —el sitio ya tiene
-   este recurso y no se inventa otro—, con el color adaptado al fondo: sobre el
-   morado de la banda el marrón de acento no se ve, y el naranja se queda en
-   3.7:1. `--lilac-1` da 4.9:1 y es el claro que esta página ya usa sobre morado.
+/* Rótulo Tips ANÁHUAC. Reutiliza el tratamiento editorial de Foráneos; el
+   nombre de la etiqueta conserva la jerarquía y el color claro sobre la banda.
 
    Va como <p> con clase y no como <h3>: es una etiqueta de sección, no un nivel
    de encabezado — colgarlo del H2 rompería el esquema semántico del módulo. */
@@ -680,6 +730,18 @@
   font-weight: var(--weight-semibold);
   letter-spacing: 0;
   color: var(--lilac-1);
+}
+
+.salud-clinicas-banda .salud-tips-script {
+  font-family: var(--font-script);
+  font-size: calc(1em * 1.35);
+  font-weight: 400;
+  line-height: 1;
+  background: linear-gradient(100deg, var(--orange) 0%, var(--lilac-1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
 }
 
 .salud-clinicas-banda p {
@@ -745,17 +807,14 @@
     min-height: 320px;
   }
 
-  .salud-porque-grid .salud-destacada-foto {
+  .salud-porque-grid .salud-destacada-slider {
     flex: 0 0 42%;
-    /* En fila, `min-width: auto` de flex vale el ancho intrínseco de la foto
-       (1000px): sin anularlo la imagen ocupa la tarjeta entera y empuja el
-       texto fuera. Mismo motivo que el `flex-basis: 0` de la versión apilada. */
+    /* En fila, `min-width: auto` puede conservar el ancho intrínseco de las
+       imágenes: sin anularlo la galería empuja el texto fuera. */
     min-width: 0;
     min-height: 0;
-    /* En fila la foto se estira al alto de la tarjeta, pero su alto INTRÍNSECO
-       —vertical, 4:5— es el que fija ese alto: a 1100px salían 520px de tarjeta
-       con la mitad derecha vacía. Con una proporción declarada manda el
-       min-height de la tarjeta y no las proporciones del archivo. */
+    /* La proporción declarada evita que el formato vertical de los archivos
+       estire la tarjeta y deje la mitad derecha vacía. */
     aspect-ratio: 4 / 3;
   }
 
@@ -844,7 +903,7 @@
     min-height: 0;
   }
 
-  .salud-porque-grid .salud-destacada-foto {
+  .salud-porque-grid .salud-destacada-slider {
     flex: 0 0 auto;
     aspect-ratio: 16 / 10;
   }

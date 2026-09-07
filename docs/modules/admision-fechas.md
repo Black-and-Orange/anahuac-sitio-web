@@ -60,15 +60,49 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-fechas` presenta las próximas convocatorias de examen en dos columnas, una por
+campus, como acordeones con tabla de documentos, examen académico, psicométrico y
+resultados. A diferencia de la maqueta estática (`proceso-de-admision.html:270`), el módulo
+físico actual no guarda fechas en fields: consulta la HubDB elegida en
+`grupo_tabla.tabla`.
+
+Hace dos consultas independientes `hubdb_table_rows`, filtradas con `campus__contains`,
+la bandera `aparece_en_las_primeras_5_fechas=true`, orden por
+`fecha_de_ordenamiento` y límite configurable. Así una fila multiselección puede aparecer
+en ambos campus y el límite aplica por columna. Cada `details` comparte `name` solo dentro
+de campus e instancia; el acordeón es HTML nativo y no necesita JS. Si una consulta no
+devuelve filas, se muestra `mensaje_vacio`.
+
+Hay una divergencia documental: el spec histórico decía «NO DESARROLLAR» hasta contar
+con HubDB, y el comentario del template aún afirma que Fechas no se migró; sin embargo, el
+template la precarga en la línea 76 y el módulo físico ya implementa HubDB. Para este
+contrato manda el código versionado actual; el comentario/spec deben tratarse como deuda,
+no como evidencia de ausencia.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Cuando existe una HubDB con las siete columnas y tipos documentados al inicio de
+  `module.html`, incluida `campus` multiselección y `fecha_de_ordenamiento` tipo fecha.
+- Para mostrar dos consultas por campus, con opciones `NORTE`/`SUR`, un límite de 1 a 20
+  filas por columna y estado vacío editorial.
+- Desde un template que cargue `main.css`. No depende de JS; `html.no-js` conserva visibles
+  los elementos reveal cuando el script general no carga.
+- Como módulo page-specific. Reutilizarlo requiere validar primero el esquema y promover
+  su alcance de forma explícita.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No sin una tabla compatible: `grupo_tabla.tabla` es el único field required y el HubL
+  accede por nombre literal a siete columnas. Una tabla distinta puede dejar el módulo sin
+  datos o provocar error de consulta.
+- No para un calendario genérico, una sola sede, fechas calculadas ni altas manuales dentro
+  del módulo. Los datos vivos pertenecen a HubDB.
+- No interpretes la ausencia de candidatos automáticos como unicidad; la búsqueda humana
+  sigue siendo obligatoria.
+- No cambies los defaults, el ID de tabla, `maximo`, opciones de campus o paths como si
+  fueran detalles editoriales: todos integran la firma comparada.
+- No uses un valor de campus fuera de las opciones reales de la tabla. El filtro es
+  `campus__contains=<opción>` y depende de coincidencia literal.
 
 ## Fields editables
 
@@ -102,6 +136,53 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_etiqueta` | `color` | no | `{"color":null,"opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_valor` | `color` | no | `{"color":null,"opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+**`metadata`.** Duras son `hubdb`, dos campus, límite de registros, acordeón, tabla de
+fechas y estado vacío. `familia: null` significa que no se curó una agrupación y es solo
+nota; no demuestra unicidad. `tier: page-specific`, `meta.global: false`, estado y tipos
+de template son alcance/plataforma, no compatibilidad funcional dura.
+
+**`fields`.** Contrato duro: `grupo_tabla.tabla` (`hubdbtable`, required, default
+`385703603`), `maximo` (`number`) y las opciones de campus, más textos, tags y colores.
+No hay repeaters: las filas provienen de HubDB. La firma incluye paths, tipos, required,
+defaults y occurrence; cambiar cualquiera produce brecha bloqueante. Ampliar opciones de
+campus solo es aditivo si la tabla y la consulta soportan exactamente esos valores.
+
+**`html`.** Contrato: `section.adm-fechas.section-pad#fechas`, `.fechas-grid`, dos
+`.fechas-col` generadas por la lista `columnas`, `.fechas-accordion`,
+`details.fecha-item > summary + .fecha-panel > table.fecha-table`. El atributo `name`
+incluye campus y `{{ name }}` para aislar instancias. La separación de horario depende de
+la coma `", "` en el texto de HubDB y emite `<small>` solo cuando hay segunda parte.
+
+**`css`.** Este es el caso `module.css: absent`: todos los selectores AUTO y las variables
+`--admision-fechas-*` viven en `main.css`. Cualquier brecha de selector exige editar CSS
+compartido y es bloqueante. Las clases `fechas-col--orange|purple` fijan los dos roles de
+campus, no son variantes registradas.
+
+**`js/hooks`.** `module.js` está ausente y no hay hooks específicos. El acordeón usa
+`details/summary`; `main.js` solo aporta reveal genérico. No debe inventarse dependencia de
+JS para explicar su funcionamiento.
+
+**`variantes`.** No hay variantes curadas. Cambiar títulos, colores u opciones de campus
+es configuración de instancia; una variante estable debe registrarse explícitamente.
+
+**`responsive`.** Las tres consultas AUTO (`90em`, `68.75em`, `48em`) viven en
+`main.css`; reorganizan columnas y decoración. Al ser compartidas, una brecha responsive
+es bloqueante por origen.
+
+**`assets`.** No referencia imágenes ni archivos del theme. Los datos de HubDB son una
+dependencia de datos, no assets; su ausencia no se resuelve subiendo una imagen.
+
+**`dependencias`.** Depende de `css/main.css` y, operativamente, de la tabla HubDB y su
+esquema literal. No depende de JS. Cambiar de tabla puede ser una configuración válida
+solo tras validar columnas, tipos, opciones y permisos de lectura.
+
+**`paginas`.** Uso observado: Proceso de admisión
+(`templates/proceso-de-admision.html:76`). El template contradice su propio comentario al
+precargarlo. Un nuevo uso es nota; modificar consulta, HTML o CSS obliga a revisar todas
+las páginas que lo hayan guardado en su `dnd_area`.
 
 ## Checklist de compatibilidad
 

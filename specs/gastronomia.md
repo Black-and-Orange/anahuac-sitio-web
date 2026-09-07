@@ -1,44 +1,6 @@
 # Página: Licenciatura en Gastronomía — Anáhuac México · **v1**
 ### Documento de handoff para diseño (estructura + copy final integrados)
 
-> **Estado de implementación (2026-09-01).** Maqueta construida en
-> `gastronomia.html` + `gastronomia.css`, sobre el molde de `psicologia.html`.
-> Los componentes se reutilizan íntegros desde `psicologia.css`; `gastronomia.css`
-> solo lleva las desviaciones de retícula que impone su contenido. El JS es el
-> compartido (`script.js` + `psicologia.js`), sin cambios. Cero componentes nuevos.
->
-> El `<body>` lleva `class="pagina-carrera pagina-gastronomia"`. El primer alcance
-> es el de las diez correcciones del molde promovidas el 2026-08-31 (ver
-> `design/CHANGELOG.md`): la página nace con la medida de línea acotada, la escala
-> de titulares corregida, el CTA del hero al tamaño grande y el perfil de egreso
-> alineado. **No repitas esa revisión aquí.**
->
-> Desviaciones respecto de este documento, todas anotadas en el HTML:
-> - **Fotografía: dos fotos reales cubriendo 24 posiciones**, repetidas por
->   decisión de la clienta del 2026-09-01, más una prestada del banco de
->   Comunicación en el formulario. No quedan huecos, pero la fotografía no está
->   resuelta: detalle y prioridades en `assets/gastronomia/README.md`. Lo que
->   sigue vale como referencia de por qué no se rellenó con material ajeno. No hay una sola imagen de
->   Gastronomía en el repositorio y ningún banco del proyecto sirve: ni una escena
->   clínica ni una cabina de radio ilustran una cocina. `AGENTS.md` y
->   `design/assets.md` prohíben el stock ajeno al dominio.
-> - **El breadcrumb no enlaza el área.** «Turismo, Gastronomía y Hospitalidad» va
->   como texto plano: esa página de área no existe todavía en el repositorio.
-> - **Video del hero:** sin `data-yt-id` y sin botón de play hasta que llegue el
->   ID. Con el id vacío el clic abre un embed roto de YouTube.
-> - **Coordinación académica (M9):** los tres nombres y cargos van tal cual —son
->   reales y están en el folleto—, pero **sin foto**: el propio documento marca
->   `[VERIFICAR]` la autorización para publicarla. Usan el recurso propio del
->   molde para ese caso, el avatar de iniciales de `.docente-avatar`.
-> - **Le Cordon Bleu (M6):** la banda va sin logotipo hasta que llegue el archivo
->   con autorización. Se omite en vez de dejar el hueco: una tira de logo vacía se
->   lee como error de carga.
-> - **RVOE:** «RVOE SEP · D.O.F.» sin fecha ni URL, como en las otras tres
->   carreras.
-> - **Composición del H1:** dos líneas controladas —«Licenciatura» / «en
->   Gastronomía»—. La segunda es una unidad de lectura y baja ligeramente de
->   escala para no invadir la imagen. Revisión humana del 2026-09-01.
-
 > **Cómo leer este documento.** Módulo por módulo: qué componente va, en qué orden, con qué contenido, y el **copy literal** listo para publicar. Todo entre comillas «…» es texto literal: **no lo reescribas**. Los bloques `[VERIFICAR]` / `[PENDIENTE]` son datos reales sin confirmar: **no los inventes ni los borres**. Los avisos **⚠️** son restricciones de arquitectura: **respétalas tal cual**. Mobile-first.
 
 > **Molde base.** Replica **1:1 el molde validado en la maqueta de Psicología** → [`psicologia.html`](https://black-and-orange.github.io/anahuac-sitio-web/psicologia.html). Reutiliza sus componentes y clases (`lic-hero`, `lic-afinidad`, `lic-porque`, `lic-plan`, `lic-plan-est`, `lic-campo`, `lic-campus`, `stories`, `lic-colab`, `lic-pasos`, `lic-faq`, `experience`, `lic-form`). **No se diseñan componentes nuevos.**
@@ -230,7 +192,7 @@
   5. **«Consultoría y desarrollo de producto»** — «Asesora a negocios en desarrollo de menús, maridaje, innovación de platillos y conceptualización.»
   6. **«Investigación, educación y cultura»** — «Investigación gastronómica, docencia y promoción de la cultura, historia y tradiciones culinarias.»
 - **Preview:** formato 4:5, alt descriptivo por ámbito (p. ej. «Chef egresado de la Anáhuac dirigiendo la cocina de un restaurante»).
-- **Respuesta a la objeción, bajo los tiles:** «Gastronomía es mucho más que cocinar: tu plan de estudios incluye costos, mercadotecnia, gestión de talento y emprendimiento, así que también puedes dirigir y no solo operar.»
+- **Revisión humana (2026-09-04):** no se muestra texto adicional entre los tiles y la banda destacada.
 - **Dato de empleabilidad:** «En la Red Anáhuac, el 70% de nuestros egresados se emplea al poco tiempo de graduarse (Top 10 de América Latina en el QS Graduate Employability Ranking).» **[VERIFICAR: cifra propia de Gastronomía.]**
 - **Banda destacada (`campo-band`)** — mismo componente que la banda de doble titulación de Psicología. **⚠️ Es el módulo de mayor peso persuasivo de la página: dale la jerarquía visual que tiene la banda de Hull en Psicología.**
   - **H3:** «Doble credencial internacional · Bachelor in Gastronomy, Le Cordon Bleu»
@@ -279,7 +241,7 @@
   - Mtra. María Teresa Hernández del Pando — «Coordinadora Académica»
   - Dra. Jacqueline Moreno Potignon — «Coordinadora de Promoción»
   - **[VERIFICAR: vigencia de nombres y cargos, y autorización para publicar foto y correo institucional.]** **[PENDIENTE: chefs y profesores destacados, distintos de la coordinación administrativa.]**
-- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales»
+- **«Convenios de prácticas» (H3):** tiles de categoría (no logos) — «Restaurantes con estrella Michelin» · «Hoteles» · «Aerolíneas» · «Empresas de catering» · «Parques temáticos» · «Museos» · «Asociaciones empresariales». En la variante local de Gastronomía, las tarjetas tienen fondo `--surface-muted-strong` y cambian a `--surface` al pasar el mouse. Los logos verticales o con aire interno usan modificadores locales de escala para conservar un peso visual equivalente.
 - **«Destinos de prácticas» (H3):** dos listas de chips.
   - **Internacionales:** Montreal · Miami · Aspen · Dallas · Chicago · Orlando · Nueva York · Punta Cana · Buenos Aires · Hong Kong · Ibiza · Barcelona · Madrid · San Sebastián · París · Londres · Roma · Melbourne · Phuket · Seúl · Dubái · Vietnam · Tailandia · Shanghái
   - **Nacionales:** Ciudad de México · Cancún · Ensenada · Los Cabos · Mérida · Oaxaca · Riviera Maya · San Miguel de Allende · Punta Mita

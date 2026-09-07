@@ -62,15 +62,39 @@ _Sin discrepancias técnicas detectadas._
 
 ## Descripción y propósito
 
-> TODO: documentar la intención editorial y funcional con evidencia de la página aprobada.
+`admision-hero` abre la página Proceso de admisión con el H1, un eyebrow y un panel
+informativo acompañado por hasta dos CTA. Porta la sección `.adm-hero` de la maqueta
+aprobada (`proceso-de-admision.html:112`) sin incorporar media: la composición son dos
+columnas de texto dentro de `.adm-hero-inner`.
+
+El repeater raíz `botones` admite de cero a dos items. Cada botón elige entre
+`btn-dark`, `btn-light` y `btn-orange`; `grupo_visibilidad.mostrar_botones` oculta la fila
+completa y `mostrar_flecha` controla el `<span>` decorativo del eyebrow. Los colores y el
+tamaño del panel se convierten en custom properties `--admision-hero-*` consumidas por
+`main.css`. No hay JS específico: `[data-reveal]` usa la mejora progresiva común del theme.
 
 ## Cuándo usar
 
-> TODO: documentar condiciones de reutilización.
+- Como apertura de una página interna que requiera exactamente H1/eyebrow, panel richtext
+  y hasta dos botones, sin imagen ni video.
+- Desde un template que cargue `css/main.css`; con `js/main.js` se anima el reveal. Las
+  plantillas versionadas conservan `html.no-js`, por lo que el contenido sigue visible si
+  el script no carga.
+- Cuando el contenido sea propio de una página. `tier: page-specific` y
+  `meta.global: false` son datos de alcance, no prueba de compatibilidad.
+- Una sola vez por página: contiene el H1 canónico y el `id="inicio"` fijo.
 
 ## Cuándo no usar
 
-> TODO: documentar límites y casos incompatibles.
+- No para el mosaico multimedia del Home: compara con `hero` (candidato 0.420), que tiene
+  cuatro posiciones imagen/video y un contrato estructural distinto.
+- No elijas `apoyos-hero` (0.729) u `oferta-hero` (0.683) solo por score o familia. Son
+  candidatos para comparar; sus fields, jerarquía y controles deben revisarse completos.
+- No si hacen falta más de dos CTA: `botones.occurrence.max` es 2 y cambiar occurrence
+  modifica la firma del contenido guardado.
+- No si se necesita media, breadcrumb o navegación repetible. Ninguna de esas capacidades
+  existe en el módulo.
+- No dos veces en el mismo documento: duplicaría `#inicio` y normalmente también el H1.
 
 ## Fields editables
 
@@ -105,6 +129,56 @@ _Sin discrepancias técnicas detectadas._
 | `grupo_estilos.color_boton2_fondo` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 | `grupo_estilos.color_boton2_texto` | `color` | no | `{"color":"","opacity":100}` | `null` | no | `grupo_estilos` |
 <!-- AUTO:fields:END -->
+
+## Contrato de compatibilidad
+
+**`metadata`.** Duras son las capacidades observables: encabezado principal, eyebrow,
+panel richtext, botones repetibles y variantes de botón. `familia: hero` solo amplía la
+búsqueda; `tier: page-specific`, `meta.global: false`, estado y tipos de template son
+nota o decisión de alcance. Categorías y content types admiten extensión aditiva.
+
+**`fields`.** Son contrato los grupos no repetibles `grupo_contenido`,
+`grupo_visibilidad` y `grupo_estilos`, y el repeater raíz `botones` con occurrence
+`{min: 0, default: 2, max: 2}`. También lo son tipos, required y paths completos: el HubL
+lee `botones.enlace.url.href` y emite `botones.estilo` como clase. La firma del comparador
+incluye defaults y occurrence; cambiarlos produce brecha bloqueante. Ampliar opciones de
+un `choice` es aditivo; un field nuevo debe ser opcional, con default y lectura defensiva.
+
+**`html`.** Contrato duro: raíz `section.adm-hero.section-pad#inicio`,
+`.container.adm-hero-inner`, las columnas `.adm-hero-copy`/`.adm-hero-info`,
+`.hero-card` y `.button-row > a.btn`. Las clases son consumidas por `main.css`;
+`data-reveal` es el hook de animación. Las etiquetas dinámicas deben conservar
+`|default(..., true)` para no emitir etiquetas vacías.
+
+**`css`.** `module.css` está vacío. Todos los selectores y breakpoints listados por AUTO
+proceden de `theme/css/main.css`; una brecha de selector o responsive es bloqueante por
+origen compartido. `.hero-card`, `.button-row` y `.btn` también los emiten otros módulos,
+por lo que su impacto excede este hero. Las custom properties `--admision-hero-*` son la
+superficie de configuración existente.
+
+**`js/hooks`.** `module.js` está vacío y no hay hook específico. El único comportamiento
+es el reveal genérico de `main.js`; sin él, `html.no-js` mantiene visible el contenido.
+Agregar comportamiento requiere analizar el JS compartido o declarar una dependencia
+nueva de forma aditiva; no debe inferirse de otros heroes.
+
+**`variantes`.** El registry no declara variantes. `botones.estilo` es configuración por
+item, no una variante registrada. Una variante estable nueva debe declararse antes de
+tratarla como evidencia de compatibilidad.
+
+**`responsive`.** La composición y sus seis consultas observadas viven en `main.css`; no
+hay responsive propio del módulo. Toda brecha se clasifica como bloqueante por origen.
+
+**`assets`.** No referencia assets del theme ni fields de imagen/video. Requerir media es
+una diferencia de capacidad y estructura, no un asset faltante adaptable.
+
+**`dependencias`.** Depende de `css/main.css`, cargado por el template. `js/main.js` solo
+aporta reveal. La falta de una dependencia ya global es nota; declarar una nueva puede ser
+adaptable, sujeto al análisis de impacto.
+
+**`paginas`.** Uso observado: Proceso de admisión
+(`templates/proceso-de-admision.html:64`). Un uso nuevo es nota; modificar marcado o CSS
+obliga a revisar esa página. El `dnd_area` conserva snapshots de configuración en páginas
+ya creadas.
 
 ## Checklist de compatibilidad
 

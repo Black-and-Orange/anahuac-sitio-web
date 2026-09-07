@@ -14,6 +14,7 @@ Dos capas. Los componentes y adapters usan **solo la capa semántica**; nunca pr
 | `--brown` | `#6B3F23` | Café Anáhuac |
 | `--black` | `#000000` | Negro |
 | `--white` | `#FFFFFF` | Blanco |
+| `--gray` | `#F2F2F2` | Gris suave |
 
 ### Colores secundarios — Morada monocromática
 
@@ -49,6 +50,7 @@ Dos capas. Los componentes y adapters usan **solo la capa semántica**; nunca pr
 |---|---|---|
 | `--font-heading` | `"Zilla Slab", serif` | **Todos** los encabezados (h1–h6), botones, frases destacadas. |
 | `--font-body` | `"Roboto", sans-serif` | Texto de cuerpo, párrafos, UI labels. |
+| `--font-script` | `"Kaushan Script", cursive` | Sello editorial «Tips ANÁHUAC» aprobado en Foráneos. |
 
 > Nota: la tipografía principal original del brand es **Sharp Slab** (comercial, requiere licencia).
 > La alternativa de código abierto oficial es **Zilla Slab** — esta es la que se usa en la implementación digital.
@@ -128,6 +130,8 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
 | `--color-brand-primary` | `var(--orange)` | Acentos de marca, CTAs principales, hover |
 | `--color-brand-secondary` | `var(--brown)` | Café institucional, acentos secundarios |
 | `--surface` | `var(--white)` | Fondo base de superficies |
+| `--surface-muted` | `var(--gray)` | Fondo gris suave para superficies secundarias |
+| `--surface-muted-strong` | `color-mix(in srgb, var(--surface) 88%, var(--color-text))` | Fondo gris de mayor contraste sobre una superficie gris suave |
 | `--surface-dark` | `var(--black)` | Fondo oscuro (hero, secciones destacadas) |
 | `--surface-accent` | `var(--purple-1)` | Fondo de sección destacada (púrpura) |
 | `--surface-accent-light` | `var(--lilac-2)` | Fondo de sección con acento ligero |
@@ -160,6 +164,7 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
   --brown: #6B3F23;
   --black: #000000;
   --white: #FFFFFF;
+  --gray: #F2F2F2;
 
   /* Secundarios — morada monocromática */
   --purple-1: #432F64;
@@ -219,6 +224,8 @@ Nombrar por **rol**, no por valor (ver `docs/naming.md`).
   --color-brand-primary: var(--orange);
   --color-brand-secondary: var(--brown);
   --surface: var(--white);
+  --surface-muted: var(--gray);
+  --surface-muted-strong: color-mix(in srgb, var(--surface) 88%, var(--color-text));
   --surface-dark: var(--black);
   --surface-accent: var(--purple-1);
   --surface-accent-light: var(--lilac-2);

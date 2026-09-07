@@ -182,6 +182,17 @@ mecanismo que hacía bailar las tarjetas en foráneos. La proporción 7/5 sobre 
 franja de 420 px da exactamente los 300 px de alto que deja el `min-height` del
 componente.
 
+**Hospital Virtual incorpora un carrusel en su área de imagen.** La revisión
+humana del 2026-09-07 conserva la tarjeta protagonista 2×2 y reutiliza el
+contrato de `.campus-slider` —flechas, puntos y swipe— con una diapositiva por
+vista. Las tres fotografías actuales siguen siendo material de ejemplo y no se
+describen como imágenes oficiales del espacio; se sustituyen juntas cuando
+llegue la sesión real.
+
+**La banda de cierre dice “Tips ANÁHUAC”, sin numeral.** “Tips” usa el mismo
+sello Kaushan Script aprobado en Foráneos y “ANÁHUAC” conserva Zilla Slab. La
+fuente decorativa se consume mediante `--font-script`, no como familia literal.
+
 **Enlaces dentro de la banda naranja del FAQ.** Heredan el blanco del párrafo, así
 que quedan del mismo color y grosor que el texto: invisibles como enlaces. Llevan
 subrayado. Vale para las ocho áreas.

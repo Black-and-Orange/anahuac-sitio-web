@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
@@ -445,14 +445,51 @@
                  la foto y specs/area-ciencias-de-la-salud.md.
 
                  PENDIENTE: fotografía real del edificio (Fase 1 de fotografía).
-                 La de aquí es de relleno, igual que las del módulo 7. -->
+                 Las del carrusel son de relleno, igual que las del módulo 7. -->
             <article class="porque-card salud-destacada">
-              <img
-                class="salud-destacada-foto"
-                src="assets/psicologia/campo-hospitales.webp"
-                alt="Hospital Virtual de la Facultad de Ciencias de la Salud, Universidad Anáhuac México, edificio de simulación"
-                loading="lazy"
-              />
+              <div
+                class="campus-slider salud-destacada-slider"
+                data-campus-slider
+                role="region"
+                aria-roledescription="carrusel"
+                aria-label="Galería de formación clínica"
+              >
+                <div class="campus-slider-viewport">
+                  <ul class="campus-slides">
+                    <li>
+                      <img
+                        class="salud-destacada-foto"
+                        src="assets/psicologia/campo-hospitales.webp"
+                        alt="Estudiantes del área de Ciencias de la Salud durante una práctica clínica (foto de ejemplo)"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li>
+                      <img
+                        class="salud-destacada-foto"
+                        src="assets/psicologia/campo-rehabilitacion.webp"
+                        alt="Estudiante guiando una sesión de rehabilitación (foto de ejemplo)"
+                        loading="lazy"
+                      />
+                    </li>
+                    <li>
+                      <img
+                        class="salud-destacada-foto"
+                        src="assets/psicologia/campo-clinicas.webp"
+                        alt="Profesional de salud durante una sesión de atención clínica (foto de ejemplo)"
+                        loading="lazy"
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                </button>
+                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Imagen siguiente">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                </button>
+                <div class="campus-slider-dots" aria-label="Imágenes de formación clínica"></div>
+              </div>
               <div class="salud-destacada-copy">
                 <span class="porque-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1012,7 +1049,7 @@
                un bloque a todo el ancho. -->
           <div class="salud-clinicas-banda reveal" data-reveal>
             <div class="salud-clinicas-banda-copy">
-              <p class="salud-tips-titulo">#TIPSANÁHUAC</p>
+              <p class="salud-tips-titulo"><span class="salud-tips-script">Tips</span> ANÁHUAC</p>
               <p>
                 Como estudiante del área de Ciencias de la Salud, tendrás la oportunidad de conocer el
                 historial clínico completo de un paciente y comprender su atención desde distintas
