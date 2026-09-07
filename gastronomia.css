@@ -302,17 +302,14 @@
   gap: 20px;
 }
 
-/* De entrada se ve UNA sola fila. La animación sigue corriendo sola y las flechas
-   avanzan o retroceden una fila cada clic (lo resuelve gastronomia.js moviendo el
-   reloj de esta misma animación). El degradado es suave porque con una sola fila
-   una máscara marcada se comería los logos por arriba y por abajo. */
+/* De entrada se ve UNA sola fila; las flechas avanzan/retroceden una fila por
+   clic. Sin máscara y con la altura EXACTA de una fila: la tarjeta se ve
+   completa (bordes nítidos), no difuminada ni con «sombra» arriba/abajo. */
 .pagina-gastronomia .gas-convenios-viewport {
   --gas-convenio-alto: 92px;
   --gas-convenio-gap: 14px;
   height: var(--gas-convenio-alto);
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
 }
 
 .pagina-gastronomia .gas-convenios-track {
@@ -331,20 +328,33 @@
   justify-content: center;
   height: var(--gas-convenio-alto);
   padding: 18px 20px;
-  background: var(--surface-muted-strong);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: var(--radius);
-  transition: background-color var(--motion-duration-fast) var(--motion-ease);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease),
+    border-color var(--motion-duration-fast) var(--motion-ease);
 }
 
+/* Sin fondo (solo borde gris); en hover se pinta blanco y el logo recupera su
+   color (ver `.gas-convenio:hover img`). */
 .pagina-gastronomia .gas-convenio:hover {
   background: var(--surface);
+  border-color: transparent;
 }
 
 .pagina-gastronomia .gas-convenio img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter var(--motion-duration-fast) var(--motion-ease),
+    opacity var(--motion-duration-fast) var(--motion-ease);
+}
+
+.pagina-gastronomia .gas-convenio:hover img {
+  filter: none;
+  opacity: 1;
 }
 
 /* Estos dos archivos son verticales o traen mucho aire interno. Los
