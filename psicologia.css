@@ -1681,14 +1681,11 @@
    Un solo marco morado: encabezado + nota + CTAs compartidos, y dos columnas
    que comparan los convenios (Inglaterra / España). Los logos van en una placa
    blanca para igualar tamaños dispares y garantizar contraste sobre el morado. */
-/* Caja morada contenida (dentro del ancho de la página, con esquinas
-   redondeadas). Estructura de dos columnas en su interior. */
+/* Sobre el fondo de la página (sin caja): a la izquierda el encabezado y los
+   CTAs en texto oscuro; a la derecha, solo las tarjetas son moradas. */
 .doble-tit {
-  margin-top: 40px;
-  padding: 56px 48px 48px;
-  background: var(--surface-accent);
-  color: var(--color-text-invert);
-  border-radius: var(--radius);
+  margin-top: 48px;
+  color: var(--color-text);
 }
 
 /* CABECERA — alineada a la izquierda, como la sección de licenciaturas del Home. */
@@ -1708,7 +1705,7 @@
   font-weight: 600;
   letter-spacing: 2.4px;
   text-transform: uppercase;
-  color: var(--lilac-1);
+  color: var(--purple-2);
 }
 
 .doble-tit-title {
@@ -1726,7 +1723,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.55;
-  color: var(--lilac-2);
+  color: var(--color-text);
   text-wrap: pretty;
 }
 
@@ -1753,16 +1750,16 @@
   flex-direction: column;
   gap: 16px;
   padding: 30px 30px 28px;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--surface-accent);
+  color: var(--color-text-invert);
   border-radius: 20px;
-  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .dt-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.14);
 }
 
 .dt-card-head {
@@ -1904,7 +1901,7 @@
   font-size: 14px;
   line-height: 1.5;
   text-align: left;
-  color: var(--lilac-2);
+  color: var(--color-text-secondary);
 }
 
 @media (max-width: 900px) {
