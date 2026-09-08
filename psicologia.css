@@ -1860,13 +1860,20 @@
 }
 
 /* CTA — primario sólido, secundario ghost (menor peso). */
+/* CTAs apilados (secundario debajo del primario) y del mismo tamaño. */
 .doble-tit-cta {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   gap: 14px;
   margin-top: 22px;
+  max-width: 360px;
+}
+
+/* btn-light no trae padding propio; se iguala al del primario. */
+.doble-tit-cta .btn {
+  padding: 15px 25px;
+  font-size: 21px;
 }
 
 .dt-cta-ghost {
