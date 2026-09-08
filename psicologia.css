@@ -1681,12 +1681,17 @@
    Un solo marco morado: encabezado + nota + CTAs compartidos, y dos columnas
    que comparan los convenios (Inglaterra / España). Los logos van en una placa
    blanca para igualar tamaños dispares y garantizar contraste sobre el morado. */
+/* Banda a todo el ancho (full-bleed): rompe el contenedor para que el fondo
+   morado llegue de borde a borde; el `.container` interno realinea el contenido
+   con el resto de la página. `overflow-x: clip` global evita el scroll lateral. */
 .doble-tit {
+  width: 100vw;
   margin-top: 40px;
-  padding: 56px 48px 48px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 56px 0 48px;
   background: var(--surface-accent);
   color: var(--color-text-invert);
-  border-radius: var(--radius);
 }
 
 /* CABECERA — el título es el elemento principal; el resto pierde peso. */
@@ -1911,7 +1916,7 @@
 
 @media (max-width: 900px) {
   .doble-tit {
-    padding: 44px 32px 36px;
+    padding: 44px 0 36px;
   }
 
   .doble-tit-title {
@@ -1930,7 +1935,7 @@
 
 @media (max-width: 640px) {
   .doble-tit {
-    padding: 34px 22px 30px;
+    padding: 34px 0 30px;
   }
 
   .doble-tit-title {
