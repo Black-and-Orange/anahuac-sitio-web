@@ -160,11 +160,3 @@
 .lic-form-msg--error {
   color: var(--orange);
 }
-
-/* ----- M8 · Historias Anáhuac: intro alineada a la izquierda como en el Home -----
-   El molde de carrera centra la bajada (`margin: auto`); aquí se homologa al
-   Home dejándola contra el eje izquierdo, alineada con el título. */
-.pagina-medicina .stories .section-intro > p:not(.tagline) {
-  margin-left: 0;
-  margin-right: 0;
-}
