@@ -1681,28 +1681,25 @@
    Un solo marco morado: encabezado + nota + CTAs compartidos, y dos columnas
    que comparan los convenios (Inglaterra / España). Los logos van en una placa
    blanca para igualar tamaños dispares y garantizar contraste sobre el morado. */
-/* Banda a todo el ancho (full-bleed): rompe el contenedor para que el fondo
-   morado llegue de borde a borde; el `.container` interno realinea el contenido
-   con el resto de la página. `overflow-x: clip` global evita el scroll lateral. */
+/* Caja morada contenida (dentro del ancho de la página, con esquinas
+   redondeadas). Estructura de dos columnas en su interior. */
 .doble-tit {
-  width: 100vw;
   margin-top: 40px;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 56px 0 48px;
+  padding: 56px 48px 48px;
   background: var(--surface-accent);
   color: var(--color-text-invert);
+  border-radius: var(--radius);
 }
 
-/* CABECERA — el título es el elemento principal; el resto pierde peso. */
+/* CABECERA — alineada a la izquierda, como la sección de licenciaturas del Home. */
 .doble-tit-head {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
-  max-width: 620px;
-  margin: 0 auto 44px;
-  text-align: center;
+  max-width: 720px;
+  margin: 0 0 40px;
+  text-align: left;
 }
 
 .doble-tit-eyebrow {
@@ -1724,20 +1721,29 @@
 }
 
 .doble-tit-sub {
-  max-width: 480px;
+  max-width: 560px;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.55;
   color: var(--lilac-2);
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
-.doble-tit-grid {
+/* Dos columnas (patrón del módulo «El siguiente paso» del Home): a la izquierda
+   el encabezado + CTAs; a la derecha las opciones apiladas. */
+.doble-tit-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: stretch;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Las opciones se apilan en la columna derecha. */
+.doble-tit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 /* TARJETA — composición editorial alineada a la izquierda; la duración se ancla
@@ -1817,28 +1823,15 @@
   height: 100%;
 }
 
-/* Programa = protagonista de la tarjeta. Reserva 2 líneas para que ambas
-   tarjetas mantengan la misma altura de bloque y queden perfectamente simétricas. */
+/* Programa = protagonista de la tarjeta. */
 .dt-program {
   margin: 2px 0 0;
-  min-height: 2.32em;
   font-family: var(--font-heading);
   font-size: 24px;
   line-height: 1.16;
   font-weight: 600;
   letter-spacing: -0.2px;
   text-wrap: balance;
-}
-
-/* Universidad = apoyo, bajo el programa. */
-.dt-uni {
-  margin-top: -8px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: 0.2px;
-  color: var(--lilac-1);
 }
 
 /* DURACIÓN — el diferenciador clave, con mayor peso, anclado al pie tras una
@@ -1874,7 +1867,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px;
   margin-top: 22px;
 }
@@ -1906,11 +1899,11 @@
 /* Mensaje puente entre las tarjetas y el CTA (no un pie aislado). */
 .doble-tit-note {
   max-width: 560px;
-  margin: 30px auto 0;
+  margin: 30px 0 0;
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
   color: var(--lilac-2);
 }
 
@@ -1923,8 +1916,10 @@
     font-size: 34px;
   }
 
-  .doble-tit-grid {
+  /* Encabezado arriba, opciones debajo. */
+  .doble-tit-layout {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   /* Apiladas ya no compiten por altura: el programa no necesita reservar 2 líneas. */
@@ -3124,11 +3119,11 @@
   max-width: 62ch;
 }
 
-/* La intro de la sección de historias y la del módulo de experiencia van
-   centradas: al acotarlas hay que conservar el centrado. */
+/* La bajada de Historias Anáhuac se alinea a la izquierda, bajo el título, como
+   en el Home (antes se centraba y quedaba desfasada del H2). */
 .pagina-carrera .stories .section-intro > p:not(.tagline) {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* -----------------------------------------------------------------------------
