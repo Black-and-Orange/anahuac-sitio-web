@@ -11,9 +11,11 @@
     "lint:css": "stylelint \"adapters/**/*.css\" --allow-empty-input",
     "a11y": "echo 'Configura pa11y-ci/axe contra la preview del adapter (ver docs/quality.md)'",
     "validate": "npm run check:readiness && npm run check:tokens && npm run lint:css",
-    "check:titulos": "node scripts/check-titulos.mjs"
+    "check:titulos": "node scripts/check-titulos.mjs",
+    "test": "node --test assets/review/tests/"
   },
   "devDependencies": {
+    "jsdom": "^24.0.0",
     "stylelint": "^16.0.0"
   }
 }
