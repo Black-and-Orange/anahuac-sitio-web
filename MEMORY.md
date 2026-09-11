@@ -42,6 +42,18 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-11 — BnO Review fase 2a: persistencia en Supabase, panel `/admin` y pin solo-lectura
+- Fase 2a completada: migración de `localStorage` a Supabase para persistencia compartida.
+- Base de datos: proyecto Supabase `gvnnhkectrnwhqkcrlar`, tabla `comments` con RLS habilitado
+  (anon: INSERT/SELECT únicamente; authenticated: todas las operaciones).
+- Configuración en `config.js`: `url` y `publishableKey` de Supabase + `storage:'supabase'`.
+- Panel `/admin` accesible con Supabase Auth (usuario admin creado en el tablero de Supabase).
+- Tarjeta de pin en la página es solo-lectura (sin edición desde el cliente).
+- Deep-link `#comment=<id>` para scroll y highlight de comentarios específicos.
+- **Seguridad:** la publishable key es pública por diseño; la seguridad real reside en RLS y
+  autenticación del admin en Supabase, que controla cambios de estado y respuestas.
+- Pendiente fase 2b: integración con ClickUp vía Edge Function + webhook (sincronización automática).
+
 ### 2026-09-10 — BnO Review: módulo drop-in para revisión visual con clientes
 - Se creó el módulo `assets/review/` (BnO Review) para permitir comentarios
   visuales anclados a elementos del DOM durante la revisión con clientes.

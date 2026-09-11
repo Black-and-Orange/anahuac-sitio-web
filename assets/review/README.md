@@ -14,10 +14,54 @@ Comentarios visuales anclados a elementos del DOM, activados con
    (ajusta la ruta si `assets/` no está en la raíz).
 4. Abre `pagina.html?review=true&token=<uno de tus tokens>`.
 
-## Migrar a persistencia compartida (fase 2)
+## Fase 2a — Supabase
 
-Implementa `SupabaseStore` con la misma interfaz que `LocalStorageStore`
-(`list`, `create`, `update`) y selecciónalo desde `config.storage`.
+Migración completada de `localStorage` a Supabase para persistencia compartida.
+
+### Pasos de setup
+
+1. **Crear la tabla en Supabase:**
+   - Conecta al proyecto Supabase en `https://supabase.com`.
+   - Copia la SQL de `assets/review/supabase/schema.sql` y ejecuta en el editor SQL.
+
+2. **Configurar credenciales en `config.js`:**
+   ```javascript
+   storage: 'supabase',
+   supabaseUrl: 'https://xxxx.supabase.co',
+   supabasePublishableKey: 'eyJhbGc...' // clave pública (segura en RLS)
+   ```
+   (Las credenciales están en el panel de Supabase → Project settings → API).
+
+3. **Crear usuario admin:**
+   - En Supabase → Authentication → Users, añade un usuario de administrador.
+   - Este usuario accede al panel `/admin` con su email y contraseña.
+
+4. **Activar revisión:**
+   - Abre `pagina.html?review=true&token=<uno de tus tokens>`.
+   - Los comentarios se guardan en Supabase y son visibles desde `/admin`.
+
+### Notas de seguridad
+
+- La `publishableKey` es pública: se envía al navegador y eso es correcto.
+- La seguridad real reside en **RLS** (Row Level Security):
+  - Usuario anónimo: INSERT y SELECT únicamente.
+  - Usuario autenticado: todas las operaciones (editar estado, responder).
+- El panel `/admin` requiere autenticación y restringe cambios de estado a usuarios
+  autenticados.
+
+### Replicación a otro proyecto
+
+Para usar el módulo en otro sitio estático de Black & Orange:
+
+1. Copia `assets/review/` completo.
+2. Crea un nuevo proyecto Supabase.
+3. Ejecuta `supabase/schema.sql` en el nuevo proyecto.
+4. Edita `config.js`:
+   - `projectId`: identificador único (diferente del actual).
+   - `tokens`: rotables según necesidad.
+   - `supabaseUrl` y `supabasePublishableKey`: credenciales del nuevo proyecto.
+5. Crea usuario admin en el nuevo Supabase.
+6. Asegúrate de incluir el `<script>` en cada página.
 
 ## Pruebas
 
