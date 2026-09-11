@@ -5,6 +5,10 @@ export const CONFIG = {
   projectId: 'anahuac-2026',
   tokens: ['bno-interno', 'cliente-anahuac'],
   namespace: 'bno-review',
-  storage: 'local', // 'local' (fase 1) | 'supabase' (fase 2)
-  version: '1.0.0',
+  storage: 'supabase', // 'local' | 'supabase'
+  supabase: {
+    url: 'https://gvnnhkectrnwhqkcrlar.supabase.co',
+    publishableKey: 'sb_publishable_Frc_cn6l4BfMbrSh7WFkIQ_6-fqqej4',
+  },
+  version: '2.0.0',
 };
