@@ -42,6 +42,25 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-10 — BnO Review: módulo drop-in para revisión visual con clientes
+- Se creó el módulo `assets/review/` (BnO Review) para permitir comentarios
+  visuales anclados a elementos del DOM durante la revisión con clientes.
+- Fase 1 persiste en `localStorage` sin backend; el módulo está diseñado como
+  drop-in replicable en otros proyectos de Black & Orange.
+- Configuración centralizada en `config.js` (projectId, tokens, storage):
+  todo lo específico del proyecto se edita en ese archivo único.
+- **Anclaje estable:** selector CSS + fingerprint del elemento (nunca coordenadas);
+  la UI se reposiciona automáticamente en resize y scroll.
+- **Aislamiento:** toda la interfaz vive en Shadow DOM con prefijo de clases
+  `bnor-` para evitar colisiones con el CSS del sitio.
+- **Activación:** `?review=true&token=<uno de los tokens en config>` en la URL;
+  sin ese parámetro, el módulo no carga (footprint cero).
+- **Estados de comentario:** `pendiente | en-proceso | resuelto`.
+- Fase 2 prevista: migrar a persistencia compartida (Supabase) con panel `/admin`
+  global; interfaz `ReviewStore` (`list`, `create`, `update`) preparada para ese cambio.
+- Pruebas: `npm test` corre la lógica pura (gate, anchor, selector, store) con
+  `node --test + jsdom`; la UI se verifica en navegador.
+
 ### 2026-09-07 — Área Ciencias de la Salud: Hospital Virtual y Tips
 - La fotografía de la tarjeta protagonista Hospital Virtual es ahora un
   carrusel de una imagen por vista que reutiliza el comportamiento compartido
