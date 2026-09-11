@@ -38,6 +38,11 @@ async function load() {
     (!proj || r.project_id === proj) &&
     (!page || r.page === page) &&
     (!status || r.status === status));
+  // Agrupar por elemento: misma página + mismo selector quedan juntos.
+  filtered.sort((a, b) =>
+    (a.page || '').localeCompare(b.page || '') ||
+    (a.selector || '').localeCompare(b.selector || '') ||
+    new Date(a.created_at) - new Date(b.created_at));
   render(filtered);
 }
 
@@ -53,13 +58,22 @@ function populateFilters(rows) {
 }
 
 function render(rows) {
-  $('rows').innerHTML = rows.map((r) => `
-    <tr>
+  let prevKey = null;
+  $('rows').innerHTML = rows.map((r) => {
+    const key = `${r.page}|${r.selector || ''}`;
+    const groupStart = key !== prevKey;
+    prevKey = key;
+    const replies = Array.isArray(r.replies) ? r.replies : [];
+    const repliesHtml = replies.length
+      ? `<div class="adm-replies">${replies.map((rep) => `<div class="adm-reply-item"><b>${esc(rep.name || 'Equipo')}</b> ${esc(rep.text)}</div>`).join('')}</div>`
+      : '';
+    return `
+    <tr class="${groupStart ? 'adm-group-start' : ''}">
       <td><span class="adm-badge" data-status="${esc(r.status)}">${esc(r.status)}</span></td>
       <td>${esc(r.page)}</td>
       <td><code>${esc(r.selector || '')}</code></td>
       <td>${esc(r.name)}</td>
-      <td>${esc(r.comment)}</td>
+      <td>${esc(r.comment)}${repliesHtml}</td>
       <td>${new Date(r.created_at).toLocaleString('es-MX')}</td>
       <td class="adm-actions">
         <a class="adm-link" href="../${esc(r.page)}?review=true&token=${REVIEW_TOKEN}#comment=${esc(r.id)}" target="_blank" rel="noopener">Ir</a>
@@ -69,8 +83,10 @@ function render(rows) {
           <option value="resuelto"${r.status==='resuelto'?' selected':''}>Resuelto</option>
         </select>
         <button class="adm-reply" data-id="${esc(r.id)}">Responder</button>
+        <button class="adm-delete" data-id="${esc(r.id)}">Eliminar</button>
       </td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
 
   $('rows').querySelectorAll('.adm-status').forEach((sel) => sel.addEventListener('change', async () => {
     const { error } = await sb.from('comments').update({ status: sel.value }).eq('id', sel.dataset.id);
@@ -84,6 +100,11 @@ function render(rows) {
     const replies = (data.replies || []).concat([{ name: 'Equipo', text, createdAt: new Date().toISOString() }]);
     const up = await sb.from('comments').update({ replies }).eq('id', btn.dataset.id);
     if (up.error) alert(up.error.message); else load();
+  }));
+  $('rows').querySelectorAll('.adm-delete').forEach((btn) => btn.addEventListener('click', async () => {
+    if (!confirm('¿Eliminar este comentario? No se puede deshacer.')) return;
+    const { error } = await sb.from('comments').delete().eq('id', btn.dataset.id);
+    if (error) alert(error.message); else load();
   }));
 }
 

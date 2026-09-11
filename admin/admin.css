@@ -20,3 +20,9 @@ body { margin: 0; background: #f8fafc; }
 .adm-error { color: #dc2626; font-size: 13px; }
 .adm-hidden { display: none !important; }
 code { background: #f1f5f9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+
+/* Respuestas del equipo, agrupación por elemento y borrar */
+.adm-replies { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+.adm-reply-item { font-size: 12px; color: #374151; background: #f3f4f6; border-radius: 5px; padding: 4px 7px; }
+.adm-group-start td { border-top: 2px solid #cbd5e1; }
+.adm-delete { padding: 6px 10px; border: 1px solid #fecaca; border-radius: 6px; background: #fee2e2; color: #b91c1c; cursor: pointer; font-size: 12px; }

@@ -31,6 +31,14 @@ drop policy if exists "anon can select" on public.comments;
 create policy "anon can select" on public.comments
   for select to anon using (true);
 
+-- Borrado anónimo: permite que el cliente elimine comentarios (corregir errores).
+-- OJO: RLS no distingue "propios" (anon no tiene identidad); el "solo los míos"
+-- se aplica en la interfaz (assets/review/mine.js). Un actor decidido podría
+-- borrar otros. Para blindarlo, mover el borrado a una función server-side.
+drop policy if exists "anon can delete" on public.comments;
+create policy "anon can delete" on public.comments
+  for delete to anon using (true);
+
 -- Equipo autenticado (Supabase Auth): acceso total.
 drop policy if exists "authenticated full access" on public.comments;
 create policy "authenticated full access" on public.comments

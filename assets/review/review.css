@@ -63,3 +63,10 @@
 .bnor-badge[data-status="resuelto"] { background: #d1fae5; color: #065f46; }
 .bnor-pin--focus { animation: bnor-pulse 1.3s ease-in-out 2; }
 @keyframes bnor-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+
+/* Respuestas del equipo (hilo, solo lectura) y acciones de la tarjeta */
+.bnor-replies { margin-top: 8px; border-top: 1px dashed #e5e7eb; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.bnor-reply { font-size: 13px; color: #374151; background: #f3f4f6; border-radius: 6px; padding: 6px 8px; }
+.bnor-reply-author { font-weight: 700; color: #111; }
+.bnor-card-actions { margin-top: 10px; display: flex; justify-content: flex-end; }
+.bnor-btn--danger { background: #fee2e2; color: #b91c1c; }

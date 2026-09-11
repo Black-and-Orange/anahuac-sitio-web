@@ -37,8 +37,10 @@ after(() => {
 
 function fakeStore(comments) {
   const updateCalls = [];
+  const deleteCalls = [];
   return {
     updateCalls,
+    deleteCalls,
     list: async () => comments,
     update: async (projectId, page, id, patch) => {
       updateCalls.push({ projectId, page, id, patch });
@@ -46,6 +48,10 @@ function fakeStore(comments) {
       if (!c) return null;
       Object.assign(c, patch);
       return c;
+    },
+    delete: async (projectId, page, id) => {
+      deleteCalls.push({ projectId, page, id });
+      return true;
     },
   };
 }
@@ -159,4 +165,64 @@ test('focusComment() con id inexistente no lanza', async () => {
   await pinLayer.renderAll();
 
   assert.doesNotThrow(() => pinLayer.focusComment('no-existe'));
+});
+
+test('dos comentarios sobre el mismo elemento se despliegan en abanico (posiciones distintas)', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 'a1', name: 'Ana', comment: 'uno', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p', textHash: '0', siblingIndex: 1 } },
+    { id: 'a2', name: 'Beto', comment: 'dos', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p', textHash: '0', siblingIndex: 1 } },
+  ];
+  const pinLayer = new PinLayer({ root, store: fakeStore(comments), config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+
+  const e1 = pinLayer.pins.find((p) => p.comment.id === 'a1');
+  const e2 = pinLayer.pins.find((p) => p.comment.id === 'a2');
+  assert.equal(e1.el, e2.el, 'ambos anclan al mismo elemento');
+  assert.notEqual(e1.pinEl.style.left, e2.pinEl.style.left, 'los pins no deben quedar en la misma posición');
+  assert.equal(e2.pinEl.style.left, '22px', 'el segundo pin sobre el mismo elemento se desplaza 22px');
+});
+
+test('la tarjeta muestra las respuestas del equipo (visibles para el cliente)', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 'r1', name: 'Ana', comment: 'cambiar texto', status: 'en-proceso', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' }, replies: [{ name: 'Equipo', text: 'Ya quedó listo', createdAt: new Date().toISOString() }] },
+  ];
+  const pinLayer = new PinLayer({ root, store: fakeStore(comments), config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+  const entry = pinLayer.pins.find((p) => p.comment.id === 'r1');
+  pinLayer.openCard(entry.comment, entry.pinEl);
+
+  const card = root.querySelector('.bnor-card');
+  const reply = card.querySelector('.bnor-reply');
+  assert.ok(reply, 'debe renderizar el hilo de respuestas');
+  assert.match(reply.textContent, /Ya quedó listo/);
+});
+
+test('la tarjeta muestra "Eliminar" solo en los comentarios propios y lo borra', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 'mio', name: 'Ana', comment: 'error, borrar', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' } },
+  ];
+  const store = fakeStore(comments);
+  // marcar como "mío" en el localStorage del window (lo usa mine.js)
+  dom.window.localStorage.setItem('bno-review:mine', JSON.stringify(['mio']));
+  dom.window.confirm = () => true;
+
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+  const entry = pinLayer.pins.find((p) => p.comment.id === 'mio');
+  pinLayer.openCard(entry.comment, entry.pinEl);
+
+  const card = root.querySelector('.bnor-card');
+  const del = card.querySelector('[data-act="delete"]');
+  assert.ok(del, 'debe mostrar el botón Eliminar en un comentario propio');
+
+  del.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  assert.equal(store.deleteCalls.length, 1, 'debe llamar a store.delete');
+  assert.equal(store.deleteCalls[0].id, 'mio');
+  assert.equal(pinLayer.pins.find((p) => p.comment.id === 'mio'), undefined, 'debe quitar el pin borrado');
+  dom.window.localStorage.removeItem('bno-review:mine');
 });

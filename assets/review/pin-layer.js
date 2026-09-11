@@ -1,4 +1,5 @@
 import { resolveElement } from './selector-engine.js';
+import { isMine, forgetMine } from './mine.js';
 
 const STATE_LABEL = { 'pendiente': 'Pendiente', 'en-proceso': 'En proceso', 'resuelto': 'Resuelto' };
 
@@ -37,10 +38,21 @@ export class PinLayer {
     this._place(entry);
   }
 
+  // Cuántos pins previos comparten el mismo elemento (para desplazarlos en abanico).
+  _stackIndex(entry) {
+    let k = 0;
+    for (const e of this.pins) {
+      if (e === entry) break;
+      if (e.el && e.el === entry.el) k++;
+    }
+    return k;
+  }
+
   _place(entry) {
     if (!entry.el) { entry.pinEl.style.display = 'none'; return; }
     const r = entry.el.getBoundingClientRect();
-    entry.pinEl.style.left = (r.left + Math.min(r.width, 14)) + 'px';
+    const k = this._stackIndex(entry); // 0 = primero sobre este elemento
+    entry.pinEl.style.left = (r.left + Math.min(r.width, 14) + k * 22) + 'px';
     entry.pinEl.style.top = (r.top + 12) + 'px';
   }
 
@@ -66,16 +78,38 @@ export class PinLayer {
     const date = new Date(comment.createdAt).toLocaleString('es-MX');
     const entry = this.pins.find((p) => p.comment === comment || p.comment.id === comment.id);
     const lost = entry ? entry.lost : false;
+    const replies = Array.isArray(comment.replies) ? comment.replies : [];
+    const repliesHtml = replies.length
+      ? `<div class="bnor-replies">${replies.map((rep) => `
+          <div class="bnor-reply"><span class="bnor-reply-author">${escapeHtml(rep.name || 'Equipo')}</span> ${escapeHtml(rep.text)}</div>`).join('')}</div>`
+      : '';
+    const mine = isMine(comment.id);
+    const deleteHtml = mine ? '<button class="bnor-btn bnor-btn--danger" data-act="delete">Eliminar</button>' : '';
     card.innerHTML = `
       <div class="bnor-author">${escapeHtml(comment.name)}</div>
       <div class="bnor-date">${date}</div>
       ${lost ? '<div class="bnor-lost">Elemento no localizado — anclado a la sección</div>' : ''}
       <div class="bnor-body">${escapeHtml(comment.comment)}</div>
-      <div class="bnor-badge" data-status="${comment.status}">${STATE_LABEL[comment.status] || comment.status}</div>`;
+      <div class="bnor-badge" data-status="${comment.status}">${STATE_LABEL[comment.status] || comment.status}</div>
+      ${repliesHtml}
+      ${deleteHtml ? `<div class="bnor-card-actions">${deleteHtml}</div>` : ''}`;
     const r = pinEl.getBoundingClientRect();
     card.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 312)) + 'px';
     card.style.top = Math.max(12, Math.min(r.bottom + 8, window.innerHeight - 160)) + 'px';
     this.root.appendChild(card);
+
+    if (mine) {
+      card.querySelector('[data-act="delete"]').addEventListener('click', async (ev) => {
+        ev.stopPropagation();
+        if (!window.confirm('¿Eliminar este comentario? No se puede deshacer.')) return;
+        try {
+          await this.store.delete(this.config.projectId, this.page, comment.id);
+        } catch (e) { console.warn('[BnO Review] no se pudo eliminar:', e); return; }
+        forgetMine(comment.id);
+        card.remove();
+        this._removePin(comment.id);
+      });
+    }
 
     const closeOnOutside = (ev) => {
       if (!ev.target.closest || !ev.target.closest('#bno-review-root')) {
@@ -86,6 +120,13 @@ export class PinLayer {
     };
     this._closeCardHandler = closeOnOutside;
     setTimeout(() => document.addEventListener('click', closeOnOutside, true), 0);
+  }
+
+  _removePin(id) {
+    const idx = this.pins.findIndex((p) => p.comment.id === id);
+    if (idx === -1) return;
+    this.pins[idx].pinEl.remove();
+    this.pins.splice(idx, 1);
   }
 
   focusComment(id) {
