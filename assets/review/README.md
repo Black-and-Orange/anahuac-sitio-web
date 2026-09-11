@@ -22,13 +22,15 @@ Migración completada de `localStorage` a Supabase para persistencia compartida.
 
 1. **Crear la tabla en Supabase:**
    - Conecta al proyecto Supabase en `https://supabase.com`.
-   - Copia la SQL de `assets/review/supabase/schema.sql` y ejecuta en el editor SQL.
+   - Copia la SQL de `supabase/schema.sql` y ejecuta en el editor SQL.
 
 2. **Configurar credenciales en `config.js`:**
    ```javascript
    storage: 'supabase',
-   supabaseUrl: 'https://xxxx.supabase.co',
-   supabasePublishableKey: 'eyJhbGc...' // clave pública (segura en RLS)
+   supabase: {
+     url: 'https://xxxx.supabase.co',
+     publishableKey: 'sb_publishable_...' // clave pública (segura en RLS)
+   }
    ```
    (Las credenciales están en el panel de Supabase → Project settings → API).
 
@@ -59,7 +61,7 @@ Para usar el módulo en otro sitio estático de Black & Orange:
 4. Edita `config.js`:
    - `projectId`: identificador único (diferente del actual).
    - `tokens`: rotables según necesidad.
-   - `supabaseUrl` y `supabasePublishableKey`: credenciales del nuevo proyecto.
+   - `supabase.url` y `supabase.publishableKey`: credenciales del nuevo proyecto.
 5. Crea usuario admin en el nuevo Supabase.
 6. Asegúrate de incluir el `<script>` en cada página.
 
