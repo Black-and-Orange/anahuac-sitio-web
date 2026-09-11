@@ -1,0 +1,28 @@
+:root { font-family: system-ui, -apple-system, Roboto, sans-serif; color: #111; }
+body { margin: 0; background: #f8fafc; }
+.adm-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: #1f2937; color: #fff; }
+.adm-header h1 { font-size: 16px; margin: 0; }
+.adm-login { max-width: 320px; margin: 60px auto; background: #fff; padding: 22px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 10px; }
+.adm-login input { padding: 9px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; }
+.adm-panel { padding: 20px; }
+.adm-filters { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.adm-filters select { padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; }
+.adm-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+.adm-table th, .adm-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #eef2f7; font-size: 13px; vertical-align: top; }
+.adm-table th { background: #f1f5f9; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; color: #475569; }
+.adm-actions { display: flex; gap: 6px; align-items: center; white-space: nowrap; }
+.adm-badge { padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; background: #fef3c7; color: #92400e; }
+.adm-badge[data-status="en-proceso"] { background: #dbeafe; color: #1e40af; }
+.adm-badge[data-status="resuelto"] { background: #d1fae5; color: #065f46; }
+.adm-btn { padding: 8px 12px; border: 0; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; background: #e5e7eb; }
+.adm-btn--primary { background: #2563eb; color: #fff; }
+.adm-link { color: #2563eb; font-weight: 600; text-decoration: none; }
+.adm-error { color: #dc2626; font-size: 13px; }
+.adm-hidden { display: none !important; }
+code { background: #f1f5f9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+
+/* Respuestas del equipo, agrupación por elemento y borrar */
+.adm-replies { margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
+.adm-reply-item { font-size: 12px; color: #374151; background: #f3f4f6; border-radius: 5px; padding: 4px 7px; }
+.adm-group-start td { border-top: 2px solid #cbd5e1; }
+.adm-delete { padding: 6px 10px; border: 1px solid #fecaca; border-radius: 6px; background: #fee2e2; color: #b91c1c; cursor: pointer; font-size: 12px; }

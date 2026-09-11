@@ -42,6 +42,37 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-11 — BnO Review fase 2a: persistencia en Supabase, panel `/admin` y pin solo-lectura
+- Fase 2a completada: migración de `localStorage` a Supabase para persistencia compartida.
+- Base de datos: proyecto Supabase `gvnnhkectrnwhqkcrlar`, tabla `comments` con RLS habilitado
+  (anon: INSERT/SELECT únicamente; authenticated: todas las operaciones).
+- Configuración en `config.js`: `url` y `publishableKey` de Supabase + `storage:'supabase'`.
+- Panel `/admin` accesible con Supabase Auth (usuario admin creado en el tablero de Supabase).
+- Tarjeta de pin en la página es solo-lectura (sin edición desde el cliente).
+- Deep-link `#comment=<id>` para scroll y highlight de comentarios específicos.
+- **Seguridad:** la publishable key es pública por diseño; la seguridad real reside en RLS y
+  autenticación del admin en Supabase, que controla cambios de estado y respuestas.
+- Pendiente fase 2b: integración con ClickUp vía Edge Function + webhook (sincronización automática).
+
+### 2026-09-10 — BnO Review: módulo drop-in para revisión visual con clientes
+- Se creó el módulo `assets/review/` (BnO Review) para permitir comentarios
+  visuales anclados a elementos del DOM durante la revisión con clientes.
+- Fase 1 persiste en `localStorage` sin backend; el módulo está diseñado como
+  drop-in replicable en otros proyectos de Black & Orange.
+- Configuración centralizada en `config.js` (projectId, tokens, storage):
+  todo lo específico del proyecto se edita en ese archivo único.
+- **Anclaje estable:** selector CSS + fingerprint del elemento (nunca coordenadas);
+  la UI se reposiciona automáticamente en resize y scroll.
+- **Aislamiento:** toda la interfaz vive en Shadow DOM con prefijo de clases
+  `bnor-` para evitar colisiones con el CSS del sitio.
+- **Activación:** `?review=true&token=<uno de los tokens en config>` en la URL;
+  sin ese parámetro, el módulo no carga (footprint cero).
+- **Estados de comentario:** `pendiente | en-proceso | resuelto`.
+- Fase 2 prevista: migrar a persistencia compartida (Supabase) con panel `/admin`
+  global; interfaz `ReviewStore` (`list`, `create`, `update`) preparada para ese cambio.
+- Pruebas: `npm test` corre la lógica pura (gate, anchor, selector, store) con
+  `node --test + jsdom`; la UI se verifica en navegador.
+
 ### 2026-09-07 — Área Ciencias de la Salud: Hospital Virtual y Tips
 - La fotografía de la tarjeta protagonista Hospital Virtual es ahora un
   carrusel de una imagen por vista que reutiliza el comportamiento compartido

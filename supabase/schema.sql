@@ -1,0 +1,52 @@
+-- BnO Review — esquema fase 2a. Correr una vez en el SQL Editor de Supabase.
+create extension if not exists pgcrypto;
+
+create table if not exists public.comments (
+  id uuid primary key default gen_random_uuid(),
+  project_id text not null,
+  page text not null,
+  selector text,
+  fingerprint jsonb,
+  name text not null,
+  comment text not null,
+  status text not null default 'pendiente'
+    check (status in ('pendiente','en-proceso','resuelto')),
+  replies jsonb not null default '[]'::jsonb,  -- (heredado; las respuestas ahora son filas hijas)
+  parent_id uuid references public.comments(id) on delete cascade, -- respuesta a otro comentario
+  clickup_task_id text,   -- fase 2b
+  clickup_url text,       -- fase 2b
+  created_at timestamptz not null default now()
+);
+
+-- Para tablas ya creadas: agrega la columna de hilo sin recrear nada.
+alter table public.comments
+  add column if not exists parent_id uuid references public.comments(id) on delete cascade;
+
+create index if not exists comments_project_page_idx
+  on public.comments (project_id, page);
+create index if not exists comments_parent_idx
+  on public.comments (parent_id);
+
+alter table public.comments enable row level security;
+
+-- Cliente anónimo (publishable key): crear y ver, nada más.
+drop policy if exists "anon can insert" on public.comments;
+create policy "anon can insert" on public.comments
+  for insert to anon with check (true);
+
+drop policy if exists "anon can select" on public.comments;
+create policy "anon can select" on public.comments
+  for select to anon using (true);
+
+-- Borrado anónimo: permite que el cliente elimine comentarios (corregir errores).
+-- OJO: RLS no distingue "propios" (anon no tiene identidad); el "solo los míos"
+-- se aplica en la interfaz (assets/review/mine.js). Un actor decidido podría
+-- borrar otros. Para blindarlo, mover el borrado a una función server-side.
+drop policy if exists "anon can delete" on public.comments;
+create policy "anon can delete" on public.comments
+  for delete to anon using (true);
+
+-- Equipo autenticado (Supabase Auth): acceso total.
+drop policy if exists "authenticated full access" on public.comments;
+create policy "authenticated full access" on public.comments
+  for all to authenticated using (true) with check (true);
