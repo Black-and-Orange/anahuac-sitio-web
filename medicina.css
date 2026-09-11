@@ -28,43 +28,6 @@
   }
 }
 
-/* ----- M5 · Etiquetas de agrupación (etapas) sobre las tabs ----- */
-.plan-etapas {
-  list-style: none;
-  margin: 0 0 var(--space-8);
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-}
-
-.plan-etapa {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-5) var(--space-7);
-  background: var(--surface-accent-light);
-  border-radius: var(--radius-sm);
-}
-
-.plan-etapa-nom {
-  font-family: var(--font-heading);
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 600;
-  color: var(--purple-1);
-}
-
-.plan-etapa-rango {
-  font-family: var(--font-body);
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: var(--purple-2);
-}
-
 /* ----- M5 · Créditos, etapa y notas de los paneles de semestre ----- */
 .plan-sem-creditos {
   margin: 0 0 var(--space-6);
@@ -106,20 +69,60 @@
   color: var(--color-text-secondary);
 }
 
-/* ----- M6 · Banda promocional de una sola columna =====
-   Reutiliza la base .campo-band (morada). A diferencia de la variante --doble
-   de Psicología, aquí hay un solo bloque de copy que ocupa todo el ancho y los
-   CTAs quedan debajo del dato. */
+/* ----- M6 · Banda promocional a dos columnas =====
+   Reutiliza la base .campo-band (morada, flex space-between): a la izquierda el
+   copy (título + párrafos + chips de países); a la derecha los 2 CTAs apilados. */
 .campo-band--promo {
-  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-8);
 }
 
 .campo-band--promo .campo-doble-copy {
-  flex: 1 1 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
 }
 
+/* Frase de entrada a los países de rotación. */
+.campo-band-lead {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.campo-band-lead strong {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/* Chips de países (píldoras blancas .lic-chip). */
+.campo-band-paises {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* CTAs apilados y del mismo tamaño en la columna derecha. */
 .campo-band--promo .campo-cta {
-  margin-top: var(--space-6);
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-4);
+}
+
+/* btn-light no trae padding propio; se iguala al del primario. */
+.campo-band--promo .campo-cta .btn {
+  padding: 15px 28px;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
 /* ----- M9 · Texto de apoyo de cada grupo de convenios ----- */
