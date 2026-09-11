@@ -1,0 +1,90 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://gvnnhkectrnwhqkcrlar.supabase.co';
+const PUBLISHABLE_KEY = 'sb_publishable_Frc_cn6l4BfMbrSh7WFkIQ_6-fqqej4';
+const REVIEW_TOKEN = 'cliente-anahuac'; // para armar el deep-link a la página
+const sb = createClient(SUPABASE_URL, PUBLISHABLE_KEY);
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+async function refreshSessionUI() {
+  const { data } = await sb.auth.getSession();
+  const authed = Boolean(data.session);
+  $('login').classList.toggle('adm-hidden', authed);
+  $('panel').classList.toggle('adm-hidden', !authed);
+  $('logout').classList.toggle('adm-hidden', !authed);
+  if (authed) load();
+}
+
+$('signin').addEventListener('click', async () => {
+  $('login-error').textContent = '';
+  const { error } = await sb.auth.signInWithPassword({ email: $('email').value.trim(), password: $('password').value });
+  if (error) { $('login-error').textContent = error.message; return; }
+  refreshSessionUI();
+});
+
+$('logout').addEventListener('click', async () => { await sb.auth.signOut(); refreshSessionUI(); });
+$('refresh').addEventListener('click', load);
+['f-project', 'f-page', 'f-status'].forEach((id) => $(id).addEventListener('change', load));
+
+async function load() {
+  let q = sb.from('comments').select('*').order('created_at', { ascending: false });
+  const proj = $('f-project').value, page = $('f-page').value, status = $('f-status').value;
+  if (proj) q = q.eq('project_id', proj);
+  if (page) q = q.eq('page', page);
+  if (status) q = q.eq('status', status);
+  const { data, error } = await q;
+  if (error) { $('rows').innerHTML = `<tr><td colspan="7" class="adm-error">${esc(error.message)}</td></tr>`; return; }
+  populateFilters(data);
+  render(data);
+}
+
+function populateFilters(rows) {
+  const fill = (sel, values, label) => {
+    const cur = $(sel).value;
+    const opts = [`<option value="">${label}</option>`].concat([...new Set(values)].filter(Boolean).map((v) => `<option value="${esc(v)}">${esc(v)}</option>`));
+    $(sel).innerHTML = opts.join('');
+    $(sel).value = cur;
+  };
+  fill('f-project', rows.map((r) => r.project_id), 'Todos los proyectos');
+  fill('f-page', rows.map((r) => r.page), 'Todas las páginas');
+}
+
+function render(rows) {
+  $('rows').innerHTML = rows.map((r) => `
+    <tr>
+      <td><span class="adm-badge" data-status="${r.status}">${esc(r.status)}</span></td>
+      <td>${esc(r.page)}</td>
+      <td><code>${esc(r.selector || '')}</code></td>
+      <td>${esc(r.name)}</td>
+      <td>${esc(r.comment)}</td>
+      <td>${new Date(r.created_at).toLocaleString('es-MX')}</td>
+      <td class="adm-actions">
+        <a class="adm-link" href="../${esc(r.page)}?review=true&token=${REVIEW_TOKEN}#comment=${esc(r.id)}" target="_blank" rel="noopener">Ir</a>
+        <select class="adm-status" data-id="${esc(r.id)}">
+          <option value="pendiente"${r.status==='pendiente'?' selected':''}>Pendiente</option>
+          <option value="en-proceso"${r.status==='en-proceso'?' selected':''}>En proceso</option>
+          <option value="resuelto"${r.status==='resuelto'?' selected':''}>Resuelto</option>
+        </select>
+        <button class="adm-reply" data-id="${esc(r.id)}">Responder</button>
+      </td>
+    </tr>`).join('');
+
+  $('rows').querySelectorAll('.adm-status').forEach((sel) => sel.addEventListener('change', async () => {
+    const { error } = await sb.from('comments').update({ status: sel.value }).eq('id', sel.dataset.id);
+    if (error) alert(error.message); else load();
+  }));
+  $('rows').querySelectorAll('.adm-reply').forEach((btn) => btn.addEventListener('click', async () => {
+    const text = prompt('Respuesta:');
+    if (!text) return;
+    const { data, error } = await sb.from('comments').select('replies').eq('id', btn.dataset.id).single();
+    if (error) { alert(error.message); return; }
+    const replies = (data.replies || []).concat([{ name: 'Equipo', text, createdAt: new Date().toISOString() }]);
+    const up = await sb.from('comments').update({ replies }).eq('id', btn.dataset.id);
+    if (up.error) alert(up.error.message); else load();
+  }));
+}
+
+sb.auth.onAuthStateChange(() => refreshSessionUI());
+refreshSessionUI();
