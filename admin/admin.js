@@ -32,9 +32,19 @@ $('refresh').addEventListener('click', load);
 async function load() {
   const { data, error } = await sb.from('comments').select('*').order('created_at', { ascending: false });
   if (error) { $('rows').innerHTML = `<tr><td colspan="7" class="adm-error">${esc(error.message)}</td></tr>`; return; }
-  populateFilters(data);
+  // Anidar respuestas (filas hijas) bajo su comentario padre.
+  const tops = data.filter((r) => !r.parent_id);
+  tops.forEach((t) => { t.replies = []; });
+  const byId = new Map(tops.map((t) => [t.id, t]));
+  data.filter((r) => r.parent_id).forEach((r) => {
+    const p = byId.get(r.parent_id);
+    if (p) p.replies.push({ name: r.name, text: r.comment, createdAt: r.created_at });
+  });
+  tops.forEach((t) => t.replies.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)));
+
+  populateFilters(tops);
   const proj = $('f-project').value, page = $('f-page').value, status = $('f-status').value;
-  const filtered = data.filter((r) =>
+  const filtered = tops.filter((r) =>
     (!proj || r.project_id === proj) &&
     (!page || r.page === page) &&
     (!status || r.status === status));
@@ -95,11 +105,14 @@ function render(rows) {
   $('rows').querySelectorAll('.adm-reply').forEach((btn) => btn.addEventListener('click', async () => {
     const text = prompt('Respuesta:');
     if (!text) return;
-    const { data, error } = await sb.from('comments').select('replies').eq('id', btn.dataset.id).single();
-    if (error) { alert(error.message); return; }
-    const replies = (data.replies || []).concat([{ name: 'Equipo', text, createdAt: new Date().toISOString() }]);
-    const up = await sb.from('comments').update({ replies }).eq('id', btn.dataset.id);
-    if (up.error) alert(up.error.message); else load();
+    const parent = rows.find((r) => r.id === btn.dataset.id);
+    if (!parent) return;
+    // Una respuesta es una fila hija (INSERT) — sin carreras al escribir el hilo.
+    const { error } = await sb.from('comments').insert({
+      project_id: parent.project_id, page: parent.page, parent_id: parent.id,
+      name: 'Equipo', comment: text,
+    });
+    if (error) alert(error.message); else load();
   }));
   $('rows').querySelectorAll('.adm-delete').forEach((btn) => btn.addEventListener('click', async () => {
     if (!confirm('¿Eliminar este comentario? No se puede deshacer.')) return;

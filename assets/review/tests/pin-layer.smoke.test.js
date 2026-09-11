@@ -38,9 +38,15 @@ after(() => {
 function fakeStore(comments) {
   const updateCalls = [];
   const deleteCalls = [];
+  const replyCalls = [];
   return {
     updateCalls,
     deleteCalls,
+    replyCalls,
+    reply: async (parent, { name, text }) => {
+      replyCalls.push({ parentId: parent.id, name, text });
+      return { id: 'child-' + replyCalls.length, parentId: parent.id, name, comment: text };
+    },
     list: async () => comments,
     update: async (projectId, page, id, patch) => {
       updateCalls.push({ projectId, page, id, patch });
@@ -225,4 +231,27 @@ test('la tarjeta muestra "Eliminar" solo en los comentarios propios y lo borra',
   assert.equal(store.deleteCalls[0].id, 'mio');
   assert.equal(pinLayer.pins.find((p) => p.comment.id === 'mio'), undefined, 'debe quitar el pin borrado');
   dom.window.localStorage.removeItem('bno-review:mine');
+});
+
+test('responder desde la tarjeta llama a store.reply y muestra la respuesta nueva', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 'p1', name: 'Ana', comment: 'texto a revisar', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' }, replies: [] },
+  ];
+  const store = fakeStore(comments);
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+  const entry = pinLayer.pins.find((p) => p.comment.id === 'p1');
+  pinLayer.openCard(entry.comment, entry.pinEl);
+
+  let card = root.querySelector('.bnor-card');
+  card.querySelector('.bnor-reply-input').value = 'de acuerdo, lo cambio';
+  card.querySelector('[data-act="reply"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 30)); // deja que el re-render y sus timers de 0ms se vacíen
+
+  assert.equal(store.replyCalls.length, 1, 'debe llamar a store.reply');
+  assert.equal(store.replyCalls[0].text, 'de acuerdo, lo cambio');
+  assert.equal(store.replyCalls[0].parentId, 'p1');
+  card = root.querySelector('.bnor-card');
+  assert.match(card.textContent, /de acuerdo, lo cambio/, 'la respuesta debe verse en el hilo');
 });

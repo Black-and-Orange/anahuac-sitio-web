@@ -1,9 +1,12 @@
 // Adaptador Supabase. Implementa la interfaz ReviewStore, idéntica a LocalStorageStore.
 // El cliente supabase-js se inyecta (para poder probar sin red).
+import { nestReplies } from './thread.js';
+
 function toRow(c) {
   const row = {};
   if (c.id !== undefined) row.id = c.id;
   if (c.projectId !== undefined) row.project_id = c.projectId;
+  if (c.parentId !== undefined) row.parent_id = c.parentId;
   if (c.page !== undefined) row.page = c.page;
   if (c.selector !== undefined) row.selector = c.selector;
   if (c.fingerprint !== undefined) row.fingerprint = c.fingerprint;
@@ -19,6 +22,7 @@ function fromRow(r) {
   return {
     id: r.id,
     projectId: r.project_id,
+    parentId: r.parent_id || null,
     page: r.page,
     selector: r.selector,
     fingerprint: r.fingerprint,
@@ -45,7 +49,12 @@ export class SupabaseStore {
       .eq('page', page)
       .order('created_at', { ascending: true });
     if (error) throw new Error(error.message || String(error));
-    return (data || []).map(fromRow);
+    // Solo comentarios de nivel superior, con sus respuestas anidadas.
+    return nestReplies((data || []).map(fromRow));
+  }
+
+  async reply(parent, { name, text }) {
+    return this.create({ projectId: parent.projectId, page: parent.page, parentId: parent.id, name, comment: text });
   }
 
   async create(comment) {

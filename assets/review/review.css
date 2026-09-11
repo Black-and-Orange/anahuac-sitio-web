@@ -70,3 +70,7 @@
 .bnor-reply-author { font-weight: 700; color: #111; }
 .bnor-card-actions { margin-top: 10px; display: flex; justify-content: flex-end; }
 .bnor-btn--danger { background: #fee2e2; color: #b91c1c; }
+
+/* Caja para responder desde la página (hilo entre revisores) */
+.bnor-reply-form { margin-top: 8px; display: flex; gap: 6px; }
+.bnor-reply-input { flex: 1; padding: 7px 8px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; }
