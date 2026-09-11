@@ -47,3 +47,10 @@ test('update cambia el estado', async () => {
 test('update devuelve null si el id no existe', async () => {
   assert.equal(await store.update('anahuac-2026', 'psicologia.html', 'nope', { status: 'resuelto' }), null);
 });
+
+test('delete elimina el comentario y devuelve true; false si no existía', async () => {
+  const c = await store.create({ ...base });
+  assert.equal(await store.delete('anahuac-2026', 'psicologia.html', c.id), true);
+  assert.deepEqual(await store.list('anahuac-2026', 'psicologia.html'), []);
+  assert.equal(await store.delete('anahuac-2026', 'psicologia.html', 'nope'), false);
+});

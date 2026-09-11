@@ -11,6 +11,7 @@ function makeFakeClient(responder) {
       select(cols) { state.select = cols ?? '*'; return builder; },
       insert(payload) { state.method = 'insert'; state.payload = payload; return builder; },
       update(payload) { state.method = 'update'; state.payload = payload; return builder; },
+      delete() { state.method = 'delete'; return builder; },
       eq(col, val) { state.filters[col] = val; return builder; },
       order(col, opts) { state.order = { col, opts }; return builder; },
       single() { state.single = true; return builder; },
@@ -71,4 +72,14 @@ test('propaga el error de Supabase', async () => {
   const client = makeFakeClient(() => ({ data: null, error: { message: 'boom' } }));
   const store = new SupabaseStore(client, 'anahuac-2026');
   await assert.rejects(() => store.list('anahuac-2026', 'psicologia.html'), /boom/);
+});
+
+test('delete filtra por id y usa el método delete', async () => {
+  let seen;
+  const client = makeFakeClient((state) => { seen = state; return { data: null, error: null }; });
+  const store = new SupabaseStore(client, 'anahuac-2026');
+  const ok = await store.delete('anahuac-2026', 'psicologia.html', 'r1');
+  assert.equal(ok, true);
+  assert.equal(seen.method, 'delete');
+  assert.equal(seen.filters.id, 'r1');
 });

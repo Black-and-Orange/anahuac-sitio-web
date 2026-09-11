@@ -42,4 +42,11 @@ export class LocalStorageStore {
     this.storage.setItem(this._key(projectId, page), JSON.stringify(list));
     return list[idx];
   }
+
+  async delete(projectId, page, id) {
+    const list = await this.list(projectId, page);
+    const next = list.filter((c) => c.id !== id);
+    this.storage.setItem(this._key(projectId, page), JSON.stringify(next));
+    return next.length !== list.length;
+  }
 }

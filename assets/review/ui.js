@@ -1,6 +1,7 @@
 import { resolveAnchor } from './anchor-resolver.js';
 import { buildSelector, buildFingerprint } from './selector-engine.js';
 import { PinLayer } from './pin-layer.js';
+import { rememberMine } from './mine.js';
 
 const REVIEWER_KEY = 'bno-review:reviewer-name';
 
@@ -120,6 +121,7 @@ export class ReviewUI {
           name,
           comment: text,
         });
+        rememberMine(created.id);
         form.remove();
         this.onCommentCreated(created);
       }

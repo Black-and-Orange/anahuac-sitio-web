@@ -68,4 +68,13 @@ export class SupabaseStore {
     if (error) throw new Error(error.message || String(error));
     return data ? fromRow(data) : null;
   }
+
+  async delete(projectId, page, id) {
+    const { error } = await this.client
+      .from('comments')
+      .delete()
+      .eq('id', id);
+    if (error) throw new Error(error.message || String(error));
+    return true;
+  }
 }
