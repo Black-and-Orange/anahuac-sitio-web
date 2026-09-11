@@ -64,6 +64,9 @@ Para usar el módulo en otro sitio estático de Black & Orange:
    - `supabase.url` y `supabase.publishableKey`: credenciales del nuevo proyecto.
 5. Crea usuario admin en el nuevo Supabase.
 6. Asegúrate de incluir el `<script>` en cada página.
+7. El panel `/admin` lee sus credenciales de Supabase desde `assets/review/config.js`
+   (no requiere edición aparte); replicar el proyecto implica copiar también la
+   carpeta `admin/`.
 
 ## Pruebas
 

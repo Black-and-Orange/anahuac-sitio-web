@@ -1,8 +1,9 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { CONFIG } from '../assets/review/config.js';
 
-const SUPABASE_URL = 'https://gvnnhkectrnwhqkcrlar.supabase.co';
-const PUBLISHABLE_KEY = 'sb_publishable_Frc_cn6l4BfMbrSh7WFkIQ_6-fqqej4';
-const REVIEW_TOKEN = 'cliente-anahuac'; // para armar el deep-link a la página
+const SUPABASE_URL = CONFIG.supabase.url;
+const PUBLISHABLE_KEY = CONFIG.supabase.publishableKey;
+const REVIEW_TOKEN = CONFIG.tokens[0]; // para armar el deep-link a la página
 const sb = createClient(SUPABASE_URL, PUBLISHABLE_KEY);
 
 const $ = (id) => document.getElementById(id);
@@ -29,15 +30,15 @@ $('refresh').addEventListener('click', load);
 ['f-project', 'f-page', 'f-status'].forEach((id) => $(id).addEventListener('change', load));
 
 async function load() {
-  let q = sb.from('comments').select('*').order('created_at', { ascending: false });
-  const proj = $('f-project').value, page = $('f-page').value, status = $('f-status').value;
-  if (proj) q = q.eq('project_id', proj);
-  if (page) q = q.eq('page', page);
-  if (status) q = q.eq('status', status);
-  const { data, error } = await q;
+  const { data, error } = await sb.from('comments').select('*').order('created_at', { ascending: false });
   if (error) { $('rows').innerHTML = `<tr><td colspan="7" class="adm-error">${esc(error.message)}</td></tr>`; return; }
   populateFilters(data);
-  render(data);
+  const proj = $('f-project').value, page = $('f-page').value, status = $('f-status').value;
+  const filtered = data.filter((r) =>
+    (!proj || r.project_id === proj) &&
+    (!page || r.page === page) &&
+    (!status || r.status === status));
+  render(filtered);
 }
 
 function populateFilters(rows) {
@@ -54,7 +55,7 @@ function populateFilters(rows) {
 function render(rows) {
   $('rows').innerHTML = rows.map((r) => `
     <tr>
-      <td><span class="adm-badge" data-status="${r.status}">${esc(r.status)}</span></td>
+      <td><span class="adm-badge" data-status="${esc(r.status)}">${esc(r.status)}</span></td>
       <td>${esc(r.page)}</td>
       <td><code>${esc(r.selector || '')}</code></td>
       <td>${esc(r.name)}</td>

@@ -54,9 +54,6 @@
 .bnor-card .bnor-date { color: #9ca3af; font-size: 11px; margin-bottom: 8px; }
 .bnor-card .bnor-body { font-size: 14px; white-space: pre-wrap; margin-bottom: 10px; }
 .bnor-card .bnor-lost { color: #ef4444; font-size: 11px; margin-bottom: 8px; }
-.bnor-states { display: flex; gap: 6px; }
-.bnor-state { flex: 1; padding: 6px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; font-size: 11px; }
-.bnor-state[aria-pressed="true"] { border-color: #2563eb; color: #2563eb; font-weight: 700; }
 
 .bnor-badge {
   display: inline-block; padding: 3px 10px; border-radius: 999px;

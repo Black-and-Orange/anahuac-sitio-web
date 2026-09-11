@@ -39,7 +39,9 @@ export class ReviewUI {
 
     this.pinLayer = new PinLayer({ root: this.root, store: this.store, config: this.config, page: this.page });
     this.onCommentCreated = (comment) => this.pinLayer.addPin(comment, this.pinLayer.pins.length + 1);
-    this.ready = this.pinLayer.renderAll();
+    this.ready = this.pinLayer.renderAll().catch((e) => {
+      console.warn('[BnO Review] no se pudieron cargar los comentarios:', e);
+    });
   }
 
   setMode(on) {
