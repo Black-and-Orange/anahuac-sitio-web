@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BnO Review — Admin</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <header class="adm-header"><h1>BnO Review — Comentarios</h1><button id="logout" class="adm-btn adm-hidden">Salir</button></header>
+
+    <section id="login" class="adm-login">
+      <h2>Acceso equipo</h2>
+      <input id="email" type="email" placeholder="correo" />
+      <input id="password" type="password" placeholder="contraseña" />
+      <button id="signin" class="adm-btn adm-btn--primary">Entrar</button>
+      <p id="login-error" class="adm-error"></p>
+    </section>
+
+    <section id="panel" class="adm-panel adm-hidden">
+      <div class="adm-filters">
+        <select id="f-project"></select>
+        <select id="f-page"></select>
+        <select id="f-status">
+          <option value="">Todos los estados</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="en-proceso">En proceso</option>
+          <option value="resuelto">Resuelto</option>
+        </select>
+        <button id="refresh" class="adm-btn">Actualizar</button>
+      </div>
+      <table class="adm-table">
+        <thead><tr><th>Estado</th><th>Página</th><th>Elemento</th><th>Usuario</th><th>Comentario</th><th>Fecha</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>
