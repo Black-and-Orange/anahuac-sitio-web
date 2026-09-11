@@ -299,3 +299,83 @@
    que esta página pide en su `<section class="lic-hero">`. Es opt-in porque
    Psicología y Nutrición no la necesitan.
    -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+   PROPUESTA ALTERNA DEL «¿POR QUÉ?» (.com-porque2)
+
+   Dos columnas: a la izquierda un carrusel (reutiliza `campus-slider`) que queda
+   fijo (sticky) mientras a la derecha las seis razones —tarjetas `.porque-card`—
+   aparecen con `.reveal` conforme se hace scroll. Mismo espíritu que el módulo
+   "experience" del Home.
+   -------------------------------------------------------------------------- */
+.pagina-comunicacion .com-porque2-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.pagina-comunicacion .com-porque2-media {
+  position: sticky;
+  top: 100px;
+}
+
+.pagina-comunicacion .com-porque2-media .campus-slider {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.pagina-comunicacion .com-porque2-media .campus-slides > li {
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.pagina-comunicacion .com-porque2-media .campus-slides > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Flechas siempre visibles y con peso, como en el deslizador de instalaciones. */
+.pagina-comunicacion .com-porque2-media .campus-slider-arrow {
+  width: 42px;
+  height: 42px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.pagina-comunicacion .com-porque2-media .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pagina-comunicacion .com-porque2-media .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.pagina-comunicacion .com-porque2-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .pagina-comunicacion .com-porque2-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .pagina-comunicacion .com-porque2-media {
+    position: static;
+  }
+}
+
+/* Enlace «Ver instalaciones» bajo el carrusel de la propuesta alterna. */
+.pagina-comunicacion .com-porque2-link {
+  display: inline-flex;
+  margin-top: 20px;
+}
