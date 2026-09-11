@@ -39,7 +39,7 @@ export class ReviewUI {
 
     this.pinLayer = new PinLayer({ root: this.root, store: this.store, config: this.config, page: this.page });
     this.onCommentCreated = (comment) => this.pinLayer.addPin(comment, this.pinLayer.pins.length + 1);
-    this.pinLayer.renderAll();
+    this.ready = this.pinLayer.renderAll();
   }
 
   setMode(on) {

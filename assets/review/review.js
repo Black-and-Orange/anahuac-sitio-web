@@ -25,6 +25,11 @@ async function boot() {
 
   const ui = new ReviewUI({ store, config: CONFIG, token, page: currentPage() });
   ui.mount();
+
+  const m = window.location.hash.match(/comment=([\w-]+)/);
+  if (m) {
+    try { await ui.ready; ui.pinLayer.focusComment(m[1]); } catch (_) {}
+  }
 }
 
 if (document.readyState === 'loading') {

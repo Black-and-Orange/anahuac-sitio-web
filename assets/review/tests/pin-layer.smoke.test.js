@@ -1,9 +1,10 @@
 // Smoke test con jsdom para PinLayer: sustituye la verificación manual en
 // navegador del Step 4 del brief (ver ruling del controlador). Prueba que
 // renderAll() pinta un pin anclado por comentario, que un comentario cuyo
-// selector/fingerprint no resuelve queda marcado como "perdido", y que elegir
-// el estado "Resuelto" en la tarjeta llama a store.update y refleja el nuevo
-// estado en el pin. jsdom siempre da rects en cero, así que no se asume nada
+// selector/fingerprint no resuelve queda marcado como "perdido", que la
+// tarjeta es de solo lectura (badge de estado, sin botones de edición ni
+// llamadas a store.update), y que focusComment() resalta el pin
+// correspondiente. jsdom siempre da rects en cero, así que no se asume nada
 // sobre coordenadas: solo estructura y estado.
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
@@ -99,7 +100,39 @@ test('renderAll() pinta un pin por comentario y marca "perdido" el que no resuel
   assert.equal(lostEntry.pinEl.dataset.lost, 'true');
 });
 
-test('elegir "Resuelto" en la tarjeta llama a store.update y actualiza el pin', async () => {
+test('la tarjeta del pin es de solo lectura: muestra un badge de estado y no llama a store.update', async () => {
+  const root = makeRoot();
+  const comments = makeComments();
+  // store.update lanza si se invoca: la tarjeta ya no debe llamarlo nunca.
+  const store = {
+    list: async () => comments,
+    update: async () => { throw new Error('store.update no debe llamarse desde la tarjeta de solo lectura'); },
+  };
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
+
+  await pinLayer.renderAll();
+  const goodEntry = pinLayer.pins.find((p) => p.comment.id === 'c1');
+
+  // Equivale al clic en el pin: abre la tarjeta del comentario.
+  pinLayer.openCard(goodEntry.comment, goodEntry.pinEl);
+
+  const card = root.querySelector('.bnor-card');
+  assert.ok(card, 'debe renderizar la tarjeta');
+
+  const badge = card.querySelector('.bnor-badge');
+  assert.ok(badge, 'debe mostrar un badge de estado');
+  assert.equal(badge.dataset.status, 'pendiente');
+  assert.equal(badge.textContent, 'Pendiente');
+
+  const stateButtons = card.querySelectorAll('.bnor-state');
+  assert.equal(stateButtons.length, 0, 'no debe mostrar botones de edición de estado');
+
+  // Cualquier clic dentro de la tarjeta no debe disparar store.update.
+  card.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+});
+
+test('focusComment() resalta el pin correspondiente y hace scroll al elemento', async () => {
   const root = makeRoot();
   const comments = makeComments();
   const store = fakeStore(comments);
@@ -108,25 +141,22 @@ test('elegir "Resuelto" en la tarjeta llama a store.update y actualiza el pin', 
   await pinLayer.renderAll();
   const goodEntry = pinLayer.pins.find((p) => p.comment.id === 'c1');
 
-  // Equivale al clic en el pin: abre la tarjeta con el comentario resuelto.
-  pinLayer.openCard(goodEntry.comment, goodEntry.pinEl);
+  let scrollCalls = 0;
+  goodEntry.el.scrollIntoView = () => { scrollCalls += 1; };
 
-  const card = root.querySelector('.bnor-card');
-  assert.ok(card, 'debe renderizar la tarjeta');
-  const stateButtons = card.querySelectorAll('.bnor-state');
-  assert.equal(stateButtons.length, 3, 'debe mostrar los 3 botones de estado');
+  pinLayer.focusComment('c1');
 
-  const resueltoBtn = [...stateButtons].find((b) => b.dataset.state === 'resuelto');
-  assert.ok(resueltoBtn, 'debe existir el botón de estado "resuelto"');
+  assert.equal(scrollCalls, 1, 'debe hacer scroll al elemento anclado');
+  assert.ok(goodEntry.pinEl.classList.contains('bnor-pin--focus'), 'debe agregar la clase de foco al pin');
+});
 
-  resueltoBtn.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }));
-  // El handler de clic de la tarjeta es async (await store.update); deja correr el microtask.
-  await new Promise((resolve) => setTimeout(resolve, 0));
+test('focusComment() con id inexistente no lanza', async () => {
+  const root = makeRoot();
+  const comments = makeComments();
+  const store = fakeStore(comments);
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
 
-  assert.equal(store.updateCalls.length, 1, 'debe llamar a store.update una vez');
-  assert.equal(store.updateCalls[0].id, 'c1');
-  assert.deepEqual(store.updateCalls[0].patch, { status: 'resuelto' });
+  await pinLayer.renderAll();
 
-  assert.equal(goodEntry.pinEl.dataset.status, 'resuelto', 'el pin debe reflejar el nuevo estado');
-  assert.equal(resueltoBtn.getAttribute('aria-pressed'), 'true');
+  assert.doesNotThrow(() => pinLayer.focusComment('no-existe'));
 });

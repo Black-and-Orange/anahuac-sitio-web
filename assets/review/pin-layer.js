@@ -1,10 +1,6 @@
 import { resolveElement } from './selector-engine.js';
 
-const STATES = [
-  { key: 'pendiente', label: 'Pendiente' },
-  { key: 'en-proceso', label: 'En proceso' },
-  { key: 'resuelto', label: 'Resuelto' },
-];
+const STATE_LABEL = { 'pendiente': 'Pendiente', 'en-proceso': 'En proceso', 'resuelto': 'Resuelto' };
 
 export class PinLayer {
   constructor({ root, store, config, page }) {
@@ -75,24 +71,11 @@ export class PinLayer {
       <div class="bnor-date">${date}</div>
       ${lost ? '<div class="bnor-lost">Elemento no localizado — anclado a la sección</div>' : ''}
       <div class="bnor-body">${escapeHtml(comment.comment)}</div>
-      <div class="bnor-states">
-        ${STATES.map((s) => `<button class="bnor-state" data-state="${s.key}" aria-pressed="${s.key === comment.status}">${s.label}</button>`).join('')}
-      </div>`;
+      <div class="bnor-badge" data-status="${comment.status}">${STATE_LABEL[comment.status] || comment.status}</div>`;
     const r = pinEl.getBoundingClientRect();
     card.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 312)) + 'px';
     card.style.top = Math.max(12, Math.min(r.bottom + 8, window.innerHeight - 160)) + 'px';
     this.root.appendChild(card);
-
-    card.addEventListener('click', async (ev) => {
-      const st = ev.target.dataset.state;
-      if (!st) return;
-      const updated = await this.store.update(this.config.projectId, this.page, comment.id, { status: st });
-      if (updated) {
-        comment.status = st;
-        pinEl.dataset.status = st;
-        card.querySelectorAll('.bnor-state').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.state === st)));
-      }
-    });
 
     const closeOnOutside = (ev) => {
       if (!ev.target.closest || !ev.target.closest('#bno-review-root')) {
@@ -103,6 +86,16 @@ export class PinLayer {
     };
     this._closeCardHandler = closeOnOutside;
     setTimeout(() => document.addEventListener('click', closeOnOutside, true), 0);
+  }
+
+  focusComment(id) {
+    const entry = this.pins.find((p) => p.comment.id === id);
+    if (!entry) return;
+    if (entry.el && entry.el.scrollIntoView) {
+      entry.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    entry.pinEl.classList.add('bnor-pin--focus');
+    setTimeout(() => entry.pinEl.classList.remove('bnor-pin--focus'), 2600);
   }
 }
 

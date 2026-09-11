@@ -57,3 +57,12 @@
 .bnor-states { display: flex; gap: 6px; }
 .bnor-state { flex: 1; padding: 6px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; font-size: 11px; }
 .bnor-state[aria-pressed="true"] { border-color: #2563eb; color: #2563eb; font-weight: 700; }
+
+.bnor-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; background: #fef3c7; color: #92400e;
+}
+.bnor-badge[data-status="en-proceso"] { background: #dbeafe; color: #1e40af; }
+.bnor-badge[data-status="resuelto"] { background: #d1fae5; color: #065f46; }
+.bnor-pin--focus { animation: bnor-pulse 1.3s ease-in-out 2; }
+@keyframes bnor-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.5); } }
