@@ -33,3 +33,27 @@
 .bnor-btn--ghost { background: transparent; color: #6b7280; }
 
 .bnor-hidden { display: none !important; }
+
+.bnor-pin {
+  position: fixed; z-index: 2147482500; width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  border-radius: 50% 50% 50% 2px; cursor: pointer; border: 2px solid #fff;
+  background: #f59e0b; color: #fff; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.bnor-pin[data-status="en-proceso"] { background: #3b82f6; }
+.bnor-pin[data-status="resuelto"] { background: #10b981; }
+.bnor-pin[data-lost="true"] { outline: 2px dashed #ef4444; outline-offset: 2px; }
+
+.bnor-card {
+  position: fixed; z-index: 2147483002; width: 300px; max-width: calc(100vw - 24px);
+  background: #fff; color: #111; border-radius: 10px; padding: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.28); border: 1px solid #e5e7eb;
+}
+.bnor-card .bnor-author { font-weight: 700; font-size: 14px; }
+.bnor-card .bnor-date { color: #9ca3af; font-size: 11px; margin-bottom: 8px; }
+.bnor-card .bnor-body { font-size: 14px; white-space: pre-wrap; margin-bottom: 10px; }
+.bnor-card .bnor-lost { color: #ef4444; font-size: 11px; margin-bottom: 8px; }
+.bnor-states { display: flex; gap: 6px; }
+.bnor-state { flex: 1; padding: 6px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; font-size: 11px; }
+.bnor-state[aria-pressed="true"] { border-color: #2563eb; color: #2563eb; font-weight: 700; }

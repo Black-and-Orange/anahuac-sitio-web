@@ -1,5 +1,6 @@
 import { resolveAnchor } from './anchor-resolver.js';
 import { buildSelector, buildFingerprint } from './selector-engine.js';
+import { PinLayer } from './pin-layer.js';
 
 const REVIEWER_KEY = 'bno-review:reviewer-name';
 
@@ -35,6 +36,10 @@ export class ReviewUI {
     this.outline = document.createElement('div');
     this.outline.className = 'bnor-hover-outline bnor-hidden';
     this.root.appendChild(this.outline);
+
+    this.pinLayer = new PinLayer({ root: this.root, store: this.store, config: this.config, page: this.page });
+    this.onCommentCreated = (comment) => this.pinLayer.addPin(comment, this.pinLayer.pins.length + 1);
+    this.pinLayer.renderAll();
   }
 
   setMode(on) {
