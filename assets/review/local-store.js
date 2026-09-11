@@ -1,5 +1,7 @@
 // Adaptador de almacenamiento en localStorage. Implementa la interfaz ReviewStore.
 // En fase 2 se añade SupabaseStore con la MISMA interfaz y se elige en config.
+import { nestReplies } from './thread.js';
+
 function uuid() {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
   return 'c-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
@@ -15,13 +17,22 @@ export class LocalStorageStore {
     return `${this.namespace}:${projectId}:${page}`;
   }
 
-  async list(projectId, page) {
+  _raw(projectId, page) {
     const raw = this.storage.getItem(this._key(projectId, page));
     return raw ? JSON.parse(raw) : [];
   }
 
+  async list(projectId, page) {
+    // Solo comentarios de nivel superior, cada uno con sus respuestas anidadas.
+    return nestReplies(this._raw(projectId, page));
+  }
+
+  async reply(parent, { name, text }) {
+    return this.create({ projectId: parent.projectId, page: parent.page, parentId: parent.id, name, comment: text });
+  }
+
   async create(comment) {
-    const list = await this.list(comment.projectId, comment.page);
+    const list = this._raw(comment.projectId, comment.page);
     const full = {
       ...comment,
       id: comment.id || uuid(),
@@ -35,7 +46,7 @@ export class LocalStorageStore {
   }
 
   async update(projectId, page, id, patch) {
-    const list = await this.list(projectId, page);
+    const list = this._raw(projectId, page);
     const idx = list.findIndex((c) => c.id === id);
     if (idx === -1) return null;
     list[idx] = { ...list[idx], ...patch };
@@ -44,8 +55,9 @@ export class LocalStorageStore {
   }
 
   async delete(projectId, page, id) {
-    const list = await this.list(projectId, page);
-    const next = list.filter((c) => c.id !== id);
+    const list = this._raw(projectId, page);
+    // Borra el comentario y, si era padre, sus respuestas (cascade local).
+    const next = list.filter((c) => c.id !== id && c.parentId !== id);
     this.storage.setItem(this._key(projectId, page), JSON.stringify(next));
     return next.length !== list.length;
   }

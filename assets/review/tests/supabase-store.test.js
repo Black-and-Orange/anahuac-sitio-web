@@ -83,3 +83,26 @@ test('delete filtra por id y usa el método delete', async () => {
   assert.equal(seen.method, 'delete');
   assert.equal(seen.filters.id, 'r1');
 });
+
+test('reply inserta una fila hija con parent_id', async () => {
+  let seen;
+  const client = makeFakeClient((state) => { seen = state; return { data: { ...row, id: 'child1', parent_id: 'r1', comment: 'mi respuesta' }, error: null }; });
+  const store = new SupabaseStore(client, 'anahuac-2026');
+  const child = await store.reply({ id: 'r1', projectId: 'anahuac-2026', page: 'psicologia.html' }, { name: 'Beto', text: 'mi respuesta' });
+  assert.equal(seen.method, 'insert');
+  assert.equal(seen.payload.parent_id, 'r1');
+  assert.equal(seen.payload.comment, 'mi respuesta');
+  assert.equal(child.parentId, 'r1');
+});
+
+test('list anida las respuestas hijas bajo su comentario padre', async () => {
+  const parent = { ...row, id: 'p1', parent_id: null, comment: 'padre' };
+  const child = { ...row, id: 'c1', parent_id: 'p1', name: 'Beto', comment: 'respuesta', created_at: '2026-09-11T11:00:00Z' };
+  const client = makeFakeClient(() => ({ data: [parent, child], error: null }));
+  const store = new SupabaseStore(client, 'anahuac-2026');
+  const res = await store.list('anahuac-2026', 'psicologia.html');
+  assert.equal(res.length, 1, 'solo un comentario de nivel superior');
+  assert.equal(res[0].id, 'p1');
+  assert.equal(res[0].replies.length, 1);
+  assert.equal(res[0].replies[0].text, 'respuesta');
+});

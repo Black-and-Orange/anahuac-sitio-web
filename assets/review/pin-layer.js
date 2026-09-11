@@ -2,6 +2,7 @@ import { resolveElement } from './selector-engine.js';
 import { isMine, forgetMine } from './mine.js';
 
 const STATE_LABEL = { 'pendiente': 'Pendiente', 'en-proceso': 'En proceso', 'resuelto': 'Resuelto' };
+const REVIEWER_KEY = 'bno-review:reviewer-name';
 
 export class PinLayer {
   constructor({ root, store, config, page }) {
@@ -92,11 +93,29 @@ export class PinLayer {
       <div class="bnor-body">${escapeHtml(comment.comment)}</div>
       <div class="bnor-badge" data-status="${comment.status}">${STATE_LABEL[comment.status] || comment.status}</div>
       ${repliesHtml}
+      <div class="bnor-reply-form">
+        <input class="bnor-reply-input" type="text" placeholder="Responder…" />
+        <button class="bnor-btn bnor-btn--primary" data-act="reply">Responder</button>
+      </div>
       ${deleteHtml ? `<div class="bnor-card-actions">${deleteHtml}</div>` : ''}`;
     const r = pinEl.getBoundingClientRect();
     card.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 312)) + 'px';
     card.style.top = Math.max(12, Math.min(r.bottom + 8, window.innerHeight - 160)) + 'px';
     this.root.appendChild(card);
+
+    card.querySelector('[data-act="reply"]').addEventListener('click', async (ev) => {
+      ev.stopPropagation();
+      const input = card.querySelector('.bnor-reply-input');
+      const text = input.value.trim();
+      if (!text) { input.focus(); return; }
+      const name = ((window.localStorage && window.localStorage.getItem(REVIEWER_KEY)) || '').trim() || 'Anónimo';
+      try {
+        await this.store.reply(comment, { name, text });
+      } catch (e) { console.warn('[BnO Review] no se pudo responder:', e); return; }
+      comment.replies = Array.isArray(comment.replies) ? comment.replies : [];
+      comment.replies.push({ name, text, createdAt: new Date().toISOString() });
+      this.openCard(comment, pinEl); // re-render con la respuesta nueva
+    });
 
     if (mine) {
       card.querySelector('[data-act="delete"]').addEventListener('click', async (ev) => {

@@ -54,3 +54,13 @@ test('delete elimina el comentario y devuelve true; false si no existía', async
   assert.deepEqual(await store.list('anahuac-2026', 'psicologia.html'), []);
   assert.equal(await store.delete('anahuac-2026', 'psicologia.html', 'nope'), false);
 });
+
+test('reply crea una fila hija; list la anida bajo el padre', async () => {
+  const parent = await store.create({ ...base, comment: 'padre' });
+  const child = await store.reply(parent, { name: 'Beto', text: 'respuesta' });
+  assert.equal(child.parentId, parent.id);
+  const list = await store.list('anahuac-2026', 'psicologia.html');
+  assert.equal(list.length, 1, 'solo el comentario padre en el nivel superior');
+  assert.equal(list[0].replies.length, 1);
+  assert.equal(list[0].replies[0].text, 'respuesta');
+});
