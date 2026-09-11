@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { shouldActivate } from './gate.js';
-import { LocalStorageStore } from './local-store.js';
+import { createStore } from './store-factory.js';
 import { ReviewUI } from './ui.js';
 
 function currentPage() {
@@ -12,7 +12,7 @@ function boot() {
   const { active, token } = shouldActivate(window.location.search, CONFIG);
   if (!active) return; // footprint cero
 
-  const store = new LocalStorageStore(window.localStorage, CONFIG.namespace);
+  const store = createStore(CONFIG);
   const ui = new ReviewUI({ store, config: CONFIG, token, page: currentPage() });
   ui.mount();
 }

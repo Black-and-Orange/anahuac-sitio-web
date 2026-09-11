@@ -59,14 +59,21 @@ export class PinLayer {
   }
 
   openCard(comment, pinEl) {
+    if (this._closeCardHandler) {
+      document.removeEventListener('click', this._closeCardHandler, true);
+      this._closeCardHandler = null;
+    }
     const existing = this.root.querySelector('.bnor-card');
     if (existing) existing.remove();
     const card = document.createElement('div');
     card.className = 'bnor-card';
     const date = new Date(comment.createdAt).toLocaleString('es-MX');
+    const entry = this.pins.find((p) => p.comment === comment || p.comment.id === comment.id);
+    const lost = entry ? entry.lost : false;
     card.innerHTML = `
       <div class="bnor-author">${escapeHtml(comment.name)}</div>
       <div class="bnor-date">${date}</div>
+      ${lost ? '<div class="bnor-lost">Elemento no localizado — anclado a la sección</div>' : ''}
       <div class="bnor-body">${escapeHtml(comment.comment)}</div>
       <div class="bnor-states">
         ${STATES.map((s) => `<button class="bnor-state" data-state="${s.key}" aria-pressed="${s.key === comment.status}">${s.label}</button>`).join('')}
@@ -88,8 +95,13 @@ export class PinLayer {
     });
 
     const closeOnOutside = (ev) => {
-      if (!ev.target.closest || !ev.target.closest('#bno-review-root')) { card.remove(); document.removeEventListener('click', closeOnOutside, true); }
+      if (!ev.target.closest || !ev.target.closest('#bno-review-root')) {
+        card.remove();
+        document.removeEventListener('click', closeOnOutside, true);
+        this._closeCardHandler = null;
+      }
     };
+    this._closeCardHandler = closeOnOutside;
     setTimeout(() => document.addEventListener('click', closeOnOutside, true), 0);
   }
 }

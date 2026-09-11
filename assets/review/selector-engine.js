@@ -65,7 +65,12 @@ function matchByFingerprint(fingerprint, root) {
   const candidates = scope.querySelectorAll(fingerprint.tag);
   const byText = matchInList(candidates, fingerprint);
   if (byText) return byText;
-  // Último recurso: la n-ésima ocurrencia del tag en el scope.
+  // Último recurso, laxo a propósito: ni el selector ni el texto resolvieron.
+  // `siblingIndex` se calculó entre hermanos del MISMO tag (indexOfType), pero
+  // aquí se usa para indexar `candidates`, que son TODAS las ocurrencias del
+  // tag en el scope (no necesariamente hermanas). Los espacios de índices no
+  // son el mismo, así que este acierto puede ser casualidad y podría
+  // mal-anclar el pin a un elemento distinto del original.
   const nth = candidates[fingerprint.siblingIndex - 1];
   return nth || null;
 }
