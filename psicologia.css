@@ -538,6 +538,222 @@
   list-style: none;
 }
 
+/* ==========================================================================
+   ¿POR QUÉ? — Variante en dos columnas (.lic-porque2)
+   Carrusel sticky a la izquierda (reutiliza .campus-slider) y las tarjetas
+   .porque-card en vertical a la derecha, que aparecen con .reveal al hacer
+   scroll (mismo espíritu que el módulo "experience" del Home). Componente
+   compartido por todas las carreras (.pagina-carrera); se estrenó en
+   Comunicación como .com-porque2.
+   ========================================================================== */
+.pagina-carrera .lic-porque2-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.pagina-carrera .lic-porque2-media {
+  position: sticky;
+  top: 100px;
+}
+
+/* Redondea solo el viewport (que ya recorta las imágenes); así los dots, que
+   viven debajo dentro de .campus-slider, no quedan cortados. */
+.pagina-carrera .lic-porque2-media .campus-slider-viewport {
+  border-radius: var(--radius);
+}
+
+.pagina-carrera .lic-porque2-media .campus-slides > li {
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.pagina-carrera .lic-porque2-media .campus-slides > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Flechas siempre visibles y con peso, como en el deslizador de instalaciones. */
+.pagina-carrera .lic-porque2-media .campus-slider-arrow {
+  width: 42px;
+  height: 42px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.pagina-carrera .lic-porque2-media .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pagina-carrera .lic-porque2-media .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.pagina-carrera .lic-porque2-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Enlace «Ver instalaciones» bajo el carrusel. */
+.pagina-carrera .lic-porque2-link {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .pagina-carrera .lic-porque2-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .pagina-carrera .lic-porque2-media {
+    position: static;
+  }
+}
+
+/* ==========================================================================
+   INSTALACIONES — Deslizador de tarjetas (imagen + título) + soft CTA
+   Componente compartido por las carreras (.pagina-carrera). Reutiliza
+   `data-campus-slider` (JS en script.js). Se estrenó en Comunicación como
+   .com-inst-*. Encabezado centrado con el modificador .lic-campus--inst.
+   ========================================================================== */
+.pagina-carrera .lic-campus--inst .section-intro {
+  align-items: center;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 60px;
+}
+
+.pagina-carrera .lic-inst-slider {
+  margin-bottom: 60px;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slides {
+  gap: 20px;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slides > li {
+  flex: 0 0 calc((100% - 40px) / 3);
+  aspect-ratio: auto;
+  align-self: stretch;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slides > li > .lic-inst-card {
+  height: 100%;
+}
+
+/* Flechas siempre visibles y con peso. */
+.pagina-carrera .lic-inst-slider .campus-slider-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.pagina-carrera .lic-inst-slider .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.pagina-carrera .lic-inst-slider .campus-slider-prev {
+  left: -22px;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slider-next {
+  right: -22px;
+}
+
+.pagina-carrera .lic-inst-slider .campus-slider-dots {
+  margin-top: 24px;
+}
+
+/* Tarjeta: foto que sangra arriba + título debajo, sin cuerpo. */
+.pagina-carrera .lic-inst-card {
+  padding: 0 0 24px;
+  overflow: hidden;
+}
+
+.pagina-carrera .lic-inst-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.pagina-carrera .lic-inst-card h3 {
+  margin: 20px 0 0;
+  padding: 0 26px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* Soft CTA bajo el deslizador. */
+.pagina-carrera .lic-inst-cta {
+  margin: 32px 0 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.pagina-carrera .lic-inst-cta a {
+  color: var(--orange);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
+}
+
+.pagina-carrera .lic-inst-cta a:hover {
+  color: var(--purple-2);
+}
+
+@media (max-width: 1180px) {
+  .pagina-carrera .lic-inst-slider .campus-slides > li {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 760px) {
+  .pagina-carrera .lic-inst-slider .campus-slides > li {
+    flex: 0 0 86%;
+  }
+
+  .pagina-carrera .lic-inst-slider .campus-slider-arrow {
+    opacity: 1;
+    width: 38px;
+    height: 38px;
+  }
+
+  .pagina-carrera .lic-inst-slider .campus-slider-prev {
+    left: 8px;
+  }
+
+  .pagina-carrera .lic-inst-slider .campus-slider-next {
+    right: 8px;
+  }
+}
+
 /* Remate: snapshot del plan (dato del módulo, no reemplaza al módulo 4) */
 .porque-plan {
   margin-top: 40px;

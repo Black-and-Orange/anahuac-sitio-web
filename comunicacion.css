@@ -112,6 +112,28 @@
   margin-top: 24px;
 }
 
+/* CTA bajo el deslizador: agenda un tour / cita virtual. */
+.pagina-comunicacion .com-inst-cta {
+  margin: 32px 0 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.pagina-comunicacion .com-inst-cta a {
+  color: var(--orange);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
+}
+
+.pagina-comunicacion .com-inst-cta a:hover {
+  color: var(--purple-2);
+}
+
 /* Tarjeta: foto que sangra arriba + título debajo, sin cuerpo. */
 .pagina-comunicacion .com-inst-card {
   padding: 0 0 24px;
@@ -321,9 +343,10 @@
   top: 100px;
 }
 
-.pagina-comunicacion .com-porque2-media .campus-slider {
+/* Redondea solo el viewport (que ya recorta las imágenes); así los dots, que
+   viven debajo dentro de .campus-slider, no quedan cortados. */
+.pagina-comunicacion .com-porque2-media .campus-slider-viewport {
   border-radius: var(--radius);
-  overflow: hidden;
 }
 
 .pagina-comunicacion .com-porque2-media .campus-slides > li {
