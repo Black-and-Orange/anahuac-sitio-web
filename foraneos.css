@@ -2195,3 +2195,92 @@
 @media (max-width: 760px) {
   .for-comunidad-contactos { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   HOSPEDAJE (deslindado) — zonas de referencia por campus + CTA
+   ========================================================================== */
+/* ==========================================================================
+   PROPUESTA (comparación) — Hospedaje deslindado
+   Bloque demotado: Tips ANÁHUAC + zonas de referencia (sin tarjetas de asesor).
+   Temporal para comparar contra el módulo actual; al aprobar, lo sustituye.
+   ========================================================================== */
+/* Zonas de referencia: dos columnas ligeras, solo ubicación. */
+.for-zonas-ref {
+  margin-top: 40px;
+}
+
+.for-zonas-ref-titulo {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.for-zonas-ref-intro {
+  margin: 0 0 24px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: 62ch;
+}
+
+.for-zonas-ref-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.for-zonas-ref-col {
+  padding: 24px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+}
+
+.for-zonas-ref-col--norte {
+  border-color: var(--orange);
+}
+
+.for-zonas-ref-col--sur {
+  border-color: var(--purple-2);
+}
+
+.for-zonas-ref-col h4 {
+  margin: 0 0 14px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.for-zonas-ref-col--norte h4 {
+  color: var(--orange);
+}
+
+.for-zonas-ref-col--sur h4 {
+  color: var(--purple-2);
+}
+
+/* Deslinde legal: nota discreta, tono secundario. */
+.for-zonas-ref-nota {
+  margin: 20px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-gray);
+  max-width: 80ch;
+}
+
+.for-zonas-ref-cta {
+  margin-top: 28px;
+}
+
+@media (max-width: 760px) {
+  .for-zonas-ref-grid {
+    grid-template-columns: 1fr;
+  }
+}
