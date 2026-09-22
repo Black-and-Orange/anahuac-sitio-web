@@ -2098,3 +2098,100 @@
     font-size: 16px;
   }
 }
+
+
+/* ==========================================================================
+   PROPUESTA C — Comunidad foránea: tira de fotos en movimiento (marquee)
+   Loop continuo por CSS; pausa al hover; se detiene con reduce-motion.
+   [PLACEHOLDER] fotos del banco existente → reemplazar por fotos reales.
+   ========================================================================== */
+.for-comunidad-marquee {
+  position: relative;
+  overflow: hidden;
+  margin: 8px 0 40px;
+  /* desvanece los bordes izquierdo/derecho */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.for-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: for-marquee 45s linear infinite;
+}
+
+.for-comunidad-marquee:hover .for-marquee-track {
+  animation-play-state: paused;
+}
+
+.for-marquee-item {
+  flex: 0 0 auto;
+  width: 360px;
+  aspect-ratio: 4 / 3;
+  margin-right: 16px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.for-marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* -50% = exactamente un set (6 items × (360+16)); el 7º cae donde estaba el 1º */
+@keyframes for-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 760px) {
+  .for-marquee-item { width: 260px; margin-right: 12px; }
+  .for-marquee-track { animation-duration: 32s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .for-comunidad-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .for-marquee-track { animation: none; }
+}
+
+
+/* ==========================================================================
+   Comunidad foránea — tarjetas de contacto (una por campus)
+   Reutilizan .for-contacto y .asesor-links; sin «Agenda una cita».
+   ========================================================================== */
+.for-comunidad-contactos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.for-contacto-card {
+  padding: 28px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+}
+
+.for-contacto-card--norte { border-color: var(--orange); }
+.for-contacto-card--sur { border-color: var(--purple-2); }
+
+/* En estas tarjetas el bloque de contacto abre la tarjeta: sin divisoria arriba. */
+.for-contacto-card .for-contacto {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.for-contacto-card .for-contacto-links {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .for-comunidad-contactos { grid-template-columns: 1fr; }
+}
