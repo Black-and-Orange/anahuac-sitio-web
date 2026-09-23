@@ -3684,3 +3684,14 @@
     font-size: min(6.1vw, 88px);
   }
 }
+
+/* Instalaciones con solo 2 tarjetas → 2 columnas (1 en móvil). */
+.pagina-carrera .lic-inst-slider--dos .campus-slides > li {
+  flex: 0 0 calc((100% - 20px) / 2);
+}
+
+@media (max-width: 760px) {
+  .pagina-carrera .lic-inst-slider--dos .campus-slides > li {
+    flex: 0 0 86%;
+  }
+}

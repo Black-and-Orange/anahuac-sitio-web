@@ -17,6 +17,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="psicologia.css?v=2" />
+    <link rel="stylesheet" href="psicologia-anim.css" />
 
     <!-- Datos estructurados: BreadcrumbList (ver Anexo A del spec). Course y FAQPage
          se agregarán junto a sus módulos (4 y 10). -->
@@ -33,7 +34,7 @@
       }
     </script>
   </head>
-  <body class="pagina-carrera">
+  <body class="pagina-carrera pagina-psicologia">
     <header class="site-header">
       <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
         <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
@@ -253,8 +254,26 @@
             <p>Diferenciadores concretos que hacen distinta tu formación desde el primer día.</p>
           </div>
 
-          <div class="porque-grid reveal" data-reveal>
-            <article class="porque-card">
+          <div class="lic-porque2-layout">
+            <div class="lic-porque2-media reveal" data-reveal>
+              <div class="campus-slider" data-campus-slider>
+                <div class="campus-slider-viewport">
+                  <ul class="campus-slides">
+                    <li><img src="assets/psicologia/historias/historia-valeria-contexto.webp" alt="Sesión de psicología en un consultorio de la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/psicologia/historias/historia-andres-contexto.webp" alt="Estudiante de Psicología de la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/psicologia/historias/historia-fernanda-contexto.webp" alt="Práctica de Psicología en la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/psicologia/historias/historia-diego-contexto.webp" alt="Estudiante de Psicología de la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/psicologia/historias/historia-regina-contexto.webp" alt="Formación en Psicología en la Universidad Anáhuac México" loading="lazy" /></li>
+                  </ul>
+                </div>
+                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
+                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
+                <div class="campus-slider-dots" aria-label="Instalaciones de la Anáhuac"></div>
+              </div>
+              <a class="porque-link lic-porque2-link" href="#instalaciones">Ver instalaciones <span aria-hidden="true">›</span></a>
+            </div>
+            <div class="lic-porque2-cards">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2.5" y="7" width="19" height="13.5" rx="2" />
@@ -267,7 +286,7 @@
               <a class="porque-link" href="#colaboradores">Conoce con quién <span aria-hidden="true">›</span></a>
             </article>
 
-            <article class="porque-card">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="9" />
@@ -279,7 +298,7 @@
               <p>Profundiza en las áreas clínica, neuropsicología, organizacional y educativa.</p>
             </article>
 
-            <article class="porque-card">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 4.5h6a1 1 0 0 1 1 1V6H8v-.5a1 1 0 0 1 1-1z" />
@@ -291,7 +310,7 @@
               <p>Aprendes a aplicar, calificar e interpretar pruebas psicométricas. Por ejemplo: pruebas de inteligencia, neuropsicológicas, orientación vocacional y de reclutamiento entre otras.</p>
             </article>
 
-            <article class="porque-card">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="9" r="6" />
@@ -302,7 +321,7 @@
               <p>Programa avalado por el CNEIP y por FIMPES con la acreditación "Lisa y Llana".</p>
             </article>
 
-            <article class="porque-card">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9.5 3h5" />
@@ -314,7 +333,7 @@
               <p>Súmate a proyectos que estudian el comportamiento humano y generan conocimiento.</p>
             </article>
 
-            <article class="porque-card">
+            <article class="porque-card reveal" data-reveal>
               <span class="porque-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 18.8l-5.8 3.1 1.1-6.5L2.6 9.8l6.5-.9L12 3z" />
@@ -328,6 +347,7 @@
                 <li class="lic-chip">Adicciones</li>
               </ul>
             </article>
+            </div>
           </div>
 
           <div class="porque-plan reveal" data-reveal>
@@ -374,6 +394,7 @@
 
             <div class="plan-top-media reveal" data-reveal>
               <img
+                data-parallax="0.06"
                 src="assets/psicologia/plan-perfil.webp"
                 alt="Estudiante de la Licenciatura en Psicología de la Anáhuac en un taller de evaluación psicológica"
                 width="1000"
@@ -641,7 +662,7 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Psicología educativa</span>
+                  <span class="campo-tile-title">Psicología Educativa</span>
                   <span class="campo-tile-desc">Orientación vocacional, evaluación e intervención psicopedagógica.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
@@ -656,7 +677,7 @@
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Psicología organización</span>
+                  <span class="campo-tile-title">Psicología Organizacional</span>
                   <span class="campo-tile-desc">Desarrollo de talento, reclutamiento, capacitación en empresas.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
@@ -695,7 +716,7 @@
             </div>
 
             <div class="campo-preview reveal" data-reveal>
-              <img class="campo-media" src="assets/psicologia/campo-clinicas.webp" alt="Psicólogo en consulta particular en un consultorio" width="800" height="1000" />
+              <img class="campo-media" data-parallax="0.06" src="assets/psicologia/campo-clinicas.webp" alt="Psicólogo en consulta particular en un consultorio" width="800" height="1000" />
             </div>
           </div>
 
@@ -780,104 +801,30 @@
       </section>
 
       <!-- ===== 6. Instalaciones y campus (Norte y Sur) · [AIDA: Deseo] ===== -->
-      <section class="lic-campus section-pad" id="instalaciones">
+      <!-- ===== Instalaciones — deslizador de tarjetas (imagen + título) · [AIDA: Deseo] =====
+           Mismo componente que Medicina (.lic-inst-*, reutiliza data-campus-slider).
+           [PENDIENTE: fotografía real de cada espacio; por ahora se reutilizan fotos existentes.] -->
+      <section class="lic-campus lic-campus--inst section-pad" id="instalaciones">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
-            <p class="tagline"><span></span>Instalaciones y campus</p>
-            <h2>Estudia Psicología en el campus que elijas</h2>
-            <p>La licenciatura es presencial y se imparte en nuestros dos campus. Elige el que mejor te quede: los dos comparten la misma comunidad y experiencia Anáhuac.</p>
+            <p class="tagline"><span></span>Instalaciones</p>
+            <h2>Instalaciones dónde estudiarás tu licenciatura.</h2>
+            <p>Conoce los espacios donde la psicología se aprende y se practica: Cámara de Gesell y Laboratorio de Neurociencias.</p>
           </div>
 
-          <div class="campus-grid reveal" data-reveal>
-            <article class="campus-card campus-card--orange">
-              <span class="campus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-              </span>
-              <h3>Campus Norte</h3>
-              <p class="campus-address">Av. Universidad Anáhuac 46, Lomas Anáhuac, Huixquilucan, Estado de México.</p>
-
-              <!-- Slide de fotos 1:1 (imágenes de ejemplo — pendiente fotos reales del campus) -->
-              <div class="campus-slider" data-campus-slider>
-                <div class="campus-slider-viewport">
-                  <ul class="campus-slides">
-                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Instalaciones del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Espacios del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-investigacion.webp" alt="Laboratorios del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-educativos.webp" alt="Aulas del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-empresas.webp" alt="Áreas comunes del Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Vida estudiantil en el Campus Norte de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                  </ul>
-                </div>
-                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Foto anterior">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
-                </button>
-                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Foto siguiente">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-                </button>
-                <div class="campus-slider-dots" aria-label="Fotos del campus"></div>
-              </div>
-
-              <a class="campus-cta" href="#">Conoce el campus <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+          <!-- Solo 2 espacios → showcase estático de 2 fotos grandes (no carrusel).
+               [PLACEHOLDER] fotos provisionales; reemplazar por foto real de cada espacio. -->
+          <div class="lic-inst-showcase reveal" data-reveal>
+            <article class="porque-card lic-inst-card">
+              <img class="lic-inst-foto" src="assets/psicologia/campo-clinicas.webp" alt="Cámara de Gesell — Universidad Anáhuac México (foto de ejemplo)" loading="lazy" />
+              <h3>Cámara de Gesell</h3>
             </article>
-
-            <article class="campus-card campus-card--purple">
-              <span class="campus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" />
-                  <circle cx="12" cy="10" r="2.5" />
-                </svg>
-              </span>
-              <h3>Campus Sur</h3>
-              <p class="campus-address">Av. de los Tanques 865, Torres de Potrero, Álvaro Obregón, Ciudad de México.</p>
-
-              <!-- Slide de fotos 1:1 (imágenes de ejemplo — pendiente fotos reales del campus) -->
-              <div class="campus-slider" data-campus-slider>
-                <div class="campus-slider-viewport">
-                  <ul class="campus-slides">
-                    <li><img src="assets/psicologia/campo-rehabilitacion.webp" alt="Instalaciones del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-investigacion.webp" alt="Laboratorios del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-educativos.webp" alt="Aulas del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Espacios del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Vida estudiantil en el Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Áreas del Campus Sur de la Anáhuac (foto de ejemplo)" width="1000" height="1000" loading="lazy" /></li>
-                  </ul>
-                </div>
-                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Foto anterior">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
-                </button>
-                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Foto siguiente">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-                </button>
-                <div class="campus-slider-dots" aria-label="Fotos del campus"></div>
-              </div>
-
-              <a class="campus-cta" href="#">Conoce el campus <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            <article class="porque-card lic-inst-card">
+              <img class="lic-inst-foto" src="assets/psicologia/campo-investigacion.webp" alt="Laboratorio de Neurociencias — Universidad Anáhuac México (foto de ejemplo)" loading="lazy" />
+              <h3>Laboratorio de Neurociencias</h3>
             </article>
           </div>
-
-          <ul class="campus-note reveal" data-reveal>
-            <li class="campus-note-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="11" rx="2" />
-                <path d="M3 11h18" />
-                <circle cx="7.5" cy="19" r="1.5" />
-                <circle cx="16.5" cy="19" r="1.5" />
-              </svg>
-              <span>Transporte intercampus <strong>gratuito</strong></span>
-            </li>
-            <li class="campus-note-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 9V5a1 1 0 0 1 1-1h4" />
-                <path d="M20 9V5a1 1 0 0 0-1-1h-4" />
-                <path d="M4 15v4a1 1 0 0 0 1 1h4" />
-                <path d="M20 15v4a1 1 0 0 1-1 1h-4" />
-              </svg>
-              <span><strong>38 hectáreas</strong> de instalaciones en la Red</span>
-            </li>
-          </ul>
+          <p class="lic-inst-cta reveal" data-reveal>Agenda un tour presencial o una cita virtual <a href="#">aquí</a>.</p>
         </div>
       </section>
 
@@ -1045,14 +992,8 @@
                     <span class="colab-logo-nombre">Grupo Punto de Partida</span>
                     <span class="colab-logo-falta">Logo pendiente</span>
                   </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Instituto Nacional de Geriatría</span>
-                    <span class="colab-logo-falta">Logo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">KidZania</span>
-                    <span class="colab-logo-falta">Logo pendiente</span>
-                  </li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/instituto-nacional-geriatria.webp" alt="Instituto Nacional de Geriatría" loading="lazy" /></li>
+                  <li class="colab-logo"><img src="assets/psicologia/logos/kidzania.webp" alt="KidZania" loading="lazy" /></li>
                   <li class="colab-logo colab-logo-pendiente">
                     <span class="colab-logo-nombre">Oceánica</span>
                     <span class="colab-logo-falta">Logo pendiente</span>
@@ -1293,7 +1234,7 @@
         <div class="container">
           <div class="lic-form-layout">
             <div class="lic-form-media">
-              <img src="assets/psicologia/solicita-info.webp" alt="Estudiante de Psicología de la Anáhuac consultando información de la licenciatura" loading="lazy" width="1000" height="1250" />
+              <img data-parallax="0.06" src="assets/psicologia/solicita-info.webp" alt="Estudiante de Psicología de la Anáhuac consultando información de la licenciatura" loading="lazy" width="1000" height="1250" />
             </div>
             <div class="lic-form-content">
               <div class="section-intro reveal" data-reveal>
@@ -1408,5 +1349,6 @@
     <script src="script.js"></script>
     <script src="psicologia.js?v=2"></script>
     <script type="module" src="assets/review/review.js"></script>
+    <script src="psicologia-anim.js" defer></script>
   </body>
 </html>
