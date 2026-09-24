@@ -8,25 +8,10 @@
    Todo con tokens semánticos; cero valores hardcodeados.
    ========================================================================== */
 
-/* ----- M1 · H1 del hero: «Licenciatura en Médico Cirujano» =====
-   «Médico Cirujano» (31 caracteres) es más largo que cualquier título del molde
-   —Comunicación (12) o Gastronomía (11)—, así que ni el molde ni la variante
-   `lic-hero--titulo-largo` lo hacen caber en 2 líneas en los dos extremos: los
-   teléfonos muy estrechos (≤380px) y el hero a dos columnas (≥1181px), donde la
-   columna de texto se estrecha. Se reduce el cuerpo SOLO en esos tramos y SOLO
-   en esta página (`.pagina-medicina`), sin tocar el molde compartido. Verificado
-   con la lógica de check:titulos (≤2 líneas, sin renglón huérfano) de 320 a 2560px. */
-@media (max-width: 380px) {
-  .pagina-medicina .lic-hero h1 {
-    font-size: 8.2vw;
-  }
-}
-
-@media (min-width: 1181px) {
-  .pagina-medicina .lic-hero h1 {
-    font-size: min(4.8vw, 62px);
-  }
-}
+/* ----- M1 · H1 del hero =====
+   Los tamaños del H1 se unificaron con el resto de las licenciaturas: medicina
+   usa la variante compartida `lic-hero--titulo-largo` (misma que Gastronomía),
+   sin override propio. */
 
 /* ----- M5 · Créditos, etapa y notas de los paneles de semestre ----- */
 .plan-sem-creditos {
