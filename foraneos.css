@@ -585,6 +585,7 @@
    dónde → quién → cómo contactarle. */
 .for-hospedaje {
   background: var(--white);
+  padding-block: var(--space-11);
 }
 
 .for-campus-grid {
@@ -2206,7 +2207,7 @@
    ========================================================================== */
 /* Zonas de referencia: dos columnas ligeras, solo ubicación. */
 .for-zonas-ref {
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .for-zonas-ref-titulo {
