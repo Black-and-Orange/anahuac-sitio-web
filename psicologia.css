@@ -3625,8 +3625,11 @@
    En 481–1180px el molde ya acierta y no se toca.
    ========================================================================== */
 @media (min-width: 1441px) {
+  /* Antes 94px: se bajó a 88px para que el título más largo del lote
+     («Médico Cirujano») quepa en una sola fila también en pantallas anchas.
+     Aplica a todas las carreras por igual (unificado). */
   .lic-hero--titulo-largo h1 {
-    font-size: 94px;
+    font-size: 88px;
   }
 }
 
@@ -3694,4 +3697,9 @@
   .pagina-carrera .lic-inst-slider--dos .campus-slides > li {
     flex: 0 0 86%;
   }
+}
+
+/* «Licenciatura en» siempre en su propia línea; el nombre de la carrera va debajo. */
+.lic-hero h1 .lic-hero-pre {
+  display: block;
 }
