@@ -86,6 +86,8 @@ export class PinLayer {
       : '';
     const mine = isMine(comment.id);
     const deleteHtml = mine ? '<button class="bnor-btn bnor-btn--danger" data-act="delete">Eliminar</button>' : '';
+    const done = comment.status === 'resuelto';
+    const toggleHtml = `<button class="bnor-btn bnor-btn--status" data-act="toggle-done">${done ? '↺ Reabrir' : '✓ Marcar como listo'}</button>`;
     card.innerHTML = `
       <div class="bnor-author">${escapeHtml(comment.name)}</div>
       <div class="bnor-date">${date}</div>
@@ -97,7 +99,7 @@ export class PinLayer {
         <input class="bnor-reply-input" type="text" placeholder="Responder…" />
         <button class="bnor-btn bnor-btn--primary" data-act="reply">Responder</button>
       </div>
-      ${deleteHtml ? `<div class="bnor-card-actions">${deleteHtml}</div>` : ''}`;
+      <div class="bnor-card-actions">${toggleHtml}${deleteHtml}</div>`;
     const r = pinEl.getBoundingClientRect();
     card.style.left = Math.max(12, Math.min(r.left, window.innerWidth - 312)) + 'px';
     card.style.top = Math.max(12, Math.min(r.bottom + 8, window.innerHeight - 160)) + 'px';
@@ -115,6 +117,18 @@ export class PinLayer {
       comment.replies = Array.isArray(comment.replies) ? comment.replies : [];
       comment.replies.push({ name, text, createdAt: new Date().toISOString() });
       this.openCard(comment, pinEl); // re-render con la respuesta nueva
+    });
+
+    card.querySelector('[data-act="toggle-done"]').addEventListener('click', async (ev) => {
+      ev.stopPropagation();
+      const next = comment.status === 'resuelto' ? 'pendiente' : 'resuelto';
+      try {
+        await this.store.update(this.config.projectId, this.page, comment.id, { status: next });
+      } catch (e) { console.warn('[BnO Review] no se pudo actualizar el estado:', e); return; }
+      comment.status = next;
+      const target = this.pins.find((p) => p.comment.id === comment.id);
+      if (target) target.pinEl.dataset.status = next;
+      this.openCard(comment, pinEl); // re-render con el nuevo estado (color de badge/botón)
     });
 
     if (mine) {

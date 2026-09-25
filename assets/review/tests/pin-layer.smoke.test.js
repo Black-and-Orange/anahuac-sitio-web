@@ -233,6 +233,43 @@ test('la tarjeta muestra "Eliminar" solo en los comentarios propios y lo borra',
   dom.window.localStorage.removeItem('bno-review:mine');
 });
 
+test('marcar como listo desde la tarjeta pone status=resuelto, repinta el pin y hace toggle al reabrir', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 't1', name: 'Ana', comment: 'ajustar espaciado', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' } },
+  ];
+  const store = fakeStore(comments);
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+  const entry = pinLayer.pins.find((p) => p.comment.id === 't1');
+  pinLayer.openCard(entry.comment, entry.pinEl);
+
+  let card = root.querySelector('.bnor-card');
+  let toggle = card.querySelector('[data-act="toggle-done"]');
+  assert.ok(toggle, 'debe mostrar el botón de marcar como listo');
+  assert.match(toggle.textContent, /Marcar como listo/);
+
+  // Marcar como listo → status resuelto y pin verde (data-status).
+  toggle.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  assert.equal(store.updateCalls.length, 1, 'debe llamar a store.update');
+  assert.deepEqual(store.updateCalls[0].patch, { status: 'resuelto' });
+  assert.equal(entry.pinEl.dataset.status, 'resuelto', 'debe repintar el pin como resuelto');
+  card = root.querySelector('.bnor-card');
+  assert.equal(card.querySelector('.bnor-badge').dataset.status, 'resuelto');
+  toggle = card.querySelector('[data-act="toggle-done"]');
+  assert.match(toggle.textContent, /Reabrir/, 'ahora el botón debe ofrecer reabrir');
+
+  // Reabrir → vuelve a pendiente.
+  toggle.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  assert.equal(store.updateCalls.length, 2);
+  assert.deepEqual(store.updateCalls[1].patch, { status: 'pendiente' });
+  assert.equal(entry.pinEl.dataset.status, 'pendiente', 'debe repintar el pin como pendiente');
+});
+
 test('responder desde la tarjeta llama a store.reply y muestra la respuesta nueva', async () => {
   const root = makeRoot();
   const comments = [
