@@ -5,6 +5,23 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-25 — Área Ciencias de la Salud · ajustes editoriales
+
+- Se actualizan el claim del hero y una afinidad para hablar de transformar
+  vidas y de ciencias de la salud.
+- La red clínica sitúa las prácticas con pacientes reales desde los primeros
+  semestres.
+- La tarjeta de certificaciones sustituye la mención de IFOM por el texto
+  entregado sobre cinco acreditaciones de Medicina por la COMAEM.
+- La tarjeta de Médico Cirujano renueva su dato descriptivo para enfatizar la
+  pasión por la ciencia y la vocación de cuidar y transformar vidas.
+- «Cirujano Dentista» pasa a «Médico Cirujano Dentista» en toda la página,
+  incluidos FAQ, datos estructurados y etiquetas accesibles.
+- Se actualizan los ganchos y descripciones de Terapia Física y Rehabilitación y
+  Biotecnología, manteniendo sincronizados los datos estructurados.
+- La banda de experiencia clínica cierra ahora con el desarrollo de habilidades
+  para la práctica profesional.
+
 ## 2026-09-24 — Foráneos · jerarquía y ritmo de Hospedaje
 
 - «Zonas cercanas a tu campus» se convierte en el `h2` del módulo.

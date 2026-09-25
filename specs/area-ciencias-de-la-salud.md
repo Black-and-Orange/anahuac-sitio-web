@@ -236,6 +236,31 @@ darse cuenta.
 
 ## Observaciones
 
+### Revisión humana local — 2026-09-25
+
+- El claim del hero cambia a «Conviértete en quien cuida la salud y transforma
+  vidas.»
+- La afinidad de biología y química termina en «ciencias de la salud».
+- La red clínica explicita que las prácticas con pacientes reales comienzan
+  «desde tus primeros semestres».
+- En la tarjeta de certificaciones, la oración sobre IFOM se sustituye por
+  «Medicina ha sido acreditada en cinco ocaciones por la COMAEM (Congreso
+  mexicano de acreditación de la enseñanza médica).»
+- La tarjeta de Médico Cirujano cambia su dato descriptivo por «Haz de tu pasión
+  por la ciencia una vocación para cuidar y transformar vidas.»
+- El nombre de la carrera «Cirujano Dentista» cambia a «Médico Cirujano
+  Dentista» en contenido visible, accesibilidad y datos estructurados.
+- Terapia Física y Rehabilitación centra su gancho en transformar vidas mediante
+  rehabilitación y movimiento, y su descripción en estrategias terapéuticas
+  integrales basadas en evidencia.
+- Biotecnología centra su gancho en transformar retos en soluciones y amplía su
+  descripción a salud, alimentos, industria y medio ambiente.
+- La banda de experiencia clínica sustituye la promesa de «mayor experiencia»
+  por el desarrollo de habilidades para la práctica profesional.
+
+Estos cambios permanecen en la maqueta local y no autorizan por sí solos una
+publicación o migración a HubSpot.
+
 ### 1. ¿Seis áreas u ocho?
 
 El encargo habla de **8 áreas académicas**; el handoff dice «es la primera de las

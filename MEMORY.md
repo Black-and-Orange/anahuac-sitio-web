@@ -42,6 +42,19 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-25 — Ciencias de la Salud actualiza copy y nombre de carrera
+- La revisión humana ajusta el claim del hero, la afinidad de ciencias, el
+  momento de inicio de las prácticas clínicas, la acreditación de Medicina y
+  el dato descriptivo de Médico Cirujano.
+- «Cirujano Dentista» adopta el nombre «Médico Cirujano Dentista» en toda la
+  página, incluidos datos estructurados y accesibilidad.
+- Terapia Física y Biotecnología reciben nuevos ganchos y descripciones; la
+  banda de experiencia clínica se enfoca en habilidades para la práctica
+  profesional.
+- El texto se aplica solo a la maqueta local y queda pendiente de revisión antes
+  de cualquier publicación o migración a HubSpot.
+- Origen: revisión humana del 2026-09-25.
+
 ### 2026-09-24 — Hospedaje abre con zonas y conserva ritmo simétrico
 - «Zonas cercanas a tu campus» es el H2 de la sección de Hospedaje.
 - Como el bloque de zonas ahora abre la sección, ya no conserva el margen que
