@@ -5,6 +5,12 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-24 — Foráneos · jerarquía y ritmo de Hospedaje
+
+- «Zonas cercanas a tu campus» se convierte en el `h2` del módulo.
+- El bloque elimina el margen superior heredado de su posición anterior para
+  que la sección use `--space-11` de forma simétrica arriba y abajo.
+
 ## 2026-09-07 — Área Ciencias de la Salud · carrusel y sello Tips
 
 - La tarjeta protagonista Hospital Virtual conserva su composición y convierte

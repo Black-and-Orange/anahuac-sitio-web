@@ -42,6 +42,13 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-24 — Hospedaje abre con zonas y conserva ritmo simétrico
+- «Zonas cercanas a tu campus» es el H2 de la sección de Hospedaje.
+- Como el bloque de zonas ahora abre la sección, ya no conserva el margen que
+  usaba al aparecer después del contenido; el padding vertical queda fijado en
+  ambos extremos con `--space-11` para un ritmo más compacto.
+- Origen: revisión humana del 2026-09-24.
+
 ### 2026-09-11 — BnO Review fase 2a: persistencia en Supabase, panel `/admin` y pin solo-lectura
 - Fase 2a completada: migración de `localStorage` a Supabase para persistencia compartida.
 - Base de datos: proyecto Supabase `gvnnhkectrnwhqkcrlar`, tabla `comments` con RLS habilitado

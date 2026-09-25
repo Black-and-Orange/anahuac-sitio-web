@@ -1,0 +1,122 @@
+/* ==========================================================================
+   prototipo.css — Animaciones de psicología (header compacto, parallax sutil, reveal)
+   Todo scopeado a .pagina-psicologia para no tocar la original ni el resto del sitio.
+   Incluye: header que ENCOGE al hacer scroll (siempre visible), parallax
+   sutil en imágenes y un reveal un poco más pulido. Respeta reduce-motion.
+   ========================================================================== */
+
+/* Anclas un poco más arriba (el header encogido ocupa menos). */
+html:has(body.pagina-psicologia) {
+  scroll-padding-top: 110px;
+}
+
+/* ----- 1. Header compacto al hacer scroll (solo desktop) -----
+   Siempre visible (no se oculta): al bajar se reduce alto/padding/tipografía
+   para tapar menos contenido. Usa la clase .scrolled que ya activa script.js. */
+@media (min-width: 1181px) {
+  .pagina-psicologia .site-header {
+    transition: top 0.3s ease, min-height 0.3s ease, padding 0.3s ease,
+      background 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  }
+  .pagina-psicologia.scrolled .site-header {
+    top: 12px;                 /* se acerca al borde: menos franja arriba */
+    min-height: 58px;
+    padding: 8px 20px;
+    background: var(--white);  /* fondo sólido: el contenido no se cuela por el pill */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Zona segura: tapa la franja translúcida de arriba para que nada se asome
+     por encima del pill al hacer scroll. */
+  .pagina-psicologia.scrolled .site-header::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: var(--white);
+    z-index: -1;
+  }
+  .pagina-psicologia.scrolled .site-header .logo-link img {
+    width: 100px;
+    height: 38px;
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+  .pagina-psicologia.scrolled .desktop-nav {
+    font-size: 18px;
+    transition: font-size 0.3s ease;
+  }
+  .pagina-psicologia.scrolled .nav-contact {
+    padding: 10px 26px;
+    font-size: 18px;
+  }
+}
+
+/* ----- 2. Parallax sutil en imágenes protagonistas -----
+   La imagen arranca con un ligero scale para que el translate del JS
+   (±unos px) nunca deje ver un borde. Solo transform → 60fps. */
+.pagina-psicologia [data-parallax] {
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+/* El scale del parallax NO debe desbordar su contenedor (si no, se empalma
+   con la sección de abajo). Recortamos los contenedores de esas imágenes. */
+.pagina-psicologia .campo-preview,
+.pagina-psicologia .plan-top-media,
+.pagina-psicologia .lic-form-media {
+  overflow: hidden;
+}
+
+/* ----- 3. Reveal un poco más pulido (fade + subida + micro-scale) ----- */
+.pagina-psicologia .reveal {
+  opacity: 0.001;
+  transform: translateY(34px) scale(0.985);
+  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.pagina-psicologia .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ----- Accesibilidad: sin movimiento si el usuario lo pide ----- */
+@media (prefers-reduced-motion: reduce) {
+  .pagina-psicologia .site-header,
+  .pagina-psicologia .site-header .logo-link img,
+  .pagina-psicologia .desktop-nav { transition: none; }
+  .pagina-psicologia [data-parallax] { transform: none; }
+  .pagina-psicologia .reveal,
+  .pagina-psicologia .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Instalaciones — showcase de 2 fotos grandes (no carrusel)
+   Solo psicología. Cuando lleguen las fotos reales de Cámara de Gesell y
+   Laboratorio de Neurociencias, entran con más peso visual.
+   ========================================================================== */
+.pagina-psicologia .lic-inst-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pagina-psicologia .lic-inst-showcase .lic-inst-foto {
+  aspect-ratio: 16 / 10;
+}
+
+@media (max-width: 760px) {
+  .pagina-psicologia .lic-inst-showcase {
+    grid-template-columns: 1fr;
+  }
+}

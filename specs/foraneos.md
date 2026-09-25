@@ -317,3 +317,13 @@ nueva publicación o migración a HubSpot.
 
 Este ajuste permanece en local y queda pendiente de revisión antes de cualquier
 nueva publicación o migración a HubSpot.
+
+## Revisión humana local — 2026-09-24
+
+- «Zonas cercanas a tu campus» pasa a ser el `h2` del módulo de Hospedaje.
+- Al abrir ahora el módulo, el bloque de zonas deja de sumar su antiguo margen
+  superior. La sección usa `--space-11` en ambos extremos para conservar un
+  espaciado vertical simétrico y más compacto que el valor global.
+
+Este ajuste permanece en local y queda pendiente de revisión antes de cualquier
+nueva publicación o migración a HubSpot.
