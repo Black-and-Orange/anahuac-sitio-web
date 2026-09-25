@@ -288,6 +288,89 @@
 
 
 /* -----------------------------------------------------------------------------
+   MÓDULO 3 (variante) — ¿Por qué elegir? en DOS COLUMNAS
+   Replica la retícula de las páginas de carrera (.lic-porque2 en psicologia.css),
+   pero como CSS propio de esta página de ÁREA: aquí el <body> es .escala-2026 y
+   no .pagina-carrera, así que aquellas reglas no aplican. El carrusel queda
+   sticky a la izquierda (con su enlace «Ver instalaciones» debajo) y las
+   .porque-card se apilan en vertical a la derecha. El componente .porque-card no
+   se toca: es compartido con el módulo 7 y con psicologia.css.
+   -------------------------------------------------------------------------- */
+.salud-porque2-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.salud-porque2-media {
+  position: sticky;
+  top: 100px;
+}
+
+/* Redondea solo el viewport (que ya recorta las imágenes); así los dots, que
+   viven debajo dentro de .campus-slider, no quedan cortados. */
+.salud-porque2-slider .campus-slider-viewport {
+  border-radius: var(--radius);
+}
+
+.salud-porque2-slider .campus-slides > li {
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.salud-porque2-slider .campus-slides > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Flechas siempre visibles y con peso, como en el deslizador de instalaciones. */
+.salud-porque2-slider .campus-slider-arrow {
+  width: 42px;
+  height: 42px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.salud-porque2-slider .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.salud-porque2-slider .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.salud-porque2-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Enlace «Ver instalaciones» bajo el carrusel. */
+.salud-porque2-link {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .salud-porque2-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .salud-porque2-media {
+    position: static;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
    MÓDULO 9 — FAQ
    Sobre la banda naranja el enlace hereda el blanco del párrafo: queda del
    mismo color, mismo grosor y sin subrayado, o sea invisible como enlace.

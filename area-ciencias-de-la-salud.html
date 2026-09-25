@@ -436,19 +436,15 @@
                         <h2>Por qué elegir Ciencias de la Salud en la Universidad Anáhuac México</h2>
           </div>
 
-          <div class="porque-grid salud-porque-grid reveal" data-reveal>
-            <!-- Tarjeta protagonista del módulo.
-
-                 [VERIFICAR CON CLIENTE] «Hospital Virtual» es un nombre
-                 PROVISIONAL. Cuando nos compartan el nombre definitivo del
-                 espacio hay que sustituirlo en tres sitios: este <h3>, el alt de
-                 la foto y specs/area-ciencias-de-la-salud.md.
+          <div class="salud-porque2-layout reveal" data-reveal>
+            <!-- Columna izquierda: carrusel de formación clínica (sticky) + enlace
+                 a la sección de instalaciones.
 
                  PENDIENTE: fotografía real del edificio (Fase 1 de fotografía).
                  Las del carrusel son de relleno, igual que las del módulo 7. -->
-            <article class="porque-card salud-destacada">
+            <div class="salud-porque2-media">
               <div
-                class="campus-slider salud-destacada-slider"
+                class="campus-slider salud-porque2-slider"
                 data-campus-slider
                 role="region"
                 aria-roledescription="carrusel"
@@ -458,7 +454,6 @@
                   <ul class="campus-slides">
                     <li>
                       <img
-                        class="salud-destacada-foto"
                         src="assets/psicologia/campo-hospitales.webp"
                         alt="Estudiantes del área de Ciencias de la Salud durante una práctica clínica (foto de ejemplo)"
                         loading="lazy"
@@ -466,7 +461,6 @@
                     </li>
                     <li>
                       <img
-                        class="salud-destacada-foto"
                         src="assets/psicologia/campo-rehabilitacion.webp"
                         alt="Estudiante guiando una sesión de rehabilitación (foto de ejemplo)"
                         loading="lazy"
@@ -474,7 +468,6 @@
                     </li>
                     <li>
                       <img
-                        class="salud-destacada-foto"
                         src="assets/psicologia/campo-clinicas.webp"
                         alt="Profesional de salud durante una sesión de atención clínica (foto de ejemplo)"
                         loading="lazy"
@@ -490,7 +483,15 @@
                 </button>
                 <div class="campus-slider-dots" aria-label="Imágenes de formación clínica"></div>
               </div>
-              <div class="salud-destacada-copy">
+              <a class="porque-link salud-porque2-link" href="#instalaciones">Ver instalaciones <span aria-hidden="true">›</span></a>
+            </div>
+
+            <div class="salud-porque2-cards">
+              <!-- [VERIFICAR CON CLIENTE] «Hospital Virtual» es un nombre
+                   PROVISIONAL. Cuando nos compartan el nombre definitivo del
+                   espacio hay que sustituirlo en dos sitios: este <h3> y
+                   specs/area-ciencias-de-la-salud.md. -->
+              <article class="porque-card">
                 <span class="porque-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="4.5" y="3" width="15" height="18" rx="1.5" />
@@ -504,8 +505,7 @@
                   consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas
                   las carreras del área.
                 </p>
-              </div>
-            </article>
+              </article>
 
             <article class="porque-card">
               <span class="porque-icon" aria-hidden="true">
@@ -556,7 +556,7 @@
                 La Universidad Anáhuac México es centro certificado por la American Heart Association
                 (AHA): cursos de reanimación BLS (soporte vital básico) y ACLS (soporte vital
                 cardiovascular avanzado). Medicina ha sido acreditada en cinco ocaciones por la COMAEM
-                (Congreso mexicano de acreditación de la enseñanza médica).
+                (Congreso Mexicano de Acreditación de la Enseñanza Médica).
               </p>
             </article>
 
@@ -592,6 +592,7 @@
                 profesiones y no solo la tuya.
               </p>
             </article>
+            </div>
           </div>
         </div>
       </section>
