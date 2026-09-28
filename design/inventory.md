@@ -38,16 +38,17 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 | `health-overview` | `specs/foraneos.md` (M9) | construido local | Foráneos |
 | `tips-anahuac` | `specs/foraneos.md` (M6 + M9) · `specs/area-ciencias-de-la-salud.md` | construido local | Foráneos, Área Ciencias de la Salud |
 | `porque-card--destacada` | `specs/area-ciencias-de-la-salud.md` (M3) | construido local; variante de imagen con `.campus-slider` | Área Ciencias de la Salud |
-| `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `specs/comunicacion.md` · `specs/gastronomia.md` · `psicologia.html` | construido local | Psicología, Nutrición, Comunicación, Gastronomía |
-| `campo-band--cta-lateral` | `specs/nutricion.md` (M6) · `nutricion.css` § 10 | construido local | Nutrición |
+| `lic-*` (molde de licenciatura) | `specs/nutricion.md` · `specs/comunicacion.md` · `specs/gastronomia.md` · `specs/licenciatura-biotecnologia.md` · `psicologia.html` | construido local | Psicología, Nutrición, Comunicación, Gastronomía, Biotecnología |
+| `campo-band--cta-lateral` (copy izq. + CTAs a la derecha en columna) | `psicologia.css` § CAMPO LABORAL (molde, alcance `.pagina-carrera`) · `specs/nutricion.md` (M6) · `design/CHANGELOG.md` (2026-09-28) | construido local · promovido al molde | Nutrición, Biotecnología |
 | `.pagina-carrera` (alcance del molde corregido) | `psicologia.css` § revisión de diseño · `design/CHANGELOG.md` (2026-08-31) | construido local | Psicología, Nutrición — **no** Área de Ciencias de la Salud |
 | `media-pendiente` | `gastronomia.css` § 0 | construido local · **[PLACEHOLDER]** | Gastronomía |
 | `gas-destinos` (chips de destino) | `specs/gastronomia.md` (M9) · `gastronomia.css` § 5 | construido local | Gastronomía |
 | `gas-convenios` (carrusel de convenios) | `specs/gastronomia.md` (M9) · `gastronomia.css` | construido local | Gastronomía |
 | `com-inst-grid` (instalaciones de la Facultad) | `specs/comunicacion.md` (M7) · `comunicacion.css` § 5 | construido local | Comunicación |
 | `salud-campus-grupo` | `specs/area-ciencias-de-la-salud.md` (M4) | construido local | Área Ciencias de la Salud |
-| `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud |
-| `colab-logo--pendiente` | `psicologia.css` · `assets/nutricion/logos/README.md` | construido local · **[PLACEHOLDER]** | Nutrición |
+| `campus-slider` | `psicologia.html` · `script.js` | construido local | Psicología, Nutrición, Área Ciencias de la Salud, Biotecnología |
+| `colab-logo--pendiente` | `psicologia.css` · `assets/nutricion/logos/README.md` | construido local · **[PLACEHOLDER]** | Nutrición, Biotecnología |
+| `bio-plan-tabs` (retícula 9 tabs por semestre: `repeat(9,1fr)`, 3×3 ≤1240px) · `bio-colab-nota` (nota de respaldo de la Facultad, M9) | `specs/licenciatura-biotecnologia.md` (M5, M9) · `licenciatura-biotecnologia.css` | construido local | Biotecnología |
 
 ## Componentes atómicos (UI Kit)
 

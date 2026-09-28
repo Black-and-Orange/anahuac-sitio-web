@@ -623,13 +623,11 @@
    INSTALACIONES — Deslizador de tarjetas (imagen + título) + soft CTA
    Componente compartido por las carreras (.pagina-carrera). Reutiliza
    `data-campus-slider` (JS en script.js). Se estrenó en Comunicación como
-   .com-inst-*. Encabezado centrado con el modificador .lic-campus--inst.
+   .com-inst-*. Encabezado alineado a la izquierda con el modificador
+   .lic-campus--inst, como el resto de los encabezados de sección del molde.
    ========================================================================== */
 .pagina-carrera .lic-campus--inst .section-intro {
-  align-items: center;
-  text-align: center;
-  max-width: 840px;
-  margin: 0 auto 60px;
+  margin-bottom: 60px;
 }
 
 .pagina-carrera .lic-inst-slider {
@@ -1822,6 +1820,27 @@
   font-size: 21px;
 }
 
+/* Variante CTA lateral: copy a la izquierda y los dos CTA en el costado derecho,
+   en columna. Se estrenó en Nutrición (M6) y se promovió al molde el 2026-09-28
+   para reutilizarse en Biotecnología. En tablet/móvil vuelven debajo del copy. */
+.pagina-carrera .campo-band--cta-lateral {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+}
+
+.pagina-carrera .campo-band--cta-lateral .campo-cta {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  min-width: 270px;
+  margin-top: 0;
+}
+
+.pagina-carrera .campo-band--cta-lateral .campo-cta .btn {
+  width: 100%;
+}
+
 @media (max-width: 900px) {
   /* Apilado en una columna: el intro se centra */
   .lic-campo .section-intro {
@@ -1847,6 +1866,23 @@
   .campo-band {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .pagina-carrera .campo-band--cta-lateral {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pagina-carrera .campo-band--cta-lateral .campo-cta {
+    flex-direction: row;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-carrera .campo-band--cta-lateral .campo-cta {
+    flex-direction: column;
   }
 }
 

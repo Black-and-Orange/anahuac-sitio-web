@@ -5,6 +5,42 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-28 — `campo-band--cta-lateral` promovida al molde compartido
+
+- La variante de la banda de campo laboral con los CTA en el costado derecho
+  (copy a la izquierda, dos CTA en columna a la derecha) se movió de
+  `nutricion.css` § 10 a `psicologia.css` (§ CAMPO LABORAL, alcance
+  `.pagina-carrera`), para reutilizarse en Biotecnología sin duplicar CSS.
+- Nutrición queda igual (su `<body>` es `.pagina-carrera`, la regla la sigue
+  cubriendo); `nutricion.css` solo conserva una nota que apunta al molde.
+- Biotecnología (M6) añade la clase `campo-band--cta-lateral` a su banda.
+- Cambio no destructivo: solo afecta a las bandas que llevan la clase.
+
+## 2026-09-28 — Licenciatura en Biotecnología · nueva página (molde de carrera)
+
+- Se construye `licenciatura-biotecnologia.html` reutilizando el molde de carrera
+  (`.pagina-carrera`, componentes `lic-*` de `psicologia.css`); referencia de
+  página: Gastronomía. Spec en `specs/licenciatura-biotecnologia.md`.
+- Desviaciones propias en `licenciatura-biotecnologia.css` (alcance
+  `.pagina-biotecnologia`), todas con tokens: retícula de **9 tabs por semestre**
+  (`repeat(9,1fr)` en escritorio, 3×3 ≤1240px, dropdown ≤540px del molde) y
+  `bio-colab-nota` (respaldo de la Facultad); M9 con **dos grupos de aliados**
+  (nacionales / internacionales).
+  Se descartan las desviaciones de Gastronomía (7 tabs, convenios, mapas, viñedo).
+- Particularidades respetadas: 9 semestres, solo Campus Norte, eje de laboratorio
+  (sin lenguaje clínico), sin servicio social (M4 = 2 datos), tercer bloque
+  «Electivo», Hospital Virtual siempre «en construcción», sin comparaciones.
+- JSON-LD: Course `P4Y6M` / 415 créditos / `onsite`; `CollegeOrUniversity` solo
+  Campus Norte (se elimina Campus Sur del schema; el footer compartido lo conserva);
+  BreadcrumbList con área Ciencias de la Salud; FAQPage con las 7 preguntas.
+- Wiring: la tarjeta de Biotecnología enlaza a la página desde
+  `area-ciencias-de-la-salud.html` y `oferta-academica.html`.
+- Verificado: `check:titulos` sin huérfanas (32 anchuras), sin overflow a 320px,
+  balance de etiquetas correcto, todas las imágenes resuelven.
+- **[PLACEHOLDER] no mergeable aún:** fotos reales (`assets/biotecnologia/`),
+  logotipos de aliados, claustro docente y testimonios; [PENDIENTE] ID de video,
+  URL del RVOE y de `/visita-campus`; conexión HubSpot del formulario.
+
 ## 2026-09-25 — Área Ciencias de la Salud · ajustes editoriales
 
 - Se actualizan el claim del hero y una afinidad para hablar de transformar
@@ -13,6 +49,8 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
   semestres.
 - La tarjeta de certificaciones sustituye la mención de IFOM por el texto
   entregado sobre cinco acreditaciones de Medicina por la COMAEM.
+- La denominación desarrollada de COMAEM usa mayúsculas iniciales:
+  «Congreso Mexicano de Acreditación de la Enseñanza Médica».
 - La tarjeta de Médico Cirujano renueva su dato descriptivo para enfatizar la
   pasión por la ciencia y la vocación de cuidar y transformar vidas.
 - «Cirujano Dentista» pasa a «Médico Cirujano Dentista» en toda la página,

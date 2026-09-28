@@ -1,0 +1,65 @@
+/* =============================================================================
+   LICENCIATURA EN BIOTECNOLOGÍA — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la página
+   nace con las diez correcciones del molde promovidas el 2026-08-31. **No las
+   repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de Biotecnología:
+
+     a) las 9 pestañas del plan van por SEMESTRE (una fila en escritorio, 3×3 por
+        debajo de 1240px), porque el molde base cablea 8 columnas y 9 dejaría una
+        pestaña coja;
+     b) la nota de créditos de la tarjeta AEO (desglose por bloque del Modelo);
+     c) el dato de respaldo de la Facultad en M9, como nota atribuida.
+
+   Los dos grupos de aliados de M9 (nacionales / internacionales) usan el
+   componente de carrusel del molde (.colab-*, repeat(4)) sin desviación: no hace
+   falta CSS propio.
+
+   Si alguna regla se repitiera en otra carrera, su sitio dejaría de ser esta hoja
+   y pasaría a ser el componente en psicologia.css.
+
+   NUNCA se hardcodean color, espaciado, tipografía, radio ni sombra: se usan los
+   tokens semánticos del molde.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. LAS 9 PESTAÑAS DEL PLAN VAN POR SEMESTRE
+
+   El molde base reparte la barra en `repeat(8, 1fr)` (styles en psicologia.css),
+   pensado para 8 semestres. Con 9, esa retícula deja una pestaña sola en un
+   segundo renglón. 9 divide exacto entre 3, así que:
+
+     · escritorio (>1240px de viewport): una sola fila de 9;
+     · de 1240px hacia abajo: 3×3, tres filas iguales, sin renglón cojo;
+     · ≤540px: el molde ya sustituye la barra por el dropdown de semestres.
+
+   Se acota con la clase `bio-plan-tabs` para no tocar otras páginas.
+   -------------------------------------------------------------------------- */
+.pagina-biotecnologia .bio-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+@media (max-width: 1240px) {
+  .pagina-biotecnologia .bio-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   2. M9 · DATO DE RESPALDO DE LA FACULTAD
+
+   Los 350 campos clínicos son de la Facultad de Ciencias de la Salud, no de la
+   carrera. Va como nota atribuida al pie del módulo, no como cifra destacada.
+   -------------------------------------------------------------------------- */
+.pagina-biotecnologia .bio-colab-nota {
+  margin: 34px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
