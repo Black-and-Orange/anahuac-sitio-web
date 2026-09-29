@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Licenciatura en Biotecnología | Universidad Anáhuac México</title>
+    <title>Licenciatura en Terapia Física y Rehabilitación | Universidad Anáhuac México</title>
     <meta
       name="description"
-      content="Estudia Biotecnología en la Universidad Anáhuac México: investiga desde los primeros semestres en laboratorios de genómica y cultivo celular. Conoce el plan."
+      content="Estudia Terapia Física y Rehabilitación en la Universidad Anáhuac México: atiende pacientes desde 4º semestre y rota por 8 clínicas de especialidad."
     />
-    <meta property="og:title" content="Licenciatura en Biotecnología — Universidad Anáhuac México" />
+    <meta property="og:title" content="Licenciatura en Terapia Física y Rehabilitación — Universidad Anáhuac México" />
     <meta
       property="og:description"
-      content="Investiga desde los primeros semestres, trabaja en laboratorios de genómica y cultivo celular, y crea soluciones para la salud, los alimentos y el medio ambiente."
+      content="Atiende pacientes reales desde 4º semestre, rota por 8 clínicas de rehabilitación y fórmate como fisioterapeuta en la Universidad Anáhuac México."
     />
     <meta
       property="og:image:alt"
-      content="Estudiante de Biotecnología de la Universidad Anáhuac México trabajando en el Laboratorio de Genómica y Proteómica."
+      content="Estudiante de Terapia Física y Rehabilitación de la Universidad Anáhuac México trabajando con un paciente en la Clínica de Terapia Física y Rehabilitación."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,11 +26,12 @@
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
     <link rel="stylesheet" href="styles.css" />
     <!-- El molde entero vive en psicologia.css: esta página no estrena
-         componentes. licenciatura-biotecnologia.css solo lleva las desviaciones
-         de retícula que impone su contenido (9 pestañas por semestre y los dos
-         grupos de aliados de M9). -->
+         componentes. licenciatura-terapia-fisica-y-rehabilitacion.css solo lleva
+         las desviaciones que impone su contenido (10 pestañas del plan —8
+         semestres + 2 periodos de servicio social—, la tarjeta AEO de 3 datos y
+         el dato de respaldo de la Facultad en M9). -->
     <link rel="stylesheet" href="psicologia.css" />
-    <link rel="stylesheet" href="licenciatura-biotecnologia.css" />
+    <link rel="stylesheet" href="licenciatura-terapia-fisica-y-rehabilitacion.css" />
 
     <!-- Datos estructurados: BreadcrumbList, Course y CollegeOrUniversity.
          El FAQPage va junto a su módulo (11). -->
@@ -42,7 +43,7 @@
           { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "Inicio.html" },
           { "@type": "ListItem", "position": 2, "name": "Oferta Académica", "item": "oferta-academica.html" },
           { "@type": "ListItem", "position": 3, "name": "Ciencias de la Salud" },
-          { "@type": "ListItem", "position": 4, "name": "Biotecnología" }
+          { "@type": "ListItem", "position": 4, "name": "Terapia Física y Rehabilitación" }
         ]
       }
     </script>
@@ -50,11 +51,11 @@
       {
         "@context": "https://schema.org",
         "@type": "Course",
-        "name": "Licenciatura en Biotecnología",
-        "description": "Desarrollas, estudias y modificas sistemas vivos para descubrir alternativas que satisfagan de manera sostenible las necesidades del ser humano.",
-        "timeRequired": "P4Y6M",
+        "name": "Licenciatura en Terapia Física y Rehabilitación",
+        "description": "Comprendes el movimiento humano y promueves la salud a través de la evaluación, el diagnóstico, el pronóstico y la intervención de cada paciente.",
+        "timeRequired": "P4Y",
         "educationalCredentialAwarded": "Licenciatura",
-        "numberOfCredits": 415,
+        "numberOfCredits": 397,
         "courseMode": "onsite",
         "provider": {
           "@type": "CollegeOrUniversity",
@@ -94,12 +95,13 @@
        perfil de egreso en escritorio y en móvil—. Esta página nace con ellas: no
        repitas esa revisión aquí. Lo comparte con psicologia.html y nutricion.html.
 
-       `pagina-biotecnologia` acota a esta página lo suyo propio, que vive en
-       licenciatura-biotecnologia.css: las 9 pestañas por semestre y los dos
-       grupos de aliados de M9.
+       `pagina-terapia-fisica` acota a esta página lo suyo propio, que vive en
+       licenciatura-terapia-fisica-y-rehabilitacion.css: las 10 pestañas del plan
+       (8 semestres + 2 periodos de servicio social), la tarjeta AEO de 3 datos y
+       el dato de respaldo de la Facultad en M9.
 
        Ver design/CHANGELOG.md (2026-08-31) para el detalle de la promoción. -->
-  <body class="pagina-carrera pagina-biotecnologia">
+  <body class="pagina-carrera pagina-terapia-fisica">
     <header class="site-header">
       <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
         <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
@@ -193,10 +195,11 @@
       <!-- ===== 1. HERO · [AIDA: Atención] =====
            Exactamente 3 chips y sin chip de RVOE: el RVOE vive como enlace
            discreto al cierre del plan de estudios (M5). El claim es una secuencia
-           de verbos sueltos («Desarrolla. Modifica. Innova.»), no una frase.
+           de verbos sueltos («Examina. Evalúa. Diagnostica. Rehabilita.»), no una
+           frase.
 
-           El primer chip dice «9 semestres» (esta carrera son 9, no 8) y el
-           tercero «Campus Norte» (única sede).
+           El primer chip dice «8 semestres» y el tercero «Campus Norte» (única
+           sede: esta carrera solo se imparte en Campus Norte).
 
            La portada lleva `fetchpriority="high"`; el video solo carga al clic
            (cuando llegue el `data-yt-id`, ver [PENDIENTE] más abajo). -->
@@ -208,16 +211,20 @@
                 <li><a href="Inicio.html">Inicio</a></li>
                 <li><a href="oferta-academica.html">Oferta Académica</a></li>
                 <li>Ciencias de la Salud</li>
-                <li aria-current="page">Biotecnología</li>
+                <li aria-current="page">Terapia Física y Rehabilitación</li>
               </ol>
             </nav>
 
             <p class="tagline reveal" data-reveal><span></span>Ciencias de la Salud</p>
-            <h1 class="reveal" data-reveal><span class="lic-hero-pre">Licenciatura en</span> Biotecnología</h1>
-            <p class="lic-hero-claim reveal" data-reveal>Desarrolla. Modifica. Innova.</p>
+            <!-- Título largo (47 car.): rompe en 3 renglones a propósito
+                 («Licenciatura en» / «Terapia Física y» / «Rehabilitación»).
+                 data-max-lines="3" lo autoriza en check:titulos; el &nbsp; evita
+                 que la «y» encabece renglón. -->
+            <h1 class="reveal" data-reveal data-max-lines="3"><span class="lic-hero-pre">Licenciatura en</span> Terapia Física&nbsp;y Rehabilitación</h1>
+            <p class="lic-hero-claim reveal" data-reveal>Examina. Evalúa. Diagnostica. Rehabilita.</p>
 
             <ul class="lic-chips reveal" data-reveal>
-              <li class="lic-chip">9 semestres</li>
+              <li class="lic-chip">8 semestres</li>
               <li class="lic-chip">Modalidad presencial</li>
               <li class="lic-chip">Campus Norte</li>
             </ul>
@@ -225,8 +232,8 @@
           </div>
 
           <div class="lic-hero-media reveal" data-reveal>
-            <!-- [PENDIENTE] ID del video institucional de Biotecnología y
-                 fotografía real de laboratorio.
+            <!-- [PENDIENTE] ID del video institucional de Terapia Física y
+                 Rehabilitación y fotografía real de la clínica.
 
                  Va sin `data-yt-id` y sin el botón de play a propósito: script.js
                  solo engancha los elementos que tienen el atributo, y con un id
@@ -234,12 +241,12 @@
                  ID hay que devolver las dos cosas:
                    <div class="video-card" data-yt-id="XXXXXXXXXXX">
                    <button class="video-play-btn" type="button"
-                     aria-label="Reproducir video de la Licenciatura en Biotecnología">…</button> -->
-            <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/hero-laboratorio-cultivo-celular.webp -->
+                     aria-label="Reproducir video de la Licenciatura en Terapia Física y Rehabilitación">…</button> -->
+            <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/hero-clinica-terapia-fisica.webp -->
             <div class="video-card">
               <img
                 src="assets/psicologia/hero-psicologia.webp"
-                alt="Estudiante de Biotecnología de la Universidad Anáhuac México trabajando con muestras en el Laboratorio de Cultivo Celular."
+                alt="Estudiante de Terapia Física y Rehabilitación de la Universidad Anáhuac México trabajando con un paciente en la Clínica de Terapia Física y Rehabilitación."
                 width="1920"
                 height="1440"
                 fetchpriority="high"
@@ -254,15 +261,16 @@
       </section>
 
       <!-- ===== 2. ¿Es para ti? · [AIDA: Interés] =====
-           El bloque de enfoque responde a la objeción de que la biotecnología «es
-           solo laboratorio» y conecta con los seis campos. ⚠️ Ninguna tarjeta
-           menciona otra carrera. -->
+           El bloque de enfoque define al fisioterapeuta como profesional de la
+           salud y conecta con las áreas de especialidad y las herramientas.
+           ⚠️ Ninguna tarjeta menciona otra carrera. ⚠️ «fisioterapia» aparece de
+           forma natural en la intro por SEO: no la sustituyas por sinónimos. -->
       <section class="lic-afinidad section-pad" id="afinidad">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>¿Es para ti?</p>
-            <h2>¿Te gustaría descubrir en un laboratorio la solución que cambie millones de vidas?</h2>
-            <p>Detrás de cada vacuna, cada prueba de diagnóstico y cada alimento más nutritivo hay biotecnólogos que hicieron las preguntas correctas. Si te reconoces en lo siguiente, la biotecnología puede ser tu lugar.</p>
+            <h2>¿Te gustaría ayudar a alguien a volver a moverse sin dolor?</h2>
+            <p>Cada paciente que vuelve a caminar, a jugar o a trabajar es un logro que se comparte. Si te reconoces en lo siguiente, la fisioterapia puede ser tu lugar.</p>
           </div>
 
           <ul class="afinidad-grid reveal" data-reveal>
@@ -272,7 +280,7 @@
                   <path d="M5.5 3.5v7a2.5 2.5 0 0 0 5 0v-7" /><path d="M8 10.5V20.5" /><path d="M5.5 6.5h5" /><path d="M17 3.5c-1.6 1.6-2.5 3.8-2.5 6v3h4V3.5z" /><path d="M16.5 12.5V20.5" />
                 </svg>
               </span>
-              <p>Quieres que tu trabajo llegue a miles de personas: un nuevo medicamento, un alimento más seguro, un planeta más limpio.</p>
+              <p>Te mueve acompañar a una persona en su recuperación, desde la primera sesión hasta el día en que ya no te necesita.</p>
             </li>
             <li class="afinidad-card">
               <span class="afinidad-icon" aria-hidden="true">
@@ -280,7 +288,7 @@
                   <circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17" /><path d="M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5S14.4 18.4 12 20.5c-2.4-2.1-3.6-5.4-3.6-8.5S9.6 6.1 12 3.5z" />
                 </svg>
               </span>
-              <p>Te fascina entender cómo funciona la vida a nivel molecular, de la célula a la genética.</p>
+              <p>Te imaginas con tu propia clínica o acompañando a deportistas y artistas en su mejor momento.</p>
             </li>
             <li class="afinidad-card">
               <span class="afinidad-icon" aria-hidden="true">
@@ -288,7 +296,7 @@
                   <path d="M9 18h6" /><path d="M10 21.5h4" /><path d="M15.1 14c.18-.98.65-1.74 1.4-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.4 2.5" />
                 </svg>
               </span>
-              <p>Te apasiona hacerte preguntas y diseñar el experimento que las responda.</p>
+              <p>Te fascina cómo funciona el cuerpo humano y la ciencia detrás de cada movimiento.</p>
             </li>
             <li class="afinidad-card">
               <span class="afinidad-icon" aria-hidden="true">
@@ -296,32 +304,32 @@
                   <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" />
                 </svg>
               </span>
-              <p>Te imaginas patentando una idea o creando tu propia empresa de biotecnología.</p>
+              <p>Viviste de cerca una rehabilitación —tuya o de alguien que quieres— y descubriste todo lo que puede cambiar en una vida.</p>
             </li>
           </ul>
 
           <div class="afinidad-enfoque reveal" data-reveal>
-            <p>En la Anáhuac México te formamos para <strong>desarrollar, estudiar y modificar sistemas vivos</strong> y crear alternativas sostenibles para la salud, la alimentación, la industria y el medio ambiente.</p>
+            <p>En la Anáhuac México te formamos como un <strong>profesional de la salud</strong> que evalúa, diagnostica e interviene para desarrollar, mantener y restaurar el movimiento y la funcionalidad de las personas durante todo su ciclo de vida.</p>
             <div class="afinidad-tags">
               <div class="afinidad-tag-group">
-                <span class="afinidad-tag-label">Campos de la biotecnología</span>
+                <span class="afinidad-tag-label">Áreas de especialidad</span>
                 <ul>
-                  <li class="lic-chip">Médica</li>
-                  <li class="lic-chip">Agroalimentaria</li>
-                  <li class="lic-chip">Ambiental</li>
-                  <li class="lic-chip">Vegetal</li>
-                  <li class="lic-chip">Animal</li>
-                  <li class="lic-chip">Industrial</li>
+                  <li class="lic-chip">Musculoesquelética</li>
+                  <li class="lic-chip">Neurorrehabilitación</li>
+                  <li class="lic-chip">Cardiopulmonar</li>
+                  <li class="lic-chip">Deportiva</li>
+                  <li class="lic-chip">Geriátrica</li>
+                  <li class="lic-chip">Pediátrica</li>
                 </ul>
               </div>
               <div class="afinidad-tag-group">
                 <span class="afinidad-tag-label">Herramientas</span>
                 <ul>
-                  <li class="lic-chip">Ingeniería genética</li>
-                  <li class="lic-chip">Genómica y proteómica</li>
-                  <li class="lic-chip">Bioinformática</li>
-                  <li class="lic-chip">Cultivo celular</li>
-                  <li class="lic-chip">Biorreactores</li>
+                  <li class="lic-chip">Electroterapia</li>
+                  <li class="lic-chip">Ultrasonido</li>
+                  <li class="lic-chip">Láser terapéutico</li>
+                  <li class="lic-chip">Hidroterapia</li>
+                  <li class="lic-chip">Ondas de choque</li>
                 </ul>
               </div>
             </div>
@@ -329,17 +337,18 @@
         </div>
       </section>
 
-      <!-- ===== 3. ¿Por qué estudiar Biotecnología en la Anáhuac México? · [AIDA: Interés] =====
+      <!-- ===== 3. ¿Por qué estudiar Terapia Física y Rehabilitación en la Anáhuac México? · [AIDA: Interés] =====
            Exactamente 6 tarjetas.
 
-           ⚠️ NO se nombran aquí las farmacéuticas de las cátedras (Opella, Roche,
-           Novo Nordisk): eso vive SOLO en la banda de M6. -->
+           ⚠️ NO se nombran aquí a las egresadas destacadas (Daniela Cueva, María
+           Artes): eso vive SOLO en la banda de M6.
+           ⚠️ Pacientes reales desde 4º semestre, no antes. -->
       <section class="lic-porque section-pad" id="por-que">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>¿Por qué la Anáhuac México?</p>
-            <h2>¿Por qué estudiar Biotecnología en la Anáhuac México?</h2>
-            <p>No solo aprendes ciencia: la haces. Desde los primeros semestres te integras a proyectos de investigación en laboratorios de vanguardia, con acompañamiento de investigadores.</p>
+            <h2>¿Por qué estudiar Terapia Física y Rehabilitación en la Anáhuac México?</h2>
+            <p>No solo aprendes la teoría del movimiento: desde 4º semestre atiendes pacientes reales en nuestra propia clínica y rotas por las principales áreas de especialidad de la fisioterapia.</p>
           </div>
 
           <div class="lic-porque2-layout">
@@ -347,16 +356,16 @@
               <div class="campus-slider" data-campus-slider>
                 <div class="campus-slider-viewport">
                   <ul class="campus-slides">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-genomica-proteomica.webp -->
-                    <li><img src="assets/psicologia/campo-investigacion.webp" alt="Laboratorio de Genómica y Proteómica — Universidad Anáhuac México" loading="lazy" /></li>
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-cultivo-celular.webp -->
-                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Laboratorio de Cultivo Celular — Universidad Anáhuac México" loading="lazy" /></li>
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-biomoleculas.webp -->
-                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Laboratorio de Biomoléculas — Universidad Anáhuac México" loading="lazy" /></li>
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-microbiologia.webp -->
-                    <li><img src="assets/psicologia/campo-rehabilitacion.webp" alt="Laboratorio de Microbiología — Universidad Anáhuac México" loading="lazy" /></li>
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/estudiantes-experimento.webp -->
-                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Estudiantes de Biotecnología de la Universidad Anáhuac México analizando resultados de un experimento en el laboratorio" loading="lazy" /></li>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/clinica-terapia-fisica.webp -->
+                    <li><img src="assets/psicologia/campo-rehabilitacion.webp" alt="Clínica de Terapia Física y Rehabilitación — Universidad Anáhuac México" loading="lazy" /></li>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/equipo-electroterapia-ultrasonido.webp -->
+                    <li><img src="assets/psicologia/campo-clinicas.webp" alt="Equipo de electroterapia y ultrasonido de la Clínica de Terapia Física y Rehabilitación — Universidad Anáhuac México" loading="lazy" /></li>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/tina-hidroterapia.webp -->
+                    <li><img src="assets/psicologia/campo-hospitales.webp" alt="Tina de hidroterapia de la Clínica de Terapia Física y Rehabilitación — Universidad Anáhuac México" loading="lazy" /></li>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/area-entrenamiento-funcional.webp -->
+                    <li><img src="assets/psicologia/campo-investigacion.webp" alt="Área de entrenamiento funcional de la Clínica de Terapia Física y Rehabilitación — Universidad Anáhuac México" loading="lazy" /></li>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/estudiantes-con-paciente.webp -->
+                    <li><img src="assets/psicologia/campo-comunitarios.webp" alt="Estudiantes de Terapia Física y Rehabilitación de la Universidad Anáhuac México trabajando con un paciente en la clínica" loading="lazy" /></li>
                   </ul>
                 </div>
                 <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
@@ -372,8 +381,8 @@
                   <circle cx="12" cy="9" r="6" /><path d="M8.5 13.7L7 21l5-2.8L17 21l-1.5-7.3" />
                 </svg>
               </span>
-              <h3>Investigación desde los primeros semestres</h3>
-              <p>Te integras a proyectos de investigación ligados a tu titulación, con la posibilidad de publicar en revistas nacionales e internacionales y de generar patentes.</p>
+              <h3>Pacientes reales desde 4º semestre</h3>
+              <p>Con el Prácticum I empiezas a examinar y evaluar pacientes reales en la Clínica de Terapia Física y Rehabilitación de la universidad, siempre bajo supervisión docente.</p>
               <a class="porque-link" href="#plan-estudios">Ver el plan de estudios <span aria-hidden="true">›</span></a>
             </article>
 
@@ -383,8 +392,8 @@
                   <rect x="3" y="5.5" width="18" height="15" rx="2" /><path d="M3 10h18" /><path d="M8 3.5v4M16 3.5v4" /><path d="M8 14h3M8 17h6" />
                 </svg>
               </span>
-              <h3>Laboratorios de primer nivel</h3>
-              <p>Trabajas en laboratorios de genómica y proteómica, cultivo celular, biomoléculas y microbiología, con equipo actualizado y estandarizado.</p>
+              <h3>Ocho clínicas de especialidad</h3>
+              <p>Entre 6º y 8º semestre rotas por clínicas de rehabilitación musculoesquelética, neurológica en adultos, cardiopulmonar, deportiva, geriátrica, intrahospitalaria, pediátrica y tegumentaria. Así descubres desde la licenciatura qué área es la tuya.</p>
             </article>
 
             <article class="porque-card reveal" data-reveal>
@@ -393,8 +402,8 @@
                   <path d="M4 11.5h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8z" /><path d="M12 11.5V8" /><path d="M9.5 8h5" /><path d="M3 20.5h18" />
                 </svg>
               </span>
-              <h3>Las ciencias ómicas, en tu plan de estudios</h3>
-              <p>Cursas Genómica y proteómica, Nutrigenómica, Farmacogenómica y Metabolómica, además de Bioinformática y Bases de ingeniería genética.</p>
+              <h3>Una clínica equipada para rehabilitar</h3>
+              <p>Practicas con equipo de electroterapia, ultrasonido, láser terapéutico, ondas de choque, diatermia, tina de remolinos y entrenamiento funcional, además de equipos de simulación para tus actividades preclínicas.</p>
             </article>
 
             <article class="porque-card reveal" data-reveal>
@@ -403,8 +412,9 @@
                   <path d="M12 3.5a4 4 0 0 1 3.7 2.5A3.5 3.5 0 0 1 17.5 12H6.5A3.5 3.5 0 0 1 8.3 6 4 4 0 0 1 12 3.5z" /><path d="M7 12v6.5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V12" /><path d="M7 15.5h10" />
                 </svg>
               </span>
-              <h3>Una biotecnología, seis campos</h3>
-              <p>Tu plan recorre la biotecnología médica, agroalimentaria, ambiental, vegetal, animal e industrial, para que descubras dónde quieres dejar huella.</p>
+              <!-- [VERIFICAR] afirmación sobre el perfil de los docentes de cada área clínica. -->
+              <h3>Aprendes de quienes lideran cada área</h3>
+              <p>Cada área clínica la imparten especialistas que ejercen esa rama de la fisioterapia en hospitales, centros deportivos y de rehabilitación.</p>
             </article>
 
             <article class="porque-card reveal" data-reveal>
@@ -413,8 +423,13 @@
                   <path d="M9.5 3.5v5.2L5.2 17a1.6 1.6 0 0 0 1.4 2.4h10.8a1.6 1.6 0 0 0 1.4-2.4l-4.3-8.3V3.5" /><path d="M8.5 3.5h7" /><path d="M7.8 14.5h8.4" />
                 </svg>
               </span>
-              <h3>Formación multidisciplinaria en Ciencias de la Salud</h3>
-              <p>Te preparas en las áreas básicas de las ciencias de la salud junto con otras licenciaturas de la Facultad, y sumas conocimientos de disciplinas complementarias.</p>
+              <h3>Formación interdisciplinaria de Ciencias de la Salud</h3>
+              <p>Compartes materias como Anatomía, Bioquímica y Fisiología con otras licenciaturas de la Facultad. La Clínica de Terapia Física y Rehabilitación trabaja de forma coordinada con las otras tres clínicas internas —Nutrición, Odontología y Servicio Médico— para que colabores en la atención de un mismo paciente desde distintas disciplinas.</p>
+              <ul class="lic-chips">
+                <li class="lic-chip">Nutrición</li>
+                <li class="lic-chip">Odontología</li>
+                <li class="lic-chip">Servicio Médico</li>
+              </ul>
             </article>
 
             <article class="porque-card reveal" data-reveal>
@@ -424,10 +439,10 @@
                 </svg>
               </span>
               <h3>Experiencia internacional</h3>
-              <p>Suma una experiencia internacional mediante convenios con universidades extranjeras, para intercambios y estancias de investigación.</p>
+              <p>Suma una experiencia internacional mediante convenios con universidades extranjeras, para intercambios y estancias académicas.</p>
               <ul class="lic-chips">
+                <li class="lic-chip">Universidad Finis Terrae (Chile)</li>
                 <li class="lic-chip">Universidad Francisco de Vitoria (España)</li>
-                <li class="lic-chip">Pontificia Universidad Javeriana (Colombia)</li>
               </ul>
             </article>
             </div>
@@ -435,56 +450,63 @@
 
           <div class="porque-plan reveal" data-reveal>
             <div class="porque-plan-copy">
-              <p class="porque-plan-text"><strong class="porque-plan-lead">Prepárate para ser el biotecnólogo que quieres ser</strong> y la persona que quieres llegar a ser. Nuestro Modelo Anáhuac integra tu carrera en tres bloques —Profesional, Anáhuac y Electivo— para que desarrolles una visión integral y estés listo para investigar, emprender y transformar tu entorno. Tendrás además acceso a espacios de realidad virtual para Biotecnología dentro del futuro <strong>Hospital Virtual</strong>, un edificio de simulación de 5 pisos hoy en construcción.</p>
+              <p class="porque-plan-text"><strong class="porque-plan-lead">Prepárate para ser el fisioterapeuta que quieres ser</strong> y la persona que quieres llegar a ser. Nuestro Modelo Anáhuac integra tu carrera en tres bloques —Profesional, Anáhuac y Electivo— para que desarrolles una visión integral y estés listo para ejercer, emprender y transformar tu entorno. Tendrás además acceso a espacios pensados para Terapia Física dentro del futuro <strong>Hospital Virtual</strong>, un edificio de simulación de 5 pisos hoy en construcción.</p>
             </div>
-            <a class="btn btn-purple porque-plan-cta" href="#plan-estudios">Descubre la formación de un biotecnólogo Anáhuac México</a>
+            <a class="btn btn-purple porque-plan-cta" href="#plan-estudios">Descubre la formación de un fisioterapeuta Anáhuac México</a>
           </div>
         </div>
       </section>
 
       <!-- ===== 4. Perfil de egreso · [AIDA: Interés] =====
-           Exactamente DOS datos duros (9 semestres · 415 créditos), con la línea
-           de apoyo del desglose por bloque del Modelo 2025. Esta carrera NO lleva
-           dato de servicio social.
-           [PLACEHOLDER] fotografía real de laboratorio. -->
+           TRES datos duros (8 semestres · 397 créditos · +1 año de servicio
+           social), con la línea de apoyo del desglose por bloque del Modelo. El
+           «+1» necesita un `sr-only` que lo anuncie como «más un año de servicio
+           social» (el signo queda decorativo con `aria-hidden`).
+           [PLACEHOLDER] fotografía real de la clínica. -->
       <section class="lic-plan section-pad" id="perfil-egreso">
         <div class="container">
           <div class="plan-top">
             <div class="plan-top-copy">
               <div class="section-intro wide reveal" data-reveal>
                 <p class="tagline"><span></span>Perfil de egreso</p>
-                <h2>¿Con qué perfil egresas de la Licenciatura en Biotecnología?</h2>
+                <h2>¿Con qué perfil egresas de la Licenciatura en Terapia Física y Rehabilitación?</h2>
               </div>
 
               <article class="plan-card plan-perfil reveal" data-reveal>
                 <h3>Perfil de egreso</h3>
                 <ul class="plan-perfil-list">
-                  <li>Desarrollas, estudias y modificas sistemas vivos para descubrir alternativas que satisfagan de manera sostenible las necesidades del ser humano.</li>
-                  <li>Diseñas y validas procesos que generan nuevos productos y servicios para la salud, la alimentación, la industria y el medio ambiente.</li>
-                  <li>Propones soluciones innovadoras a problemas ambientales y contribuyes al fortalecimiento de la tecnología aplicada a los organismos, en México y en el mundo.</li>
+                  <li>Comprendes el movimiento humano y promueves la salud a través de la evaluación, el diagnóstico, el pronóstico y la intervención de cada paciente.</li>
+                  <li>Desarrollas, mantienes y restauras el máximo movimiento y la habilidad funcional de las personas, y previenes sus disfunciones durante todo el ciclo de vida.</li>
+                  <li>Usas el razonamiento clínico para diseñar, aplicar y evaluar planes de intervención, e integras la gestión de servicios de terapia física en el sector público y privado.</li>
                 </ul>
               </article>
 
-              <article class="plan-card plan-aeo reveal" data-reveal>
-                <h3>¿Cuánto dura la carrera de Biotecnología?</h3>
+              <article class="plan-card plan-aeo tfr-aeo reveal" data-reveal>
+                <h3>¿Cuánto dura la carrera de Terapia Física y Rehabilitación?</h3>
                 <div class="plan-aeo-datos">
                   <p class="plan-aeo-dato">
-                    <strong>9</strong>
-                    <span>Semestres (4 años y medio)</span>
+                    <strong>8</strong>
+                    <span>Semestres académicos (4 años)</span>
                   </p>
                   <p class="plan-aeo-dato">
-                    <strong>415</strong>
+                    <strong>397</strong>
                     <span>Créditos totales</span>
+                  </p>
+                  <!-- «+1» se lee como número suelto en lector de pantalla. El
+                       `sr-only` lo enuncia completo y el signo queda decorativo. -->
+                  <p class="plan-aeo-dato">
+                    <strong aria-hidden="true">+1</strong>
+                    <span><span class="sr-only">Más un </span>Año de servicio social (periodos 9 y 10)</span>
                   </p>
                 </div>
               </article>
             </div>
 
             <div class="plan-top-media reveal" data-reveal>
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/plan-perfil-biomoleculas.webp -->
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/plan-perfil-evaluacion.webp -->
               <img
                 src="assets/psicologia/plan-perfil.webp"
-                alt="Estudiante de Biotecnología de la Anáhuac México preparando una muestra en el Laboratorio de Biomoléculas."
+                alt="Estudiante de Terapia Física y Rehabilitación de la Anáhuac México evaluando la movilidad de un paciente."
                 width="1000"
                 height="1333"
                 loading="lazy"
@@ -495,24 +517,32 @@
       </section>
 
       <!-- ===== 5. Plan de estudios · [AIDA: Interés] =====
-           ⚠️ 9 pestañas, una por SEMESTRE, con las materias exactas y en el orden
-           de la tabla del spec. La barra va a 9 columnas (una fila) en escritorio
-           y a 3 columnas (3×3) por debajo de 1240px, en licenciatura-biotecnologia.css.
+           ⚠️ 10 pestañas: 8 semestres + los dos periodos de servicio social (9 y
+           10), con las materias exactas y en el orden de la tabla del spec. La
+           barra va a 5 columnas (2 filas de 5) en escritorio, a 2 columnas por
+           debajo de 1024px y al dropdown ≤540px, en
+           licenciatura-terapia-fisica-y-rehabilitacion.css. Las dos pestañas de
+           servicio social no listan materias: solo la nota de cierre.
 
            Viñeta por bloque: naranja = Profesional (default) · morado =
            `plan-sem-item--anahuac` (materias (A)) · lila = `plan-sem-item--inter`
-           (materias (E), el Bloque Electivo). Las tres tarjetas .plan-bloque de
-           abajo son la leyenda visible de los tres bloques.
+           (materias (E), el Bloque Electivo). ⚠️ «Electiva profesional» y
+           «Formación universitaria» son Profesional; «Emprendimiento e
+           innovación», «Habilidades para el emprendimiento», «Responsabilidad
+           social y sustentabilidad» y las «Asignatura electiva…» / «Taller o
+           actividad electiva» son Electivo. Los Prácticum y las Clínicas van en
+           negrita (<strong>). Las tres tarjetas .plan-bloque de abajo son la
+           leyenda visible de los tres bloques.
 
            El RVOE va aquí como enlace discreto, nunca como chip del hero. -->
       <section class="lic-plan-est section-pad" id="plan-estudios">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Plan de estudios</p>
-            <h2>¿Cuál es el plan de estudios de la Licenciatura en Biotecnología?</h2>
+            <h2>¿Cuál es el plan de estudios de la Licenciatura en Terapia Física y Rehabilitación?</h2>
           </div>
 
-          <div class="plan-tabs bio-plan-tabs reveal" data-reveal>
+          <div class="plan-tabs tfr-plan-tabs reveal" data-reveal>
             <label class="sr-only" for="plan-sem-select">Selecciona un semestre</label>
             <select class="plan-tabs-select js-select" id="plan-sem-select" aria-label="Selecciona un semestre">
               <option value="tab-sem1">Semestre 1</option>
@@ -523,7 +553,8 @@
               <option value="tab-sem6">Semestre 6</option>
               <option value="tab-sem7">Semestre 7</option>
               <option value="tab-sem8">Semestre 8</option>
-              <option value="tab-sem9">Semestre 9</option>
+              <option value="tab-ss09">Servicio social 9</option>
+              <option value="tab-ss10">Servicio social 10</option>
             </select>
             <div class="plan-tabs-nav" role="tablist" aria-label="Asignaturas por semestre">
               <button class="plan-tab is-active" type="button" role="tab" id="tab-sem1" aria-controls="panel-sem1" aria-selected="true">Semestre<span class="plan-tab-num">1</span></button>
@@ -534,44 +565,45 @@
               <button class="plan-tab" type="button" role="tab" id="tab-sem6" aria-controls="panel-sem6" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">6</span></button>
               <button class="plan-tab" type="button" role="tab" id="tab-sem7" aria-controls="panel-sem7" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">7</span></button>
               <button class="plan-tab" type="button" role="tab" id="tab-sem8" aria-controls="panel-sem8" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">8</span></button>
-              <button class="plan-tab" type="button" role="tab" id="tab-sem9" aria-controls="panel-sem9" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">9</span></button>
+              <button class="plan-tab plan-tab--ss" type="button" role="tab" id="tab-ss09" aria-controls="panel-ss09" aria-selected="false" tabindex="-1">Servicio social<span class="plan-tab-num">9</span></button>
+              <button class="plan-tab plan-tab--ss" type="button" role="tab" id="tab-ss10" aria-controls="panel-ss10" aria-selected="false" tabindex="-1">Servicio social<span class="plan-tab-num">10</span></button>
             </div>
 
             <div class="plan-tab-panel is-active" role="tabpanel" id="panel-sem1" aria-labelledby="tab-sem1" tabindex="0">
               <ul class="plan-sem-list">
-                <li>Biología general</li>
-                <li>Biofísica aplicada</li>
-                <li>Matemáticas para ciencias de la salud</li>
-                <li>Morfofisiología humana</li>
-                <li>Química</li>
-                <li class="plan-sem-item--inter">Asignatura electiva Anáhuac I</li>
+                <li>Fundamentos de terapia física y rehabilitación</li>
+                <li>Anatomía</li>
+                <li>Bases de biología</li>
+                <li>Bioquímica</li>
+                <li>Probabilidad y estadística para la salud</li>
+                <li>Bases de la investigación para la salud</li>
                 <li class="plan-sem-item--anahuac">Ser universitario</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva I</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem2" aria-labelledby="tab-sem2" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Morfofisiología animal</li>
-                <li>Morfofisiología vegetal</li>
-                <li>Cálculo para ciencias de la salud</li>
-                <li>Química orgánica para sistemas biológicos</li>
-                <li>Química analítica para sistemas biológicos</li>
-                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria I</li>
-                <li class="plan-sem-item--inter">Taller o actividad I</li>
-                <li class="plan-sem-item--inter">Taller o actividad II</li>
+                <li>Neuroanatomía</li>
+                <li>Anatomía musculoesquelética</li>
+                <li>Embriología del sistema motor</li>
+                <li>Fisiología I</li>
+                <li>Epidemiología y salud pública</li>
+                <li>Comunicación, calidad y seguridad del paciente</li>
                 <li class="plan-sem-item--anahuac">Antropología fundamental</li>
+                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria I</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem3" aria-labelledby="tab-sem3" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Microbiología general</li>
-                <li>Fisicoquímica aplicada</li>
-                <li>Bioestadística aplicada</li>
-                <li>Bioquímica general</li>
-                <li>Métodos analíticos</li>
-                <li>Procesos celulares</li>
-                <li>Electiva profesional I</li>
+                <li>Principios de biomecánica</li>
+                <li>Fisiología del ejercicio</li>
+                <li>Desarrollo del sistema motor</li>
+                <li>Fisiología II</li>
+                <li>Rehabilitación funcional</li>
+                <li>Examinación en terapia física y rehabilitación</li>
+                <li>Farmacología y algología</li>
                 <li class="plan-sem-item--anahuac">Liderazgo y desarrollo personal</li>
                 <li class="plan-sem-item--anahuac">Ética</li>
               </ul>
@@ -579,92 +611,88 @@
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem4" aria-labelledby="tab-sem4" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Bioseguridad</li>
-                <li>Tecnología vegetal</li>
-                <li>Bioquímica microbiana</li>
-                <li>Bases de ingeniería genética</li>
-                <li>Microbiología industrial</li>
-                <li>Fisiopatología molecular</li>
-                <li>Electiva profesional II</li>
-                <li class="plan-sem-item--inter">Habilidades para el emprendimiento</li>
+                <li><strong>Prácticum I: Examinación y evaluación en terapia física</strong></li>
+                <li>Biomecánica y análisis de la marcha</li>
+                <li>Neuropatología</li>
+                <li>Fisiopatología sistémica</li>
+                <li>Patología musculoesquelética</li>
+                <li>Diseño experimental</li>
+                <li>Ciencias del movimiento</li>
                 <li class="plan-sem-item--anahuac">Humanismo clásico y contemporáneo</li>
+                <li class="plan-sem-item--inter">Habilidades para el emprendimiento</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem5" aria-labelledby="tab-sem5" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Microbiología médica</li>
-                <li>Metodología de la investigación en Biotecnología</li>
-                <li>Diagnóstico molecular</li>
-                <li>Ciencias ómicas: Genómica y proteómica</li>
-                <li>Biocatálisis y biorreactores</li>
-                <li>Inmunología básica</li>
-                <li>Electiva profesional III</li>
-                <li class="plan-sem-item--inter">Emprendimiento e innovación</li>
-                <li class="plan-sem-item--inter">Taller o actividad III</li>
+                <li><strong>Prácticum II: Diagnóstico, pronóstico e intervención en terapia física</strong></li>
+                <li>Terapia manual</li>
+                <li>Hidroterapia</li>
+                <li>Modalidades terapéuticas</li>
+                <li>Razonamiento clínico I</li>
+                <li>Ejercicios terapéuticos</li>
+                <li>Electiva profesional I</li>
                 <li class="plan-sem-item--anahuac">Persona y trascendencia</li>
+                <li class="plan-sem-item--inter">Emprendimiento e innovación</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva II</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem6" aria-labelledby="tab-sem6" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Biotecnología médica</li>
-                <li>Modelos experimentales</li>
-                <li>Microbiología sanitaria</li>
-                <li>Bioinformática</li>
-                <li>Biorremediación</li>
-                <!-- [VERIFICAR] "Regional I" -->
-                <li>Regional I</li>
-                <li>Formación universitaria A</li>
-                <li>Electiva profesional IV</li>
+                <li>Atención intrahospitalaria</li>
+                <li><strong>Clínica de rehabilitación musculoesquelética</strong></li>
+                <li>Ortesis y prótesis</li>
+                <li><strong>Clínica de neurorrehabilitación en adultos</strong></li>
+                <li>Electiva profesional II</li>
+                <li>Razonamiento clínico II</li>
+                <li>Factores psicocomportamentales</li>
                 <li class="plan-sem-item--anahuac">Liderazgo y equipos de alto desempeño</li>
+                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria II</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem7" aria-labelledby="tab-sem7" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Aplicaciones biotecnológicas en alimentos</li>
-                <li>Fitopatología</li>
-                <li>Diseño experimental</li>
-                <li>Ciencias ómicas: Nutrigenómica</li>
-                <li>Redacción científica</li>
-                <!-- [VERIFICAR] "Regional II" -->
-                <li>Regional II</li>
-                <li>Formación universitaria B</li>
-                <li>Innovación tecnológica</li>
-                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria II</li>
+                <li>Gestión y dirección de servicios de salud</li>
+                <li><strong>Clínica de rehabilitación cardiopulmonar</strong></li>
+                <li><strong>Clínica de rehabilitación deportiva</strong></li>
+                <li><strong>Clínica de rehabilitación geriátrica</strong></li>
+                <li>Electiva profesional III</li>
+                <li>Razonamiento clínico III</li>
+                <li>Formación universitaria A</li>
+                <li class="plan-sem-item--inter">Asignatura electiva Anáhuac I</li>
+                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria III</li>
               </ul>
             </div>
 
             <div class="plan-tab-panel" role="tabpanel" id="panel-sem8" aria-labelledby="tab-sem8" tabindex="0" hidden>
               <ul class="plan-sem-list">
-                <li>Ciencias ómicas: Metabolómica</li>
-                <li>Biotecnología agroalimentaria</li>
-                <li>Laboratorio de investigación y desarrollo</li>
-                <li>Ciencias ómicas: Farmacogenómica</li>
-                <!-- [VERIFICAR] "Regional III" -->
-                <li>Regional III</li>
+                <li><strong>Clínica de rehabilitación intrahospitalaria</strong></li>
+                <li><strong>Clínica de rehabilitación pediátrica</strong></li>
+                <li><strong>Clínica de rehabilitación tegumentaria</strong></li>
+                <li>Razonamiento clínico IV</li>
+                <li>Electiva profesional IV</li>
+                <li>Formación universitaria B</li>
+                <li class="plan-sem-item--inter">Asignatura electiva Anáhuac II</li>
                 <li class="plan-sem-item--inter">Responsabilidad social y sustentabilidad</li>
-                <li class="plan-sem-item--inter">Asignatura electiva interdisciplinaria III</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva III</li>
               </ul>
             </div>
 
-            <div class="plan-tab-panel" role="tabpanel" id="panel-sem9" aria-labelledby="tab-sem9" tabindex="0" hidden>
-              <ul class="plan-sem-list">
-                <li>Biotecnología de especies animales</li>
-                <li>Aplicaciones biotecnológicas en investigación</li>
-                <li>Proyecto de investigación y desarrollo</li>
-                <li>Control de calidad en bioingeniería</li>
-                <li>Virología aplicada a la Biotecnología</li>
-                <li class="plan-sem-item--inter">Asignatura electiva Anáhuac II</li>
-              </ul>
+            <div class="plan-tab-panel" role="tabpanel" id="panel-ss09" aria-labelledby="tab-ss09" tabindex="0" hidden>
+              <p class="tfr-plan-ss">Periodo de servicio social supervisado, con acompañamiento de un tutor.</p>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-ss10" aria-labelledby="tab-ss10" tabindex="0" hidden>
+              <p class="tfr-plan-ss">Periodo de servicio social supervisado, con acompañamiento de un tutor.</p>
             </div>
           </div>
 
           <div class="plan-bloques reveal" data-reveal>
             <article class="plan-bloque plan-bloque--prof">
               <h3>Bloque Profesional</h3>
-              <p>El corazón de tu carrera. Aquí desarrollas las competencias de la biotecnología, trabajas en laboratorio desde el inicio y cierras con tu propio proyecto de investigación y desarrollo. Además eliges tus <a class="plan-minors-link" href="https://www.youtube.com/watch?v=IgwjRh2o2x8" target="_blank" rel="noopener" data-yt-modal="IgwjRh2o2x8">Minors</a> —<span class="plan-minors-gloss">diplomas profesionales universitarios</span>— que amplían tu perfil y te dan versatilidad para el mundo laboral.</p>
+              <p>El corazón de tu carrera. Aquí desarrollas las competencias de la fisioterapia, atiendes pacientes en tus dos Prácticum y en ocho clínicas de especialidad. Además eliges tus <a class="plan-minors-link" href="https://www.youtube.com/watch?v=IgwjRh2o2x8" target="_blank" rel="noopener" data-yt-modal="IgwjRh2o2x8">Minors</a> —<span class="plan-minors-gloss">diplomas profesionales universitarios</span>— que amplían tu perfil y te dan versatilidad para el mundo laboral.</p>
             </article>
             <article class="plan-bloque plan-bloque--anahuac">
               <h3>Bloque Anáhuac</h3>
@@ -683,6 +711,10 @@
 
           <p class="plan-rvoe reveal" data-reveal>
             <!-- [PENDIENTE: URL del documento público del RVOE.] -->
+            <!-- [PENDIENTE: fecha del D.O.F.] Se renderiza «RVOE SEP · D.O.F.» sin
+                 fecha: el «26/11/1982» del spec es el default heredado del molde,
+                 sin verificar para esta carrera; la clienta pidió quitar esa fecha
+                 del RVOE. -->
             <a class="plan-rvoe-link" href="#" target="_blank" rel="noopener">
               RVOE SEP · D.O.F.
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -710,119 +742,121 @@
       </section>
 
       <!-- ===== 6. Campo laboral · [AIDA: Deseo] =====
-           ⚠️ La banda de cátedras con la industria farmacéutica es la pieza de
-           mayor peso persuasivo del módulo, y las farmacéuticas (Opella, Roche,
-           Novo Nordisk) se nombran SOLO aquí, no en M3.
+           ⚠️ La banda de egresadas en el alto rendimiento es la pieza de mayor
+           peso persuasivo del módulo, y las egresadas destacadas (Daniela Cueva,
+           María Artes) se nombran SOLO aquí, no en M3 ni en M8.
+           ⚠️ «fisioterapeuta» aparece en el H2 por SEO: no lo sustituyas.
 
-           [PLACEHOLDER] No hay fotos de biotecnología: los seis tiles y el preview
-           usan fotos de relleno del banco de Psicología (temática de laboratorio /
-           investigación). El `alt` describe el ámbito del tile; sustituir por
+           [PLACEHOLDER] No hay fotos de terapia física: los seis tiles y el preview
+           usan fotos de relleno del banco de Psicología (temática clínica /
+           rehabilitación). El `alt` describe el ámbito del tile; sustituir por
            escenas profesionales reales sigue pendiente. -->
       <section class="lic-campo section-pad" id="campo-laboral">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Campo laboral</p>
-            <h2>¿Dónde puedes trabajar como biotecnólogo?</h2>
-            <p>Tu formación te abre oportunidades en la industria, la investigación, el sector público y el emprendimiento, en México y en el extranjero.</p>
+            <h2>¿Dónde puedes ejercer como fisioterapeuta?</h2>
+            <p>Tu formación te abre oportunidades en hospitales, centros de rehabilitación, el deporte, la investigación y tu propia práctica.</p>
           </div>
 
           <div class="campo-layout">
-            <div class="campo-list reveal" data-reveal role="group" aria-label="Ámbitos laborales de la Biotecnología">
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-industria-farmaceutica.webp -->
-              <button type="button" class="campo-tile is-active" aria-pressed="true" data-img="assets/psicologia/campo-investigacion.webp" data-alt="Biotecnóloga egresada de la Anáhuac México trabajando en un laboratorio de la industria farmacéutica">
+            <div class="campo-list reveal" data-reveal role="group" aria-label="Ámbitos laborales de la Terapia Física y Rehabilitación">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-hospitales.webp -->
+              <button type="button" class="campo-tile is-active" aria-pressed="true" data-img="assets/psicologia/campo-hospitales.webp" data-alt="Fisioterapeuta egresada de la Anáhuac México atendiendo a un paciente en un hospital">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9.5 3.5v5.2L5.2 17a1.6 1.6 0 0 0 1.4 2.4h10.8a1.6 1.6 0 0 0 1.4-2.4l-4.3-8.3V3.5" /><path d="M8.5 3.5h7" /><path d="M7.8 14.5h8.4" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Industria farmacéutica</span>
-                  <span class="campo-tile-desc">Investigación, desarrollo y control de calidad de medicamentos y productos biológicos.</span>
+                  <span class="campo-tile-title">Hospitales e instituciones de salud</span>
+                  <span class="campo-tile-desc">Rehabilitación de pacientes en instituciones públicas y privadas, incluida la atención intrahospitalaria.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
 
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-diagnostico-molecular.webp -->
-              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-clinicas.webp" data-alt="Biotecnólogo realizando pruebas de diagnóstico molecular en un laboratorio">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-centros-rehabilitacion.webp -->
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-rehabilitacion.webp" data-alt="Fisioterapeuta egresado de la Anáhuac México en un centro de rehabilitación">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17" /><path d="M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5S14.4 18.4 12 20.5c-2.4-2.1-3.6-5.4-3.6-8.5S9.6 6.1 12 3.5z" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Diagnóstico médico y genético</span>
-                  <span class="campo-tile-desc">Pruebas de diagnóstico molecular e industria médica y genética.</span>
+                  <span class="campo-tile-title">Centros de rehabilitación</span>
+                  <span class="campo-tile-desc">Intervención especializada en rehabilitación musculoesquelética, neurológica, cardiopulmonar y pediátrica.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
 
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-alimentos-agroindustria.webp -->
-              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-hospitales.webp" data-alt="Biotecnóloga desarrollando productos en la industria de alimentos y la agroindustria">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-deporte.webp -->
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-comunitarios.webp" data-alt="Fisioterapeuta egresada de la Anáhuac México trabajando con una deportista en rehabilitación">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 3.5a4 4 0 0 1 3.7 2.5A3.5 3.5 0 0 1 17.5 12H6.5A3.5 3.5 0 0 1 8.3 6 4 4 0 0 1 12 3.5z" /><path d="M7 12v6.5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V12" /><path d="M7 15.5h10" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Alimentos y agroindustria</span>
-                  <span class="campo-tile-desc">Desarrollo de alimentos y suplementos innovadores, y mejora de cultivos y especies.</span>
+                  <span class="campo-tile-title">Deporte y alto rendimiento</span>
+                  <span class="campo-tile-desc">Prevención y rehabilitación de lesiones en centros deportivos, equipos y selecciones.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
 
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-medio-ambiente-energia.webp -->
-              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-comunitarios.webp" data-alt="Biotecnólogo trabajando en un proyecto de biorremediación ambiental">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-geriatricos.webp -->
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-clinicas.webp" data-alt="Fisioterapeuta egresado de la Anáhuac México acompañando a un adulto mayor en su rehabilitación">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Medio ambiente y energía</span>
-                  <span class="campo-tile-desc">Biorremediación y nuevas alternativas a los hidrocarburos como fuente de energía.</span>
+                  <span class="campo-tile-title">Centros geriátricos</span>
+                  <span class="campo-tile-desc">Acompañamiento de adultos mayores para conservar su movilidad y su independencia.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
 
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-investigacion-academia.webp -->
-              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-rehabilitacion.webp" data-alt="Biotecnóloga en un centro de investigación y difusión científica">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-clinica-propia.webp -->
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/plan-perfil.webp" data-alt="Fisioterapeuta egresada de la Anáhuac México atendiendo a un paciente en su clínica propia">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 6.5C10.5 5.2 8.4 4.5 6 4.5H3.5v13H6c2.4 0 4.5.7 6 2" /><path d="M12 6.5c1.5-1.3 3.6-2 6-2h2.5v13H18c-2.4 0-4.5.7-6 2" /><path d="M12 6.5v15" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Investigación y academia</span>
-                  <span class="campo-tile-desc">Centros de investigación, universidades y difusión científica.</span>
+                  <span class="campo-tile-title">Clínica o consultorio propio</span>
+                  <span class="campo-tile-desc">Práctica clínica privada con tus propios pacientes.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
 
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-emprendimiento-regulacion.webp -->
-              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/plan-perfil.webp" data-alt="Biotecnólogo emprendedor en su propia empresa de biotecnología">
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-investigacion-docencia.webp -->
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/psicologia/campo-investigacion.webp" data-alt="Fisioterapeuta egresado de la Anáhuac México en un proyecto de investigación en rehabilitación">
                 <span class="campo-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 20.5V4.5" /><path d="M4 17l4.5-4 3.5 3 4-5 4 4.5" /><path d="M4 20.5h16.5" />
                   </svg>
                 </span>
                 <span class="campo-tile-body">
-                  <span class="campo-tile-title">Emprendimiento y regulación</span>
-                  <span class="campo-tile-desc">Tu propia empresa de biotecnología, o instituciones públicas y consejos de regulación de procesos.</span>
+                  <span class="campo-tile-title">Investigación, docencia y políticas de salud</span>
+                  <span class="campo-tile-desc">Proyectos de investigación, instituciones educativas y gestión de políticas públicas de salud.</span>
                 </span>
                 <span class="campo-tile-chevron" aria-hidden="true"></span>
               </button>
             </div>
 
             <div class="campo-preview reveal" data-reveal>
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/campo-industria-farmaceutica.webp -->
-              <img class="campo-media" src="assets/psicologia/campo-investigacion.webp" alt="Biotecnóloga egresada de la Anáhuac México trabajando en un laboratorio de la industria farmacéutica" width="800" height="1000" />
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/campo-hospitales.webp -->
+              <img class="campo-media" src="assets/psicologia/campo-hospitales.webp" alt="Fisioterapeuta egresada de la Anáhuac México atendiendo a un paciente en un hospital" width="800" height="1000" />
             </div>
           </div>
 
           <div class="campo-band campo-band--cta-lateral reveal" data-reveal>
             <div class="campo-doble-copy">
-              <h3 class="campo-doble-title">Cátedras con la industria farmacéutica</h3>
-              <p class="campo-doble-text">Participas en cátedras con empresas farmacéuticas como <strong>Opella, Roche y Novo Nordisk</strong>, y te conectas desde la carrera con la industria en la que quieres trabajar.</p>
+              <!-- [VERIFICAR] logros y datos de las egresadas destacadas. -->
+              <h3 class="campo-doble-title">Egresadas que ya están en el alto rendimiento</h3>
+              <p class="campo-doble-text"><strong>Daniela Cueva</strong> fue fisioterapeuta de la selección mexicana de gimnasia artística en el Campeonato Mundial de Stuttgart 2019. <strong>María Artes</strong> fue nombrada, a los 23 años, jefa del departamento de Fisioterapia de la Escuela Nacional de Danza Clásica y Contemporánea.</p>
             </div>
             <div class="campo-cta">
               <a class="btn btn-orange" href="/admision-general">Iniciar proceso de admisión</a>
@@ -836,14 +870,14 @@
            Mismo componente que Comunicación (.lic-inst-*, reutiliza data-campus-slider).
            ⚠️ Aquí se MUESTRAN los espacios (foto + nombre); no se repite la
            argumentación de M3. El Hospital Virtual siempre «(en construcción)».
-           [PLACEHOLDER] No hay fotos de biotecnología: se usan fotos de relleno del
-           banco de Psicología (temática de laboratorio). -->
+           [PLACEHOLDER] No hay fotos de terapia física: se usan fotos de relleno del
+           banco de Psicología (temática clínica). -->
       <section class="lic-campus lic-campus--inst section-pad" id="instalaciones">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Instalaciones</p>
             <h2>Instalaciones donde estudiarás tu licenciatura</h2>
-            <p>Conoce los laboratorios de Campus Norte donde se forman los biotecnólogos, y el futuro Hospital Virtual.</p>
+            <p>Conoce los espacios de Campus Norte donde se forman los fisioterapeutas: la Clínica de Terapia Física y Rehabilitación, sus laboratorios y el futuro Hospital Virtual.</p>
           </div>
 
           <div class="campus-slider lic-inst-slider reveal" data-campus-slider data-reveal>
@@ -851,35 +885,29 @@
               <ul class="campus-slides">
                 <li>
                   <article class="porque-card lic-inst-card">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-genomica-proteomica.webp -->
-                    <img class="lic-inst-foto" src="assets/psicologia/campo-investigacion.webp" alt="Laboratorio de Genómica y Proteómica — Universidad Anáhuac México, Campus Norte" loading="lazy" />
-                    <h3>Laboratorio de Genómica y Proteómica</h3>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/clinica-terapia-fisica.webp -->
+                    <img class="lic-inst-foto" src="assets/psicologia/campo-rehabilitacion.webp" alt="Clínica de Terapia Física y Rehabilitación — Universidad Anáhuac México, Campus Norte" loading="lazy" />
+                    <h3>Clínica de Terapia Física y Rehabilitación</h3>
                   </article>
                 </li>
                 <li>
                   <article class="porque-card lic-inst-card">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-cultivo-celular.webp -->
-                    <img class="lic-inst-foto" src="assets/psicologia/campo-clinicas.webp" alt="Laboratorio de Cultivo Celular — Universidad Anáhuac México, Campus Norte" loading="lazy" />
-                    <h3>Laboratorio de Cultivo Celular</h3>
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/laboratorio-terapia-fisica.webp -->
+                    <img class="lic-inst-foto" src="assets/psicologia/campo-clinicas.webp" alt="Laboratorio de Terapia Física y Rehabilitación — Universidad Anáhuac México, Campus Norte" loading="lazy" />
+                    <h3>Laboratorio de Terapia Física y Rehabilitación</h3>
                   </article>
                 </li>
                 <li>
                   <article class="porque-card lic-inst-card">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-biomoleculas.webp -->
-                    <img class="lic-inst-foto" src="assets/psicologia/campo-hospitales.webp" alt="Laboratorio de Biomoléculas — Universidad Anáhuac México, Campus Norte" loading="lazy" />
-                    <h3>Laboratorio de Biomoléculas</h3>
+                    <!-- [VERIFICAR] existencia del «Laboratorio de Fisiología» para esta carrera. -->
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/laboratorio-fisiologia.webp -->
+                    <img class="lic-inst-foto" src="assets/psicologia/campo-hospitales.webp" alt="Laboratorio de Fisiología — Universidad Anáhuac México, Campus Norte" loading="lazy" />
+                    <h3>Laboratorio de Fisiología</h3>
                   </article>
                 </li>
                 <li>
                   <article class="porque-card lic-inst-card">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/lab-microbiologia.webp -->
-                    <img class="lic-inst-foto" src="assets/psicologia/campo-rehabilitacion.webp" alt="Laboratorio de Microbiología — Universidad Anáhuac México, Campus Norte" loading="lazy" />
-                    <h3>Laboratorio de Microbiología</h3>
-                  </article>
-                </li>
-                <li>
-                  <article class="porque-card lic-inst-card">
-                    <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/hospital-virtual-construccion.webp -->
+                    <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/hospital-virtual-construccion.webp -->
                     <img class="lic-inst-foto" src="assets/psicologia/campo-comunitarios.webp" alt="Hospital Virtual (en construcción) — Universidad Anáhuac México, Campus Norte" loading="lazy" />
                     <h3>Hospital Virtual (en construcción)</h3>
                   </article>
@@ -898,12 +926,14 @@
       <!-- ===== 8. Historias Anáhuac México (módulo compartido) · [AIDA: Deseo] =====
            Componente .stories de Inicio, tal cual (CSS en styles.css, JS en script.js).
 
-           [PENDIENTE] testimonios reales de egresados de Biotecnología. ⚠️ No
-           inventes personas ni citas: las tarjetas quedan con la plantilla marcada.
+           [PENDIENTE] testimonios reales de egresados de Terapia Física y
+           Rehabilitación. ⚠️ No inventes personas ni citas: las tarjetas quedan
+           con la plantilla marcada. ⚠️ No uses aquí a Daniela Cueva ni a María
+           Artes (ya están en M6).
 
            [PLACEHOLDER] Las doce fotografías son de relleno del banco de Psicología
            (retratos y contextos neutros); sustituir por egresados reales de
-           Biotecnología. -->
+           Terapia Física y Rehabilitación. -->
       <section class="stories section-pad">
         <div class="container">
           <div class="stories-head">
@@ -915,57 +945,57 @@
           </div>
           <div class="stories-viewport">
             <div class="stories-track">
-              <!-- Fila 1 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 1 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <!-- [PLACEHOLDER] fotos de relleno (banco de Psicología) -->
               <div class="stories-row">
                 <img src="assets/psicologia/historias/historia-valeria-retrato.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-valeria-contexto.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <blockquote class="quote orange">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
               </div>
-              <!-- Fila 2 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 2 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <div class="stories-row">
                 <blockquote class="quote purple">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
                 <img src="assets/psicologia/historias/historia-diego-contexto.webp" alt="" width="1000" height="750" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-diego-retrato.webp" alt="" width="1000" height="750" loading="lazy" />
               </div>
-              <!-- Fila 3 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 3 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <div class="stories-row">
                 <img src="assets/psicologia/historias/historia-fernanda-retrato.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-fernanda-contexto.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <blockquote class="quote orange">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
               </div>
-              <!-- Fila 4 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 4 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <div class="stories-row">
                 <blockquote class="quote purple">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
                 <img src="assets/psicologia/historias/historia-emilio-contexto.webp" alt="" width="1000" height="750" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-emilio-retrato.webp" alt="" width="1000" height="750" loading="lazy" />
               </div>
-              <!-- Fila 5 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 5 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <div class="stories-row">
                 <img src="assets/psicologia/historias/historia-regina-retrato.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-regina-contexto.webp" alt="" width="1000" height="1333" loading="lazy" />
                 <blockquote class="quote orange">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
               </div>
-              <!-- Fila 6 — [PENDIENTE] testimonio real de egresado(a) de Biotecnología -->
+              <!-- Fila 6 — [PENDIENTE] testimonio real de egresado(a) de Terapia Física y Rehabilitación -->
               <div class="stories-row">
                 <blockquote class="quote purple">
                   <p>"[cita en primera persona]"</p>
-                  <cite>[Nombre], <span>egresado(a) de Biotecnología, generación [año], Campus Norte</span></cite>
+                  <cite>[Nombre], <span>egresado(a) de Terapia Física y Rehabilitación, generación [año], Campus Norte</span></cite>
                 </blockquote>
                 <img src="assets/psicologia/historias/historia-andres-contexto.webp" alt="" width="1000" height="750" loading="lazy" />
                 <img src="assets/psicologia/historias/historia-andres-retrato.webp" alt="" width="1000" height="750" loading="lazy" />
@@ -991,7 +1021,7 @@
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Docencia y colaboradores</p>
             <h2>¿Con quién te formas?</h2>
-            <p>Aprendes de investigadores y especialistas de los sectores público y privado, y desarrollas proyectos con universidades, centros de investigación y empresas líderes.</p>
+            <p>Aprendes de especialistas con experiencia clínica y deportiva, y rotas en hospitales, institutos y centros de rehabilitación gracias a la red de convenios de la Facultad de Ciencias de la Salud.</p>
           </div>
 
           <div class="colab-docentes reveal" data-reveal>
@@ -1004,8 +1034,9 @@
             </div>
             <div class="colab-docentes-carousel">
               <div class="colab-docentes-track">
-                <!-- [PENDIENTE] claustro docente real de Biotecnología: nombre, foto
-                     y cargo o logro profesional. No se inventan personas. -->
+                <!-- [PENDIENTE] claustro docente real de Terapia Física y
+                     Rehabilitación: nombre, foto y cargo o logro profesional. No se
+                     inventan personas. -->
                 <article class="docente-card">
                   <span class="docente-avatar" aria-hidden="true">—</span>
                   <h4 class="docente-name">Docente por confirmar</h4>
@@ -1049,35 +1080,31 @@
               <div class="colab-logos-viewport">
                 <ul class="colab-logos">
                   <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">UNAM</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Instituto Politécnico Nacional</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">3M</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Herdez</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">GE</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Philips</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Oracle</span>
-                    <span class="colab-logo-falta">Logotipo pendiente</span>
-                  </li>
-                  <li class="colab-logo colab-logo-pendiente">
                     <span class="colab-logo-nombre">Hospital Ángeles</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Hospital General</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">DIF</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">CONADE</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Clínica de Rehabilitación Humana</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Clínica Seré</span>
+                    <span class="colab-logo-falta">Logotipo pendiente</span>
+                  </li>
+                  <li class="colab-logo colab-logo-pendiente">
+                    <span class="colab-logo-nombre">Clínica + FISIO</span>
                     <span class="colab-logo-falta">Logotipo pendiente</span>
                   </li>
                 </ul>
@@ -1095,11 +1122,11 @@
               <div class="colab-logos-viewport">
                 <ul class="colab-logos">
                   <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Universidad Francisco de Vitoria (España)</span>
+                    <span class="colab-logo-nombre">Universidad Finis Terrae (Chile)</span>
                     <span class="colab-logo-falta">Logotipo pendiente</span>
                   </li>
                   <li class="colab-logo colab-logo-pendiente">
-                    <span class="colab-logo-nombre">Pontificia Universidad Javeriana (Colombia)</span>
+                    <span class="colab-logo-nombre">Universidad Francisco de Vitoria (España)</span>
                     <span class="colab-logo-falta">Logotipo pendiente</span>
                   </li>
                 </ul>
@@ -1107,7 +1134,7 @@
             </div>
           </div>
 
-          <p class="bio-colab-nota">
+          <p class="tfr-colab-nota">
             La Facultad de Ciencias de la Salud cuenta con más de 350 campos clínicos y convenios con más de 53 hospitales en 8 estados de la República.
           </p>
         </div>
@@ -1201,47 +1228,47 @@
       </section>
 
       <!-- ===== 11. Preguntas frecuentes · [AIDA: Acción] =====
-           ⚠️ Las preguntas 2, 4 y 7 responden objeciones reales (padres que no
-           conocen el área, dificultad de la carrera y costo). No las quites ni las
-           suavices.
+           ⚠️ Las preguntas 5 y 6 responden objeciones reales (cantidad de práctica
+           clínica y futuro laboral). No las quites ni las suavices. ⚠️ La 2
+           sostiene una keyword en posición 1: no la quites.
 
            El texto del FAQPage es idéntico al del acordeón y sin markup dentro:
-           los enlaces de la pregunta 7 no viajan al schema. -->
+           el enlace de la pregunta 7 no viaja al schema. -->
       <section class="lic-faq section-pad" id="faq">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Preguntas frecuentes</p>
-            <h2>Preguntas frecuentes sobre la Licenciatura en Biotecnología</h2>
+            <h2>Preguntas frecuentes sobre la Licenciatura en Terapia Física y Rehabilitación</h2>
           </div>
 
           <div class="faq-list reveal" data-reveal>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿Cuántos años dura la carrera de Biotecnología?</summary>
-              <p>La Licenciatura en Biotecnología dura 9 semestres, es decir, 4 años y medio, en modalidad presencial en Campus Norte.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Cuántos años dura la carrera de Terapia Física y Rehabilitación?</summary>
+              <p>El plan académico dura 8 semestres, es decir, 4 años, en modalidad presencial en Campus Norte. Al terminarlo, realizas un año de servicio social con acompañamiento de un tutor.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿De qué trata la carrera de Biotecnología?</summary>
-              <p>La biotecnología estudia y modifica sistemas vivos —células, microorganismos, plantas y animales— para crear productos y procesos que mejoran la salud, la alimentación, la industria y el medio ambiente: desde un medicamento o una prueba de diagnóstico hasta un cultivo más resistente o la limpieza de un suelo contaminado.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Qué es la terapia física y rehabilitación?</summary>
+              <p>Es la disciplina de la salud que evalúa, diagnostica e interviene en los problemas derivados de la disfunción del movimiento, para desarrollar, mantener y restaurar la movilidad y la funcionalidad de las personas durante todo su ciclo de vida.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿Qué materias se ven en la carrera de Biotecnología?</summary>
-              <p>Cursarás materias como Bases de ingeniería genética, Microbiología industrial, Biocatálisis y biorreactores, Bioinformática, Biotecnología médica y las ciencias ómicas —Genómica y proteómica, Nutrigenómica, Farmacogenómica y Metabolómica—, y cierras con un proyecto de investigación y desarrollo.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Qué materias se ven en la carrera de fisioterapia?</summary>
+              <p>Cursarás materias como Anatomía musculoesquelética, Neuroanatomía, Biomecánica y análisis de la marcha, Terapia manual, Hidroterapia, Ortesis y prótesis y Razonamiento clínico, además de dos Prácticum y ocho clínicas de rehabilitación por especialidad.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿Es una carrera difícil?</summary>
-              <p>Exige dedicación, porque es una carrera de ciencia con alto nivel académico. Por eso cuentas con acompañamiento personalizado de tus profesores y con los programas de apoyo académico de la universidad durante toda la carrera.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Desde qué semestre se atienden pacientes?</summary>
+              <p>Desde 4º semestre, con el Prácticum I, examinas y evalúas pacientes reales en la Clínica de Terapia Física y Rehabilitación de la universidad, bajo supervisión docente.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿Desde cuándo puedo hacer investigación?</summary>
-              <p>Desde los primeros semestres puedes integrarte a proyectos de investigación. En 8º semestre cursas Laboratorio de investigación y desarrollo, y en 9º desarrollas tu propio Proyecto de investigación y desarrollo, ligado a tu titulación.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Tendré suficiente práctica clínica?</summary>
+              <p>Sí. Después de tus dos Prácticum, entre 6º y 8º semestre rotas por ocho clínicas de rehabilitación —musculoesquelética, neurológica en adultos, cardiopulmonar, deportiva, geriátrica, intrahospitalaria, pediátrica y tegumentaria— y cierras tu formación con un año de servicio social supervisado.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿En qué puedo trabajar al terminar la carrera de Biotecnología?</summary>
-              <p>Puedes trabajar en las industrias farmacéutica, de alimentos, química, ambiental, médica y de diagnóstico, genética, agropecuaria y energética; en centros de investigación y universidades; en instituciones públicas y consejos de regulación, o emprender tu propia empresa.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿En qué puedo trabajar al terminar la carrera de fisioterapia?</summary>
+              <p>Puedes ejercer en hospitales e instituciones de salud públicas y privadas, centros de rehabilitación, centros deportivos, centros geriátricos e instituciones educativas, en investigación y en la gestión de políticas públicas de salud, o abrir tu propia clínica.</p>
             </details>
-            <details class="faq-item" name="faq-biotecnologia">
-              <summary>¿Cuánto cuesta estudiar Biotecnología en la Anáhuac México?</summary>
-              <p>Puedes calcular tu colegiatura y conocer opciones de apoyos en nuestro <a href="/cotizador">cotizador</a>. Además, puedes participar en el Concurso Rosalind Franklin de Propuesta de Innovación en Biotecnología, que otorga becas para estudiar la licenciatura. Consulta la convocatoria vigente en <a href="/licenciaturas/concursos">Concursos</a>.</p>
+            <details class="faq-item" name="faq-terapia-fisica">
+              <summary>¿Cuánto cuesta estudiar Terapia Física y Rehabilitación en la Anáhuac México?</summary>
+              <p>Puedes calcular tu colegiatura y conocer opciones de apoyos en nuestro <a href="/cotizador">cotizador</a>.</p>
             </details>
           </div>
         </div>
@@ -1253,58 +1280,58 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "¿Cuántos años dura la carrera de Biotecnología?",
+                "name": "¿Cuántos años dura la carrera de Terapia Física y Rehabilitación?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "La Licenciatura en Biotecnología dura 9 semestres, es decir, 4 años y medio, en modalidad presencial en Campus Norte."
+                  "text": "El plan académico dura 8 semestres, es decir, 4 años, en modalidad presencial en Campus Norte. Al terminarlo, realizas un año de servicio social con acompañamiento de un tutor."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿De qué trata la carrera de Biotecnología?",
+                "name": "¿Qué es la terapia física y rehabilitación?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "La biotecnología estudia y modifica sistemas vivos —células, microorganismos, plantas y animales— para crear productos y procesos que mejoran la salud, la alimentación, la industria y el medio ambiente: desde un medicamento o una prueba de diagnóstico hasta un cultivo más resistente o la limpieza de un suelo contaminado."
+                  "text": "Es la disciplina de la salud que evalúa, diagnostica e interviene en los problemas derivados de la disfunción del movimiento, para desarrollar, mantener y restaurar la movilidad y la funcionalidad de las personas durante todo su ciclo de vida."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿Qué materias se ven en la carrera de Biotecnología?",
+                "name": "¿Qué materias se ven en la carrera de fisioterapia?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Cursarás materias como Bases de ingeniería genética, Microbiología industrial, Biocatálisis y biorreactores, Bioinformática, Biotecnología médica y las ciencias ómicas —Genómica y proteómica, Nutrigenómica, Farmacogenómica y Metabolómica—, y cierras con un proyecto de investigación y desarrollo."
+                  "text": "Cursarás materias como Anatomía musculoesquelética, Neuroanatomía, Biomecánica y análisis de la marcha, Terapia manual, Hidroterapia, Ortesis y prótesis y Razonamiento clínico, además de dos Prácticum y ocho clínicas de rehabilitación por especialidad."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿Es una carrera difícil?",
+                "name": "¿Desde qué semestre se atienden pacientes?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Exige dedicación, porque es una carrera de ciencia con alto nivel académico. Por eso cuentas con acompañamiento personalizado de tus profesores y con los programas de apoyo académico de la universidad durante toda la carrera."
+                  "text": "Desde 4º semestre, con el Prácticum I, examinas y evalúas pacientes reales en la Clínica de Terapia Física y Rehabilitación de la universidad, bajo supervisión docente."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿Desde cuándo puedo hacer investigación?",
+                "name": "¿Tendré suficiente práctica clínica?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Desde los primeros semestres puedes integrarte a proyectos de investigación. En 8º semestre cursas Laboratorio de investigación y desarrollo, y en 9º desarrollas tu propio Proyecto de investigación y desarrollo, ligado a tu titulación."
+                  "text": "Sí. Después de tus dos Prácticum, entre 6º y 8º semestre rotas por ocho clínicas de rehabilitación —musculoesquelética, neurológica en adultos, cardiopulmonar, deportiva, geriátrica, intrahospitalaria, pediátrica y tegumentaria— y cierras tu formación con un año de servicio social supervisado."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿En qué puedo trabajar al terminar la carrera de Biotecnología?",
+                "name": "¿En qué puedo trabajar al terminar la carrera de fisioterapia?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Puedes trabajar en las industrias farmacéutica, de alimentos, química, ambiental, médica y de diagnóstico, genética, agropecuaria y energética; en centros de investigación y universidades; en instituciones públicas y consejos de regulación, o emprender tu propia empresa."
+                  "text": "Puedes ejercer en hospitales e instituciones de salud públicas y privadas, centros de rehabilitación, centros deportivos, centros geriátricos e instituciones educativas, en investigación y en la gestión de políticas públicas de salud, o abrir tu propia clínica."
                 }
               },
               {
                 "@type": "Question",
-                "name": "¿Cuánto cuesta estudiar Biotecnología en la Anáhuac México?",
+                "name": "¿Cuánto cuesta estudiar Terapia Física y Rehabilitación en la Anáhuac México?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Puedes calcular tu colegiatura y conocer opciones de apoyos en nuestro cotizador. Además, puedes participar en el Concurso Rosalind Franklin de Propuesta de Innovación en Biotecnología, que otorga becas para estudiar la licenciatura. Consulta la convocatoria vigente en Concursos."
+                  "text": "Puedes calcular tu colegiatura y conocer opciones de apoyos en nuestro cotizador."
                 }
               }
             ]
@@ -1388,11 +1415,11 @@
         <div class="container">
           <div class="lic-form-layout">
             <div class="lic-form-media">
-              <!-- [PLACEHOLDER] foto real pendiente: assets/biotecnologia/solicita-info.webp -->
+              <!-- [PLACEHOLDER] foto real pendiente: assets/terapia-fisica/solicita-info.webp -->
               <img
                 data-parallax="0.06"
                 src="assets/psicologia/solicita-info.webp"
-                alt="Estudiante de Biotecnología de la Anáhuac México consultando información de la licenciatura."
+                alt="Estudiante de Terapia Física y Rehabilitación de la Anáhuac México consultando información de la licenciatura."
                 width="1000"
                 height="1250"
                 loading="lazy"
@@ -1401,7 +1428,7 @@
             <div class="lic-form-content">
               <div class="section-intro reveal" data-reveal>
                 <p class="tagline"><span></span>Solicita información</p>
-                <h2>Solicita información sobre la Licenciatura en Biotecnología</h2>
+                <h2>Solicita información sobre la Licenciatura en Terapia Física y Rehabilitación</h2>
                 <p>Cuéntanos qué te interesa y te enviaremos el material directamente a tu correo o WhatsApp. No recibirás la llamada de un asesor; si prefieres hablar con alguien, escríbenos desde «Elige el siguiente paso».</p>
               </div>
 
@@ -1410,7 +1437,7 @@
                 <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" autocomplete="email" />
                 <input type="tel" placeholder="WhatsApp / teléfono" aria-label="WhatsApp o teléfono" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" />
                 <input type="text" placeholder="Preparatoria de origen" aria-label="Preparatoria de origen" />
-                <input type="text" value="Biotecnología" aria-label="Licenciatura de interés" readonly />
+                <input type="text" value="Terapia Física y Rehabilitación" aria-label="Licenciatura de interés" readonly />
                 <!-- ⚠️ Sin selector de campus: la carrera es solo de Campus Norte.
                      El campo va como dato fijo readonly. -->
                 <input type="text" value="Campus Norte" aria-label="Campus" readonly />
@@ -1438,7 +1465,7 @@
                 <button type="submit" class="btn btn-orange">Solicitar información</button>
 
                 <!-- Mensajes de estado (los activa la conexión a HubSpot — [PENDIENTE]). -->
-                <p class="lic-form-msg lic-form-msg--ok" role="status" hidden>¡Listo! Te enviaremos por correo y WhatsApp el material que elegiste sobre la Licenciatura en Biotecnología.</p>
+                <p class="lic-form-msg lic-form-msg--ok" role="status" hidden>¡Listo! Te enviaremos por correo y WhatsApp el material que elegiste sobre la Licenciatura en Terapia Física y Rehabilitación.</p>
               </form>
             </div>
           </div>
@@ -1511,9 +1538,10 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- Biotecnología usa el molde base: toda la interacción (hero, tabs, tiles,
-         sliders, carruseles de colaboradores, modal de Minors y formulario) vive
-         en psicologia.js. No carga gastronomia.js porque no tiene componentes gas-. -->
+    <!-- Terapia Física y Rehabilitación usa el molde base: toda la interacción
+         (hero, tabs, tiles, sliders, carruseles de colaboradores, modal de Minors
+         y formulario) vive en psicologia.js. No carga gastronomia.js porque no
+         tiene componentes gas-. -->
     <script src="psicologia.js"></script>
     <script type="module" src="assets/review/review.js"></script>
   </body>

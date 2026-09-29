@@ -5,6 +5,34 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-28 — Licenciatura en Terapia Física y Rehabilitación · nueva página
+
+- Se construye `licenciatura-terapia-fisica-y-rehabilitacion.html` (+ `.css`, spec)
+  sobre el molde de carrera, clonando `licenciatura-biotecnologia.html` (par más
+  cercano: área Ciencias de la Salud, solo Campus Norte, `campo-band--cta-lateral`,
+  instalaciones a la izquierda). Alcance `.pagina-terapia-fisica`, desviaciones `tfr-*`.
+- Desviaciones propias (solo tokens): `tfr-plan-tabs` (retícula de **10 tabs** =
+  8 semestres + 2 de servicio social; 5×2 escritorio, 2 columnas ≤1024px, dropdown
+  ≤540px), `tfr-aeo` (tarjeta AEO de **3 datos** con «+1» de año de servicio social,
+  el «+1» con `aria-hidden` + `sr-only` «Más un…»), `tfr-colab-nota`.
+- Particularidades respetadas: solo Campus Norte; pacientes reales **desde 4º
+  semestre** (carrera clínica); **año de servicio social** (M4/M5/FAQ); bloque
+  «Electivo»; Hospital Virtual «en construcción»; sin comparaciones; «fisioterapia/
+  fisioterapeuta» presente por SEO sin sustituir el nombre oficial de la carrera.
+- H1 largo (47 car.): rompe a 3 renglones a propósito, con `data-max-lines="3"`
+  (autorizado en `check:titulos`) y `&nbsp;` para que la «y» no encabece renglón.
+- JSON-LD: Course `P4Y`/397/`onsite`; CollegeOrUniversity solo Campus Norte;
+  BreadcrumbList área Ciencias de la Salud; FAQPage 7 preguntas.
+- RVOE sin fecha («RVOE SEP · D.O.F.», fecha [PENDIENTE]).
+- Wiring desde `area-ciencias-de-la-salud.html` (tarjeta + lista) y
+  `oferta-academica.html` (además se corrige «Campus Sur»→«Campus Norte» y se
+  reemplaza el «Lorem ipsum» de esa tarjeta).
+- Verificado: `check:titulos` sin huérfanas (≤3 líneas), sin overflow a 320px,
+  balance de etiquetas correcto, imágenes resuelven, sin residuos `bio-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales, logos de aliados,
+  claustro, testimonios; [PENDIENTE] video, URL+fecha del RVOE, `/visita-campus`,
+  HubSpot; [VERIFICAR] docentes por área, egresadas M6, Laboratorio de Fisiología.
+
 ## 2026-09-28 — `campo-band--cta-lateral` promovida al molde compartido
 
 - La variante de la banda de campo laboral con los CTA en el costado derecho
