@@ -1,0 +1,41 @@
+/* =============================================================================
+   LICENCIATURA EN MÉDICO CIRUJANO DENTISTA — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la página
+   nace con las diez correcciones del molde promovidas el 2026-08-31. **No las
+   repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de esta carrera:
+
+     a) la nota de créditos de la tarjeta AEO (desglose por bloque del Modelo);
+     b) el dato de respaldo de la Facultad en M9, como nota atribuida.
+
+   Las 8 pestañas del plan van por SEMESTRE y usan la retícula BASE del molde
+   (`repeat(8, 1fr)` en psicologia.css): no hay desviación de tabs propia de esta
+   página. El grupo «Aliados internacionales» de M9 se eliminó del HTML porque no
+   hay aliados internacionales confirmados; el único grupo restante («Aliados
+   nacionales») usa el carrusel del molde sin desviación.
+
+   Si alguna regla se repitiera en otra carrera, su sitio dejaría de ser esta hoja
+   y pasaría a ser el componente en psicologia.css.
+
+   NUNCA se hardcodean color, espaciado, tipografía, radio ni sombra: se usan los
+   tokens semánticos del molde.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   1. M9 · DATO DE RESPALDO DE LA FACULTAD
+
+   Los 350 campos clínicos son de la Facultad de Ciencias de la Salud, no de la
+   carrera. Va como nota atribuida al pie del módulo, no como cifra destacada.
+   -------------------------------------------------------------------------- */
+.pagina-cirujano-dentista .dent-colab-nota {
+  margin: 34px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}

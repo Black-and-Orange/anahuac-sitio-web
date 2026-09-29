@@ -5,6 +5,35 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-09-29 — Licenciatura en Médico Cirujano Dentista · nueva página
+
+- Se construye `licenciatura-cirujano-dentista.html` (+ `.css`, spec) sobre el molde
+  de carrera, clonando `licenciatura-biotecnologia.html` (par más cercano: área
+  Ciencias de la Salud, solo Campus Norte, `campo-band--cta-lateral`, instalaciones
+  a la izquierda, **AEO de 2 datos**). Alcance `.pagina-cirujano-dentista`,
+  desviaciones `dent-*`.
+- **8 tabs** por semestre con el layout BASE del molde (se elimina la desviación de
+  9 tabs de biotech). Única desviación propia: `dent-colab-nota` (respaldo de la
+  Facultad). La tarjeta AEO usa el molde base (2 datos, sin nota de créditos).
+- Particularidades: solo Campus Norte; pacientes **desde 2º semestre**; sin
+  comparaciones (ni con Medicina); intercambios sin prometer práctica clínica
+  internacional; bloque «Electivo»; en M5 «Responsabilidad social y sustentabilidad»
+  y «Emprendimiento e innovación» = **Profesional** (no morado); Hospital Virtual
+  «en construcción»; «odontología» presente por SEO.
+- **M9 sin grupo de aliados internacionales** (no confirmados; no se maquetó ni se
+  rellenó con los de otra carrera).
+- H1 largo a 3 renglones con `data-max-lines="3"` + `&nbsp;` («Cirujano Dentista»).
+- JSON-LD: Course `P4Y`/433/`onsite`; CollegeOrUniversity solo Campus Norte;
+  BreadcrumbList área Ciencias de la Salud; FAQPage 7. RVOE sin fecha ([PENDIENTE]).
+- Wiring desde `area-ciencias-de-la-salud.html` (tarjeta + lista) y
+  `oferta-academica.html` (enlace + se corrige «BICAMPUS»→«Campus Norte» y se
+  reemplaza el «Lorem ipsum» de esa tarjeta).
+- Verificado: `check:titulos` sin huérfanas (≤3 líneas), sin overflow a 320px,
+  balance de etiquetas correcto, imágenes resuelven, sin residuos `bio-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos, logos de aliados, claustro,
+  testimonios; [PENDIENTE] video, URL+fecha RVOE, `/visita-campus`, HubSpot;
+  [VERIFICAR] CONAEDO/FMFEO, convenio 28% instrumental, más aliados nacionales.
+
 ## 2026-09-28 — Licenciatura en Terapia Física y Rehabilitación · nueva página
 
 - Se construye `licenciatura-terapia-fisica-y-rehabilitacion.html` (+ `.css`, spec)
