@@ -45,7 +45,7 @@
 
 ## SEO / metadata
 - Title: `Apoyos Económicos | Universidad Anáhuac México`
-- H1: `Impulsa tu carrera con apoyos hechos para tu talento y perfil`
+- H1: `Impulsa tu carrera con apoyos que reconocen tu talento y perfil`
 - Slug: `/apoyos-economicos`
 - Datos estructurados futuros: `FAQPage` cuando el contenido definitivo sea aprobado y publicado.
 

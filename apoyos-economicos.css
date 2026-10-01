@@ -592,6 +592,64 @@
   text-wrap: pretty;
 }
 
+/* Bloque de lista dentro del detalle (criterios de evaluación / requisitos /
+   cómo solicitarlo). Reutiliza los tokens del detalle. */
+.detalle-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detalle-sub {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--support-detail-accent-text);
+}
+
+.detalle-lista {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detalle-lista li {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--black);
+  text-wrap: pretty;
+}
+
+.detalle-lista li > ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Leyenda / aclaración al pie del detalle (p. ej. "no garantiza el porcentaje
+   máximo", instrucciones por correo). */
+.detalle-legal {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--support-detail-secondary-text);
+  text-wrap: pretty;
+  max-width: 70ch;
+}
+
+.detalle-legal a,
+.detalle-desc a,
+.detalle-lista a {
+  color: var(--support-detail-accent-text);
+  text-decoration: underline;
+}
+
 /* ≤640px: nombre y rango en una sola columna (10px de separación, a la izquierda);
    el indicador "+" se queda a la derecha */
 @media (max-width: 640px) {
@@ -1417,6 +1475,86 @@
   line-height: 1.5;
   color: var(--black);
   text-wrap: pretty;
+}
+
+/* Desplegable "ver cómo funcionan los intereses" dentro de la tarjeta de crédito */
+.financiamiento-mas {
+  font-size: 14px;
+}
+
+.financiamiento-mas > summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange);
+  list-style: none;
+}
+
+.financiamiento-mas > summary::-webkit-details-marker {
+  display: none;
+}
+
+.financiamiento-mas ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.financiamiento-nota {
+  margin: 10px 0 0;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--black);
+  opacity: 0.75;
+}
+
+/* Desplegable con los documentos de la solicitud de beca (Paso 3) */
+.steps-docs {
+  margin-top: 32px;
+  margin-bottom: 40px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.steps-docs > summary {
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  list-style: none;
+}
+
+.steps-docs > summary::-webkit-details-marker {
+  display: none;
+}
+
+.steps-docs ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.steps-docs ul ul {
+  margin: 8px 0 0;
+  gap: 6px;
+}
+
+.steps-docs-nota {
+  margin: 14px 0 0;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 /* Píldora "combinable con apoyo" (diferenciador comparativo) */
