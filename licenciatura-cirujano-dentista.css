@@ -39,3 +39,37 @@
   letter-spacing: 0.2px;
   color: var(--color-text-secondary);
 }
+
+/* -----------------------------------------------------------------------------
+   2. M3 · BANDA DEL MODELO ANÁHUAC — CTA A LA DERECHA
+
+   El molde base (psicologia.css) la arma con flex + space-between, pero el CTA
+   largo de esta carrera («Descubre la formación de un cirujano dentista Anáhuac
+   México») no cabe junto al texto y cae debajo. La fijamos en grid: copy flexible
+   a la izquierda y CTA a la derecha, centrado vertical. En ≤900px se apila.
+   -------------------------------------------------------------------------- */
+.pagina-cirujano-dentista .porque-plan {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.pagina-cirujano-dentista .porque-plan-copy {
+  max-width: none;
+}
+
+.pagina-cirujano-dentista .porque-plan-cta {
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .pagina-cirujano-dentista .porque-plan {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pagina-cirujano-dentista .porque-plan-cta {
+    justify-self: start;
+  }
+}
