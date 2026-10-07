@@ -245,7 +245,7 @@ darse cuenta.
   «desde tus primeros semestres».
 - En la tarjeta de certificaciones, la oración sobre IFOM se sustituye por
   «Medicina ha sido acreditada en cinco ocaciones por la COMAEM (Congreso
-  mexicano de acreditación de la enseñanza médica).»
+  Mexicano de Acreditación de la Enseñanza Médica).»
 - La tarjeta de Médico Cirujano cambia su dato descriptivo por «Haz de tu pasión
   por la ciencia una vocación para cuidar y transformar vidas.»
 - El nombre de la carrera «Cirujano Dentista» cambia a «Médico Cirujano

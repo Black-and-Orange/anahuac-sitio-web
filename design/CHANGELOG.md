@@ -5,6 +5,97 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-10-07 — Licenciatura en Administración Turística · nueva página
+
+- Se construye `administracion-turistica.html` (+ `.css`, `.js`, spec) clonando
+  **Gastronomía** (molde base del spec: misma Facultad, bicampus Norte-Sur,
+  `campo-band--doble`, carrusel de convenios + mapa de destinos, bloques
+  Profesional/Anáhuac/**Interdisciplinario**). Alcance `.pagina-administracion-turistica`,
+  clases `gas-`→`at-`.
+- **`administracion-turistica.js`** (copia de `gastronomia.js` con selectores `at-`):
+  el JS del molde depende de clases `gas-` (carrusel de convenios y claustro ≤4);
+  al renombrar a `at-` se creó su JS propio y se cambió el `<script src>`, igual que
+  la hoja CSS propia. No es un componente nuevo.
+- **4 diferencias contra Gastronomía:** banda M6 sin chips de certificación de cocina
+  (suma doble titulación con la Università Europea di Roma); sin «minor de vinos»;
+  M3 con ranking QS + «turismo + negocio + tecnología» (sin tarjetas culinarias);
+  FAQ de costos sin nota de insumos/uniformes/maletines.
+- Particularidades: claim «Define. Dirige. Emprende.»; 8 tabs; AEO 2 datos (8/330);
+  formulario CON selector de campus (bicampus); ranking QS citado con fuente;
+  prácticas = dos semestres. H1 largo a 3 líneas con `data-max-lines="3"`.
+- JSON-LD: Course `P4Y`/330; CollegeOrUniversity ambos campus; BreadcrumbList área
+  TGH; FAQPage 7. RVOE sin fecha.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url` del ItemList) y `oferta-academica.html` (enlace + corrige
+  «Campus Sur»→bicampus «Norte - Sur» y reemplaza el «Lorem ipsum»).
+- Verificado: `check:titulos` sin huérfanas, sin overflow a 320px, etiquetas
+  balanceadas, imágenes resuelven, sin residuos `gas-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales, profesores M9,
+  testimonios M8; [PENDIENTE] video, URL RVOE, agendador, HubSpot; [VERIFICAR] viñedo.
+
+## 2026-10-07 — Licenciatura en Dirección de Restaurantes · nueva página
+
+- Se construye `direccion-de-restaurantes.html` (+ `.css`, `.js`, spec) clonando
+  Gastronomía. Alcance `.pagina-direccion-de-restaurantes`, clases `gas-`→`dr-`,
+  JS propio. Completa las **4 licenciaturas del área** de Turismo.
+- 4 particularidades: **solo Campus Norte** (form readonly, schema sin Campus Sur);
+  **NO otorga Bachelor** → banda M6 «Diplomas internacionales · Le Cordon Bleu»
+  (hasta 4 diplomas, SIN «Doble acreditación»/«Bachelor»/chips); sin «minor de
+  vinos» ni nota de insumos; sin «única alianza en México».
+- claim «Gestiona. Coordina. Crea.»; 8 tabs; AEO 2 datos (8/333); bloque
+  «Interdisciplinario»; Electiva Anáhuac en S6 y S8; **5 instalaciones** (M7).
+- JSON-LD: Course P4Y/333/onsite; CollegeOrUniversity solo Campus Norte; FAQPage 7.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url`) y `oferta-academica.html` (enlace + reemplaza «Lorem ipsum»).
+- Verificado: `check:titulos` ✓, sin overflow, etiquetas balanceadas, imágenes
+  resuelven, 0 residuos `gas-`; «Bachelor» solo en comentarios ⚠️.
+- **[PLACEHOLDER] no mergeable:** fotos, profesores, testimonios; [PENDIENTE] video,
+  RVOE, agendador, HubSpot; [VERIFICAR] viñedo.
+
+## 2026-10-07 — Licenciatura en Dirección Internacional de Hoteles · nueva página
+
+- Se construye `direccion-internacional-de-hoteles.html` (+ `.css`, `.js`, spec)
+  clonando Gastronomía. Alcance `.pagina-direccion-internacional-de-hoteles`,
+  clases `gas-`→`dih-`, JS propio `direccion-internacional-de-hoteles.js`.
+- 4 particularidades: **solo Campus Norte** (chip, FAQ 1, form «Campus» readonly,
+  schema sin Campus Sur); banda M6 `campo-band--doble` Le Cordon Bleu «Bachelor +
+  hasta 4 certificados parciales» sin chips; sin «minor de vinos» ni nota de insumos;
+  **software hotelero OPERA/HOTS/Beefeaters** como diferenciador (M3 + M7).
+- claim «Diseña. Emprende. Dirige.»; 8 tabs; AEO 2 datos (8/336); bloque
+  «Interdisciplinario»; Electiva Anáhuac en S1 y S8. H1 (el más largo del sitio) a
+  4 renglones con `data-max-lines="4"` + `&nbsp;` en «de Hoteles».
+- JSON-LD: Course P4Y/336/onsite; CollegeOrUniversity solo Campus Norte; FAQPage 7.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url`).
+- Verificado: `check:titulos` ✓, sin overflow, etiquetas balanceadas, imágenes
+  resuelven, 0 residuos `gas-`.
+- **[PLACEHOLDER] no mergeable:** fotos, profesores, testimonios; [PENDIENTE] video,
+  RVOE, agendador, HubSpot; [VERIFICAR] nombre del Bachelor, viñedo.
+
+## 2026-10-07 — Área: Turismo, Gastronomía y Hospitalidad · nueva página
+
+- Se construye `area-turismo-gastronomia-y-hospitalidad.html` (+ `.css`, spec)
+  clonando el molde de **página de área** `area-ciencias-de-la-salud.html`
+  (`<body class="escala-2026">`; mismos módulos/orden/componentes: `lic-hero`,
+  `lic-afinidad`, `lic-porque2`, `area-card`, mosaico de campo laboral, deslizador
+  de instalaciones + bloque «Tips», `stories`, `lic-faq`, `lic-pasos`). Solo cambia
+  el contenido; no hay componentes nuevos.
+- Clases de alcance de área renombradas `salud-*` → `tgh-*` (verificado: ningún JS
+  referencia esas clases). CSS propio `area-turismo-gastronomia-y-hospitalidad.css`.
+- Retícula de carreras ajustada a **4 tarjetas (2×2)**: se retira la regla de
+  «número impar» del molde de salud; se eliminan las reglas muertas de la tarjeta
+  protagonista «Hospital Virtual».
+- 4 licenciaturas (Gastronomía, Administración Turística, Dirección Internacional
+  de Hoteles, Dirección de Restaurantes); campus por carrera (2 chips Norte+Sur en
+  las dos primeras, 1 chip Norte en las dos últimas); Le Cordon Bleu «Bachelor o
+  diplomas según carrera»; ranking QS citado con su fuente; prácticas = dos semestres.
+- JSON-LD: BreadcrumbList · ItemList (4 Course) · FAQPage (6) · CollegeOrUniversity
+  con ambos campus. Wiring: Gastronomía → `gastronomia.html`; las otras 3 carreras
+  quedan `[PENDIENTE]` (páginas aún no creadas). Enlazada desde `oferta-academica.html`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales (hero, carrusel M3,
+  8 instalaciones, viñedo en Querétaro), video del hero, egresados M7, URL del
+  agendador, y las 3 páginas de carrera del área.
+
 ## 2026-09-29 — Licenciatura en Médico Cirujano Dentista · nueva página
 
 - Se construye `licenciatura-cirujano-dentista.html` (+ `.css`, spec) sobre el molde

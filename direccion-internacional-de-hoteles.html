@@ -1,0 +1,1676 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Title abreviado a propósito (spec §3): con «Licenciatura en» completo pasa
+         de 60 caracteres. No alargar. -->
+    <title>Lic. en Dirección Internacional de Hoteles | Anáhuac México</title>
+    <!-- Meta description del spec §3 (145 caracteres). No sustituir sin
+         actualizar el spec. -->
+    <meta
+      name="description"
+      content="Estudia Dirección Internacional de Hoteles en la Universidad Anáhuac México: alianza con Le Cordon Bleu, software hotelero y un año de prácticas."
+    />
+    <meta property="og:title" content="Licenciatura en Dirección Internacional de Hoteles — Universidad Anáhuac México" />
+    <meta
+      property="og:description"
+      content="Dirige hoteles, resorts y desarrollos turísticos con la alianza Le Cordon Bleu, el software que usa la industria y un año de prácticas en México y el mundo."
+    />
+    <meta property="og:image" content="assets/gastronomia/hero-cocina.webp" />
+    <meta property="og:image:alt" content="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una práctica del sector hotelero." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- El molde entero vive en psicologia.css: esta página no estrena
+         componentes. direccion-internacional-de-hoteles.css solo lleva las desviaciones de retícula que
+         impone su contenido (7 pestañas por área temática y los tres grupos de
+         M9, ninguno de logotipos). -->
+    <link rel="stylesheet" href="psicologia.css" />
+    <link rel="stylesheet" href="direccion-internacional-de-hoteles.css" />
+
+    <!-- Datos estructurados: BreadcrumbList, Course y CollegeOrUniversity.
+         El FAQPage va junto a su módulo (11). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "Inicio.html" },
+          { "@type": "ListItem", "position": 2, "name": "Oferta Académica", "item": "oferta-academica.html" },
+          { "@type": "ListItem", "position": 3, "name": "Turismo, Gastronomía y Hospitalidad" },
+          { "@type": "ListItem", "position": 4, "name": "Dirección Internacional de Hoteles" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Licenciatura en Dirección Internacional de Hoteles",
+        "description": "Formación de profesionales que dirigen hoteles, resorts y desarrollos turísticos con visión empresarial, multicultural y humana, y con los más altos estándares de calidad y servicio.",
+        "timeRequired": "P4Y",
+        "educationalCredentialAwarded": "Licenciatura",
+        "numberOfCredits": 336,
+        "courseMode": "onsite",
+        "provider": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Anáhuac México",
+          "url": "https://www.anahuac.mx/mexico/",
+          "address": {
+            "@type": "PostalAddress",
+            "name": "Campus Norte",
+            "streetAddress": "Av. Universidad Anáhuac 46, Col. Lomas Anáhuac",
+            "addressLocality": "Huixquilucan",
+            "addressRegion": "Estado de México",
+            "postalCode": "52786",
+            "addressCountry": "MX"
+          }
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Universidad Anáhuac México, Campus Norte",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Universidad Anáhuac 46, Col. Lomas Anáhuac",
+            "addressLocality": "Huixquilucan",
+            "addressRegion": "Estado de México",
+            "postalCode": "52786",
+            "addressCountry": "MX"
+          }
+        }
+      }
+    </script>
+  </head>
+  <!-- Dos alcances en el body y cada uno hace algo distinto:
+
+       `pagina-carrera` es el del MOLDE YA CORREGIDO. Trae de entrada las diez
+       correcciones que subieron a psicologia.css el 2026-08-31 —medida de línea,
+       escala de titulares, CTA del hero, ritmo vertical, campus alineado, FAQ
+       acotado, campo bloqueado del formulario, texto de botón centrado y el
+       perfil de egreso en escritorio y en móvil—. Esta página nace con ellas: no
+       repitas esa revisión aquí. Lo comparte con psicologia.html y nutricion.html.
+
+       `pagina-direccion-internacional-de-hoteles` acota a esta página lo suyo propio, que vive en
+       direccion-internacional-de-hoteles.css: los dos grupos de M9 (carrusel de
+       convenios + mapa de destinos), ninguno de los cuales es una rejilla de
+       logotipos. El plan usa el molde de 8 pestañas por semestre.
+
+       Ver design/CHANGELOG.md (2026-08-31) para el detalle de la promoción. -->
+  <body class="pagina-carrera pagina-direccion-internacional-de-hoteles">
+    <header class="site-header">
+      <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
+        <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="oferta-academica.html" class="is-active">Licenciaturas</a>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Admisiones
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="proceso-de-admision.html" role="menuitem">Proceso de admisión</a>
+            <a href="#" role="menuitem">Fechas de examen</a>
+            <a href="#" role="menuitem">Revalidación y equivalencia</a>
+            <a href="#" role="menuitem">Curso para examen de admisión</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Costos y apoyos
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="#" role="menuitem">Costos</a>
+            <a href="#" role="menuitem">Cotiza tu licenciatura</a>
+            <a href="apoyos-economicos.html" role="menuitem">Apoyos económicos</a>
+            <a href="#" role="menuitem">Financiamiento</a>
+            <a href="#" role="menuitem">Concursos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Vida universitaria
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="Inicio.html#experiencia" role="menuitem">Experiencia</a>
+            <a href="Inicio.html#eventos" role="menuitem">Eventos</a>
+          </div>
+        </div>
+        <a href="#">Foráneos</a>
+      </nav>
+
+      <a class="btn btn-dark nav-contact" href="#solicita">Contacto</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <a href="oferta-academica.html" class="is-active">Licenciaturas</a>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Admisiones
+        </button>
+        <div class="mobile-submenu">
+          <a href="proceso-de-admision.html">Proceso de admisión</a>
+          <a href="#">Fechas de examen</a>
+          <a href="#">Revalidación y equivalencia</a>
+          <a href="#">Curso para examen de admisión</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Costos y apoyos
+        </button>
+        <div class="mobile-submenu">
+          <a href="#">Costos</a>
+          <a href="#">Cotiza tu licenciatura</a>
+          <a href="apoyos-economicos.html">Apoyos económicos</a>
+          <a href="#">Financiamiento</a>
+          <a href="#">Concursos</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Vida universitaria
+        </button>
+        <div class="mobile-submenu">
+          <a href="Inicio.html#experiencia">Experiencia</a>
+          <a href="Inicio.html#eventos">Eventos</a>
+        </div>
+        <a href="#">Foráneos</a>
+        <a class="btn btn-dark mobile-contact" href="#solicita">Contacto</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- ===== 1. HERO · [AIDA: Atención] =====
+           Exactamente 3 chips y sin chip de RVOE: el RVOE vive como enlace
+           discreto al cierre del plan de estudios (M5). ⚠️ El tercer chip dice
+           «Campus Norte»: esta carrera solo se imparte en Campus Norte.
+
+           El claim es siempre una secuencia de verbos sueltos separados por
+           punto, nunca una frase: «Diseña. Emprende. Dirige.»
+
+           La portada lleva `fetchpriority="high"` y el video solo carga al clic. -->
+      <section class="lic-hero lic-hero--titulo-largo section-pad" id="inicio">
+        <div class="container lic-hero-inner">
+          <div class="lic-hero-copy">
+            <nav class="lic-breadcrumb" aria-label="Ruta de navegación">
+              <ol>
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="oferta-academica.html">Oferta Académica</a></li>
+                <li>Turismo, Gastronomía y Hospitalidad</li>
+                <li aria-current="page">Dirección Internacional de Hoteles</li>
+              </ol>
+            </nav>
+
+            <p class="tagline reveal" data-reveal><span></span>Turismo, Gastronomía y Hospitalidad</p>
+            <!-- Título largo (el más largo del sitio): rompe hasta en 4 renglones
+                 («Licenciatura en» / «Dirección» / «Internacional» / «de Hoteles»).
+                 data-max-lines="4" lo autoriza en check:titulos; el &nbsp; ata
+                 «de Hoteles» para que «de» no quede huérfana. -->
+            <h1 class="reveal" data-reveal data-max-lines="4"><span class="lic-hero-pre">Licenciatura en</span> Dirección Internacional de&nbsp;Hoteles</h1>
+            <p class="lic-hero-claim reveal" data-reveal>Diseña. Emprende. Dirige.</p>
+
+            <ul class="lic-chips reveal" data-reveal>
+              <li class="lic-chip">8 semestres</li>
+              <li class="lic-chip">Modalidad presencial</li>
+              <li class="lic-chip">Campus Norte</li>
+            </ul>
+
+          </div>
+
+          <div class="lic-hero-media reveal" data-reveal>
+            <!-- [PENDIENTE] ID del video institucional de Dirección Internacional
+                 de Hoteles.
+
+                 Va sin `data-yt-id` y sin el botón de play a propósito: script.js
+                 solo engancha los elementos que tienen el atributo, y con un id
+                 vacío el clic abriría un embed roto de YouTube. Cuando llegue el
+                 ID hay que devolver las dos cosas:
+                   <div class="video-card" data-yt-id="XXXXXXXXXXX">
+                   <button class="video-play-btn" type="button"
+                     aria-label="Reproducir video de la Licenciatura en Dirección Internacional de Hoteles">…</button>
+
+                 [PLACEHOLDER] la portada reutiliza assets/gastronomia/hero-cocina.webp;
+                 sustituir por assets/direccion-internacional-de-hoteles/hero.webp. -->
+            <div class="video-card">
+              <img
+                src="assets/gastronomia/hero-cocina.webp"
+                alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una práctica en el laboratorio de hospedaje."
+                width="1920"
+                height="1440"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="button-row">
+              <a class="btn btn-dark" href="#solicita">Solicitar información</a>
+              <a class="btn btn-light" href="#plan-estudios">Explorar licenciatura</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. ¿Es para ti? · [AIDA: Interés] =====
+           El párrafo de enfoque muestra el alcance profesional de la carrera y se
+           retoma en M3 (tarjeta 6) y M6. No lo recortes ni lo conviertas en una
+           negación. SEO: «hotelería» y «hospitalidad» van aquí de forma natural. -->
+      <section class="lic-afinidad section-pad" id="afinidad">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>¿Es para ti?</p>
+            <h2>¿Te imaginas dirigiendo un hotel en cualquier parte del mundo?</h2>
+            <p>Si te reconoces en lo siguiente, la Dirección Internacional de Hoteles puede ser tu lugar.</p>
+          </div>
+
+          <ul class="afinidad-grid reveal" data-reveal>
+            <li class="afinidad-card">
+              <span class="afinidad-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.5 3.5v7a2.5 2.5 0 0 0 5 0v-7" /><path d="M8 10.5V20.5" /><path d="M5.5 6.5h5" /><path d="M17 3.5c-1.6 1.6-2.5 3.8-2.5 6v3h4V3.5z" /><path d="M16.5 12.5V20.5" />
+                </svg>
+              </span>
+              <p>Te apasionan la hospitalidad y el servicio, y disfrutas hacer que los demás se sientan bienvenidos.</p>
+            </li>
+            <li class="afinidad-card">
+              <span class="afinidad-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17" /><path d="M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5S14.4 18.4 12 20.5c-2.4-2.1-3.6-5.4-3.6-8.5S9.6 6.1 12 3.5z" />
+                </svg>
+              </span>
+              <p>Te ves trabajando en hoteles, resorts o cruceros de distintos países.</p>
+            </li>
+            <li class="afinidad-card">
+              <span class="afinidad-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6" /><path d="M10 21.5h4" /><path d="M15.1 14c.18-.98.65-1.74 1.4-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.4 2.5" />
+                </svg>
+              </span>
+              <p>Te interesa una industria dinámica, creativa y en constante crecimiento.</p>
+            </li>
+            <li class="afinidad-card">
+              <span class="afinidad-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
+              <p>Sueñas con emprender o dirigir tu propio proyecto hotelero.</p>
+            </li>
+          </ul>
+
+          <div class="afinidad-enfoque reveal" data-reveal>
+            <p>La hotelería es un negocio internacional: en esta licenciatura en hospitalidad te formas para <strong>dirigir hoteles, resorts y desarrollos turísticos</strong> con visión empresarial y liderazgo.</p>
+            <div class="afinidad-tags">
+              <div class="afinidad-tag-group">
+                <span class="afinidad-tag-label">Operación</span>
+                <ul>
+                  <li class="lic-chip">Gerencia de cuartos</li>
+                  <li class="lic-chip">Alimentos y bebidas</li>
+                  <li class="lic-chip">Housekeeping</li>
+                  <li class="lic-chip">Eventos</li>
+                </ul>
+              </div>
+              <div class="afinidad-tag-group">
+                <span class="afinidad-tag-label">Negocio</span>
+                <ul>
+                  <li class="lic-chip">Revenue management</li>
+                  <li class="lic-chip">Ventas y relaciones públicas</li>
+                  <li class="lic-chip">Finanzas</li>
+                  <li class="lic-chip">Desarrollo de propiedades</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. ¿Por qué estudiar Dirección Internacional de Hoteles en la Anáhuac México? · [AIDA: Interés] =====
+           Exactamente 6 tarjetas.
+
+           ⚠️ NO se desglosa aquí el Bachelor ni los certificados de Le Cordon
+           Bleu: eso vive SOLO en la banda de M6. Aquí se nombra la alianza y ya.
+
+           ⚠️ El ranking QS (tarjeta 3) es de la UNIVERSIDAD en Hospitality &
+           Leisure Management; se cita con su fuente, no como «la mejor carrera».
+
+           ⚠️ El software hotelero (OPERA, HOTS, Beefeaters) es un diferenciador
+           propio: se argumenta en la tarjeta 4 y se muestra en M7. -->
+      <section class="lic-porque section-pad" id="por-que">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>¿Por qué la Anáhuac México?</p>
+            <h2>¿Por qué estudiar Dirección Internacional de Hoteles en la Anáhuac México?</h2>
+            <p>No solo estudias hotelería: la practicas. Trabajas con el software que usa la industria, tomas decisiones en simuladores de negocios y vives un año de prácticas en hoteles de México y del mundo.</p>
+          </div>
+
+          <div class="lic-porque2-layout">
+            <div class="lic-porque2-media reveal" data-reveal>
+              <div class="campus-slider" data-campus-slider>
+                <div class="campus-slider-viewport">
+                  <!-- [PLACEHOLDER] fotos reales del slider M3 en
+                       assets/direccion-internacional-de-hoteles/; por ahora
+                       reutiliza assets/gastronomia/*. [PENDIENTE] fotos reales. -->
+                  <ul class="campus-slides">
+                    <li><img src="assets/gastronomia/hero-cocina.webp" alt="Laboratorio de hospedaje de Dirección Internacional de Hoteles de la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/gastronomia/cocina-horizontal.webp" alt="Laboratorio de cómputo con software hotelero de la Universidad Anáhuac México" loading="lazy" /></li>
+                    <li><img src="assets/gastronomia/cocina-vertical.webp" alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una práctica de servicio de alimentos y bebidas" loading="lazy" /></li>
+                  </ul>
+                </div>
+                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
+                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
+                <div class="campus-slider-dots" aria-label="Instalaciones de la Anáhuac"></div>
+              </div>
+              <a class="porque-link lic-porque2-link" href="#instalaciones">Ver instalaciones <span aria-hidden="true">›</span></a>
+            </div>
+            <div class="lic-porque2-cards">
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="9" r="6" /><path d="M8.5 13.7L7 21l5-2.8L17 21l-1.5-7.3" />
+                </svg>
+              </span>
+              <h3>Alianza estratégica con Le Cordon Bleu</h3>
+              <p>Te formas con el respaldo de la alianza de la Anáhuac México con Le Cordon Bleu, Francia, uno de los centros de enseñanza de artes culinarias y hospitalidad más reconocidos del mundo.</p>
+            </article>
+
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5.5" width="18" height="15" rx="2" /><path d="M3 10h18" /><path d="M8 3.5v4M16 3.5v4" /><path d="M8 14h3M8 17h6" />
+                </svg>
+              </span>
+              <h3>Un año de experiencia profesional</h3>
+              <p>Cursas dos semestres de prácticas supervisadas en una amplia red de hoteles y organizaciones, en México y en el extranjero.</p>
+              <a class="porque-link" href="#colaboradores">Conoce dónde practicas <span aria-hidden="true">›</span></a>
+            </article>
+
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 11.5h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8z" /><path d="M12 11.5V8" /><path d="M9.5 8h5" /><path d="M3 20.5h18" />
+                </svg>
+              </span>
+              <h3>N.º 1 de México en Hospitality &amp; Leisure Management</h3>
+              <p>La Anáhuac México es la universidad número 1 del país y está entre las 50 mejores del mundo en Hospitality &amp; Leisure Management, según el QS World University Rankings by Subject 2026.</p>
+            </article>
+
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3.5a4 4 0 0 1 3.7 2.5A3.5 3.5 0 0 1 17.5 12H6.5A3.5 3.5 0 0 1 8.3 6 4 4 0 0 1 12 3.5z" /><path d="M7 12v6.5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V12" /><path d="M7 15.5h10" />
+                </svg>
+              </span>
+              <h3>El software que usa la industria hotelera</h3>
+              <p>Aprendes en laboratorios de cómputo con softwares especializados como OPERA, HOTS y Beefeaters, y pones a prueba tus decisiones en un simulador de negocios para hoteles.</p>
+            </article>
+
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9.5 3.5v5.2L5.2 17a1.6 1.6 0 0 0 1.4 2.4h10.8a1.6 1.6 0 0 0 1.4-2.4l-4.3-8.3V3.5" /><path d="M8.5 3.5h7" /><path d="M7.8 14.5h8.4" />
+                </svg>
+              </span>
+              <h3>Acreditaciones que respaldan tu título</h3>
+              <p>Programa con acreditación nacional CIEES y certificación internacional tedQual de ONU Turismo.</p>
+            </article>
+
+            <article class="porque-card reveal" data-reveal>
+              <span class="porque-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 20.5V4.5" /><path d="M4 17l4.5-4 3.5 3 4-5 4 4.5" /><path d="M4 20.5h16.5" />
+                </svg>
+              </span>
+              <h3>Hotelería con visión de negocio</h3>
+              <p>Combinas la operación de cuartos, alimentos y bebidas y eventos con revenue management, finanzas y desarrollo de propiedades hoteleras: sales listo para dirigir, no solo para operar.</p>
+            </article>
+            </div>
+          </div>
+
+          <div class="porque-plan reveal" data-reveal>
+            <div class="porque-plan-copy">
+              <p class="porque-plan-text"><strong class="porque-plan-lead">Prepárate para ser el líder hotelero que quieres ser</strong> y la persona que quieres llegar a ser. Nuestro Modelo Anáhuac integra tu carrera en tres bloques —Profesional, Anáhuac e Interdisciplinario— para que desarrolles una visión integral y estés listo para diseñar, emprender y dirigir en la industria de la hospitalidad.</p>
+            </div>
+            <a class="btn btn-purple porque-plan-cta" href="#plan-estudios">Descubre la formación de un líder hotelero Anáhuac México</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 4. Perfil de egreso · [AIDA: Interés] =====
+           Dos datos duros (8 / 336), como el molde, SIN línea de apoyo (igual que
+           la versión final de Gastronomía).
+           [PLACEHOLDER] fotografía real 4:5 en
+           assets/direccion-internacional-de-hoteles/; por ahora reutiliza
+           assets/gastronomia/cocina-vertical.webp. -->
+      <section class="lic-plan section-pad" id="perfil-egreso">
+        <div class="container">
+          <div class="plan-top">
+            <div class="plan-top-copy">
+              <div class="section-intro wide reveal" data-reveal>
+                <p class="tagline"><span></span>Perfil de egreso</p>
+                <h2>¿Con qué perfil egresas de la Licenciatura en Dirección Internacional de Hoteles?</h2>
+              </div>
+
+              <article class="plan-card plan-perfil reveal" data-reveal>
+                <h3>Perfil de egreso</h3>
+                <ul class="plan-perfil-list">
+                  <li>Ofreces soluciones que impulsan la innovación y la competitividad de la hotelería y la hospitalidad, con un entendimiento del mercado global y un enfoque estratégico, multicultural y humano.</li>
+                  <li>Diriges con visión empresarial y un liderazgo sostenible y social, con los más altos estándares de calidad, productividad y profesionalismo.</li>
+                  <li>Te anticipas a las necesidades y a la competencia de los mercados, con una permanente actitud de servicio.</li>
+                </ul>
+              </article>
+
+              <article class="plan-card plan-aeo dih-aeo reveal" data-reveal>
+                <h3>¿Cuánto dura la carrera de Dirección Internacional de Hoteles?</h3>
+                <div class="plan-aeo-datos">
+                  <p class="plan-aeo-dato">
+                    <strong>8</strong>
+                    <span>Semestres (4 años)</span>
+                  </p>
+                  <p class="plan-aeo-dato">
+                    <strong>336</strong>
+                    <span>Créditos totales</span>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="plan-top-media reveal" data-reveal>
+              <!-- [PLACEHOLDER] Fotografía real de Dirección Internacional de
+                   Hoteles 4:5 en assets/direccion-internacional-de-hoteles/; por
+                   ahora reutiliza assets/gastronomia/cocina-vertical.webp. -->
+              <img
+                src="assets/gastronomia/cocina-vertical.webp"
+                alt="Estudiante de Dirección Internacional de Hoteles de la Anáhuac México en el laboratorio de hospedaje."
+                width="1000"
+                height="1333"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. Plan de estudios · [AIDA: Interés] =====
+           ⚠️ 8 pestañas, una por semestre (con `plan-tab-num`), con las materias
+           EXACTAS de cada semestre en el orden del spec §M5. Las materias
+           regionales llevan el prefijo «Regional:».
+
+           Viñetas por bloque del Modelo Anáhuac: naranja = Profesional (default),
+           `plan-sem-item--anahuac` = Anáhuac, `plan-sem-item--inter` =
+           Interdisciplinario. Las tres tarjetas `plan-bloque` de abajo son la
+           leyenda visible de los tres bloques.
+
+           ⚠️ En esta carrera la «Asignatura Electiva Anáhuac» va en los semestres
+           1 y 8 (no en 4 y 7). «Formación universitaria A/B» y las «Electiva
+           profesional» son Bloque Profesional. SIN minor de vinos.
+
+           El RVOE va aquí como enlace discreto, nunca como chip del hero. -->
+      <section class="lic-plan-est section-pad" id="plan-estudios">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Plan de estudios</p>
+            <h2>¿Cuál es el plan de estudios de la Licenciatura en Dirección Internacional de Hoteles?</h2>
+          </div>
+
+          <div class="plan-tabs reveal" data-reveal>
+            <label class="sr-only" for="plan-sem-select">Selecciona un semestre</label>
+            <select class="plan-tabs-select js-select" id="plan-sem-select" aria-label="Selecciona un semestre">
+              <option value="tab-sem1">Semestre 1</option>
+              <option value="tab-sem2">Semestre 2</option>
+              <option value="tab-sem3">Semestre 3</option>
+              <option value="tab-sem4">Semestre 4</option>
+              <option value="tab-sem5">Semestre 5</option>
+              <option value="tab-sem6">Semestre 6</option>
+              <option value="tab-sem7">Semestre 7</option>
+              <option value="tab-sem8">Semestre 8</option>
+            </select>
+            <div class="plan-tabs-nav" role="tablist" aria-label="Asignaturas por semestre">
+              <button class="plan-tab is-active" type="button" role="tab" id="tab-sem1" aria-controls="panel-sem1" aria-selected="true">Semestre<span class="plan-tab-num">1</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem2" aria-controls="panel-sem2" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">2</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem3" aria-controls="panel-sem3" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">3</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem4" aria-controls="panel-sem4" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">4</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem5" aria-controls="panel-sem5" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">5</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem6" aria-controls="panel-sem6" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">6</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem7" aria-controls="panel-sem7" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">7</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-sem8" aria-controls="panel-sem8" aria-selected="false" tabindex="-1">Semestre<span class="plan-tab-num">8</span></button>
+            </div>
+
+            <div class="plan-tab-panel is-active" role="tabpanel" id="panel-sem1" aria-labelledby="tab-sem1" tabindex="0">
+              <ul class="plan-sem-list">
+                <li>Introducción a la industria de la hospitalidad</li>
+                <li>Operación de empresas de alojamiento</li>
+                <li>Métodos de investigación para las ciencias sociales</li>
+                <li>Introducción a la empresa</li>
+                <li>Contabilidad financiera para la dirección</li>
+                <li>Regional: Mercadotecnia turística I</li>
+                <li class="plan-sem-item--anahuac">Asignatura Electiva Anáhuac</li>
+                <li class="plan-sem-item--anahuac">Ser universitario</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem2" aria-labelledby="tab-sem2" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Técnicas y aplicaciones culinarias I</li>
+                <li>Fundamentos de cata de vinos y consumo responsable</li>
+                <li>Contabilidad gerencial para la dirección</li>
+                <li>Matemáticas para la dirección</li>
+                <li>Taller de sistemas de información tecnológica para la hotelería</li>
+                <li class="plan-sem-item--anahuac">Antropología fundamental</li>
+                <li class="plan-sem-item--inter">Asignatura Electiva Interdisciplinaria</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem3" aria-labelledby="tab-sem3" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Gerencia división cuartos</li>
+                <li>Dirección y organización de eventos</li>
+                <li>Estadística para la dirección</li>
+                <li>Servicio de alimentos</li>
+                <li>Taller de housekeeping</li>
+                <li>Taller de servicio</li>
+                <li>Mixología</li>
+                <li class="plan-sem-item--anahuac">Liderazgo y desarrollo personal</li>
+                <li class="plan-sem-item--anahuac">Ética</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem4" aria-labelledby="tab-sem4" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Prácticum I en la industria de la hospitalidad</li>
+                <li>Tecnologías de la información para la dirección</li>
+                <li>Tendencias de la industria de la hospitalidad</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem5" aria-labelledby="tab-sem5" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Gestión de talento en la industria de la hospitalidad</li>
+                <li>Taller de relaciones públicas en la industria de la hospitalidad</li>
+                <li>Análisis de estados financieros para la dirección</li>
+                <li>Dirección de alimentos y bebidas</li>
+                <li>Electiva profesional</li>
+                <li>Electiva profesional</li>
+                <li class="plan-sem-item--anahuac">Humanismo clásico y contemporáneo</li>
+                <li class="plan-sem-item--inter">Habilidades para el emprendimiento</li>
+                <li class="plan-sem-item--inter">Taller o actividad electiva</li>
+                <li class="plan-sem-item--inter">Asignatura Electiva Interdisciplinaria</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem6" aria-labelledby="tab-sem6" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Desarrollo y gestión de propiedades hoteleras y vacacionales</li>
+                <li>Regional: Mercadotecnia turística II</li>
+                <li>Economía para la dirección</li>
+                <li>Gestión de la calidad en la hospitalidad</li>
+                <li>Electiva profesional</li>
+                <li>Formación universitaria A</li>
+                <li>Derecho y empresa</li>
+                <li class="plan-sem-item--anahuac">Persona y trascendencia</li>
+                <li class="plan-sem-item--inter">Emprendimiento e innovación</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem7" aria-labelledby="tab-sem7" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Prácticum II en la industria de la hospitalidad</li>
+                <li>Taller de ventas en la industria de la hospitalidad</li>
+                <li class="plan-sem-item--inter">Responsabilidad social y sustentabilidad</li>
+              </ul>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-sem8" aria-labelledby="tab-sem8" tabindex="0" hidden>
+              <ul class="plan-sem-list">
+                <li>Evaluación de proyectos de inversión para la dirección</li>
+                <li>Estrategias de atención centradas en el consumidor</li>
+                <li>Simulador de negocios para hoteles</li>
+                <li>Revenue management</li>
+                <li>Electiva profesional</li>
+                <li>Proyecto integrador para la industria de la hospitalidad</li>
+                <li>Formación universitaria B</li>
+                <li class="plan-sem-item--anahuac">Liderazgo y equipos de alto desempeño</li>
+                <li class="plan-sem-item--anahuac">Asignatura Electiva Anáhuac</li>
+                <li class="plan-sem-item--inter">Asignatura Electiva Interdisciplinaria</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="plan-bloques reveal" data-reveal>
+            <article class="plan-bloque plan-bloque--prof">
+              <h3>Bloque Profesional</h3>
+              <p>El corazón de tu carrera. Aquí desarrollas la operación y la dirección hotelera, cursas tus dos semestres de prácticas profesionales y cierras con un proyecto integrador para la industria de la hospitalidad. Además eliges tus <a class="plan-minors-link" href="https://www.youtube.com/watch?v=IgwjRh2o2x8" target="_blank" rel="noopener" data-yt-modal="IgwjRh2o2x8">Minors</a> —<span class="plan-minors-gloss">diplomas profesionales universitarios</span>— que amplían tu perfil.</p>
+            </article>
+            <article class="plan-bloque plan-bloque--anahuac">
+              <h3>Bloque Anáhuac</h3>
+              <p>El sello que nos distingue. Un espacio de autoconocimiento, ética y sentido de vida que te forma como persona íntegra y como líder de acción positiva, consciente de su vocación y de su impacto en los demás.</p>
+            </article>
+            <article class="plan-bloque plan-bloque--inter">
+              <h3>Bloque Interdisciplinario</h3>
+              <p>Sales de tu carrera para entender el mundo real. Cursas asignaturas de otras disciplinas y conectas saberes que hoy el entorno profesional exige integrados, ampliando tu visión más allá de tu área de estudio.</p>
+            </article>
+          </div>
+
+          <div class="plan-cta reveal" data-reveal>
+            <a class="btn btn-orange" href="#solicita">Descargar plan de estudios</a>
+            <a class="btn btn-light" href="#solicita">Descargar folleto</a>
+          </div>
+
+          <p class="plan-rvoe reveal" data-reveal>
+            <!-- [PENDIENTE: URL del documento público del RVOE.] -->
+            <a class="plan-rvoe-link" href="#" target="_blank" rel="noopener">
+              RVOE SEP D.O.F.
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M14 3h7v7" />
+                <path d="M21 3l-9 9" />
+                <path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
+              </svg>
+              <span class="sr-only">(abre el documento oficial del RVOE)</span>
+            </a>
+          </p>
+        </div>
+
+        <!-- Modal de video (Minors): se abre desde el enlace "Minors" del Bloque Profesional -->
+        <div class="plan-video-modal" id="minors-modal" hidden>
+          <div class="plan-video-backdrop" data-close></div>
+          <div class="plan-video-dialog" role="dialog" aria-modal="true" aria-label="Video sobre los Minors de la Anáhuac">
+            <button class="plan-video-close" type="button" data-close aria-label="Cerrar video">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+            <div class="plan-video-frame" data-yt-target></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 6. Campo laboral · [AIDA: Deseo] =====
+           ⚠️ La banda de DOBLE ACREDITACIÓN (Bachelor de Le Cordon Bleu + hasta
+           cuatro certificados parciales) es la pieza de MAYOR peso persuasivo de
+           la página: su detalle vive SOLO aquí, no en M3. SIN chips con nombres de
+           certificados: la fuente no los nombra (no copiar los de Gastronomía).
+
+           [PLACEHOLDER] Los seis ámbitos reutilizan las fotos de
+           assets/gastronomia/* como relleno; el `alt` describe lo que de verdad se
+           ve y no el entorno profesional del ámbito. Sustituir por escenas reales
+           en assets/direccion-internacional-de-hoteles/*. -->
+      <section class="lic-campo section-pad" id="campo-laboral">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Campo laboral</p>
+            <h2>¿Dónde puedes trabajar como egresado de Dirección Internacional de Hoteles?</h2>
+            <p>Como egresado de Dirección Internacional de Hoteles de la Anáhuac México puedes dirigir hoteles, resorts, desarrollos turísticos y cruceros; asesorar negocios de hospedaje; organizar congresos y convenciones; o emprender tu propio proyecto hotelero, en México o en el extranjero.</p>
+          </div>
+
+          <div class="campo-layout">
+            <div class="campo-list reveal" data-reveal role="group" aria-label="Ámbitos laborales de la Dirección Internacional de Hoteles">
+              <button type="button" class="campo-tile is-active" aria-pressed="true" data-img="assets/gastronomia/cocina-horizontal.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11.5h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8z" /><path d="M12 11.5V8" /><path d="M9.5 8h5" /><path d="M3 20.5h18" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Hoteles y cadenas hoteleras</span>
+                  <span class="campo-tile-desc">Dirección y operación de hoteles, resorts y desarrollos turísticos, en México y en el extranjero.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/gastronomia/cocina-vertical.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5.5 20.5v-6a6.5 6.5 0 0 1 13 0v6z" /><path d="M4 20.5h16" /><path d="M12 8V5.5" /><circle cx="12" cy="4" r="1.4" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Cruceros, recreación y entretenimiento</span>
+                  <span class="campo-tile-desc">Cruceros, campamentos y centros de recreación y entretenimiento.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/gastronomia/cocina-horizontal.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 9.5h17l-2 10.5H5.5z" /><path d="M7 9.5V7a5 5 0 0 1 10 0v2.5" /><path d="M7 14h10" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Propiedades vacacionales</span>
+                  <span class="campo-tile-desc">Desarrollos inmobiliarios de descanso y gestión de propiedades hoteleras y vacacionales.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/gastronomia/cocina-vertical.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18h6" /><path d="M10 21.5h4" /><path d="M15.1 14c.18-.98.65-1.74 1.4-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.4 2.5" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Consultoría en hospedaje</span>
+                  <span class="campo-tile-desc">Asesoría a negocios de hospedaje en administración, mercadotecnia, alimentos y bebidas y recursos humanos.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/gastronomia/cocina-horizontal.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 20.5V4.5" /><path d="M4 17l4.5-4 3.5 3 4-5 4 4.5" /><path d="M4 20.5h16.5" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Congresos, convenciones y banquetes</span>
+                  <span class="campo-tile-desc">Organización de congresos y convenciones, restaurantes y organización de banquetes.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+
+              <button type="button" class="campo-tile" aria-pressed="false" data-img="assets/gastronomia/cocina-vertical.webp" data-alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad">
+                <span class="campo-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 6.5C10.5 5.2 8.4 4.5 6 4.5H3.5v13H6c2.4 0 4.5.7 6 2" /><path d="M12 6.5c1.5-1.3 3.6-2 6-2h2.5v13H18c-2.4 0-4.5.7-6 2" /><path d="M12 6.5v15" />
+                  </svg>
+                </span>
+                <span class="campo-tile-body">
+                  <span class="campo-tile-title">Marketing y emprendimiento hotelero</span>
+                  <span class="campo-tile-desc">Relaciones públicas y marketing hospitalario, o tu propio proyecto hotelero.</span>
+                </span>
+                <span class="campo-tile-chevron" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="campo-preview reveal" data-reveal>
+              <!-- 1:1 y no 4:5: con seis ámbitos la columna de tiles termina
+                   antes que la imagen. Mismo ajuste que Nutrición y Comunicación,
+                   que también tienen seis. -->
+              <img class="campo-media" src="assets/gastronomia/cocina-horizontal.webp" alt="Estudiantes de Dirección Internacional de Hoteles de la Universidad Anáhuac México en una instalación de la Facultad" width="1000" height="750" />
+            </div>
+          </div>
+
+          <div class="campo-band campo-band--doble reveal" data-reveal>
+            <img
+              class="campo-doble-logo"
+              src="assets/gastronomia/le-cordon-bleu.png"
+              alt="Le Cordon Bleu"
+              width="180"
+              height="254"
+              loading="lazy"
+            />
+            <div class="campo-doble-copy">
+              <!-- [VERIFICAR] nombre del Bachelor -->
+              <h3 class="campo-doble-title">Doble acreditación · Bachelor of Business Hotel</h3>
+              <p class="campo-doble-text">
+                Obtén un título oficial por parte de la <strong>Universidad Anáhuac México</strong>
+                y puedes obtener un <em>Bachelor</em> por <strong>Le Cordon Bleu, Francia</strong>.
+              </p>
+              <!-- ⚠️ SIN chips con nombres de certificados: la fuente no los
+                   nombra (no copiar los de Gastronomía). -->
+              <p class="campo-doble-text">
+                Además, puedes obtener <strong>hasta cuatro certificados parciales de Le Cordon Bleu</strong> a lo largo de tu carrera.
+              </p>
+              <div class="campo-cta">
+                <a class="btn btn-orange" href="/admision-general">Iniciar proceso de admisión</a>
+                <a class="btn btn-light" href="#solicita">Solicitar más información</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 7. Instalaciones — deslizador de tarjetas (imagen + título) · [AIDA: Deseo] =====
+           Mismo componente que Comunicación (.lic-inst-*, reutiliza data-campus-slider).
+           ⚠️ Aquí se MUESTRAN los espacios (foto + nombre); no se repite la
+           argumentación de M3. Sin tarjetas de campus ni direcciones.
+           [PENDIENTE: fotografía real de cada espacio; por ahora se reutilizan fotos existentes.] -->
+      <section class="lic-campus lic-campus--inst section-pad" id="instalaciones">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Instalaciones</p>
+            <h2>Instalaciones donde estudiarás tu licenciatura</h2>
+            <p>Vive la hotelería en acción: conoce los laboratorios, simuladores y espacios donde aprendes a operar y dirigir un hotel.</p>
+          </div>
+
+          <div class="campus-slider lic-inst-slider reveal" data-campus-slider data-reveal>
+            <div class="campus-slider-viewport">
+              <ul class="campus-slides">
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/cocina-vertical.webp" alt="Laboratorios de hospedaje y de servicio de alimentos y bebidas — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Laboratorios de hospedaje y de servicio de alimentos y bebidas</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/cocina-horizontal.webp" alt="Laboratorios de cómputo con software hotelero especializado — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Laboratorios de cómputo con software hotelero especializado</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/hero-cocina.webp" alt="Simuladores de vanguardia para negocios turísticos, hoteleros y restauranteros — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Simuladores de vanguardia para negocios turísticos, hoteleros y restauranteros</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/cocina-vertical.webp" alt="Laboratorios de cata y de mixología — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Laboratorios de cata y de mixología</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/cocina-horizontal.webp" alt="Cocinas Le Cordon Bleu — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Cocinas Le Cordon Bleu</h3>
+                  </article>
+                </li>
+                <!-- [VERIFICAR] nombre y ubicación del viñedo -->
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <img class="lic-inst-foto" src="assets/gastronomia/cocina-vertical.webp" alt="Un viñedo en el estado de Querétaro — Universidad Anáhuac México" loading="lazy" />
+                    <h3>Un viñedo en el estado de Querétaro</h3>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Instalación anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
+            <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Instalación siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
+            <div class="campus-slider-dots" aria-label="Instalaciones de la licenciatura"></div>
+          </div>
+          <p class="lic-inst-cta reveal" data-reveal>Agenda un tour presencial o una cita virtual <a href="#">aquí</a>.</p>
+        </div>
+      </section>
+
+      <!-- ===== 8. Historias Anáhuac (módulo compartido) · [AIDA: Deseo] =====
+           Componente .stories de Inicio, tal cual (CSS en styles.css, JS en script.js).
+
+           [PENDIENTE] testimonios reales de egresados de Dirección Internacional
+           de Hoteles (Campus Norte). ⚠️ No inventes personas ni citas. Plantilla:
+           «"[cita en primera persona]" — [Nombre], egresado(a) de Dirección
+           Internacional de Hoteles, generación [año], Campus Norte.»
+
+           [PLACEHOLDER] Las doce fotografías van como huecos marcados. -->
+      <section class="stories section-pad">
+        <div class="container">
+          <div class="stories-head">
+            <div class="section-intro wide reveal" data-reveal>
+              <h2>Historias Anáhuac México</h2>
+              <p>Leones Anáhuac México que han transformado sus vidas con nosotros</p>
+            </div>
+            <div class="story-arrows reveal" data-reveal><button type="button">↑</button><button type="button">↓</button></div>
+          </div>
+          <div class="stories-viewport">
+            <div class="stories-track">
+              <!-- Fila 1 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <img src="assets/gastronomia/cocina-vertical.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresada.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <blockquote class="quote orange">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+              </div>
+              <!-- Fila 2 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <blockquote class="quote purple">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+                <img src="assets/gastronomia/cocina-horizontal.webp" alt="" width="1000" height="750" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresado.webp" alt="" width="1000" height="750" loading="lazy" />
+              </div>
+              <!-- Fila 3 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <img src="assets/gastronomia/cocina-vertical.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresada.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <blockquote class="quote orange">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+              </div>
+              <!-- Fila 4 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <blockquote class="quote purple">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+                <img src="assets/gastronomia/cocina-horizontal.webp" alt="" width="1000" height="750" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresado.webp" alt="" width="1000" height="750" loading="lazy" />
+              </div>
+              <!-- Fila 5 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <img src="assets/gastronomia/cocina-vertical.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresada.webp" alt="" width="1000" height="1333" loading="lazy" />
+                <blockquote class="quote orange">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+              </div>
+              <!-- Fila 6 — [PENDIENTE] testimonio real de egresado(a) de Dirección Internacional de Hoteles -->
+              <div class="stories-row">
+                <blockquote class="quote purple">
+                  <p>"[cita en primera persona]"</p>
+                  <cite>[Nombre], <span>egresado(a) de Dirección Internacional de Hoteles, generación [año], Campus Norte</span></cite>
+                </blockquote>
+                <img src="assets/gastronomia/cocina-horizontal.webp" alt="" width="1000" height="750" loading="lazy" />
+                <img src="assets/comunicacion/retrato-egresado.webp" alt="" width="1000" height="750" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 9. ¿Con quién te formas? · [AIDA: Deseo] =====
+           DOS grupos de aliados y ninguno es una rejilla de logotipos: un carrusel
+           vertical de logos de convenios y un mapa de destinos con pines.
+
+             1. Claustro docente — carrusel de docentes.
+             2. Convenios de prácticas — carrusel vertical de logos.
+             3. Destinos de prácticas — mapa de 33 pines + chips de respaldo.
+
+           [PENDIENTE] claustro real de la Licenciatura en Dirección Internacional
+           de Hoteles (profesores activos en hotelería y hospitalidad). No usar la
+           coordinación administrativa como claustro. Van SIN foto: avatar de
+           iniciales, recurso propio del molde para este caso.
+
+           ⚠️ Los convenios de prácticas son de la Facultad de Turismo y Gastronomía
+           y NO se mezclan con los «+150 universidades en 30 países» de M12, que son
+           institucionales. Alcances distintos. -->
+      <section class="lic-colab section-pad" id="colaboradores">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Docencia y colaboradores</p>
+            <h2>¿Con quién te formas?</h2>
+            <p>Aprendes de docentes líderes en la industria hotelera y de la hospitalidad, y practicas en hoteles y destinos turísticos líderes del mundo.</p>
+          </div>
+
+          <div class="colab-docentes reveal" data-reveal>
+            <div class="colab-docentes-head">
+              <h3 class="colab-docentes-title">Claustro docente</h3>
+              <div class="colab-arrows" role="group" aria-label="Navegación de la coordinación">
+                <button type="button" class="colab-arrow colab-prev" aria-label="Ver anteriores">‹</button>
+                <button type="button" class="colab-arrow colab-next" aria-label="Ver más">›</button>
+              </div>
+            </div>
+            <div class="colab-docentes-carousel">
+              <div class="colab-docentes-track">
+                <article class="docente-card">
+                  <span class="docente-avatar" aria-hidden="true">—</span>
+                  <h4 class="docente-name">Docente por confirmar</h4>
+                </article>
+                <article class="docente-card">
+                  <span class="docente-avatar" aria-hidden="true">—</span>
+                  <h4 class="docente-name">Docente por confirmar</h4>
+                </article>
+                <article class="docente-card">
+                  <span class="docente-avatar" aria-hidden="true">—</span>
+                  <h4 class="docente-name">Docente por confirmar</h4>
+                </article>
+                <article class="docente-card">
+                  <span class="docente-avatar" aria-hidden="true">—</span>
+                  <h4 class="docente-name">Docente por confirmar</h4>
+                </article>
+              </div>
+            </div>
+            <!-- [PENDIENTE] claustro real de la Licenciatura en Dirección
+                 Internacional de Hoteles (profesores activos en hotelería y
+                 hospitalidad). No usar la coordinación administrativa como
+                 claustro. -->
+          </div>
+
+          <div class="colab-aliados reveal" data-reveal>
+            <div class="colab-group">
+              <div class="dih-convenios-head">
+                <h3 class="colab-group-title">Convenios de prácticas</h3>
+                <div class="colab-arrows" role="group" aria-label="Navegación de convenios de prácticas">
+                  <button type="button" class="colab-arrow dih-convenios-prev" aria-label="Ver los convenios anteriores">↑</button>
+                  <button type="button" class="colab-arrow dih-convenios-next" aria-label="Ver más convenios">↓</button>
+                </div>
+              </div>
+              <!-- Carrusel vertical: sin desplazamiento automático. Las flechas
+                   mueven una fila por clic y el recorrido da la vuelta, así que
+                   nunca quedan en un extremo muerto.
+                   [VERIFICAR] que estos convenios apliquen a la Licenciatura en
+                   Dirección Internacional de Hoteles. -->
+              <div class="dih-convenios-viewport">
+                <ul class="dih-convenios-track">
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/le-cordon-bleu.webp" alt="Le Cordon Bleu México" loading="lazy" />
+                </li>
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/despegar.webp" alt="Despegar" loading="lazy" />
+                </li>
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/fiesta-inn.webp" alt="Fiesta Inn" loading="lazy" />
+                </li>
+                <li class="dih-convenio dih-convenio--universidad">
+                  <img src="assets/gastronomia/convenios/universidad-europea-roma.png" alt="Universidad Europea de Roma" loading="lazy" />
+                </li>
+                <li class="dih-convenio dih-convenio--vinedo">
+                  <img src="assets/gastronomia/convenios/vinedo-cuna-de-tierra.png" alt="Viñedo Cuna de Tierra" loading="lazy" />
+                </li>
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/xcaret.png" alt="Xcaret" loading="lazy" />
+                </li>
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/despegar.webp" alt="Despegar" loading="lazy" />
+                </li>
+                <li class="dih-convenio">
+                  <img src="assets/gastronomia/convenios/fiesta-inn.webp" alt="Fiesta Inn" loading="lazy" />
+                </li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="colab-group">
+              <h3 class="colab-group-title">Destinos de prácticas</h3>
+              <!-- Mapas propios, generados desde Natural Earth (dominio público) con
+                   proyección equirectangular. Los pines se sitúan con ESA MISMA
+                   proyección, así que caen exactos sin cuadrarlos a ojo. Los que se
+                   encimaban se separaron y llevan un hilo guía a su punto real.
+                   Las listas de chips se quedan: por debajo de 900px un mapamundi con
+                   24 pines no se puede tocar y ahí vuelven a ser la vista principal. -->
+              <!-- Mapa propio, generado desde Natural Earth (dominio público) con
+                   proyección equirectangular. Los pines se sitúan con ESA MISMA
+                   proyección, así que caen exactos sin cuadrarlos a ojo. Los que se
+                   encimaban —el racimo de España y el de México— se separaron y
+                   llevan un hilo guía hasta su punto real.
+                   La lista de chips se queda: por debajo de 900px un mapamundi con
+                   33 pines no se puede tocar y ahí vuelve a ser la vista principal. -->
+              <div class="dih-destinos">
+                <div class="dih-destinos-grupo">
+                  <span class="dih-destinos-label">Internacionales y Nacionales</span>
+              <div class="dih-mapa-scroll">
+                <div class="dih-mapa dih-mapa--mundo">
+                  <img class="dih-mapa-fondo" src="assets/gastronomia/mapas/mundo.svg" alt="" width="1000" height="385" loading="lazy" />
+                  <svg class="dih-mapa-hilos" viewBox="0 0 1000 385" preserveAspectRatio="none" aria-hidden="true">
+                    <line x1="252.3" y1="150.1" x2="256.1" y2="152.9" vector-effect="non-scaling-stroke"/>
+                    <line x1="248.9" y1="142.1" x2="247.3" y2="138.3" vector-effect="non-scaling-stroke"/>
+                    <line x1="486.9" y1="112.3" x2="485.7" y2="117.5" vector-effect="non-scaling-stroke"/>
+                    <line x1="489.0" y1="105.2" x2="492.8" y2="102.1" vector-effect="non-scaling-stroke"/>
+                    <line x1="472.1" y1="108.0" x2="469.9" y2="111.2" vector-effect="non-scaling-stroke"/>
+                    <line x1="477.1" y1="99.6" x2="476.7" y2="95.6" vector-effect="non-scaling-stroke"/>
+                    <line x1="489.5" y1="83.7" x2="492.1" y2="85.1" vector-effect="non-scaling-stroke"/>
+                    <line x1="482.4" y1="76.1" x2="479.8" y2="73.4" vector-effect="non-scaling-stroke"/>
+                    <line x1="233.2" y1="163.3" x2="240.1" y2="158.6" vector-effect="non-scaling-stroke"/>
+                    <line x1="166.9" y1="158.3" x2="164.8" y2="157.1" vector-effect="non-scaling-stroke"/>
+                    <line x1="225.2" y1="163.9" x2="218.0" y2="161.5" vector-effect="non-scaling-stroke"/>
+                    <line x1="204.8" y1="175.1" x2="211.0" y2="180.9" vector-effect="non-scaling-stroke"/>
+                    <line x1="232.6" y1="164.8" x2="230.7" y2="172.8" vector-effect="non-scaling-stroke"/>
+                    <line x1="193.3" y1="164.0" x2="190.4" y2="154.8" vector-effect="non-scaling-stroke"/>
+                    <line x1="179.6" y1="164.4" x2="178.4" y2="167.2" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                  <ul class="dih-mapa-pines" aria-label="Destinos de prácticas internacionales y nacionales">
+                  <li class="dih-pin" tabindex="0" style="--x:27.15%;--y:23.84%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Montreal</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:25.61%;--y:39.72%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Miami</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:17.58%;--y:28.96%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Aspen</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:20.46%;--y:33.75%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Dallas</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:23.09%;--y:26.96%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Chicago</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:24.73%;--y:35.93%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Orlando</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:26.99%;--y:28.24%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Nueva York</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:28.62%;--y:44.34%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Punta Cana</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:31.50%;--y:84.03%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Buenos Aires</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:81.08%;--y:41.55%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Hong Kong</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:48.57%;--y:30.53%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Ibiza</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:49.28%;--y:26.52%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Barcelona</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:46.99%;--y:28.88%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Madrid</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:47.67%;--y:24.84%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">San Sebastián</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:49.21%;--y:22.11%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">París</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:47.98%;--y:19.06%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Londres</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:51.87%;--y:26.94%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Roma</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:89.93%;--y:86.43%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Melbourne</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:76.55%;--y:52.33%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Phuket</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:84.76%;--y:30.17%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Seúl</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:64.16%;--y:39.40%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Dubái</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:79.39%;--y:47.72%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Vietnam</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:77.30%;--y:46.37%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Tailandia</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:83.18%;--y:34.90%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Shanghái</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:19.79%;--y:44.18%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Ciudad de México</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:24.01%;--y:41.19%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Cancún</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:14.77%;--y:34.43%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Ensenada</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:16.48%;--y:40.80%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Los Cabos</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:21.80%;--y:41.96%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Mérida</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:21.10%;--y:46.99%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Oaxaca</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:23.07%;--y:44.88%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Riviera Maya</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:19.04%;--y:40.22%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">San Miguel de Allende</span>
+                  </li>
+                  <li class="dih-pin" tabindex="0" style="--x:17.84%;--y:43.42%">
+                    <span class="dih-pin-marca" aria-hidden="true"></span>
+                    <span class="dih-pin-nombre">Punta Mita</span>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="dih-mapa-pista">Desliza el mapa para ver todos los destinos.</p>
+                </div>
+              </div>
+              <p class="dih-colab-nota">
+                Destinos donde han realizado prácticas alumnos de la Facultad de Turismo y Gastronomía.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 10. Elige el siguiente paso (módulo de decisiones) · [AIDA: Acción] =====
+           Clúster de 5 rutas de autoservicio. Estructura tomada del módulo
+           "Elige el siguiente paso" de Proceso de admisión, pero con fondo --white.
+
+           ⚠️ La tarjeta de asesor NO muestra datos de asesor: es solo un CTA que
+           lleva al bloque de asesoría de Proceso de Admisión. Aquí no va nombre,
+           foto, WhatsApp ni correo de nadie. -->
+      <section class="lic-pasos section-pad" id="siguiente-paso">
+        <div class="container">
+          <div class="pasos-grid">
+            <div class="pasos-lead reveal" data-reveal>
+              <p class="tagline"><span></span>Siguiente paso</p>
+              <h2>Elige el siguiente paso para tu futuro</h2>
+              <p>Avanza a tu ritmo: explora costos y apoyos, revisa fechas, inicia tu admisión o habla con un asesor.</p>
+            </div>
+
+            <a class="paso-card reveal" data-reveal href="/cotizador">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="3" width="14" height="18" rx="2" />
+                  <path d="M8 7h8" />
+                  <path d="M8.5 11h0M12 11h0M15.5 11h0M8.5 14.5h0M12 14.5h0" />
+                  <path d="M15.5 14.5v3" />
+                </svg>
+              </span>
+              <h3>Cotiza tu carrera</h3>
+              <p>Calcula la inversión de tu licenciatura y conoce las opciones de pago.</p>
+              <span class="paso-cta">Cotizar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="/admision-general">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="12" height="17" rx="2" />
+                  <path d="M9 4.5h6a1 1 0 0 1 1 1V6H8v-.5a1 1 0 0 1 1-1z" />
+                  <path d="M9 12.5l2 2 4-4" />
+                </svg>
+              </span>
+              <h3>Inicia tu admisión</h3>
+              <p>Comienza tu proceso 100% en línea en solo 6 pasos.</p>
+              <span class="paso-cta">Empezar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="/fechas-de-examenes">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="5" width="16" height="16" rx="2" />
+                  <path d="M4 9.5h16" />
+                  <path d="M8 3v4M16 3v4" />
+                  <path d="M8 13h2M13.5 13h2.5M8 16.5h2M13.5 16.5h2.5" />
+                </svg>
+              </span>
+              <h3>Fechas de examen</h3>
+              <p>Consulta el calendario de exámenes de admisión a lo largo del año.</p>
+              <span class="paso-cta">Consultar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="/apoyos-educativos-universidad-anahuac-mexico">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="9" r="5.5" />
+                  <path d="M8.5 13.7L7 21l5-2.6 5 2.6-1.5-7.3" />
+                  <path d="M12 6l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.3z" />
+                </svg>
+              </span>
+              <h3>Apoyos socioeconómicos</h3>
+              <p>Descubre las becas y apoyos económicos disponibles para estudiar aquí.</p>
+              <span class="paso-cta">Ver apoyos <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="proceso-de-admision.html#asesoria">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 13v-1a8 8 0 0 1 16 0v1" />
+                  <rect x="3" y="13" width="4" height="6" rx="1.5" />
+                  <rect x="17" y="13" width="4" height="6" rx="1.5" />
+                  <path d="M20 19a4 4 0 0 1-4 3h-2.5" />
+                </svg>
+              </span>
+              <h3>Habla con un asesor</h3>
+              <p>Resuelve tus dudas con un asesor preuniversitario, por campus.</p>
+              <span class="paso-cta">Contactar <span aria-hidden="true">›</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 11. Preguntas frecuentes · [AIDA: Acción] =====
+           SEO: la pregunta 2 («¿de qué trata?») lleva «hotelería» y «hospitalidad»
+           de forma natural; no las sustituyas por sinónimos.
+
+           ⚠️ Sin la nota de insumos, uniformes y maletines de Gastronomía.
+
+           El texto del FAQPage es idéntico al del acordeón y sin markup dentro:
+           el enlace al cotizador de la pregunta 7 no viaja al schema. -->
+      <section class="lic-faq section-pad" id="faq">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Preguntas frecuentes</p>
+            <h2>Preguntas frecuentes sobre la Licenciatura en Dirección Internacional de Hoteles</h2>
+          </div>
+
+          <div class="faq-list reveal" data-reveal>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿Cuántos años dura la carrera de Dirección Internacional de Hoteles?</summary>
+              <p>La Licenciatura en Dirección Internacional de Hoteles dura 8 semestres, es decir, 4 años, en modalidad presencial en Campus Norte.</p>
+            </details>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿De qué trata la carrera de Dirección Internacional de Hoteles?</summary>
+              <p>Es una licenciatura en hotelería y hospitalidad que te forma para dirigir hoteles, resorts y desarrollos turísticos como un negocio internacional: operación de cuartos, alimentos y bebidas, eventos, revenue management, finanzas y desarrollo de propiedades hoteleras.</p>
+            </details>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿Qué materias se ven en la carrera de Dirección Internacional de Hoteles?</summary>
+              <p>Cursarás materias como Gerencia división cuartos, Dirección de alimentos y bebidas, Revenue management, Gestión de la calidad en la hospitalidad, Taller de housekeeping, Simulador de negocios para hoteles y Desarrollo y gestión de propiedades hoteleras y vacacionales, entre otras.</p>
+            </details>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿La Licenciatura en Dirección Internacional de Hoteles tiene prácticas profesionales?</summary>
+              <p>Sí. Cursas dos semestres de prácticas profesionales supervisadas, con valor curricular, en hoteles y organizaciones de México y del extranjero.</p>
+            </details>
+            <!-- [VERIFICAR] nombre del Bachelor -->
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿Qué obtengo al estudiar Dirección Internacional de Hoteles en la Anáhuac México además de mi título?</summary>
+              <p>Puedes obtener el Bachelor of Business Hotel de Le Cordon Bleu, Francia, y hasta cuatro certificados parciales a lo largo de la carrera.</p>
+            </details>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿En qué puedo trabajar al terminar la carrera de Dirección Internacional de Hoteles?</summary>
+              <p>Puedes dirigir hoteles, resorts, desarrollos turísticos y cruceros; asesorar negocios de hospedaje; organizar congresos, convenciones y banquetes; trabajar en relaciones públicas y marketing hospitalario, o emprender tu propio proyecto hotelero.</p>
+            </details>
+            <details class="faq-item" name="faq-direccion-internacional-de-hoteles">
+              <summary>¿Cuánto cuesta estudiar Dirección Internacional de Hoteles en la Anáhuac México?</summary>
+              <p>Puedes calcular tu colegiatura y conocer opciones de beca en <a href="/cotizador">nuestro cotizador</a>.</p>
+            </details>
+          </div>
+        </div>
+
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Cuántos años dura la carrera de Dirección Internacional de Hoteles?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "La Licenciatura en Dirección Internacional de Hoteles dura 8 semestres, es decir, 4 años, en modalidad presencial en Campus Norte."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿De qué trata la carrera de Dirección Internacional de Hoteles?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Es una licenciatura en hotelería y hospitalidad que te forma para dirigir hoteles, resorts y desarrollos turísticos como un negocio internacional: operación de cuartos, alimentos y bebidas, eventos, revenue management, finanzas y desarrollo de propiedades hoteleras."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué materias se ven en la carrera de Dirección Internacional de Hoteles?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cursarás materias como Gerencia división cuartos, Dirección de alimentos y bebidas, Revenue management, Gestión de la calidad en la hospitalidad, Taller de housekeeping, Simulador de negocios para hoteles y Desarrollo y gestión de propiedades hoteleras y vacacionales, entre otras."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿La Licenciatura en Dirección Internacional de Hoteles tiene prácticas profesionales?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. Cursas dos semestres de prácticas profesionales supervisadas, con valor curricular, en hoteles y organizaciones de México y del extranjero."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué obtengo al estudiar Dirección Internacional de Hoteles en la Anáhuac México además de mi título?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Puedes obtener el Bachelor of Business Hotel de Le Cordon Bleu, Francia, y hasta cuatro certificados parciales a lo largo de la carrera."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿En qué puedo trabajar al terminar la carrera de Dirección Internacional de Hoteles?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Puedes dirigir hoteles, resorts, desarrollos turísticos y cruceros; asesorar negocios de hospedaje; organizar congresos, convenciones y banquetes; trabajar en relaciones públicas y marketing hospitalario, o emprender tu propio proyecto hotelero."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cuánto cuesta estudiar Dirección Internacional de Hoteles en la Anáhuac México?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Puedes calcular tu colegiatura y conocer opciones de beca en nuestro cotizador."
+                }
+              }
+            ]
+          }
+        </script>
+      </section>
+
+      <!-- ===== 12. Descubre por qué ser un León Anáhuac (módulo compartido) · [AIDA: Deseo] =====
+           Copia tal cual de la sección "experiencia" de Inicio (CSS en styles.css).
+           Las fotos y videos son institucionales, no de carrera: se conservan.
+
+           Sin adaptación de copy para esta carrera: el handoff no pide ninguna, a
+           diferencia de ALPHA en Nutrición o CREA en Comunicación.
+
+           ⚠️ La cifra institucional «+150 universidades en 30 países» de este
+           módulo NO se mezcla con los convenios de la Facultad en M9. No se
+           contradicen, pero son alcances distintos. -->
+      <section class="experience" id="experiencia">
+        <div class="container experience-layout">
+          <div class="experience-sticky">
+            <div class="section-intro reveal" data-reveal>
+              <p class="tagline"><span></span>Mucho más que solo una Universidad.</p>
+              <h2>Descubre por qué ser un León en la Anáhuac México</h2>
+              <p>Conoce por qué vivirás una experiencia universitaria única con nosotros.</p>
+              <a class="btn btn-purple" href="#">Conoce la experiencia Anáhuac México</a>
+            </div>
+          </div>
+          <div class="experience-slides">
+            <article class="experience-card reveal" data-reveal>
+              <div>
+                <h3>Un futuro con más posibilidades</h3>
+                <p>
+                  Desarrolla las habilidades, conocimientos y experiencia que necesitas para construir un
+                  perfil integral. Nuestro modelo educativo integra formación profesional, intelectual,
+                  humana, social y espiritual.
+                </p>
+              </div>
+              <video autoplay muted loop playsinline>
+                <source src="assets/estudiantes-humo.mp4" type="video/mp4" />
+              </video>
+            </article>
+            <article class="experience-card reveal" data-reveal>
+              <div>
+                <h3>Oportunidades internacionales</h3>
+                <p>
+                  Amplía tu experiencia con intercambios, convenios y opciones académicas que amplían tu
+                  perspectiva y enriquecen tu formación dentro y fuera del aula.
+                </p>
+              </div>
+              <img src="assets/exp-internacional.png" alt="Estudiantes en programa de intercambio internacional" />
+            </article>
+            <article class="experience-card reveal" data-reveal>
+              <div>
+                <h3>Una vida universitaria que te haga crecer</h3>
+                <p>
+                  Haz deporte, participa en actividades culturales, involúcrate en proyectos sociales y
+                  forma parte de una comunidad activa.
+                </p>
+              </div>
+              <video autoplay muted loop playsinline>
+                <source src="assets/jugadores-corriendo.mp4" type="video/mp4" />
+              </video>
+            </article>
+            <article class="experience-card reveal" data-reveal>
+              <div>
+                <h3>Espacios que impulsan tu experiencia</h3>
+                <p>
+                  Disfruta de espacios creados para tu desarrollo integral: deportes, salud, innovación
+                  y recursos únicos que encontrarás en la Universidad Anáhuac.
+                </p>
+              </div>
+              <img src="assets/exp-espacios.png" alt="Campus y espacios de la Universidad Anáhuac" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 13. Solicita información (formulario dedicado — envío de material) · [AIDA: Acción] =====
+           Referencia de estructura: sección "actua" (.apo-form) de Apoyos económicos.
+           ⚠️ Es un formulario de ENVÍO DE MATERIAL, no de contacto con asesor: la
+           bajada que lo declara es obligatoria y visible.
+           ⚠️ Sin selector de campus: la carrera es solo de Campus Norte. El campo
+           se sustituye por un dato fijo `readonly`, como en Biotecnología.
+           [PENDIENTE] conexión a HubSpot. [PLACEHOLDER] fotografía real. -->
+      <section class="lic-form section-pad" id="solicita">
+        <div class="container">
+          <div class="lic-form-layout">
+            <div class="lic-form-media">
+              <!-- [PLACEHOLDER] Esta foto es del banco de Comunicación. Se admite
+                   aquí porque la escena es NEUTRA DE DOMINIO —una estudiante frente
+                   a una computadora «consultando información»—. Sustituir por una
+                   propia en assets/direccion-internacional-de-hoteles/. -->
+              <img
+                class="dih-form-foto"
+                src="assets/comunicacion/solicita-info.webp"
+                alt="Estudiante de la Anáhuac México consultando información de la Licenciatura en Dirección Internacional de Hoteles."
+                width="1000"
+                height="750"
+                loading="lazy"
+              />
+            </div>
+            <div class="lic-form-content">
+              <div class="section-intro reveal" data-reveal>
+                <p class="tagline"><span></span>Solicita información</p>
+                <h2>Solicita información sobre la Licenciatura en Dirección Internacional de Hoteles</h2>
+                <p>Cuéntanos qué te interesa y te enviaremos el material directamente a tu correo o WhatsApp. No recibirás la llamada de un asesor; si prefieres hablar con alguien, escríbenos desde «Elige el siguiente paso».</p>
+              </div>
+
+              <form class="lic-form-card reveal" data-reveal>
+                <input type="text" placeholder="Nombre completo" aria-label="Nombre completo" autocomplete="name" />
+                <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" autocomplete="email" />
+                <input type="tel" placeholder="WhatsApp / teléfono" aria-label="WhatsApp o teléfono" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" />
+                <input type="text" placeholder="Preparatoria de origen" aria-label="Preparatoria de origen" />
+                <input type="text" value="Dirección Internacional de Hoteles" aria-label="Licenciatura de interés" readonly />
+                <!-- ⚠️ Campus fijo, sin selector: la carrera solo se imparte en
+                     Campus Norte (igual que Biotecnología). -->
+                <input type="text" value="Campus Norte" aria-label="Campus" readonly />
+                <select class="js-select" aria-label="Periodo de ingreso de interés" required>
+                  <option value="" disabled selected>Periodo de ingreso de interés</option>
+                  <option value="ago-2026">Agosto 2026</option>
+                  <option value="ene-2027">Enero 2027</option>
+                  <option value="sin-definir">Aún no lo decido</option>
+                </select>
+
+                <fieldset class="lic-form-checks">
+                  <legend>¿Qué te gustaría recibir?</legend>
+                  <!-- «Plan de estudios» es el único material confirmado. Si no hay
+                       folleto, el flujo de HubSpot no debe prometer los otros dos. -->
+                  <label class="lic-form-chip"><input type="checkbox" name="material" value="plan-de-estudios" /><span>Plan de estudios</span></label>
+                  <label class="lic-form-chip"><input type="checkbox" name="material" value="costos-y-becas" /><span>Costos y becas</span></label>
+                  <label class="lic-form-chip"><input type="checkbox" name="material" value="proceso-de-admision" /><span>Proceso de admisión</span></label>
+                </fieldset>
+
+                <label class="lic-form-privacy">
+                  <input type="checkbox" required />
+                  <span>He leído y acepto el <a href="#" target="_blank" rel="noopener">Aviso de Privacidad</a>.</span>
+                </label>
+
+                <button type="submit" class="btn btn-orange">Solicitar información</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <svg class="social-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M15.1 8.3h3V4h-3.7c-4 0-6 2.4-6 6v2.4H5v4.4h3.4V24h4.7v-7.2h3.8l.7-4.4h-4.5v-2c0-1.3.5-2.1 2-2.1Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.7l-5.2-6.9L5.6 22H2.3l7.8-8.9L1.8 2h6.9l4.7 6.3L18.9 2Zm-1.2 18h1.8L7.7 3.9h-2L17.7 20Z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21.7 7.1a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.6.5a3 3 0 0 0-2.1 2.1C1.8 9 1.8 12 1.8 12s0 3 .5 4.9A3 3 0 0 0 4.4 19c1.9.5 7.6.5 7.6.5s5.7 0 7.6-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.9.5-4.9s0-3-.5-4.9ZM10 15.2V8.8l5.6 3.2-5.6 3.2Z"/></symbol>
+      </svg>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+          <form class="newsletter">
+            <h2>Mantente informado sobre las novedades del mes de nuestra Universidad</h2>
+            <p>Recibe noticias sobre admisiones, eventos preuniversitarios y vida universitaria en tu correo.</p>
+            <div><input type="email" placeholder="Email" aria-label="Email" /><button class="btn btn-dark" type="submit">Enviar</button></div>
+            <small>Al suscribirte aceptas nuestra política de privacidad</small>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div><h3>Descubre</h3><a href="#">Por qué Anáhuac</a><a href="#">Vida universitaria</a><a href="#">Estudiantes foráneos</a><a href="#">Competencias académicas</a><a href="#">Ubicaciones</a></div>
+          <div><h3>Programas</h3><a href="#">Oferta académica</a><a href="#">Todas las licenciaturas</a><a href="#">Áreas académicas</a><a href="#">Solicita información</a><a href="#">Visita el campus</a></div>
+          <div><h3>Admisiones</h3><a href="#">Admisión general</a><a href="#">Admisión medicina</a><a href="#">Admisión internacional</a><a href="#">Fechas de examen</a><a href="#">Inicia tu proceso</a></div>
+          <div>
+            <h3>Campus Norte</h3>
+            <p>Av. Universidad Anáhuac 46, Col. Lomas Anáhuac. Huixquilucan, Estado de México.</p>
+            <a href="#">+52 (55) 5627 0210</a>
+            <div class="social-links" aria-label="Redes sociales Campus Norte">
+              <a href="#" aria-label="Facebook Campus Norte"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Norte"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Norte"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Norte"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Campus Sur</h3>
+            <p>Av. de los Tanques 865, Col. Torres de Potrero. Álvaro Obregón, CDMX.</p>
+            <a href="#">+52 (55) 5628 8800</a>
+            <a href="#">Misión y valores</a>
+            <a href="#">Acreditaciones</a>
+            <a href="#">Noticias</a>
+            <div class="social-links" aria-label="Redes sociales Campus Sur">
+              <a href="#" aria-label="Facebook Campus Sur"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Sur"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Sur"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Sur"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="#">Teléfono principal</a>
+            <a href="#">Correo de admisiones</a>
+            <a href="#">Síguenos en línea</a>
+            <a href="#">Ubicación</a>
+            <div class="social-links" aria-label="Redes sociales Anáhuac México">
+              <a href="#" aria-label="Facebook Anáhuac México"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Anáhuac México"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Anáhuac México"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Anáhuac México"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">© 2026 Universidad Anáhuac México. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- direccion-internacional-de-hoteles.js va ANTES que psicologia.js a propósito: neutraliza el
+         carrusel de docentes cuando hay cuatro tarjetas o menos, y psicologia.js
+         decide si se monta al ejecutarse. Invertir el orden lo rompe. -->
+    <script src="direccion-internacional-de-hoteles.js"></script>
+    <script src="psicologia.js"></script>
+    <script type="module" src="assets/review/review.js"></script>
+  </body>
+</html>

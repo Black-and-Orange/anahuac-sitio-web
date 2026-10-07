@@ -1,0 +1,395 @@
+/* =============================================================================
+   LICENCIATURA EN DIRECCIÓN DE RESTAURANTES — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual.
+
+   El `<body>` lleva además `pagina-carrera`, así que la página nace con las diez
+   correcciones del molde promovidas el 2026-08-31 (medida de línea, escala de
+   titulares, CTA del hero, ritmo vertical, campus alineado, FAQ acotado, campo
+   bloqueado, botón centrado y perfil de egreso). **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de esta carrera:
+
+     a) los dos grupos de M9 que no son una rejilla de logotipos: el carrusel
+        vertical de convenios y los 33 pines del mapa de destinos,
+     b) el claustro sin carrusel (cuatro docentes o menos),
+     c) el ajuste 1/1 de la foto de campo laboral con seis ámbitos,
+     d) los huecos de fotografía, mientras no haya banco de imágenes.
+
+   Si alguna se repitiera en otra carrera, su sitio dejaría de ser esta hoja y
+   pasaría a ser el componente en psicologia.css.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro. Escala tipográfica: 14 · 15 · 16 · 18 · 21.
+   ========================================================================== */
+
+/* La foto del formulario es la única del banco de Comunicación y es apaisada en
+   un slot 4:5: al recortar al centro, la estudiante se sale por la derecha. El
+   encuadre se corre, igual que en su página de origen. Se retira si se sustituye
+   por una vertical propia. */
+.pagina-direccion-de-restaurantes .dr-form-foto {
+  object-position: 72% center;
+}
+
+/* -----------------------------------------------------------------------------
+   M9: DOS GRUPOS Y NINGUNO ES UNA REJILLA DE LOGOTIPOS
+
+   El molde da por hecho que todo grupo de `colab-aliados` es una rejilla de
+   logos. Aquí el primero es un carrusel vertical de convenios y el segundo es un
+   mapa con 33 pines de ciudad.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-de-restaurantes .colab-aliados {
+  gap: 28px;
+}
+
+.pagina-direccion-de-restaurantes .dr-destinos {
+  display: grid;
+  gap: 24px;
+}
+
+.pagina-direccion-de-restaurantes .dr-destinos-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.pagina-direccion-de-restaurantes .dr-colab-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   EN CAMPO LABORAL, LA FOTO SOBRABA POR DEBAJO DE LOS TILES
+
+   La proporción 4/5 de `.campo-media` está calibrada para los SIETE ámbitos de
+   Psicología; esta carrera tiene seis, igual que Nutrición y Comunicación, y ese
+   tile de menos deja la columna izquierda acabada mucho antes que la derecha. Se
+   cuadra la foto a 1/1 y las dos columnas cierran juntas.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-de-restaurantes .campo-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* -----------------------------------------------------------------------------
+   CONVENIOS DE PRÁCTICAS · MARQUESINA VERTICAL DE LOGOS
+
+   Sin desplazamiento automático: el usuario avanza con las flechas y cada clic
+   mueve una fila. El recorrido da la vuelta, de modo que las flechas nunca
+   llegan a un extremo muerto.
+
+   La retícula es la de cuatro columnas y el viewport se recorta a UNA fila. La
+   posición la fija direccion-de-restaurantes.js con un `transform`; el suavizado
+   es una `transition` de CSS, así que no depende de requestAnimationFrame. Sin
+   JS se ve la primera fila, quieta y legible.
+   -------------------------------------------------------------------------- */
+/* Cabecera con las flechas de control, mismo molde que el carrusel de docentes. */
+.pagina-direccion-de-restaurantes .dr-convenios-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* De entrada se ve UNA sola fila; las flechas avanzan/retroceden una fila por
+   clic. Sin máscara y con la altura EXACTA de una fila: la tarjeta se ve
+   completa (bordes nítidos), no difuminada ni con «sombra» arriba/abajo. */
+.pagina-direccion-de-restaurantes .dr-convenios-viewport {
+  --dr-convenio-alto: 92px;
+  --dr-convenio-gap: 14px;
+  height: var(--dr-convenio-alto);
+  overflow: hidden;
+}
+
+.pagina-direccion-de-restaurantes .dr-convenios-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--dr-convenio-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pagina-direccion-de-restaurantes .dr-convenio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--dr-convenio-alto);
+  padding: 18px 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: var(--radius);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease),
+    border-color var(--motion-duration-fast) var(--motion-ease);
+}
+
+/* Sin fondo (solo borde gris); en hover se pinta blanco y el logo recupera su
+   color (ver `.dr-convenio:hover img`). */
+.pagina-direccion-de-restaurantes .dr-convenio:hover {
+  background: var(--surface);
+  border-color: transparent;
+}
+
+.pagina-direccion-de-restaurantes .dr-convenio img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter var(--motion-duration-fast) var(--motion-ease),
+    opacity var(--motion-duration-fast) var(--motion-ease);
+}
+
+.pagina-direccion-de-restaurantes .dr-convenio:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* Estos dos archivos son verticales o traen mucho aire interno. Los
+   modificadores compensan el lienzo del asset sin alterar los logos
+   horizontales ni reutilizar una escala global que les quedaría grande. */
+.pagina-direccion-de-restaurantes .dr-convenio--universidad img {
+  transform: scale(1.55);
+}
+
+.pagina-direccion-de-restaurantes .dr-convenio--vinedo img {
+  transform: scale(1.2);
+}
+
+/* Quien pide movimiento reducido salta de fila sin deslizamiento. */
+@media (prefers-reduced-motion: reduce) {
+  .pagina-direccion-de-restaurantes .dr-convenios-track {
+    transition: none;
+  }
+
+  .pagina-direccion-de-restaurantes .dr-convenio {
+    transition: none;
+  }
+}
+
+/* A dos columnas el set de ocho ocupa cuatro filas; el viewport sigue mostrando
+   dos y el recorrido es el mismo. */
+@media (max-width: 900px) {
+  .pagina-direccion-de-restaurantes .dr-convenios-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .pagina-direccion-de-restaurantes .dr-convenios-track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   DESTINOS DE PRÁCTICAS · MAPA CON PINES
+
+   Mapa propio (assets/gastronomia/mapas/) generado desde Natural Earth, que es
+   dominio público. El pin se coloca con --x/--y en PORCENTAJE, de modo que sigue
+   al mapa cuando este se reescala. Los pines que se encimaban se separaron y
+   conservan un hilo fino hasta su coordenada real.
+
+   Por debajo de 900px el mapa no se oculta: se desplaza en horizontal, porque un
+   mapamundi de 320px deja los pines a 4px unos de otros.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-de-restaurantes .dr-mapa {
+  position: relative;
+  margin-top: 12px;
+}
+
+.pagina-direccion-de-restaurantes .dr-mapa-fondo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Los hilos se estiran con el mapa (preserveAspectRatio: none), pero el grosor
+   no, gracias a vector-effect en cada línea. */
+.pagina-direccion-de-restaurantes .dr-mapa-hilos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--orange);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.pagina-direccion-de-restaurantes .dr-mapa-pines {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-direccion-de-restaurantes .dr-pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  /* La punta del pin es la que marca el sitio, no su centro. */
+  transform: translate(-50%, -100%);
+  cursor: default;
+}
+
+.pagina-direccion-de-restaurantes .dr-pin-marca {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: var(--orange);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transform: rotate(-45deg);
+  transition: transform var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+/* El nombre solo aparece al señalar: 24 rótulos simultáneos taparían el mapa. */
+.pagina-direccion-de-restaurantes .dr-pin-nombre {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: var(--radius-button);
+  background: var(--black-web);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+.pagina-direccion-de-restaurantes .dr-pin:hover,
+.pagina-direccion-de-restaurantes .dr-pin:focus-visible {
+  z-index: 2;
+  outline: none;
+}
+
+.pagina-direccion-de-restaurantes .dr-pin:hover .dr-pin-marca,
+.pagina-direccion-de-restaurantes .dr-pin:focus-visible .dr-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-direccion-de-restaurantes .dr-pin:hover .dr-pin-nombre,
+.pagina-direccion-de-restaurantes .dr-pin:focus-visible .dr-pin-nombre {
+  opacity: 1;
+}
+
+/* En móvil el mapa NO se oculta: se desplaza. Los pines siguen necesitando aire
+   para leerse y tocarse, así que se le fija un ancho mínimo y el contenedor hace
+   scroll horizontal. */
+@media (max-width: 900px) {
+  /* `.colab-aliados` es un grid y sus items nacen con `min-width: auto`, así que
+     se niegan a encoger por debajo de su contenido: el mapa de 720px estiraba la
+     columna y arrastraba con ella al carrusel de convenios. Con `min-width: 0` la
+     columna vuelve a caber y el desplazamiento queda confinado al contenedor del
+     mapa. */
+  .pagina-direccion-de-restaurantes .colab-group,
+  .pagina-direccion-de-restaurantes .dr-destinos,
+  .pagina-direccion-de-restaurantes .dr-destinos-grupo,
+  .pagina-direccion-de-restaurantes .dr-mapa-scroll {
+    min-width: 0;
+  }
+
+  .pagina-direccion-de-restaurantes .dr-mapa-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pagina-direccion-de-restaurantes .dr-mapa {
+    min-width: 720px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-direccion-de-restaurantes .dr-pin-marca,
+  .pagina-direccion-de-restaurantes .dr-pin-nombre {
+    transition: none;
+  }
+}
+
+/* En pantalla táctil no hay hover: el nombre se revela al tocar el pin. */
+.pagina-direccion-de-restaurantes .dr-pin:focus .dr-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-direccion-de-restaurantes .dr-pin:focus .dr-pin-nombre {
+  opacity: 1;
+}
+
+.pagina-direccion-de-restaurantes .dr-pin:focus {
+  z-index: 2;
+  outline: none;
+}
+
+/* Aviso de desplazamiento. Se oculta con su PROPIO media query en vez de con una
+   regla base `display:none`: al vivir este bloque al final del archivo, esa regla
+   base pisaría al `display:block` del media query de arriba. Con la condición
+   invertida el orden dentro del archivo deja de importar. */
+.pagina-direccion-de-restaurantes .dr-mapa-pista {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 901px) {
+  .pagina-direccion-de-restaurantes .dr-mapa-pista {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   CLAUSTRO DOCENTE SIN CARRUSEL
+
+   direccion-de-restaurantes.js cambia `.colab-docentes-carousel` /
+   `.colab-docentes-track` por estas dos clases cuando hay cuatro docentes o
+   menos, para que el carrusel de psicologia.js —compartido con otras páginas— no
+   se monte aquí.
+
+   Al perder esas clases se pierde también su maquetación, así que se replica:
+   misma retícula de cuatro por fila y mismos escalones que el componente
+   original. La única diferencia es `flex-wrap`, que con más de cuatro tarjetas
+   las pasa a una segunda fila en vez de desbordar.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-de-restaurantes .dr-docentes-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina-direccion-de-restaurantes .dr-docentes-fila > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .pagina-direccion-de-restaurantes .dr-docentes-fila > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-direccion-de-restaurantes .dr-docentes-fila > .docente-card {
+    flex: 0 0 100%;
+  }
+}

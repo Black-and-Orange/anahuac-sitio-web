@@ -1,0 +1,595 @@
+/* =============================================================================
+   LICENCIATURA EN ADMINISTRACIÓN TURÍSTICA — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual.
+
+   El `<body>` lleva además `pagina-carrera`, así que la página nace con las diez
+   correcciones del molde promovidas el 2026-08-31 (medida de línea, escala de
+   titulares, CTA del hero, ritmo vertical, campus alineado, FAQ acotado, campo
+   bloqueado, botón centrado y perfil de egreso). **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de Administración Turística:
+
+     a) el plan usa el molde de 8 pestañas por semestre (sin desviación),
+     b) los tres grupos de M9 y ninguno es una rejilla de logotipos: categorías
+        de convenio y 33 chips de destino,
+     c) dos piezas de texto auxiliar que el molde no tiene,
+     d) los huecos de fotografía, mientras no haya banco de imágenes.
+
+   Si alguna se repitiera en otra carrera, su sitio dejaría de ser esta hoja y
+   pasaría a ser el componente en psicologia.css.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro. Escala tipográfica: 14 · 15 · 16 · 18 · 21.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   0b. (retirada) HUECOS DE FOTOGRAFÍA
+
+   Aquí vivía la variante `.media-pendiente`: el hueco marcado con el que la
+   página se montó mientras no había una sola fotografía.
+
+   Deja de hacer falta el 2026-09-01: con las dos fotos reales de cocina y las
+   del banco de Comunicación admitidas por la clienta, no queda ningún hueco. La
+   regla se retira en vez de quedarse huérfana; está en el historial de
+   `design/CHANGELOG.md`.
+
+   ⚠️ Que no haya huecos NO significa que la fotografía esté resuelta. Lo que
+   falta y por qué, en `assets/gastronomia/README.md`.
+   -------------------------------------------------------------------------- */
+
+/* La foto del formulario es la única del banco de Comunicación y es apaisada en
+   un slot 4:5: al recortar al centro, la estudiante se sale por la derecha. El
+   encuadre se corre, igual que en su página de origen. Se retira si se sustituye
+   por una vertical propia. */
+.pagina-administracion-turistica .at-form-foto {
+  object-position: 72% center;
+}
+
+/* -----------------------------------------------------------------------------
+   1. LAS 7 PESTAÑAS DEL PLAN VAN POR ÁREA, NO POR SEMESTRE
+
+   Como en Comunicación: el folleto no reparte las materias en semestres, así que
+   los rótulos son frases y no llevan número.
+
+   Pero aquí son SIETE, y siete es primo: no hay reparto sin hueco. A 4 columnas
+   quedan 4+3 —un solo hueco, el mínimo posible—; a 3 quedarían 3+3+1, con dos
+   huecos y una pestaña sola en su fila. Se elige 4.
+
+   A 1120px de contenedor la celda mide 271px, que basta para dos renglones de
+   los rótulos más largos («Fundamentos y manejo de alimentos», 32 caracteres).
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pagina-administracion-turistica .at-plan-tabs .plan-tab {
+  align-items: center;
+  min-height: 72px;
+  padding: 14px 18px;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Por debajo de 900px cuatro columnas dejan la celda en 190px y los rótulos se
+   parten en cuatro renglones. Se baja a dos: 7 deja una fila coja de una, pero
+   es preferible. A ≤540px el molde ya sustituye la barra por el dropdown. */
+@media (max-width: 900px) {
+  .pagina-administracion-turistica .at-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   2. LA NOTA DE CRÉDITOS DE LA TARJETA AEO
+
+   Dos datos duros, como el molde, con el desglose por bloque del Modelo 2025
+   debajo. Separada por una regla fina para que no se lea como pie del segundo
+   dato.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-aeo-nota {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   4. LA LÍNEA DEL VIÑEDO, BAJO LA NOTA DE CAMPUS
+
+   El Viñedo Anáhuac no está en ninguno de los dos campus —está en Querétaro—,
+   así que no puede ir dentro de ninguna de las dos tarjetas. Cierra el módulo
+   como línea aparte, al mismo tamaño de nota que `campus-note`.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-campus-vinedo {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+.pagina-administracion-turistica .at-campus-vinedo strong {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   5. M9: TRES GRUPOS Y NINGUNO ES UNA REJILLA DE LOGOTIPOS
+
+   El molde da por hecho que todo grupo de `colab-aliados` es una rejilla de
+   logos. Aquí el primero son categorías de convenio —texto, no marca— y el
+   segundo son 33 chips de ciudad. La fuente no nombra empresas y no se inventan.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .colab-aliados {
+  gap: 28px;
+}
+
+.pagina-administracion-turistica .at-colab-grupo-texto {
+  margin: 0 0 16px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+/* Siete en 4 columnas dan 4+3: UN hueco. En 3 dan 3+3+1: dos huecos y una
+   pestaña sola en su fila. Cuatro es el mejor reparto para siete, el mismo
+   criterio que la barra de pestañas de esta página.
+
+   (Aquí decía lo contrario hasta la revisión del 2026-09-01: la cuenta estaba
+   mal hecha. 7 entre 4 deja un hueco, no tres.) */
+/* Solo por encima de 900: por debajo, la cascada del molde —3 y luego 2
+   columnas— ya es la correcta para estos rótulos cortos, y forzar 4 los apretaba
+   a 180px, o 1 los estiraba en una columna de siete cajas. La regla se acota en
+   vez de repetir toda la cascada. */
+@media (min-width: 901px) {
+  .pagina-administracion-turistica .colab-logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Estos tiles son categorías, no marcas: no llevan el peso de un logotipo ni
+   deben leerse como uno. Van al cuerpo del sitio y no a la tipografía de titular
+   que el molde usa para el nombre de un aliado sin archivo.
+
+   Y por lo mismo pierden el `min-height: 92px` del molde, que existe para dar
+   sitio a un logotipo de 48px con su aire. Aquí dentro hay UN RENGLÓN de texto:
+   con esa altura, los siete tiles sumaban 330px de cajas casi vacías y el módulo
+   —que es de respaldo— rozaba en alto al de campo laboral, que es de conversión. */
+.pagina-administracion-turistica .at-colab-categoria {
+  min-height: 0;
+  padding: 18px 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.pagina-administracion-turistica .at-destinos {
+  display: grid;
+  gap: 24px;
+}
+
+.pagina-administracion-turistica .at-destinos-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+
+.pagina-administracion-turistica .at-colab-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+
+
+/* -----------------------------------------------------------------------------
+   7. EN CAMPO LABORAL, LA FOTO SOBRABA 177px POR DEBAJO DE LOS TILES
+
+   Medido a 1440px: la columna de tiles termina en 573px de alto y la imagen sigue
+   hasta 750. La proporción 4/5 de `.campo-media` está calibrada para los SIETE
+   ámbitos de Psicología; Gastronomía tiene seis, igual que Nutrición y
+   Comunicación, y ese tile de menos deja la columna izquierda acabada mucho antes
+   que la derecha.
+
+   Se cuadra la foto: a 1/1 mide ~600px y las dos columnas cierran juntas.
+
+   ⚠️ Es el TERCER módulo de seis ámbitos que necesita este mismo ajuste
+   —Nutrición lo tiene desde su revisión y Comunicación desde que se montó—. La
+   proporción del molde solo acierta con siete. Candidata clara a subir a
+   `psicologia.css` en la próxima pasada del molde.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .campo-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* -----------------------------------------------------------------------------
+   8. LAS INSTALACIONES DE CADA CAMPUS NO SON SU DIRECCIÓN
+
+   Iban dentro del `<p class="campus-address">`, en negrita: el resultado era
+   texto en negrita del gris de dirección, que es énfasis sin contraste —el ojo
+   registra el peso pero el color le dice que sigue siendo el mismo dato—.
+
+   Y no son el mismo dato. El handoff subraya que cada campus tiene instalaciones
+   DISTINTAS y que su copy no es intercambiable: es el argumento por el que
+   alguien elige campus, no un renglón más de la dirección. Sale a su propio
+   párrafo, en color de texto pleno.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-campus-inst {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+
+
+/* -----------------------------------------------------------------------------
+   CONVENIOS DE PRÁCTICAS · MARQUESINA VERTICAL DE LOGOS
+
+   Sustituye a los tiles de categoría. Sin desplazamiento automático: el usuario
+   avanza con las flechas y cada clic mueve una fila. El recorrido da la vuelta,
+   de modo que las flechas nunca llegan a un extremo muerto.
+
+   La retícula es la de cuatro columnas de `.colab-logos` y el viewport se recorta
+   a UNA fila. Las máscaras superior e inferior insinúan que hay más contenido.
+
+   La posición la fija `gastronomia.js` con un `transform`; el suavizado es una
+   `transition` de CSS, así que no depende de requestAnimationFrame. Sin JS se ve
+   la primera fila, quieta y legible.
+   -------------------------------------------------------------------------- */
+/* Cabecera con las flechas de control, mismo molde que el carrusel de docentes. */
+.pagina-administracion-turistica .at-convenios-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* De entrada se ve UNA sola fila; las flechas avanzan/retroceden una fila por
+   clic. Sin máscara y con la altura EXACTA de una fila: la tarjeta se ve
+   completa (bordes nítidos), no difuminada ni con «sombra» arriba/abajo. */
+.pagina-administracion-turistica .at-convenios-viewport {
+  --at-convenio-alto: 92px;
+  --at-convenio-gap: 14px;
+  height: var(--at-convenio-alto);
+  overflow: hidden;
+}
+
+.pagina-administracion-turistica .at-convenios-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--at-convenio-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pagina-administracion-turistica .at-convenio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--at-convenio-alto);
+  padding: 18px 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: var(--radius);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease),
+    border-color var(--motion-duration-fast) var(--motion-ease);
+}
+
+/* Sin fondo (solo borde gris); en hover se pinta blanco y el logo recupera su
+   color (ver `.at-convenio:hover img`). */
+.pagina-administracion-turistica .at-convenio:hover {
+  background: var(--surface);
+  border-color: transparent;
+}
+
+.pagina-administracion-turistica .at-convenio img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter var(--motion-duration-fast) var(--motion-ease),
+    opacity var(--motion-duration-fast) var(--motion-ease);
+}
+
+.pagina-administracion-turistica .at-convenio:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* Estos dos archivos son verticales o traen mucho aire interno. Los
+   modificadores compensan el lienzo del asset sin alterar los logos
+   horizontales ni reutilizar una escala global que les quedaría grande. */
+.pagina-administracion-turistica .at-convenio--universidad img {
+  transform: scale(1.55);
+}
+
+.pagina-administracion-turistica .at-convenio--vinedo img {
+  transform: scale(1.2);
+}
+
+/* Quien pide movimiento reducido salta de fila sin deslizamiento. */
+@media (prefers-reduced-motion: reduce) {
+  .pagina-administracion-turistica .at-convenios-track {
+    transition: none;
+  }
+
+  .pagina-administracion-turistica .at-convenio {
+    transition: none;
+  }
+}
+
+/* A dos columnas el set de ocho ocupa cuatro filas; el viewport sigue mostrando
+   dos y el recorrido es el mismo. */
+@media (max-width: 900px) {
+  .pagina-administracion-turistica .at-convenios-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .pagina-administracion-turistica .at-convenios-track {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   DESTINOS DE PRÁCTICAS · MAPAS CON PINES
+
+   Dos mapas propios (assets/gastronomia/mapas/) generados desde Natural Earth,
+   que es dominio público. Uno del mundo para los 24 destinos internacionales y
+   otro de México para los 9 nacionales: en un mapamundi los nueve mexicanos
+   caían dentro de un cuadro de 90x45px y eran ilegibles.
+
+   El pin se coloca con --x/--y en PORCENTAJE, de modo que sigue al mapa cuando
+   este se reescala. Los pines que se encimaban se separaron y conservan un hilo
+   fino hasta su coordenada real, como en la referencia aprobada.
+
+   Por debajo de 900px el mapa se oculta y vuelven las listas de chips: 24 pines
+   en un mapamundi de 320px no se pueden ni tocar ni leer. La información no se
+   pierde en ningún ancho.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-mapa {
+  position: relative;
+  margin-top: 12px;
+}
+
+.pagina-administracion-turistica .at-mapa-fondo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Los hilos se estiran con el mapa (preserveAspectRatio: none), pero el grosor
+   no, gracias a vector-effect en cada línea. */
+.pagina-administracion-turistica .at-mapa-hilos {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--orange);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.pagina-administracion-turistica .at-mapa-pines {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-administracion-turistica .at-pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  /* La punta del pin es la que marca el sitio, no su centro. */
+  transform: translate(-50%, -100%);
+  cursor: default;
+}
+
+.pagina-administracion-turistica .at-pin-marca {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: var(--orange);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transform: rotate(-45deg);
+  transition: transform var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+/* El nombre solo aparece al señalar: 24 rótulos simultáneos taparían el mapa. */
+.pagina-administracion-turistica .at-pin-nombre {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: var(--radius-button);
+  background: var(--black-web);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast, 0.2s) ease-out;
+}
+
+.pagina-administracion-turistica .at-pin:hover,
+.pagina-administracion-turistica .at-pin:focus-visible {
+  z-index: 2;
+  outline: none;
+}
+
+.pagina-administracion-turistica .at-pin:hover .at-pin-marca,
+.pagina-administracion-turistica .at-pin:focus-visible .at-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-administracion-turistica .at-pin:hover .at-pin-nombre,
+.pagina-administracion-turistica .at-pin:focus-visible .at-pin-nombre {
+  opacity: 1;
+}
+
+/* En el mapa el chip sobra; por debajo de 900px es al revés. */
+/* En móvil el mapa NO se oculta: se desplaza. A 320px de ancho un mapamundi
+   completo deja los pines a 4px unos de otros —ni se leen ni se pueden tocar—,
+   así que se le fija un ancho mínimo legible y el contenedor hace scroll
+   horizontal. Los chips siguen debajo como lista de lectura rápida. */
+@media (max-width: 900px) {
+  /* `.colab-aliados` es un grid y sus items nacen con `min-width: auto`, así que
+     se niegan a encoger por debajo de su contenido: el mapa de 720px estiraba la
+     columna y arrastraba con ella al carrusel de convenios, que se salía del
+     ancho de pantalla. Con `min-width: 0` la columna vuelve a caber y el
+     desplazamiento queda confinado al contenedor del mapa, que es lo que se
+     quiere que se deslice. */
+  .pagina-administracion-turistica .colab-group,
+  .pagina-administracion-turistica .at-destinos,
+  .pagina-administracion-turistica .at-destinos-grupo,
+  .pagina-administracion-turistica .at-mapa-scroll {
+    min-width: 0;
+  }
+
+  .pagina-administracion-turistica .at-mapa-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pagina-administracion-turistica .at-mapa {
+    min-width: 720px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-administracion-turistica .at-pin-marca,
+  .pagina-administracion-turistica .at-pin-nombre {
+    transition: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   FAQ · NOTA AL PIE DE UNA RESPUESTA
+
+   `.faq-item p` reparte el aire con `padding-bottom: 24px`, pensado para
+   respuestas de un solo párrafo. Con dos seguidos se abría un hueco doble entre
+   ellos, y la nota se leía como una respuesta aparte en vez de como el pie de la
+   anterior. Se cierra ese hueco y la nota baja un punto de tamaño.
+
+   El `:has()` solo ajusta el párrafo que va SEGUIDO de la nota; si un navegador
+   no lo soporta, el único efecto es el hueco original: nada se rompe.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .faq-item p:has(+ .at-faq-nota) {
+  padding-bottom: 10px;
+}
+
+.pagina-administracion-turistica .at-faq-nota {
+  font-size: 15px;
+  opacity: 0.88;
+}
+
+/* Aviso de desplazamiento. Se oculta con su PROPIO media query en vez de con una
+   regla base `display:none`: al vivir este bloque al final del archivo, esa regla
+   base pisaba al `display:block` del media query de arriba y el aviso no salía
+   nunca. Con la condición invertida el orden dentro del archivo deja de importar. */
+.pagina-administracion-turistica .at-mapa-pista {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* En pantalla táctil no hay hover: el nombre se revela al tocar el pin. */
+.pagina-administracion-turistica .at-pin:focus .at-pin-marca {
+  transform: rotate(-45deg) scale(1.35);
+}
+
+.pagina-administracion-turistica .at-pin:focus .at-pin-nombre {
+  opacity: 1;
+}
+
+.pagina-administracion-turistica .at-pin:focus {
+  z-index: 2;
+  outline: none;
+}
+
+@media (min-width: 901px) {
+  .pagina-administracion-turistica .at-mapa-pista {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   CLAUSTRO DOCENTE SIN CARRUSEL
+
+   gastronomia.js cambia `.colab-docentes-carousel` / `.colab-docentes-track` por
+   estas dos clases cuando hay cuatro docentes o menos, para que el carrusel de
+   psicologia.js —compartido con otras tres páginas— no se monte aquí.
+
+   Al perder esas clases se pierde también su maquetación, así que se replica:
+   misma retícula de cuatro por fila y mismos escalones que el componente
+   original. La única diferencia es `flex-wrap`, que con más de cuatro tarjetas
+   las pasa a una segunda fila en vez de desbordar. Ese caso no se da hoy: con
+   cinco o más, gastronomia.js no interviene y vuelve el carrusel compartido.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-turistica .at-docentes-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina-administracion-turistica .at-docentes-fila > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .pagina-administracion-turistica .at-docentes-fila > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-administracion-turistica .at-docentes-fila > .docente-card {
+    flex: 0 0 100%;
+  }
+}
