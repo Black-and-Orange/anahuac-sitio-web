@@ -47,7 +47,8 @@
 .cs-bicampus { background: var(--gray); }
 .cs-visita { background: var(--surface); }
 .cs-llegar { background: var(--gray); }
-.cs-faq { background: var(--surface); }
+/* El FAQ usa el tratamiento naranja del componente .lic-faq (texto blanco);
+   NO se le pone fondo claro o el texto blanco quedaría invisible. */
 
 /* Ritmo vertical: la intro de sección respira 50px antes del contenido, como en
    la familia de páginas de área. */
