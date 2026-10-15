@@ -349,7 +349,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.cn-tabla-corner { border-top: 0; background: transparent; }
+.cn-tabla td.cn-tabla-corner { border-top: 0; background: transparent; }
 
 /* Encabezados de columna */
 .cn-tabla thead th {
