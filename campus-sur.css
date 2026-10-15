@@ -728,6 +728,20 @@
   gap: 16px;
 }
 
+/* Eventos placeholder: la caja de fecha muestra «Próximamente» legible y
+   centrado, sin el guión gigante (80px) que la desbordaba. */
+.cs-event-list .event-date { justify-content: center; padding: 14px 10px; }
+.cs-event-list .event-date strong { display: none; }
+.cs-event-list .event-date span {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--purple-1);
+}
+
 /* =============================================================================
    MÓDULO 9 — Cómo llegar
    Dos columnas: mapa | datos. Chips de rutas. Botones Maps/Waze.
@@ -943,9 +957,11 @@
   .cs-mapa { position: static; }
   .cs-mapa iframe { height: 320px; }
 
-  .cs-comun-grid { grid-template-columns: 1fr; }
+  .cs-comun-grid { grid-template-columns: 1fr; gap: 24px; }
+  /* En móvil el ícono va arriba y el texto a todo el ancho (no apretado). */
+  .cs-comun-item { flex-direction: column; gap: 12px; }
 
-  .cs-bicampus-comun { padding: 32px; }
+  .cs-bicampus-comun { padding: 28px 22px; }
   .cs-tips { padding: 32px; }
   .cs-tips p:last-child { font-size: 17px; }
   .cs-afinidad-cierre { font-size: 17px; }
