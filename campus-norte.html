@@ -27,6 +27,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="psicologia.css" />
+    <link rel="stylesheet" href="oferta.css" />
     <link rel="stylesheet" href="campus-norte.css" />
 
     <!-- ===== Datos estructurados =====
@@ -533,114 +534,549 @@
            Cada chip enlaza a su página local si existe; si no, a oferta-academica.
            La etiqueta «También en Sur» va como TEXTO dentro del chip.
            ===================================================================== -->
-      <section class="cn-lic section-pad" id="licenciaturas">
+      <section class="cn-lic oferta-search section-pad" id="licenciaturas">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <h2>¿Qué licenciaturas puedes estudiar en Campus Norte?</h2>
-            <p>
-              Más de 40 licenciaturas de las 8 áreas académicas de la Universidad Anáhuac México. Elige la
-              tuya y conoce su plan de estudios.
-            </p>
+            <p>Más de 40 licenciaturas de las 8 áreas académicas de la Universidad Anáhuac México. Elige la tuya y conoce su plan de estudios.</p>
           </div>
 
-          <div class="cn-areas reveal" data-reveal>
-            <details class="cn-area" open>
-              <summary><h3>Ciencias de la Salud</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="medicina.html" aria-label="Conoce la Licenciatura en Médico Cirujano">Médico Cirujano <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="licenciatura-cirujano-dentista.html" aria-label="Conoce la Licenciatura en Médico Cirujano Dentista">Médico Cirujano Dentista</a>
-                <a class="cn-chip" href="nutricion.html" aria-label="Conoce la Licenciatura en Nutrición">Nutrición <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="licenciatura-terapia-fisica-y-rehabilitacion.html" aria-label="Conoce la Licenciatura en Terapia Física y Rehabilitación">Terapia Física y Rehabilitación</a>
-                <a class="cn-chip" href="licenciatura-biotecnologia.html" aria-label="Conoce la Licenciatura en Biotecnología">Biotecnología</a>
+          <div class="search-bar reveal" data-reveal>
+            <div class="search-input-group">
+              <div class="search-input-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="search-licenciatura" placeholder="Buscar" aria-label="Buscar licenciatura" />
+                <button class="search-clear" type="button" aria-label="Limpiar búsqueda">×</button>
               </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Ingenierías y Ciencias</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Actuaría">Actuaría <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ciencia de Datos">Ciencia de Datos</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Ambiental">Ingeniería Ambiental</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Biomédica">Ingeniería Biomédica</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Civil">Ingeniería Civil</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería en Sistemas y Tecnologías de Información">Ingeniería en Sistemas y Tecnologías de Información</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Industrial para la Dirección">Ingeniería Industrial para la Dirección <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Mecatrónica">Ingeniería Mecatrónica <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Química">Ingeniería Química <span class="cn-chip-sur">También en Sur</span></a>
+              <button class="btn btn-orange search-btn" type="button">Buscar</button>
+            </div>
+            <div class="search-filters">
+              <span class="filter-label">Filtrar por:</span>
+              <div class="custom-dropdown" data-dropdown="area">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">
+                  Área académica
+                  <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,1 6,6 11,1"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <label><input type="radio" name="filter-area" value="" checked /> Todas</label>
+                  <label><input type="radio" name="filter-area" value="salud" /> Ciencias de la Salud</label>
+                  <label><input type="radio" name="filter-area" value="ingenierias" /> Ingenierías y Ciencias</label>
+                  <label><input type="radio" name="filter-area" value="negocios" /> Negocios y Economía</label>
+                  <label><input type="radio" name="filter-area" value="comunicacion" /> Comunicación, Arq. y Diseño</label>
+                  <label><input type="radio" name="filter-area" value="derecho" /> Ciencias Sociales y Derecho</label>
+                  <label><input type="radio" name="filter-area" value="turismo" /> Turismo, Gastronomía y Hospitalidad</label>
+                  <label><input type="radio" name="filter-area" value="artes" /> Artes y Humanidades</label>
+                  <label><input type="radio" name="filter-area" value="ejecutivas" /> Ejecutivas</label>
+                </div>
               </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Negocios y Economía</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Administración y Dirección de Empresas">Administración y Dirección de Empresas <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Business and Wealth Management">Business and Wealth Management</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección del Deporte">Dirección del Deporte</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección Financiera">Dirección Financiera <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Economía">Economía <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Finanzas y Contaduría Pública">Finanzas y Contaduría Pública <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Management">Global Management</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Mercadotecnia Estratégica">Mercadotecnia Estratégica <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Negocios Internacionales">Negocios Internacionales <span class="cn-chip-sur">También en Sur</span></a>
-              </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Comunicación, Arquitectura y Diseño</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura">Arquitectura <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura de Interiores">Arquitectura de Interiores</a>
-                <a class="cn-chip" href="comunicacion.html" aria-label="Conoce la Licenciatura en Comunicación">Comunicación <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección de Empresas de Entretenimiento">Dirección de Empresas de Entretenimiento <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño de Moda e Innovación">Diseño de Moda e Innovación</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Gráfico">Diseño Gráfico <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Industrial">Diseño Industrial <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Multimedia">Diseño Multimedia <span class="cn-chip-sur">También en Sur</span></a>
-              </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Ciencias Sociales y Derecho</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Derecho">Derecho <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Development">Global Development</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Pedagogía Organizacional y Educativa">Pedagogía Organizacional y Educativa</a>
-                <a class="cn-chip" href="psicologia.html" aria-label="Conoce la Licenciatura en Psicología">Psicología <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Relaciones Internacionales">Relaciones Internacionales <span class="cn-chip-sur">También en Sur</span></a>
-              </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Artes y Humanidades</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Artes Visuales">Artes Visuales</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Historia">Historia</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Música Contemporánea">Música Contemporánea</a>
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Teatro y Actuación">Teatro y Actuación</a>
-              </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Turismo, Gastronomía y Hospitalidad</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="administracion-turistica.html" aria-label="Conoce la Licenciatura en Administración Turística">Administración Turística <span class="cn-chip-sur">También en Sur</span></a>
-                <a class="cn-chip" href="direccion-de-restaurantes.html" aria-label="Conoce la Licenciatura en Dirección de Restaurantes">Dirección de Restaurantes</a>
-                <a class="cn-chip" href="direccion-internacional-de-hoteles.html" aria-label="Conoce la Licenciatura en Dirección Internacional de Hoteles">Dirección Internacional de Hoteles</a>
-                <a class="cn-chip" href="gastronomia.html" aria-label="Conoce la Licenciatura en Gastronomía">Gastronomía <span class="cn-chip-sur">También en Sur</span></a>
-              </div>
-            </details>
-
-            <details class="cn-area">
-              <summary><h3>Ejecutivas</h3><span class="cn-area-mark" aria-hidden="true"></span></summary>
-              <div class="cn-area-body">
-                <a class="cn-chip" href="oferta-academica.html" aria-label="Conoce la Licenciatura Ejecutiva en Educación">Licenciatura Ejecutiva en Educación</a>
-              </div>
-            </details>
+            </div>
           </div>
 
-          <p class="cn-lic-nota reveal" data-reveal>
-            ¿Aún no decides tu carrera? <a href="oferta-academica.html">Explora la oferta por áreas <span aria-hidden="true">›</span></a>
-          </p>
+          <p class="search-count reveal" data-reveal><span id="result-count">45</span> programas encontrados</p>
+
+          <div class="program-grid reveal" data-reveal>
+            <article class="program-card" data-area="salud" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/medico-cirujano.png" alt="Médico Cirujano" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Médico Cirujano</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Forma profesionales de la medicina con una visión integral, ética y humanista preparados para transformar el sistema de salud.</p>
+                <a class="btn-program" href="medicina.html" aria-label="Conoce la Licenciatura en Médico Cirujano">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/medico-cirujano-dentista.png" alt="Médico Cirujano Dentista" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Médico Cirujano Dentista</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Previene, diagnostica y trata los padecimientos bucodentales: atiendes pacientes desde 2º semestre en la Clínica Dental Universitaria.</p>
+                <a class="btn-program" href="licenciatura-cirujano-dentista.html" aria-label="Conoce la Licenciatura en Médico Cirujano Dentista">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/nutricion.png" alt="Nutrición" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Nutrición</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="nutricion.html" aria-label="Conoce la Licenciatura en Nutrición">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/terapia-fisica-y-rehabilitacion.png" alt="Terapia Física y Rehabilitación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Terapia Física y Rehabilitación</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Evalúa, diagnostica e interviene el movimiento humano: atiendes pacientes reales desde 4º semestre y rotas por ocho clínicas de especialidad.</p>
+                <a class="btn-program" href="licenciatura-terapia-fisica-y-rehabilitacion.html" aria-label="Conoce la Licenciatura en Terapia Física y Rehabilitación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/nutricion.png" alt="Biotecnología" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Biotecnología</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Investiga y aplica sistemas biológicos para desarrollar soluciones en salud, industria y sostenibilidad.</p>
+                <a class="btn-program" href="licenciatura-biotecnologia.html" aria-label="Conoce la Licenciatura en Biotecnología">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-en-sistemas-y-tecnologia-de-informacion.png" alt="Actuaría" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Actuaría</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Desarrolla modelos y analiza riesgos para apoyar la toma de decisiones estratégicas en organizaciones de distintos sectores.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Actuaría">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-en-sistemas-y-tecnologia-de-informacion.png" alt="Ciencia de Datos" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ciencia de Datos</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Convierte datos en información estratégica mediante análisis, programación y modelos predictivos.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ciencia de Datos">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-ambiental.png" alt="Ingeniería Ambiental" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Ambiental</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Ambiental">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-biomedica.png" alt="Ingeniería Biomédica" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Biomédica</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Biomédica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-civil.png" alt="Ingeniería Civil" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Civil</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Civil">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería en Sistemas y Tecnologías de Información" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería en Sistemas y Tecnologías de Información</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería en Sistemas y Tecnologías de Información">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Industrial para la Dirección" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Industrial para la Dirección</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Industrial para la Dirección">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Mecatrónica" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Mecatrónica</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Mecatrónica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Química" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Química</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Química">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/negocios-internacionales.png" alt="Administración y Dirección de Empresas" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Administración y Dirección de Empresas</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Identifica oportunidades de negocio en los mercados nacionales e internacionales y lidera estrategias para impulsar el crecimiento de organizaciones en distintos sectores.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Administración y Dirección de Empresas">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Business and Wealth Management" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Business and Wealth Management</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Business and Wealth Management">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Dirección del Deporte" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Dirección del Deporte</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección del Deporte">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-financiera.png" alt="Dirección Financiera" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Dirección Financiera</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Lidera organizaciones con visión estratégica, innovación y sentido de responsabilidad social en el mundo financiero.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección Financiera">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/economia.png" alt="Economía" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Economía</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Economía">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/finanzas-y-contaduria-publica.png" alt="Finanzas y Contaduría Pública" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Finanzas y Contaduría Pública</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Finanzas y Contaduría Pública">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Global Management" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Global Management</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Management">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Mercadotecnia Estratégica" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Mercadotecnia Estratégica</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Mercadotecnia Estratégica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/negocios-internacionales.png" alt="Negocios Internacionales" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Negocios Internacionales</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Negocios Internacionales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/arquitectura.png" alt="Arquitectura" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Arquitectura</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Diseña y construye espacios innovadores que transformen comunidades con criterio estético, técnico y sustentable.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/arquitectura-de-interiores.png" alt="Arquitectura de Interiores" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Arquitectura de Interiores</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura de Interiores">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/comunicacion.png" alt="Comunicación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Comunicación</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="comunicacion.html" aria-label="Conoce la Licenciatura en Comunicación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-de-empresas-de-entretenimiento.png" alt="Dirección de Empresas de Entretenimiento" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Dirección de Empresas de Entretenimiento</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección de Empresas de Entretenimiento">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-de-moda-e-innovacion.png" alt="Diseño de Moda e Innovación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño de Moda e Innovación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño de Moda e Innovación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-grafico.png" alt="Diseño Gráfico" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Gráfico</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Gráfico">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-industrial.png" alt="Diseño Industrial" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Industrial</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Crea productos y experiencias que integran funcionalidad, estética y sustentabilidad para mejorar la vida de las personas.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Industrial">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-multimedia.png" alt="Diseño Multimedia" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Multimedia</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Multimedia">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/derecho.png" alt="Derecho" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Derecho</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Derecho">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Global Development" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Global Development</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Development">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Pedagogía Organizacional y Educativa" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Pedagogía Organizacional y Educativa</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Pedagogía Organizacional y Educativa">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Psicología" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Psicología</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="psicologia.html" aria-label="Conoce la Licenciatura en Psicología">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Relaciones Internacionales" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Relaciones Internacionales</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Relaciones Internacionales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-grafico.png" alt="Artes Visuales" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Artes Visuales</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Explora distintos lenguajes artísticos para desarrollar propuestas visuales con identidad y visión contemporánea.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Artes Visuales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Historia" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Historia</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Historia">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Música Contemporánea" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Música Contemporánea</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Música Contemporánea">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Teatro y Actuación" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Teatro y Actuación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Teatro y Actuación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/administracion-turistica.png" alt="Administración Turística" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Administración Turística</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Dirige empresas turísticas, crea productos y experiencias innovadoras y posiciona destinos con una visión sostenible y digital.</p>
+                <a class="btn-program" href="administracion-turistica.html" aria-label="Conoce la Licenciatura en Administración Turística">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-de-restaurantes.png" alt="Dirección de Restaurantes" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Dirección de Restaurantes</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Gestiona negocios de alimentos y bebidas, crea conceptos restauranteros originales y anticipa las tendencias del sector.</p>
+                <a class="btn-program" href="direccion-de-restaurantes.html" aria-label="Conoce la Licenciatura en Dirección de Restaurantes">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/turismo-gastronomia-y-hospitalidad.png" alt="Dirección Internacional de Hoteles" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Dirección Internacional de Hoteles</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="direccion-internacional-de-hoteles.html" aria-label="Conoce la Licenciatura en Dirección Internacional de Hoteles">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/gastronomia.png" alt="Gastronomía" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Gastronomía</h3>
+                <p class="program-mode">Presencial | También en Sur</p>
+                <p class="program-desc">Domina el arte culinario con técnicas de vanguardia y una formación empresarial que te permitirá liderar proyectos gastronómicos.</p>
+                <a class="btn-program" href="gastronomia.html" aria-label="Conoce la Licenciatura en Gastronomía">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ejecutivas" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Licenciatura Ejecutiva en Educación" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ejecutivas</span>
+                <h3>Licenciatura Ejecutiva en Educación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Licenciatura Ejecutiva en Educación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>          </div>
+
+          <nav class="pagination" aria-label="Paginación de licenciaturas"></nav>
+
+          <p class="cn-lic-nota reveal" data-reveal>¿Aún no decides tu carrera? <a href="oferta-academica.html">Explora la oferta por áreas ›</a></p>
         </div>
       </section>
 
@@ -798,27 +1234,27 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Se vive desde</th>
+                  <th scope="row"><span class="cn-tabla-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13 13 8.5 15.5 11 11"/></svg></span>Se vive desde</th>
                   <td class="cn-tabla-norte" data-campus="Campus Norte">La amplitud: variedad de personas, actividades y oportunidades para construir tu propio camino.</td>
                   <td class="cn-tabla-sur" data-campus="Campus Sur">La cercanía: una comunidad donde es más fácil conocer y conectar.</td>
                 </tr>
                 <tr>
-                  <th scope="row">El ambiente</th>
+                  <th scope="row"><span class="cn-tabla-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20.5C6 20.5 4 16.5 4 12 4 7 7.5 4 13 3.5c.6 5.5-1 11.5-9 12.5"/><path d="M4.5 20.5c2.5-4 5.5-6.5 8.5-7.5"/></svg></span>El ambiente</th>
                   <td class="cn-tabla-norte" data-campus="Campus Norte">Dinámico y cosmopolita: siempre hay algo pasando.</td>
                   <td class="cn-tabla-sur" data-campus="Campus Sur">Tranquilo, con áreas verdes y vista panorámica de la ciudad.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Tu comunidad</th>
+                  <th scope="row"><span class="cn-tabla-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M16 5.2a3 3 0 0 1 0 5.6M21 20v-1a5 5 0 0 0-3.5-4.8"/></svg></span>Tu comunidad</th>
                   <td class="cn-tabla-norte" data-campus="Campus Norte">Una red amplia y diversa para hacer contactos.</td>
                   <td class="cn-tabla-sur" data-campus="Campus Sur">Vínculos cercanos con profesores y compañeros.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Va contigo si</th>
+                  <th scope="row"><span class="cn-tabla-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 3.5 14.6 9 20.5 9.6 16 13.7 17.3 19.6 12 16.5 6.7 19.6 8 13.7 3.5 9.6 9.4 9"/></svg></span>Va contigo si</th>
                   <td class="cn-tabla-norte" data-campus="Campus Norte">Quieres explorar y combinar tu carrera con deporte, cultura o liderazgo.</td>
                   <td class="cn-tabla-sur" data-campus="Campus Sur">Quieres sentirte acompañado desde el primer día.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Dónde está</th>
+                  <th scope="row"><span class="cn-tabla-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.3-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.7 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg></span>Dónde está</th>
                   <td class="cn-tabla-norte" data-campus="Campus Norte">Huixquilucan, Estado de México, junto a Interlomas.</td>
                   <td class="cn-tabla-sur" data-campus="Campus Sur">Álvaro Obregón, Ciudad de México, cerca de San Ángel.</td>
                 </tr>
@@ -1369,6 +1805,7 @@
     </div>
 
     <script src="campus-norte.js"></script>
+    <script src="oferta.js"></script>
     <script src="script.js"></script>
     <script type="module" src="assets/review/review.js"></script>
   </body>

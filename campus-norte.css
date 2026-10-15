@@ -59,6 +59,29 @@
   margin-bottom: 50px;
 }
 
+/* El M4 reusa el módulo de oferta, pero su encabezado va alineado a la
+   izquierda como el resto de la página (en oferta-academica va centrado). */
+.cn-lic.oferta-search .section-intro {
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  align-items: flex-start;
+}
+
+/* Unifica el tamaño de TODAS las fotos de las tarjetas de carrera: proporción
+   fija 3:2 (la de las fotos reales) + object-fit, para que las imágenes
+   placeholder (verticales/cuadradas) no descuadren las tarjetas. */
+.cn-lic .program-img {
+  aspect-ratio: 3 / 2;
+  margin-bottom: 20px;
+}
+.cn-lic .program-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* =============================================================================
    MÓDULO 1 — Hero
    Layout apilado (.hero-stack de styles.css): H1 a todo el ancho y, debajo, foto
@@ -196,107 +219,6 @@
 
 .cn-porque-cta { margin-top: 40px; }
 
-/* =============================================================================
-   MÓDULO 4 — Licenciaturas (router por área)
-   Desktop: rejilla de 2 columnas de áreas, todas desplegadas. Móvil: acordeón
-   nativo <details> con la 1.ª abierta (JS sincroniza el estado). Cada área es un
-   H3 + chips de carrera. La etiqueta «También en Sur» va como texto dentro del
-   chip, nunca solo color.
-   ========================================================================== */
-.cn-areas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 40px;
-  align-items: start;
-}
-
-.cn-area {
-  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-.cn-area summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px 0;
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-}
-
-.cn-area summary::-webkit-details-marker { display: none; }
-
-.cn-area summary h3 {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  color: var(--color-text);
-}
-
-/* Marca +/− del acordeón (en móvil). En desktop se oculta. */
-.cn-area-mark {
-  position: relative;
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-}
-.cn-area-mark::before,
-.cn-area-mark::after {
-  content: "";
-  position: absolute;
-  background: var(--purple-2);
-  transition: transform 200ms ease, opacity 200ms ease;
-}
-.cn-area-mark::before { top: 8px; left: 0; width: 18px; height: 2px; }
-.cn-area-mark::after { left: 8px; top: 0; width: 2px; height: 18px; }
-.cn-area[open] .cn-area-mark::after { transform: scaleY(0); opacity: 0; }
-
-.cn-area-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 4px 0 24px;
-}
-
-/* Chip de carrera. Mismo lenguaje visual que .lic-chip del sistema. */
-.cn-chip {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 9px 16px;
-  border: 1.5px solid rgba(0, 0, 0, 0.12);
-  border-radius: var(--radius-button);
-  background: var(--white);
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--color-text);
-  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
-}
-
-.cn-chip:hover {
-  border-color: var(--purple-2);
-  background: rgba(93, 66, 140, 0.06);
-  transform: translateY(-1px);
-}
-
-/* Etiqueta «También en Sur»: texto, no solo color. */
-.cn-chip-sur {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--lilac-2);
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  text-transform: none;
-  color: var(--purple-1);
-}
 
 .cn-lic-nota {
   margin-top: 40px;
@@ -359,7 +281,9 @@
   overflow: hidden;
 }
 
-.cn-ficha-foto {
+/* Mayor especificidad que `.campus-slides img` (psicologia.css) para que el
+   aspect-ratio gane y todas las fotos de ficha queden a la misma altura. */
+.cn-inst-slider .cn-ficha-foto {
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
@@ -456,14 +380,33 @@
   color: var(--color-text-invert);
 }
 
-/* Encabezados de fila (criterio) */
+/* Encabezados de fila (criterio) con ícono */
 .cn-tabla tbody th[scope="row"] {
-  width: 22%;
+  width: 24%;
   font-family: var(--font-heading);
   font-size: 18px;
   font-weight: var(--weight-semibold);
   color: var(--color-text);
 }
+
+.cn-tabla-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--lilac-2);
+  color: var(--purple-1);
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.cn-tabla-ic svg { width: 20px; height: 20px; }
+
+/* Acento bajo las cabeceras de columna + un poco más de aire. */
+.cn-tabla thead th { border-bottom: 2px solid rgba(17, 12, 34, 0.1); padding-bottom: 16px; }
+.cn-tabla tbody tr:hover td { background-color: rgba(17, 12, 34, 0.02); }
+.cn-tabla tbody tr:hover td.cn-tabla-norte { background-color: rgba(93, 66, 140, 0.09); }
 
 .cn-tabla td {
   font-family: var(--font-body);
@@ -665,6 +608,24 @@
 }
 
 .cn-form-acomp summary::-webkit-details-marker { display: none; }
+
+/* Marcador +/− del acordeón «¿Vienes acompañado?». */
+.cn-form-acomp .cn-area-mark {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.cn-form-acomp .cn-area-mark::before,
+.cn-form-acomp .cn-area-mark::after {
+  content: "";
+  position: absolute;
+  background: var(--purple-2);
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.cn-form-acomp .cn-area-mark::before { top: 8px; left: 0; width: 18px; height: 2px; }
+.cn-form-acomp .cn-area-mark::after { left: 8px; top: 0; width: 2px; height: 18px; }
+.cn-form-acomp[open] .cn-area-mark::after { transform: scaleY(0); opacity: 0; }
 
 .cn-form-acomp-body {
   display: grid;
@@ -935,7 +896,6 @@
 .escala-2026 .porque-card h3,
 .escala-2026 .paso-card h3,
 .escala-2026 .faq-item summary,
-.escala-2026 .cn-area summary h3,
 .escala-2026 .cn-dato-bloque h3,
 .escala-2026 .cn-tabla-campus {
   font-size: 24px;
@@ -990,23 +950,13 @@
   .cn-afinidad-cierre { font-size: 17px; }
 }
 
-/* M4: una columna de áreas y modo acordeón (la marca +/− aparece). */
+/* Ajustes móviles de fichas y formulario. */
 @media (max-width: 768px) {
-  .cn-areas { grid-template-columns: 1fr; gap: 0; }
   .cn-ficha h3, .cn-ficha p { padding: 0 24px; }
   .cn-ficha { padding-bottom: 24px; }
   .cn-visita-card { padding: 26px; }
   .cn-form-grid { grid-template-columns: 1fr; }
   .cn-form-acomp-body { grid-template-columns: 1fr; }
-}
-
-/* En desktop las áreas están siempre desplegadas: se oculta la marca +/− y el
-   summary deja de capturar el clic (no se puede plegar). */
-@media (min-width: 769px) {
-  .cn-area { border-bottom: 0; }
-  .cn-area summary { cursor: default; padding: 0 0 12px; }
-  .cn-area-mark { display: none; }
-  .cn-area-body { padding-top: 0; }
 }
 
 /* M5 deslizador: 2 a la vista, luego 1 con asomo de la siguiente. */
