@@ -593,3 +593,12 @@
     flex: 0 0 100%;
   }
 }
+
+/* Chips de certificaciones Le Cordon Bleu en la banda doble (igual que Hoteles/Restaurantes). */
+.pagina-administracion-turistica .campo-doble-certs {
+  margin: 4px 0 0;
+  gap: 10px;
+}
+.pagina-administracion-turistica .campo-doble-certs .lic-chip {
+  border-color: transparent;
+}
