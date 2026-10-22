@@ -1046,3 +1046,7 @@
 @media (max-width: 767px) {
   .cs-pasos { padding-bottom: calc(var(--section-pad-y) + 76px); }
 }
+
+/* Eventos reubicados como sección propia debajo de Instalaciones. */
+.cs-eventos-sec { background: var(--gray); }
+.cs-eventos-sec .cs-eventos { margin-top: 0; }
