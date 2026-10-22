@@ -411,3 +411,21 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
   experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un
   módulo marcado «no rediseñar». ¿Se adapta el módulo compartido o se deja fuera?
 - ¿Cuál es el nombre definitivo del espacio que hoy figura como «Hospital Virtual»? (bloquea el copy de la tarjeta protagonista del módulo 3 del Área de Ciencias de la Salud).
+
+### 2026-10-22 — Claustro docente de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Se incorporan los cuatro docentes y sus descripciones en la página local, conservando el carrusel, las clases y los avatares existentes. Fotografías pendientes. Sin publicación ni cambios en HubSpot.
+
+### 2026-10-22 — Cuatro campos de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Se actualiza el título y la descripción de la tarjeta a cuatro campos: médica, farmacéutica, alimentaria y ambiental. Cambio de contenido local, sin modificar formato.
+
+### 2026-10-22 — Cátedras e instalaciones de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Cátedras: se amplía el texto a los sectores farmacéutico, médico y alimentario. Se añaden Bioterio y Laboratorio de Fisiología al carrusel con imagen existente de referencia autorizada; fotografías reales pendientes. Cambios solo locales y formato conservado.
+
+### 2026-10-22 — Validación y aprobación de ajustes de Biotecnología
+
+- Revisión técnica: cuatro docentes con sus descripciones; siete instalaciones con rutas de imagen existentes; contenido de campos y cátedras sincronizado con el spec. Sin cambios en CSS, JavaScript, tokens ni componentes compartidos.
+- Validación: 42 pruebas aprobadas; readiness, tokens y Stylelint aprobados; diff sin errores de espacios. Sin hallazgos bloqueantes en el alcance del cambio. Imágenes de referencia autorizadas por el usuario; fotografías finales pendientes.
+- Revisión humana: el usuario aprueba los ajustes y solicita commit, merge y push.

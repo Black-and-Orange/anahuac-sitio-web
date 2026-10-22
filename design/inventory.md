@@ -99,3 +99,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - `documentado` — contrato listo en `design/components/*.md`.
 - `construido` — materializado en el adapter (HubSpot).
 - `validado` — pasó reporte del validator sin bloqueantes.
+
+- 2026-10-22: `lic-colab` / `docente-card` de Biotecnología: cuatro docentes confirmados con descripción; formato compartido sin cambios y fotografías pendientes.
+
+- 2026-10-22: `campus-slider` / `lic-inst-card` de Biotecnología: siete instalaciones, incluyendo Bioterio y Laboratorio de Fisiología con imágenes de referencia; sin cambios al componente compartido.

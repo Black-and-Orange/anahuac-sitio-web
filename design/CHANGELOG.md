@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-10-22 — Biotecnología · ajustes de contenido aprobados
+
+- Claustro de cuatro docentes, cuatro campos de formación y cátedras de distintos sectores.
+- Carrusel de siete instalaciones: se incorporan Bioterio y Laboratorio de Fisiología con imagen de referencia autorizada.
+- Formato, tokens y componentes compartidos conservados; contenido sincronizado con el spec e inventario. Revisión humana aprobada para integrar.
+
+
 ## 2026-10-07 — Licenciatura en Administración Turística · nueva página
 
 - Se construye `administracion-turistica.html` (+ `.css`, `.js`, spec) clonando

@@ -129,7 +129,7 @@
   1. **«Investigación desde los primeros semestres»** — «Te integras a proyectos de investigación ligados a tu titulación, con la posibilidad de publicar en revistas nacionales e internacionales y de generar patentes.» · «Ver el plan de estudios ›» → `#plan-estudios`
   2. **«Laboratorios de primer nivel»** — «Trabajas en laboratorios de genómica y proteómica, cultivo celular, biomoléculas y microbiología, con equipo actualizado y estandarizado.»
   3. **«Las ciencias ómicas, en tu plan de estudios»** — «Cursas Genómica y proteómica, Nutrigenómica, Farmacogenómica y Metabolómica, además de Bioinformática y Bases de ingeniería genética.»
-  4. **«Una biotecnología, seis campos»** — «Tu plan recorre la biotecnología médica, agroalimentaria, ambiental, vegetal, animal e industrial, para que descubras dónde quieres dejar huella.»
+  4. **«Una biotecnología, cuatro campos»** — «Tu plan recorre la biotecnología médica, farmacéutica, alimentaria y ambiental, para que descubras dónde quieres dejar huella.»
   5. **«Formación multidisciplinaria en Ciencias de la Salud»** — «Te preparas en las áreas básicas de las ciencias de la salud junto con otras licenciaturas de la Facultad, y sumas conocimientos de disciplinas complementarias.»
   6. **«Experiencia internacional»** — «Suma una experiencia internacional mediante convenios con universidades extranjeras, para intercambios y estancias de investigación.» · Chips: «Universidad Francisco de Vitoria (España)» · «Pontificia Universidad Javeriana (Colombia)»
 - **Banda `porque-plan`:**
@@ -207,8 +207,8 @@
   6. **«Emprendimiento y regulación»** — «Tu propia empresa de biotecnología, o instituciones públicas y consejos de regulación de procesos.»
 - **Preview:** formato 4:5, alt descriptivo por ámbito (p. ej. «Biotecnóloga egresada de la Anáhuac México trabajando en un laboratorio de la industria farmacéutica»).
 - **Banda destacada (`campo-band`):**
-  - **H3:** «Cátedras con la industria farmacéutica»
-  - Texto: «Participas en cátedras con empresas farmacéuticas como **Opella, Roche y Novo Nordisk**, y te conectas desde la carrera con la industria en la que quieres trabajar.»
+  - **H3:** «Cátedras con empresas de distintos sectores»
+  - Texto: «Participas en cátedras con empresas de los sectores farmacéutico, médico y alimentario, como **Opella, Roche y Novo Nordisk**, y te conectas desde la carrera con las industrias en las que puedes desarrollar tu futuro profesional.»
   - CTAs: «Iniciar proceso de admisión» (`btn btn-orange`) → `/admision-general` · «Solicitar más información» (`btn btn-light`) → `#solicita`
 
 ---
@@ -222,12 +222,14 @@
 - **Eyebrow:** «Instalaciones»
 - **H2:** «Instalaciones donde estudiarás tu licenciatura»
 - **Intro:** «Conoce los laboratorios de Campus Norte donde se forman los biotecnólogos, y el futuro Hospital Virtual.»
-- **Tarjetas del slider (5):**
+- **Tarjetas del slider (7):**
   1. **«Laboratorio de Genómica y Proteómica»**
   2. **«Laboratorio de Cultivo Celular»**
   3. **«Laboratorio de Biomoléculas»**
   4. **«Laboratorio de Microbiología»**
   5. **«Hospital Virtual (en construcción)»**, ⚠️ con «(en construcción)» visible en el H3.
+  6. **«Bioterio»** — imagen de referencia existente autorizada por el usuario; fotografía real pendiente.
+  7. **«Laboratorio de Fisiología»** — imagen de referencia existente autorizada por el usuario; fotografía real pendiente.
 - **Alt:** «[Nombre del espacio] — Universidad Anáhuac México, Campus Norte»
 - **Línea de cierre:** «Agenda un tour presencial o una cita virtual [aquí].» → `/visita-campus` **[VERIFICAR URL]**
 
@@ -248,7 +250,11 @@
 
 - **Eyebrow:** «Docencia y colaboradores» · **H2:** «¿Con quién te formas?»
 - **Intro:** «Aprendes de investigadores y especialistas de los sectores público y privado, y desarrollas proyectos con universidades, centros de investigación y empresas líderes.»
-- **«Claustro docente» (H3):** carrusel de `docente-card` → foto + nombre + **cargo o logro profesional**. **[PENDIENTE]**
+- **«Claustro docente» (H3):** carrusel de cuatro `docente-card`, con nombres y descripciones confirmados por el cliente el 2026-10-22. Se conserva el formato y los avatares actuales; fotografías pendientes.
+  - **Dra. Irlanda Olvera Gómez:** Especialista en inmunología y biomedicina molecular, con experiencia en investigación hospitalaria.
+  - **Mtro. Oscar Ortega Oviedo:** Experto en diagnóstico clínico y automatización de laboratorios, con más de 20 años de experiencia en América Latina.
+  - **Dr. Manuel Lara Lozano:** Especialista en neurobiología celular y molecular, con experiencia en diagnóstico molecular veterinario.
+  - **Dr. Moisés Talavera Paulin:** Especialista en inmunología y candidato a investigador nacional por el SNII/SECIHTI.
 - **«Aliados nacionales» (H3):** UNAM · Instituto Politécnico Nacional · 3M · Herdez · GE · Philips · Oracle · Hospital Ángeles
 - **«Aliados internacionales» (H3):** Universidad Francisco de Vitoria (España) · Pontificia Universidad Javeriana (Colombia)
 - **Dato de respaldo de Facultad (siempre atribuido a la Facultad):** «La Facultad de Ciencias de la Salud cuenta con más de 350 campos clínicos y convenios con más de 53 hospitales en 8 estados de la República.»
@@ -359,8 +365,8 @@ Header
 3  ¿Por qué la Anáhuac México? (slider de laboratorios + «Ver instalaciones» | 6 tarjetas + banda Modelo Anáhuac → CTA morado)
 4  Perfil de egreso (bullets + AEO: 9 sem · 415 créditos | foto)
 5  Plan de estudios (9 tabs por semestre, con colores por bloque · 3 bloques · 2 descargas · RVOE)
-6  Campo laboral (6 tiles + preview | banda CÁTEDRAS CON FARMACÉUTICAS + 2 CTAs)
-7  Instalaciones (slider: Genómica y Proteómica · Cultivo Celular · Biomoléculas · Microbiología · Hospital Virtual en construcción)
+6  Campo laboral (6 tiles + preview | banda CÁTEDRAS CON EMPRESAS DE DISTINTOS SECTORES + 2 CTAs)
+7  Instalaciones (slider: Genómica y Proteómica · Cultivo Celular · Biomoléculas · Microbiología · Hospital Virtual en construcción · Bioterio · Laboratorio de Fisiología)
 8  Historias Anáhuac México (compartido)
 9  ¿Con quién te formas? (claustro + aliados nacionales + internacionales)
 10 Elige el siguiente paso (5 tarjetas)
