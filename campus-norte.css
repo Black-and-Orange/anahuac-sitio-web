@@ -1046,3 +1046,7 @@
 @media (max-width: 767px) {
   .cn-pasos { padding-bottom: calc(var(--section-pad-y) + 76px); }
 }
+
+/* Eventos reubicados como sección propia debajo de Instalaciones. */
+.cn-eventos-sec { background: var(--gray); }
+.cn-eventos-sec .cn-eventos { margin-top: 0; }
