@@ -19,7 +19,8 @@ export class PinLayer {
 
   async renderAll() {
     const list = await this.store.list(this.config.projectId, this.page);
-    list.forEach((c, i) => this.addPin(c, i + 1));
+    // Los resueltos se ocultan de la página; se reabren desde /admin.
+    list.filter((c) => c.status !== 'resuelto').forEach((c, i) => this.addPin(c, i + 1));
   }
 
   addPin(comment, number) {
@@ -86,8 +87,7 @@ export class PinLayer {
       : '';
     const mine = isMine(comment.id);
     const deleteHtml = mine ? '<button class="bnor-btn bnor-btn--danger" data-act="delete">Eliminar</button>' : '';
-    const done = comment.status === 'resuelto';
-    const toggleHtml = `<button class="bnor-btn bnor-btn--status" data-act="toggle-done">${done ? '↺ Reabrir' : '✓ Marcar como listo'}</button>`;
+    const toggleHtml = '<button class="bnor-btn bnor-btn--status" data-act="mark-done">✓ Marcar como listo</button>';
     card.innerHTML = `
       <div class="bnor-author">${escapeHtml(comment.name)}</div>
       <div class="bnor-date">${date}</div>
@@ -119,16 +119,14 @@ export class PinLayer {
       this.openCard(comment, pinEl); // re-render con la respuesta nueva
     });
 
-    card.querySelector('[data-act="toggle-done"]').addEventListener('click', async (ev) => {
+    card.querySelector('[data-act="mark-done"]').addEventListener('click', async (ev) => {
       ev.stopPropagation();
-      const next = comment.status === 'resuelto' ? 'pendiente' : 'resuelto';
       try {
-        await this.store.update(this.config.projectId, this.page, comment.id, { status: next });
-      } catch (e) { console.warn('[BnO Review] no se pudo actualizar el estado:', e); return; }
-      comment.status = next;
-      const target = this.pins.find((p) => p.comment.id === comment.id);
-      if (target) target.pinEl.dataset.status = next;
-      this.openCard(comment, pinEl); // re-render con el nuevo estado (color de badge/botón)
+        await this.store.update(this.config.projectId, this.page, comment.id, { status: 'resuelto' });
+      } catch (e) { console.warn('[BnO Review] no se pudo marcar como listo:', e); return; }
+      comment.status = 'resuelto';
+      card.remove();
+      this._removePin(comment.id); // los resueltos se ocultan de la página (reabrir desde /admin)
     });
 
     if (mine) {
