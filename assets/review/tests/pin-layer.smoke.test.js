@@ -205,32 +205,52 @@ test('la tarjeta muestra las respuestas del equipo (visibles para el cliente)', 
   assert.match(reply.textContent, /Ya quedó listo/);
 });
 
-test('la tarjeta muestra "Eliminar" solo en los comentarios propios y lo borra', async () => {
+test('la tarjeta muestra "Eliminar" en cualquier comentario (no solo los propios) y lo borra', async () => {
   const root = makeRoot();
   const comments = [
-    { id: 'mio', name: 'Ana', comment: 'error, borrar', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' } },
+    { id: 'ajeno', name: 'Maria P', comment: 'comentario de otra persona', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' } },
   ];
   const store = fakeStore(comments);
-  // marcar como "mío" en el localStorage del window (lo usa mine.js)
-  dom.window.localStorage.setItem('bno-review:mine', JSON.stringify(['mio']));
+  // NO se marca como "mío": aun así debe poder borrarse desde el front.
+  dom.window.localStorage.removeItem('bno-review:mine');
   dom.window.confirm = () => true;
 
   const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
   await pinLayer.renderAll();
-  const entry = pinLayer.pins.find((p) => p.comment.id === 'mio');
+  const entry = pinLayer.pins.find((p) => p.comment.id === 'ajeno');
   pinLayer.openCard(entry.comment, entry.pinEl);
 
   const card = root.querySelector('.bnor-card');
   const del = card.querySelector('[data-act="delete"]');
-  assert.ok(del, 'debe mostrar el botón Eliminar en un comentario propio');
+  assert.ok(del, 'debe mostrar el botón Eliminar aunque el comentario no sea propio');
 
   del.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
   await new Promise((resolve) => setTimeout(resolve, 0));
 
   assert.equal(store.deleteCalls.length, 1, 'debe llamar a store.delete');
-  assert.equal(store.deleteCalls[0].id, 'mio');
-  assert.equal(pinLayer.pins.find((p) => p.comment.id === 'mio'), undefined, 'debe quitar el pin borrado');
-  dom.window.localStorage.removeItem('bno-review:mine');
+  assert.equal(store.deleteCalls[0].id, 'ajeno');
+  assert.equal(pinLayer.pins.find((p) => p.comment.id === 'ajeno'), undefined, 'debe quitar el pin borrado');
+});
+
+test('con confirm() cancelado NO borra', async () => {
+  const root = makeRoot();
+  const comments = [
+    { id: 'x1', name: 'Ana', comment: 'no borrar', status: 'pendiente', createdAt: new Date().toISOString(), selector: '#p1', fingerprint: { sectionId: 's1', tag: 'p' } },
+  ];
+  const store = fakeStore(comments);
+  dom.window.confirm = () => false;
+
+  const pinLayer = new PinLayer({ root, store, config: CONFIG, page: 'test.html' });
+  await pinLayer.renderAll();
+  const entry = pinLayer.pins.find((p) => p.comment.id === 'x1');
+  pinLayer.openCard(entry.comment, entry.pinEl);
+
+  root.querySelector('[data-act="delete"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  assert.equal(store.deleteCalls.length, 0, 'no debe llamar a store.delete si se cancela');
+  assert.ok(pinLayer.pins.find((p) => p.comment.id === 'x1'), 'el pin debe seguir en la página');
+  dom.window.confirm = () => true;
 });
 
 test('marcar como listo guarda status=resuelto, cierra la tarjeta y quita el pin de la página', async () => {

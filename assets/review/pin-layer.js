@@ -1,5 +1,5 @@
 import { resolveElement } from './selector-engine.js';
-import { isMine, forgetMine } from './mine.js';
+import { forgetMine } from './mine.js';
 
 const STATE_LABEL = { 'pendiente': 'Pendiente', 'en-proceso': 'En proceso', 'resuelto': 'Resuelto' };
 const REVIEWER_KEY = 'bno-review:reviewer-name';
@@ -85,8 +85,8 @@ export class PinLayer {
       ? `<div class="bnor-replies">${replies.map((rep) => `
           <div class="bnor-reply"><span class="bnor-reply-author">${escapeHtml(rep.name || 'Equipo')}</span> ${escapeHtml(rep.text)}</div>`).join('')}</div>`
       : '';
-    const mine = isMine(comment.id);
-    const deleteHtml = mine ? '<button class="bnor-btn bnor-btn--danger" data-act="delete">Eliminar</button>' : '';
+    // Eliminar disponible para cualquier revisor del overlay (no solo los propios).
+    const deleteHtml = '<button class="bnor-btn bnor-btn--danger" data-act="delete">Eliminar</button>';
     const toggleHtml = '<button class="bnor-btn bnor-btn--status" data-act="mark-done">✓ Marcar como listo</button>';
     card.innerHTML = `
       <div class="bnor-author">${escapeHtml(comment.name)}</div>
@@ -129,18 +129,16 @@ export class PinLayer {
       this._removePin(comment.id); // los resueltos se ocultan de la página (reabrir desde /admin)
     });
 
-    if (mine) {
-      card.querySelector('[data-act="delete"]').addEventListener('click', async (ev) => {
-        ev.stopPropagation();
-        if (!window.confirm('¿Eliminar este comentario? No se puede deshacer.')) return;
-        try {
-          await this.store.delete(this.config.projectId, this.page, comment.id);
-        } catch (e) { console.warn('[BnO Review] no se pudo eliminar:', e); return; }
-        forgetMine(comment.id);
-        card.remove();
-        this._removePin(comment.id);
-      });
-    }
+    card.querySelector('[data-act="delete"]').addEventListener('click', async (ev) => {
+      ev.stopPropagation();
+      if (!window.confirm('¿Eliminar este comentario? No se puede deshacer.')) return;
+      try {
+        await this.store.delete(this.config.projectId, this.page, comment.id);
+      } catch (e) { console.warn('[BnO Review] no se pudo eliminar:', e); return; }
+      forgetMine(comment.id);
+      card.remove();
+      this._removePin(comment.id);
+    });
 
     const closeOnOutside = (ev) => {
       if (!ev.target.closest || !ev.target.closest('#bno-review-root')) {
