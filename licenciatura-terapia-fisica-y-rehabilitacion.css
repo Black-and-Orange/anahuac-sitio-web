@@ -1,0 +1,127 @@
+/* =============================================================================
+   LICENCIATURA EN TERAPIA FÍSICA Y REHABILITACIÓN — hoja de página
+
+   Esta hoja NO define componentes. El molde entero —hero, afinidad, porqué,
+   plan, campo, campus, colaboradores, pasos, FAQ y formulario— vive en
+   psicologia.css y se reutiliza tal cual. El `<body>` lleva además
+   `pagina-carrera`, así que la página nace con las correcciones del molde
+   promovidas el 2026-08-31. **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de Terapia Física y
+   Rehabilitación sobre ese molde:
+
+     a) el plan de estudios tiene 10 pestañas y no 8 (8 semestres + los periodos
+        9 y 10 de servicio social);
+     b) la tarjeta de datos duros lleva 3 datos y no 2 (el año de servicio social
+        es lo que distingue la duración real de esta carrera), más su línea de
+        apoyo con el desglose de créditos por bloque;
+     c) el panel de servicio social del plan y el dato de respaldo de la Facultad
+        en M9, dos piezas de texto auxiliar que el molde base no tenía.
+
+   Si alguna de estas desviaciones se repitiera en otra carrera, su sitio dejaría
+   de ser esta hoja y pasaría a ser el componente en psicologia.css.
+
+   NUNCA se hardcodean color, espaciado, tipografía, radio ni sombra: se usan los
+   tokens semánticos del molde.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 5 — Plan de estudios: 10 pestañas
+
+   El molde reparte 8 pestañas en 8 → 4 → 2 columnas: siempre divisores exactos
+   de 8, para que ninguna fila quede coja. Con 10 los divisores útiles son 5 y 2,
+   así que la cascada es 5 (2 filas de 5) → 2 → dropdown. Cuatro columnas darían
+   4+4+2 y la última fila se leería como un error.
+
+   Se acota con la clase `tfr-plan-tabs` para no tocar otras páginas.
+   -------------------------------------------------------------------------- */
+.pagina-terapia-fisica .tfr-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Las dos pestañas de servicio social van al MISMO cuerpo que las de semestre.
+   Se conserva `flex-wrap` como red: si el rótulo cambiara y dejara de caber,
+   parte en dos renglones en vez de desbordar la pestaña. */
+.pagina-terapia-fisica .tfr-plan-tabs .plan-tab--ss {
+  flex-wrap: wrap;
+  row-gap: 0;
+  text-align: center;
+}
+
+/* Los dos periodos de servicio social no listan materias: el panel lleva solo la
+   nota de cierre, con el mismo cuerpo que una asignatura de la lista. */
+.pagina-terapia-fisica .tfr-plan-ss {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 4 — Tarjeta de datos duros con TRES datos + línea de apoyo
+
+   El molde la resuelve en dos columnas. Con tres datos, dos columnas dejarían el
+   tercero solo en un renglón, y es justamente el que interesa destacar: el año
+   de servicio social es lo que distingue la duración de esta carrera. Los tres
+   van en el mismo renglón, con el mismo peso.
+   -------------------------------------------------------------------------- */
+.pagina-terapia-fisica .tfr-aeo .plan-aeo-datos {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* A 64px las tres cifras («397» y «+1») no caben juntas en tres columnas dentro
+   de la tarjeta: la cifra baja un escalón y la etiqueta se mantiene. */
+.pagina-terapia-fisica .tfr-aeo .plan-aeo-dato strong {
+  font-size: 52px;
+}
+
+/* -----------------------------------------------------------------------------
+   MÓDULO 9 — Dato de respaldo de la Facultad
+
+   Los 350 campos clínicos son de la Facultad de Ciencias de la Salud, no de la
+   carrera. Va como nota atribuida y no como cifra destacada.
+   -------------------------------------------------------------------------- */
+.pagina-terapia-fisica .tfr-colab-nota {
+  margin: 34px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+
+/* Cinco columnas necesitan ~750px de retícula; por debajo la fila se sale del
+   contenedor en vez de encogerse. El salto es directo a 2 columnas porque 10
+   solo tiene dos divisores útiles —5 y 2—; 3 o 4 dejarían la última fila coja.
+   A ≤540px el molde sustituye toda la barra por el dropdown de semestres. */
+@media (max-width: 1024px) {
+  .pagina-terapia-fisica .tfr-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Los tres datos duros en columnas estrechas dejan «Semestres académicos (4
+   años)» en demasiados renglones. Se apilan en dos filas: 2 arriba y el tercero
+   ancho abajo, que además es el que se quiere destacar. */
+@media (max-width: 640px) {
+  .pagina-terapia-fisica .tfr-aeo .plan-aeo-datos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagina-terapia-fisica .tfr-aeo .plan-aeo-dato:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* El molde baja la cifra a 52 en ≤475px; aquí ya está en 52 desde el inicio,
+     así que el escalón siguiente es 44. */
+  .pagina-terapia-fisica .tfr-aeo .plan-aeo-dato strong {
+    font-size: 44px;
+  }
+}

@@ -1,0 +1,1639 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Universidad Anáhuac México Campus Norte | Agenda tu visita</title>
+    <meta
+      name="description"
+      content="Conoce la Universidad Anáhuac México Campus Norte, junto a Interlomas: más de 40 licenciaturas, deporte, cultura y vida universitaria. Agenda tu visita."
+    />
+    <meta property="og:title" content="Universidad Anáhuac México Campus Norte" />
+    <meta
+      property="og:description"
+      content="Más personas, más espacios, más caminos por explorar. Agenda tu visita a Campus Norte."
+    />
+    <meta property="og:image" content="assets/hero-friends.jpg" />
+    <meta
+      property="og:image:alt"
+      content="Explanada de la Universidad Anáhuac México Campus Norte con estudiantes entre clases"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="psicologia.css" />
+    <link rel="stylesheet" href="oferta.css" />
+    <link rel="stylesheet" href="campus-norte.css" />
+
+    <!-- ===== Datos estructurados =====
+         BreadcrumbList (Inicio > Campus Norte) + CollegeOrUniversity (el campus,
+         con parentOrganization = Universidad Anáhuac México) + FAQPage (M10, 6
+         preguntas) + ItemList de Course (M4). SIN EducationEvent: no hay fechas
+         del tour confirmadas. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "Inicio.html" },
+              { "@type": "ListItem", "position": 2, "name": "Campus Norte" }
+            ]
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "@id": "#campus-norte",
+            "name": "Universidad Anáhuac México Campus Norte",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Universidad Anáhuac 46, Col. Lomas Anáhuac",
+              "addressLocality": "Huixquilucan",
+              "addressRegion": "Estado de México",
+              "postalCode": "52786",
+              "addressCountry": "MX"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 19.40327, "longitude": -99.27903 },
+            "telephone": "+525556270210",
+            "parentOrganization": { "@type": "CollegeOrUniversity", "name": "Universidad Anáhuac México" },
+            "sameAs": [
+              "https://www.facebook.com/anahuacmexico",
+              "https://www.instagram.com/vidanahuac",
+              "https://www.youtube.com/anahuacmexico"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Dónde está la Universidad Anáhuac México Campus Norte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "En Av. Universidad Anáhuac 46, colonia Lomas Anáhuac, Huixquilucan, Estado de México, junto a Interlomas. Puedes llegar en auto, con las rutas de transporte de la universidad o desde Campus Sur con el transporte intercampus."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué licenciaturas hay en Campus Norte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "En Campus Norte se imparten más de 40 licenciaturas de las 8 áreas académicas de la Universidad Anáhuac México, de Medicina e Ingeniería a Artes, Turismo y Negocios. Consulta la lista completa por área."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cómo puedo conocer Campus Norte antes de inscribirme?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Regístrate a un Tour Puertas Abiertas, que se ofrece los miércoles por la tarde y los sábados por la mañana, o agenda una cita con un asesor, presencial en el campus o virtual."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Puedo tomar clases en Campus Sur si me inscribo en Campus Norte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. La Universidad Anáhuac México es bicampus: puedes cursar algunas materias en Campus Sur, siempre que la mayoría sean en tu campus, y moverte entre ambos con el transporte intercampus gratuito."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Campus Norte tiene estacionamiento y transporte?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. Tiene 11 estacionamientos dentro del campus y rutas de transporte de la universidad desde distintas zonas de la Ciudad de México, el Estado de México y Toluca."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "name": "Licenciaturas en Campus Norte",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "Médico Cirujano", "url": "medicina.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "Médico Cirujano Dentista", "url": "licenciatura-cirujano-dentista.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "Nutrición", "url": "nutricion.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "Terapia Física y Rehabilitación", "url": "licenciatura-terapia-fisica-y-rehabilitacion.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "Biotecnología", "url": "licenciatura-biotecnologia.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 6, "item": { "@type": "Course", "name": "Actuaría", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 7, "item": { "@type": "Course", "name": "Ciencia de Datos", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 8, "item": { "@type": "Course", "name": "Ingeniería Ambiental", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 9, "item": { "@type": "Course", "name": "Ingeniería Biomédica", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 10, "item": { "@type": "Course", "name": "Ingeniería Civil", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 11, "item": { "@type": "Course", "name": "Ingeniería en Sistemas y Tecnologías de Información", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 12, "item": { "@type": "Course", "name": "Ingeniería Industrial para la Dirección", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 13, "item": { "@type": "Course", "name": "Ingeniería Mecatrónica", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 14, "item": { "@type": "Course", "name": "Ingeniería Química", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 15, "item": { "@type": "Course", "name": "Administración y Dirección de Empresas", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 16, "item": { "@type": "Course", "name": "Business and Wealth Management", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 17, "item": { "@type": "Course", "name": "Dirección del Deporte", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 18, "item": { "@type": "Course", "name": "Dirección Financiera", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 19, "item": { "@type": "Course", "name": "Economía", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 20, "item": { "@type": "Course", "name": "Finanzas y Contaduría Pública", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 21, "item": { "@type": "Course", "name": "Global Management", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 22, "item": { "@type": "Course", "name": "Mercadotecnia Estratégica", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 23, "item": { "@type": "Course", "name": "Negocios Internacionales", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 24, "item": { "@type": "Course", "name": "Arquitectura", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 25, "item": { "@type": "Course", "name": "Arquitectura de Interiores", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 26, "item": { "@type": "Course", "name": "Comunicación", "url": "comunicacion.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 27, "item": { "@type": "Course", "name": "Dirección de Empresas de Entretenimiento", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 28, "item": { "@type": "Course", "name": "Diseño de Moda e Innovación", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 29, "item": { "@type": "Course", "name": "Diseño Gráfico", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 30, "item": { "@type": "Course", "name": "Diseño Industrial", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 31, "item": { "@type": "Course", "name": "Diseño Multimedia", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 32, "item": { "@type": "Course", "name": "Derecho", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 33, "item": { "@type": "Course", "name": "Global Development", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 34, "item": { "@type": "Course", "name": "Pedagogía Organizacional y Educativa", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 35, "item": { "@type": "Course", "name": "Psicología", "url": "psicologia.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 36, "item": { "@type": "Course", "name": "Relaciones Internacionales", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 37, "item": { "@type": "Course", "name": "Artes Visuales", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 38, "item": { "@type": "Course", "name": "Historia", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 39, "item": { "@type": "Course", "name": "Música Contemporánea", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 40, "item": { "@type": "Course", "name": "Teatro y Actuación", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 41, "item": { "@type": "Course", "name": "Administración Turística", "url": "administracion-turistica.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 42, "item": { "@type": "Course", "name": "Dirección de Restaurantes", "url": "direccion-de-restaurantes.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 43, "item": { "@type": "Course", "name": "Dirección Internacional de Hoteles", "url": "direccion-internacional-de-hoteles.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 44, "item": { "@type": "Course", "name": "Gastronomía", "url": "gastronomia.html", "provider": { "@id": "#campus-norte" } } },
+              { "@type": "ListItem", "position": 45, "item": { "@type": "Course", "name": "Licenciatura Ejecutiva en Educación", "url": "oferta-academica.html", "provider": { "@id": "#campus-norte" } } }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <!-- PILOTO DE ESCALA TIPOGRÁFICA (`escala-2026`): misma que las páginas de área.
+       Las reglas de escala viven en campus-norte.css (sección PILOTO). -->
+  <body class="escala-2026">
+    <header class="site-header">
+      <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
+        <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Admisiones
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="proceso-de-admision.html" role="menuitem">Proceso de admisión</a>
+            <a href="fechas-de-examenes.html" role="menuitem">Fechas de examen</a>
+            <a href="#" role="menuitem">Revalidación y equivalencia</a>
+            <a href="#" role="menuitem">Curso para examen de admisión</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Costos y apoyos
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="#" role="menuitem">Costos</a>
+            <a href="#" role="menuitem">Cotiza tu licenciatura</a>
+            <a href="apoyos-economicos.html" role="menuitem">Apoyos económicos</a>
+            <a href="#" role="menuitem">Financiamiento</a>
+            <a href="#" role="menuitem">Concursos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Vida universitaria
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="Inicio.html#experiencia" role="menuitem">Experiencia</a>
+            <a href="Inicio.html#eventos" role="menuitem">Eventos</a>
+          </div>
+        </div>
+        <a href="foraneos.html">Foráneos</a>
+      </nav>
+
+      <a class="btn btn-dark nav-contact" href="#visita">Agenda tu visita</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Admisiones
+        </button>
+        <div class="mobile-submenu">
+          <a href="proceso-de-admision.html">Proceso de admisión</a>
+          <a href="fechas-de-examenes.html">Fechas de examen</a>
+          <a href="#">Revalidación y equivalencia</a>
+          <a href="#">Curso para examen de admisión</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Costos y apoyos
+        </button>
+        <div class="mobile-submenu">
+          <a href="#">Costos</a>
+          <a href="#">Cotiza tu licenciatura</a>
+          <a href="apoyos-economicos.html">Apoyos económicos</a>
+          <a href="#">Financiamiento</a>
+          <a href="#">Concursos</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Vida universitaria
+        </button>
+        <div class="mobile-submenu">
+          <a href="Inicio.html#experiencia">Experiencia</a>
+          <a href="Inicio.html#eventos">Eventos</a>
+        </div>
+        <a href="foraneos.html">Foráneos</a>
+        <a class="btn btn-dark mobile-contact" href="#visita">Agenda tu visita</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- =====================================================================
+           MÓDULO 1 — Hero · [AIDA: Atención] · #inicio
+           Patrón .lic-hero con layout apilado (.hero-stack): breadcrumb +
+           eyebrow + H1 + claim dominante + subtítulo + 2 CTAs + media.
+           PENDIENTE: video real de Campus Norte; de momento, foto placeholder.
+           ===================================================================== -->
+      <section class="lic-hero cn-hero section-pad" id="inicio">
+        <div class="container hero-stack">
+          <nav class="lic-breadcrumb" aria-label="Ruta de navegación">
+            <ol>
+              <li><a href="Inicio.html">Inicio</a></li>
+              <li aria-current="page">Campus Norte</li>
+            </ol>
+          </nav>
+
+          <div class="hero-stack-copy">
+            <h1 class="reveal" data-reveal data-max-lines="3">Universidad Anáhuac México Campus&nbsp;Norte</h1>
+          </div>
+
+          <div class="hero-stack-body reveal" data-reveal>
+            <img
+              class="hero-stack-img"
+              src="assets/hero-friends.jpg"
+              alt="Estudiantes de la Universidad Anáhuac México caminando por la explanada de Campus Norte, en Huixquilucan"
+              width="1920"
+              height="1080"
+              fetchpriority="high"
+            />
+            <div class="hero-stack-panel">
+              <div class="cn-hero-card">
+                <p class="cn-hero-claim">Dos campus, una misma esencia.</p>
+                <p class="cn-hero-sub">
+                  Vive la experiencia de la Universidad Anáhuac México en espacios diseñados para
+                  aprender, convivir, descubrir tus talentos y construir tu futuro.
+                </p>
+              </div>
+              <div class="button-row">
+                <a class="btn btn-dark" href="#visita">Agenda tu visita</a>
+                <a class="btn btn-light" href="#licenciaturas">Explora las licenciaturas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 3 — Por qué Campus Norte · [AIDA: Interés] · #por-que
+           Componente .lic-porque con carrusel sticky a la izquierda + enlace
+           «Ver instalaciones ›» y 6 tarjetas .porque-card a la derecha.
+           La tira de logos del M3 se OMITE (contenido no confirmado).
+           PENDIENTE: fotos reales del carrusel; de momento, placeholders.
+           ===================================================================== -->
+      <section class="lic-porque cn-porque section-pad" id="por-que">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>¿Por qué estudiar en la Anáhuac México?</h2>
+          </div>
+
+          <div class="cn-porque-layout reveal" data-reveal>
+            <div class="cn-porque-media">
+              <div
+                class="campus-slider cn-porque-slider"
+                data-campus-slider
+                role="region"
+                aria-roledescription="carrusel"
+                aria-label="Galería de la vida en Campus Norte"
+              >
+                <div class="campus-slider-viewport">
+                  <ul class="campus-slides">
+                    <li>
+                      <img src="assets/hero-football.jpg" alt="Estadio de Campus Norte de la Universidad Anáhuac México durante un partido de los Leones Anáhuac" loading="lazy" />
+                    </li>
+                    <li>
+                      <img src="assets/evento.jpg" alt="Estudiantes de Campus Norte en un ensayo de teatro, Universidad Anáhuac México" loading="lazy" />
+                    </li>
+                    <li>
+                      <img src="assets/hero-friends.jpg" alt="Estudiantes de la Universidad Anáhuac México en una cafetería de Campus Norte" loading="lazy" />
+                    </li>
+                  </ul>
+                </div>
+                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                </button>
+                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Imagen siguiente">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                </button>
+                <div class="campus-slider-dots" aria-label="Imágenes de la vida en Campus Norte"></div>
+              </div>
+              <a class="porque-link cn-porque-link" href="#instalaciones">Ver instalaciones <span aria-hidden="true">›</span></a>
+            </div>
+
+            <div class="cn-porque-cards">
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 20.5V9.2a1 1 0 0 1 .5-.9l7-4a1 1 0 0 1 1 0l7 4a1 1 0 0 1 .5.9v11.3" />
+                    <path d="M2.5 20.5h19M9 20.5v-5h6v5" />
+                  </svg>
+                </span>
+                <h3>Donde nació la Anáhuac México</h3>
+                <p>
+                  La Universidad Anáhuac México nació en 1964 y desde 1968 tiene su casa en Lomas Anáhuac:
+                  un campus de 22 hectáreas con tradición, historia y espíritu de León.
+                </p>
+              </article>
+
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="8" r="3" /><circle cx="17" cy="9.5" r="2.4" />
+                    <path d="M3.5 19.5v-1.2A3.8 3.8 0 0 1 7.3 14.5h3.4a3.8 3.8 0 0 1 3.8 3.8v1.2" />
+                    <path d="M16.6 14.6h1a3.1 3.1 0 0 1 3.1 3.1v1.6" />
+                  </svg>
+                </span>
+                <h3>Una comunidad tan amplia como tus planes</h3>
+                <p>
+                  Compartes campus con más de 11,000 estudiantes de licenciatura y con cerca de 3,500
+                  foráneos de todo México y de otros países: una red que te acompaña durante la carrera y
+                  después de ella.
+                </p>
+              </article>
+
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3v3a4 4 0 0 0 8 0V3" />
+                    <path d="M12 10v4M8.5 20.5c0-2 1.6-3.5 3.5-3.5s3.5 1.5 3.5 3.5" />
+                    <path d="M6 3h3M15 3h3" />
+                  </svg>
+                </span>
+                <h3>La casa de los Leones</h3>
+                <p>
+                  27 equipos representativos, del futbol americano al esgrima y los esports, entre los
+                  primeros lugares del ranking nacional CONADEIP, con Clínica de Medicina del Deporte para
+                  cuidar tu rendimiento.
+                </p>
+              </article>
+
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 4.5h15v11h-15z" />
+                    <path d="M9 20h6M12 15.5V20" />
+                    <path d="M8 9l2.2 2.2L16 7" />
+                  </svg>
+                </span>
+                <h3>Cultura que se vive en escena</h3>
+                <p>
+                  Teatro, danza y música con compañías y talleres de alto nivel, y una agenda cultural que
+                  cada año reúne a más de 60,000 asistentes en el campus.
+                </p>
+              </article>
+
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l7 3.5v5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9v-5z" />
+                    <path d="M9 11.5l2 2 4-4.5" />
+                  </svg>
+                </span>
+                <h3>Liderazgo a tu medida</h3>
+                <p>
+                  Programas de Liderazgo y Excelencia como Vértice, Genera, Culmen, CREA o Acción,
+                  sociedades de alumnos y voluntariado con Acción Social Universidad Anáhuac. Tú eliges cómo
+                  crecer fuera del aula.
+                </p>
+              </article>
+
+              <article class="porque-card">
+                <span class="porque-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="8" width="16" height="12" rx="1.5" />
+                    <path d="M8 8V6a4 4 0 0 1 8 0v2" />
+                    <path d="M12 12v3" />
+                  </svg>
+                </span>
+                <h3>Todo a unos pasos de tu salón</h3>
+                <p>
+                  Cafeterías, restaurantes, librería, papelería, banco y enfermería dentro del campus, con
+                  vigilancia las 24 horas.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="button-row cn-porque-cta reveal" data-reveal>
+            <a class="btn btn-light" href="#visita">Agenda tu visita</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 4 — Licenciaturas en Campus Norte · [AIDA: Interés] · #licenciaturas
+           8 áreas (H3) + chips de carrera. Desktop: rejilla de 2 columnas, todas
+           abiertas. Móvil: acordeón con la 1ª área abierta (JS en campus-norte.js).
+           Cada chip enlaza a su página local si existe; si no, a oferta-academica.
+           La etiqueta «También en Campus Sur» va como TEXTO dentro del chip.
+           ===================================================================== -->
+      <section class="cn-lic oferta-search section-pad" id="licenciaturas">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>¿Qué licenciaturas puedes estudiar en Campus Norte?</h2>
+            <p>Más de 40 licenciaturas de las 8 áreas académicas de la Universidad Anáhuac México. Elige la tuya y conoce su plan de estudios.</p>
+          </div>
+
+          <div class="search-bar reveal" data-reveal>
+            <div class="search-input-group">
+              <div class="search-input-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="search-licenciatura" placeholder="Buscar" aria-label="Buscar licenciatura" />
+                <button class="search-clear" type="button" aria-label="Limpiar búsqueda">×</button>
+              </div>
+              <button class="btn btn-orange search-btn" type="button">Buscar</button>
+            </div>
+            <div class="search-filters">
+              <span class="filter-label">Filtrar por:</span>
+              <div class="custom-dropdown" data-dropdown="area">
+                <button class="dropdown-toggle" type="button" aria-expanded="false">
+                  Área académica
+                  <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1,1 6,6 11,1"/></svg>
+                </button>
+                <div class="dropdown-menu">
+                  <label><input type="radio" name="filter-area" value="" checked /> Todas</label>
+                  <label><input type="radio" name="filter-area" value="salud" /> Ciencias de la Salud</label>
+                  <label><input type="radio" name="filter-area" value="ingenierias" /> Ingenierías y Ciencias</label>
+                  <label><input type="radio" name="filter-area" value="negocios" /> Negocios y Economía</label>
+                  <label><input type="radio" name="filter-area" value="comunicacion" /> Comunicación, Arq. y Diseño</label>
+                  <label><input type="radio" name="filter-area" value="derecho" /> Ciencias Sociales y Derecho</label>
+                  <label><input type="radio" name="filter-area" value="turismo" /> Turismo, Gastronomía y Hospitalidad</label>
+                  <label><input type="radio" name="filter-area" value="artes" /> Artes y Humanidades</label>
+                  <label><input type="radio" name="filter-area" value="ejecutivas" /> Ejecutivas</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="search-count reveal" data-reveal><span id="result-count">45</span> programas encontrados</p>
+
+          <div class="program-grid reveal" data-reveal>
+            <article class="program-card" data-area="salud" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/medico-cirujano.png" alt="Médico Cirujano" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Médico Cirujano</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Forma profesionales de la medicina con una visión integral, ética y humanista preparados para transformar el sistema de salud.</p>
+                <a class="btn-program" href="medicina.html" aria-label="Conoce la Licenciatura en Médico Cirujano">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/medico-cirujano-dentista.png" alt="Médico Cirujano Dentista" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Médico Cirujano Dentista</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Previene, diagnostica y trata los padecimientos bucodentales: atiendes pacientes desde 2º semestre en la Clínica Dental Universitaria.</p>
+                <a class="btn-program" href="licenciatura-cirujano-dentista.html" aria-label="Conoce la Licenciatura en Médico Cirujano Dentista">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/nutricion.png" alt="Nutrición" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Nutrición</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="nutricion.html" aria-label="Conoce la Licenciatura en Nutrición">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/terapia-fisica-y-rehabilitacion.png" alt="Terapia Física y Rehabilitación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Terapia Física y Rehabilitación</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Evalúa, diagnostica e interviene el movimiento humano: atiendes pacientes reales desde 4º semestre y rotas por ocho clínicas de especialidad.</p>
+                <a class="btn-program" href="licenciatura-terapia-fisica-y-rehabilitacion.html" aria-label="Conoce la Licenciatura en Terapia Física y Rehabilitación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="salud" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/nutricion.png" alt="Biotecnología" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias de la Salud</span>
+                <h3>Biotecnología</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Investiga y aplica sistemas biológicos para desarrollar soluciones en salud, industria y sostenibilidad.</p>
+                <a class="btn-program" href="licenciatura-biotecnologia.html" aria-label="Conoce la Licenciatura en Biotecnología">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-en-sistemas-y-tecnologia-de-informacion.png" alt="Actuaría" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Actuaría</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Desarrolla modelos y analiza riesgos para apoyar la toma de decisiones estratégicas en organizaciones de distintos sectores.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Actuaría">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-en-sistemas-y-tecnologia-de-informacion.png" alt="Ciencia de Datos" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ciencia de Datos</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Convierte datos en información estratégica mediante análisis, programación y modelos predictivos.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ciencia de Datos">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-ambiental.png" alt="Ingeniería Ambiental" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Ambiental</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Ambiental">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-biomedica.png" alt="Ingeniería Biomédica" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Biomédica</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Biomédica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/ingenieria-civil.png" alt="Ingeniería Civil" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Civil</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Civil">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería en Sistemas y Tecnologías de Información" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería en Sistemas y Tecnologías de Información</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería en Sistemas y Tecnologías de Información">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Industrial para la Dirección" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Industrial para la Dirección</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Industrial para la Dirección">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Mecatrónica" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Mecatrónica</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Mecatrónica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ingenierias" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Ingeniería Química" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ingenierías y Ciencias</span>
+                <h3>Ingeniería Química</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Ingeniería Química">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/negocios-internacionales.png" alt="Administración y Dirección de Empresas" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Administración y Dirección de Empresas</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Identifica oportunidades de negocio en los mercados nacionales e internacionales y lidera estrategias para impulsar el crecimiento de organizaciones en distintos sectores.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Administración y Dirección de Empresas">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Business and Wealth Management" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Business and Wealth Management</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Business and Wealth Management">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Dirección del Deporte" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Dirección del Deporte</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección del Deporte">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-financiera.png" alt="Dirección Financiera" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Dirección Financiera</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Lidera organizaciones con visión estratégica, innovación y sentido de responsabilidad social en el mundo financiero.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección Financiera">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/economia.png" alt="Economía" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Economía</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Economía">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/finanzas-y-contaduria-publica.png" alt="Finanzas y Contaduría Pública" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Finanzas y Contaduría Pública</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Finanzas y Contaduría Pública">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Global Management" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Global Management</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Management">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/negocios-y-economia.png" alt="Mercadotecnia Estratégica" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Mercadotecnia Estratégica</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Mercadotecnia Estratégica">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="negocios" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/negocios-internacionales.png" alt="Negocios Internacionales" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Negocios y Economía</span>
+                <h3>Negocios Internacionales</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Negocios Internacionales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/arquitectura.png" alt="Arquitectura" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Arquitectura</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Diseña y construye espacios innovadores que transformen comunidades con criterio estético, técnico y sustentable.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/arquitectura-de-interiores.png" alt="Arquitectura de Interiores" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Arquitectura de Interiores</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Arquitectura de Interiores">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/comunicacion.png" alt="Comunicación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Comunicación</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="comunicacion.html" aria-label="Conoce la Licenciatura en Comunicación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-de-empresas-de-entretenimiento.png" alt="Dirección de Empresas de Entretenimiento" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Dirección de Empresas de Entretenimiento</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Dirección de Empresas de Entretenimiento">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-de-moda-e-innovacion.png" alt="Diseño de Moda e Innovación" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño de Moda e Innovación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño de Moda e Innovación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-grafico.png" alt="Diseño Gráfico" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Gráfico</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Gráfico">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-industrial.png" alt="Diseño Industrial" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Industrial</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Crea productos y experiencias que integran funcionalidad, estética y sustentabilidad para mejorar la vida de las personas.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Industrial">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="comunicacion" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-multimedia.png" alt="Diseño Multimedia" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Comunicación, Arquitectura y Diseño</span>
+                <h3>Diseño Multimedia</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Diseño Multimedia">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/derecho.png" alt="Derecho" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Derecho</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Derecho">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Global Development" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Global Development</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Global Development">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Pedagogía Organizacional y Educativa" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Pedagogía Organizacional y Educativa</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Pedagogía Organizacional y Educativa">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Psicología" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Psicología</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="psicologia.html" aria-label="Conoce la Licenciatura en Psicología">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="derecho" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/ciencias-sociales-y-derecho.png" alt="Relaciones Internacionales" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ciencias Sociales y Derecho</span>
+                <h3>Relaciones Internacionales</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Relaciones Internacionales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/diseno-grafico.png" alt="Artes Visuales" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Artes Visuales</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Explora distintos lenguajes artísticos para desarrollar propuestas visuales con identidad y visión contemporánea.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Artes Visuales">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Historia" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Historia</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Historia">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Música Contemporánea" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Música Contemporánea</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Música Contemporánea">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="artes" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Teatro y Actuación" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Artes y Humanidades</span>
+                <h3>Teatro y Actuación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Teatro y Actuación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/administracion-turistica.png" alt="Administración Turística" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Administración Turística</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Dirige empresas turísticas, crea productos y experiencias innovadoras y posiciona destinos con una visión sostenible y digital.</p>
+                <a class="btn-program" href="administracion-turistica.html" aria-label="Conoce la Licenciatura en Administración Turística">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/direccion-de-restaurantes.png" alt="Dirección de Restaurantes" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Dirección de Restaurantes</h3>
+                <p class="program-mode">Presencial</p>
+                <p class="program-desc">Gestiona negocios de alimentos y bebidas, crea conceptos restauranteros originales y anticipa las tendencias del sector.</p>
+                <a class="btn-program" href="direccion-de-restaurantes.html" aria-label="Conoce la Licenciatura en Dirección de Restaurantes">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/areas/turismo-gastronomia-y-hospitalidad.png" alt="Dirección Internacional de Hoteles" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Dirección Internacional de Hoteles</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="direccion-internacional-de-hoteles.html" aria-label="Conoce la Licenciatura en Dirección Internacional de Hoteles">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="turismo" data-campus="bicampus" data-mode="presencial">
+              <div class="program-img"><img src="assets/oferta-academica/elige-tu-camino/gastronomia.png" alt="Gastronomía" loading="lazy" /></div>
+              <div class="program-body">
+                <span class="program-tag">Turismo, Gastronomía y Hospitalidad</span>
+                <h3>Gastronomía</h3>
+                <p class="program-mode">Presencial | También en Campus Sur</p>
+                <p class="program-desc">Domina el arte culinario con técnicas de vanguardia y una formación empresarial que te permitirá liderar proyectos gastronómicos.</p>
+                <a class="btn-program" href="gastronomia.html" aria-label="Conoce la Licenciatura en Gastronomía">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="program-card" data-area="ejecutivas" data-campus="norte" data-mode="presencial">
+              <div class="program-img"><img src="assets/hero-friends.jpg" alt="Licenciatura Ejecutiva en Educación" loading="lazy" /></div>
+              <!-- [PLACEHOLDER] foto real pendiente -->
+              <div class="program-body">
+                <span class="program-tag">Ejecutivas</span>
+                <h3>Licenciatura Ejecutiva en Educación</h3>
+                <p class="program-mode">Presencial</p>
+                <!-- [PLACEHOLDER] descripción pendiente -->
+                <p class="program-desc">Conoce el plan de estudios y el perfil de egreso de esta licenciatura.</p>
+                <a class="btn-program" href="oferta-academica.html" aria-label="Conoce la Licenciatura en Licenciatura Ejecutiva en Educación">Conocer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>          </div>
+
+          <nav class="pagination" aria-label="Paginación de licenciaturas"></nav>
+
+          <p class="cn-lic-nota reveal" data-reveal>¿Aún no decides tu carrera? <a href="oferta-academica.html">Explora la oferta por áreas ›</a></p>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 5 — Instalaciones · [AIDA: Deseo] · #instalaciones
+           Componente .campus-slider (fichas con foto + H3 + texto). Hospital
+           Virtual y Anáhuac LABS con etiqueta «Próximamente» van al FINAL.
+           Header del módulo alineado a la izquierda (section-intro wide).
+           PENDIENTE: fotografía real de cada instalación; de momento, placeholders.
+           ===================================================================== -->
+      <section class="cn-inst section-pad" id="instalaciones">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>Instalaciones de Campus Norte y Sur</h2>
+            <p>Espacios especializados para tu carrera, rodeados de áreas verdes, con acceso a las instalaciones de ambos campus gracias al servicio de intercampus.</p>
+          </div>
+
+          <div class="campus-slider cn-inst-slider reveal" data-campus-slider data-reveal>
+            <div class="campus-slider-viewport">
+              <ul class="campus-slides">
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/hero-medicine.jpg" alt="Centro Anáhuac de Simulación Clínica (CASIC), Universidad Anáhuac México" loading="lazy" />
+                    <h3>Centro Anáhuac de Simulación Clínica (CASIC)</h3>
+                    <p>Acreditado por FLASIC: el primero con esta acreditación en la Ciudad de México y su zona metropolitana.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/gastronomia/hero-cocina.webp" alt="Cocinas Le Cordon Bleu-Anáhuac, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Cocinas Le Cordon Bleu-Anáhuac</h3>
+                    <p>Ocho cocinas profesionales (cuatro en cada campus), salón de cata de vino y laboratorio de cocina de vanguardia.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/area-negocios.jpg" alt="Trading Room, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Trading Room</h3>
+                    <p>Sigue los mercados financieros en tiempo real y toma decisiones de inversión.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/area-comunicacion.jpg" alt="Estudio profesional de televisión y estudio de fotografía, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Estudio profesional de televisión y estudio de fotografía</h3>
+                    <p>Para producir como lo harás en la industria.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/area-derecho.jpg" alt="Aula de juicios orales, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Aula de juicios orales</h3>
+                    <p>Para litigar un caso antes de pisar un tribunal.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/psicologia/campo-educativos.webp" alt="Bibliotecas, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Bibliotecas</h3>
+                    <p>Salas de estudio individuales y grupales, hemeroteca, comicteca y una sala de realidad inmersiva.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/psicologia/campo-clinicas.webp" alt="Clínicas universitarias y cámaras de Gesell, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Clínicas universitarias y cámaras de Gesell</h3>
+                    <p>5 clínicas y 5 cámaras de Gesell donde practicas con acompañamiento de tus profesores.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/psicologia/campo-investigacion.webp" alt="Salas de cómputo de la Torre 3, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Salas de cómputo de la Torre 3</h3>
+                    <p>Equipos con el software especializado de tu carrera.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/evento.jpg" alt="Centro Cultural Mexiquense Anáhuac, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Centro Cultural Mexiquense Anáhuac</h3>
+                    <p>Sede de la Escuela de Artes, con más de 60,000 asistentes al año.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/hero-football.jpg" alt="Complejo deportivo Leones Anáhuac, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Complejo deportivo Leones Anáhuac</h3>
+                    <p>Estadio con pasto y luz LED renovados, pista, gimnasio, canchas techadas, pádel y muro de escalar.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <img class="cn-ficha-foto" src="assets/hero-friends.jpg" alt="Espacios deportivos al aire libre, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Espacios deportivos al aire libre</h3>
+                    <p>Pista de tartán con medidas oficiales, gimnasio al aire libre, campos de soccer, voleibol de playa, pádel, tenis y circuito de calistenia.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <span class="cn-ficha-badge">Próximamente</span>
+                    <img class="cn-ficha-foto" src="assets/psicologia/campo-hospitales.webp" alt="Hospital Virtual, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Hospital Virtual</h3>
+                    <p>Edificio de simulación de 5 pisos con consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas las carreras de Ciencias de la Salud.</p>
+                  </article>
+                </li>
+                <li>
+                  <article class="cn-ficha">
+                    <span class="cn-ficha-badge">Próximamente</span>
+                    <img class="cn-ficha-foto" src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Anáhuac LABS, Universidad Anáhuac México" loading="lazy" />
+                    <h3>Anáhuac LABS</h3>
+                    <p>Un clúster de laboratorios de ingeniería para experimentar, prototipar e innovar.</p>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Instalación anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Instalación siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+            <div class="campus-slider-dots" aria-label="Instalaciones de Campus Norte y Sur"></div>
+          </div>
+
+          <div class="button-row cn-inst-cta reveal" data-reveal>
+            <a class="btn btn-dark" href="#visita">Agenda tu visita y recórrelas</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Próximos eventos (reubicado: debajo de Instalaciones). -->
+      <section class="cn-eventos-sec section-pad">
+        <div class="container">
+          <div class="cn-eventos reveal" data-reveal>
+            <div class="section-intro wide">
+              <h3>Próximos eventos en Campus Norte</h3>
+            </div>
+            <div class="event-list cn-event-list" aria-live="polite">
+              <article data-tags="all">
+                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
+                <div>
+                  <h3>Vive Anáhuac <span class="pill dark">Evento masivo</span></h3>
+                  <p class="meta">Presencial <span></span> Campus Norte</p>
+                  <p>El mejor evento para preuniversitarios: talleres, conferencias, concursos y vida de campus.</p>
+                </div>
+                <a class="btn btn-purple small" href="#visita">Más información</a>
+              </article>
+              <article data-tags="all">
+                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
+                <div>
+                  <h3>Clase muestra por área <span class="pill dark">Sesión</span></h3>
+                  <p class="meta">Presencial <span></span> Campus Norte</p>
+                  <p>Vive una sesión académica breve para acercarte a la experiencia real de tu licenciatura.</p>
+                </div>
+                <a class="btn btn-purple small" href="#visita">Más información</a>
+              </article>
+              <article data-tags="all">
+                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
+                <div>
+                  <h3>Taller vocacional <span class="pill dark">Taller</span></h3>
+                  <p class="meta">Presencial <span></span> Campus Norte</p>
+                  <p>Descubre tus intereses profesionales con actividades guiadas por orientadores universitarios.</p>
+                </div>
+                <a class="btn btn-purple small" href="#visita">Más información</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 6 — Historias Anáhuac México → OMITIDO
+           El spec entrega el módulo sin historias reales confirmadas (solo una
+           nota pendiente con el perfil ideal de 3 historias). Por la regla «solo
+           lo confirmado» se omite el módulo completo hasta tener historias reales.
+           ===================================================================== -->
+
+      <!-- =====================================================================
+           MÓDULO 8 — Agenda tu visita · [AIDA: Acción] · #visita · conversión
+           2 tarjetas de opción (Tour Puertas Abiertas destacada + Cita con
+           asesor). Formulario del tour como MAQUETA VISUAL estática (HubSpot no
+           se toca). Bloque «Tips». Sub-bloque de eventos (carrusel `events`).
+           OMITIDO: Paso 1 «Elige tu fecha» / acordeón de fechas (no hay fechas
+           confirmadas) y la tarjeta 3 «Tour de tu carrera» (condicional).
+           ===================================================================== -->
+      <section class="cn-visita section-pad" id="visita">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>Agenda tu visita a Campus Norte</h2>
+            <p>Nada se compara con caminarlo. Ven solo o con tu familia, conoce las instalaciones y resuelve tus dudas en persona.</p>
+          </div>
+
+          <article class="cn-visita-card cn-visita-card--destacada reveal" data-reveal>
+            <div class="cn-visita-head">
+              <h3>Tour Puertas Abiertas</h3>
+              <p>Recorre Campus Norte con un guía: instalaciones académicas, deportivas y culturales, servicios y vida universitaria.</p>
+              <p class="cn-visita-dato">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /></svg>
+                Miércoles por la tarde y sábados por la mañana.
+              </p>
+            </div>
+
+            <!-- MAQUETA ESTÁTICA del formulario del Tour Puertas Abiertas. No es
+                 funcional: HubSpot no se toca aquí. Reproduce campos y orden del
+                 spec, con etiquetas visibles. Campus de interés = Campus Norte va
+                 como campo oculto, prellenado, no visible. -->
+            <form class="cn-form" novalidate aria-label="Reserva tu lugar en el Tour Puertas Abiertas de Campus Norte">
+              <input type="hidden" name="campus_de_interes" value="Campus Norte" />
+
+              <div class="cn-form-grid">
+                <div class="cn-field">
+                  <label for="cn-nombre">Nombre</label>
+                  <input type="text" id="cn-nombre" name="nombre" autocomplete="given-name" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-apellido-p">Apellido paterno</label>
+                  <input type="text" id="cn-apellido-p" name="apellido_paterno" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-apellido-m">Apellido materno</label>
+                  <input type="text" id="cn-apellido-m" name="apellido_materno" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-email">Email</label>
+                  <input type="email" id="cn-email" name="email" autocomplete="email" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-celular">Celular</label>
+                  <input type="tel" id="cn-celular" name="celular" autocomplete="tel" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-estado">Estado de procedencia</label>
+                  <select id="cn-estado" name="estado" class="js-select" aria-label="Estado de procedencia">
+                    <option value="" selected>Selecciona tu estado</option>
+                    <option>Ciudad de México</option>
+                    <option>Estado de México</option>
+                    <option>Otro estado</option>
+                  </select>
+                </div>
+                <div class="cn-field">
+                  <label for="cn-prepa">Preparatoria</label>
+                  <input type="text" id="cn-prepa" name="preparatoria" />
+                </div>
+                <div class="cn-field">
+                  <label for="cn-grado">¿Cuál es tu grado escolar?</label>
+                  <select id="cn-grado" name="grado_escolar" class="js-select" aria-label="¿Cuál es tu grado escolar?">
+                    <option value="" selected>Selecciona una opción</option>
+                    <option>1.º de preparatoria</option>
+                    <option>2.º de preparatoria</option>
+                    <option>3.º de preparatoria</option>
+                    <option>Egresado de preparatoria</option>
+                  </select>
+                </div>
+                <div class="cn-field">
+                  <label for="cn-licenciatura">Licenciatura</label>
+                  <select id="cn-licenciatura" name="licenciatura" class="js-select" aria-label="Licenciatura de interés">
+                    <option value="" selected>Selecciona una licenciatura</option>
+                    <option>Médico Cirujano</option>
+                    <option>Psicología</option>
+                    <option>Comunicación</option>
+                    <option>Gastronomía</option>
+                    <option>Aún no decido</option>
+                  </select>
+                </div>
+                <div class="cn-field">
+                  <label for="cn-periodo">Periodo de interés</label>
+                  <select id="cn-periodo" name="periodo_interes" class="js-select" aria-label="Periodo de interés">
+                    <option value="" selected>Selecciona un periodo</option>
+                    <option>Primavera</option>
+                    <option>Verano</option>
+                    <option>Otoño</option>
+                  </select>
+                </div>
+              </div>
+
+              <details class="cn-form-acomp">
+                <summary>¿Vienes acompañado? <span class="cn-area-mark" aria-hidden="true"></span></summary>
+                <div class="cn-form-acomp-body">
+                  <fieldset class="cn-acomp">
+                    <legend>Acompañante 1 (opcional)</legend>
+                    <div class="cn-field">
+                      <label for="cn-acomp1-nombre">Nombre completo</label>
+                      <input type="text" id="cn-acomp1-nombre" name="acompanante_1_nombre" />
+                    </div>
+                    <div class="cn-field">
+                      <label for="cn-acomp1-email">Correo</label>
+                      <input type="email" id="cn-acomp1-email" name="acompanante_1_email" />
+                    </div>
+                  </fieldset>
+                  <fieldset class="cn-acomp">
+                    <legend>Acompañante 2 (opcional)</legend>
+                    <div class="cn-field">
+                      <label for="cn-acomp2-nombre">Nombre completo</label>
+                      <input type="text" id="cn-acomp2-nombre" name="acompanante_2_nombre" />
+                    </div>
+                    <div class="cn-field">
+                      <label for="cn-acomp2-email">Correo</label>
+                      <input type="email" id="cn-acomp2-email" name="acompanante_2_email" />
+                    </div>
+                  </fieldset>
+                </div>
+              </details>
+
+              <label class="cn-form-aviso">
+                <input type="checkbox" name="aviso_privacidad" required />
+                <span>He leído y acepto el <a href="#" target="_blank" rel="noopener">Aviso de Privacidad</a>.</span>
+              </label>
+
+              <button type="submit" class="btn btn-orange cn-form-submit">Reserva tu lugar en el tour</button>
+            </form>
+          </article>
+
+          <div class="cn-tips reveal" data-reveal>
+            <p class="cn-tips-titulo"><span class="cn-tips-script">Tips</span> ANÁHUAC MÉXICO</p>
+            <p class="cn-tips-sub">Antes de tu visita</p>
+            <p>
+              Llega 15 minutos antes: el tour arranca puntual y solo hay 10 minutos de tolerancia para
+              sumarte. Si vienes en auto, revisa los accesos y el estacionamiento en
+              <a href="#como-llegar">Cómo llegar</a>.
+            </p>
+          </div>
+
+          <!-- Sub-bloque de eventos (carrusel `events` de Inicio), filtrado por
+               Campus Norte. En producción sale de HubDB y se oculta si no hay
+               eventos próximos. Aquí va con contenido placeholder de Campus Norte. -->
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 9 — Cómo llegar · [AIDA: Acción] · #como-llegar
+           Dos columnas: mapa embebido (Google Maps, con fallback de imagen +
+           enlace) | datos de llegada. Chips de rutas. Botones Maps/Waze.
+           Sin precios de transporte (viven en la página de Transporte).
+           ===================================================================== -->
+      <section class="cn-llegar section-pad" id="como-llegar">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>Cómo llegar a Campus Norte</h2>
+          </div>
+
+          <div class="cn-llegar-grid reveal" data-reveal>
+            <div class="cn-mapa">
+              <iframe
+                title="Mapa de la Universidad Anáhuac México Campus Norte en Av. Universidad Anáhuac 46, Lomas Anáhuac, Huixquilucan"
+                src="https://www.google.com/maps?q=Av.%20Universidad%20An%C3%A1huac%2046%2C%20Lomas%20An%C3%A1huac%2C%20Huixquilucan&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+              <p class="cn-mapa-fallback">
+                ¿No ves el mapa?
+                <a href="https://www.google.com/maps/search/?api=1&query=Universidad+An%C3%A1huac+M%C3%A9xico+Campus+Norte" target="_blank" rel="noopener">Abre la ubicación de Campus Norte en Google Maps <span aria-hidden="true">›</span></a>
+              </p>
+            </div>
+
+            <div class="cn-llegar-datos">
+              <div class="cn-dato-bloque">
+                <h3>Dirección</h3>
+                <p class="cn-direccion">Av. Universidad Anáhuac 46, Col. Lomas Anáhuac, Huixquilucan, Estado de México, C.P. 52786</p>
+                <p><a class="cn-tel" href="tel:+525556270210">+52 (55) 5627 0210</a></p>
+                <div class="button-row">
+                  <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Universidad+An%C3%A1huac+M%C3%A9xico+Campus+Norte" target="_blank" rel="noopener">Abrir en Google Maps</a>
+                  <a class="btn btn-light" href="https://waze.com/ul?q=Universidad%20An%C3%A1huac%20M%C3%A9xico%20Campus%20Norte" target="_blank" rel="noopener">Abrir en Waze</a>
+                </div>
+              </div>
+
+              <div class="cn-dato-bloque">
+                <h3>Transporte de la universidad</h3>
+                <p>Llega con las rutas de transporte de la universidad, que se reservan desde su app.</p>
+                <ul class="cn-rutas">
+                  <li>Del Valle–Condesa</li>
+                  <li>Lindavista</li>
+                  <li>Lomas Verdes–San Mateo</li>
+                  <li>Periférico Norte</li>
+                  <li>Perisur–Patriotismo</li>
+                  <li>Polanco–Camarones</li>
+                  <li>Santa Fe</li>
+                  <li>Satélite</li>
+                  <li>Valle Dorado</li>
+                  <li>Zona Esmeralda</li>
+                  <li>Toluca–Metepec</li>
+                  <li>Tollocan–Lerma</li>
+                </ul>
+              </div>
+
+              <div class="cn-dato-bloque">
+                <h3>Estacionamiento</h3>
+                <p>11 estacionamientos dentro del campus, con pase semestral o boleto por día, y centro de carga para autos eléctricos.</p>
+              </div>
+
+              <div class="cn-dato-bloque">
+                <h3>Entre campus</h3>
+                <p>Como alumno, viajas gratis a Campus Sur en el transporte intercampus.</p>
+              </div>
+
+              <div class="button-row">
+                <a class="btn btn-light" href="/transporte-anahuac-mexico">Consulta rutas, horarios y costos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 10 — Preguntas frecuentes · [AIDA: Acción] · #faq
+           Componente .lic-faq (acordeón <details>/<summary>; 1ª abierta).
+           schema.org/FAQPage en el <head>, con texto idéntico al acordeón.
+           ===================================================================== -->
+      <section class="lic-faq cn-faq section-pad" id="faq">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <h2>Preguntas frecuentes sobre Campus Norte</h2>
+          </div>
+
+          <div class="faq-list reveal" data-reveal>
+            <details class="faq-item" name="faq-campus-norte" open>
+              <summary>¿Dónde está la Universidad Anáhuac México Campus Norte?</summary>
+              <p>
+                En Av. Universidad Anáhuac 46, colonia Lomas Anáhuac, Huixquilucan, Estado de México, junto
+                a Interlomas. Puedes llegar en auto, con las rutas de transporte de la universidad o desde
+                Campus Sur con el transporte intercampus. <a href="#como-llegar">Ver cómo llegar</a>.
+              </p>
+            </details>
+            <details class="faq-item" name="faq-campus-norte">
+              <summary>¿Qué licenciaturas hay en Campus Norte?</summary>
+              <p>
+                En Campus Norte se imparten más de 40 licenciaturas de las 8 áreas académicas de la
+                Universidad Anáhuac México, de Medicina e Ingeniería a Artes, Turismo y Negocios.
+                <a href="#licenciaturas">Consulta la lista completa por área</a>.
+              </p>
+            </details>
+            <details class="faq-item" name="faq-campus-norte">
+              <summary>¿Cómo puedo conocer Campus Norte antes de inscribirme?</summary>
+              <p>
+                Regístrate a un <a href="#visita">Tour Puertas Abiertas</a>, que se ofrece los miércoles por
+                la tarde y los sábados por la mañana, o agenda una cita con un asesor, presencial en el
+                campus o virtual.
+              </p>
+            </details>
+            <details class="faq-item" name="faq-campus-norte">
+              <summary>¿Puedo tomar clases en Campus Sur si me inscribo en Campus Norte?</summary>
+              <p>
+                Sí. La Universidad Anáhuac México es bicampus: puedes cursar algunas materias en Campus Sur,
+                siempre que la mayoría sean en tu campus, y moverte entre ambos con el transporte intercampus
+                gratuito.
+              </p>
+            </details>
+            <details class="faq-item" name="faq-campus-norte">
+              <summary>¿Campus Norte tiene estacionamiento y transporte?</summary>
+              <p>
+                Sí. Tiene 11 estacionamientos dentro del campus y rutas de transporte de la universidad desde
+                distintas zonas de la Ciudad de México, el Estado de México y Toluca.
+                <a href="#como-llegar">Ver cómo llegar</a>.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MÓDULO 11 — Elige el siguiente paso · [AIDA: Acción] · #siguiente-paso
+           Componente .lic-pasos / .pasos-grid: la intro ocupa la primera celda y
+           las 5 tarjetas llenan las restantes. Orden por nivel de intención.
+           ===================================================================== -->
+      <section class="lic-pasos cn-pasos section-pad" id="siguiente-paso">
+        <div class="container">
+          <div class="pasos-grid">
+            <div class="pasos-lead reveal" data-reveal>
+              <h2>Elige el siguiente paso</h2>
+              <p>Estés donde estés en tu decisión, aquí tienes por dónde seguir.</p>
+            </div>
+
+            <a class="paso-card cn-paso--primario reveal" data-reveal href="#visita" aria-label="Agenda tu visita a Campus Norte">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /><path d="M9.5 14l1.8 1.8 3.5-3.5" />
+                </svg>
+              </span>
+              <h3>Agenda tu visita</h3>
+              <p>Recorre Campus Norte en un tour o en una cita con un asesor.</p>
+              <span class="paso-cta">Agendar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="proceso-de-admision.html#asesoria" aria-label="Habla con un asesor preuniversitario">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 13v-1a8 8 0 0 1 16 0v1" /><rect x="3" y="13" width="4" height="6" rx="1.5" /><rect x="17" y="13" width="4" height="6" rx="1.5" /><path d="M20 19a4 4 0 0 1-4 3h-2.5" />
+                </svg>
+              </span>
+              <h3>Habla con un asesor</h3>
+              <p>Resuelve tus dudas con un asesor preuniversitario.</p>
+              <span class="paso-cta">Contactar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="/cotizador" aria-label="Cotiza tu carrera en el cotizador">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="3" width="14" height="18" rx="2" /><path d="M8 7h8" /><path d="M8.5 11h0M12 11h0M15.5 11h0M8.5 14.5h0M12 14.5h0" /><path d="M15.5 14.5v3" />
+                </svg>
+              </span>
+              <h3>Cotiza tu carrera</h3>
+              <p>Calcula el costo de tu licenciatura y conoce tus opciones de pago.</p>
+              <span class="paso-cta">Cotizar <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="apoyos-economicos.html" aria-label="Conoce los apoyos socioeconómicos">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="9" r="5.5" /><path d="M8.5 13.7L7 21l5-2.6 5 2.6-1.5-7.3" /><path d="M12 6l1 2 2.2.3-1.6 1.5.4 2.2-2-1.1-2 1.1.4-2.2-1.6-1.5 2.2-.3z" />
+                </svg>
+              </span>
+              <h3>Conoce los apoyos socioeconómicos</h3>
+              <p>Descubre los apoyos disponibles para tu ingreso.</p>
+              <span class="paso-cta">Ver apoyos <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="/admision-general" aria-label="Inicia tu proceso de admisión">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3c2.6 2.2 4 5.1 4 8.4V15l2 2.5v1.2H6v-1.2L8 15v-3.6C8 8.1 9.4 5.2 12 3z" /><circle cx="12" cy="10" r="1.6" /><path d="M10.4 21h3.2" />
+                </svg>
+              </span>
+              <h3>Inicia tu admisión</h3>
+              <p>Comienza tu proceso 100% en línea, en 6 pasos.</p>
+              <span class="paso-cta">Empezar <span aria-hidden="true">›</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         MÓDULO 12 — Footer con newsletter integrado (idéntico al del sitio).
+         En la columna de campus, «Campus Norte» y «Campus Sur» enlazan a sus
+         páginas.
+         ===================================================================== -->
+    <footer class="site-footer">
+      <svg class="social-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M15.1 8.3h3V4h-3.7c-4 0-6 2.4-6 6v2.4H5v4.4h3.4V24h4.7v-7.2h3.8l.7-4.4h-4.5v-2c0-1.3.5-2.1 2-2.1Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.7l-5.2-6.9L5.6 22H2.3l7.8-8.9L1.8 2h6.9l4.7 6.3L18.9 2Zm-1.2 18h1.8L7.7 3.9h-2L17.7 20Z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21.7 7.1a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.6.5a3 3 0 0 0-2.1 2.1C1.8 9 1.8 12 1.8 12s0 3 .5 4.9A3 3 0 0 0 4.4 19c1.9.5 7.6.5 7.6.5s5.7 0 7.6-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.9.5-4.9s0-3-.5-4.9ZM10 15.2V8.8l5.6 3.2-5.6 3.2Z"/></symbol>
+      </svg>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+          <form class="newsletter">
+            <h2>Recibe noticias de la Universidad Anáhuac México</h2>
+            <p>Recibe noticias sobre admisiones, eventos preuniversitarios y vida universitaria en tu correo.</p>
+            <div>
+              <input type="email" placeholder="tucorreo@ejemplo.com" aria-label="Correo electrónico" />
+              <button class="btn btn-dark" type="submit">Suscríbete</button>
+            </div>
+            <small>Al suscribirte aceptas nuestro Aviso de Privacidad.</small>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h3>Campus</h3>
+            <a href="campus-norte.html">Campus Norte</a>
+            <a href="/licenciaturas/campus-sur-anahuac-mexico">Campus Sur</a>
+            <a href="oferta-academica.html">Oferta académica</a>
+            <a href="proceso-de-admision.html">Proceso de admisión</a>
+          </div>
+          <div>
+            <h3>Áreas académicas</h3>
+            <a href="area-ciencias-de-la-salud.html">Ciencias de la Salud</a>
+            <a href="oferta-academica.html">Ingenierías y Ciencias</a>
+            <a href="oferta-academica.html">Negocios y Economía</a>
+            <a href="oferta-academica.html">Comunicación, Arquitectura y Diseño</a>
+            <a href="area-turismo-gastronomia-y-hospitalidad.html">Turismo, Gastronomía y Hospitalidad</a>
+          </div>
+          <div>
+            <h3>Admisiones</h3>
+            <a href="proceso-de-admision.html">Admisión general</a>
+            <a href="#">Admisión medicina</a>
+            <a href="#">Admisión internacional</a>
+            <a href="fechas-de-examenes.html">Fechas de examen</a>
+            <a href="apoyos-economicos.html">Becas y apoyos</a>
+          </div>
+          <div>
+            <h3>Campus Norte</h3>
+            <p>Av. Universidad Anáhuac 46, Col. Lomas Anáhuac. Huixquilucan, Estado de México.</p>
+            <a href="tel:+525556270210">+52 (55) 5627 0210</a>
+            <a href="campus-norte.html">Conoce Campus Norte</a>
+            <div class="social-links" aria-label="Redes sociales Campus Norte">
+              <a href="#" aria-label="Facebook Campus Norte"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Norte"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Norte"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Norte"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Campus Sur</h3>
+            <p>Av. de los Tanques 865, Col. Torres de Potrero. Álvaro Obregón, CDMX.</p>
+            <a href="tel:+525556288800">+52 (55) 5628 8800</a>
+            <a href="/licenciaturas/campus-sur-anahuac-mexico">Conoce Campus Sur</a>
+            <div class="social-links" aria-label="Redes sociales Campus Sur">
+              <a href="#" aria-label="Facebook Campus Sur"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Sur"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Sur"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Sur"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="mailto:preuniversitarios@anahuac.mx">preuniversitarios@anahuac.mx</a>
+            <a href="#">Vida Anáhuac</a>
+            <a href="#">Preuniversitario</a>
+            <a href="#">@vidanahuac</a>
+            <div class="social-links" aria-label="Redes sociales Anáhuac México">
+              <a href="#" aria-label="Facebook Anáhuac México"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Anáhuac México"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Anáhuac México"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Anáhuac México"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">
+          RVOE SEP D.O.F. 26/11/1982 · © Universidad Anáhuac México. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Barra con CTA fijo en móvil (< 768px). Aparece al pasar el hero, se oculta
+         mientras M8 (#visita) está en pantalla y sobre el footer. Ver campus-norte.js. -->
+    <div class="cn-ctabar" data-cn-ctabar hidden>
+      <a class="btn btn-orange" href="#visita" aria-label="Agenda tu visita a Campus Norte">Agenda tu visita</a>
+    </div>
+
+    <script src="campus-norte.js"></script>
+    <script src="oferta.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="assets/review/review.js"></script>
+  </body>
+</html>

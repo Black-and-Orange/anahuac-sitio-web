@@ -5,6 +5,216 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-10-22 — Biotecnología · ajustes de contenido aprobados
+
+- Claustro de cuatro docentes, cuatro campos de formación y cátedras de distintos sectores.
+- Carrusel de siete instalaciones: se incorporan Bioterio y Laboratorio de Fisiología con imagen de referencia autorizada.
+- Formato, tokens y componentes compartidos conservados; contenido sincronizado con el spec e inventario. Revisión humana aprobada para integrar.
+
+
+## 2026-10-07 — Licenciatura en Administración Turística · nueva página
+
+- Se construye `administracion-turistica.html` (+ `.css`, `.js`, spec) clonando
+  **Gastronomía** (molde base del spec: misma Facultad, bicampus Norte-Sur,
+  `campo-band--doble`, carrusel de convenios + mapa de destinos, bloques
+  Profesional/Anáhuac/**Interdisciplinario**). Alcance `.pagina-administracion-turistica`,
+  clases `gas-`→`at-`.
+- **`administracion-turistica.js`** (copia de `gastronomia.js` con selectores `at-`):
+  el JS del molde depende de clases `gas-` (carrusel de convenios y claustro ≤4);
+  al renombrar a `at-` se creó su JS propio y se cambió el `<script src>`, igual que
+  la hoja CSS propia. No es un componente nuevo.
+- **4 diferencias contra Gastronomía:** banda M6 sin chips de certificación de cocina
+  (suma doble titulación con la Università Europea di Roma); sin «minor de vinos»;
+  M3 con ranking QS + «turismo + negocio + tecnología» (sin tarjetas culinarias);
+  FAQ de costos sin nota de insumos/uniformes/maletines.
+- Particularidades: claim «Define. Dirige. Emprende.»; 8 tabs; AEO 2 datos (8/330);
+  formulario CON selector de campus (bicampus); ranking QS citado con fuente;
+  prácticas = dos semestres. H1 largo a 3 líneas con `data-max-lines="3"`.
+- JSON-LD: Course `P4Y`/330; CollegeOrUniversity ambos campus; BreadcrumbList área
+  TGH; FAQPage 7. RVOE sin fecha.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url` del ItemList) y `oferta-academica.html` (enlace + corrige
+  «Campus Sur»→bicampus «Norte - Sur» y reemplaza el «Lorem ipsum»).
+- Verificado: `check:titulos` sin huérfanas, sin overflow a 320px, etiquetas
+  balanceadas, imágenes resuelven, sin residuos `gas-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales, profesores M9,
+  testimonios M8; [PENDIENTE] video, URL RVOE, agendador, HubSpot; [VERIFICAR] viñedo.
+
+## 2026-10-07 — Licenciatura en Dirección de Restaurantes · nueva página
+
+- Se construye `direccion-de-restaurantes.html` (+ `.css`, `.js`, spec) clonando
+  Gastronomía. Alcance `.pagina-direccion-de-restaurantes`, clases `gas-`→`dr-`,
+  JS propio. Completa las **4 licenciaturas del área** de Turismo.
+- 4 particularidades: **solo Campus Norte** (form readonly, schema sin Campus Sur);
+  **NO otorga Bachelor** → banda M6 «Diplomas internacionales · Le Cordon Bleu»
+  (hasta 4 diplomas, SIN «Doble acreditación»/«Bachelor»/chips); sin «minor de
+  vinos» ni nota de insumos; sin «única alianza en México».
+- claim «Gestiona. Coordina. Crea.»; 8 tabs; AEO 2 datos (8/333); bloque
+  «Interdisciplinario»; Electiva Anáhuac en S6 y S8; **5 instalaciones** (M7).
+- JSON-LD: Course P4Y/333/onsite; CollegeOrUniversity solo Campus Norte; FAQPage 7.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url`) y `oferta-academica.html` (enlace + reemplaza «Lorem ipsum»).
+- Verificado: `check:titulos` ✓, sin overflow, etiquetas balanceadas, imágenes
+  resuelven, 0 residuos `gas-`; «Bachelor» solo en comentarios ⚠️.
+- **[PLACEHOLDER] no mergeable:** fotos, profesores, testimonios; [PENDIENTE] video,
+  RVOE, agendador, HubSpot; [VERIFICAR] viñedo.
+
+## 2026-10-07 — Licenciatura en Dirección Internacional de Hoteles · nueva página
+
+- Se construye `direccion-internacional-de-hoteles.html` (+ `.css`, `.js`, spec)
+  clonando Gastronomía. Alcance `.pagina-direccion-internacional-de-hoteles`,
+  clases `gas-`→`dih-`, JS propio `direccion-internacional-de-hoteles.js`.
+- 4 particularidades: **solo Campus Norte** (chip, FAQ 1, form «Campus» readonly,
+  schema sin Campus Sur); banda M6 `campo-band--doble` Le Cordon Bleu «Bachelor +
+  hasta 4 certificados parciales» sin chips; sin «minor de vinos» ni nota de insumos;
+  **software hotelero OPERA/HOTS/Beefeaters** como diferenciador (M3 + M7).
+- claim «Diseña. Emprende. Dirige.»; 8 tabs; AEO 2 datos (8/336); bloque
+  «Interdisciplinario»; Electiva Anáhuac en S1 y S8. H1 (el más largo del sitio) a
+  4 renglones con `data-max-lines="4"` + `&nbsp;` en «de Hoteles».
+- JSON-LD: Course P4Y/336/onsite; CollegeOrUniversity solo Campus Norte; FAQPage 7.
+- Wiring: enlazada desde `area-turismo-gastronomia-y-hospitalidad.html` (tarjeta M4 +
+  footer + `Course.url`).
+- Verificado: `check:titulos` ✓, sin overflow, etiquetas balanceadas, imágenes
+  resuelven, 0 residuos `gas-`.
+- **[PLACEHOLDER] no mergeable:** fotos, profesores, testimonios; [PENDIENTE] video,
+  RVOE, agendador, HubSpot; [VERIFICAR] nombre del Bachelor, viñedo.
+
+## 2026-10-07 — Área: Turismo, Gastronomía y Hospitalidad · nueva página
+
+- Se construye `area-turismo-gastronomia-y-hospitalidad.html` (+ `.css`, spec)
+  clonando el molde de **página de área** `area-ciencias-de-la-salud.html`
+  (`<body class="escala-2026">`; mismos módulos/orden/componentes: `lic-hero`,
+  `lic-afinidad`, `lic-porque2`, `area-card`, mosaico de campo laboral, deslizador
+  de instalaciones + bloque «Tips», `stories`, `lic-faq`, `lic-pasos`). Solo cambia
+  el contenido; no hay componentes nuevos.
+- Clases de alcance de área renombradas `salud-*` → `tgh-*` (verificado: ningún JS
+  referencia esas clases). CSS propio `area-turismo-gastronomia-y-hospitalidad.css`.
+- Retícula de carreras ajustada a **4 tarjetas (2×2)**: se retira la regla de
+  «número impar» del molde de salud; se eliminan las reglas muertas de la tarjeta
+  protagonista «Hospital Virtual».
+- 4 licenciaturas (Gastronomía, Administración Turística, Dirección Internacional
+  de Hoteles, Dirección de Restaurantes); campus por carrera (2 chips Norte+Sur en
+  las dos primeras, 1 chip Norte en las dos últimas); Le Cordon Bleu «Bachelor o
+  diplomas según carrera»; ranking QS citado con su fuente; prácticas = dos semestres.
+- JSON-LD: BreadcrumbList · ItemList (4 Course) · FAQPage (6) · CollegeOrUniversity
+  con ambos campus. Wiring: Gastronomía → `gastronomia.html`; las otras 3 carreras
+  quedan `[PENDIENTE]` (páginas aún no creadas). Enlazada desde `oferta-academica.html`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales (hero, carrusel M3,
+  8 instalaciones, viñedo en Querétaro), video del hero, egresados M7, URL del
+  agendador, y las 3 páginas de carrera del área.
+
+## 2026-09-29 — Licenciatura en Médico Cirujano Dentista · nueva página
+
+- Se construye `licenciatura-cirujano-dentista.html` (+ `.css`, spec) sobre el molde
+  de carrera, clonando `licenciatura-biotecnologia.html` (par más cercano: área
+  Ciencias de la Salud, solo Campus Norte, `campo-band--cta-lateral`, instalaciones
+  a la izquierda, **AEO de 2 datos**). Alcance `.pagina-cirujano-dentista`,
+  desviaciones `dent-*`.
+- **8 tabs** por semestre con el layout BASE del molde (se elimina la desviación de
+  9 tabs de biotech). Única desviación propia: `dent-colab-nota` (respaldo de la
+  Facultad). La tarjeta AEO usa el molde base (2 datos, sin nota de créditos).
+- Particularidades: solo Campus Norte; pacientes **desde 2º semestre**; sin
+  comparaciones (ni con Medicina); intercambios sin prometer práctica clínica
+  internacional; bloque «Electivo»; en M5 «Responsabilidad social y sustentabilidad»
+  y «Emprendimiento e innovación» = **Profesional** (no morado); Hospital Virtual
+  «en construcción»; «odontología» presente por SEO.
+- **M9 sin grupo de aliados internacionales** (no confirmados; no se maquetó ni se
+  rellenó con los de otra carrera).
+- H1 largo a 3 renglones con `data-max-lines="3"` + `&nbsp;` («Cirujano Dentista»).
+- JSON-LD: Course `P4Y`/433/`onsite`; CollegeOrUniversity solo Campus Norte;
+  BreadcrumbList área Ciencias de la Salud; FAQPage 7. RVOE sin fecha ([PENDIENTE]).
+- Wiring desde `area-ciencias-de-la-salud.html` (tarjeta + lista) y
+  `oferta-academica.html` (enlace + se corrige «BICAMPUS»→«Campus Norte» y se
+  reemplaza el «Lorem ipsum» de esa tarjeta).
+- Verificado: `check:titulos` sin huérfanas (≤3 líneas), sin overflow a 320px,
+  balance de etiquetas correcto, imágenes resuelven, sin residuos `bio-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos, logos de aliados, claustro,
+  testimonios; [PENDIENTE] video, URL+fecha RVOE, `/visita-campus`, HubSpot;
+  [VERIFICAR] CONAEDO/FMFEO, convenio 28% instrumental, más aliados nacionales.
+
+## 2026-09-28 — Licenciatura en Terapia Física y Rehabilitación · nueva página
+
+- Se construye `licenciatura-terapia-fisica-y-rehabilitacion.html` (+ `.css`, spec)
+  sobre el molde de carrera, clonando `licenciatura-biotecnologia.html` (par más
+  cercano: área Ciencias de la Salud, solo Campus Norte, `campo-band--cta-lateral`,
+  instalaciones a la izquierda). Alcance `.pagina-terapia-fisica`, desviaciones `tfr-*`.
+- Desviaciones propias (solo tokens): `tfr-plan-tabs` (retícula de **10 tabs** =
+  8 semestres + 2 de servicio social; 5×2 escritorio, 2 columnas ≤1024px, dropdown
+  ≤540px), `tfr-aeo` (tarjeta AEO de **3 datos** con «+1» de año de servicio social,
+  el «+1» con `aria-hidden` + `sr-only` «Más un…»), `tfr-colab-nota`.
+- Particularidades respetadas: solo Campus Norte; pacientes reales **desde 4º
+  semestre** (carrera clínica); **año de servicio social** (M4/M5/FAQ); bloque
+  «Electivo»; Hospital Virtual «en construcción»; sin comparaciones; «fisioterapia/
+  fisioterapeuta» presente por SEO sin sustituir el nombre oficial de la carrera.
+- H1 largo (47 car.): rompe a 3 renglones a propósito, con `data-max-lines="3"`
+  (autorizado en `check:titulos`) y `&nbsp;` para que la «y» no encabece renglón.
+- JSON-LD: Course `P4Y`/397/`onsite`; CollegeOrUniversity solo Campus Norte;
+  BreadcrumbList área Ciencias de la Salud; FAQPage 7 preguntas.
+- RVOE sin fecha («RVOE SEP · D.O.F.», fecha [PENDIENTE]).
+- Wiring desde `area-ciencias-de-la-salud.html` (tarjeta + lista) y
+  `oferta-academica.html` (además se corrige «Campus Sur»→«Campus Norte» y se
+  reemplaza el «Lorem ipsum» de esa tarjeta).
+- Verificado: `check:titulos` sin huérfanas (≤3 líneas), sin overflow a 320px,
+  balance de etiquetas correcto, imágenes resuelven, sin residuos `bio-`.
+- **[PLACEHOLDER] no mergeable a producción:** fotos reales, logos de aliados,
+  claustro, testimonios; [PENDIENTE] video, URL+fecha del RVOE, `/visita-campus`,
+  HubSpot; [VERIFICAR] docentes por área, egresadas M6, Laboratorio de Fisiología.
+
+## 2026-09-28 — `campo-band--cta-lateral` promovida al molde compartido
+
+- La variante de la banda de campo laboral con los CTA en el costado derecho
+  (copy a la izquierda, dos CTA en columna a la derecha) se movió de
+  `nutricion.css` § 10 a `psicologia.css` (§ CAMPO LABORAL, alcance
+  `.pagina-carrera`), para reutilizarse en Biotecnología sin duplicar CSS.
+- Nutrición queda igual (su `<body>` es `.pagina-carrera`, la regla la sigue
+  cubriendo); `nutricion.css` solo conserva una nota que apunta al molde.
+- Biotecnología (M6) añade la clase `campo-band--cta-lateral` a su banda.
+- Cambio no destructivo: solo afecta a las bandas que llevan la clase.
+
+## 2026-09-28 — Licenciatura en Biotecnología · nueva página (molde de carrera)
+
+- Se construye `licenciatura-biotecnologia.html` reutilizando el molde de carrera
+  (`.pagina-carrera`, componentes `lic-*` de `psicologia.css`); referencia de
+  página: Gastronomía. Spec en `specs/licenciatura-biotecnologia.md`.
+- Desviaciones propias en `licenciatura-biotecnologia.css` (alcance
+  `.pagina-biotecnologia`), todas con tokens: retícula de **9 tabs por semestre**
+  (`repeat(9,1fr)` en escritorio, 3×3 ≤1240px, dropdown ≤540px del molde) y
+  `bio-colab-nota` (respaldo de la Facultad); M9 con **dos grupos de aliados**
+  (nacionales / internacionales).
+  Se descartan las desviaciones de Gastronomía (7 tabs, convenios, mapas, viñedo).
+- Particularidades respetadas: 9 semestres, solo Campus Norte, eje de laboratorio
+  (sin lenguaje clínico), sin servicio social (M4 = 2 datos), tercer bloque
+  «Electivo», Hospital Virtual siempre «en construcción», sin comparaciones.
+- JSON-LD: Course `P4Y6M` / 415 créditos / `onsite`; `CollegeOrUniversity` solo
+  Campus Norte (se elimina Campus Sur del schema; el footer compartido lo conserva);
+  BreadcrumbList con área Ciencias de la Salud; FAQPage con las 7 preguntas.
+- Wiring: la tarjeta de Biotecnología enlaza a la página desde
+  `area-ciencias-de-la-salud.html` y `oferta-academica.html`.
+- Verificado: `check:titulos` sin huérfanas (32 anchuras), sin overflow a 320px,
+  balance de etiquetas correcto, todas las imágenes resuelven.
+- **[PLACEHOLDER] no mergeable aún:** fotos reales (`assets/biotecnologia/`),
+  logotipos de aliados, claustro docente y testimonios; [PENDIENTE] ID de video,
+  URL del RVOE y de `/visita-campus`; conexión HubSpot del formulario.
+
+## 2026-09-25 — Área Ciencias de la Salud · ajustes editoriales
+
+- Se actualizan el claim del hero y una afinidad para hablar de transformar
+  vidas y de ciencias de la salud.
+- La red clínica sitúa las prácticas con pacientes reales desde los primeros
+  semestres.
+- La tarjeta de certificaciones sustituye la mención de IFOM por el texto
+  entregado sobre cinco acreditaciones de Medicina por la COMAEM.
+- La denominación desarrollada de COMAEM usa mayúsculas iniciales:
+  «Congreso Mexicano de Acreditación de la Enseñanza Médica».
+- La tarjeta de Médico Cirujano renueva su dato descriptivo para enfatizar la
+  pasión por la ciencia y la vocación de cuidar y transformar vidas.
+- «Cirujano Dentista» pasa a «Médico Cirujano Dentista» en toda la página,
+  incluidos FAQ, datos estructurados y etiquetas accesibles.
+- Se actualizan los ganchos y descripciones de Terapia Física y Rehabilitación y
+  Biotecnología, manteniendo sincronizados los datos estructurados.
+- La banda de experiencia clínica cierra ahora con el desarrollo de habilidades
+  para la práctica profesional.
+
 ## 2026-09-24 — Foráneos · jerarquía y ritmo de Hospedaje
 
 - «Zonas cercanas a tu campus» se convierte en el `h2` del módulo.

@@ -1,0 +1,1052 @@
+/* =============================================================================
+   CAMPUS NORTE — hoja de página
+
+   Página de tipo `campus` (soporte y decisión). Clona la arquitectura de las
+   páginas de área (`area-ciencias-de-la-salud`): comparte componentes de
+   styles.css y psicologia.css (lic-hero, lic-afinidad, afinidad-grid, lic-porque,
+   porque-card, campus-slider, lic-faq, lic-pasos, pasos-grid, hero-stack) y el
+   piloto de escala tipográfica `escala-2026`.
+
+   Aquí vive SOLO lo propio de esta página, con prefijo `cs-`:
+     a) ritmo de fondos de los módulos,
+     b) hero, M3 por qué, M4 licenciaturas (rejilla/acordeón + chips),
+     c) M5 instalaciones (deslizador + fichas + «Próximamente»),
+     d) M7 tabla comparativa Norte/Sur (COMPONENTE NUEVO) + bloque común,
+     e) M8 visita (tarjetas + maqueta de formulario + Tips + eventos),
+     f) M9 cómo llegar, barra CTA fija móvil,
+     g) el piloto `escala-2026` portado a los selectores de esta página,
+     h) el responsive de todo lo anterior.
+
+   Escala de espaciado del sitio: 20 / 40 / 60 / 100 en macro y 6 / 8 / 12 / 16 /
+   20 / 24 / 28 en micro. Cero valores hardcodeados de color/tipografía: tokens.
+   ========================================================================== */
+
+/* Utilidad: texto solo para lectores de pantalla (caption de la tabla M7). */
+.cs-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   RITMO DE FONDOS
+   Blanco y gris alternando; el acento se reserva para cierres. Nunca dos acentos
+   seguidos. M4 (licenciaturas) lleva tinte lila porque es un nodo de navegación
+   que conviene destacar; M7 (bicampus) vuelve a blanco para que la tabla respire.
+   -------------------------------------------------------------------------- */
+.cs-afinidad { background: var(--surface); }
+.cs-porque { background: var(--gray); }
+.cs-lic { background: rgba(205, 185, 239, 0.22); /* tinte de --lilac-2 */ }
+.cs-inst { background: var(--surface); }
+.cs-bicampus { background: var(--gray); }
+.cs-visita { background: var(--surface); }
+.cs-llegar { background: var(--gray); }
+/* El FAQ usa el tratamiento naranja del componente .lic-faq (texto blanco);
+   NO se le pone fondo claro o el texto blanco quedaría invisible. */
+
+/* Ritmo vertical: la intro de sección respira 50px antes del contenido, como en
+   la familia de páginas de área. */
+.cs-lic .section-intro,
+.cs-inst .section-intro,
+.cs-bicampus .section-intro,
+.cs-visita .section-intro,
+.cs-llegar .section-intro {
+  margin-bottom: 50px;
+}
+
+/* El M4 reusa el módulo de oferta, pero su encabezado va alineado a la
+   izquierda como el resto de la página (en oferta-academica va centrado). */
+.cs-lic.oferta-search .section-intro {
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  align-items: flex-start;
+}
+
+/* Unifica el tamaño de TODAS las fotos de las tarjetas de carrera: proporción
+   fija 3:2 (la de las fotos reales) + object-fit, para que las imágenes
+   placeholder (verticales/cuadradas) no descuadren las tarjetas. */
+.cs-lic .program-img {
+  aspect-ratio: 3 / 2;
+  margin-bottom: 20px;
+}
+.cs-lic .program-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =============================================================================
+   MÓDULO 1 — Hero
+   Layout apilado (.hero-stack de styles.css): H1 a todo el ancho y, debajo, foto
+   + panel de claim/subtítulo/CTAs. Devuelve el token de padding lateral para que
+   el H1 comparta eje con los H2 de abajo.
+   ========================================================================== */
+.cs-hero {
+  padding-left: var(--section-pad-x);
+  padding-right: var(--section-pad-x);
+}
+
+.cs-hero h1 {
+  /* Mínimo 28px (no 34): a 320px el H1 institucional de 5 palabras necesita bajar
+     para no partirse en 4 renglones. Arriba de ~460px el 6.1vw manda. */
+  font-size: clamp(28px, 6.1vw, 88px);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.cs-hero-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-9);
+  border-radius: var(--radius);
+  background: var(--purple-2);
+  color: var(--color-text-invert);
+}
+
+.cs-hero-claim {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: var(--weight-semibold);
+  line-height: 1.15;
+  text-wrap: pretty;
+}
+
+.cs-hero-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  text-wrap: pretty;
+}
+
+/* =============================================================================
+   MÓDULO 2 — Afinidad
+   Cierre con peso de lectura + enlace de texto (no botón) a Campus Sur.
+   ========================================================================== */
+.cs-afinidad-cierre {
+  margin: 40px auto 0;
+  max-width: 860px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.cs-afinidad-enlace {
+  margin: var(--space-5) auto 0;
+  max-width: 860px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.cs-afinidad-enlace a {
+  color: var(--purple-2);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-afinidad-enlace a:hover { color: var(--orange); }
+
+/* =============================================================================
+   MÓDULO 3 — Por qué Campus Norte
+   Carrusel sticky a la izquierda (+ enlace «Ver instalaciones») y 6 tarjetas
+   .porque-card apiladas a la derecha. Mismo patrón que las páginas de área.
+   ========================================================================== */
+.cs-porque-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.cs-porque-media {
+  position: sticky;
+  top: 100px;
+}
+
+.cs-porque-slider .campus-slider-viewport { border-radius: var(--radius); }
+
+.cs-porque-slider .campus-slides > li {
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.cs-porque-slider .campus-slides > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-porque-slider .campus-slider-arrow {
+  width: 42px;
+  height: 42px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.cs-porque-slider .campus-slider-arrow svg { width: 20px; height: 20px; }
+.cs-porque-slider .campus-slider-arrow:hover { background: var(--purple-1); }
+
+.cs-porque-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cs-porque-link {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+.cs-porque-cta { margin-top: 40px; }
+
+
+.cs-lic-nota {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.cs-lic-nota a {
+  color: var(--purple-2);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cs-lic-nota a:hover { color: var(--orange); }
+
+/* =============================================================================
+   MÓDULO 5 — Instalaciones (deslizador de fichas)
+   Reutiliza el componente .campus-slider; la ficha es una tarjeta con foto +
+   H3 + texto. Tres a la vista en desktop. Mismo tratamiento de flechas/puntos
+   que el deslizador de instalaciones de las páginas de área.
+   ========================================================================== */
+.cs-inst-slider .campus-slides { gap: 20px; }
+
+.cs-inst-slider .campus-slides > li {
+  flex: 0 0 calc((100% - 40px) / 3);
+  aspect-ratio: auto;
+  align-self: stretch;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.cs-inst-slider .campus-slides > li > .cs-ficha { height: 100%; }
+
+.cs-inst-slider .campus-slider-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.cs-inst-slider .campus-slider-arrow svg { width: 20px; height: 20px; }
+.cs-inst-slider .campus-slider-arrow:hover { background: var(--purple-1); }
+.cs-inst-slider .campus-slider-prev { left: -22px; }
+.cs-inst-slider .campus-slider-next { right: -22px; }
+.cs-inst-slider .campus-slider-dots { margin-top: 24px; }
+
+.cs-inst-cta { margin-top: 40px; }
+
+.cs-ficha {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 30px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Mayor especificidad que `.campus-slides img` (psicologia.css) para que el
+   aspect-ratio gane y todas las fotos de ficha queden a la misma altura. */
+.cs-inst-slider .cs-ficha-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.cs-ficha h3 {
+  margin-top: 26px;
+  padding: 0 30px;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.cs-ficha p {
+  padding: 0 30px;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Etiqueta «Próximamente» (administrable). Va sobre la foto, arriba a la izq. */
+.cs-ficha-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--orange);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--color-text-invert);
+}
+
+/* =============================================================================
+   MÓDULO 7 — Una universidad, dos campus · COMPONENTE NUEVO
+   Tabla de 2 columnas (Norte | Sur), 5 filas. Columna Norte resaltada + badge
+   «Estás aquí». <th scope> en encabezados de fila y de columna. En móvil se
+   apila POR FILA (cada fila muestra Norte y Sur juntos, con su encabezado),
+   para que la comparación nunca se pierda. SIN cifras.
+   ========================================================================== */
+.cs-tabla-wrap { overflow: hidden; }
+
+.cs-tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.cs-tabla th,
+.cs-tabla td {
+  padding: 20px 24px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cs-tabla td.cs-tabla-corner { border-top: 0; background: transparent; }
+
+/* Encabezados de columna */
+.cs-tabla thead th {
+  border-top: 0;
+  font-family: var(--font-heading);
+  vertical-align: bottom;
+}
+
+.cs-tabla-campus {
+  display: block;
+  font-size: 24px;
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.cs-tabla-badge {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--orange);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--color-text-invert);
+}
+
+/* Encabezados de fila (criterio) con ícono */
+.cs-tabla tbody th[scope="row"] {
+  width: 24%;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.cs-tabla-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--lilac-2);
+  color: var(--purple-1);
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.cs-tabla-ic svg { width: 20px; height: 20px; }
+
+/* Acento bajo las cabeceras de columna + un poco más de aire. */
+.cs-tabla thead th { border-bottom: 2px solid rgba(17, 12, 34, 0.1); padding-bottom: 16px; }
+.cs-tabla tbody tr:hover td { background-color: rgba(17, 12, 34, 0.02); }
+.cs-tabla tbody tr:hover td.cs-tabla-sur { background-color: rgba(93, 66, 140, 0.09); }
+
+.cs-tabla td {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Columna Sur resaltada: tinte lila + borde lateral de acento. */
+.cs-tabla thead .cs-tabla-sur,
+.cs-tabla tbody td.cs-tabla-sur {
+  background: rgba(93, 66, 140, 0.06);
+  box-shadow: inset 3px 0 0 var(--purple-2);
+}
+
+.cs-tabla thead .cs-tabla-sur { border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.cs-tabla tbody tr:last-child td.cs-tabla-sur { border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+
+/* Bloque común «Sin importar el campus que elijas» */
+.cs-bicampus-comun {
+  margin-top: 60px;
+  padding: 44px;
+  border-radius: var(--radius);
+  background: var(--surface-accent);
+  color: var(--color-text-invert);
+}
+
+.cs-bicampus-comun h3 {
+  margin-bottom: 28px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+}
+
+.cs-comun-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  margin-bottom: 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-comun-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.cs-comun-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--lilac-1);
+}
+
+.cs-comun-icon svg { width: 24px; height: 24px; }
+
+.cs-comun-item p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.cs-bicampus-cta { margin-top: 0; }
+
+/* Sobre morado, los dos botones van en claro. */
+.cs-bicampus-cta .btn-light {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--color-text);
+}
+.cs-bicampus-cta .btn-light:hover { background: transparent; color: var(--white); }
+
+/* =============================================================================
+   MÓDULO 8 — Agenda tu visita
+   Tarjetas de opción (1.ª destacada con el formulario incrustado) + Tips +
+   eventos. El formulario es una MAQUETA visual estática.
+   ========================================================================== */
+.cs-visita-card {
+  margin-top: 24px;
+  padding: 36px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.cs-visita-card--destacada {
+  border-color: var(--orange);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+.cs-visita-head h3 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.cs-visita-head p {
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 62ch;
+}
+
+.cs-visita-dato {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: var(--radius-button);
+  background: var(--gray);
+  font-family: var(--font-heading);
+  font-size: 15px !important;
+  font-weight: 600;
+  color: var(--color-text) !important;
+}
+
+.cs-visita-dato svg { width: 18px; height: 18px; color: var(--purple-2); flex-shrink: 0; }
+
+/* --- Maqueta de formulario --------------------------------------------------- */
+.cs-form {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cs-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.cs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-field label,
+.cs-acomp legend {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cs-field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  transition: border-color 180ms ease;
+}
+
+.cs-field input:focus {
+  outline: none;
+  border-color: var(--purple-2);
+  box-shadow: 0 0 0 3px rgba(93, 66, 140, 0.35);
+}
+
+/* El custom-select del tema (script.js) estiliza .cselect; aquí solo se asegura
+   el ancho completo dentro de la rejilla del formulario. */
+.cs-field .cselect { width: 100%; }
+
+.cs-form-acomp {
+  margin-top: 20px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-sm);
+  background: var(--gray);
+}
+
+.cs-form-acomp summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cs-form-acomp summary::-webkit-details-marker { display: none; }
+
+/* Marcador +/− del acordeón «¿Vienes acompañado?». */
+.cs-form-acomp .cs-area-mark {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.cs-form-acomp .cs-area-mark::before,
+.cs-form-acomp .cs-area-mark::after {
+  content: "";
+  position: absolute;
+  background: var(--purple-2);
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.cs-form-acomp .cs-area-mark::before { top: 8px; left: 0; width: 18px; height: 2px; }
+.cs-form-acomp .cs-area-mark::after { left: 8px; top: 0; width: 2px; height: 18px; }
+.cs-form-acomp[open] .cs-area-mark::after { transform: scaleY(0); opacity: 0; }
+
+.cs-form-acomp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 20px 20px;
+}
+
+.cs-acomp {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cs-form-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.cs-form-aviso input { margin-top: 3px; flex-shrink: 0; }
+.cs-form-aviso a { color: var(--purple-2); text-decoration: underline; text-underline-offset: 3px; }
+.cs-form-aviso a:hover { color: var(--orange); }
+
+.cs-form-submit { margin-top: 24px; }
+
+/* --- Tips --------------------------------------------------------------------- */
+.cs-tips {
+  margin-top: 40px;
+  padding: 44px;
+  border-radius: var(--radius);
+  background: var(--surface-accent);
+  color: var(--color-text-invert);
+}
+
+.cs-tips-titulo {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--heading-3-size);
+  line-height: var(--lh-heading);
+  font-weight: var(--weight-semibold);
+  color: var(--lilac-1);
+}
+
+.cs-tips-script {
+  font-family: var(--font-script);
+  font-size: calc(1em * 1.35);
+  font-weight: 400;
+  line-height: 1;
+  background: linear-gradient(100deg, var(--orange) 0%, var(--lilac-1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
+.cs-tips-sub {
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-invert);
+}
+
+.cs-tips p:last-child {
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  text-wrap: pretty;
+}
+
+.cs-tips a { color: var(--lilac-1); text-decoration: underline; text-underline-offset: 3px; }
+.cs-tips a:hover { color: var(--white); }
+
+/* --- Eventos ------------------------------------------------------------------ */
+.cs-eventos { margin-top: 60px; }
+.cs-eventos .section-intro { margin-bottom: 24px; }
+
+.cs-eventos h3 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.cs-event-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* Eventos placeholder: la caja de fecha muestra «Próximamente» legible y
+   centrado, sin el guión gigante (80px) que la desbordaba. */
+.cs-event-list .event-date { justify-content: center; padding: 14px 10px; }
+.cs-event-list .event-date strong { display: none; }
+.cs-event-list .event-date span {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--purple-1);
+}
+
+/* =============================================================================
+   MÓDULO 9 — Cómo llegar
+   Dos columnas: mapa | datos. Chips de rutas. Botones Maps/Waze.
+   ========================================================================== */
+.cs-llegar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.cs-mapa {
+  position: sticky;
+  top: 100px;
+}
+
+.cs-mapa iframe {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gray);
+}
+
+.cs-mapa-fallback {
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.cs-mapa-fallback a { color: var(--purple-2); text-decoration: underline; text-underline-offset: 3px; }
+.cs-mapa-fallback a:hover { color: var(--orange); }
+
+.cs-llegar-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cs-dato-bloque h3 {
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: var(--weight-semibold);
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.cs-dato-bloque p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.cs-direccion { font-weight: 600; color: var(--color-text); }
+.cs-tel { color: var(--purple-2); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+.cs-dato-bloque .button-row { margin-top: 16px; }
+
+.cs-rutas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.cs-rutas li {
+  padding: 7px 14px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-button);
+  background: var(--white);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* =============================================================================
+   MÓDULO 11 — Elige el siguiente paso
+   La primera tarjeta lleva el CTA primario destacado (borde de acento).
+   ========================================================================== */
+.cs-paso--primario,
+.cs-paso--primario:hover { border-color: var(--orange); }
+
+/* =============================================================================
+   BARRA CON CTA FIJO EN MÓVIL (< 768px)
+   Aparece al pasar el hero; se oculta mientras M8 (#visita) o el footer están en
+   pantalla (lo controla campus-sur.js con el atributo hidden y la clase
+   is-visible). En desktop no se muestra. Reserva su altura al final de la página.
+   ========================================================================== */
+.cs-ctabar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 260ms ease, visibility 0s linear 260ms;
+}
+
+.cs-ctabar .btn {
+  width: 100%;
+  padding: 15px 25px;
+  font-size: 18px;
+}
+
+@media (max-width: 1440px) {
+  /* La barra se muestra mientras el header está colapsado a hamburguesa (≤1440px),
+     para que «Agenda tu visita» esté siempre visible. Su aparición/ocultamiento al
+     pasar el hero / sobre #visita / sobre el footer lo decide el observer (is-visible). */
+  .cs-ctabar:not([hidden]) { display: block; }
+  .cs-ctabar.is-visible {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 260ms ease;
+  }
+}
+
+/* =============================================================================
+   PILOTO — ESCALA TIPOGRÁFICA `escala-2026`
+   Portada de las páginas de área para que esta página se vea igual que ellas.
+   Va prefijada con `.escala-2026` (clase del <body>).
+   ========================================================================== */
+
+/* 1. Medida: ningún texto corrido pasa de ~68 caracteres. */
+.escala-2026 .faq-item p,
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .cs-afinidad-cierre,
+.escala-2026 .cs-tips p:last-child,
+.escala-2026 .site-footer .newsletter p,
+.escala-2026 .site-footer .copyright {
+  max-width: 62ch;
+}
+
+.escala-2026 .cs-afinidad-cierre {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 2. Titulares */
+.escala-2026 main h2 {
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1;
+}
+
+/* H3-L — fichas, tarjetas grandes de visita, bloque común, eventos */
+.escala-2026 .cs-ficha h3,
+.escala-2026 .cs-visita-head h3,
+.escala-2026 .cs-bicampus-comun h3,
+.escala-2026 .cs-eventos h3,
+.escala-2026 .cs-tips-titulo {
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+/* H3-M — tarjeta estándar, pregunta de FAQ, área del router, datos de M9 */
+.escala-2026 .porque-card h3,
+.escala-2026 .paso-card h3,
+.escala-2026 .faq-item summary,
+.escala-2026 .cs-dato-bloque h3,
+.escala-2026 .cs-tabla-campus {
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+/* 3. Cuerpo */
+.escala-2026 .section-intro > p:not(.tagline),
+.escala-2026 .cs-afinidad-cierre,
+.escala-2026 .cs-tips p:last-child {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.escala-2026 .porque-card p,
+.escala-2026 .afinidad-card p,
+.escala-2026 .faq-item p,
+.escala-2026 .cs-ficha p,
+.escala-2026 .cs-tabla td,
+.escala-2026 .cs-dato-bloque p,
+.escala-2026 .cs-comun-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.escala-2026 .paso-card p { font-size: 15px; line-height: 1.5; letter-spacing: 0.2px; }
+
+/* Caption y legal */
+.escala-2026 .site-footer small,
+.escala-2026 .site-footer .copyright { font-size: 13px; line-height: 1.5; }
+
+/* =============================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* M3 y M9 pierden el sticky y caen a una columna. */
+@media (max-width: 900px) {
+  .cs-porque-layout { grid-template-columns: 1fr; gap: 28px; }
+  .cs-porque-media { position: static; }
+
+  .cs-llegar-grid { grid-template-columns: 1fr; }
+  .cs-mapa { position: static; }
+  .cs-mapa iframe { height: 320px; }
+
+  .cs-comun-grid { grid-template-columns: 1fr; gap: 24px; }
+  /* En móvil el ícono va arriba y el texto a todo el ancho (no apretado). */
+  .cs-comun-item { flex-direction: column; gap: 12px; }
+
+  .cs-bicampus-comun { padding: 28px 22px; }
+  .cs-tips { padding: 32px; }
+  .cs-tips p:last-child { font-size: 17px; }
+  .cs-afinidad-cierre { font-size: 17px; }
+}
+
+/* Ajustes móviles de fichas y formulario. */
+@media (max-width: 768px) {
+  .cs-ficha h3, .cs-ficha p { padding: 0 24px; }
+  .cs-ficha { padding-bottom: 24px; }
+  .cs-visita-card { padding: 26px; }
+  .cs-form-grid { grid-template-columns: 1fr; }
+  .cs-form-acomp-body { grid-template-columns: 1fr; }
+}
+
+/* M5 deslizador: 2 a la vista, luego 1 con asomo de la siguiente. */
+@media (max-width: 1180px) {
+  .cs-inst-slider .campus-slides > li { flex: 0 0 calc((100% - 20px) / 2); }
+}
+
+@media (max-width: 760px) {
+  .cs-inst-slider .campus-slides > li { flex: 0 0 86%; }
+  .cs-inst-slider .campus-slider-arrow { width: 38px; height: 38px; }
+  .cs-inst-slider .campus-slider-prev { left: 8px; }
+  .cs-inst-slider .campus-slider-next { right: 8px; }
+}
+
+/* M7 tabla: en móvil se apila POR FILA. Cada fila (criterio) es una tarjeta que
+   muestra Norte y Sur juntos, cada celda con su etiqueta de campus (data-campus).
+   Así la comparación nunca se pierde. */
+@media (max-width: 768px) {
+  .cs-tabla,
+  .cs-tabla thead,
+  .cs-tabla tbody,
+  .cs-tabla tr,
+  .cs-tabla th,
+  .cs-tabla td { display: block; width: 100%; }
+
+  /* El encabezado de columnas global se oculta: cada celda ya trae su etiqueta. */
+  .cs-tabla thead { display: none; }
+
+  .cs-tabla tbody tr {
+    margin-bottom: 20px;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .cs-tabla tbody th[scope="row"] {
+    width: 100%;
+    padding: 16px 20px;
+    border-top: 0;
+    background: var(--gray);
+  }
+
+  .cs-tabla tbody td {
+    padding: 14px 20px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Etiqueta de campus dentro de cada celda apilada. */
+  .cs-tabla tbody td::before {
+    content: attr(data-campus);
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--purple-2);
+  }
+
+  .cs-tabla tbody td.cs-tabla-sur::before { color: var(--text-gray); }
+
+  /* El resaltado de Norte se mantiene (tinte + barra lateral de acento). */
+  .cs-tabla tbody tr:last-child td.cs-tabla-norte { border-radius: 0; }
+}
+
+/* Reserva de la altura de la barra CTA al final de la página en móvil, para no
+   tapar el último contenido antes del footer. */
+@media (max-width: 767px) {
+  .cs-pasos { padding-bottom: calc(var(--section-pad-y) + 76px); }
+}
+
+/* Eventos reubicados como sección propia debajo de Instalaciones. */
+.cs-eventos-sec { background: var(--gray); }
+.cs-eventos-sec .cs-eventos { margin-top: 0; }

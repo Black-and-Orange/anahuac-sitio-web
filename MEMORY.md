@@ -42,6 +42,19 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 
 ## Decisiones
 
+### 2026-09-25 — Ciencias de la Salud actualiza copy y nombre de carrera
+- La revisión humana ajusta el claim del hero, la afinidad de ciencias, el
+  momento de inicio de las prácticas clínicas, la acreditación de Medicina y
+  el dato descriptivo de Médico Cirujano.
+- «Cirujano Dentista» adopta el nombre «Médico Cirujano Dentista» en toda la
+  página, incluidos datos estructurados y accesibilidad.
+- Terapia Física y Biotecnología reciben nuevos ganchos y descripciones; la
+  banda de experiencia clínica se enfoca en habilidades para la práctica
+  profesional.
+- El texto se aplica solo a la maqueta local y queda pendiente de revisión antes
+  de cualquier publicación o migración a HubSpot.
+- Origen: revisión humana del 2026-09-25.
+
 ### 2026-09-24 — Hospedaje abre con zonas y conserva ritmo simétrico
 - «Zonas cercanas a tu campus» es el H2 de la sección de Hospedaje.
 - Como el bloque de zonas ahora abre la sección, ya no conserva el margen que
@@ -398,3 +411,21 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
   experiencia no enumera esos programas: no hay dónde insertarlo sin rediseñar un
   módulo marcado «no rediseñar». ¿Se adapta el módulo compartido o se deja fuera?
 - ¿Cuál es el nombre definitivo del espacio que hoy figura como «Hospital Virtual»? (bloquea el copy de la tarjeta protagonista del módulo 3 del Área de Ciencias de la Salud).
+
+### 2026-10-22 — Claustro docente de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Se incorporan los cuatro docentes y sus descripciones en la página local, conservando el carrusel, las clases y los avatares existentes. Fotografías pendientes. Sin publicación ni cambios en HubSpot.
+
+### 2026-10-22 — Cuatro campos de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Se actualiza el título y la descripción de la tarjeta a cuatro campos: médica, farmacéutica, alimentaria y ambiental. Cambio de contenido local, sin modificar formato.
+
+### 2026-10-22 — Cátedras e instalaciones de Biotecnología
+
+- Origen: instrucción del usuario en Codex. Cátedras: se amplía el texto a los sectores farmacéutico, médico y alimentario. Se añaden Bioterio y Laboratorio de Fisiología al carrusel con imagen existente de referencia autorizada; fotografías reales pendientes. Cambios solo locales y formato conservado.
+
+### 2026-10-22 — Validación y aprobación de ajustes de Biotecnología
+
+- Revisión técnica: cuatro docentes con sus descripciones; siete instalaciones con rutas de imagen existentes; contenido de campos y cátedras sincronizado con el spec. Sin cambios en CSS, JavaScript, tokens ni componentes compartidos.
+- Validación: 42 pruebas aprobadas; readiness, tokens y Stylelint aprobados; diff sin errores de espacios. Sin hallazgos bloqueantes en el alcance del cambio. Imágenes de referencia autorizadas por el usuario; fotografías finales pendientes.
+- Revisión humana: el usuario aprueba los ajustes y solicita commit, merge y push.

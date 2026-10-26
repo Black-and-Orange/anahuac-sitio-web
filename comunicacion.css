@@ -43,14 +43,11 @@
    falta y por qué, en `assets/comunicacion/README.md`.
    -------------------------------------------------------------------------- */
 
-/* La cabecera de Instalaciones va centrada (como en Ciencias de la Salud). El
-   molde de carrera la alinea a la izquierda con `.pagina-carrera .lic-campus
-   .section-intro`; esta regla —misma especificidad, cargada después— la recentra. */
+/* La cabecera de Instalaciones va alineada a la izquierda, como el resto de los
+   encabezados de sección del molde. Solo conserva su margen inferior; la
+   alineación y el ancho los hereda de `.section-intro.wide` (flex-start, 100%). */
 .pagina-comunicacion .lic-campus .section-intro {
-  align-items: center;
-  text-align: center;
-  max-width: 840px;
-  margin: 0 auto 60px;
+  margin-bottom: 60px;
 }
 
 /* -----------------------------------------------------------------------------
