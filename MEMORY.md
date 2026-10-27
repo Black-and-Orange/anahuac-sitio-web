@@ -429,3 +429,20 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 - Revisión técnica: cuatro docentes con sus descripciones; siete instalaciones con rutas de imagen existentes; contenido de campos y cátedras sincronizado con el spec. Sin cambios en CSS, JavaScript, tokens ni componentes compartidos.
 - Validación: 42 pruebas aprobadas; readiness, tokens y Stylelint aprobados; diff sin errores de espacios. Sin hallazgos bloqueantes en el alcance del cambio. Imágenes de referencia autorizadas por el usuario; fotografías finales pendientes.
 - Revisión humana: el usuario aprueba los ajustes y solicita commit, merge y push.
+
+### 2026-10-26 — Afinidad de Medicina
+
+- Origen: solicitud del usuario en Codex. Se actualizan los cuatro textos del módulo de vocación y sus tres grupos de áreas clínicas; se mantienen el formato y los iconos. Cambio local documentado en `specs/medicina.md`.
+
+### 2026-10-26 — Motivos para estudiar Medicina
+
+- Origen: instrucción del usuario. Se separan Medicina Interna y Urgencias y Cirugía para mostrar cuatro áreas clínicas. Se actualizan la introducción, las seis tarjetas y la banda de Modelo Anáhuac del módulo de motivos; se eliminan los tres chips de la tarjeta renombrada Educación Médica Continua. Formato, iconos, CSS y JavaScript conservados; cambios locales.
+
+### 2026-10-26 — Plan, instalaciones y claustro de Medicina
+
+- Origen: solicitud del usuario. Se actualizan textos del plan y bloque profesional; destinos agrupados en tres regiones; carrusel de diez instalaciones sin Hospital Virtual y con siete opciones adicionales; cuatro nombres de docentes confirmados; se retira el módulo de convenios internacionales. Formato compartido conservado. Solo local, pendiente de revisión humana y autorización separada para publicar.
+
+### 2026-10-27 — Revisión e integración de Medicina
+
+- Revisión humana: el usuario solicita commit, merge y push de los ajustes revisados en local.
+- Revisión técnica: cuatro áreas clínicas, seis tarjetas de motivos, diez instalaciones, cuatro docentes y retiro exclusivo de convenios internacionales; imágenes de referencia existentes y formato compartido conservado. Sin hallazgos bloqueantes dentro del alcance solicitado.

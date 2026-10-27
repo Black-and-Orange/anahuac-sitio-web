@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-10-27 — Medicina · ajustes editoriales aprobados
+
+- Se actualizan afinidad, áreas clínicas, motivos para estudiar, Modelo Anáhuac y textos del plan.
+- Destinos agrupados en tres regiones, diez instalaciones y cuatro docentes confirmados; se retira el grupo de convenios internacionales.
+- Se conservan estilos, iconos e interacciones compartidas. Imágenes de referencia existentes, con fotografías definitivas pendientes. Revisión humana aprobada para integrar.
+
+
 ## 2026-10-22 — Biotecnología · ajustes de contenido aprobados
 
 - Claustro de cuatro docentes, cuatro campos de formación y cátedras de distintos sectores.

@@ -103,3 +103,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-10-22: `lic-colab` / `docente-card` de Biotecnología: cuatro docentes confirmados con descripción; formato compartido sin cambios y fotografías pendientes.
 
 - 2026-10-22: `campus-slider` / `lic-inst-card` de Biotecnología: siete instalaciones, incluyendo Bioterio y Laboratorio de Fisiología con imágenes de referencia; sin cambios al componente compartido.
+
+- 2026-10-26: `afinidad-card` / `afinidad-tag-group` en Medicina: cuatro textos y tres grupos de áreas clínicas actualizados; formato compartido sin cambios. Ver `specs/medicina.md`.
+
+- 2026-10-26: Medicina conserva cuatro áreas clínicas y seis `porque-card`; contenido de Educación Médica Continua sin chips. Textos locales sincronizados con `specs/medicina.md`, sin cambios al componente compartido.
+
+- 2026-10-26: Medicina: diez `lic-inst-card`, cuatro `docente-card` y solo convenios nacionales en `colab-aliados`. Actualización de contenido local sin cambios de CSS ni JavaScript.
