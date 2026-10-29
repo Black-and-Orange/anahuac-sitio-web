@@ -1,0 +1,790 @@
+/* =============================================================================
+   VIDA UNIVERSITARIA (Estudia con nosotros) — estilos propios de la página.
+
+   Se carga DESPUÉS de styles.css y psicologia.css. Solo define lo específico de
+   esta página; el grueso de los componentes (lic-hero, plan-tabs, lic-porque2,
+   program-scroller, campus-slider, stories, lic-pasos, lic-faq, lic-form, footer)
+   vive en styles.css / psicologia.css y aquí solo se ajusta o compone.
+
+   Prefijo de clases propio: .ecn- (Estudia Con Nosotros).
+   Sin valores de diseño arbitrarios: todo sale de los tokens del tema.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Botón de WhatsApp (ícono + texto). Reutiliza .btn del tema.
+   --------------------------------------------------------------------------- */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-whatsapp .btn-wa-icon {
+  flex: 0 0 auto;
+}
+
+/* =============================================================================
+   MÓDULO 1 — Hero
+   El componente .lic-hero es de dos columnas; aquí los 2 CTAs y el microcopy
+   van en la columna de copy (no en la media), bajo el subtítulo.
+   ========================================================================== */
+.ecn-hero-sub {
+  margin-top: 16px;
+  max-width: 48ch;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.ecn-hero .lic-hero-copy .button-row {
+  margin-top: 28px;
+}
+
+.ecn-hero-microcopy {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+/* =============================================================================
+   MÓDULO 2 — Así se vive la Anáhuac México (pestañas repurposadas)
+   6 pestañas; cada panel es media + copy. Las pestañas llevan etiqueta de texto
+   (no número), así que el reparto de columnas se adapta a 6.
+   ========================================================================== */
+.ecn-exp .plan-tabs-nav {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.ecn-exp .plan-tab {
+  padding: 12px 10px;
+  font-size: 16px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.ecn-exp-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.ecn-exp-media {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--surface-muted);
+}
+
+.ecn-exp-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ecn-exp-copy h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.ecn-exp-copy > p {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+.ecn-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ecn-exp-copy .porque-link {
+  display: inline-flex;
+  margin-top: 22px;
+}
+
+.ecn-exp-cta {
+  margin-top: 40px;
+}
+
+/* =============================================================================
+   MÓDULO 3 — Tu carrera, a tu manera
+   Usa el componente .lic-porque2 (sticky media + 6 cards). Ese layout está
+   acotado a .pagina-carrera en psicologia.css, por eso la <section> lleva esa
+   clase: así el componente funciona sin afectar al resto de la página.
+   ========================================================================== */
+.ecn-carrera-cta {
+  margin-top: 44px;
+}
+
+/* =============================================================================
+   MÓDULO 4 — Encuentra tu área (tarjetas `programs`)
+   ========================================================================== */
+.ecn-areas-note {
+  margin-top: 28px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-invert);
+}
+
+.ecn-areas-note a {
+  color: var(--color-text-invert);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* =============================================================================
+   MÓDULO 5 — Espacios que vas a hacer tuyos (fichas en campus-slider, 3 a la vista)
+   Mismo patrón visual que las instalaciones de las páginas de campus.
+   ========================================================================== */
+.ecn-inst-slider {
+  margin-top: 8px;
+}
+
+.ecn-inst-slider .campus-slides {
+  gap: 20px;
+}
+
+.ecn-inst-slider .campus-slides > li {
+  flex: 0 0 calc((100% - 40px) / 3);
+  aspect-ratio: auto;
+  align-self: stretch;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.ecn-inst-slider .campus-slides > li > .ecn-ficha {
+  height: 100%;
+}
+
+.ecn-ficha {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0 30px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Mayor especificidad que `.campus-slides img` para que gane el aspect-ratio y
+   todas las fotos de ficha queden a la misma altura. */
+.ecn-inst-slider .ecn-ficha-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.ecn-ficha-label {
+  margin: 20px 30px 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--purple-2);
+}
+
+.ecn-ficha h3 {
+  margin: 8px 0 0;
+  padding: 0 30px;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.ecn-ficha p {
+  padding: 0 30px;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Etiqueta «Próximamente» sobre la foto, arriba a la izquierda. */
+.ecn-ficha-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--orange);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--color-text-invert);
+}
+
+.ecn-inst-slider .campus-slider-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--purple-2);
+  opacity: 1;
+  box-shadow: 0 4px 14px rgba(67, 47, 100, 0.28);
+}
+
+.ecn-inst-slider .campus-slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ecn-inst-slider .campus-slider-arrow:hover {
+  background: var(--purple-1);
+}
+
+.ecn-inst-slider .campus-slider-prev {
+  left: -22px;
+}
+
+.ecn-inst-slider .campus-slider-next {
+  right: -22px;
+}
+
+.ecn-inst-slider .campus-slider-dots {
+  margin-top: 24px;
+}
+
+/* Bloque «Tips Anáhuac México» */
+.ecn-tips {
+  margin-top: 44px;
+  padding: 36px 40px;
+  border-radius: var(--radius);
+  background: var(--purple-1);
+  color: var(--color-text-invert);
+}
+
+.ecn-tips-titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-invert);
+}
+
+.ecn-tips-script {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--orange);
+}
+
+.ecn-tips-sub {
+  margin-top: 6px;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 22px;
+  color: var(--color-text-invert);
+}
+
+.ecn-tips > p:last-of-type,
+.ecn-tips p:not(.ecn-tips-titulo):not(.ecn-tips-sub) {
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ecn-tips-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.ecn-tips-links .porque-link {
+  color: var(--color-text-invert);
+}
+
+.ecn-inst-cta {
+  margin-top: 40px;
+}
+
+/* =============================================================================
+   MÓDULO 6 — Dos campus, una sola universidad
+   ========================================================================== */
+.ecn-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 8px;
+}
+
+.ecn-campus-card {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.ecn-campus-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.ecn-campus-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 30px 32px;
+}
+
+.ecn-campus-body h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 26px;
+  color: var(--color-text);
+}
+
+.ecn-campus-ubic {
+  display: flex;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.ecn-campus-ubic svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--purple-2);
+}
+
+.ecn-campus-body .porque-link {
+  margin-top: 4px;
+}
+
+.ecn-bicampus {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ecn-bicampus li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 22px 26px;
+  border-radius: var(--radius);
+  background: var(--purple-1);
+  color: var(--color-text-invert);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.ecn-bicampus svg {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  color: var(--orange);
+}
+
+/* =============================================================================
+   MÓDULO 8 — Foráneos (banda a todo lo ancho: foto + copy)
+   ========================================================================== */
+.ecn-foraneos {
+  background: var(--purple-1);
+  color: var(--color-text-invert);
+}
+
+.ecn-foraneos-inner {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  align-items: stretch;
+}
+
+.ecn-foraneos-media {
+  min-height: 420px;
+}
+
+.ecn-foraneos-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ecn-foraneos-copy {
+  padding: 72px clamp(24px, 6vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 760px;
+}
+
+.ecn-foraneos-eyebrow {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.ecn-foraneos-copy h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  color: var(--color-text-invert);
+}
+
+.ecn-foraneos-text {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ecn-foraneos-puntos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 28px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ecn-foraneos-puntos li {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.ecn-foraneos-puntos svg {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  color: var(--orange);
+}
+
+.ecn-foraneos-copy .button-row {
+  margin-top: 10px;
+}
+
+/* =============================================================================
+   MÓDULO 9 — Vívela en persona (2 tarjetas + sub-bloque de eventos)
+   ========================================================================== */
+.ecn-visita-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 8px;
+}
+
+.ecn-visita-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 40px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.ecn-visita-card--destacada {
+  border-color: var(--orange);
+  box-shadow: 0 18px 40px rgba(255, 89, 0, 0.12);
+}
+
+.ecn-visita-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--purple-1);
+  color: var(--color-text-invert);
+}
+
+.ecn-visita-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ecn-visita-card--destacada .ecn-visita-icon {
+  background: var(--orange);
+}
+
+.ecn-visita-card h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.ecn-visita-card > p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.ecn-visita-dato {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--purple-2) !important;
+}
+
+.ecn-visita-dato svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.ecn-visita-card .btn {
+  margin-top: 6px;
+}
+
+.ecn-eventos {
+  margin-top: 56px;
+}
+
+.ecn-eventos .section-intro {
+  margin-bottom: 24px;
+}
+
+.ecn-eventos .section-intro h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 28px;
+  color: var(--color-text);
+}
+
+.ecn-event-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* Eventos placeholder: la caja de fecha muestra «Próximamente» legible y
+   centrado, sin el guión gigante que la desbordaba (mismo ajuste que las
+   páginas de campus). */
+.ecn-event-list .event-date {
+  justify-content: center;
+  padding: 14px 10px;
+}
+
+.ecn-event-list .event-date strong {
+  display: none;
+}
+
+.ecn-event-list .event-date span {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.2px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--purple-1);
+}
+
+/* =============================================================================
+   MÓDULO 10 — Elige el siguiente paso
+   La última tarjeta (WhatsApp) se resalta como camino de conversión inmediato.
+   ========================================================================== */
+.ecn-paso--primario {
+  border-color: var(--orange) !important;
+}
+
+.ecn-paso--primario .paso-icon {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* =============================================================================
+   MÓDULO 12 — Resolveremos todas tus dudas (formulario completo)
+   Rejilla de 2 columnas dentro de la tarjeta blanca + etiquetas visibles.
+   ========================================================================== */
+.ecn-form-wa {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+.ecn-form-wa a {
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ecn-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ecn-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ecn-field label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.ecn-form-ok {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--purple-2);
+}
+
+/* =============================================================================
+   Barra con CTA fijo en móvil (< 768px), dos botones.
+   Aparece al pasar el hero; se oculta sobre #contacto (M12) y sobre el footer.
+   Ver estudia-con-nosotros.js.
+   ========================================================================== */
+.ecn-ctabar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  gap: 10px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 260ms ease, visibility 0s linear 260ms;
+}
+
+.ecn-ctabar .btn {
+  flex: 1 1 0;
+  justify-content: center;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+@media (max-width: 767px) {
+  .ecn-ctabar:not([hidden]) {
+    display: flex;
+  }
+  .ecn-ctabar.is-visible {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 260ms ease;
+  }
+}
+
+/* =============================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .ecn-exp .plan-tabs-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .ecn-foraneos-inner {
+    grid-template-columns: 1fr;
+  }
+  .ecn-foraneos-media {
+    min-height: 260px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 900px) {
+  .ecn-exp-panel {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .ecn-exp-media {
+    aspect-ratio: 16 / 10;
+  }
+  .ecn-campus-grid,
+  .ecn-bicampus,
+  .ecn-visita-grid,
+  .ecn-foraneos-puntos {
+    grid-template-columns: 1fr;
+  }
+  .ecn-inst-slider .campus-slides > li {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+  .ecn-inst-slider .campus-slider-prev {
+    left: 8px;
+  }
+  .ecn-inst-slider .campus-slider-next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ecn-exp .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ecn-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .ecn-tips {
+    padding: 28px 24px;
+  }
+  .ecn-foraneos-copy {
+    padding: 48px 24px;
+  }
+  .ecn-visita-card {
+    padding: 28px 24px;
+  }
+  .ecn-inst-slider .campus-slides > li {
+    flex: 0 0 86%;
+  }
+}
