@@ -32,8 +32,8 @@
    una frase larga (51 car.), así que se baja a una escala fluida que la deja en
    2–3 renglones equilibrados sin dominar el hero. */
 .ecn-hero .lic-hero-copy h1 {
-  font-size: clamp(30px, 4vw, 56px);
-  line-height: 1.08;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.06;
 }
 
 .ecn-hero-sub {
