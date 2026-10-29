@@ -28,6 +28,14 @@
    El componente .lic-hero es de dos columnas; aquí los 2 CTAs y el microcopy
    van en la columna de copy (no en la media), bajo el subtítulo.
    ========================================================================== */
+/* El H1 del molde está calibrado para títulos cortos («Médico Cirujano»); aquí es
+   una frase larga (51 car.), así que se baja a una escala fluida que la deja en
+   2–3 renglones equilibrados sin dominar el hero. */
+.ecn-hero .lic-hero-copy h1 {
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 1.08;
+}
+
 .ecn-hero-sub {
   margin-top: 16px;
   max-width: 48ch;
