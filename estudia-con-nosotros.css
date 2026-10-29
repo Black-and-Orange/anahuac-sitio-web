@@ -123,8 +123,10 @@
   margin-top: 22px;
 }
 
+/* El CTA vive dentro de la columna de copy de cada panel, justo debajo del
+   contenido (chips / enlace). Solo uno es visible a la vez (el del panel activo). */
 .ecn-exp-cta {
-  margin-top: 40px;
+  margin-top: 26px;
 }
 
 /* =============================================================================
