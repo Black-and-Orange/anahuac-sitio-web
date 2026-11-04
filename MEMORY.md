@@ -470,3 +470,9 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-04 — Integración de Tips
 
 - El usuario aprueba y solicita commit, merge y push del sello y texto. Validación técnica sin hallazgos bloqueantes: Kaushan Script cargada y color lila verificados en navegador, títulos y CTA conservados, readiness/tokens/Stylelint aprobados y diff sin errores de espacios.
+
+### 2026-11-04 — Revisión posterior de Estudia con nosotros
+
+- El usuario solicita retirar la tipografía manuscrita únicamente en `estudia-con-nosotros`; las demás páginas conservan su tratamiento actual. Los rótulos locales usan `--font-heading`.
+- «Así se vive» coloca «Quiero recibir más información» al final de sus cinco opciones no deportivas; Deporte queda sin ese CTA.
+- El bloque Tips elimina «Conoce Campus Norte/Sur» y conserva el CTA de visita. «Encuentra tu área» recupera el carrusel compartido de tres tarjetas visible en la referencia aprobada.

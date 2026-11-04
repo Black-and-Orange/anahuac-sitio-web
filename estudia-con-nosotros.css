@@ -54,17 +54,16 @@
    van en la columna de copy (no en la media), bajo el subtítulo.
    ========================================================================== */
 /* Hero ELEVADO pero institucional: mismo componente lic-hero (claro, dos
-   columnas, header sobre claro) + un lienzo cálido, el acento en Kaushan y un
-   bloque de color de marca detrás de la imagen. Diferencia sin cambiar de
-   lenguaje visual ni perder contenido. */
+   columnas, header sobre claro) + un lienzo cálido, tipografía institucional y
+   un bloque de color de marca detrás de la imagen. */
 .ecn-hero { background: var(--ecn-surface-editorial); }
 .ecn-hero .lic-hero-inner { align-items: center; }
 
-/* Gancho emocional en Kaushan (lo que gustó del concepto, en clave clara) */
+/* Gancho emocional con la tipografía institucional de encabezados. */
 .ecn-hero-hook {
   margin: var(--border-width) 0;
-  font-family: var(--font-script);
-  font-weight: var(--weight-regular);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
   color: var(--color-brand-primary);
   font-size: clamp(var(--size-26), 3.6vw, var(--size-48));
   line-height: 1;
@@ -465,9 +464,9 @@
 }
 
 .ecn-tips-script {
-  font-family: var(--font-script);
+  font-family: var(--font-heading);
   font-size: calc(1em * 1.35);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-semibold);
   line-height: 1;
   background: linear-gradient(100deg, var(--color-brand-primary) 0%, var(--surface-accent-light) 100%);
   -webkit-background-clip: text;
@@ -971,28 +970,6 @@
 
 
 /* =============================================================================
-   MÓDULO 4 — «Encuentra tu área» · Retícula editorial (.ecn-areas2)
-   8 áreas con su pregunta detonante visible. Imagen con el nombre superpuesto +
-   pregunta y enlace debajo. Reemplaza el carrusel de tarjetas de Inicio.
-   ========================================================================== */
-.ecn-areas2-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-8); }
-.ecn-areas2-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); margin-top: var(--size-44); }
-.ecn-area-card { display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden; border: var(--border-width-thin) solid var(--border-hairline); background: var(--surface); transition: box-shadow var(--motion-duration-fast) var(--motion-ease), transform var(--motion-duration-fast) var(--motion-ease); }
-.ecn-area-card:hover { box-shadow: var(--shadow-md); transform: translateY(-calc(var(--space-1) - var(--border-width-thin))); }
-.ecn-area-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
-.ecn-area-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; }
-.ecn-area-card:hover .ecn-area-media img { transform: scale(1.05); }
-.ecn-area-media::after { content: ""; position: absolute; inset: 0; background: var(--ecn-overlay-media-soft); }
-.ecn-area-name { position: absolute; left: var(--space-8); right: var(--space-8); bottom: var(--heading-6-size); z-index: 2; color: var(--color-text-invert); font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: clamp(var(--size-22), 2.4vw, var(--size-28)); line-height: 1.08; }
-.ecn-area-body { display: flex; flex-direction: column; gap: calc(var(--space-6) - var(--border-width)); flex: 1; padding: var(--size-22) var(--size-26) var(--size-26); }
-.ecn-area-q { margin: 0; font-size: var(--paragraph-size); line-height: 1.55; color: var(--color-text-secondary); }
-.ecn-area-link { margin-top: auto; display: inline-flex; font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: var(--size-15); color: var(--cta-bg-purple); }
-.ecn-area-link span { color: var(--color-brand-primary); margin-left: calc(var(--space-2) - var(--border-width)); }
-.ecn-areas2-foot { margin-top: var(--size-28); font-size: var(--paragraph-size); color: var(--color-text-secondary); }
-.ecn-areas2-foot a { color: var(--cta-bg-purple); font-weight: var(--weight-semibold); }
-@media (max-width: 760px) { .ecn-areas2-grid { grid-template-columns: 1fr; } .ecn-areas2-head { flex-direction: column; align-items: flex-start; gap: var(--space-6); } }
-
-/* =============================================================================
    MÓDULO 6 — «Dos campus» · Split a sangre (.ecn-split)
    Dos mitades (Norte | Sur) con sello central + franja bicampus debajo.
    ========================================================================== */
@@ -1008,9 +985,6 @@
 .ecn-split-body .porque-link { margin-top: var(--space-6); color: var(--color-text-invert); }
 .ecn-split-badge { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--color-brand-primary); color: var(--color-text-invert); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: var(--eyebrow-size); line-height: 1.3; padding: calc(var(--space-6) - var(--border-width)) var(--size-22); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-panel); max-width: var(--ecn-size-card); }
 @media (max-width: 760px) { .ecn-split { grid-template-columns: 1fr; } .ecn-split-badge { display: none; } .ecn-split-half { min-height: var(--ecn-size-card-tall); } }
-
-.ecn-areas2-head .section-intro { margin-bottom: 0; }
-
 
 /* =============================================================================
    MÓDULO 3 — «Tu carrera, a tu manera» · Feature a dos columnas (.ecn-model)
@@ -1044,16 +1018,13 @@
   .ecn-model-icon { width: calc(var(--size-48) - var(--border-width)); height: calc(var(--size-48) - var(--border-width)); }
 }
 
-.ecn-areas2-head .btn { white-space: nowrap; flex: 0 0 auto; align-self: center; }
-
-
 /* =============================================================================
    MÓDULO 3 — «Tu carrera, a tu manera» · RUTA editorial (.ecn-ruta)
    Los 6 beneficios como estaciones de una ruta conectada por una línea de marca
    con marcadores numerados; el contenido alterna de lado y las fotos entran como
    estaciones. Composición propia (ni grid, ni slider, ni imagen+lista).
    ========================================================================== */
-.ecn-ruta-script { margin: 0 0 var(--border-width); font-family: var(--font-script); font-weight: var(--weight-regular); color: var(--color-brand-primary); font-size: clamp(var(--size-26), 3.4vw, var(--size-48)); line-height: 1; }
+.ecn-ruta-script { margin: 0 0 var(--border-width); font-family: var(--font-heading); font-weight: var(--weight-semibold); color: var(--color-brand-primary); font-size: clamp(var(--size-26), 3.4vw, var(--size-48)); line-height: 1; }
 .ecn-ruta-track { position: relative; max-width: var(--ecn-content-route); margin: var(--space-11) auto 0; }
 .ecn-ruta-track::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); top: var(--size-36); bottom: var(--size-36); width: calc(var(--space-1) - var(--border-width-thin)); border-radius: var(--radius-sm); background: linear-gradient(var(--color-brand-primary), var(--surface-accent-light)); z-index: 0; }
 .ecn-ruta-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: clamp(var(--size-44), 6vw, calc(var(--space-12) + var(--space-1))); }
@@ -1086,21 +1057,6 @@
   .ecn-ruta-item:nth-child(odd) .ecn-ruta-photo,
   .ecn-ruta-item:nth-child(even) .ecn-ruta-photo { grid-column: 2; grid-row: 2; margin: 0; aspect-ratio: 16 / 10; }
 }
-
-
-/* M4 — fondo naranja de marca (como la sección de áreas de Inicio) + retícula. */
-.ecn-areas2 { position: relative; background: var(--color-brand-primary); color: var(--color-text-invert); overflow: hidden; }
-.ecn-areas2::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; opacity: 0.22;
-  background-image: var(--grid-lines);
-  background-size: var(--grid-cell); transform: translate(calc(var(--lead-size) * -1), calc(var(--space-7) * -1));
-  -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
-  pointer-events: none;
-}
-.ecn-areas2 .container { position: relative; z-index: 1; }
-.ecn-areas2-foot { color: var(--ecn-text-invert-strong); }
-.ecn-areas2-foot a { color: var(--color-text-invert); text-decoration: underline; text-underline-offset: calc(var(--space-1) - var(--border-width-thin)); }
 
 
 /* =============================================================================

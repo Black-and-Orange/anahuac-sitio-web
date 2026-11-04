@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-04 — Estudia con nosotros · ajustes de revisión visual
+
+- Alcance exclusivo de `estudia-con-nosotros`: los tres rótulos decorativos locales pasan de Kaushan Script a la tipografía institucional de encabezados; ninguna otra página cambia.
+- El CTA «Quiero recibir más información» se integra al final de Arte y cultura, Liderazgo, Comunidad, Compromiso social y Fe y servicio; Deporte permanece sin ese CTA.
+- El bloque Tips retira los enlaces «Conoce Campus Norte/Sur» y conserva «Agenda tu visita y recórrelos».
+- «Encuentra tu área» vuelve al componente compartido `.programs / .program-scroller`, con tres tarjetas visibles y controles de carrusel en escritorio.
+
 ## 2026-11-04 — Estudia con nosotros · sello Tips
 
 - Se iguala el sello editorial al patrón de Campus Norte y Sur: Kaushan Script con degradado naranja a lila y marca en Zilla Slab semibold lila.
