@@ -1,0 +1,101 @@
+/* ==========================================================================
+   tokens.css — ARQUITECTURA DE TOKENS (reutilizable)
+
+   Estructura extraída del proyecto base. La ARQUITECTURA (primitivos →
+   semánticos, escalas de espaciado, grid, motion) se conserva; los VALORES
+   son de ejemplo y DEBES reemplazarlos con los del cliente nuevo (paleta,
+   tipografías y radios de su manual de identidad).
+
+   Flujo recomendado: del manual de identidad sacas colores/tipos → los pones
+   como PRIMITIVOS → los mapeas a SEMÁNTICOS (rol → primitivo). Los componentes
+   solo consumen semánticos, nunca primitivos.
+   ========================================================================== */
+
+@layer tokens {
+  :root {
+    /* === PRIMITIVOS — reemplazar con la marca del cliente ================== */
+
+    /* Marca (ejemplo) */
+    --brand-1: #ff5900;          /* primario */
+    --brand-2: #432f64;          /* secundario */
+    --brand-3: #5d428c;          /* secundario claro */
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #f2f2f2;
+
+    /* Acentos (ejemplo — ampliar según el manual) */
+    --accent-1: #0f66ab;
+    --accent-2: #ffda00;
+    --accent-3: #ea2828;
+
+    /* Sistema */
+    --text-strong: #0c1115;
+    --text-muted: #788592;
+
+    /* Tipografía — reemplazar por las fuentes del cliente */
+    --font-heading: "Zilla Slab", Georgia, serif;
+    --font-body: "Roboto", Arial, sans-serif;
+    --weight-semibold: 600;
+    --lh-heading: 1.2;
+    --lh-body: 1.6;
+
+    /* Escala tipográfica (ejemplo) */
+    --h1-size: clamp(40px, 6vw, 72px);
+    --h2-size: clamp(30px, 4vw, 48px);
+    --h3-size: 40px;
+    --h4-size: 24px;
+    --h5-size: 20px;
+
+    /* Espaciado (escala) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 10px;
+    --space-4: 12px;
+    --space-5: 15px;
+    --space-6: 16px;
+    --space-7: 20px;
+    --space-8: 24px;
+    --space-9: 30px;
+    --space-10: 40px;
+    --space-11: 60px;
+    --space-12: 80px;
+    --space-13: 100px;
+    --space-14: 120px;
+
+    /* Radios */
+    --radius-sm: 10px;
+    --radius-md: 20px;
+    --radius-lg: 40px;
+    --radius: var(--radius-sm);
+
+    /* Motion */
+    --motion-duration: 0.4s;
+    --motion-duration-fast: 0.2s;
+    --motion-duration-slow: 0.6s;
+    --motion-ease: ease-out;
+
+    /* Layout — grid de 12 columnas (ajustar al del cliente) */
+    --grid-columns: 12;
+    --grid-gutter: 20px;
+    --grid-margin: 20px;
+    --container: 1280px;
+    --section-pad-y: 100px;
+    --section-pad-x: 80px;
+    --nav-height: 80px;
+
+    /* === SEMÁNTICOS (rol → primitivo) — los componentes usan ESTOS ========= */
+    --color-bg: var(--white);
+    --color-surface: var(--gray);
+    --color-text: var(--black);
+    --color-text-secondary: var(--text-muted);
+    --color-primary: var(--brand-1);
+    --color-secondary: var(--brand-2);
+    --color-accent: var(--brand-1);
+    --surface-accent: var(--brand-2);
+
+    /* Alias legacy usados por base.css (mapear a la marca) */
+    --orange: var(--brand-1);
+    --purple-1: var(--brand-2);
+    --purple-2: var(--brand-3);
+  }
+}

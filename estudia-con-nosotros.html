@@ -32,7 +32,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="psicologia.css" />
-    <link rel="stylesheet" href="estudia-con-nosotros.css" />
+    <link rel="stylesheet" href="estudia-con-nosotros.css?v=20261104-batch3" />
 
     <!-- =====================================================================
          Datos estructurados (guía JSON-LD del handoff v1.2).
@@ -294,9 +294,10 @@
             </nav>
 
             <p class="tagline reveal" data-reveal><span></span>Estudia con nosotros</p>
+            <p class="ecn-hero-hook reveal" data-reveal>Aquí no solo estudias una carrera.</p>
             <h1 class="reveal" data-reveal>Vida universitaria en la Universidad Anáhuac México</h1>
             <p class="lic-hero-claim reveal" data-reveal>
-              Aquí no solo estudias una carrera. Descubres quién puedes llegar a ser.
+              Descubres quién puedes llegar a ser.
             </p>
             <p class="ecn-hero-sub reveal" data-reveal>
               Deporte, arte, liderazgo, amigos de todo México y del mundo, y una formación que te abre
@@ -339,353 +340,297 @@
       </section>
 
       <!-- =====================================================================
-           MÓDULO 2 — Así se vive la Universidad Anáhuac México · Interés → Deseo
-           #experiencia · el corazón de la página.
-           Componente de pestañas del plan de estudios (.plan-tabs) repurposado:
-           6 pestañas, cada panel con media (video vertical o foto) + H3 + texto
-           + chips + enlace. La 1.ª abre por defecto. Sin etiquetas de campus.
-           Chips administrables (HubDB). PENDIENTE: 6 videos verticales reales.
+           MÓDULO 2 — Así se vive · Showcase de experiencias (.ecn-show)
+           Una experiencia a la vez: imagen grande + su contenido (texto + TODOS
+           los chips + enlace) al lado. Navegador de categorías + flechas +
+           contador + swipe. Conserva el 100% del contenido.
+           PENDIENTE: fotos/videos reales de alta resolución por experiencia.
            ===================================================================== -->
-      <section class="lic-plan-est ecn-exp section-pad" id="experiencia">
+      <section class="ecn-show section-pad" id="experiencia">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <h2>Así se vive la Universidad Anáhuac México</h2>
             <p>Tu carrera es solo el principio. Aquí eliges cómo crecer fuera del salón.</p>
           </div>
 
-          <div class="plan-tabs reveal" data-reveal>
-            <label class="sr-only" for="exp-select">Selecciona una forma de vivir la universidad</label>
-            <select class="plan-tabs-select js-select" id="exp-select" aria-label="Selecciona una forma de vivir la universidad">
-              <option value="tab-exp-deporte">Deporte</option>
-              <option value="tab-exp-arte">Arte y cultura</option>
-              <option value="tab-exp-liderazgo">Liderazgo</option>
-              <option value="tab-exp-comunidad">Comunidad</option>
-              <option value="tab-exp-social">Compromiso social</option>
-              <option value="tab-exp-fe">Fe y servicio</option>
-            </select>
-            <div class="plan-tabs-nav" role="tablist" aria-label="Formas de vivir la Universidad Anáhuac México">
-              <button class="plan-tab is-active" type="button" role="tab" id="tab-exp-deporte" aria-controls="panel-exp-deporte" aria-selected="true">Deporte</button>
-              <button class="plan-tab" type="button" role="tab" id="tab-exp-arte" aria-controls="panel-exp-arte" aria-selected="false" tabindex="-1">Arte y cultura</button>
-              <button class="plan-tab" type="button" role="tab" id="tab-exp-liderazgo" aria-controls="panel-exp-liderazgo" aria-selected="false" tabindex="-1">Liderazgo</button>
-              <button class="plan-tab" type="button" role="tab" id="tab-exp-comunidad" aria-controls="panel-exp-comunidad" aria-selected="false" tabindex="-1">Comunidad</button>
-              <button class="plan-tab" type="button" role="tab" id="tab-exp-social" aria-controls="panel-exp-social" aria-selected="false" tabindex="-1">Compromiso social</button>
-              <button class="plan-tab" type="button" role="tab" id="tab-exp-fe" aria-controls="panel-exp-fe" aria-selected="false" tabindex="-1">Fe y servicio</button>
+          <div class="ecn-show-controls reveal" data-reveal>
+            <div class="ecn-show-nav" role="tablist" aria-label="Formas de vivir la Universidad Anáhuac México">
+              <button class="ecn-show-navbtn is-active" type="button" role="tab" aria-selected="true" data-i="0">Deporte</button>
+              <button class="ecn-show-navbtn" type="button" role="tab" aria-selected="false" data-i="1">Arte y cultura</button>
+              <button class="ecn-show-navbtn" type="button" role="tab" aria-selected="false" data-i="2">Liderazgo</button>
+              <button class="ecn-show-navbtn" type="button" role="tab" aria-selected="false" data-i="3">Comunidad</button>
+              <button class="ecn-show-navbtn" type="button" role="tab" aria-selected="false" data-i="4">Compromiso social</button>
+              <button class="ecn-show-navbtn" type="button" role="tab" aria-selected="false" data-i="5">Fe y servicio</button>
             </div>
+            <div class="ecn-show-arrows">
+              <button class="ecn-show-arrow" type="button" data-ecn-show-prev aria-label="Experiencia anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
+              <button class="ecn-show-arrow" type="button" data-ecn-show-next aria-label="Experiencia siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
+            </div>
+          </div>
 
-            <!-- Deporte -->
-            <div class="plan-tab-panel is-active" role="tabpanel" id="panel-exp-deporte" aria-labelledby="tab-exp-deporte" tabindex="0">
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <!-- PENDIENTE: video vertical real (9:16). Mientras, foto real. -->
-                  <img src="assets/hero-football.jpg" alt="Estudiantes de la Universidad Anáhuac México entrenando con los Leones Anáhuac" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Deporte: vístete de León</h3>
-                  <p>Entrena, compite y representa a tu universidad en torneos nacionales con los Leones Anáhuac. Si apenas empiezas, hay torneos internos y clínicas para todos los niveles. Y si eres deportista de alto rendimiento, el Programa de Excelencia Deportiva ELITE adapta tu plan de estudios a tus entrenamientos y competencias.</p>
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">Futbol americano</li>
-                    <li class="lic-chip">Futbol soccer y rápido</li>
-                    <li class="lic-chip">Básquetbol</li>
-                    <li class="lic-chip">Voleibol de sala y de playa</li>
-                    <li class="lic-chip">Atletismo</li>
-                    <li class="lic-chip">Natación</li>
-                    <li class="lic-chip">Tenis y tenis de mesa</li>
-                    <li class="lic-chip">Pádel</li>
-                    <li class="lic-chip">Taekwondo</li>
-                    <li class="lic-chip">Karate do</li>
-                    <li class="lic-chip">Ajedrez</li>
-                    <li class="lic-chip">Montañismo</li>
-                    <li class="lic-chip">Baile de animación</li>
-                  </ul>
-                  <a class="porque-link" href="apoyos-economicos.html">Conoce los apoyos para deportistas <span aria-hidden="true">›</span></a>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+          <div class="ecn-show-stage reveal" data-reveal data-ecn-show>
+            <article class="ecn-show-slide is-active">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/hero-football.jpg" alt="Estudiantes de la Universidad Anáhuac México entrenando con los Leones Anáhuac" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Deporte <span class="ecn-show-count">01 / 06</span></p>
+                <h3>Vístete de León</h3>
+                <p>Entrena, compite y representa a tu universidad en torneos nacionales con los Leones Anáhuac. Si apenas empiezas, hay torneos internos y clínicas para todos los niveles. Y si eres deportista de alto rendimiento, el Programa de Excelencia Deportiva ELITE adapta tu plan de estudios a tus entrenamientos y competencias.</p>
+                <ul class="ecn-chips">
+                  <li class="lic-chip">Futbol americano</li>
+                  <li class="lic-chip">Futbol soccer y rápido</li>
+                  <li class="lic-chip">Básquetbol</li>
+                  <li class="lic-chip">Voleibol de sala y de playa</li>
+                  <li class="lic-chip">Atletismo</li>
+                  <li class="lic-chip">Natación</li>
+                  <li class="lic-chip">Tenis y tenis de mesa</li>
+                  <li class="lic-chip">Pádel</li>
+                  <li class="lic-chip">Taekwondo</li>
+                  <li class="lic-chip">Karate do</li>
+                  <li class="lic-chip">Ajedrez</li>
+                  <li class="lic-chip">Montañismo</li>
+                  <li class="lic-chip">Baile de animación</li>
+                </ul>
+                <a class="porque-link" href="apoyos-economicos.html">Conoce los apoyos para deportistas <span aria-hidden="true">›</span></a>
               </div>
-            </div>
+            </article>
 
-            <!-- Arte y cultura -->
-            <div class="plan-tab-panel" role="tabpanel" id="panel-exp-arte" aria-labelledby="tab-exp-arte" tabindex="0" hidden>
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <img src="assets/evento.jpg" alt="Estudiantes de la Universidad Anáhuac México en un ensayo de la Escuela de Artes" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Arte y cultura: sube al escenario</h3>
-                  <p>Canta, baila, actúa o pinta sin importar tu nivel: la Escuela de Artes adapta sus talleres a tu ritmo. Si ya tienes trayectoria, audiciona para sus compañías de teatro, danza contemporánea, ensamble de música y canto. ¿No está tu disciplina? Junta a 10 compañeros y se abre el taller.</p>
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">Teatro</li>
-                    <li class="lic-chip">Canto</li>
-                    <li class="lic-chip">Piano y batería</li>
-                    <li class="lic-chip">Jazz y hip-hop</li>
-                    <li class="lic-chip">Ballet</li>
-                    <li class="lic-chip">Danza folclórica</li>
-                    <li class="lic-chip">Danza irlandesa</li>
-                    <li class="lic-chip">Pintura</li>
-                    <li class="lic-chip">Apreciación del cine</li>
-                  </ul>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+            <article class="ecn-show-slide">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/evento.jpg" alt="Estudiantes de la Universidad Anáhuac México en un ensayo de la Escuela de Artes" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Arte y cultura <span class="ecn-show-count">02 / 06</span></p>
+                <h3>Sube al escenario</h3>
+                <p>Canta, baila, actúa o pinta sin importar tu nivel: la Escuela de Artes adapta sus talleres a tu ritmo. Si ya tienes trayectoria, audiciona para sus compañías de teatro, danza contemporánea, ensamble de música y canto. ¿No está tu disciplina? Junta a 10 compañeros y se abre el taller.</p>
+                <ul class="ecn-chips">
+                  <li class="lic-chip">Teatro</li>
+                  <li class="lic-chip">Canto</li>
+                  <li class="lic-chip">Piano y batería</li>
+                  <li class="lic-chip">Jazz y hip-hop</li>
+                  <li class="lic-chip">Ballet</li>
+                  <li class="lic-chip">Danza folclórica</li>
+                  <li class="lic-chip">Danza irlandesa</li>
+                  <li class="lic-chip">Pintura</li>
+                  <li class="lic-chip">Apreciación del cine</li>
+                </ul>
               </div>
-            </div>
+            </article>
 
-            <!-- Liderazgo -->
-            <div class="plan-tab-panel" role="tabpanel" id="panel-exp-liderazgo" aria-labelledby="tab-exp-liderazgo" tabindex="0" hidden>
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <img src="assets/prestigio.jpg" alt="Estudiantes de la Universidad Anáhuac México en un seminario de liderazgo" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Liderazgo: crece fuera del aula</h3>
-                  <p>Los Programas de Liderazgo y Excelencia, con acreditación internacional del MSL Institute, te dan seminarios nacionales e internacionales, mentoría personalizada, networking con líderes y visitas a empresas. Elige el que va con tu pasión.</p>
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">Vértice · excelencia académica</li>
-                    <li class="lic-chip">Genera · liderazgo empresarial</li>
-                    <li class="lic-chip">Acción · deporte</li>
-                    <li class="lic-chip">Culmen · arte y cultura</li>
-                    <li class="lic-chip">Alpha · ciencias de la salud</li>
-                    <li class="lic-chip">CREA · comunicación y creatividad</li>
-                    <li class="lic-chip">Impulsa · compromiso social</li>
-                    <li class="lic-chip">Sinergia · administración pública</li>
-                  </ul>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+            <article class="ecn-show-slide">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/camino.jpg" alt="Estudiantes de la Universidad Anáhuac México en un seminario de liderazgo" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Liderazgo <span class="ecn-show-count">03 / 06</span></p>
+                <h3>Crece fuera del aula</h3>
+                <p>Los Programas de Liderazgo y Excelencia, con acreditación internacional del MSL Institute, te dan seminarios nacionales e internacionales, mentoría personalizada, networking con líderes y visitas a empresas. Elige el que va con tu pasión.</p>
+                <ul class="ecn-chips">
+                  <li class="lic-chip">Vértice · excelencia académica</li>
+                  <li class="lic-chip">Genera · liderazgo empresarial</li>
+                  <li class="lic-chip">Acción · deporte</li>
+                  <li class="lic-chip">Culmen · arte y cultura</li>
+                  <li class="lic-chip">Alpha · ciencias de la salud</li>
+                  <li class="lic-chip">CREA · comunicación y creatividad</li>
+                  <li class="lic-chip">Impulsa · compromiso social</li>
+                  <li class="lic-chip">Sinergia · administración pública</li>
+                </ul>
               </div>
-            </div>
+            </article>
 
-            <!-- Comunidad -->
-            <div class="plan-tab-panel" role="tabpanel" id="panel-exp-comunidad" aria-labelledby="tab-exp-comunidad" tabindex="0" hidden>
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <img src="assets/hero-friends.jpg" alt="Estudiantes de la Universidad Anáhuac México conviviendo en la explanada del campus" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Comunidad: tu gente desde el primer día</h3>
-                  <p>Únete a la sociedad de alumnos de tu carrera, organiza eventos con la Federación de Sociedades de Alumnos (FESAL) o encuentra en ADEFA a los foráneos que vienen de tu estado. Entre clases, la explanada y las cafeterías del campus son el punto de encuentro.</p>
-                  <!-- [VERIFICAR: nombre oficial de los eventos de bienvenida y de carrera para los chips.] -->
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">Sociedades de alumnos</li>
-                    <li class="lic-chip">FESAL</li>
-                    <li class="lic-chip">ADEFA</li>
-                    <li class="lic-chip">Eventos de integración</li>
-                    <li class="lic-chip">Semana de tu carrera</li>
-                  </ul>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+            <article class="ecn-show-slide">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/hero-friends.jpg" alt="Estudiantes de la Universidad Anáhuac México conviviendo en la explanada del campus" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Comunidad <span class="ecn-show-count">04 / 06</span></p>
+                <h3>Tu gente desde el primer día</h3>
+                <p>Únete a la sociedad de alumnos de tu carrera, organiza eventos con la Federación de Sociedades de Alumnos (FESAL) o encuentra en ADEFA a los foráneos que vienen de tu estado. Entre clases, la explanada y las cafeterías del campus son el punto de encuentro.</p>
+                <!-- [VERIFICAR: nombre oficial de los eventos de bienvenida y de carrera para los chips.] -->
+                <ul class="ecn-chips">
+                  <li class="lic-chip">Sociedades de alumnos</li>
+                  <li class="lic-chip">FESAL</li>
+                  <li class="lic-chip">ADEFA</li>
+                  <li class="lic-chip">Eventos de integración</li>
+                  <li class="lic-chip">Semana de tu carrera</li>
+                </ul>
               </div>
-            </div>
+            </article>
 
-            <!-- Compromiso social -->
-            <div class="plan-tab-panel" role="tabpanel" id="panel-exp-social" aria-labelledby="tab-exp-social" tabindex="0" hidden>
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <img src="assets/psicologia/campo-comunitarios.webp" alt="Estudiantes de la Universidad Anáhuac México en una brigada de Acción Social" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Compromiso social: deja huella</h3>
-                  <p>Con Acción Social Universidad Anáhuac llevas lo que aprendes a quien más lo necesita: construcción de vivienda, brigadas, programas con niños y adultos mayores, cuidado del medio ambiente y el Centro Comunitario Casa del Éxodo, en el Ajusco Medio. Cada año, más de 2,000 alumnos participan en más de 200 proyectos sociales.</p>
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">ASUA Construye</li>
-                    <li class="lic-chip">ASUA por los Niños</li>
-                    <li class="lic-chip">ASUA por los Grandes</li>
-                    <li class="lic-chip">ASUA Verde</li>
-                    <li class="lic-chip">Brigadas</li>
-                    <li class="lic-chip">Casa del Éxodo</li>
-                  </ul>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+            <article class="ecn-show-slide">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/psicologia/campo-comunitarios.webp" alt="Estudiantes de la Universidad Anáhuac México en una brigada de Acción Social" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Compromiso social <span class="ecn-show-count">05 / 06</span></p>
+                <h3>Deja huella</h3>
+                <p>Con Acción Social Universidad Anáhuac llevas lo que aprendes a quien más lo necesita: construcción de vivienda, brigadas, programas con niños y adultos mayores, cuidado del medio ambiente y el Centro Comunitario Casa del Éxodo, en el Ajusco Medio. Cada año, más de 2,000 alumnos participan en más de 200 proyectos sociales.</p>
+                <ul class="ecn-chips">
+                  <li class="lic-chip">ASUA Construye</li>
+                  <li class="lic-chip">ASUA por los Niños</li>
+                  <li class="lic-chip">ASUA por los Grandes</li>
+                  <li class="lic-chip">ASUA Verde</li>
+                  <li class="lic-chip">Brigadas</li>
+                  <li class="lic-chip">Casa del Éxodo</li>
+                </ul>
               </div>
-            </div>
+            </article>
 
-            <!-- Fe y servicio -->
-            <div class="plan-tab-panel" role="tabpanel" id="panel-exp-fe" aria-labelledby="tab-exp-fe" tabindex="0" hidden>
-              <div class="ecn-exp-panel">
-                <div class="ecn-exp-media">
-                  <img src="assets/psicologia/campo-educativos.webp" alt="Estudiantes de la Universidad Anáhuac México en una misión de la Pastoral Universitaria" loading="lazy" />
-                </div>
-                <div class="ecn-exp-copy">
-                  <h3>Fe y servicio: vívelo en comunidad</h3>
-                  <p>La Pastoral Universitaria está abierta a toda la comunidad. Vive la Megamisión de Semana Santa con Juventud y Familia Misionera, súmate a las Misiones Médicas o acompaña a quien vive en la calle con Luz en la Calle. Experiencias que cambian tu forma de ver el mundo.</p>
-                  <!-- [VERIFICAR: programas de Pastoral vigentes.] -->
-                  <ul class="ecn-chips">
-                    <li class="lic-chip">Megamisión de Semana Santa</li>
-                    <li class="lic-chip">Misiones Médicas</li>
-                    <li class="lic-chip">Luz en la Calle</li>
-                    <li class="lic-chip">Integra</li>
-                    <li class="lic-chip">Gaudium</li>
-                  </ul>
-                  <div class="button-row ecn-exp-cta">
-                    <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
-                  </div>
-                </div>
+            <article class="ecn-show-slide">
+              <div class="ecn-show-media"><figure class="ecn-show-figure"><img src="assets/psicologia/campo-educativos.webp" alt="Estudiantes de la Universidad Anáhuac México en una misión de la Pastoral Universitaria" loading="lazy" /></figure></div>
+              <div class="ecn-show-body">
+                <p class="ecn-show-eyebrow">Fe y servicio <span class="ecn-show-count">06 / 06</span></p>
+                <h3>Vívelo en comunidad</h3>
+                <p>La Pastoral Universitaria está abierta a toda la comunidad. Vive la Megamisión de Semana Santa con Juventud y Familia Misionera, súmate a las Misiones Médicas o acompaña a quien vive en la calle con Luz en la Calle. Experiencias que cambian tu forma de ver el mundo.</p>
+                <!-- [VERIFICAR: programas de Pastoral vigentes.] -->
+                <ul class="ecn-chips">
+                  <li class="lic-chip">Megamisión de Semana Santa</li>
+                  <li class="lic-chip">Misiones Médicas</li>
+                  <li class="lic-chip">Luz en la Calle</li>
+                  <li class="lic-chip">Integra</li>
+                  <li class="lic-chip">Gaudium</li>
+                </ul>
               </div>
-            </div>
+            </article>
+          </div>
+
+          <div class="button-row ecn-show-cta reveal" data-reveal>
+            <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
           </div>
         </div>
       </section>
 
       <!-- =====================================================================
-           MÓDULO 3 — Tu carrera, a tu manera · AIDA: Deseo · #tu-carrera
-           Componente .lic-porque: carrusel de fotos sticky a la izquierda + 6
-           tarjetas .porque-card a la derecha, cada una con un enlace de texto
-           cuando aplica. CTA: «Agenda tu visita».
+           MÓDULO 3 — Tu carrera, a tu manera · RUTA editorial (.ecn-ruta)
+           6 beneficios como estaciones de una ruta: línea de marca + marcadores
+           numerados, contenido alternando de lado y fotos como estaciones.
+           Conserva textos y enlaces.
            ===================================================================== -->
-      <section class="lic-porque ecn-carrera pagina-carrera section-pad" id="tu-carrera">
+      <section class="ecn-ruta-sec section-pad" id="tu-carrera">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
+            <p class="ecn-ruta-script">Tú trazas tu camino</p>
             <h2>Tu carrera, a tu manera</h2>
-            <p>Un modelo educativo que se adapta a tus metas y te lleva más allá del salón.</p>
+            <p>Un modelo educativo que se adapta a tus metas y te lleva más allá del salón. Arma tu propia ruta:</p>
           </div>
 
-          <div class="lic-porque2-layout">
-            <div class="lic-porque2-media reveal" data-reveal>
-              <div class="campus-slider" data-campus-slider role="region" aria-roledescription="carrusel" aria-label="Galería de la experiencia académica en la Anáhuac México">
-                <div class="campus-slider-viewport">
-                  <ul class="campus-slides">
-                    <li><img src="assets/exp-internacional.png" alt="Estudiante de la Universidad Anáhuac México durante su intercambio en el extranjero" loading="lazy" /></li>
-                    <li><img src="assets/historia-3.jpg" alt="Alumnos de la Universidad Anáhuac México trabajando en un proyecto en equipo" loading="lazy" /></li>
-                    <li><img src="assets/psicologia/campo-empresas.webp" alt="Estudiante de la Universidad Anáhuac México en sus prácticas profesionales" loading="lazy" /></li>
-                  </ul>
+          <div class="ecn-ruta-track">
+            <ol class="ecn-ruta-list">
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">01</span>
+                <div class="ecn-ruta-card">
+                  <h3>Arma tu propio horario</h3>
+                  <p>Con el Modelo Anáhuac decides cuántas materias llevas cada periodo, eliges entre varias opciones de horario y escoges cursos según tus intereses.</p>
                 </div>
-                <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
-                <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
-                <div class="campus-slider-dots" aria-label="Imágenes de la experiencia académica"></div>
-              </div>
-            </div>
+                <div class="ecn-ruta-photo"><img src="assets/camino.jpg" alt="Estudiantes de la Universidad Anáhuac México planeando su horario" loading="lazy" /></div>
+              </li>
 
-            <div class="lic-porque2-cards">
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /></svg>
-                </span>
-                <h3>Arma tu propio horario</h3>
-                <p>Con el Modelo Anáhuac decides cuántas materias llevas cada periodo, eliges entre varias opciones de horario y escoges cursos según tus intereses.</p>
-              </article>
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">02</span>
+                <div class="ecn-ruta-card">
+                  <h3>Suma un Minor a tu carrera</h3>
+                  <p>Obtén un Diplomado Profesional Universitario (Minor) en otra área que te apasione. Y con tres materias electivas de una misma área de formación integral, te llevas otro diploma.</p>
+                </div>
+                <div class="ecn-ruta-photo"><img src="assets/area-artes.jpg" alt="Estudiantes de la Universidad Anáhuac México en un taller de otra área" loading="lazy" /></div>
+              </li>
 
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.2 5.7.8-4.1 4 .97 5.7L12 21l-5.04 2.7.97-5.7-4.1-4 5.7-.8z" /></svg>
-                </span>
-                <h3>Suma un Minor a tu carrera</h3>
-                <p>Obtén un Diplomado Profesional Universitario (Minor) en otra área que te apasione. Y con tres materias electivas de una misma área de formación integral, te llevas otro diploma.</p>
-              </article>
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">03</span>
+                <div class="ecn-ruta-card">
+                  <h3>Estudia en otro país</h3>
+                  <p>Vive un semestre de intercambio, un verano o un programa de study abroad en los 5 continentes. También hay movilidad nacional con otras universidades de la Red Anáhuac y el Programa Disney.</p>
+                  <a class="porque-link" href="https://www.anahuac.mx/mexico/intercambios/" target="_blank" rel="noopener">Conoce los intercambios <span aria-hidden="true">›</span></a>
+                </div>
+                <div class="ecn-ruta-photo"><img src="assets/exp-internacional.png" alt="Estudiante de la Universidad Anáhuac México durante su intercambio en el extranjero" loading="lazy" /></div>
+              </li>
 
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21C9.5 18.4 8.2 15.3 8.2 12S9.5 5.6 12 3z" /></svg>
-                </span>
-                <h3>Estudia en otro país</h3>
-                <p>Vive un semestre de intercambio, un verano o un programa de study abroad en los 5 continentes. También hay movilidad nacional con otras universidades de la Red Anáhuac y el Programa Disney.</p>
-                <a class="porque-link" href="https://www.anahuac.mx/mexico/intercambios/" target="_blank" rel="noopener">Conoce los intercambios <span aria-hidden="true">›</span></a>
-              </article>
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">04</span>
+                <div class="ecn-ruta-card">
+                  <h3>Titúlate en México y en el extranjero</h3>
+                  <p>Con el doble diploma, algunas carreras te permiten graduarte también en una universidad extranjera con convenio.</p>
+                  <!-- [VERIFICAR: qué carreras tienen doble diploma y a qué página enlaza; mientras tanto, va sin enlace.] -->
+                </div>
+                <div class="ecn-ruta-photo"><img src="assets/hero-student.jpg" alt="Egresado de la Universidad Anáhuac México con doble titulación" loading="lazy" /></div>
+              </li>
 
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4-9 4-9-4z" /><path d="M7 9v5c0 1.7 2.2 3 5 3s5-1.3 5-3V9" /><path d="M21 7v6" /></svg>
-                </span>
-                <h3>Titúlate en México y en el extranjero</h3>
-                <p>Con el doble diploma, algunas carreras te permiten graduarte también en una universidad extranjera con convenio.</p>
-                <!-- [VERIFICAR: qué carreras tienen doble diploma y a qué página enlaza esta tarjeta; mientras tanto, va sin enlace.] -->
-              </article>
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">05</span>
+                <div class="ecn-ruta-card">
+                  <h3>Empieza tu carrera antes de graduarte</h3>
+                  <p>Haz prácticas profesionales desde los semestres intermedios y aprovecha la bolsa de trabajo de la universidad: más de 100 empresas líderes vienen cada año a la feria de empleo a buscar talento Anáhuac México.</p>
+                </div>
+                <div class="ecn-ruta-photo"><img src="assets/psicologia/campo-empresas.webp" alt="Estudiante de la Universidad Anáhuac México en sus prácticas profesionales" loading="lazy" /></div>
+              </li>
 
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5" /><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5" /><path d="M3 12.5h18" /></svg>
-                </span>
-                <h3>Empieza tu carrera antes de graduarte</h3>
-                <p>Haz prácticas profesionales desde los semestres intermedios y aprovecha la bolsa de trabajo de la universidad: más de 100 empresas líderes vienen cada año a la feria de empleo a buscar talento Anáhuac México.</p>
-              </article>
-
-              <article class="porque-card reveal" data-reveal>
-                <span class="porque-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 4 10.5c-.6.6-1 1.3-1 2.1H9c0-.8-.4-1.5-1-2.1A6 6 0 0 1 12 3z" /></svg>
-                </span>
-                <h3>Emprende con acompañamiento</h3>
-                <p>Si tienes una idea de negocio, Emprende Anáhuac México te acompaña con su incubadora, mentores y emprendedores en residencia para convertirla en empresa.</p>
-                <!-- [VERIFICAR: nombre vigente del programa y a qué página enlazar.] -->
-              </article>
-            </div>
+              <li class="ecn-ruta-item reveal" data-reveal>
+                <span class="ecn-ruta-marker" aria-hidden="true">06</span>
+                <div class="ecn-ruta-card">
+                  <h3>Emprende con acompañamiento</h3>
+                  <p>Si tienes una idea de negocio, Emprende Anáhuac México te acompaña con su incubadora, mentores y emprendedores en residencia para convertirla en empresa.</p>
+                  <!-- [VERIFICAR: nombre vigente del programa y a qué página enlazar.] -->
+                </div>
+                <div class="ecn-ruta-photo"><img src="assets/area-negocios.jpg" alt="Estudiantes de la Universidad Anáhuac México presentando su proyecto de emprendimiento" loading="lazy" /></div>
+              </li>
+            </ol>
           </div>
 
-          <div class="button-row ecn-carrera-cta reveal" data-reveal>
+          <div class="button-row ecn-ruta-cta reveal" data-reveal>
             <a class="btn btn-light" href="#visita">Agenda tu visita</a>
           </div>
         </div>
       </section>
 
       <!-- =====================================================================
-           MÓDULO 4 — Encuentra tu área · AIDA: Interés · #areas · enrutamiento
-           Tarjetas de área de Inicio (.programs / .program-scroller): carrusel en
-           desktop y deslizable en móvil. 8 áreas con pregunta detonante literal.
-           Enlaces a páginas de área publicadas; el resto, a Oferta académica.
+           MÓDULO 4 — Encuentra tu área · Retícula editorial (.ecn-areas2)
+           8 áreas con su pregunta detonante visible (imagen con nombre superpuesto
+           + pregunta + enlace). Reemplaza el carrusel de tarjetas de Inicio.
            ===================================================================== -->
-      <section class="programs ecn-areas section-pad" id="areas">
+      <section class="ecn-areas2 section-pad" id="areas">
         <div class="container">
-          <div class="programs-head">
-            <div class="section-intro on-orange reveal" data-reveal>
+          <div class="ecn-areas2-head reveal" data-reveal>
+            <div class="section-intro wide on-orange">
               <p class="tagline"><span></span>Áreas académicas</p>
               <h2>Encuentra tu área</h2>
               <p>Más de 50 licenciaturas en 8 áreas. Empieza por lo que te apasiona.</p>
             </div>
-            <a class="btn btn-white-arrow reveal" href="oferta-academica.html" data-reveal>Ver toda la oferta <span>›</span></a>
+            <a class="btn btn-light" href="oferta-academica.html">Ver toda la oferta <span aria-hidden="true">›</span></a>
           </div>
-          <div class="program-scroller reveal" data-reveal>
-            <article class="program-card">
-              <img src="assets/area-salud.jpg" alt="Estudiantes de Ciencias de la Salud de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Ciencias de la Salud</h3><p>¿Te apasiona comprender cómo funciona el cuerpo humano y contribuir al bienestar de las personas?</p><a href="area-ciencias-de-la-salud.html">Explora el área ›</a></div>
+
+          <div class="ecn-areas2-grid reveal" data-reveal>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-salud.jpg" alt="Estudiantes de Ciencias de la Salud de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ciencias de la Salud</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona comprender cómo funciona el cuerpo humano y contribuir al bienestar de las personas?</p><a class="ecn-area-link" href="area-ciencias-de-la-salud.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-ingenierias.jpg" alt="Estudiantes de Ingenierías y Ciencias de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Ingenierías y Ciencias</h3><p>¿Te apasiona descubrir cómo funcionan las cosas y crear soluciones que mejoren el mundo?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-ingenierias.jpg" alt="Estudiantes de Ingenierías y Ciencias de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ingenierías y Ciencias</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona descubrir cómo funcionan las cosas y crear soluciones que mejoren el mundo?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-negocios.jpg" alt="Estudiantes de Negocios y Economía de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Negocios y Economía</h3><p>¿Te gustaría liderar empresas, impulsar proyectos y tomar decisiones que generen un impacto global?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-negocios.jpg" alt="Estudiantes de Negocios y Economía de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Negocios y Economía</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría liderar empresas, impulsar proyectos y tomar decisiones que generen un impacto global?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-comunicacion.jpg" alt="Estudiantes de Comunicación, Arquitectura y Diseño de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Comunicación, Arquitectura y Diseño</h3><p>¿Te gustaría expresar tus ideas y crear proyectos que inspiren y generen un impacto en la sociedad?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-comunicacion.jpg" alt="Estudiantes de Comunicación, Arquitectura y Diseño de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Comunicación, Arquitectura y Diseño</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría expresar tus ideas y crear proyectos que inspiren y generen un impacto en la sociedad?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-derecho.jpg" alt="Estudiantes de Ciencias Sociales y Derecho de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Ciencias Sociales y Derecho</h3><p>¿Te interesa comprender cómo funciona la sociedad y participar en su transformación?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-derecho.jpg" alt="Estudiantes de Ciencias Sociales y Derecho de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ciencias Sociales y Derecho</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te interesa comprender cómo funciona la sociedad y participar en su transformación?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-artes.jpg" alt="Estudiantes de Artes y Humanidades de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Artes y Humanidades</h3><p>¿Te apasiona explorar la cultura, el arte y la historia para inspirar y transformar a la sociedad?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-artes.jpg" alt="Estudiantes de Artes y Humanidades de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Artes y Humanidades</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona explorar la cultura, el arte y la historia para inspirar y transformar a la sociedad?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/gastronomia/hero-cocina.webp" alt="Estudiantes de Turismo, Gastronomía y Hospitalidad de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Turismo, Gastronomía y Hospitalidad</h3><p>¿Te gustaría crear experiencias que conecten a las personas con nuevas culturas, destinos y sabores?</p><a href="area-turismo-gastronomia-y-hospitalidad.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/gastronomia/hero-cocina.webp" alt="Estudiantes de Turismo, Gastronomía y Hospitalidad de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Turismo, Gastronomía y Hospitalidad</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría crear experiencias que conecten a las personas con nuevas culturas, destinos y sabores?</p><a class="ecn-area-link" href="area-turismo-gastronomia-y-hospitalidad.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
-            <article class="program-card">
-              <img src="assets/area-ejecutivas.jpg" alt="Estudiantes de licenciaturas Ejecutivas de la Universidad Anáhuac México en clase práctica" />
-              <div><h3>Ejecutivas</h3><p>¿Te gustaría impulsar tu crecimiento profesional con una licenciatura que se adapte a tu ritmo de vida?</p><a href="oferta-academica.html">Explora el área ›</a></div>
+            <article class="ecn-area-card">
+              <div class="ecn-area-media"><img src="assets/area-ejecutivas.jpg" alt="Estudiantes de licenciaturas Ejecutivas de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ejecutivas</span></div>
+              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría impulsar tu crecimiento profesional con una licenciatura que se adapte a tu ritmo de vida?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
             </article>
           </div>
-          <div class="slider-ui">
-            <div class="dots"><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="arrow-buttons"><button type="button" aria-label="Áreas anteriores">‹</button><button type="button" aria-label="Siguientes áreas">›</button></div>
-          </div>
-          <p class="ecn-areas-note reveal" data-reveal>¿Todavía no decides? <a href="oferta-academica.html">Ver toda la oferta académica ›</a></p>
+
+          <p class="ecn-areas2-foot reveal" data-reveal>¿Todavía no decides? <a href="oferta-academica.html">Ver toda la oferta académica ›</a></p>
         </div>
       </section>
 
       <!-- =====================================================================
-           MÓDULO 5 — Espacios que vas a hacer tuyos · AIDA: Deseo · #espacios
-           Componente campus-slider (fichas: foto + etiqueta de campus + H3 +
-           texto; 3 a la vista en desktop) + bloque «Tips» + 1 CTA.
-           Aquí SÍ va la etiqueta de campus: son lugares físicos y el aspirante
-           necesita saber dónde están. Hospital Virtual = «Próximamente», al final.
+           MÓDULO 5 — Espacios que vas a hacer tuyos · Galería horizontal
+           (.ecn-gallery): tarjetas a sangre con etiqueta + título + texto sobre
+           la imagen + bloque Tips. Conserva las 9 fichas con su texto completo.
            PENDIENTE: fotografía real de cada espacio.
            ===================================================================== -->
       <section class="ecn-inst section-pad" id="espacios">
@@ -694,90 +639,57 @@
             <h2>Espacios que vas a hacer tuyos</h2>
             <p>Aprendes como trabajarás: en laboratorios, estudios, cocinas y canchas de nivel profesional.</p>
           </div>
+        </div>
 
-          <div class="campus-slider ecn-inst-slider reveal" data-campus-slider data-reveal>
-            <div class="campus-slider-viewport">
-              <ul class="campus-slides">
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/hero-medicine.jpg" alt="Centro Anáhuac de Simulación Clínica (CASIC), ambos campus, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Ambos campus</p>
-                    <h3>Centro Anáhuac de Simulación Clínica (CASIC)</h3>
-                    <p>Acreditado por FLASIC: el primero con esta acreditación en la Ciudad de México y su zona metropolitana.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/hero-football.jpg" alt="Complejo deportivo Leones Anáhuac, Campus Norte, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Campus Norte</p>
-                    <h3>Complejo deportivo Leones Anáhuac</h3>
-                    <p>Estadio con pasto y luz LED renovados, pista, gimnasio, canchas techadas, pádel y muro de escalar.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/evento.jpg" alt="Centro Cultural Mexiquense Anáhuac, Campus Norte, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Campus Norte</p>
-                    <h3>Centro Cultural Mexiquense Anáhuac</h3>
-                    <p>Sede de la Escuela de Artes, con teatro, danza y música en escena todo el año.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/gastronomia/hero-cocina.webp" alt="Cocinas Le Cordon Bleu-Anáhuac, ambos campus, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Ambos campus</p>
-                    <h3>Cocinas Le Cordon Bleu-Anáhuac</h3>
-                    <p>Cocinas profesionales para aprender alta cocina con estándares internacionales.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/area-comunicacion.jpg" alt="Estudio de televisión y estudio de fotografía, ambos campus, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Ambos campus</p>
-                    <h3>Estudio de televisión y estudio de fotografía</h3>
-                    <p>Para producir como lo harás en la industria.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/area-negocios.jpg" alt="Trading Room, ambos campus, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Ambos campus</p>
-                    <h3>Trading Room</h3>
-                    <p>Sigue los mercados financieros en tiempo real y toma decisiones de inversión.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/psicologia/campo-educativos.webp" alt="Biblioteca con Sala de Experiencias Inmersivas, Campus Norte, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Campus Norte</p>
-                    <h3>Biblioteca con Sala de Experiencias Inmersivas</h3>
-                    <p>Salas de estudio individuales y grupales, comicteca y una sala para aprender con realidad inmersiva.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <img class="ecn-ficha-foto" src="assets/hero-friends.jpg" alt="Espacios deportivos al aire libre, Campus Sur, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Campus Sur</p>
-                    <h3>Espacios deportivos al aire libre</h3>
-                    <p>Pista de tartán con medidas oficiales, campos de soccer, voleibol de playa, pádel, tenis y circuito de calistenia.</p>
-                  </article>
-                </li>
-                <li>
-                  <article class="ecn-ficha">
-                    <span class="ecn-ficha-badge">Próximamente</span>
-                    <img class="ecn-ficha-foto" src="assets/psicologia/campo-hospitales.webp" alt="Hospital Virtual, Campus Norte, Universidad Anáhuac México" loading="lazy" />
-                    <p class="ecn-ficha-label">Campus Norte · Próximamente</p>
-                    <h3>Hospital Virtual</h3>
-                    <p>Edificio de simulación de 5 pisos con consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas las carreras de Ciencias de la Salud.</p>
-                  </article>
-                </li>
-              </ul>
-            </div>
-            <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Espacio anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
-            <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Espacio siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
-            <div class="campus-slider-dots" aria-label="Espacios de la Universidad Anáhuac México"></div>
-          </div>
+        <div class="ecn-gallery-track reveal" data-reveal>
+          <article class="ecn-space">
+            <img src="assets/hero-medicine.jpg" alt="Centro Anáhuac de Simulación Clínica (CASIC), ambos campus, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Ambos campus</span>
+            <div class="ecn-space-cap"><h3>Centro Anáhuac de Simulación Clínica (CASIC)</h3><p>Acreditado por FLASIC: el primero con esta acreditación en la Ciudad de México y su zona metropolitana.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/hero-football.jpg" alt="Complejo deportivo Leones Anáhuac, Campus Norte, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Campus Norte</span>
+            <div class="ecn-space-cap"><h3>Complejo deportivo Leones Anáhuac</h3><p>Estadio con pasto y luz LED renovados, pista, gimnasio, canchas techadas, pádel y muro de escalar.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/evento.jpg" alt="Centro Cultural Mexiquense Anáhuac, Campus Norte, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Campus Norte</span>
+            <div class="ecn-space-cap"><h3>Centro Cultural Mexiquense Anáhuac</h3><p>Sede de la Escuela de Artes, con teatro, danza y música en escena todo el año.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/gastronomia/hero-cocina.webp" alt="Cocinas Le Cordon Bleu-Anáhuac, ambos campus, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Ambos campus</span>
+            <div class="ecn-space-cap"><h3>Cocinas Le Cordon Bleu-Anáhuac</h3><p>Cocinas profesionales para aprender alta cocina con estándares internacionales.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/area-comunicacion.jpg" alt="Estudio de televisión y estudio de fotografía, ambos campus, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Ambos campus</span>
+            <div class="ecn-space-cap"><h3>Estudio de televisión y estudio de fotografía</h3><p>Para producir como lo harás en la industria.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/area-negocios.jpg" alt="Trading Room, ambos campus, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Ambos campus</span>
+            <div class="ecn-space-cap"><h3>Trading Room</h3><p>Sigue los mercados financieros en tiempo real y toma decisiones de inversión.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/psicologia/campo-educativos.webp" alt="Biblioteca con Sala de Experiencias Inmersivas, Campus Norte, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Campus Norte</span>
+            <div class="ecn-space-cap"><h3>Biblioteca con Sala de Experiencias Inmersivas</h3><p>Salas de estudio individuales y grupales, comicteca y una sala para aprender con realidad inmersiva.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/hero-friends.jpg" alt="Espacios deportivos al aire libre, Campus Sur, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Campus Sur</span>
+            <div class="ecn-space-cap"><h3>Espacios deportivos al aire libre</h3><p>Pista de tartán con medidas oficiales, campos de soccer, voleibol de playa, pádel, tenis y circuito de calistenia.</p></div>
+          </article>
+          <article class="ecn-space">
+            <img src="assets/psicologia/campo-hospitales.webp" alt="Hospital Virtual, Campus Norte, Universidad Anáhuac México" loading="lazy" />
+            <span class="ecn-space-tag">Campus Norte · Próximamente</span>
+            <div class="ecn-space-cap"><h3>Hospital Virtual</h3><p>Edificio de simulación de 5 pisos con consultorios, quirófanos, realidad virtual, robots y actores estandarizados, para todas las carreras de Ciencias de la Salud.</p></div>
+          </article>
+        </div>
 
+        <div class="container">
           <div class="ecn-tips reveal" data-reveal>
             <p class="ecn-tips-titulo"><span class="ecn-tips-script">Tips</span> ANÁHUAC MÉXICO</p>
             <p class="ecn-tips-sub">Todo a unos pasos de tu salón</p>
@@ -799,6 +711,9 @@
            MÓDULO 6 — Dos campus, una sola universidad · AIDA: Deseo · #campus
            2 tarjetas grandes del mismo tamaño y peso visual + franja bicampus.
            NO se describe cómo se vive cada campus. Sin cifras.
+      <!-- =====================================================================
+           MÓDULO 6 — Dos campus, una sola universidad · 2 tarjetas + franja
+           (.ecn-campus): dos tarjetas del mismo peso + franja bicampus.
            ===================================================================== -->
       <section class="ecn-campus section-pad" id="campus">
         <div class="container">
@@ -898,118 +813,92 @@
       </section>
 
       <!-- =====================================================================
-           MÓDULO 8 — Foráneos · AIDA: Deseo · #foraneos
-           Banda horizontal a todo lo ancho: foto + eyebrow + H2 + texto + 4
-           puntos con ícono + CTA. Mismos nombres y alcance que la página final
-           aprobada de Foráneos (la universidad NO asesora ni gestiona hospedaje).
-           Sin cifras de foráneos.
+           MÓDULO 8 — Foráneos · Banda inmersiva a sangre (.ecn-home2)
+           Foto a todo lo ancho + velo morado + contenido encima (eyebrow + H2 +
+           4 apoyos con ícono + CTA). Conserva el contenido original.
            ===================================================================== -->
-      <section class="ecn-foraneos" id="foraneos">
-        <div class="ecn-foraneos-inner">
-          <div class="ecn-foraneos-media">
-            <img src="assets/extranjeros.webp" alt="Estudiantes foráneos de la Universidad Anáhuac México conviviendo en el campus" loading="lazy" />
-          </div>
-          <div class="ecn-foraneos-copy reveal" data-reveal>
-            <p class="ecn-foraneos-eyebrow">¿Vienes de otro estado o país?</p>
+      <section class="ecn-home2" id="foraneos">
+        <div class="ecn-home2-bg"><img src="assets/extranjeros.webp" alt="Estudiantes foráneos de la Universidad Anáhuac México conviviendo en el campus" loading="lazy" /></div>
+        <div class="ecn-home2-inner">
+          <div class="container reveal" data-reveal>
+            <p class="ecn-home2-eyebrow">¿Vienes de otro estado o país?</p>
             <h2>Tu segunda casa, sin importar de dónde vengas</h2>
-            <p class="ecn-foraneos-text">Cada año llegan a la Anáhuac México estudiantes de todo el país y de otros países. Aquí encuentras todo lo que necesitas para que la Ciudad de México se sienta como casa.</p>
-            <ul class="ecn-foraneos-puntos">
+            <p class="ecn-home2-lead">Cada año llegan a la Anáhuac México estudiantes de todo el país y de otros países. Aquí encuentras todo lo que necesitas para que la Ciudad de México se sienta como casa.</p>
+            <ul class="ecn-home2-points">
               <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-6 8 6" /><path d="M6 10v9h12v-9" /><path d="M10 19v-5h4v5" /></svg>
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6" /><path d="M6 10v9h12v-9" /><path d="M10 19v-5h4v5" /></svg></span>
                 <span><strong>Hospedaje:</strong> explora las zonas cercanas a tu campus y las opciones de hospedaje para elegir la tuya.</span>
               </li>
               <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9.5" r="2.4" /><path d="M3.5 19v-1a3.8 3.8 0 0 1 3.8-3.8h3.4A3.8 3.8 0 0 1 14.5 18v1" /><path d="M16.6 14.1h1a3.1 3.1 0 0 1 3.1 3.1V19" /></svg>
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9.5" r="2.4" /><path d="M3.5 19v-1a3.8 3.8 0 0 1 3.8-3.8h3.4A3.8 3.8 0 0 1 14.5 18v1" /><path d="M16.6 14.1h1a3.1 3.1 0 0 1 3.1 3.1V19" /></svg></span>
                 <span><strong>ADEFA:</strong> la red de estudiantes foráneos que te recibe con integración, eventos y comunidad desde el primer día.</span>
               </li>
               <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3.5v5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9v-5z" /><path d="M9 11.5l2 2 4-4.5" /></svg>
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.5v5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9v-5z" /><path d="M9 11.5l2 2 4-4.5" /></svg></span>
                 <span><strong>Centro de Atención a Foráneos (CAF):</strong> el área de la universidad dedicada a tu bienestar como estudiante foráneo.</span>
               </li>
               <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1" /><rect x="3" y="13" width="4" height="6" rx="1.5" /><rect x="17" y="13" width="4" height="6" rx="1.5" /><path d="M20 19a4 4 0 0 1-4 3h-2.5" /></svg>
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1" /><rect x="3" y="13" width="4" height="6" rx="1.5" /><rect x="17" y="13" width="4" height="6" rx="1.5" /><path d="M20 19a4 4 0 0 1-4 3h-2.5" /></svg></span>
                 <span><strong>Un asesor para tu estado o país:</strong> te acompaña en todo tu proceso de admisión.</span>
               </li>
             </ul>
-            <div class="button-row">
-              <a class="btn btn-light" href="foraneos.html">Conoce la experiencia foránea ›</a>
-            </div>
+            <a class="btn btn-orange" href="foraneos.html">Conoce la experiencia foránea</a>
           </div>
         </div>
       </section>
 
       <!-- =====================================================================
-           MÓDULO 9 — Vívela en persona · AIDA: Acción · #visita
-           2 tarjetas grandes de opción de visita (la 1.ª destacada) + sub-bloque
-           con el carrusel de eventos de Inicio (#eventos), sin filtro de campus.
-           Aquí NO se incrusta el formulario del tour. Cada opción va a su destino.
+           MÓDULO 9 — Vívela en persona · 2 opciones grandes + eventos (.ecn-visit2)
+           Tour (tarjeta con foto) + Cita (panel morado) + 3 tarjetas de evento.
+           Contenido original conservado. El sub-bloque de eventos lleva #eventos.
            ===================================================================== -->
-      <section class="ecn-visita section-pad" id="visita">
+      <section class="ecn-visit2 section-pad" id="visita">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
             <h2>Vívela en persona</h2>
             <p>Nada se compara con caminarla. Ven solo o con tu familia, conoce los campus y resuelve tus dudas.</p>
           </div>
 
-          <div class="ecn-visita-grid reveal" data-reveal>
-            <article class="ecn-visita-card ecn-visita-card--destacada">
-              <span class="ecn-visita-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5V9.2a1 1 0 0 1 .5-.9l7-4a1 1 0 0 1 1 0l7 4a1 1 0 0 1 .5.9v11.3" /><path d="M2.5 20.5h19M9 20.5v-5h6v5" /></svg>
-              </span>
-              <h3>Tour Puertas Abiertas</h3>
-              <p>Recorre Campus Norte o Campus Sur con un guía: instalaciones académicas, deportivas y culturales, servicios y vida universitaria.</p>
-              <p class="ecn-visita-dato">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /></svg>
-                Miércoles por la tarde y sábados por la mañana.
-              </p>
-              <a class="btn btn-dark" href="/puertas-abiertas">Reserva tu lugar en el tour</a>
+          <div class="ecn-visit2-grid reveal" data-reveal>
+            <article class="ecn-visit2-card">
+              <img src="assets/evento.jpg" alt="Aspirantes y sus familias en un Tour Puertas Abiertas de la Universidad Anáhuac México" loading="lazy" />
+              <div class="ecn-visit2-body">
+                <h3>Tour Puertas Abiertas</h3>
+                <p>Recorre Campus Norte o Campus Sur con un guía: instalaciones académicas, deportivas y culturales, servicios y vida universitaria.</p>
+                <span class="ecn-visit2-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9.5h16M8 3v4M16 3v4" /></svg> Miércoles por la tarde y sábados por la mañana.</span>
+                <div><a class="btn btn-orange" href="/puertas-abiertas">Reserva tu lugar en el tour</a></div>
+              </div>
             </article>
-
-            <article class="ecn-visita-card">
-              <span class="ecn-visita-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4 3.5V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1z" /><path d="M8 9.5h8M8 13h5" /></svg>
-              </span>
-              <h3>Cita con un asesor, presencial o virtual</h3>
-              <p>Resuelve tus dudas sobre carreras, admisión y apoyos en una cita de hasta 90 minutos. Si vienes al campus, pueden acompañarte hasta 2 personas.</p>
-              <a class="btn btn-light" href="/agenda-tu-cita-online">Agenda tu cita</a>
+            <article class="ecn-visit2-card ecn-visit2-card--solid">
+              <div class="ecn-visit2-body">
+                <h3>Cita con un asesor, presencial o virtual</h3>
+                <p>Resuelve tus dudas sobre carreras, admisión y apoyos en una cita de hasta 90 minutos. Si vienes al campus, pueden acompañarte hasta 2 personas.</p>
+                <div><a class="btn btn-light" href="/agenda-tu-cita-online">Agenda tu cita</a></div>
+              </div>
             </article>
           </div>
 
-          <!-- Sub-bloque de eventos (#eventos). Carrusel `events` sin filtro de
-               campus. Copy atemporal: las fechas salen de HubDB/HubSpot; mientras
-               no haya eventos con fecha, se muestran como «Próximamente». Si no hay
-               eventos próximos, este sub-bloque se oculta. -->
+          <!-- Sub-bloque de eventos (#eventos). Copy atemporal: las fechas salen de
+               HubDB/HubSpot; sin fechas se muestran como «Próximamente». -->
           <div class="ecn-eventos reveal" data-reveal id="eventos">
-            <div class="section-intro wide">
+            <div class="section-intro wide ecn-visit2-events-head">
               <h3>Próximos eventos</h3>
             </div>
-            <div class="event-list ecn-event-list" aria-live="polite">
-              <article data-tags="all">
-                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
-                <div>
-                  <h3>Vive Anáhuac <span class="pill dark">Evento masivo</span></h3>
-                  <p class="meta">Presencial <span></span> Campus Norte y Sur</p>
-                  <p>El mejor evento para preuniversitarios: talleres, conferencias, concursos y vida de campus.</p>
-                </div>
-                <a class="btn btn-purple small" href="#visita">Más información</a>
+            <div class="ecn-visit2-events">
+              <article class="ecn-visit2-event">
+                <span class="k">Próximamente</span>
+                <h3>Vive Anáhuac</h3>
+                <p>El mejor evento para preuniversitarios: talleres, conferencias, concursos y vida de campus.</p>
               </article>
-              <article data-tags="all">
-                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
-                <div>
-                  <h3>Clase muestra por área <span class="pill dark">Sesión</span></h3>
-                  <p class="meta">Presencial <span></span> Campus Norte y Sur</p>
-                  <p>Vive una sesión académica breve para acercarte a la experiencia real de tu licenciatura.</p>
-                </div>
-                <a class="btn btn-purple small" href="#visita">Más información</a>
+              <article class="ecn-visit2-event">
+                <span class="k">Próximamente</span>
+                <h3>Clase muestra por área</h3>
+                <p>Vive una sesión académica breve para acercarte a la experiencia real de tu licenciatura.</p>
               </article>
-              <article data-tags="all">
-                <div class="event-date"><strong>—</strong><span>Próximamente</span></div>
-                <div>
-                  <h3>Taller vocacional <span class="pill dark">Taller</span></h3>
-                  <p class="meta">Presencial <span></span> Campus Norte y Sur</p>
-                  <p>Descubre tus intereses profesionales con actividades guiadas por orientadores universitarios.</p>
-                </div>
-                <a class="btn btn-purple small" href="#visita">Más información</a>
+              <article class="ecn-visit2-event">
+                <span class="k">Próximamente</span>
+                <h3>Taller vocacional</h3>
+                <p>Descubre tus intereses profesionales con actividades guiadas por orientadores universitarios.</p>
               </article>
             </div>
           </div>
@@ -1345,7 +1234,7 @@
 
     <script src="script.js"></script>
     <script src="psicologia.js"></script>
-    <script src="estudia-con-nosotros.js"></script>
+    <script src="estudia-con-nosotros.js?v=20261104-batch3"></script>
     <script type="module" src="assets/review/review.js"></script>
   </body>
 </html>

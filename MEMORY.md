@@ -46,6 +46,8 @@ Antigravity…) lee al empezar y actualiza al avanzar. Versionado en git = memor
 - La revisión humana ajusta el claim del hero, la afinidad de ciencias, el
   momento de inicio de las prácticas clínicas, la acreditación de Medicina y
   el dato descriptivo de Médico Cirujano.
+- La denominación desarrollada de COMAEM queda capitalizada conforme al copy
+  aprobado: «Congreso Mexicano de Acreditación de la Enseñanza Médica».
 - «Cirujano Dentista» adopta el nombre «Médico Cirujano Dentista» en toda la
   página, incluidos datos estructurados y accesibilidad.
 - Terapia Física y Biotecnología reciben nuevos ganchos y descripciones; la

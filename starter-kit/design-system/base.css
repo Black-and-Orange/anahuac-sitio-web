@@ -1,0 +1,151 @@
+/* ==========================================================================
+   base.css — RESET + GLOBALS + UTILIDADES NEUTRAS (reutilizable)
+
+   Marca-agnóstico: solo consume tokens de tokens.css. Incluye reset,
+   contenedor, ritmo de sección, sistema de botones y la utilidad de
+   scroll-reveal. NO trae componentes de página (esos se crean por cliente).
+   Cárgalo después de tokens.css.
+   ========================================================================== */
+
+@layer reset {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 140px; /* alto del header fijo + aire */
+    overflow-x: clip;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: var(--lh-body);
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-semibold);
+    line-height: var(--lh-heading);
+    margin: 0;
+  }
+
+  /* Contenedor centrado con márgenes de rejilla */
+  .container {
+    width: min(var(--container), 100%);
+    margin: 0 auto;
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin);
+  }
+
+  /* Ritmo vertical de sección */
+  .section-pad {
+    padding: var(--section-pad-y) var(--section-pad-x);
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .section-pad {
+      padding-left: var(--grid-margin);
+      padding-right: var(--grid-margin);
+    }
+  }
+}
+
+@layer components {
+  /* Sistema de botones (reskin cambiando los tokens) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    font-family: var(--font-heading);
+    font-weight: var(--weight-semibold);
+    line-height: 1;
+    letter-spacing: 0.2px;
+    transition: transform 200ms ease, box-shadow 200ms ease,
+      background-color 200ms ease, border-color 200ms ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.14);
+  }
+
+  .btn-dark {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .btn-light {
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--black);
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--white);
+  }
+
+  .btn-secondary {
+    background: var(--color-secondary);
+    color: var(--white);
+  }
+}
+
+@layer utilities {
+  /* Scroll-reveal — pareja del observer en ui.js.
+     Marca los elementos con class="reveal" data-reveal. */
+  .reveal {
+    opacity: 0.001;
+    transform: translateY(28px);
+    transition: opacity 460ms ease, transform 460ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
