@@ -55,7 +55,44 @@
   }
 
   /* ---------------------------------------------------------------------------
-     2) Año automático del copyright (el footer no debe quedar fijado a un año).
+     2) M2 — Showcase de experiencias: una a la vez, navegable por las categorías,
+     las flechas y swipe. Las 6 diapositivas viven en el DOM (bien para SEO).
+     --------------------------------------------------------------------------- */
+  const show = document.querySelector("[data-ecn-show]");
+  if (show) {
+    const sec = show.closest("section");
+    const slides = Array.from(show.querySelectorAll(".ecn-show-slide"));
+    const navbtns = Array.from(sec.querySelectorAll(".ecn-show-navbtn"));
+    const prev = sec.querySelector("[data-ecn-show-prev]");
+    const next = sec.querySelector("[data-ecn-show-next]");
+    let i = 0;
+
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+      navbtns.forEach((b, k) => {
+        b.classList.toggle("is-active", k === i);
+        b.setAttribute("aria-selected", k === i ? "true" : "false");
+      });
+    }
+
+    navbtns.forEach((b, k) => b.addEventListener("click", () => go(k)));
+    if (prev) prev.addEventListener("click", () => go(i - 1));
+    if (next) next.addEventListener("click", () => go(i + 1));
+
+    /* Swipe táctil sobre la diapositiva. */
+    let x0 = null;
+    show.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    show.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+  }
+
+  /* ---------------------------------------------------------------------------
+     3) Año automático del copyright (el footer no debe quedar fijado a un año).
      --------------------------------------------------------------------------- */
   document.querySelectorAll("[data-current-year]").forEach((el) => {
     el.textContent = String(new Date().getFullYear());
