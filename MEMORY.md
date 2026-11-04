@@ -446,3 +446,15 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 
 - Revisión humana: el usuario solicita commit, merge y push de los ajustes revisados en local.
 - Revisión técnica: cuatro áreas clínicas, seis tarjetas de motivos, diez instalaciones, cuatro docentes y retiro exclusivo de convenios internacionales; imágenes de referencia existentes y formato compartido conservado. Sin hallazgos bloqueantes dentro del alcance solicitado.
+
+### 2026-11-04 — Legibilidad de Encuentra tu área
+
+- Solicitud del usuario: extender el degradado hasta los títulos de las tarjetas en Estudia con nosotros. Se aplica solo en .ecn-areas, ligado a la altura del contenido, conservando fotos, textos y formato. Solo local, pendiente de revisión.
+
+### 2026-11-04 — Prueba compacta de tarjetas de áreas
+
+- Solicitud del usuario: reducir saturación y mostrar más fotografía. Variante local: títulos 28 px (24 px móvil), descripción 20 px con interlineado 1.3, CTA 16 px y separación reducida. Se conserva el degradado ligado al contenido, fotografías y tamaño de tarjeta. Pendiente de revisión; sin publicar.
+
+### 2026-11-04 — Aprobación de tarjetas compactas
+
+- El usuario acepta la variante y solicita commit, merge y push. Revisión técnica: estilos limitados a .ecn-areas, tokens existentes, sin modificaciones en componentes globales. Vista previa de escritorio revisada; tamaños computados 28/20/16 px y sin desbordamiento horizontal a 390 px. Sin hallazgos bloqueantes en el alcance.

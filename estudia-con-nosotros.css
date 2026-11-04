@@ -142,6 +142,54 @@
 /* =============================================================================
    MÓDULO 4 — Encuentra tu área (tarjetas `programs`)
    ========================================================================== */
+/* Fondo ligado al contenido para proteger también los títulos largos. */
+.ecn-areas .program-card::after {
+  background: none;
+}
+
+.ecn-areas .program-card > div {
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+}
+
+.ecn-areas .program-card > div::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: var(--space-11);
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--surface) 94%, transparent));
+  pointer-events: none;
+}
+/* Variante compacta exclusiva de las tarjetas de esta página. */
+.ecn-areas .program-card > div {
+  min-height: 0;
+  padding: var(--space-8);
+}
+
+.ecn-areas .program-card h3 {
+  font-family: var(--font-heading);
+  font-size: calc(var(--heading-4-size) + var(--space-1));
+  line-height: var(--lh-heading);
+}
+
+.ecn-areas .program-card p {
+  font-size: var(--heading-5-size);
+  line-height: calc(var(--lh-heading) + 0.1);
+  margin-top: var(--space-2);
+}
+
+.ecn-areas .program-card a {
+  font-size: calc(var(--heading-5-size) * 0.8);
+  line-height: var(--lh-heading);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 540px) {
+  .ecn-areas .program-card h3 {
+    font-size: var(--heading-4-size);
+  }
+}
+
 .ecn-areas-note {
   margin-top: 28px;
   font-family: var(--font-body);

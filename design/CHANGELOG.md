@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-04 — Estudia con nosotros · tarjetas de áreas compactas
+
+- Variante exclusiva de `.ecn-areas`: fondo claro ligado al contenido y degradado por encima de los títulos.
+- Títulos 28 px (24 px en móvil), descripción 20 px y CTA 16 px, con espaciado compacto derivado de tokens. Se conservan fotografías, contenido y tamaño de tarjetas.
+- Revisión visual en escritorio y comprobación de ancho móvil sin desbordamiento. Usuario aprueba la opción y solicita integración.
+
+
 ## 2026-10-27 — Medicina · ajustes editoriales aprobados
 
 - Se actualizan afinidad, áreas clínicas, motivos para estudiar, Modelo Anáhuac y textos del plan.

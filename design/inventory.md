@@ -109,3 +109,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-10-26: Medicina conserva cuatro áreas clínicas y seis `porque-card`; contenido de Educación Médica Continua sin chips. Textos locales sincronizados con `specs/medicina.md`, sin cambios al componente compartido.
 
 - 2026-10-26: Medicina: diez `lic-inst-card`, cuatro `docente-card` y solo convenios nacionales en `colab-aliados`. Actualización de contenido local sin cambios de CSS ni JavaScript.
+
+- 2026-11-04: variante local .ecn-areas de program-card: fondo y degradado ligados al contenido para cubrir los títulos; componente global sin cambios.
+
+- 2026-11-04: prueba compacta de .ecn-areas / program-card con escalas derivadas de tokens existentes; alcance exclusivo Estudia con nosotros.
