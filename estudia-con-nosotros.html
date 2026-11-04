@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
@@ -412,6 +412,9 @@
                   <li class="lic-chip">Pintura</li>
                   <li class="lic-chip">Apreciación del cine</li>
                 </ul>
+                <div class="button-row ecn-show-cta">
+                  <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
+                </div>
               </div>
             </article>
 
@@ -431,6 +434,9 @@
                   <li class="lic-chip">Impulsa · compromiso social</li>
                   <li class="lic-chip">Sinergia · administración pública</li>
                 </ul>
+                <div class="button-row ecn-show-cta">
+                  <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
+                </div>
               </div>
             </article>
 
@@ -448,6 +454,9 @@
                   <li class="lic-chip">Eventos de integración</li>
                   <li class="lic-chip">Semana de tu carrera</li>
                 </ul>
+                <div class="button-row ecn-show-cta">
+                  <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
+                </div>
               </div>
             </article>
 
@@ -465,6 +474,9 @@
                   <li class="lic-chip">Brigadas</li>
                   <li class="lic-chip">Casa del Éxodo</li>
                 </ul>
+                <div class="button-row ecn-show-cta">
+                  <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
+                </div>
               </div>
             </article>
 
@@ -482,12 +494,11 @@
                   <li class="lic-chip">Integra</li>
                   <li class="lic-chip">Gaudium</li>
                 </ul>
+                <div class="button-row ecn-show-cta">
+                  <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
+                </div>
               </div>
             </article>
-          </div>
-
-          <div class="button-row ecn-show-cta reveal" data-reveal>
-            <a class="btn btn-dark" href="#contacto">Quiero recibir más información</a>
           </div>
         </div>
       </section>
@@ -574,57 +585,60 @@
       </section>
 
       <!-- =====================================================================
-           MÓDULO 4 — Encuentra tu área · Retícula editorial (.ecn-areas2)
-           8 áreas con su pregunta detonante visible (imagen con nombre superpuesto
-           + pregunta + enlace). Reemplaza el carrusel de tarjetas de Inicio.
+           MÓDULO 4 — Encuentra tu área · AIDA: Interés · #areas · enrutamiento
+           Tarjetas de área de Inicio (.programs / .program-scroller): carrusel en
+           desktop y deslizable en móvil. 8 áreas con pregunta detonante literal.
+           Enlaces a páginas de área publicadas; el resto, a Oferta académica.
            ===================================================================== -->
-      <section class="ecn-areas2 section-pad" id="areas">
+      <section class="programs ecn-areas section-pad" id="areas">
         <div class="container">
-          <div class="ecn-areas2-head reveal" data-reveal>
-            <div class="section-intro wide on-orange">
+          <div class="programs-head">
+            <div class="section-intro on-orange reveal" data-reveal>
               <p class="tagline"><span></span>Áreas académicas</p>
               <h2>Encuentra tu área</h2>
               <p>Más de 50 licenciaturas en 8 áreas. Empieza por lo que te apasiona.</p>
             </div>
-            <a class="btn btn-light" href="oferta-academica.html">Ver toda la oferta <span aria-hidden="true">›</span></a>
+            <a class="btn btn-white-arrow reveal" href="oferta-academica.html" data-reveal>Ver toda la oferta <span>›</span></a>
           </div>
-
-          <div class="ecn-areas2-grid reveal" data-reveal>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-salud.jpg" alt="Estudiantes de Ciencias de la Salud de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ciencias de la Salud</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona comprender cómo funciona el cuerpo humano y contribuir al bienestar de las personas?</p><a class="ecn-area-link" href="area-ciencias-de-la-salud.html">Explora el área <span aria-hidden="true">›</span></a></div>
+          <div class="program-scroller reveal" data-reveal>
+            <article class="program-card">
+              <img src="assets/area-salud.jpg" alt="Estudiantes de Ciencias de la Salud de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Ciencias de la Salud</h3><p>¿Te apasiona comprender cómo funciona el cuerpo humano y contribuir al bienestar de las personas?</p><a href="area-ciencias-de-la-salud.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-ingenierias.jpg" alt="Estudiantes de Ingenierías y Ciencias de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ingenierías y Ciencias</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona descubrir cómo funcionan las cosas y crear soluciones que mejoren el mundo?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-ingenierias.jpg" alt="Estudiantes de Ingenierías y Ciencias de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Ingenierías y Ciencias</h3><p>¿Te apasiona descubrir cómo funcionan las cosas y crear soluciones que mejoren el mundo?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-negocios.jpg" alt="Estudiantes de Negocios y Economía de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Negocios y Economía</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría liderar empresas, impulsar proyectos y tomar decisiones que generen un impacto global?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-negocios.jpg" alt="Estudiantes de Negocios y Economía de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Negocios y Economía</h3><p>¿Te gustaría liderar empresas, impulsar proyectos y tomar decisiones que generen un impacto global?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-comunicacion.jpg" alt="Estudiantes de Comunicación, Arquitectura y Diseño de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Comunicación, Arquitectura y Diseño</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría expresar tus ideas y crear proyectos que inspiren y generen un impacto en la sociedad?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-comunicacion.jpg" alt="Estudiantes de Comunicación, Arquitectura y Diseño de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Comunicación, Arquitectura y Diseño</h3><p>¿Te gustaría expresar tus ideas y crear proyectos que inspiren y generen un impacto en la sociedad?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-derecho.jpg" alt="Estudiantes de Ciencias Sociales y Derecho de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ciencias Sociales y Derecho</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te interesa comprender cómo funciona la sociedad y participar en su transformación?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-derecho.jpg" alt="Estudiantes de Ciencias Sociales y Derecho de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Ciencias Sociales y Derecho</h3><p>¿Te interesa comprender cómo funciona la sociedad y participar en su transformación?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-artes.jpg" alt="Estudiantes de Artes y Humanidades de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Artes y Humanidades</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te apasiona explorar la cultura, el arte y la historia para inspirar y transformar a la sociedad?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-artes.jpg" alt="Estudiantes de Artes y Humanidades de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Artes y Humanidades</h3><p>¿Te apasiona explorar la cultura, el arte y la historia para inspirar y transformar a la sociedad?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/gastronomia/hero-cocina.webp" alt="Estudiantes de Turismo, Gastronomía y Hospitalidad de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Turismo, Gastronomía y Hospitalidad</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría crear experiencias que conecten a las personas con nuevas culturas, destinos y sabores?</p><a class="ecn-area-link" href="area-turismo-gastronomia-y-hospitalidad.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/gastronomia/hero-cocina.webp" alt="Estudiantes de Turismo, Gastronomía y Hospitalidad de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Turismo, Gastronomía y Hospitalidad</h3><p>¿Te gustaría crear experiencias que conecten a las personas con nuevas culturas, destinos y sabores?</p><a href="area-turismo-gastronomia-y-hospitalidad.html">Explora el área ›</a></div>
             </article>
-            <article class="ecn-area-card">
-              <div class="ecn-area-media"><img src="assets/area-ejecutivas.jpg" alt="Estudiantes de licenciaturas Ejecutivas de la Universidad Anáhuac México en clase práctica" loading="lazy" /><span class="ecn-area-name">Ejecutivas</span></div>
-              <div class="ecn-area-body"><p class="ecn-area-q">¿Te gustaría impulsar tu crecimiento profesional con una licenciatura que se adapte a tu ritmo de vida?</p><a class="ecn-area-link" href="oferta-academica.html">Explora el área <span aria-hidden="true">›</span></a></div>
+            <article class="program-card">
+              <img src="assets/area-ejecutivas.jpg" alt="Estudiantes de licenciaturas Ejecutivas de la Universidad Anáhuac México en clase práctica" />
+              <div><h3>Ejecutivas</h3><p>¿Te gustaría impulsar tu crecimiento profesional con una licenciatura que se adapte a tu ritmo de vida?</p><a href="oferta-academica.html">Explora el área ›</a></div>
             </article>
           </div>
-
-          <p class="ecn-areas2-foot reveal" data-reveal>¿Todavía no decides? <a href="oferta-academica.html">Ver toda la oferta académica ›</a></p>
+          <div class="slider-ui">
+            <div class="dots"><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="arrow-buttons"><button type="button" aria-label="Áreas anteriores">‹</button><button type="button" aria-label="Siguientes áreas">›</button></div>
+          </div>
+          <p class="ecn-areas-note reveal" data-reveal>¿Todavía no decides? <a href="oferta-academica.html">Ver toda la oferta académica ›</a></p>
         </div>
       </section>
 
@@ -696,10 +710,6 @@
             <p class="ecn-tips-sub">Todo a unos pasos de tu salón</p>
             <p>Cafeterías, restaurantes, librería, banco y enfermería. También cuentas con clínicas universitarias de nutrición y terapia física gratuitas, atención dental a costos preferenciales y acompañamiento psicológico y pedagógico sin costo por sesión.</p>
             <p>Además, cuenta con transporte universitario y servicio intercampus, este último gratuito.</p>
-            <div class="ecn-tips-links">
-              <a class="porque-link" href="campus-norte.html">Conoce Campus Norte <span aria-hidden="true">›</span></a>
-              <a class="porque-link" href="campus-sur.html">Conoce Campus Sur <span aria-hidden="true">›</span></a>
-            </div>
           </div>
 
           <div class="button-row ecn-inst-cta reveal" data-reveal>

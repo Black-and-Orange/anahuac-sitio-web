@@ -115,3 +115,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-04: prueba compacta de .ecn-areas / program-card con escalas derivadas de tokens existentes; alcance exclusivo Estudia con nosotros.
 
 - 2026-11-04: .ecn-tips-titulo / .ecn-tips-script reutilizan el patrón editorial de Campus Norte y Sur. Contenido y resto del módulo conservados.
+
+- 2026-11-04: revisión local de Estudia con nosotros: `.ecn-hero-hook`, `.ecn-tips-script` y `.ecn-ruta-script` usan `--font-heading`; `.ecn-show` incorpora CTA en cinco opciones no deportivas; `.ecn-areas` vuelve a `.program-scroller`. Sin cambios en componentes ni páginas compartidas.
