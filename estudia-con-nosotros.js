@@ -56,7 +56,7 @@
 
   /* ---------------------------------------------------------------------------
      2) M2 — Showcase de experiencias: una a la vez, navegable por las categorías,
-     las flechas y swipe. Las 6 diapositivas viven en el DOM (bien para SEO).
+     las flechas y swipe. Las 7 diapositivas viven en el DOM (bien para SEO).
      --------------------------------------------------------------------------- */
   const show = document.querySelector("[data-ecn-show]");
   if (show) {

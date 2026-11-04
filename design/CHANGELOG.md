@@ -5,6 +5,14 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-04 — Estudia con nosotros · contenido y contraste aprobados
+
+- CTA con altura adaptable y padding; sello Tips manuscrito conforme a referencia.
+- Así se vive incorpora Acompañamiento como séptima experiencia, textos y etiquetas revisados, rótulos naranjas, pestañas moradas y fondo lila con puntos laterales.
+- Ruta de formación reducida a cinco pasos, hero y hospedaje actualizados según copy aprobado. Fondo lila sutil en Elige el siguiente paso.
+- Alcance exclusivo de la página original; propuesta 2 excluida. Revisión humana aprobada para integrar.
+
+
 ## 2026-11-04 — Estudia con nosotros · ajustes de revisión visual
 
 - Alcance exclusivo de `estudia-con-nosotros`: los tres rótulos decorativos locales pasan de Kaushan Script a la tipografía institucional de encabezados; ninguna otra página cambia.

@@ -476,3 +476,44 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 - El usuario solicita retirar la tipografía manuscrita únicamente en `estudia-con-nosotros`; las demás páginas conservan su tratamiento actual. Los rótulos locales usan `--font-heading`.
 - «Así se vive» coloca «Quiero recibir más información» al final de sus cinco opciones no deportivas; Deporte queda sin ese CTA.
 - El bloque Tips elimina «Conoce Campus Norte/Sur» y conserva el CTA de visita. «Encuentra tu área» recupera el carrusel compartido de tres tarjetas visible en la referencia aprobada.
+
+### 2026-11-04 — Botones de Estudia con nosotros
+
+- Solicitud del usuario: corregir botones más pequeños que su texto. Se añade padding, altura flexible y ajuste de línea a los CTA del contenido principal únicamente en .ecn-page; se conservan colores, textos y destinos. Sin cambios en la propuesta 2 ni publicación.
+
+### 2026-11-04 — Tips manuscrito según referencia
+
+- El usuario solicita nuevamente el sello manuscrito de la captura. Se restituye Kaushan Script regular solo en .ecn-tips-script, conservando el degradado y la marca. Se añade carga de fuente; cambios solo locales.
+
+### 2026-11-04 — Rótulos de Así se vive
+
+- Solicitud del usuario con captura Deporte 01/06: los seis rótulos y contadores pasan a naranja institucional mediante --color-brand-primary, únicamente en .ecn-show de Estudia con nosotros. Se corrige la prioridad frente al color gris de párrafos. Solo local.
+
+### 2026-11-04 — Contenido de hero y Así se vive
+
+- Solicitud del usuario: frase inicial integrada al texto del hero; Baseball añadido a Deporte; retirada invitación a abrir taller de Arte. Compromiso social y Pastoral reciben textos y cinco etiquetas proporcionados; Fe y servicio se renombra Pastoral en navegación y rótulo. Diseño y cambios locales anteriores conservados; sin publicación.
+
+### 2026-11-04 — Ruta de formación
+
+- Solicitud del usuario: se actualiza Arma tu propio horario con el texto proporcionado; el punto 5 se renombra Empieza tu vida profesional antes de graduarte; se retira completo el punto 6 Emprende con acompañamiento, incluida su fotografía. Quedan cinco puntos. Solo local.
+
+### 2026-11-04 — Acompañamiento y hospedaje
+
+- Solicitud del usuario: se precisa que las opciones de hospedaje son de externos. Se añade Acompañamiento como séptima experiencia, con título Caminamos a tu lado, texto y cuatro etiquetas proporcionados, imagen existente de referencia y CTA del mismo formato. Contadores actualizados a /07. Solo local, propuesta 2 intacta.
+
+### 2026-11-04 — Prueba de fondo de Así se vive
+
+- Solicitud del usuario con captura: fondo lila suave y puntos discretos alternados, arriba izquierda y abajo derecha, únicamente en .ecn-show de Estudia con nosotros. Reutiliza tokens de superficie y patrón existentes; sin cambios al contenido. Solo local para revisión.
+
+### 2026-11-04 — Ritmo y categorías de Así se vive
+
+- Prueba solicitada por el usuario: menos espacio entre intro, pestañas y contenido; puntos limitados a franjas laterales fuera del título; nombres de pestañas en morado oscuro con activo en negrita y subrayado naranja. Rótulos y contadores mantienen naranja. Solo local.
+
+### 2026-11-04 — Fondo de Elige el siguiente paso
+
+- Solicitud del usuario: fondo lila muy sutil solo en .ecn-pasos, con mezcla de tokens existentes al 12%. Sin puntos, sin cambios de contenido o formato; solo local.
+
+### 2026-11-04 — Aprobación e integración de revisión local
+
+- El usuario solicita commit, merge y push y comprobar base remota. Se confirma HEAD sincronizado con origin/main en 382b6fe antes de integrar.
+- Revisión técnica: navegación de siete experiencias y vuelta de 07/07 a 01/07 comprobadas en navegador; títulos y texto negro/gris verificados, botones sin desbordamiento a 1440/768/390/320 px y fondos sin desbordamiento móvil. Cambios limitados a la página original; sin hallazgos bloqueantes en el alcance. Propuesta 2 excluida.

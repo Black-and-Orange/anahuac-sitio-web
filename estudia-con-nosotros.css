@@ -464,9 +464,9 @@
 }
 
 .ecn-tips-script {
-  font-family: var(--font-heading);
+  font-family: var(--font-script);
   font-size: calc(1em * 1.35);
-  font-weight: var(--weight-semibold);
+  font-weight: 400;
   line-height: 1;
   background: linear-gradient(100deg, var(--color-brand-primary) 0%, var(--surface-accent-light) 100%);
   -webkit-background-clip: text;
@@ -1130,4 +1130,84 @@
 @media (max-width: 760px) {
   .ecn-home2-points { grid-template-columns: 1fr; }
   .ecn-home2-bg::after { background: var(--ecn-overlay-home-mobile); }
+}
+
+/* CTA de esta página: el fondo siempre envuelve el texto completo. */
+.ecn-page main .btn {
+  padding: var(--space-5) var(--space-8);
+  min-height: var(--size-48);
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  line-height: var(--lh-heading);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.ecn-page main .btn svg {
+  flex-shrink: 0;
+}
+
+/* Rótulos y contadores de las siete experiencias: naranja institucional. */
+.ecn-page .ecn-show-body > .ecn-show-eyebrow,
+.ecn-page .ecn-show-eyebrow .ecn-show-count {
+  color: var(--color-brand-primary);
+}
+
+/* Prueba local: fondo lila y puntos alternados solo en Así se vive. */
+.ecn-page .ecn-show {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-accent-light) 20%, var(--surface));
+}
+
+.ecn-page .ecn-show::before,
+.ecn-page .ecn-show::after {
+  content: "";
+  position: absolute;
+  width: min(6vw, var(--space-12));
+  height: calc(var(--space-14) * 2);
+  background-image: var(--dots-pattern-gray);
+  background-size: var(--space-9) var(--space-9);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ecn-page .ecn-show::before {
+  top: var(--space-10);
+  left: 0;
+}
+
+.ecn-page .ecn-show::after {
+  bottom: var(--space-10);
+  right: 0;
+}
+
+/* Ritmo más compacto y categorías en morado, exclusivo de esta sección. */
+.ecn-page .ecn-show-controls {
+  margin-top: var(--space-8);
+  padding-bottom: var(--space-4);
+}
+
+.ecn-page .ecn-show-stage {
+  margin-top: var(--space-8);
+}
+
+.ecn-page .ecn-show-navbtn {
+  color: var(--surface-accent);
+}
+
+.ecn-page .ecn-show-navbtn:hover,
+.ecn-page .ecn-show-navbtn.is-active {
+  color: var(--surface-accent);
+  font-weight: var(--weight-bold);
+}
+
+/* Fondo sutil exclusivo del módulo de siguientes pasos. */
+.ecn-page .ecn-pasos {
+  background: color-mix(in srgb, var(--surface-accent-light) 12%, var(--surface));
 }

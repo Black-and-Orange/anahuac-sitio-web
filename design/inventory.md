@@ -117,3 +117,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-04: .ecn-tips-titulo / .ecn-tips-script reutilizan el patrón editorial de Campus Norte y Sur. Contenido y resto del módulo conservados.
 
 - 2026-11-04: revisión local de Estudia con nosotros: `.ecn-hero-hook`, `.ecn-tips-script` y `.ecn-ruta-script` usan `--font-heading`; `.ecn-show` incorpora CTA en cinco opciones no deportivas; `.ecn-areas` vuelve a `.program-scroller`. Sin cambios en componentes ni páginas compartidas.
+
+- 2026-11-04: CTA del contenido principal de Estudia con nosotros: padding y altura adaptable con alcance .ecn-page main .btn, sin cambiar el componente global.
+
+- 2026-11-04: .ecn-show tiene siete experiencias, incluyendo Acompañamiento; reutiliza la estructura de Pastoral y navegación dinámica existente.
+
+- 2026-11-04: variante local de fondo .ecn-show con tinte lila y puntos en esquinas alternadas; sin impacto en secciones compartidas.
