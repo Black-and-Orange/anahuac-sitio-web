@@ -458,3 +458,15 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-04 — Aprobación de tarjetas compactas
 
 - El usuario acepta la variante y solicita commit, merge y push. Revisión técnica: estilos limitados a .ecn-areas, tokens existentes, sin modificaciones en componentes globales. Vista previa de escritorio revisada; tamaños computados 28/20/16 px y sin desbordamiento horizontal a 390 px. Sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-04 — Sello Tips de Estudia con nosotros
+
+- Solicitud del usuario con captura de referencia. Se iguala el sello al patrón de Campus Norte y Sur: Kaushan Script con degradado naranja a lila, marca en Zilla Slab semibold lila. Se añade la carga de la fuente existente en el sistema. Solo local, sin publicación.
+
+### 2026-11-04 — Texto de servicios en Tips
+
+- Solicitud del usuario: se reemplaza el párrafo de servicios por el texto proporcionado, dividido en dos párrafos para separar transporte. Título, sello y CTA conservados. Solo local.
+
+### 2026-11-04 — Integración de Tips
+
+- El usuario aprueba y solicita commit, merge y push del sello y texto. Validación técnica sin hallazgos bloqueantes: Kaushan Script cargada y color lila verificados en navegador, títulos y CTA conservados, readiness/tokens/Stylelint aprobados y diff sin errores de espacios.

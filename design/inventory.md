@@ -113,3 +113,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-04: variante local .ecn-areas de program-card: fondo y degradado ligados al contenido para cubrir los títulos; componente global sin cambios.
 
 - 2026-11-04: prueba compacta de .ecn-areas / program-card con escalas derivadas de tokens existentes; alcance exclusivo Estudia con nosotros.
+
+- 2026-11-04: .ecn-tips-titulo / .ecn-tips-script reutilizan el patrón editorial de Campus Norte y Sur. Contenido y resto del módulo conservados.

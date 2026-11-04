@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-04 — Estudia con nosotros · sello Tips
+
+- Se iguala el sello editorial al patrón de Campus Norte y Sur: Kaushan Script con degradado naranja a lila y marca en Zilla Slab semibold lila.
+- Texto de servicios dividido en dos párrafos según copy aprobado; título, subtítulo y CTA conservados.
+- Alcance exclusivo de Estudia con nosotros, sin cambios al componente de otras páginas. Revisión humana aprobada para integrar.
+
+
 ## 2026-11-04 — Estudia con nosotros · tarjetas de áreas compactas
 
 - Variante exclusiva de `.ecn-areas`: fondo claro ligado al contenido y degradado por encima de los títulos.
