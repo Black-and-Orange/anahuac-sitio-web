@@ -60,14 +60,6 @@
 .ecn-hero .lic-hero-inner { align-items: center; }
 
 /* Gancho emocional con la tipografía institucional de encabezados. */
-.ecn-hero-hook {
-  margin: var(--border-width) 0;
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  color: var(--color-brand-primary);
-  font-size: clamp(var(--size-26), 3.6vw, var(--size-48));
-  line-height: 1;
-}
 
 /* El H1 del molde está calibrado para títulos cortos; aquí es una frase larga,
    así que se usa una escala fluida grande pero equilibrada (2–3 renglones). */
@@ -168,67 +160,12 @@
    números grandes con regla superior naranja. Conserva textos y enlaces.
    ========================================================================== */
 .ecn-ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--size-52) var(--size-48); margin-top: var(--size-52); }
-.ecn-way { padding-top: var(--size-22); border-top: var(--border-width) solid var(--color-brand-primary); }
-.ecn-way-num { margin: 0; font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: var(--size-52); line-height: 1; color: var(--color-brand-primary); }
-.ecn-way h3 { margin: var(--space-6) 0 0; font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: var(--heading-4-size); line-height: 1.12; color: var(--color-text); }
-.ecn-way p { margin: var(--space-3) 0 0; font-size: var(--paragraph-size); line-height: 1.6; color: var(--color-text-secondary); }
-.ecn-way .porque-link { display: inline-flex; margin-top: var(--space-4); }
-.ecn-ways-cta { margin-top: clamp(var(--space-10), 6vw, var(--size-64)); }
-@media (max-width: 900px) { .ecn-ways-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-10); } }
-@media (max-width: 560px) { .ecn-ways-grid { grid-template-columns: 1fr; } }
 
 /* =============================================================================
    MÓDULO 2 (legacy) — pestañas repurposadas (se conserva por compatibilidad)
    6 pestañas; cada panel es media + copy. Las pestañas llevan etiqueta de texto
    (no número), así que el reparto de columnas se adapta a 6.
    ========================================================================== */
-.ecn-exp .plan-tabs-nav {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.ecn-exp .plan-tab {
-  padding: var(--space-4) var(--space-3);
-  font-size: var(--paragraph-size);
-  line-height: 1.15;
-  text-align: center;
-}
-
-.ecn-exp-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 42%) 1fr;
-  gap: var(--size-36);
-  align-items: center;
-}
-
-.ecn-exp-media {
-  border-radius: var(--radius);
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: var(--surface-muted);
-}
-
-.ecn-exp-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.ecn-exp-copy h3 {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: var(--size-28);
-  line-height: 1.15;
-  color: var(--color-text);
-}
-
-.ecn-exp-copy > p {
-  margin-top: calc(var(--space-6) - var(--border-width));
-  font-family: var(--font-body);
-  font-size: var(--paragraph-size);
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-}
 
 .ecn-chips {
   display: flex;
@@ -239,16 +176,8 @@
   list-style: none;
 }
 
-.ecn-exp-copy .porque-link {
-  display: inline-flex;
-  margin-top: var(--size-22);
-}
-
 /* El CTA vive dentro de la columna de copy de cada panel, justo debajo del
    contenido (chips / enlace). Solo uno es visible a la vez (el del panel activo). */
-.ecn-exp-cta {
-  margin-top: var(--size-26);
-}
 
 /* =============================================================================
    MÓDULO 3 — Tu carrera, a tu manera
@@ -256,9 +185,6 @@
    acotado a .pagina-carrera en psicologia.css, por eso la <section> lleva esa
    clase: así el componente funciona sin afectar al resto de la página.
    ========================================================================== */
-.ecn-carrera-cta {
-  margin-top: var(--size-44);
-}
 
 /* =============================================================================
    MÓDULO 4 — Encuentra tu área (tarjetas `programs`)
@@ -329,121 +255,11 @@
    MÓDULO 5 — Espacios que vas a hacer tuyos (fichas en campus-slider, 3 a la vista)
    Mismo patrón visual que las instalaciones de las páginas de campus.
    ========================================================================== */
-.ecn-inst-slider {
-  margin-top: var(--space-2);
-}
-
-.ecn-inst-slider .campus-slides {
-  gap: var(--space-7);
-}
-
-.ecn-inst-slider .campus-slides > li {
-  flex: 0 0 calc((100% - var(--space-10)) / 3);
-  aspect-ratio: auto;
-  align-self: stretch;
-  border-radius: 0;
-  overflow: visible;
-}
-
-.ecn-inst-slider .campus-slides > li > .ecn-ficha {
-  height: 100%;
-}
-
-.ecn-ficha {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 0 var(--space-9);
-  border: var(--border-width-thin) solid var(--border-hairline);
-  border-radius: var(--radius);
-  background: var(--color-text-invert);
-  overflow: hidden;
-}
 
 /* Mayor especificidad que `.campus-slides img` para que gane el aspect-ratio y
    todas las fotos de ficha queden a la misma altura. */
-.ecn-inst-slider .ecn-ficha-foto {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-.ecn-ficha-label {
-  margin: var(--space-7) var(--space-9) 0;
-  font-family: var(--font-body);
-  font-size: var(--size-13);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-1);
-  text-transform: uppercase;
-  color: var(--cta-bg-purple);
-}
-
-.ecn-ficha h3 {
-  margin: var(--space-2) 0 0;
-  padding: 0 var(--space-9);
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: var(--size-22);
-  line-height: 1.15;
-  color: var(--color-text);
-}
-
-.ecn-ficha p {
-  padding: 0 var(--space-9);
-  margin-top: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--paragraph-size);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-}
 
 /* Etiqueta «Próximamente» sobre la foto, arriba a la izquierda. */
-.ecn-ficha-badge {
-  position: absolute;
-  top: calc(var(--space-6) - var(--border-width));
-  left: calc(var(--space-6) - var(--border-width));
-  z-index: 2;
-  padding: calc(var(--space-2) - var(--border-width)) calc(var(--space-6) - var(--border-width));
-  border-radius: var(--radius-pill);
-  background: var(--color-brand-primary);
-  font-family: var(--font-heading);
-  font-size: var(--size-13);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-btn);
-  color: var(--color-text-invert);
-}
-
-.ecn-inst-slider .campus-slider-arrow {
-  width: var(--size-44);
-  height: var(--size-44);
-  background: var(--cta-bg-purple);
-  opacity: 1;
-  box-shadow: var(--shadow-card);
-}
-
-.ecn-inst-slider .campus-slider-arrow svg {
-  width: var(--space-7);
-  height: var(--space-7);
-}
-
-.ecn-inst-slider .campus-slider-arrow:hover {
-  background: var(--surface-accent);
-}
-
-.ecn-inst-slider .campus-slider-prev {
-  left: -var(--size-22);
-}
-
-.ecn-inst-slider .campus-slider-next {
-  right: -var(--size-22);
-}
-
-.ecn-inst-slider .campus-slider-dots {
-  margin-top: var(--space-8);
-}
 
 /* Bloque «Tips Anáhuac México» */
 .ecn-tips {
@@ -490,17 +306,6 @@
   font-size: var(--paragraph-size);
   line-height: 1.7;
   color: var(--text-invert-85);
-}
-
-.ecn-tips-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-8);
-  margin-top: var(--space-7);
-}
-
-.ecn-tips-links .porque-link {
-  color: var(--color-text-invert);
 }
 
 .ecn-inst-cta {
@@ -600,169 +405,10 @@
 /* =============================================================================
    MÓDULO 8 — Foráneos (banda a todo lo ancho: foto + copy)
    ========================================================================== */
-.ecn-foraneos {
-  background: var(--surface-accent);
-  color: var(--color-text-invert);
-}
-
-.ecn-foraneos-inner {
-  display: grid;
-  grid-template-columns: 42% 1fr;
-  align-items: stretch;
-}
-
-.ecn-foraneos-media {
-  min-height: var(--ecn-size-panel-min);
-}
-
-.ecn-foraneos-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.ecn-foraneos-copy {
-  padding: calc(var(--space-12) - var(--space-2)) clamp(var(--space-8), 6vw, calc(var(--space-12) + var(--space-6)));
-  display: flex;
-  flex-direction: column;
-  gap: var(--heading-6-size);
-  max-width: var(--ecn-content-narrow);
-}
-
-.ecn-foraneos-eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--size-15);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-1);
-  text-transform: uppercase;
-  color: var(--color-brand-primary);
-}
-
-.ecn-foraneos-copy h2 {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-bold);
-  font-size: clamp(var(--size-30), 4vw, var(--size-44));
-  line-height: 1.1;
-  color: var(--color-text-invert);
-}
-
-.ecn-foraneos-text {
-  font-family: var(--font-body);
-  font-size: var(--heading-6-size);
-  line-height: 1.6;
-  color: var(--text-invert-85);
-}
-
-.ecn-foraneos-puntos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--heading-6-size) var(--size-28);
-  margin: calc(var(--space-2) - var(--border-width)) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ecn-foraneos-puntos li {
-  display: flex;
-  gap: var(--space-4);
-  font-family: var(--font-body);
-  font-size: var(--size-15);
-  line-height: 1.55;
-  color: var(--ecn-text-invert-strong);
-}
-
-.ecn-foraneos-puntos svg {
-  flex: 0 0 auto;
-  width: var(--space-8);
-  height: var(--space-8);
-  margin-top: var(--border-width);
-  color: var(--color-brand-primary);
-}
-
-.ecn-foraneos-copy .button-row {
-  margin-top: var(--space-3);
-}
 
 /* =============================================================================
    MÓDULO 9 — Vívela en persona (2 tarjetas + sub-bloque de eventos)
    ========================================================================== */
-.ecn-visita-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-9);
-  margin-top: var(--space-2);
-}
-
-.ecn-visita-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: calc(var(--space-6) - var(--border-width));
-  padding: var(--space-10);
-  border: var(--border-width-thin) solid var(--border-hairline);
-  border-radius: var(--radius);
-  background: var(--color-text-invert);
-}
-
-.ecn-visita-card--destacada {
-  border-color: var(--color-brand-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.ecn-visita-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--size-52) + var(--border-width));
-  height: calc(var(--size-52) + var(--border-width));
-  border-radius: var(--radius-sm);
-  background: var(--surface-accent);
-  color: var(--color-text-invert);
-}
-
-.ecn-visita-icon svg {
-  width: var(--size-28);
-  height: var(--size-28);
-}
-
-.ecn-visita-card--destacada .ecn-visita-icon {
-  background: var(--color-brand-primary);
-}
-
-.ecn-visita-card h3 {
-  font-family: var(--font-heading);
-  font-weight: var(--weight-semibold);
-  font-size: var(--heading-4-size);
-  line-height: 1.15;
-  color: var(--color-text);
-}
-
-.ecn-visita-card > p {
-  font-family: var(--font-body);
-  font-size: var(--paragraph-size);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-}
-
-.ecn-visita-dato {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-body);
-  font-weight: var(--weight-semibold);
-  color: var(--cta-bg-purple) !important;
-}
-
-.ecn-visita-dato svg {
-  flex: 0 0 auto;
-  width: var(--space-7);
-  height: var(--space-7);
-}
-
-.ecn-visita-card .btn {
-  margin-top: calc(var(--space-2) - var(--border-width));
-}
 
 .ecn-eventos {
   margin-top: var(--size-56);
@@ -779,32 +425,9 @@
   color: var(--color-text);
 }
 
-.ecn-event-list {
-  display: grid;
-  gap: var(--space-6);
-}
-
 /* Eventos placeholder: la caja de fecha muestra «Próximamente» legible y
    centrado, sin el guión gigante que la desbordaba (mismo ajuste que las
    páginas de campus). */
-.ecn-event-list .event-date {
-  justify-content: center;
-  padding: calc(var(--space-6) - var(--border-width)) var(--space-3);
-}
-
-.ecn-event-list .event-date strong {
-  display: none;
-}
-
-.ecn-event-list .event-date span {
-  font-size: var(--size-13);
-  font-weight: var(--weight-semibold);
-  line-height: 1.3;
-  letter-spacing: var(--tracking-btn);
-  white-space: normal;
-  overflow-wrap: anywhere;
-  color: var(--surface-accent);
-}
 
 /* =============================================================================
    MÓDULO 10 — Elige el siguiente paso
@@ -906,117 +529,44 @@
 /* =============================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1024px) {
-  .ecn-exp .plan-tabs-nav {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 960px) {
-  .ecn-foraneos-inner {
-    grid-template-columns: 1fr;
-  }
-  .ecn-foraneos-media {
-    min-height: var(--ecn-size-compact);
-    aspect-ratio: 16 / 9;
-  }
-}
 
 @media (max-width: 900px) {
-  .ecn-exp-panel {
-    grid-template-columns: 1fr;
-    gap: var(--size-22);
-  }
-  .ecn-exp-media {
-    aspect-ratio: 16 / 10;
-  }
+  
+  
   .ecn-campus-grid,
   .ecn-bicampus,
   .ecn-visita-grid,
   .ecn-foraneos-puntos {
     grid-template-columns: 1fr;
   }
-  .ecn-inst-slider .campus-slides > li {
-    flex: 0 0 calc((100% - var(--space-7)) / 2);
-  }
-  .ecn-inst-slider .campus-slider-prev {
-    left: var(--space-2);
-  }
-  .ecn-inst-slider .campus-slider-next {
-    right: var(--space-2);
-  }
+  
+  
+  
 }
 
 @media (max-width: 640px) {
-  .ecn-exp .plan-tabs-nav {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
   .ecn-form-grid {
     grid-template-columns: 1fr;
   }
   .ecn-tips {
     padding: var(--size-28) var(--space-8);
   }
-  .ecn-foraneos-copy {
-    padding: var(--size-48) var(--space-8);
-  }
-  .ecn-visita-card {
-    padding: var(--size-28) var(--space-8);
-  }
-  .ecn-inst-slider .campus-slides > li {
-    flex: 0 0 86%;
-  }
+  
+  
+  
 }
-
 
 /* =============================================================================
    MÓDULO 6 — «Dos campus» · Split a sangre (.ecn-split)
    Dos mitades (Norte | Sur) con sello central + franja bicampus debajo.
    ========================================================================== */
-.ecn-split { position: relative; display: grid; grid-template-columns: 1fr 1fr; margin-top: var(--size-44); }
-.ecn-split-half { position: relative; min-height: clamp(var(--ecn-size-panel-min), 50vw, var(--ecn-size-panel-max)); color: var(--color-text-invert); overflow: hidden; display: flex; }
-.ecn-split-half img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
-.ecn-split-half:hover img { transform: scale(1.04); }
-.ecn-split-half::after { content: ""; position: absolute; inset: 0; background: var(--ecn-overlay-media-purple); }
-.ecn-split-body { position: relative; z-index: 2; margin-top: auto; padding: clamp(var(--lead-size), 4vw, var(--size-56)); }
-.ecn-split-body h3 { margin: 0; font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: clamp(var(--size-30), 3.6vw, var(--size-48)); line-height: 1; }
-.ecn-split-ubic { display: flex; gap: var(--space-3); margin: calc(var(--space-6) - var(--border-width)) 0 0; font-size: var(--paragraph-size); line-height: 1.5; opacity: 0.92; max-width: 34ch; }
-.ecn-split-ubic svg { flex: 0 0 auto; width: var(--space-7); height: var(--space-7); margin-top: var(--border-width); color: var(--color-brand-primary); }
-.ecn-split-body .porque-link { margin-top: var(--space-6); color: var(--color-text-invert); }
-.ecn-split-badge { position: absolute; z-index: 3; left: 50%; top: 50%; transform: translate(-50%, -50%); background: var(--color-brand-primary); color: var(--color-text-invert); font-family: var(--font-heading); font-weight: var(--weight-bold); font-size: var(--eyebrow-size); line-height: 1.3; padding: calc(var(--space-6) - var(--border-width)) var(--size-22); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-panel); max-width: var(--ecn-size-card); }
-@media (max-width: 760px) { .ecn-split { grid-template-columns: 1fr; } .ecn-split-badge { display: none; } .ecn-split-half { min-height: var(--ecn-size-card-tall); } }
 
 /* =============================================================================
    MÓDULO 3 — «Tu carrera, a tu manera» · Feature a dos columnas (.ecn-model)
    Imagen grande con acento de marca (sticky) + los 6 puntos como lista editorial
    con ícono, título, texto y enlace. Reemplaza la retícula de números.
    ========================================================================== */
-.ecn-model-layout { display: grid; grid-template-columns: minmax(0, 42%) 1fr; gap: clamp(var(--size-36), 5vw, var(--space-12)); margin-top: var(--size-48); align-items: start; }
-.ecn-model-media { position: relative; }
-.ecn-model-media-inner { position: sticky; top: var(--ecn-sticky-offset); }
-.ecn-model-media-inner::before { content: ""; position: absolute; left: calc(var(--space-6) * -1); bottom: calc(var(--space-6) * -1); width: 56%; height: 58%; background: var(--surface-accent); border-radius: var(--radius); z-index: 0; }
-.ecn-model-figure { position: relative; z-index: 1; margin: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
-.ecn-model-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.ecn-model-list { display: flex; flex-direction: column; }
-.ecn-model-item { display: grid; grid-template-columns: auto 1fr; gap: var(--size-22); padding: var(--size-28) 0; border-top: var(--border-width-thin) solid var(--border-hairline); }
-.ecn-model-item:first-child { border-top: 0; padding-top: var(--space-1); }
-.ecn-model-icon { flex: 0 0 auto; width: var(--size-52); height: var(--size-52); border-radius: var(--radius-sm); background: var(--ecn-surface-accent-soft); color: var(--surface-accent); display: inline-flex; align-items: center; justify-content: center; }
-.ecn-model-icon svg { width: var(--size-26); height: var(--size-26); }
-.ecn-model-body h3 { margin: 0; font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: clamp(var(--heading-5-size), 2.1vw, var(--size-25)); line-height: 1.15; color: var(--color-text); }
-.ecn-model-body p { margin: var(--space-2) 0 0; font-size: var(--paragraph-size); line-height: 1.6; color: var(--color-text-secondary); }
-.ecn-model-body .porque-link { display: inline-flex; margin-top: var(--space-4); }
-.ecn-model-cta { margin-top: var(--size-44); }
-@media (max-width: 860px) {
-  .ecn-model-layout { grid-template-columns: 1fr; gap: var(--lead-size); }
-  .ecn-model-media-inner { position: static; }
-  .ecn-model-media-inner::before { display: none; }
-  .ecn-model-figure { aspect-ratio: 16 / 10; }
-}
-@media (max-width: 480px) {
-  .ecn-model-item { grid-template-columns: 1fr; gap: var(--space-4); }
-  .ecn-model-icon { width: calc(var(--size-48) - var(--border-width)); height: calc(var(--size-48) - var(--border-width)); }
-}
 
 /* =============================================================================
    MÓDULO 3 — «Tu carrera, a tu manera» · RUTA editorial (.ecn-ruta)
@@ -1024,7 +574,7 @@
    con marcadores numerados; el contenido alterna de lado y las fotos entran como
    estaciones. Composición propia (ni grid, ni slider, ni imagen+lista).
    ========================================================================== */
-.ecn-ruta-script { margin: 0 0 var(--border-width); font-family: var(--font-heading); font-weight: var(--weight-semibold); color: var(--color-brand-primary); font-size: clamp(var(--size-26), 3.4vw, var(--size-48)); line-height: 1; }
+
 .ecn-ruta-track { position: relative; max-width: var(--ecn-content-route); margin: var(--space-11) auto 0; }
 .ecn-ruta-track::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); top: var(--size-36); bottom: var(--size-36); width: calc(var(--space-1) - var(--border-width-thin)); border-radius: var(--radius-sm); background: linear-gradient(var(--color-brand-primary), var(--surface-accent-light)); z-index: 0; }
 .ecn-ruta-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: clamp(var(--size-44), 6vw, calc(var(--space-12) + var(--space-1))); }
@@ -1058,7 +608,6 @@
   .ecn-ruta-item:nth-child(even) .ecn-ruta-photo { grid-column: 2; grid-row: 2; margin: 0; aspect-ratio: 16 / 10; }
 }
 
-
 /* =============================================================================
    MÓDULO 5 — «Espacios que vas a hacer tuyos» · Galería horizontal (.ecn-gallery)
    Tarjetas a sangre con etiqueta + título + texto completo sobre la imagen,
@@ -1082,7 +631,6 @@
 .ecn-space-cap h3 { margin: 0; font-family: var(--font-heading); font-weight: var(--weight-semibold); font-size: clamp(var(--heading-5-size), 2vw, var(--heading-4-size)); line-height: 1.1; }
 .ecn-space-cap p { margin: var(--space-2) 0 0; font-size: var(--eyebrow-size); line-height: 1.5; opacity: 0.94; }
 
-
 /* =============================================================================
    MÓDULO 9 — «Vívela en persona» · 2 opciones grandes + eventos (.ecn-visit2)
    Tour (tarjeta con foto a sangre) + Cita (panel morado) + 3 tarjetas de evento.
@@ -1098,7 +646,7 @@
 .ecn-visit2-body > p { margin: var(--space-3) 0 0; font-size: var(--size-15); line-height: 1.55; opacity: 0.94; max-width: 42ch; }
 .ecn-visit2-dato { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: calc(var(--space-6) - var(--border-width)); font-weight: var(--weight-semibold); font-size: var(--eyebrow-size); }
 .ecn-visit2-dato svg { flex: 0 0 auto; width: var(--meta-size); height: var(--meta-size); }
-.ecn-visit2-body .btn { margin-top: var(--heading-6-size); }
+.ecn-visit2-body .btn { margin-top: var(--heading-6-size); padding: 13px 28px; font-size: 17px; }
 .ecn-visit2-events { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); }
 .ecn-visit2-event { border: var(--border-width-thin) solid var(--border-hairline-strong); border-radius: var(--radius-md); padding: var(--size-22); }
 .ecn-visit2-event .k { display: inline-block; font-family: var(--font-body); font-size: var(--micro-size); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-1); color: var(--surface-accent); background: var(--ecn-surface-accent-soft); padding: calc(var(--space-1) + var(--border-width-thin)) var(--size-11); border-radius: var(--radius-pill); }
@@ -1106,7 +654,6 @@
 .ecn-visit2-event p { margin: calc(var(--space-2) - var(--border-width)) 0 0; font-size: var(--eyebrow-size); line-height: 1.5; color: var(--color-text-secondary); }
 .ecn-visit2-events-head { margin-top: var(--size-44); }
 @media (max-width: 860px) { .ecn-visit2-grid { grid-template-columns: 1fr; } .ecn-visit2-events { grid-template-columns: 1fr; } }
-
 
 /* =============================================================================
    MÓDULO 8 — «Foráneos» · Banda inmersiva a sangre (.ecn-home2)
