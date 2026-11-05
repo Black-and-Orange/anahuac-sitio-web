@@ -1,0 +1,262 @@
+/* =============================================================================
+   LICENCIATURA EN ACTUARÍA — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la
+   página nace con las correcciones del molde promovidas el 2026-08-31. **No las
+   repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de esta carrera:
+
+     a) el plan son 8 pestañas por SEMESTRE (4 años); el molde ya cablea 8
+        columnas con sus cortes responsive, así que aquí NO se overridea la
+        retícula de pestañas;
+     b) el subtítulo del hero bajo el claim (obligatorio en el spec);
+     c) notas auxiliares del plan (total por semestre, desglose por bloque,
+        créditos por bloque y nota de materias regionales);
+     d) el bloque de empleabilidad y el dato de la banda de M6;
+     e) el **M7 bicampus**: las DOS tarjetas de campus (Norte y Sur) con su slider
+        1:1, reutilizando el componente `.campus-slider` (JS en script.js) sin
+        tocarlo. ⚠️ Actuaría es de la Facultad de Ciencias Actuariales: sin bloque
+        destacado de ingeniería;
+     f) los bloques de Internacionalización / Movilidad y las notas de M9.
+
+   Todo prefijado con `.pagina-actuaria` para no tocar otras páginas ni los
+   componentes compartidos (psicologia.css / styles.css).
+
+   Color siempre por token semántico del molde; el espaciado sigue la escala del
+   sitio (no es múltiplos de 8).
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   M1 · SUBTÍTULO DEL HERO (bajo el claim)
+   El molde no trae subtítulo en el hero; el spec lo pide obligatorio. Va como
+   texto de cuerpo acotado a medida de lectura, heredando el gap del .lic-hero-copy.
+   -------------------------------------------------------------------------- */
+.pagina-actuaria .lic-hero-sub {
+  max-width: 54ch;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   M5 · PLAN DE ESTUDIOS — 8 PESTAÑAS POR SEMESTRE
+   Actuaría dura 8 semestres (4 años). El molde base ya reparte la barra en
+   `repeat(8, 1fr)` con sus propios cortes responsive, así que aquí NO se overridea
+   la retícula de pestañas: 8 pestañas encajan nativamente en el componente
+   validado. Solo quedan las notas auxiliares del plan.
+   -------------------------------------------------------------------------- */
+
+/* Total de créditos del semestre, como caption sobre la lista de materias. */
+.pagina-actuaria .iact-plan-sem-total {
+  margin: 0 0 14px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+}
+
+/* Nota al pie de la rejilla (materias regionales). */
+.pagina-actuaria .iact-plan-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* Créditos por bloque dentro del H3 de cada tarjeta .plan-bloque. */
+.pagina-actuaria .iact-bloque-cred {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M4 · NOTA DE DESGLOSE POR BLOQUE EN LA TARJETA AEO
+   -------------------------------------------------------------------------- */
+.pagina-actuaria .iact-plan-aeo-nota {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · EMPLEABILIDAD Y DATO DE LA BANDA
+   El bloque «Dónde trabajan nuestros egresados» + la cifra de empleabilidad van
+   como prosa atribuida bajo los tiles. El dato de la banda (Facultad desde 1969 ·
+   Proyecto actuarial aplicado · cátedras) hereda el color de la banda para no
+   romper contraste.
+   -------------------------------------------------------------------------- */
+.pagina-actuaria .iact-campo-egresados {
+  display: grid;
+  gap: 16px;
+  max-width: 860px;
+  margin-top: 40px;
+}
+
+.pagina-actuaria .iact-campo-egresados p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-actuaria .iact-campo-dato {
+  margin: 14px 0 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: inherit;
+}
+
+/* -----------------------------------------------------------------------------
+   M7 · INSTALACIONES Y CAMPUS (BICAMPUS)
+   ⚠️ Actuaría es de la Facultad de Ciencias Actuariales, no de Ingeniería. Por eso
+   aquí NO existe el bloque destacado de ingeniería; M7 son SOLO las DOS tarjetas de
+   campus (Norte y Sur) con su slider 1:1. Se reutiliza el componente .campus-slider
+   (psicologia.css, JS en script.js) sin tocarlo; aquí solo vive el layout de las
+   dos tarjetas, prefijado para no afectar a nadie más.
+   -------------------------------------------------------------------------- */
+
+/* Rejilla de las DOS tarjetas de campus. */
+.pagina-actuaria .iact-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pagina-actuaria .iact-campus-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  padding: 20px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+}
+
+.pagina-actuaria .iact-campus-card--norte {
+  border-color: var(--orange);
+}
+
+.pagina-actuaria .iact-campus-card--sur {
+  border-color: var(--purple-2);
+}
+
+.pagina-actuaria .iact-campus-card h3 {
+  margin: 4px 0 0;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pagina-actuaria .iact-campus-card .campus-address {
+  margin: 0;
+  align-self: flex-start;
+}
+
+.pagina-actuaria .iact-campus-cta {
+  margin-top: auto;
+  padding-top: 6px;
+  align-self: flex-start;
+}
+
+.pagina-actuaria .iact-campus-card--norte .iact-campus-cta {
+  color: var(--orange);
+}
+
+.pagina-actuaria .iact-campus-card--sur .iact-campus-cta {
+  color: var(--purple-2);
+}
+
+@media (max-width: 760px) {
+  .pagina-actuaria .iact-campus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · DOCENCIA Y COLABORADORES
+   Texto de apoyo del claustro, nota de cierre de la Facultad y los bloques de
+   Internacionalización / Movilidad. Los dos grupos de logos usan el componente
+   .colab-* del molde (etiquetas «Convenios» y «Vinculación con asociaciones»),
+   sin desviación de CSS.
+   -------------------------------------------------------------------------- */
+.pagina-actuaria .iact-colab-sub {
+  margin: 0 0 20px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.pagina-actuaria .iact-colab-nota {
+  margin: 34px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.pagina-actuaria .iact-colab-extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pagina-actuaria .iact-colab-extra-item h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pagina-actuaria .iact-colab-extra-item p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+@media (max-width: 760px) {
+  .pagina-actuaria .iact-colab-extra {
+    grid-template-columns: 1fr;
+  }
+}
