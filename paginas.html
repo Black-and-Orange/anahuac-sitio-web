@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Herramienta interna de revisión: no debe indexarse. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Índice de páginas · Anáhuac México (interno)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- =========================================================================
+         PÁGINA ÍNDICE (interna). Lista las páginas desarrolladas del sitio para
+         revisión rápida. CÓMO ACTUALIZARLA: al crear una página nueva, copia un
+         bloque <a class="idx-card"> dentro del grupo que corresponda (o crea un
+         grupo nuevo), y actualiza la fecha y el conteo de la cabecera.
+         Estilo propio con prefijo .idx-; usa los tokens de styles.css.
+         ========================================================================= -->
+    <style>
+      body {
+        margin: 0;
+        font-family: var(--font-body);
+        color: var(--color-text);
+        background: var(--gray);
+      }
+      .idx-wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .idx-head {
+        padding: 40px;
+        border-radius: var(--radius);
+        background: linear-gradient(120deg, var(--purple-1), var(--purple-2));
+        color: var(--white);
+      }
+      .idx-head .idx-eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--lilac-1);
+      }
+      .idx-head h1 {
+        margin: 0 0 12px;
+        font-family: var(--font-heading);
+        font-size: clamp(30px, 5vw, 46px);
+        line-height: 1.05;
+      }
+      .idx-head p {
+        margin: 0;
+        max-width: 60ch;
+        font-size: 15px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .idx-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        margin-top: 22px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .idx-meta span { font-variant-numeric: tabular-nums; }
+      .idx-meta b { color: var(--accent-yellow); }
+
+      .idx-group { margin-top: 44px; }
+      .idx-group-title {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 0 0 16px;
+        font-family: var(--font-heading);
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .idx-group-title em {
+        font-style: normal;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .idx-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .idx-card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 18px 18px 16px;
+        background: var(--white);
+        border: 1px solid rgba(12, 17, 21, 0.08);
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+      .idx-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(67, 47, 100, 0.14);
+        border-color: rgba(93, 66, 140, 0.4);
+      }
+      .idx-card .idx-name {
+        font-family: var(--font-heading);
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .idx-card .idx-file {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        word-break: break-all;
+      }
+      .idx-card .idx-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+      .idx-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .idx-pill.is-live { background: rgba(15, 102, 171, 0.12); color: var(--accent-blue); }
+      .idx-pill.is-dev { background: rgba(255, 89, 0, 0.14); color: var(--orange); }
+      .idx-open {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--purple-2);
+      }
+      .idx-card:hover .idx-open { color: var(--orange); }
+
+      .idx-foot {
+        margin-top: 48px;
+        padding: 20px 24px;
+        border-left: 3px solid var(--purple-3);
+        background: var(--white);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+      }
+      .idx-foot code {
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 12px;
+        background: var(--gray);
+        padding: 1px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="idx-wrap">
+      <header class="idx-head">
+        <p class="idx-eyebrow">Herramienta interna · revisión</p>
+        <h1>Índice de páginas del sitio</h1>
+        <p>
+          Todas las páginas desarrolladas de la Universidad Anáhuac México, con enlace directo para
+          revisarlas. Esta página se actualiza cada vez que creamos una nueva.
+        </p>
+        <div class="idx-meta">
+          <span><b>23</b> publicadas · <b>1</b> en desarrollo</span>
+          <span>Última actualización: <b>05 nov 2026</b></span>
+        </div>
+      </header>
+
+      <!-- HOME -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Home <em>1</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="Inicio.html">
+            <span class="idx-name">Inicio</span>
+            <span class="idx-file">Inicio.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- OFERTA Y ÁREAS -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Oferta y áreas académicas <em>4</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="oferta-academica.html">
+            <span class="idx-name">Oferta académica</span>
+            <span class="idx-file">oferta-academica.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="area-ciencias-de-la-salud.html">
+            <span class="idx-name">Área · Ciencias de la Salud</span>
+            <span class="idx-file">area-ciencias-de-la-salud.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="area-turismo-gastronomia-y-hospitalidad.html">
+            <span class="idx-name">Área · Turismo, Gastronomía y Hospitalidad</span>
+            <span class="idx-file">area-turismo-gastronomia-y-hospitalidad.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="area-ingenierias-ciencias.html">
+            <span class="idx-name">Área · Ingeniería y Ciencias</span>
+            <span class="idx-file">area-ingenierias-ciencias.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-dev">En desarrollo</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CARRERAS · SALUD -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Carreras · Ciencias de la Salud <em>6</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="medicina.html">
+            <span class="idx-name">Medicina</span>
+            <span class="idx-file">medicina.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="licenciatura-cirujano-dentista.html">
+            <span class="idx-name">Cirujano Dentista</span>
+            <span class="idx-file">licenciatura-cirujano-dentista.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="nutricion.html">
+            <span class="idx-name">Nutrición</span>
+            <span class="idx-file">nutricion.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="licenciatura-terapia-fisica-y-rehabilitacion.html">
+            <span class="idx-name">Terapia Física y Rehabilitación</span>
+            <span class="idx-file">licenciatura-terapia-fisica-y-rehabilitacion.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="licenciatura-biotecnologia.html">
+            <span class="idx-name">Biotecnología</span>
+            <span class="idx-file">licenciatura-biotecnologia.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="psicologia.html">
+            <span class="idx-name">Psicología</span>
+            <span class="idx-file">psicologia.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CARRERAS · TURISMO -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Carreras · Turismo, Gastronomía y Hospitalidad <em>4</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="gastronomia.html">
+            <span class="idx-name">Gastronomía</span>
+            <span class="idx-file">gastronomia.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="administracion-turistica.html">
+            <span class="idx-name">Administración Turística</span>
+            <span class="idx-file">administracion-turistica.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="direccion-de-restaurantes.html">
+            <span class="idx-name">Dirección de Restaurantes</span>
+            <span class="idx-file">direccion-de-restaurantes.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="direccion-internacional-de-hoteles.html">
+            <span class="idx-name">Dirección Internacional de Hoteles</span>
+            <span class="idx-file">direccion-internacional-de-hoteles.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CARRERAS · COMUNICACIÓN -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Carreras · Comunicación <em>1</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="comunicacion.html">
+            <span class="idx-name">Comunicación</span>
+            <span class="idx-file">comunicacion.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ADMISIONES -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Admisiones <em>2</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="proceso-de-admision.html">
+            <span class="idx-name">Proceso de admisión</span>
+            <span class="idx-file">proceso-de-admision.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="fechas-de-examenes.html">
+            <span class="idx-name">Fechas de examen</span>
+            <span class="idx-file">fechas-de-examenes.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- COSTOS Y APOYOS -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Costos y apoyos <em>2</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="costos-becas.html">
+            <span class="idx-name">Costos y becas</span>
+            <span class="idx-file">costos-becas.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="apoyos-economicos.html">
+            <span class="idx-name">Apoyos económicos</span>
+            <span class="idx-file">apoyos-economicos.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- VIDA / FORÁNEOS / CAMPUS -->
+      <section class="idx-group">
+        <h2 class="idx-group-title">Vida universitaria · Foráneos · Campus <em>4</em></h2>
+        <div class="idx-grid">
+          <a class="idx-card" href="estudia-con-nosotros.html">
+            <span class="idx-name">Estudia con nosotros (Vida universitaria)</span>
+            <span class="idx-file">estudia-con-nosotros.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="foraneos.html">
+            <span class="idx-name">Estudiantes foráneos</span>
+            <span class="idx-file">foraneos.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="campus-norte.html">
+            <span class="idx-name">Campus Norte</span>
+            <span class="idx-file">campus-norte.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+          <a class="idx-card" href="campus-sur.html">
+            <span class="idx-name">Campus Sur</span>
+            <span class="idx-file">campus-sur.html</span>
+            <span class="idx-bottom"><span class="idx-pill is-live">Publicada</span><span class="idx-open">Abrir ›</span></span>
+          </a>
+        </div>
+      </section>
+
+      <p class="idx-foot">
+        <strong>Cómo actualizar este índice:</strong> al crear una página nueva, duplica un bloque
+        <code>&lt;a class="idx-card"&gt;</code> dentro del grupo que corresponda (o crea un grupo nuevo),
+        pon su nombre, archivo y estado (<code>is-live</code> / <code>is-dev</code>), y actualiza la
+        fecha y el conteo de la cabecera. En producción (HubSpot) los slugs cambian; estos enlaces son
+        los del entorno de revisión (GitHub Pages) y se abren con el nombre de archivo.
+      </p>
+    </div>
+  </body>
+</html>
