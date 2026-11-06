@@ -322,3 +322,31 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================================================
+   M7 INSTALACIONES — showcase alineado a psicología (lic-inst-showcase),
+   conservando los textos (foto + título + descripción + enlace).
+   ========================================================================== */
+.lic-campus--inst .lic-inst-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.lic-campus--inst .lic-inst-card p {
+  margin: 10px 0 0;
+  padding: 0 26px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+.lic-campus--inst .lic-inst-card .porque-link {
+  margin: 14px 0 0;
+  padding: 0 26px;
+}
+@media (max-width: 760px) {
+  .lic-campus--inst .lic-inst-showcase {
+    grid-template-columns: 1fr;
+  }
+}
