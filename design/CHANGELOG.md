@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Ingeniería y Ciencias · encabezados simplificados
+
+- Nueve carreras: se retira el párrafo situado debajo de los verbos y se simplifica la etiqueta de ubicación a Norte o Norte - Sur.
+- Se conservan H1, verbos, duración, modalidad, imágenes, CTA y estilos compartidos.
+- Capturas locales de las nueve páginas revisadas por el usuario, quien autoriza la integración.
+
+
 ## 2026-11-04 — Estudia con nosotros · contenido y contraste aprobados
 
 - CTA con altura adaptable y padding; sello Tips manuscrito conforme a referencia.

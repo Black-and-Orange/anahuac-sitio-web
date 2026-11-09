@@ -517,3 +517,11 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 
 - El usuario solicita commit, merge y push y comprobar base remota. Se confirma HEAD sincronizado con origin/main en 382b6fe antes de integrar.
 - Revisión técnica: navegación de siete experiencias y vuelta de 07/07 a 01/07 comprobadas en navegador; títulos y texto negro/gris verificados, botones sin desbordamiento a 1440/768/390/320 px y fondos sin desbordamiento móvil. Cambios limitados a la página original; sin hallazgos bloqueantes en el alcance. Propuesta 2 excluida.
+
+### 2026-11-09 — Primer módulo de nueve carreras de Ingeniería y Ciencias
+
+- Solicitud del usuario, aclarada explícitamente: eliminar el párrafo debajo de los verbos del hero y retirar Campus/Bicampus de su etiqueta de ubicación, conservando Norte/Sur/Norte - Sur. Aplicado a Actuaría, Ciencia de Datos y siete ingenierías nuevas. Solo local, sin sincronización; capturas para revisión.
+
+### 2026-11-09 — Validación y aprobación de nueve encabezados
+
+- El usuario revisa las capturas y solicita commit, merge y push. Base confirmada al día con origin/main en 63faf79. Verificación en navegador de los nueve hero: sin párrafo introductorio ni Campus/Bicampus en los chips; sin cambios de diseño o contenido fuera del alcance. Sin hallazgos bloqueantes.

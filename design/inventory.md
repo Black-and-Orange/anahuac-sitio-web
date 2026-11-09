@@ -123,3 +123,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-04: .ecn-show tiene siete experiencias, incluyendo Acompañamiento; reutiliza la estructura de Pastoral y navegación dinámica existente.
 
 - 2026-11-04: variante local de fondo .ecn-show con tinte lila y puntos en esquinas alternadas; sin impacto en secciones compartidas.
+
+- 2026-11-09: hero de las nueve carreras nuevas de Ingeniería y Ciencias: sin párrafo introductorio debajo del claim; etiquetas de ubicación sin Campus/Bicampus. Sin cambios al componente CSS compartido.
