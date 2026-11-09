@@ -541,3 +541,11 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Aprobación de afinidad, duración y plan
 
 - El usuario autoriza commit, merge y push de todos los ajustes pendientes de las nueve páginas. Base remota confirmada sincronizada en 191605a. Auditoría: 4+4 etiquetas por página, materias y orden intactos frente a HEAD, notas y créditos desglosados retirados, enlaces Minors correctos. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-09 — Retiro de notas de materias regionales
+
+- Solicitud del usuario: se eliminan las notas de Materias regionales entre las pestañas del plan y los bloques en las ocho páginas que las contenían; Biomédica ya carecía de esa nota. Sin alterar materias ni bloques. Solo local, pendiente de revisión.
+
+### 2026-11-09 — Aprobación del retiro de materias regionales
+
+- El usuario autoriza commit, merge y push. Base confirmada sincronizada con origin/main en 6452b0c. Revisión técnica: ocho párrafos retirados, Biomédica sin cambios, materias y bloques conservados; captura local comprobada. Sin hallazgos bloqueantes en el alcance.

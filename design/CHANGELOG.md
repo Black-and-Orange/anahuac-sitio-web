@@ -5,6 +5,12 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Ingeniería y Ciencias · retiro de notas regionales
+
+- Se retira el párrafo de Materias regionales entre el plan y los bloques en las ocho carreras que lo incluían; Biomédica ya no tenía esa nota.
+- Materias, pestañas, bloques y estilos conservados. Captura local revisada y publicación autorizada por el usuario.
+
+
 ## 2026-11-09 — Ingeniería y Ciencias · simplificación de afinidad y planes
 
 - Dos columnas de cuatro etiquetas en las nueve carreras; se retiran las opciones sobrantes en Ambiental, Civil e Industrial.
