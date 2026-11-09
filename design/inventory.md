@@ -125,3 +125,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-04: variante local de fondo .ecn-show con tinte lila y puntos en esquinas alternadas; sin impacto en secciones compartidas.
 
 - 2026-11-09: hero de las nueve carreras nuevas de Ingeniería y Ciencias: sin párrafo introductorio debajo del claim; etiquetas de ubicación sin Campus/Bicampus. Sin cambios al componente CSS compartido.
+
+- 2026-11-09: afinidad-tags en nueve carreras de Ingeniería y Ciencias: dos grupos de cuatro etiquetas cada uno; ajustes de contenido en Ambiental, Civil e Industrial.
+
+- 2026-11-09: plan-aeo de las nueve carreras de Ingeniería y Ciencias sin nota de Modelo 2025; título, semestres y créditos conservados.
+
+- 2026-11-09: plan de estudios de nueve carreras de Ingeniería y Ciencias sin créditos por semestre/materia/bloque; enlace Minors reutiliza plan-minors-link y modal compartidos.

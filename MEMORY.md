@@ -525,3 +525,19 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Validación y aprobación de nueve encabezados
 
 - El usuario revisa las capturas y solicita commit, merge y push. Base confirmada al día con origin/main en 63faf79. Verificación en navegador de los nueve hero: sin párrafo introductorio ni Campus/Bicampus en los chips; sin cambios de diseño o contenido fuera del alcance. Sin hallazgos bloqueantes.
+
+### 2026-11-09 — Cuatro opciones por columna en afinidad
+
+- Solicitud del usuario: exactamente cuatro etiquetas por columna en el módulo de áreas/ejes/habilidades de las nueve carreras de Ingeniería y Ciencias. Se retiran Entorno económico (Ambiental), Geotecnia (Civil) y Minería de datos (Industrial), conservando opciones más directas para aspirantes de preparatoria. Las otras seis páginas ya cumplen. Contenido fuera del módulo y formato sin cambios; solo local.
+
+### 2026-11-09 — Nota de Modelo 2025 en duración
+
+- Solicitud del usuario: retirar completo el párrafo gris de desglose del Modelo 2025 en la tarjeta de duración de las nueve carreras de Ingeniería y Ciencias. Se conservan títulos, semestres y créditos. Cambios anteriores preservados; solo local.
+
+### 2026-11-09 — Plan de estudios sin créditos desglosados
+
+- Solicitud del usuario: en las nueve carreras de Ingeniería y Ciencias se retiran totales de créditos por semestre, sufijos de créditos de materias y créditos de los títulos de bloques. Se conservan todas las materias, orden, pestañas y créditos totales de la carrera. Minors usa enlace naranja en negrita y el video modal ya establecido en otras carreras. Solo local, cambios anteriores preservados.
+
+### 2026-11-09 — Aprobación de afinidad, duración y plan
+
+- El usuario autoriza commit, merge y push de todos los ajustes pendientes de las nueve páginas. Base remota confirmada sincronizada en 191605a. Auditoría: 4+4 etiquetas por página, materias y orden intactos frente a HEAD, notas y créditos desglosados retirados, enlaces Minors correctos. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.

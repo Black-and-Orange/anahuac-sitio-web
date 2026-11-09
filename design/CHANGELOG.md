@@ -5,6 +5,14 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Ingeniería y Ciencias · simplificación de afinidad y planes
+
+- Dos columnas de cuatro etiquetas en las nueve carreras; se retiran las opciones sobrantes en Ambiental, Civil e Industrial.
+- Se elimina la nota gris de Modelo 2025 en duración y los créditos por semestre, materia y bloque; se conservan semestres y créditos totales de la carrera.
+- Minors queda como enlace naranja en negrita al video compartido. Todas las materias y su orden permanecen intactos.
+- Capturas locales revisadas y publicación autorizada por el usuario.
+
+
 ## 2026-11-09 — Ingeniería y Ciencias · encabezados simplificados
 
 - Nueve carreras: se retira el párrafo situado debajo de los verbos y se simplifica la etiqueta de ubicación a Norte o Norte - Sur.
