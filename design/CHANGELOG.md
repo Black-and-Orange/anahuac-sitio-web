@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Actuaría · internacionalización en tarjeta
+
+- Se incorpora una tarjeta de internacionalización a Por qué la Anáhuac con intercambios, viajes culturales, idiomas e investigación; nueve países en etiquetas del estilo existente.
+- Se retiran los bloques anteriores de Internacionalización y Movilidad Anáhuac para evitar duplicación.
+- Alcance local de Actuaría, sin cambios de estilos compartidos. Revisión humana aprobada para integrar.
+
+
 ## 2026-11-09 — Actuaría y Ciencia de Datos · instalaciones y claustro
 
 - Actuaría: módulo Instalaciones con dos tarjetas de laboratorios y aulas, sin direcciones ni notas de campus; CTA de tour según enlace proporcionado. Se retira el subtítulo del claustro.

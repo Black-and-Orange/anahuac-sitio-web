@@ -581,3 +581,19 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Aprobación de instalaciones y docentes
 
 - El usuario solicita commit, merge y push. Base sincronizada con origin/main en 0d9b069. Revisión técnica: cuatro docentes idénticos en ambas páginas; Actuaría conserva dos tarjetas de instalaciones, CTA proporcionado y sin textos de campus ni subtítulo retirado. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-09 — Internacionalización en Actuaría
+
+- Solicitud del usuario con captura: se añade una séptima tarjeta en Por qué la Anáhuac, resumiendo intercambios, viajes culturales, materias en otros idiomas y estancias de investigación. Se mencionan los nueve países de la captura: España, Francia, Australia, Alemania, Canadá, Italia, Argentina, Suiza y Estados Unidos. Sin trasladar porcentajes ni prometer disponibilidad. Formato existente conservado; solo local.
+
+### 2026-11-09 — Retiro de información adicional de movilidad
+
+- Solicitud del usuario con captura: se retira el bloque iact-colab-extra que contiene Internacionalización y Movilidad Anáhuac. Se conserva la nueva tarjeta Una formación con visión internacional en Por qué la Anáhuac. Solo local.
+
+### 2026-11-09 — Países como etiquetas en Actuaría
+
+- Solicitud del usuario: los nueve países de la tarjeta de internacionalización se presentan como lic-chip, reutilizando el estilo existente de otras carreras. Se mantiene el texto introductorio, sin cambios de CSS compartido. Solo local.
+
+### 2026-11-09 — Aprobación de internacionalización de Actuaría
+
+- El usuario solicita commit, merge y push. Base remota sincronizada. Revisión técnica: nueva tarjeta con nueve etiquetas de países, bloques anteriores retirados y clases compartidas conservadas. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
