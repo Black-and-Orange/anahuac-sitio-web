@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Actuaría y Ciencia de Datos · instalaciones y claustro
+
+- Actuaría: módulo Instalaciones con dos tarjetas de laboratorios y aulas, sin direcciones ni notas de campus; CTA de tour según enlace proporcionado. Se retira el subtítulo del claustro.
+- Ambas páginas incorporan cuatro docentes y cargos destacados desde el sitio oficial de la Facultad, conservando el formato y avatares.
+- Contenido revisado y publicación autorizada por el usuario.
+
+
 ## 2026-11-09 — Actuaría · banda de oportunidades profesionales
 
 - Se retira el bloque de egresados y se sustituye la banda de empleabilidad por el copy aprobado: oportunidades profesionales, proyectos actuariales, cátedras y asociaciones.

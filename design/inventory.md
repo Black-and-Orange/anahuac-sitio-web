@@ -131,3 +131,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-09: plan-aeo de las nueve carreras de Ingeniería y Ciencias sin nota de Modelo 2025; título, semestres y créditos conservados.
 
 - 2026-11-09: plan de estudios de nueve carreras de Ingeniería y Ciencias sin créditos por semestre/materia/bloque; enlace Minors reutiliza plan-minors-link y modal compartidos.
+
+- 2026-11-09: lic-inst-showcase de Actuaría: dos tarjetas de instalaciones (laboratorios y aulas) sin direcciones ni enlaces de campus, con CTA final de tour. CSS compartido sin cambios.
+
+- 2026-11-09: docente-card de Actuaría: cuatro docentes con nombres y cargos de la fuente oficial; formato y avatares actuales conservados.
+
+- 2026-11-09: docente-card de Ciencia de Datos comparte los cuatro nombres y cargos oficiales incorporados en Actuaría, con formato sin cambios.

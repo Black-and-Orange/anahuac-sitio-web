@@ -561,3 +561,23 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Recuperación de publicación de Actuaría
 
 - El usuario solicita resolver el despliegue. Diagnóstico del run 42727204224: carga correcta, Pages permanece syncing_files y la acción cancela al límite predeterminado de 10 minutos. Se amplía timeout de deploy-pages a 20 minutos y límite del job a 25, sin modificar el contenido ni permisos del sitio.
+
+### 2026-11-09 — Instalaciones de Actuaría
+
+- Solicitud del usuario: módulo renombrado Instalaciones, con nuevo título y descripción. Se conservan dos tarjetas e imágenes existentes como referencia; se sustituyen campus, direcciones y enlaces por los nombres de laboratorios y aulas indicados. Se retiran nota y bullets de transporte/hectáreas, reemplazados por CTA de tour con la URL proporcionada. Solo local.
+
+### 2026-11-09 — Subtítulo del claustro de Actuaría
+
+- Solicitud del usuario: se retira únicamente el párrafo Profesionistas de los medios actuariales, financieros y de investigación que llevan la práctica real al aula, bajo Claustro docente. Cambios anteriores conservados; solo local.
+
+### 2026-11-09 — Claustro docente de Actuaría
+
+- Solicitud del usuario: se incorporan los cuatro nombres y cargos destacados de Conoce parte de nuestro claustro docente, consultados en https://www.anahuac.mx/mexico/EscuelasyFacultades/actuaria/. Salvador Nieto Pineda, Pedro Pacheco Villagrán, Ernesto Monroy Yurrieta y Carlos Arocha Romero. Se conserva el formato y los avatares existentes; no se incorporan fotografías. Solo local.
+
+### 2026-11-09 — Claustro de Ciencia de Datos
+
+- Solicitud del usuario: se incorporan los mismos cuatro docentes y cargos ya documentados en Actuaría desde la fuente oficial de la Facultad. Se conserva el formato y los avatares existentes. Solo local.
+
+### 2026-11-09 — Aprobación de instalaciones y docentes
+
+- El usuario solicita commit, merge y push. Base sincronizada con origin/main en 0d9b069. Revisión técnica: cuatro docentes idénticos en ambas páginas; Actuaría conserva dos tarjetas de instalaciones, CTA proporcionado y sin textos de campus ni subtítulo retirado. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
