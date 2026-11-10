@@ -557,3 +557,7 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Aprobación de contenido de Actuaría
 
 - El usuario solicita commit, merge y push. Base sincronizada con origin/main antes de integrar. Revisión técnica: retiro exclusivo del bloque solicitado, banda y énfasis coinciden con el copy aprobado, CTA conservados. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-09 — Recuperación de publicación de Actuaría
+
+- El usuario solicita resolver el despliegue. Diagnóstico del run 42727204224: carga correcta, Pages permanece syncing_files y la acción cancela al límite predeterminado de 10 minutos. Se amplía timeout de deploy-pages a 20 minutos y límite del job a 25, sin modificar el contenido ni permisos del sitio.
