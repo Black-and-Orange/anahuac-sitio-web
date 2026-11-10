@@ -5,6 +5,12 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-09 — Actuaría · banda de oportunidades profesionales
+
+- Se retira el bloque de egresados y se sustituye la banda de empleabilidad por el copy aprobado: oportunidades profesionales, proyectos actuariales, cátedras y asociaciones.
+- Se conserva la atribución de la cifra de empleo a la Red Anáhuac y los CTA existentes. Revisión humana aprobada para integrar.
+
+
 ## 2026-11-09 — Ingeniería y Ciencias · retiro de notas regionales
 
 - Se retira el párrafo de Materias regionales entre el plan y los bloques en las ocho carreras que lo incluían; Biomédica ya no tenía esa nota.

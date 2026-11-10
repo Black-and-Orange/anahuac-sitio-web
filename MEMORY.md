@@ -549,3 +549,11 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Aprobación del retiro de materias regionales
 
 - El usuario autoriza commit, merge y push. Base confirmada sincronizada con origin/main en 6452b0c. Revisión técnica: ocho párrafos retirados, Biomédica sin cambios, materias y bloques conservados; captura local comprobada. Sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-09 — Empleabilidad de Actuaría
+
+- Solicitud del usuario: se retira el bloque Dónde trabajan nuestros egresados y su párrafo estadístico. Se sustituye el título y ambos párrafos de la banda por el copy proporcionado, manteniendo la atribución del 70% a la Red Anáhuac, énfasis y CTA. Solo local.
+
+### 2026-11-09 — Aprobación de contenido de Actuaría
+
+- El usuario solicita commit, merge y push. Base sincronizada con origin/main antes de integrar. Revisión técnica: retiro exclusivo del bloque solicitado, banda y énfasis coinciden con el copy aprobado, CTA conservados. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
