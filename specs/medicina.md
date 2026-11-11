@@ -101,3 +101,11 @@ Biografías proporcionadas por la usuaria, manteniendo tarjetas y orden:
 Convenios nacionales: reemplazar pendientes por los 19 logos suministrados: Centro Médico ABC, Centro Médico Dalinde, CIMA, Conde de Valenciana, Hospital Ángeles León, Hospital Ángeles, Hospital Central Militar, Hospital Escandón, Hospital Español, Hospital General de México, Hospiten Cancún, Hospiten, IMSS, ISSEMYM, ISSSTE, La Bene San Luis, Médica Sur, SSA, Beneficencia Española (Torreón, Coahuila). Retirar entradas sin archivo; no agregar convenios internacionales.
 
 - Corrección local: conservar únicamente Hospiten Cancún (18 convenios) y neutralizar el fondo gris del logo Hospital Ángeles León mediante CSS, conservando su color en hover.
+
+### 2026-11-10 — Instalaciones de Medicina (solo local)
+
+Texto: Conoce los espacios donde la medicina se aprende haciendo: laboratorios especializados, anatomía virtual y Centro de Simulación.
+
+Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genómica; Microbiología; Laboratorio de investigación; Laboratorio de alimentos; Centro de Simulación. Se retiran Anfiteatro, Laboratorios especializados y Anatomía virtual como tarjetas, conservando las imágenes y formato existentes de las siete restantes.
+
+- Ajuste de mayúsculas solicitado: Conoce los espacios donde la medicina se aprende haciendo: Laboratorios Especializados, Anatomía Virtual y Centro de Simulación.

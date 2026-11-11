@@ -1595,3 +1595,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Cuatro biografías proporcionadas por la usuaria, con formato existente.
 - Dieciocho logos clínicos reales; un solo Hospiten y fondo de Ángeles León integrado mediante CSS local.
 - Aprobación de publicación recibida; sin cambios a componentes compartidos.
+
+## 2026-11-10 — Instalaciones de Medicina
+
+- Introducción sin anfiteatro y con mayúsculas aprobadas para los nombres de espacios.
+- Carrusel limitado a las siete instalaciones solicitadas; se conserva el formato compartido.
+- Usuario autoriza commit, merge y push tras revisar en local.

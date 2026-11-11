@@ -619,3 +619,11 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 - Corrección local: conservar únicamente Hospiten Cancún (18 convenios) y neutralizar el fondo gris del logo Hospital Ángeles León mediante CSS, conservando su color en hover.
 
 - Publicación de Medicina autorizada: main sincronizado con origin/main; cuatro biografías, 18 convenios, un solo Hospiten y fondo de Ángeles León corregido. Verificación visual y carrusel local aprobados.
+
+### 2026-11-10 — Instalaciones de Medicina (solo local)
+
+Texto: Conoce los espacios donde la medicina se aprende haciendo: laboratorios especializados, anatomía virtual y Centro de Simulación.
+
+Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genómica; Microbiología; Laboratorio de investigación; Laboratorio de alimentos; Centro de Simulación. Se retiran Anfiteatro, Laboratorios especializados y Anatomía virtual como tarjetas, conservando las imágenes y formato existentes de las siete restantes.
+
+- Medicina, local: nombres de espacios uniformados como Laboratorios Especializados, Anatomía Virtual y Centro de Simulación en la introducción de Instalaciones.
