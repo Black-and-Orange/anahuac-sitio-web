@@ -1589,3 +1589,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 0.1.0 — framework template
 - Estructura inicial del framework (núcleo neutral + adapters + roles + onboarding + enforcement).
 - Sin tokens ni componentes de proyecto: estado de clean install. Se pueblan en el onboarding (ver `START-HERE.md`).
+
+## 2026-11-10 — Medicina: docentes y convenios
+
+- Cuatro biografías proporcionadas por la usuaria, con formato existente.
+- Dieciocho logos clínicos reales; un solo Hospiten y fondo de Ángeles León integrado mediante CSS local.
+- Aprobación de publicación recibida; sin cambios a componentes compartidos.

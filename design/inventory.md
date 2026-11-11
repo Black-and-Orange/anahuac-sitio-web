@@ -141,3 +141,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-09: lic-porque2-cards de Actuaría incorpora una tarjeta de internacionalización; siete tarjetas, con estilos compartidos sin cambios.
 
 - 2026-11-10: colab-logo de Biotecnología: doce logos reales, seis por grupo; fuentes en assets/biotecnologia/aliados/README.md.
+
+- 2026-11-10: Medicina, solo local: cuatro biografías proporcionadas por la usuaria y 19 logos de convenios clínicos; tarjetas/carrusel compartidos conservados. CSS exclusivo para integrar fondos blancos; originales en assets/medicina/convenios.

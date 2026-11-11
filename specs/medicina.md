@@ -88,3 +88,16 @@ Cuatro tarjetas con el formato y las imágenes de referencia actuales; sin cargo
 - Dr. Santiago Nansen Martiarena
 
 Se retira el módulo completo de Convenios clínicos internacionales; se conservan los convenios nacionales.
+
+### Actualización local 2026-11-10
+
+Biografías proporcionadas por la usuaria, manteniendo tarjetas y orden:
+
+- **Dr. Faustino Javier Rentería Díaz**: Especialista en Medicina Crítica por la UNAM. Es médico adscrito a Terapia Intensiva, jefe de la Unidad de Cuidados Intermedios y coordinador de trasplantes del Hospital Español.
+- **Dra. Lorraine Ornelas Hall**: Especialista en Cirugía de Mano y Microcirugía por el Centro Médico Nacional 20 de Noviembre, con formación internacional en reconstrucción de nervio periférico. Es profesora e investigadora de la Universidad Anáhuac México.
+- **Dra. Cecilia Nehmad Misri**: Médica cirujana especialista en Oncología Médica, con práctica clínica en el Centro Médico ABC de la Ciudad de México.
+- **Dr. Santiago Nansen Martiarena**: Especialista en Ginecología y Obstetricia por el Hospital Español de México. Es médico de base en Perinatología en el Centro Médico Nacional La Raza, con experiencia en docencia e innovación tecnológica en salud.
+
+Convenios nacionales: reemplazar pendientes por los 19 logos suministrados: Centro Médico ABC, Centro Médico Dalinde, CIMA, Conde de Valenciana, Hospital Ángeles León, Hospital Ángeles, Hospital Central Militar, Hospital Escandón, Hospital Español, Hospital General de México, Hospiten Cancún, Hospiten, IMSS, ISSEMYM, ISSSTE, La Bene San Luis, Médica Sur, SSA, Beneficencia Española (Torreón, Coahuila). Retirar entradas sin archivo; no agregar convenios internacionales.
+
+- Corrección local: conservar únicamente Hospiten Cancún (18 convenios) y neutralizar el fondo gris del logo Hospital Ángeles León mediante CSS, conservando su color en hover.

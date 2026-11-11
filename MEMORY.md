@@ -613,3 +613,9 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-10 — Aprobación de aliados de Biotecnología
 
 - El usuario solicita commit, merge y push. Base remota sincronizada en 5741813. Revisión: doce rutas de logos existentes, seis aliados por grupo, carruseles comprobados y captura de INMeGen sin rectángulo blanco. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
+
+- 2026-11-10: Medicina, solo local: cuatro biografías proporcionadas por la usuaria y 19 logos de convenios clínicos; tarjetas/carrusel compartidos conservados. CSS exclusivo para integrar fondos blancos; originales en assets/medicina/convenios.
+
+- Corrección local: conservar únicamente Hospiten Cancún (18 convenios) y neutralizar el fondo gris del logo Hospital Ángeles León mediante CSS, conservando su color en hover.
+
+- Publicación de Medicina autorizada: main sincronizado con origin/main; cuatro biografías, 18 convenios, un solo Hospiten y fondo de Ángeles León corregido. Verificación visual y carrusel local aprobados.

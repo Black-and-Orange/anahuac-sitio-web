@@ -148,3 +148,36 @@
 .lic-form-msg--error {
   color: var(--orange);
 }
+
+/* Logos originales: integrar fondos blancos sin alterar los archivos. */
+.pagina-medicina .colab-logo {
+  background: var(--surface-muted);
+  isolation: isolate;
+}
+
+.pagina-medicina .colab-logo:hover {
+  background: var(--surface);
+}
+
+.pagina-medicina .colab-logo img {
+  mix-blend-mode: multiply;
+}
+
+/* Mayor presencia para originales cuadrados con márgenes amplios. */
+.pagina-medicina .colab-logo img[src$="centro-medico-abc.png"],
+.pagina-medicina .colab-logo img[src$="centro-medico-dalinde.png"],
+.pagina-medicina .colab-logo img[src$="hospital-angeles-leon.png"],
+.pagina-medicina .colab-logo img[src$="hospital-espanol.png"],
+.pagina-medicina .colab-logo img[src$="la-bene-san-luis.png"],
+.pagina-medicina .colab-logo img[src$="issemym.png"] {
+  transform: scale(1.65);
+}
+
+/* Neutraliza el fondo casi blanco del original de Ángeles León antes de mezclarlo. */
+.pagina-medicina .colab-logo img[src$="hospital-angeles-leon.png"] {
+  filter: grayscale(1) brightness(1.08);
+}
+
+.pagina-medicina .colab-logo:hover img[src$="hospital-angeles-leon.png"] {
+  filter: brightness(1.08);
+}
