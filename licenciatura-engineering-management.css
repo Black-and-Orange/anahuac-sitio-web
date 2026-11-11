@@ -1,0 +1,246 @@
+/* =============================================================================
+   LICENCIATURA EN INGENIERÍA DE NEGOCIOS (ENGINEERING MANAGEMENT) — hoja de página
+
+   Esta hoja NO define componentes. El molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la
+   página nace con las correcciones del molde promovidas el 2026-08-31. **No las
+   repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de esta carrera:
+
+     a) el subtítulo del hero bajo el claim y la marca «(Engineering Management)»
+        del H1;
+     b) el plan ATÍPICO de 12 pestañas (9 periodos numerados intercalados con 3
+        Summer Schools); el molde cablea `repeat(8, 1fr)`, así que aquí se
+        overridea la retícula de pestañas a 6 columnas con sus cortes responsive;
+     c) las marcas (EN) de materias en inglés y los créditos por materia;
+     d) las notas auxiliares de M4 (desglose por bloque), M5 (nota de materias en
+        inglés y créditos por bloque) y M6 (empleabilidad);
+     e) los bloques de Internacionalización / Movilidad y las notas de M9.
+
+   Todo prefijado con `.pagina-engmgmt` para no tocar otras páginas ni los
+   componentes compartidos (psicologia.css / styles.css). Color siempre por token
+   semántico del molde.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   M1 · HERO — subtítulo bajo el claim + marca del H1
+   -------------------------------------------------------------------------- */
+.pagina-engmgmt .lic-hero-sub {
+  max-width: 56ch;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* «(Engineering Management)»: marca entre paréntesis, un escalón por debajo del
+   nombre oficial, en la misma línea del H1. */
+.pagina-engmgmt h1 .eng-hero-marca {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.62em;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M4 · NOTA DE DESGLOSE POR BLOQUE EN LA TARJETA AEO
+   -------------------------------------------------------------------------- */
+.pagina-engmgmt .engm-plan-aeo-nota {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M5 · PLAN DE ESTUDIOS — 12 PESTAÑAS (9 periodos + 3 Summer Schools)
+   El molde reparte la barra en `repeat(8, 1fr)`. Con 12 pestañas se overridea a
+   6 columnas (6+6) en desktop, con los mismos cortes responsive del molde.
+   -------------------------------------------------------------------------- */
+.pagina-engmgmt .engm-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 1280px) {
+  .pagina-engmgmt .engm-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-engmgmt .engm-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Pestaña de Summer School: solo texto, sin número; cuerpo compacto para que no
+   desborde la columna estrecha. */
+.pagina-engmgmt .plan-tab--ss {
+  font-size: 15px;
+  line-height: 1.15;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Créditos por materia, como pastilla discreta al final de la línea. */
+.pagina-engmgmt .plan-cred {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--color-surface-2, rgba(0, 0, 0, 0.05));
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--color-text-secondary);
+  vertical-align: middle;
+}
+
+/* Marca de materia en inglés (EN). */
+.pagina-engmgmt .eng-flag {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--purple-2);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--color-text-invert, #fff);
+  vertical-align: middle;
+}
+
+/* Caption de los paneles de Summer School. */
+.pagina-engmgmt .engm-ss-intro {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--color-brand-primary, var(--orange));
+}
+
+/* Nota al pie de la rejilla del plan (materias en inglés) + leyenda del flag. */
+.pagina-engmgmt .engm-plan-nota {
+  margin: 20px 0 0;
+  max-width: 68ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.pagina-engmgmt .engm-plan-nota-leyenda {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+}
+
+/* Créditos por bloque dentro del H3 de cada tarjeta .plan-bloque. */
+.pagina-engmgmt .engm-bloque-cred {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · EMPLEABILIDAD Y DATO DE LA BANDA
+   -------------------------------------------------------------------------- */
+.pagina-engmgmt .engm-campo-egresados {
+  display: grid;
+  gap: 16px;
+  max-width: 860px;
+  margin-top: 40px;
+}
+
+.pagina-engmgmt .engm-campo-egresados p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text);
+  text-wrap: pretty;
+}
+
+.pagina-engmgmt .engm-campo-dato {
+  margin: 14px 0 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: inherit;
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · DOCENCIA Y COLABORADORES
+   -------------------------------------------------------------------------- */
+.pagina-engmgmt .engm-colab-sub {
+  margin: 0 0 20px;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.pagina-engmgmt .engm-colab-nota {
+  margin: 34px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+.pagina-engmgmt .engm-colab-extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pagina-engmgmt .engm-colab-extra-item h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pagina-engmgmt .engm-colab-extra-item p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+@media (max-width: 760px) {
+  .pagina-engmgmt .engm-colab-extra {
+    grid-template-columns: 1fr;
+  }
+}
