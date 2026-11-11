@@ -139,3 +139,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-09: docente-card de Ciencia de Datos comparte los cuatro nombres y cargos oficiales incorporados en Actuaría, con formato sin cambios.
 
 - 2026-11-09: lic-porque2-cards de Actuaría incorpora una tarjeta de internacionalización; siete tarjetas, con estilos compartidos sin cambios.
+
+- 2026-11-10: colab-logo de Biotecnología: doce logos reales, seis por grupo; fuentes en assets/biotecnologia/aliados/README.md.

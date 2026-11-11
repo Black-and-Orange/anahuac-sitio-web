@@ -63,3 +63,23 @@
   letter-spacing: 0.2px;
   color: var(--color-text-secondary);
 }
+
+/* Compensa el margen interno del archivo de Elsevier entregado por el usuario. */
+.pagina-biotecnologia .colab-logo .bio-logo-elsevier {
+  transform: scale(3);
+}
+
+/* Integra el blanco del JPEG de INMeGen con el fondo de la tarjeta. */
+.pagina-biotecnologia .colab-logo .bio-logo-inmegen {
+  mix-blend-mode: multiply;
+}
+
+/* El fondo explícito permite que el logo se mezcle dentro de su capa de carrusel. */
+.pagina-biotecnologia .bio-logo-inmegen-tile {
+  background: var(--surface-muted);
+  isolation: isolate;
+}
+
+.pagina-biotecnologia .bio-logo-inmegen-tile:hover {
+  background: var(--surface);
+}

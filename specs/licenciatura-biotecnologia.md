@@ -255,8 +255,8 @@
   - **Mtro. Oscar Ortega Oviedo:** Experto en diagnóstico clínico y automatización de laboratorios, con más de 20 años de experiencia en América Latina.
   - **Dr. Manuel Lara Lozano:** Especialista en neurobiología celular y molecular, con experiencia en diagnóstico molecular veterinario.
   - **Dr. Moisés Talavera Paulin:** Especialista en inmunología y candidato a investigador nacional por el SNII/SECIHTI.
-- **«Aliados nacionales» (H3):** UNAM · Instituto Politécnico Nacional · 3M · Herdez · GE · Philips · Oracle · Hospital Ángeles
-- **«Aliados internacionales» (H3):** Universidad Francisco de Vitoria (España) · Pontificia Universidad Javeriana (Colombia)
+- **«Aliados nacionales» (H3):** INDEBIOC · Instituto Nacional de Neurología y Neurocirugía · INMeGen · INDRE · UNAM · IPN. Todos con logo.
+- **«Aliados internacionales» (H3):** Boehringer Ingelheim · Elsevier · Johnson & Johnson · Novo Nordisk · Opella · Silanes. Todos con logo; clasificación proporcionada por el usuario y su Excel.
 - **Dato de respaldo de Facultad (siempre atribuido a la Facultad):** «La Facultad de Ciencias de la Salud cuenta con más de 350 campos clínicos y convenios con más de 53 hospitales en 8 estados de la República.»
 
 ---

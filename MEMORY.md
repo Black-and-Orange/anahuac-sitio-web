@@ -597,3 +597,19 @@ mirar dos anchuras no basta. Para eso está `npm run check:titulos`, que barre 3
 ### 2026-11-09 — Aprobación de internacionalización de Actuaría
 
 - El usuario solicita commit, merge y push. Base remota sincronizada. Revisión técnica: nueva tarjeta con nueve etiquetas de países, bloques anteriores retirados y clases compartidas conservadas. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.
+
+### 2026-11-10 — Aliados de Biotecnología con logo
+
+- Solicitud del usuario y Excel adjunto: se sustituyen los grupos por seis aliados nacionales y seis internacionales con logo. INDRE nacional y Elsevier internacional usan los archivos separados proporcionados. Se retiran aliados anteriores ajenos a la selección; clasificación tomada del Excel, sin inferir país por domicilio. Solo local.
+
+### 2026-11-10 — Fondo de logo INMeGen
+
+- Solicitud del usuario: se integra el fondo blanco del JPEG de INMeGen con la superficie de su tarjeta mediante mix-blend-mode multiply, con alcance exclusivo de ese logo. Archivo original y comportamiento de color en hover conservados. Solo local.
+
+### 2026-11-10 — Corrección de integración del fondo de INMeGen
+
+- La primera regla de mezcla no bastaba por las capas del carrusel. Se aplica fondo gris explícito e aislamiento solo a la tarjeta de INMeGen, blanco en hover, y versión de CSS para refrescar caché. Captura de Chrome verificada sin rectángulo blanco; solo local.
+
+### 2026-11-10 — Aprobación de aliados de Biotecnología
+
+- El usuario solicita commit, merge y push. Base remota sincronizada en 5741813. Revisión: doce rutas de logos existentes, seis aliados por grupo, carruseles comprobados y captura de INMeGen sin rectángulo blanco. Readiness, tokens y Stylelint aprobados; sin hallazgos bloqueantes en el alcance.

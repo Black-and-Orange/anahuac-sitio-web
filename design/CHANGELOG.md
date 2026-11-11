@@ -5,6 +5,13 @@ Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí.
 
 ---
 
+## 2026-11-10 — Biotecnología · aliados con logotipos
+
+- Se sustituyen los aliados por seis nacionales y seis internacionales del Excel proporcionado, con doce logos y fuentes documentadas. INDRE y Elsevier usan los archivos entregados por separado.
+- Se conservan los carruseles; Elsevier compensa su margen interno y el fondo de INMeGen se integra con la tarjeta en monocromático. Ajustes CSS exclusivos de Biotecnología.
+- Vista local revisada y publicación autorizada por el usuario.
+
+
 ## 2026-11-09 — Actuaría · internacionalización en tarjeta
 
 - Se incorpora una tarjeta de internacionalización a Por qué la Anáhuac con intercambios, viajes culturales, idiomas e investigación; nueve países en etiquetas del estilo existente.
