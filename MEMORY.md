@@ -631,3 +631,19 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 ### 2026-11-11 — Índice de páginas
 
 - Local actualizado desde GitHub a fb874d2. Se agrega Ingeniería de Negocios (Engineering Management) a paginas.html dentro de Ingeniería y Ciencias, con el mismo formato y estado Por revisar MP. Se actualizan conteos y fecha; publicación autorizada por el usuario.
+
+### 2026-11-11 — Ciencia de Datos: identidad académica
+
+- Solicitud del usuario: no presentar la licenciatura como unión de Ciencias Actuariales e Ingeniería. Corregidos afinidad, beneficios, campo laboral, docentes y descripción estructurada.
+- Retirada cifra de empleabilidad de egresados de Ingeniería y referencias a su edificio/Anáhuac Labs como instalaciones propias de esta carrera. Se conserva el contenido curricular y la comparación entre carreras; sin atribuciones nuevas a facultades.
+- Cambios únicamente locales, pendientes de revisión del usuario.
+
+### 2026-11-11 — Frase de formación integral
+
+- Diez páginas de Ingeniería y Ciencias: frase adaptada a cada profesión «Prepárate para ser el … que quieres ser y la persona que quieres llegar a ser». Se conserva el énfasis del primer segmento y el resto del texto. Solo local; incluye Ingeniería de Negocios, Actuaría y Ciencia de Datos.
+
+- Instrucción posterior del usuario: restaurar únicamente las dos tarjetas de beneficios de la captura con su contenido original: «Un plan multidisciplinario de dos facultades» (Ciencias Actuariales e Ingeniería) y «Anáhuac Labs, el primer clúster de innovación tecnológica en México», incluida descripción y enlace «Conoce Anáhuac Labs». Los demás ajustes locales se conservan.
+
+- 2026-11-11: preguntas frecuentes comparativas de Actuaría y Ciencia de Datos sustituidas por las respuestas literales del usuario, en orden correspondiente a cada carrera; texto visible y FAQPage sincronizados. Solo local.
+
+- Usuario autoriza publicación del conjunto de ajustes de diez páginas; base local y remota sincronizada en ba10a63 antes de guardar.

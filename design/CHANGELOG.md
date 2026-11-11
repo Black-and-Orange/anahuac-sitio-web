@@ -1605,3 +1605,10 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-11 — Índice de páginas
 
 - Agrega Ingeniería de Negocios (Engineering Management) al grupo Ingeniería y Ciencias con estado Por revisar MP. Actualiza conteos y fecha; enlaces locales verificados. Publicación autorizada por el usuario.
+
+## 2026-11-11 — Ingenierías, Actuaría y Ciencia de Datos
+
+- Frase de formación integral adaptada a la profesión en diez páginas, incluida Ingeniería de Negocios.
+- Ciencia de Datos: afinidad, campo laboral, instalaciones de dos tarjetas y retiro del bloque Internacionalización/Movilidad. Se conservan las dos tarjetas de beneficios originales por instrucción posterior del usuario.
+- FAQ comparativa Actuaría/Ciencia de Datos actualizada y sincronizada con FAQPage en ambas páginas.
+- Publicación autorizada tras revisión local.
