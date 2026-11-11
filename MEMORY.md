@@ -627,3 +627,7 @@ Texto: Conoce los espacios donde la medicina se aprende haciendo: laboratorios e
 Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genómica; Microbiología; Laboratorio de investigación; Laboratorio de alimentos; Centro de Simulación. Se retiran Anfiteatro, Laboratorios especializados y Anatomía virtual como tarjetas, conservando las imágenes y formato existentes de las siete restantes.
 
 - Medicina, local: nombres de espacios uniformados como Laboratorios Especializados, Anatomía Virtual y Centro de Simulación en la introducción de Instalaciones.
+
+### 2026-11-11 — Índice de páginas
+
+- Local actualizado desde GitHub a fb874d2. Se agrega Ingeniería de Negocios (Engineering Management) a paginas.html dentro de Ingeniería y Ciencias, con el mismo formato y estado Por revisar MP. Se actualizan conteos y fecha; publicación autorizada por el usuario.

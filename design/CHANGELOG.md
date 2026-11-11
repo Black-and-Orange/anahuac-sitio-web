@@ -1601,3 +1601,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Introducción sin anfiteatro y con mayúsculas aprobadas para los nombres de espacios.
 - Carrusel limitado a las siete instalaciones solicitadas; se conserva el formato compartido.
 - Usuario autoriza commit, merge y push tras revisar en local.
+
+## 2026-11-11 — Índice de páginas
+
+- Agrega Ingeniería de Negocios (Engineering Management) al grupo Ingeniería y Ciencias con estado Por revisar MP. Actualiza conteos y fecha; enlaces locales verificados. Publicación autorizada por el usuario.
