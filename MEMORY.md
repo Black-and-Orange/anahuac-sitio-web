@@ -661,3 +661,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-11: Sistemas, solo local: se retira el bloque completo de Internacionalización y Movilidad Anáhuac mostrado por el usuario. Resto de carreras sin cambios por esta solicitud.
 
 - Publicación autorizada del conjunto de ocho ingenierías y textos de Sistemas. Base remota sincronizada en 62a57d1; validaciones de módulos, imágenes, JSON y exclusión de Actuaría/Ciencia de Datos correctas.
+
+- Sistemas, solo local: se retira el subtítulo del claustro docente «Profesores ponentes en congresos internacionales y en publicaciones reconocidas, con experiencia laboral en la industria tecnológica», por solicitud del usuario.

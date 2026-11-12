@@ -1618,3 +1618,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Ocho ingenierías reutilizan el carrusel de instalaciones: imagen y nombre por espacio, flechas, paginación y CTA de tour. Se conservan fotografías de referencia.
 - Sistemas: retiro del párrafo introductorio del plan, resumen de campo laboral, nuevo bloque profesional con cifra del 90% sin duplicar, retiro de egresados e Internacionalización/Movilidad.
 - Actuaría y Ciencia de Datos sin cambios. Revisión local aprobada por el usuario para publicación.
+
+## 2026-11-11 — Claustro de Sistemas
+
+- Retira el subtítulo descriptivo del claustro docente solicitado por el usuario. Publicación autorizada; tarjetas y formato conservados.
