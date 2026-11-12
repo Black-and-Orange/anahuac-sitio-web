@@ -821,42 +821,56 @@
       <section class="lic-campus lic-campus--inst section-pad" id="instalaciones">
         <div class="container">
           <div class="section-intro wide reveal" data-reveal>
-            <p class="tagline"><span></span>Instalaciones y campus</p>
-            <h2>Estudia Ingeniería Química en el campus que elijas</h2>
+            <p class="tagline"><span></span>Instalaciones</p>
+            <h2>Instalaciones donde estudiarás tu licenciatura</h2>
             <p>La licenciatura es presencial y se imparte en nuestros dos campus, con acceso a laboratorios de química y procesos y al nuevo edificio Anáhuac Labs.</p>
           </div>
 
-          <div class="lic-inst-showcase reveal" data-reveal>
-            <article class="porque-card lic-inst-card">
-              <!-- [PLACEHOLDER] foto real pendiente: assets/ingenieria-quimica/anahuac-labs.webp -->
-              <img class="lic-inst-foto" src="assets/area-ingenierias.jpg" alt="Anáhuac Labs, el clúster de innovación tecnológica de la Facultad de Ingeniería de la Universidad Anáhuac México." loading="lazy" />
-              <h3>Anáhuac Labs</h3>
-              <p>El nuevo edificio de la Facultad de Ingeniería: el primer clúster de innovación tecnológica en México, equipado con tecnología de punta, donde la innovación y la excelencia académica convergen. Desarrollado en colaboración con Grupo IUSA, integra 12 áreas de conocimiento —entre ellas Ingeniería química y bioindustrial— con laboratorios y taller de manufactura desde el primer semestre.</p>
-              <!-- [PENDIENTE] URL oficial de Anáhuac Labs. [VERIFICAR] estatus de apertura. -->
-              <a class="porque-link" href="#">Conoce Anáhuac Labs <span aria-hidden="true">›</span></a>
-            </article>
+          <!-- [PENDIENTE] fotos reales de cada espacio. [VERIFICAR] con la Facultad
+               los nombres exactos y cuáles aplican al área. Por ahora se reutilizan
+               fotos existentes como referencia. -->
+          <div class="campus-slider lic-inst-slider reveal" data-campus-slider data-reveal>
+            <div class="campus-slider-viewport">
+              <ul class="campus-slides">
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <!-- Imagen de referencia; fotografía específica pendiente. -->
+                    <img class="lic-inst-foto" src="assets/oferta-academica/areas/ingenierias-y-ciencias.png" alt="Laboratorios de química (imagen de referencia)" loading="lazy" />
+                    <h3>Laboratorios de química</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <!-- Imagen de referencia; fotografía específica pendiente. -->
+                    <img class="lic-inst-foto" src="assets/oferta-academica/elige-tu-camino/ingenieria-en-sistemas-y-tecnologia-de-informacion.png" alt="Laboratorios de procesos (imagen de referencia)" loading="lazy" />
+                    <h3>Laboratorios de procesos</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <!-- Imagen de referencia; fotografía específica pendiente. -->
+                    <img class="lic-inst-foto" src="assets/psicologia/campo-investigacion.webp" alt="Taller de manufactura (imagen de referencia)" loading="lazy" />
+                    <h3>Taller de manufactura</h3>
+                  </article>
+                </li>
+                <li>
+                  <article class="porque-card lic-inst-card">
+                    <!-- Imagen de referencia; fotografía específica pendiente. -->
+                    <img class="lic-inst-foto" src="assets/area-ingenierias.jpg" alt="Anáhuac Labs (imagen de referencia)" loading="lazy" />
+                    <h3>Anáhuac Labs</h3>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <button class="campus-slider-arrow campus-slider-prev" type="button" aria-label="Instalación anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="campus-slider-arrow campus-slider-next" type="button" aria-label="Instalación siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+            <div class="campus-slider-dots" aria-label="Instalaciones del área"></div>
           </div>
-
-          <ul class="campus-note reveal" data-reveal>
-            <li class="campus-note-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="11" rx="2" />
-                <path d="M3 11h18" />
-                <circle cx="7.5" cy="19" r="1.5" />
-                <circle cx="16.5" cy="19" r="1.5" />
-              </svg>
-              <span>Transporte intercampus <strong>gratuito</strong></span>
-            </li>
-            <li class="campus-note-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 9V5a1 1 0 0 1 1-1h4" />
-                <path d="M20 9V5a1 1 0 0 0-1-1h-4" />
-                <path d="M4 15v4a1 1 0 0 0 1 1h4" />
-                <path d="M20 15v4a1 1 0 0 1-1 1h-4" />
-              </svg>
-              <span><strong>38 hectáreas</strong> de instalaciones en la Red</span>
-            </li>
-          </ul>
+          <p class="lic-inst-cta reveal" data-reveal>Agenda un tour presencial o una cita virtual <a href="#"><strong>aquí</strong></a>.</p>
         </div>
       </section>
 

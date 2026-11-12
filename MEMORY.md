@@ -647,3 +647,17 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-11: preguntas frecuentes comparativas de Actuaría y Ciencia de Datos sustituidas por las respuestas literales del usuario, en orden correspondiente a cada carrera; texto visible y FAQPage sincronizados. Solo local.
 
 - Usuario autoriza publicación del conjunto de ajustes de diez páginas; base local y remota sincronizada en ba10a63 antes de guardar.
+
+- 2026-11-11: Ingeniería en Sistemas y Tecnologías de la Información, solo local: se retira por solicitud del usuario el párrafo introductorio del plan que comienza «Este es un plan de referencia», manteniendo título y materias.
+
+- 2026-11-11, Sistemas (solo local): bloque laboral sustituido por «Transforma tu pasión por la tecnología en oportunidades profesionales», con el texto literal solicitado y 90% de empleabilidad destacado una sola vez. Se elimina el bloque de egresados y el dato duplicado. Intro laboral resumida previamente a una frase.
+
+### 2026-11-11 — Instalaciones de las ocho ingenierías (local)
+
+- Solicitud: formato común de título, introducción, carrusel con imagen y nombre de cada espacio, flechas/puntos y CTA de tour. Se reutiliza el carrusel de instalaciones existente, sin modificar CSS ni JS compartidos.
+- Laboratorios y espacios extraídos del contenido previo de cada carrera, con fotografías de referencia existentes. Ingeniería de Negocios conserva sus seis tarjetas en el mismo patrón. Se retiran notas de campus del módulo.
+- Actuaría y Ciencia de Datos verificadas sin modificaciones mediante huellas de archivo. Pendiente de revisión y publicación.
+
+- 2026-11-11: Sistemas, solo local: se retira el bloque completo de Internacionalización y Movilidad Anáhuac mostrado por el usuario. Resto de carreras sin cambios por esta solicitud.
+
+- Publicación autorizada del conjunto de ocho ingenierías y textos de Sistemas. Base remota sincronizada en 62a57d1; validaciones de módulos, imágenes, JSON y exclusión de Actuaría/Ciencia de Datos correctas.

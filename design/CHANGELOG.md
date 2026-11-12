@@ -1612,3 +1612,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Ciencia de Datos: afinidad, campo laboral, instalaciones de dos tarjetas y retiro del bloque Internacionalización/Movilidad. Se conservan las dos tarjetas de beneficios originales por instrucción posterior del usuario.
 - FAQ comparativa Actuaría/Ciencia de Datos actualizada y sincronizada con FAQPage en ambas páginas.
 - Publicación autorizada tras revisión local.
+
+## 2026-11-11 — Instalaciones de ingenierías y contenido de Sistemas
+
+- Ocho ingenierías reutilizan el carrusel de instalaciones: imagen y nombre por espacio, flechas, paginación y CTA de tour. Se conservan fotografías de referencia.
+- Sistemas: retiro del párrafo introductorio del plan, resumen de campo laboral, nuevo bloque profesional con cifra del 90% sin duplicar, retiro de egresados e Internacionalización/Movilidad.
+- Actuaría y Ciencia de Datos sin cambios. Revisión local aprobada por el usuario para publicación.
