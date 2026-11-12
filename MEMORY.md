@@ -695,3 +695,9 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Industrial para la Dirección, solo local: bloque profesional sustituido por «Más que ingeniería: prepárate para tomar decisiones que impulsan empresas», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios al integrar esos datos en el párrafo.
 
 - Industrial para la Dirección, solo local: retirado el texto descriptivo bajo Claustro docente sobre experiencia directiva e industrial, congresos y publicaciones. Tarjetas conservadas.
+
+- 2026-11-12, Ingeniería Mecatrónica, solo local: se elimina el bloque completo «Dónde trabajan nuestros egresados» y el párrafo del 90% de empleabilidad por solicitud del usuario. Resto del módulo conservado.
+
+- Mecatrónica, solo local: bloque profesional sustituido por «De la robótica a la industria automotriz: lleva tus ideas a la realidad», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios.
+
+- Mecatrónica, solo local: se retira el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia industrial. Tarjetas conservadas.
