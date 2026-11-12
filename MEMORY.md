@@ -703,3 +703,9 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Mecatrónica, solo local: se retira el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia industrial. Tarjetas conservadas.
 
 - Mecatrónica, solo local: se resalta con el énfasis naranja existente la frase «diseñas, programas e implementas sistemas mecatrónicos» en el párrafo de afinidad, por solicitud del usuario.
+
+- 2026-11-12, Ingeniería Química, solo local: se retira el bloque completo «Dónde trabajan nuestros egresados» y el párrafo del 90% de empleabilidad por solicitud del usuario. Resto del módulo conservado.
+
+- Ingeniería Química, solo local: bloque profesional sustituido por «Tu conocimiento puede impulsar grandes avances industriales», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios.
+
+- Ingeniería Química, solo local: retirado el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia laboral. Tarjetas conservadas.

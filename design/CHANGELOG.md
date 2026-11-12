@@ -1670,3 +1670,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-12 — Énfasis de Ingeniería Mecatrónica
 
 - Resalta en naranja la frase «diseñas, programas e implementas sistemas mecatrónicos» usando el énfasis existente de afinidad. Publicación autorizada; texto y formato restantes conservados.
+
+## 2026-11-12 — Ingeniería Química
+
+- Actualiza el bloque profesional a «Tu conocimiento puede impulsar grandes avances industriales» con texto y énfasis proporcionados por el usuario.
+- Retira bloque de egresados, cifra del 90%, línea separada ABET/Prácticum/convenios y descripción genérica del claustro.
+- Publicación autorizada tras revisión local; base sincronizada con GitHub.
