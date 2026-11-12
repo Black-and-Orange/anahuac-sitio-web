@@ -663,3 +663,7 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Publicación autorizada del conjunto de ocho ingenierías y textos de Sistemas. Base remota sincronizada en 62a57d1; validaciones de módulos, imágenes, JSON y exclusión de Actuaría/Ciencia de Datos correctas.
 
 - Sistemas, solo local: se retira el subtítulo del claustro docente «Profesores ponentes en congresos internacionales y en publicaciones reconocidas, con experiencia laboral en la industria tecnológica», por solicitud del usuario.
+
+- 2026-11-11, solo local: se retira el párrafo de referencia debajo del título Plan de estudios en las siete ingenierías restantes, incluida Ingeniería de Negocios. Sistemas ya no lo tenía. Títulos, materias y bloques conservados; Actuaría y Ciencia de Datos sin cambios.
+
+- 2026-11-11: ocho ingenierías, solo local: introducciones bajo «¿Por qué estudiar…?» reformuladas en positivo, comenzando con verbos de acción y manteniendo los beneficios existentes.

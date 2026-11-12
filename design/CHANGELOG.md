@@ -1622,3 +1622,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-11 — Claustro de Sistemas
 
 - Retira el subtítulo descriptivo del claustro docente solicitado por el usuario. Publicación autorizada; tarjetas y formato conservados.
+
+## 2026-11-11 — Introducciones de ingenierías
+
+- Ocho introducciones de «¿Por qué estudiar…?» reformuladas en positivo, manteniendo beneficios y formato.
+- Retira el párrafo de referencia bajo Plan de estudios en las siete carreras que aún lo tenían; Sistemas ya estaba ajustada.
+- Capturas revisadas por el usuario; publicación autorizada.
