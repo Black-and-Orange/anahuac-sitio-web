@@ -1654,3 +1654,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-12 — Icono de internacionalización de ingenierías
 
 - Sustituye el icono de Internacionalización y movilidad por el globo aprobado en Civil en las ocho ingenierías. Conserva color, tamaño, contenido y siete tarjetas por página. Actuaría y Ciencia de Datos sin cambios. Publicación autorizada.
+
+## 2026-11-12 — Ingeniería Industrial para la Dirección
+
+- Reemplaza bloque profesional por «Más que ingeniería: prepárate para tomar decisiones que impulsan empresas» con el texto y énfasis indicados por el usuario.
+- Retira bloque de egresados, cifra del 90%, línea separada ABET/Prácticum/convenios y descripción genérica del claustro.
+- Publicación autorizada tras revisión local; base sincronizada con GitHub.

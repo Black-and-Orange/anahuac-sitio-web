@@ -689,3 +689,9 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Civil, propuesta local: icono de Internacionalización y movilidad sustituido por un globo con meridianos y paralelos; conserva color, tamaño y grosor del icono compartido. Solo esta carrera hasta revisión del usuario.
 
 - 2026-11-12: icono de mundo aprobado en Civil aplicado a Internacionalización y movilidad de las ocho ingenierías, solo local; siete tarjetas por página conservadas y Actuaría/Ciencia de Datos sin cambios.
+
+- 2026-11-12, Ingeniería Industrial para la Dirección, solo local: se retira el bloque completo «Dónde trabajan nuestros egresados» y el párrafo del 90% de empleabilidad, por solicitud del usuario. Resto del módulo conservado.
+
+- Industrial para la Dirección, solo local: bloque profesional sustituido por «Más que ingeniería: prepárate para tomar decisiones que impulsan empresas», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios al integrar esos datos en el párrafo.
+
+- Industrial para la Dirección, solo local: retirado el texto descriptivo bajo Claustro docente sobre experiencia directiva e industrial, congresos y publicaciones. Tarjetas conservadas.
