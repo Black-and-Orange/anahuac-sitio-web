@@ -1640,3 +1640,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Actualiza el bloque a «Donde la ingeniería y la medicina crean nuevas posibilidades» con texto y énfasis proporcionados por el usuario.
 - Retira el bloque de egresados, cifra del 90% y línea separada de ABET/Prácticum/convenios.
 - Publicación autorizada tras revisión local; base sincronizada con GitHub.
+
+## 2026-11-12 — Claustro de Ingeniería Biomédica
+
+- Retira el subtítulo descriptivo del claustro solicitado por el usuario; tarjetas y formato conservados. Publicación autorizada, base sincronizada con GitHub.
