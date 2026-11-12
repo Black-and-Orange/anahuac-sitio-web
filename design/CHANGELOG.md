@@ -1634,3 +1634,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Ambiental: afinidad abreviada, nuevo bloque profesional «Lidera las soluciones ambientales del futuro» y retiro del bloque de egresados, cifra de empleabilidad y descripción genérica del claustro.
 - Ocho ingenierías: séptima tarjeta «Internacionalización y movilidad» con texto aprobado y retiro de los bloques separados. Sin cambios en Actuaría ni Ciencia de Datos.
 - Usuario autoriza publicación del conjunto tras revisión local.
+
+## 2026-11-12 — Campo profesional de Ingeniería Biomédica
+
+- Actualiza el bloque a «Donde la ingeniería y la medicina crean nuevas posibilidades» con texto y énfasis proporcionados por el usuario.
+- Retira el bloque de egresados, cifra del 90% y línea separada de ABET/Prácticum/convenios.
+- Publicación autorizada tras revisión local; base sincronizada con GitHub.

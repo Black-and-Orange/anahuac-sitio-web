@@ -675,3 +675,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Ambiental, solo local: se retira el texto descriptivo del claustro sobre congresos, publicaciones y experiencia laboral, por solicitud del usuario.
 
 - 2026-11-12: ocho ingenierías, solo local: se añade séptima tarjeta «Internacionalización y movilidad» a ¿Por qué estudiar…? con texto literal del usuario. Se retiran los bloques separados bajo colaboradores en siete páginas; Sistemas ya no lo tenía. Formato de tarjeta existente, sin cambios compartidos. Actuaría y Ciencia de Datos intactas.
+
+- 2026-11-12, Biomédica, solo local: bloque profesional sustituido por «Donde la ingeniería y la medicina crean nuevas posibilidades», con texto literal y énfasis solicitado. Se retiran bloque de egresados, cifra del 90%, título anterior y línea separada ABET/3 Prácticum/convenios.
