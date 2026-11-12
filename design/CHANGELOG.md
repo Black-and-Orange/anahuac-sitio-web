@@ -1644,3 +1644,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-12 — Claustro de Ingeniería Biomédica
 
 - Retira el subtítulo descriptivo del claustro solicitado por el usuario; tarjetas y formato conservados. Publicación autorizada, base sincronizada con GitHub.
+
+## 2026-11-12 — Ingeniería Civil
+
+- Sustituye el bloque profesional por «De grandes ideas a proyectos que transforman ciudades» y el texto proporcionado por el usuario.
+- Retira el bloque de egresados, cifra del 90%, línea separada ABET/Prácticum/convenios y subtítulo genérico del claustro.
+- Publicación autorizada tras revisión local; base sincronizada con GitHub.

@@ -679,3 +679,9 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-12, Biomédica, solo local: bloque profesional sustituido por «Donde la ingeniería y la medicina crean nuevas posibilidades», con texto literal y énfasis solicitado. Se retiran bloque de egresados, cifra del 90%, título anterior y línea separada ABET/3 Prácticum/convenios.
 
 - 2026-11-12, Biomédica, solo local: se retira el subtítulo del claustro docente sobre profesores de Ingeniería y Ciencias de la Salud, congresos y experiencia clínica e industrial.
+
+- 2026-11-12, Ingeniería Civil, solo local: se elimina el bloque completo «Dónde trabajan nuestros egresados» y el párrafo del 90% de empleabilidad por solicitud del usuario; resto del módulo conservado.
+
+- Ingeniería Civil, solo local: bloque profesional sustituido por «De grandes ideas a proyectos que transforman ciudades», texto literal del usuario y énfasis en diseñar, construir y liderar proyectos de infraestructura. Se retira la línea separada ABET/3 Prácticum/convenios.
+
+- Ingeniería Civil, solo local: se retira el subtítulo del claustro sobre experiencia en obra, dirección de proyectos, consultoría y congresos, por solicitud del usuario.
