@@ -721,3 +721,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Engineering Management, solo local: inicio del Bloque Profesional cambiado a «El corazón de tu carrera.», conservando el resto del párrafo.
 
 - Engineering Management, instrucción posterior: se revierte únicamente el dato de 3.5 años a 3 Summer Schools, conservando el resto de ajustes locales.
+
+- Engineering Management, solo local: marca gris del H1 reducida de .62em a .48em, interlineado 1.2 y margen superior space-8 para evitar superposición con el título; CSS versionado.

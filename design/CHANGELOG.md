@@ -1683,3 +1683,8 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Retira nota Modelo Anáhuac con créditos, créditos junto a materias y en bloques; RVOE queda sin fecha en CTA y pie.
 - Actualiza bloque profesional, retira egresados/empleabilidad y descripción del claustro. Bloque Profesional inicia «El corazón de tu carrera.».
 - FAQ comparativa con Industrial actualizada y sincronizada con FAQPage. Usuario autoriza publicación tras revisión local.
+
+## 2026-11-12 — Subtítulo gris de Engineering Management
+
+- Reduce la marca gris del H1 a .48em y ajusta interlineado y separación mediante space-8 para evitar superposición. CSS versionado para refrescar caché.
+- Verificado en Chrome a 390, 768, 1000, 1280, 1440 y 1920 px sin solapamiento. Publicación autorizada tras revisión local.

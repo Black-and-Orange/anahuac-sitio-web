@@ -38,11 +38,12 @@
 }
 
 /* «(Engineering Management)»: marca entre paréntesis, un escalón por debajo del
-   nombre oficial, en la misma línea del H1. */
+   nombre oficial, en una línea propia con separación. */
 .pagina-engmgmt h1 .eng-hero-marca {
   display: block;
-  margin-top: 4px;
-  font-size: 0.62em;
+  margin-top: var(--space-8);
+  font-size: 0.48em;
+  line-height: 1.2;
   font-weight: 500;
   color: var(--color-text-secondary);
 }
