@@ -1628,3 +1628,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Ocho introducciones de «¿Por qué estudiar…?» reformuladas en positivo, manteniendo beneficios y formato.
 - Retira el párrafo de referencia bajo Plan de estudios en las siete carreras que aún lo tenían; Sistemas ya estaba ajustada.
 - Capturas revisadas por el usuario; publicación autorizada.
+
+## 2026-11-12 — Ambiental e internacionalización de ingenierías
+
+- Ambiental: afinidad abreviada, nuevo bloque profesional «Lidera las soluciones ambientales del futuro» y retiro del bloque de egresados, cifra de empleabilidad y descripción genérica del claustro.
+- Ocho ingenierías: séptima tarjeta «Internacionalización y movilidad» con texto aprobado y retiro de los bloques separados. Sin cambios en Actuaría ni Ciencia de Datos.
+- Usuario autoriza publicación del conjunto tras revisión local.

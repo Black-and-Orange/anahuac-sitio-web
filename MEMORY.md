@@ -667,3 +667,11 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-11, solo local: se retira el párrafo de referencia debajo del título Plan de estudios en las siete ingenierías restantes, incluida Ingeniería de Negocios. Sistemas ya no lo tenía. Títulos, materias y bloques conservados; Actuaría y Ciencia de Datos sin cambios.
 
 - 2026-11-11: ocho ingenierías, solo local: introducciones bajo «¿Por qué estudiar…?» reformuladas en positivo, comenzando con verbos de acción y manteniendo los beneficios existentes.
+
+- 2026-11-12, Ambiental, solo local: bloque profesional reemplazado por «Lidera las soluciones ambientales del futuro», con texto literal del usuario y énfasis en sostenibilidad, energías renovables y protección ambiental. Se retiran bloque de egresados, cifra del 90% y línea de 5 ejes/Prácticum/convenios.
+
+- Ambiental, solo local: párrafo de afinidad abreviado con el texto exacto del usuario, conservando el énfasis «visión integral en cinco ejes».
+
+- Ambiental, solo local: se retira el texto descriptivo del claustro sobre congresos, publicaciones y experiencia laboral, por solicitud del usuario.
+
+- 2026-11-12: ocho ingenierías, solo local: se añade séptima tarjeta «Internacionalización y movilidad» a ¿Por qué estudiar…? con texto literal del usuario. Se retiran los bloques separados bajo colaboradores en siete páginas; Sistemas ya no lo tenía. Formato de tarjeta existente, sin cambios compartidos. Actuaría y Ciencia de Datos intactas.

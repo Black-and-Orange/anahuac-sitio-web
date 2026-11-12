@@ -145,3 +145,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-10: Medicina, solo local: cuatro biografías proporcionadas por la usuaria y 19 logos de convenios clínicos; tarjetas/carrusel compartidos conservados. CSS exclusivo para integrar fondos blancos; originales en assets/medicina/convenios.
 
 - 2026-11-11: lic-inst-slider compartido utilizado en las ocho ingenierías; imágenes de referencia y nombres por carrera, CTA de tour. Actuaría y Ciencia de Datos sin cambios.
+
+- 2026-11-12: lic-porque2-cards incorpora séptima tarjeta de Internacionalización y movilidad en las ocho ingenierías, por solicitud explícita. Sin cambio al componente compartido.
