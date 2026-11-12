@@ -709,3 +709,15 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Ingeniería Química, solo local: bloque profesional sustituido por «Tu conocimiento puede impulsar grandes avances industriales», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios.
 
 - Ingeniería Química, solo local: retirado el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia laboral. Tarjetas conservadas.
+
+- 2026-11-12, Engineering Management, solo local: se retira párrafo hero; chip Campus Sur pasa a Sur; dato de duración 3 Summer Schools pasa a 3.5 Años. Se retira nota Modelo Anáhuac con créditos, números de créditos de materias y de los tres bloques. Fecha RVOE retirada del CTA y pie, conservando RVOE SEP · D.O.F. Summer Schools del contenido curricular conservadas.
+
+- Engineering Management, solo local: se elimina bloque de egresados y cifra del 90%; bloque profesional sustituido por «Ingeniería y negocios: una combinación para llegar más lejos», con texto literal y énfasis solicitado. Se retira línea separada de áreas/Summer Schools/estancias.
+
+- Engineering Management, solo local: retirado el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia industrial. Tarjetas conservadas.
+
+- Engineering Management, solo local: FAQ comparativa con Industrial sustituida por pregunta y respuesta literales del usuario, con énfasis en habilidades de cada carrera. FAQPage sincronizado con el texto visible.
+
+- Engineering Management, solo local: inicio del Bloque Profesional cambiado a «El corazón de tu carrera.», conservando el resto del párrafo.
+
+- Engineering Management, instrucción posterior: se revierte únicamente el dato de 3.5 años a 3 Summer Schools, conservando el resto de ajustes locales.

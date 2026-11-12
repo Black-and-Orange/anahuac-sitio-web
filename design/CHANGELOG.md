@@ -1676,3 +1676,10 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Actualiza el bloque profesional a «Tu conocimiento puede impulsar grandes avances industriales» con texto y énfasis proporcionados por el usuario.
 - Retira bloque de egresados, cifra del 90%, línea separada ABET/Prácticum/convenios y descripción genérica del claustro.
 - Publicación autorizada tras revisión local; base sincronizada con GitHub.
+
+## 2026-11-12 — Engineering Management
+
+- Retira párrafo del hero y simplifica la etiqueta a Sur. Conserva el dato 3 Summer Schools por instrucción final del usuario.
+- Retira nota Modelo Anáhuac con créditos, créditos junto a materias y en bloques; RVOE queda sin fecha en CTA y pie.
+- Actualiza bloque profesional, retira egresados/empleabilidad y descripción del claustro. Bloque Profesional inicia «El corazón de tu carrera.».
+- FAQ comparativa con Industrial actualizada y sincronizada con FAQPage. Usuario autoriza publicación tras revisión local.
