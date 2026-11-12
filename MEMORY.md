@@ -685,3 +685,7 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Ingeniería Civil, solo local: bloque profesional sustituido por «De grandes ideas a proyectos que transforman ciudades», texto literal del usuario y énfasis en diseñar, construir y liderar proyectos de infraestructura. Se retira la línea separada ABET/3 Prácticum/convenios.
 
 - Ingeniería Civil, solo local: se retira el subtítulo del claustro sobre experiencia en obra, dirección de proyectos, consultoría y congresos, por solicitud del usuario.
+
+- Civil, propuesta local: icono de Internacionalización y movilidad sustituido por un globo con meridianos y paralelos; conserva color, tamaño y grosor del icono compartido. Solo esta carrera hasta revisión del usuario.
+
+- 2026-11-12: icono de mundo aprobado en Civil aplicado a Internacionalización y movilidad de las ocho ingenierías, solo local; siete tarjetas por página conservadas y Actuaría/Ciencia de Datos sin cambios.
