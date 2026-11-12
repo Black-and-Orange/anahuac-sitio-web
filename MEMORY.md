@@ -701,3 +701,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Mecatrónica, solo local: bloque profesional sustituido por «De la robótica a la industria automotriz: lleva tus ideas a la realidad», con texto literal y énfasis solicitado. Se retira la línea separada ABET/2 Prácticum/convenios.
 
 - Mecatrónica, solo local: se retira el texto descriptivo bajo Claustro docente sobre congresos, publicaciones y experiencia industrial. Tarjetas conservadas.
+
+- Mecatrónica, solo local: se resalta con el énfasis naranja existente la frase «diseñas, programas e implementas sistemas mecatrónicos» en el párrafo de afinidad, por solicitud del usuario.

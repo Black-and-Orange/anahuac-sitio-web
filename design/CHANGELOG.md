@@ -1666,3 +1666,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Actualiza el bloque profesional a «De la robótica a la industria automotriz: lleva tus ideas a la realidad», con texto y énfasis proporcionados por el usuario.
 - Retira bloque de egresados, cifra del 90%, línea separada ABET/Prácticum/convenios y subtítulo descriptivo del claustro.
 - Publicación autorizada tras revisión local; base sincronizada con GitHub.
+
+## 2026-11-12 — Énfasis de Ingeniería Mecatrónica
+
+- Resalta en naranja la frase «diseñas, programas e implementas sistemas mecatrónicos» usando el énfasis existente de afinidad. Publicación autorizada; texto y formato restantes conservados.
