@@ -1692,3 +1692,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-13 — Duración de Engineering Management
 
 - Por instrucción posterior del usuario, sustituye el dato destacado 3 Summer Schools por 4.5 años. Las referencias curriculares a Summer Schools se conservan. Esta instrucción reemplaza la decisión anterior de mantener ese dato destacado. Publicación autorizada.
+
+## 2026-11-13 — Comentarios de Engineering Management
+
+- Agrega la carga del módulo compartido assets/review/review.js que faltaba en esta página. Botón Comentar y activación verificados en local; otras siete ingenierías verificadas en público. Publicación autorizada.

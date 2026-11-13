@@ -725,3 +725,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Engineering Management, solo local: marca gris del H1 reducida de .62em a .48em, interlineado 1.2 y margen superior space-8 para evitar superposición con el título; CSS versionado.
 
 - 2026-11-13, Engineering Management, solo local: por nueva instrucción del usuario el dato destacado 3 Summer Schools cambia a 4.5 Años. Las menciones curriculares de Summer Schools se conservan.
+
+- 2026-11-13, Engineering Management, corrección local: faltaba cargar assets/review/review.js al final del HTML; se agrega la misma integración usada en las otras ingenierías para habilitar review=true con token válido.
