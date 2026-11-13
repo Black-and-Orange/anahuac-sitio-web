@@ -1688,3 +1688,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 
 - Reduce la marca gris del H1 a .48em y ajusta interlineado y separación mediante space-8 para evitar superposición. CSS versionado para refrescar caché.
 - Verificado en Chrome a 390, 768, 1000, 1280, 1440 y 1920 px sin solapamiento. Publicación autorizada tras revisión local.
+
+## 2026-11-13 — Duración de Engineering Management
+
+- Por instrucción posterior del usuario, sustituye el dato destacado 3 Summer Schools por 4.5 años. Las referencias curriculares a Summer Schools se conservan. Esta instrucción reemplaza la decisión anterior de mantener ese dato destacado. Publicación autorizada.

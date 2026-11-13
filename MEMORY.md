@@ -723,3 +723,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Engineering Management, instrucción posterior: se revierte únicamente el dato de 3.5 años a 3 Summer Schools, conservando el resto de ajustes locales.
 
 - Engineering Management, solo local: marca gris del H1 reducida de .62em a .48em, interlineado 1.2 y margen superior space-8 para evitar superposición con el título; CSS versionado.
+
+- 2026-11-13, Engineering Management, solo local: por nueva instrucción del usuario el dato destacado 3 Summer Schools cambia a 4.5 Años. Las menciones curriculares de Summer Schools se conservan.
