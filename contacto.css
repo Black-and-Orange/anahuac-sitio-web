@@ -1,0 +1,471 @@
+/* =============================================================================
+   CONTACTO — Universidad Anáhuac México · hoja de página
+
+   Esta hoja NO define componentes del molde. El molde entero vive en
+   psicologia.css y se reutiliza tal cual. El `<body>` lleva además
+   `pagina-carrera`, así que la página nace con las correcciones del molde.
+   **No las repitas aquí.**
+
+   Aquí solo están las desviaciones propias de Contacto:
+
+     a) el hero de 2 CTAs con subtítulo y microcopy (M1);
+     b) la rejilla de canales a 4 columnas y la tarjeta destacada (M2);
+     c) el agendador (maqueta del módulo HTML de HubSpot) y sus bloques
+        «Importante» / «Pasos a seguir» (M3);
+     d) el formulario de 2 columnas con etiquetas visibles (M4);
+     e) los bloques de campus con mapa embebido (M5);
+     f) la barra con CTA fijo en móvil (dos botones).
+
+   Todo prefijado con `.pagina-contacto` para no tocar otras páginas ni los
+   componentes compartidos. Color siempre por token semántico del molde.
+   ========================================================================== */
+
+/* Botón de WhatsApp (ícono + texto). Reutiliza .btn del tema; el molde base no
+   define esta variante, así que vive aquí. */
+.pagina-contacto .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.pagina-contacto .btn-whatsapp .btn-wa-icon {
+  flex: 0 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+   M1 · HERO — subtítulo bajo el claim + microcopy bajo los botones
+   El componente .lic-hero es de dos columnas; aquí los 2 CTAs y el microcopy
+   van en la columna de copy, bajo el subtítulo.
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-hero .lic-hero-inner {
+  align-items: center;
+}
+
+.pagina-contacto .cto-hero-sub {
+  margin-top: var(--space-6);
+  max-width: 52ch;
+  font-family: var(--font-body);
+  font-size: var(--heading-6-size);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.pagina-contacto .cto-hero .lic-hero-copy .button-row {
+  margin-top: var(--size-28);
+}
+
+.pagina-contacto .cto-hero-microcopy {
+  margin-top: calc(var(--space-6) - var(--border-width));
+  font-family: var(--font-body);
+  font-size: var(--size-15);
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M2 · ELIGE CÓMO CONTACTARNOS — rejilla de 4 tarjetas de canal
+   Reutiliza el componente .paso-card del molde; aquí solo se fija la retícula a
+   4 columnas y se resalta la primera tarjeta (agendar) como camino principal.
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-canales-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-7);
+  margin-top: var(--size-44);
+}
+
+/* Columnas parejas aunque un texto largo (p. ej. el correo) tienda a estirar. */
+.pagina-contacto .cto-canales-grid .paso-card {
+  min-width: 0;
+}
+.pagina-contacto .cto-canales-grid .paso-card p {
+  overflow-wrap: anywhere;
+}
+
+.pagina-contacto .cto-paso--primario {
+  border-color: var(--color-brand-primary) !important;
+}
+.pagina-contacto .cto-paso--primario .paso-icon {
+  background: var(--color-brand-primary);
+  color: var(--color-text-invert);
+}
+
+.pagina-contacto .cto-canales-nota {
+  margin-top: var(--size-28);
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-canales-nota a {
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .pagina-contacto .cto-canales-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .pagina-contacto .cto-canales-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M3 · AGENDA TU CITA — maqueta del agendador (módulo HTML de HubSpot) + info
+   Dos columnas: «Importante» / «Pasos» a la izquierda; agendador a la derecha.
+   En móvil se apilan (info primero).
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-agenda {
+  background: var(--gray);
+}
+
+.pagina-contacto .cto-agenda-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-9);
+  margin-top: var(--space-10);
+  align-items: start;
+}
+
+.pagina-contacto .cto-agenda-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.pagina-contacto .cto-info-bloque h3 {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--size-22);
+  font-weight: var(--weight-semibold);
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-info-lista,
+.pagina-contacto .cto-pasos-lista {
+  margin: 0;
+  padding-left: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pagina-contacto .cto-info-lista li,
+.pagina-contacto .cto-pasos-lista li {
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-info-lista li strong,
+.pagina-contacto .cto-pasos-lista li strong {
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-agendador {
+  background: var(--color-text-invert);
+  border: var(--border-width-thin) solid var(--border-hairline);
+  border-radius: var(--radius);
+  padding: var(--size-28) var(--space-9);
+}
+
+.pagina-contacto .cto-agendador-head {
+  margin: 0 0 var(--size-22);
+  font-family: var(--font-heading);
+  font-size: var(--size-19);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-agendador-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.pagina-contacto .cto-field {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-2) - var(--border-width));
+  min-width: 0;
+}
+.pagina-contacto .cto-field > span {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-agendador-slot {
+  margin-top: var(--space-7);
+  padding: var(--size-36) var(--space-8);
+  border: var(--border-width) dashed var(--border-hairline-strong);
+  border-radius: var(--radius);
+  background: var(--gray);
+  text-align: center;
+}
+.pagina-contacto .cto-agendador-slot p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-agendador-slot p + p {
+  margin-top: var(--space-3);
+}
+
+.pagina-contacto .cto-agendador-aviso {
+  margin: var(--space-6) 0 0;
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  color: var(--color-text-secondary);
+}
+
+.pagina-contacto .cto-agenda-alt {
+  margin-top: var(--size-28);
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-agenda-alt a {
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .pagina-contacto .cto-agenda-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+@media (max-width: 560px) {
+  .pagina-contacto .cto-agendador-controls {
+    grid-template-columns: 1fr;
+  }
+  .pagina-contacto .cto-agendador {
+    padding: var(--size-22) var(--space-7);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M4 · FORMULARIO — rejilla de 2 columnas con etiquetas visibles
+   Reutiliza el componente .lic-form del molde (media + tarjeta blanca). Aquí
+   solo se compone la rejilla interna de campos y el enlace de WhatsApp.
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-form-wa {
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-form-wa a {
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pagina-contacto .cto-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.pagina-contacto .cto-field-v {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-2) - var(--border-width));
+  min-width: 0;
+}
+.pagina-contacto .cto-field-v label {
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-form-ok {
+  margin-top: var(--space-1);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  color: var(--cta-bg-purple);
+}
+
+@media (max-width: 640px) {
+  .pagina-contacto .cto-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M5 · NUESTROS CAMPUS — dos bloques con mapa embebido
+   Cada bloque: mapa (iframe + fallback de texto) + dirección + teléfono +
+   botones Maps/Waze + «Cómo llegar» + redes del campus.
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-9);
+  margin-top: var(--space-10);
+  align-items: start;
+}
+
+.pagina-contacto .cto-campus-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--size-28) var(--space-9) var(--lead-size);
+  border: var(--border-width-thin) solid var(--border-hairline);
+  border-radius: var(--radius);
+  background: var(--color-text-invert);
+}
+
+.pagina-contacto .cto-campus-card h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--size-26);
+  font-weight: var(--weight-semibold);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-mapa iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gray);
+  display: block;
+}
+
+.pagina-contacto .cto-mapa-fallback {
+  margin-top: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+  color: var(--color-text-secondary);
+}
+.pagina-contacto .cto-mapa-fallback a {
+  color: var(--purple-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pagina-contacto .cto-mapa-fallback a:hover {
+  color: var(--orange);
+}
+
+.pagina-contacto .cto-campus-datos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pagina-contacto .cto-direccion {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pagina-contacto .cto-campus-datos > p {
+  margin: 0;
+}
+
+.pagina-contacto .cto-tel {
+  color: var(--purple-2);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pagina-contacto .cto-campus-datos .button-row {
+  margin-top: var(--space-2);
+}
+
+.pagina-contacto .cto-campus-llegar a {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pagina-contacto .cto-social {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+.pagina-contacto .cto-social a {
+  display: inline-flex;
+  width: var(--size-36);
+  height: var(--size-36);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: var(--border-width-thin) solid var(--border-hairline);
+  color: var(--color-text);
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.pagina-contacto .cto-social a:hover {
+  background: var(--surface-accent);
+  color: var(--color-text-invert);
+  border-color: var(--surface-accent);
+}
+.pagina-contacto .cto-social svg {
+  width: var(--space-7);
+  height: var(--space-7);
+  fill: currentColor;
+}
+
+@media (max-width: 860px) {
+  .pagina-contacto .cto-campus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Barra con CTA fijo en móvil (< 768px), dos botones.
+   Aparece al pasar el hero; se oculta sobre #agenda (M3), #formulario (M4) y el
+   footer. Ver contacto.js.
+   -------------------------------------------------------------------------- */
+.pagina-contacto .cto-ctabar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--color-text-invert) 92%, transparent);
+  backdrop-filter: blur(var(--space-3));
+  box-shadow: 0 calc(var(--space-2) * -1) var(--space-8) var(--border-hairline);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 260ms ease, visibility 0s linear 260ms;
+}
+
+.pagina-contacto .cto-ctabar .btn {
+  flex: 1 1 0;
+  justify-content: center;
+  padding: calc(var(--space-6) - var(--border-width)) var(--space-6);
+  font-size: var(--paragraph-size);
+}
+
+@media (max-width: 767px) {
+  .pagina-contacto .cto-ctabar:not([hidden]) {
+    display: flex;
+  }
+  .pagina-contacto .cto-ctabar.is-visible {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 260ms ease;
+  }
+}
