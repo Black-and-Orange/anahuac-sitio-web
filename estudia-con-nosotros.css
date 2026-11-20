@@ -1212,3 +1212,18 @@
     height: calc(var(--space-12) + var(--space-8));
   }
 }
+
+/* Versión aprobada: cita lila, título negro e icono naranja centrado. */
+.ecn-page .ecn-visit2-card--solid {
+  background: color-mix(in srgb, var(--surface-accent-light) 35%, var(--surface));
+}
+
+.ecn-page .ecn-visit2-header--advisor {
+  justify-content: normal;
+  align-content: center;
+  color: var(--color-brand-primary);
+}
+
+.ecn-page .ecn-visit2-card--solid .ecn-visit2-body h3 {
+  color: var(--color-text);
+}

@@ -797,3 +797,11 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Estudia con nosotros, icono de asesor local: cabeza ampliada de radio 7 a 9, hombros de 11 a 15 y auriculares más compactos para equilibrar persona y diadema. Tamaño general y estilo conservados.
 
 - Estudia con nosotros, asesor local: diadema reducida a radio 10.5 y auriculares a 3.5×7; persona conservada. Micrófono más compacto.
+
+- Estudia con nosotros, propuesta local posterior: tarjeta de cita cambia de lila a degradado naranja suave (18% a 5% sobre surface), icono de persona/diadema morado oscuro y descripción más oscura para lectura. Conserva tamaño, estructura y CTA de contorno. Sin publicación.
+
+- Estudia con nosotros, solo local: título de Cita cambia a color-text (negro); icono y botón morados y fondo naranja suave conservados.
+
+- Estudia con nosotros, propuesta local: tour más ancho (1.15fr) y cita compacta (.85fr), fondo naranja al 3% casi blanco cálido; icono 80px sobre título sin cabecera de altura fija. Botones conservados con jerarquía sólido/contorno y alineación inferior. Sin capturas.
+
+- Estudia con nosotros, revisión final local solicitada: descarta durazno y asimetría; recupera columnas iguales, cita lila suave e icono naranja centrado en cabecera equivalente a la foto. Título negro y botón de contorno morado conservados, botones alineados.

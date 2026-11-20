@@ -1716,3 +1716,8 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Eventos: sede debajo del nombre (Sur, Norte y Bi-Campus, respectivamente), icono de ubicación y Más información al pie; enlaces provisionales a Contacto conservados.
 - Tour/Cita con igual ancho: foto arriba y cuerpo blanco en tour; tarjeta lila continua con icono naranja de asesor con diadema compacta en cita. CTA tour sólido y CTA cita de contorno, alineados.
 - Publicación autorizada tras revisión local.
+
+## 2026-11-19 — Versión final de tarjetas de visita
+
+- Tras probar fondo cálido y composición asimétrica, se conserva la versión aprobada: tour y cita del mismo ancho, cita lila con icono naranja centrado, título negro y botón de contorno morado.
+- Se eliminan las reglas de las pruebas descartadas. Botones alineados y adaptación móvil conservados. Publicación autorizada.
