@@ -20,6 +20,39 @@
    componentes compartidos. Color siempre por token semántico del molde.
    ========================================================================== */
 
+/* -----------------------------------------------------------------------------
+   TOKENS DE PÁGINA
+   El molde (styles.css / psicologia.css) fija sus medidas en px directos y NO
+   expone estos tokens de escala, pero esta hoja los usa; por eso se definen aquí,
+   acotados a .pagina-contacto para no afectar a otras páginas. Reproducen la
+   escala del molde (cada --size-N vale N px) más pesos y bordes del sistema.
+   Sin esto, las reglas que los referencian fallan en silencio (tarjetas sin
+   borde ni padding, títulos sin tamaño, etc.).
+   -------------------------------------------------------------------------- */
+.pagina-contacto {
+  --size-15: 15px;
+  --size-16: 16px;
+  --size-19: 19px;
+  --size-22: 22px;
+  --size-26: 26px;
+  --size-28: 28px;
+  --size-32: 32px;
+  --size-36: 36px;
+  --size-44: 44px;
+  --size-64: 64px;
+
+  --paragraph-size: 16px;
+  --eyebrow-size: 14px;
+  --heading-6-size: 18px;
+  --lead-size: 24px;
+
+  --border-width: 2px;
+  --border-width-thin: 1px;
+  --border-hairline: #e4ddf2;
+  --border-hairline-strong: #cdb9ef;
+  --weight-bold: 700;
+}
+
 /* Botón de WhatsApp (ícono + texto). Reutiliza .btn del tema; el molde base no
    define esta variante, así que vive aquí. */
 .pagina-contacto .btn-whatsapp {
@@ -38,6 +71,14 @@
    -------------------------------------------------------------------------- */
 .pagina-contacto .cto-hero .lic-hero-inner {
   align-items: center;
+}
+
+/* El H1 del molde (pagina-carrera) mide 72px; en Contacto lo reducimos para que
+   el hero entre en una sola pantalla en desktop (3–4 líneas máx.). clamp() lo
+   mantiene proporcional hasta móvil. */
+.pagina-contacto .cto-hero h1 {
+  font-size: clamp(30px, 4.6vw, 50px);
+  line-height: 1.12;
 }
 
 .pagina-contacto .cto-hero-sub {
@@ -80,16 +121,13 @@
   overflow-wrap: anywhere;
 }
 
-.pagina-contacto .cto-paso--primario {
-  border-color: var(--color-brand-primary) !important;
-}
-.pagina-contacto .cto-paso--primario .paso-icon {
-  background: var(--color-brand-primary);
-  color: var(--color-text-invert);
-}
+/* Las 4 tarjetas de canal se ven iguales; el resalte ocurre solo al pasar el
+   cursor (lo aporta .paso-card:hover del molde: borde morado + leve elevación).
+   Antes la primera tarjeta se destacaba en naranja; se retiró a propósito. */
 
 .pagina-contacto .cto-canales-nota {
-  margin-top: var(--size-28);
+  margin-top: var(--space-12);
+  text-align: center;
   font-family: var(--font-body);
   font-size: var(--paragraph-size);
   color: var(--color-text-secondary);
@@ -144,23 +182,50 @@
   color: var(--color-text);
 }
 
-.pagina-contacto .cto-info-lista,
+/* Pasos a seguir: cada paso es una tarjeta blanca con una insignia numerada,
+   para que no se vean como texto plano. El número lo pone un contador CSS. */
 .pagina-contacto .cto-pasos-lista {
+  counter-reset: cto-paso;
   margin: 0;
-  padding-left: var(--space-7);
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
-.pagina-contacto .cto-info-lista li,
 .pagina-contacto .cto-pasos-lista li {
+  counter-increment: cto-paso;
+  position: relative;
+  padding: var(--space-5) var(--space-6) var(--space-5) var(--size-64);
+  background: var(--color-text-invert);
+  border: var(--border-width-thin) solid var(--border-hairline);
+  border-radius: var(--radius);
   font-family: var(--font-body);
   font-size: var(--paragraph-size);
   line-height: 1.6;
   color: var(--color-text-secondary);
 }
-.pagina-contacto .cto-info-lista li strong,
+
+.pagina-contacto .cto-pasos-lista li::before {
+  content: counter(cto-paso);
+  position: absolute;
+  left: var(--space-5);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-32);
+  height: var(--size-32);
+  border-radius: 50%;
+  background: var(--purple-2);
+  color: var(--color-text-invert);
+  font-family: var(--font-heading);
+  font-size: var(--size-16);
+  font-weight: var(--weight-bold);
+}
+
 .pagina-contacto .cto-pasos-lista li strong {
   color: var(--color-text);
 }
@@ -227,7 +292,10 @@
 }
 
 .pagina-contacto .cto-agenda-alt {
-  margin-top: var(--size-28);
+  margin-top: var(--space-11);
+  padding-top: var(--space-8);
+  border-top: var(--border-width-thin) solid var(--border-hairline-strong);
+  text-align: center;
   font-family: var(--font-body);
   font-size: var(--paragraph-size);
   color: var(--color-text-secondary);
@@ -259,10 +327,29 @@
    Reutiliza el componente .lic-form del molde (media + tarjeta blanca). Aquí
    solo se compone la rejilla interna de campos y el enlace de WhatsApp.
    -------------------------------------------------------------------------- */
+/* El módulo contrasta con sus vecinos (Agenda en gris, Campus en blanco): fondo
+   morado de marca con la tarjeta del formulario en blanco. El texto del intro se
+   aclara; la tarjeta conserva su texto oscuro sobre blanco. */
+.pagina-contacto .cto-form {
+  background: var(--purple-1);
+}
+.pagina-contacto .cto-form::before {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0 2px, transparent 2.5px);
+}
+.pagina-contacto .cto-form .section-intro .tagline {
+  color: var(--lilac-2);
+}
+.pagina-contacto .cto-form .section-intro h2 {
+  color: var(--color-text-invert);
+}
+.pagina-contacto .cto-form .section-intro > p:not(.tagline) {
+  color: var(--lilac-2);
+}
+
 .pagina-contacto .cto-form-wa {
   font-family: var(--font-body);
   font-size: var(--paragraph-size);
-  color: var(--color-text-secondary);
+  color: var(--lilac-2);
 }
 .pagina-contacto .cto-form-wa a {
   font-weight: var(--weight-semibold);
@@ -329,10 +416,10 @@
 .pagina-contacto .cto-campus-card h3 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: var(--size-26);
-  font-weight: var(--weight-semibold);
+  font-size: var(--size-32);
+  font-weight: var(--weight-bold);
   line-height: 1.1;
-  color: var(--color-text);
+  color: var(--purple-1);
 }
 
 .pagina-contacto .cto-mapa iframe {
@@ -342,21 +429,6 @@
   border-radius: var(--radius);
   background: var(--gray);
   display: block;
-}
-
-.pagina-contacto .cto-mapa-fallback {
-  margin-top: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--eyebrow-size);
-  color: var(--color-text-secondary);
-}
-.pagina-contacto .cto-mapa-fallback a {
-  color: var(--purple-2);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.pagina-contacto .cto-mapa-fallback a:hover {
-  color: var(--orange);
 }
 
 .pagina-contacto .cto-campus-datos {
@@ -389,38 +461,55 @@
   margin-top: var(--space-2);
 }
 
+/* Soft CTA: enlace naranja, separado de los botones Maps/Waze de arriba. */
+.pagina-contacto .cto-campus-llegar {
+  margin-top: var(--space-2);
+}
 .pagina-contacto .cto-campus-llegar a {
-  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
   font-weight: var(--weight-semibold);
   color: var(--color-brand-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: gap 180ms ease;
+}
+.pagina-contacto .cto-campus-llegar a:hover {
+  gap: var(--space-3);
 }
 
+/* Redes del campus: más grandes y agrupadas bajo una línea divisoria, para que
+   no se amontonen con el bloque de datos. */
 .pagina-contacto .cto-social {
   display: flex;
   gap: var(--space-4);
-  margin-top: var(--space-2);
+  margin-top: var(--space-5);
+  padding-top: var(--space-6);
+  border-top: var(--border-width-thin) solid var(--border-hairline);
 }
 .pagina-contacto .cto-social a {
   display: inline-flex;
-  width: var(--size-36);
-  height: var(--size-36);
+  width: var(--size-44);
+  height: var(--size-44);
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   border: var(--border-width-thin) solid var(--border-hairline);
-  color: var(--color-text);
-  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  background: var(--gray);
+  color: var(--purple-1);
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 .pagina-contacto .cto-social a:hover {
-  background: var(--surface-accent);
+  background: var(--purple-1);
   color: var(--color-text-invert);
-  border-color: var(--surface-accent);
+  border-color: var(--purple-1);
+  transform: translateY(-2px);
 }
 .pagina-contacto .cto-social svg {
-  width: var(--space-7);
-  height: var(--space-7);
+  width: var(--size-22);
+  height: var(--size-22);
   fill: currentColor;
 }
 
