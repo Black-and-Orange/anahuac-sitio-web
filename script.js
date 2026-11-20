@@ -769,3 +769,72 @@ document.querySelectorAll("select.js-select").forEach((s) => window.enhanceSelec
     layout();
   });
 })();
+
+/* ===== H1 del hero: nunca más de 3 renglones (regla general del sitio) =====
+   Si el H1 del hero supera 3 líneas —por un título largo o una pantalla
+   estrecha— se reduce su tamaño de letra en pasos de 1px hasta que cabe. Es NO
+   destructivo: primero se restablece el valor del CSS, así que los títulos que
+   ya caben en ≤3 líneas (p. ej. las carreras del molde) no se tocan. Corre tras
+   cargar las webfonts (sus métricas cambian el conteo de líneas) y en resize. */
+(function () {
+  "use strict";
+
+  const titles = document.querySelectorAll(".lic-hero h1");
+  if (!titles.length) return;
+  const MAX_LINES = 3;
+
+  /* Cuenta los renglones REALES por las posiciones verticales de los rectángulos
+     del contenido. Es invariante al tamaño (a diferencia de medir alto/line-height,
+     que con line-height proporcional se desajusta y sobre-encoge) y respeta el
+     salto forzado de «Licenciatura en» (.lic-hero-pre). */
+  function countLines(el) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const rects = range.getClientRects();
+    const tops = [];
+    for (let i = 0; i < rects.length; i++) {
+      const top = Math.round(rects[i].top);
+      if (!tops.some(function (t) { return Math.abs(t - top) <= 2; })) tops.push(top);
+    }
+    return tops.length || 1;
+  }
+
+  function fit(el) {
+    el.style.fontSize = ""; /* vuelve al valor definido en el CSS */
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    if (!fs) return;
+    let guard = 0;
+    while (countLines(el) > MAX_LINES && fs > 20 && guard < 80) {
+      fs -= 1;
+      el.style.fontSize = fs + "px";
+      guard++;
+    }
+  }
+
+  function fitAll() {
+    titles.forEach(fit);
+  }
+
+  /* Mide DESPUÉS del reflow: fonts.ready resuelve cuando la webfont cargó, pero
+     el navegador aún no rehízo el layout del H1 con sus métricas, así que medir
+     en ese microtask da el conteo de líneas de la fuente de respaldo. Dos rAF
+     caen ya reflowado. */
+  function scheduleFit() {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(fitAll);
+    });
+  }
+
+  fitAll(); /* primer intento con lo que haya cargado */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleFit);
+  }
+  window.addEventListener("load", scheduleFit);
+  setTimeout(fitAll, 300); /* red de seguridad si la webfont tarda */
+
+  let t;
+  window.addEventListener("resize", function () {
+    clearTimeout(t);
+    t = setTimeout(fitAll, 150);
+  });
+})();
