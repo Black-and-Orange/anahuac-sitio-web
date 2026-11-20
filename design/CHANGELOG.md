@@ -1703,3 +1703,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - En móvil: icono sobre etiqueta, una categoría completa entre flechas, sin recortar la siguiente. Seguimiento de la activa y navegación por teclado. Escritorio conserva disposición horizontal.
 - Retira las siete etiquetas naranjas de nombre/contador y Montañismo de Deportes.
 - Propuesta final revisada por el usuario y autorizada para publicar; base sincronizada con GitHub.
+
+## 2026-11-19 — CTA de visita y galería de espacios
+
+- Agenda tu visita: botón morado con texto blanco mayor y en negritas, y más separación inferior respecto a la sección naranja.
+- Primera tarjeta de espacios alineada con el margen del texto. Carrusel automático cada 6 segundos, control de pausa, pausa por interacción/foco/visibilidad y respeto a movimiento reducido.
+- Alineación y avance comprobados en escritorio y móvil; publicación autorizada tras revisión local.

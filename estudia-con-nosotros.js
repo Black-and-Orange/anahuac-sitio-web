@@ -114,6 +114,52 @@
     });
   }
 
+
+  /* Galería de espacios: alineación y avance automático controlable. */
+  const gallery = document.querySelector(".ecn-gallery-track");
+  if (gallery) {
+    const section = gallery.closest("section");
+    const cards = Array.from(gallery.querySelectorAll(".ecn-space"));
+    const toggle = section.querySelector(".ecn-gallery-toggle");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let paused = reduced.matches;
+    let visible = false;
+    let hovered = false;
+    let resumeAfter = 0;
+    function alignGallery() {
+      const text = section.querySelector(".section-intro");
+      const gutter = Math.max(0, text.getBoundingClientRect().left - gallery.getBoundingClientRect().left);
+      gallery.style.setProperty("--ecn-gallery-gutter", gutter + "px");
+    }
+    alignGallery();
+    if ("ResizeObserver" in window) new ResizeObserver(alignGallery).observe(section.querySelector(".container"));
+    else window.addEventListener("resize", alignGallery);
+    function updateToggle() {
+      toggle.textContent = paused ? "Reproducir carrusel" : "Pausar carrusel";
+      toggle.setAttribute("aria-pressed", String(paused));
+    }
+    updateToggle();
+    toggle.addEventListener("click", () => { paused = !paused; updateToggle(); });
+    reduced.addEventListener("change", () => { paused = reduced.matches; updateToggle(); });
+    gallery.addEventListener("mouseenter", () => { hovered = true; });
+    gallery.addEventListener("mouseleave", () => { hovered = false; });
+    function deferAdvance() { resumeAfter = Date.now() + 12000; }
+    gallery.addEventListener("pointerdown", deferAdvance);
+    gallery.addEventListener("wheel", deferAdvance, { passive: true });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }, { threshold: 0.15 }).observe(gallery);
+    } else visible = true;
+    window.setInterval(() => {
+      if (paused || hovered || !visible || document.hidden || Date.now() < resumeAfter || section.contains(document.activeElement)) return;
+      const padding = parseFloat(getComputedStyle(gallery).paddingLeft) || 0;
+      const targets = cards.map(card => card.offsetLeft - gallery.offsetLeft - padding);
+      const max = gallery.scrollWidth - gallery.clientWidth;
+      let target = gallery.scrollLeft >= max - 2 ? 0 : targets.find(x => x > gallery.scrollLeft + 4);
+      if (target === undefined) target = max;
+      gallery.scrollTo({ left: Math.min(target, max), behavior: reduced.matches ? "auto" : "smooth" });
+    }, 6000);
+  }
+
   /* ---------------------------------------------------------------------------
      3) Año automático del copyright (el footer no debe quedar fijado a un año).
      --------------------------------------------------------------------------- */

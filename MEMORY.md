@@ -767,3 +767,9 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Estudia con nosotros, local: retiradas las siete etiquetas naranjas de categoría y contador (ej. DEPORTE 01 / 07) sobre los títulos del showcase. Se conservan navegación, títulos y contenidos.
 
 - Estudia con nosotros, solo local: retirada la etiqueta Montañismo de Deportes por solicitud del usuario.
+
+- 2026-11-19, Estudia con nosotros, solo local: CTA «Agenda tu visita» de ecn-ruta-cta pasa de botón blanco a naranja del sistema, con texto 22px en negritas y mayor espacio interior. Enlace #visita conservado; otros CTA intactos.
+
+- Estudia con nosotros, solo local: CTA Agenda tu visita cambia de naranja a morado con texto blanco para distinguirse de la siguiente sección naranja; conserva tamaño mayor y añade space-10 debajo.
+
+- Estudia con nosotros, solo local: primera imagen de galería alineada al texto mediante margen medido; avance automático cada 6s solo visible, pausa al interactuar/hover/foco, control Pausar/Reproducir y respeto a movimiento reducido.

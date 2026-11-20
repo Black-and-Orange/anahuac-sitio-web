@@ -972,3 +972,45 @@
     scroll-snap-align: start;
   }
 }
+
+/* CTA de visita: mayor jerarquía, con el botón naranja existente. */
+.ecn-page .ecn-ruta-cta .btn {
+  font-size: var(--size-22);
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+  padding: var(--space-6) var(--space-9);
+}
+
+/* Separación del CTA respecto a la siguiente sección naranja. */
+.ecn-page .ecn-ruta-cta {
+  margin-bottom: var(--space-10);
+}
+
+/* Galería alineada con la columna de texto y control de reproducción. */
+.ecn-page .ecn-gallery-track {
+  padding-inline: var(--ecn-gallery-gutter, max(var(--grid-margin), calc((100% - var(--container)) / 2 + var(--grid-margin))));
+  scroll-padding-inline: var(--ecn-gallery-gutter, var(--grid-margin));
+  margin-top: var(--space-6);
+}
+
+.ecn-page .ecn-gallery-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-7);
+}
+
+.ecn-page .ecn-gallery-toggle {
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  color: var(--surface-accent);
+  background: transparent;
+  border: var(--border-width-thin) solid var(--border-hairline);
+  border-radius: var(--radius-button);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+}
+
+.ecn-page .ecn-gallery-toggle:focus-visible {
+  outline: var(--border-width) solid var(--surface-accent);
+  outline-offset: var(--space-1);
+}
