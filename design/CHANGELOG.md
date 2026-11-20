@@ -1743,3 +1743,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Tour al 60% y cita al 40% en escritorio, con cabeceras y botones alineados; conserva lila e icono naranja, y tarjetas apiladas en móvil.
 - Eventos con fecha morada a la derecha (22 Mayo 2026 en los tres, por instrucción de la usuaria), título y sede en cabecera, descripción y enlace inferior a todo el ancho. Adaptación intermedia a una columna para mantener legibilidad.
 - Revisión humana aprobada en local; comprobación de ajuste sin desbordamientos en escritorio y móvil.
+
+## 2026-11-20 — Índice interno de páginas
+
+- Agrega Contacto y Test vocacional; excluye Costos y Becas por indicación de la usuaria.
+- Actualiza estados aprobados: autorizadas, revisión de coordinador, pendientes de cliente en naranja, revisiones sin respuesta en rojo y Terapia Física en ajustes en azul.
+- Conteo agrupado: 10 autorizadas, 21 en revisión (incluye ajustes y sin respuesta), 4 pendientes de cliente; 35 páginas.

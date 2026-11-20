@@ -157,3 +157,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-20: revisión de fecha ecn-event-date: etiqueta morada a la derecha, día blanco y mes/año lila; sustituye fecha lateral sin fondo.
 
 - 2026-11-20: ecn-visit2-event usa cabecera título/sede y fecha; descripción y footer ocupan ambas columnas.
+
+- 2026-11-20: índice interno paginas.html amplía idx-card a Contacto, Costos y Becas y Test vocacional; misma variante is-review existente.
+
+- 2026-11-20: revisión del índice: costos-becas.html excluida por petición de la usuaria; nuevas entradas únicamente Contacto y Test vocacional.
+
+- 2026-11-20: idx-pill.is-overdue roja para revisiones sin respuesta en Cirujano Dentista y Nutrición, exclusiva de paginas.html.

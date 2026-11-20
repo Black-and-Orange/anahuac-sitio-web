@@ -823,3 +823,23 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-20, eventos local: fecha derecha pasa a etiqueta morada con radio del sistema, día blanco recto y Mayo 2026 en lila debajo, como referencia de usuaria.
 
 - 2026-11-20, eventos local: jerarquía aprobada: título/sede junto a fecha en cabecera, descripción debajo a todo el ancho y Más información con separador inferior completo.
+
+- 2026-11-20, índice paginas.html local: agrega Contacto, Costos y Becas y Test vocacional con En revisión; conserva estados previos y actualiza conteos y fecha. Verificados enlaces contra archivos versionados.
+
+- 2026-11-20, índice: por instrucción explícita de la usuaria, excluir costos-becas.html del índice; página conservada. Quedan Contacto y Test vocacional como nuevas entradas En revisión.
+
+- 2026-11-20, índice local: las 10 carreras con Por revisar MP pasan a En revisión por instrucción de la usuaria. Total 27 En revisión; sin cambios en otros estados.
+
+- 2026-11-20, índice local: usuaria autoriza Biotecnología, Psicología, Proceso de admisión, Fechas de examen, Apoyos económicos, Estudiantes foráneos, Campus Norte y Campus Sur. Etiqueta AUTORIZADA y conteos sincronizados.
+
+- 2026-11-20, índice local: área Ciencias de la Salud y Medicina etiquetadas Pendiente egresados; Gastronomía y Comunicación Pendiente convenios/egresados, según columna 5 de captura de usuaria. Los cuatro se agrupan en Pendientes de cliente en la cabecera.
+
+- 2026-11-20, índice local: etiquetas is-pending en naranja con fondo naranja suave; resumen de totales sin cambio, según solicitud.
+
+- 2026-11-20, índice local: trece páginas indicadas por usuaria cambian a En revisión coordinador: área Turismo, nueve carreras de Ingeniería/Ciencias (excluye Engineering Management) y tres carreras de Turismo/Hospitalidad. Conservan clase is-review y conteo agrupado.
+
+- 2026-11-20, índice local: Cirujano Dentista y Nutrición muestran SIN RESPUESTA DE REVISIÓN + 1 MES con variante roja is-overdue usando accent-red; conservan is-review para conteo general.
+
+- 2026-11-20, índice local: Terapia Física y Rehabilitación cambia a EN AJUSTES; conserva estilo de revisión y conteo agrupado.
+
+- 2026-11-20, índice local: EN AJUSTES de Terapia Física usa azul (accent-blue) y fondo azul suave, sin alterar el conteo.
