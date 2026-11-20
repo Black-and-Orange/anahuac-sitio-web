@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Revalidación y equivalencia de estudios | Anáhuac México</title>
+    <meta
+      name="description"
+      content="Continúa tu licenciatura en la Universidad Anáhuac México: valida los estudios que cursaste en otra universidad de México o en el extranjero. Conoce el proceso."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Revalidación y equivalencia de estudios — Anáhuac México" />
+    <meta
+      property="og:description"
+      content="¿Ya cursaste parte de tu licenciatura? Valida tus estudios de México o del extranjero y continúa en la Anáhuac México."
+    />
+    <meta property="og:image" content="assets/dudas.jpg" />
+    <meta
+      property="og:image:alt"
+      content="Estudiante de la Universidad Anáhuac México revisando su proceso de equivalencia con un asesor"
+    />
+    <link rel="canonical" href="https://www.anahuac.mx/mexico/licenciaturas/revalidacion-equivalencia" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/logotipo-anahuac-web.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- El molde entero vive en psicologia.css. revalidacion-equivalencia.css solo
+         lleva las desviaciones propias de esta página: hero de trámite, router de
+         casos, la timeline numerada del proceso (M3), las pestañas de documentos,
+         el bloque de ventanillas, la banda de extranjeros y la barra con CTA fijo
+         en móvil. -->
+    <link rel="stylesheet" href="psicologia.css" />
+    <link rel="stylesheet" href="revalidacion-equivalencia.css" />
+
+    <!-- Datos estructurados: BreadcrumbList + HowTo (el proceso paso a paso de M3).
+         El FAQPage va junto a su módulo (M7), con texto idéntico al acordeón. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "Inicio.html" },
+          { "@type": "ListItem", "position": 2, "name": "Admisiones", "item": "proceso-de-admision.html" },
+          { "@type": "ListItem", "position": 3, "name": "Revalidación y equivalencia" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Proceso de revalidación o equivalencia de estudios",
+        "description": "Pasos para validar en la Universidad Anáhuac México los estudios de licenciatura que cursaste en otra universidad de México o en el extranjero.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Solicita tu Número de Expediente (ID)",
+            "text": "Para iniciar necesitas un Número de Expediente (ID). Lo solicitas en la Ventanilla única que corresponde a la carrera que quieres estudiar."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Reúne tus documentos",
+            "text": "Prepara toda la documentación de tu solicitud. Debes entregarla completa, sin excepciones. Consulta la lista según tu caso."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Registra tu solicitud",
+            "text": "Con tu ID y tus documentos listos, registra tu solicitud en el Formulario de Equivalencia o Revalidación de Estudios Parciales (DAE)."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Recibe tu dictamen",
+            "text": "La Ventanilla única revisa tu caso y emite el dictamen con las materias que se te validan. Un asesor te acompaña en lo que sigue de tu admisión."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <!-- Dos alcances en el body:
+
+       `pagina-carrera` es el del MOLDE YA CORREGIDO: trae medida de línea, escala
+       de titulares, CTA del hero, ritmo vertical y el resto de correcciones. No
+       las repitas en revalidacion-equivalencia.css.
+
+       `pagina-revalidacion` acota a esta página lo suyo propio, que vive en
+       revalidacion-equivalencia.css. -->
+  <body class="pagina-carrera pagina-revalidacion">
+    <header class="site-header">
+      <a class="logo-link" href="Inicio.html" aria-label="Universidad Anáhuac México">
+        <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Admisiones
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="proceso-de-admision.html" role="menuitem">Proceso de admisión</a>
+            <a href="fechas-de-examenes.html" role="menuitem">Fechas de examen</a>
+            <a href="revalidacion-equivalencia.html" role="menuitem">Revalidación y equivalencia</a>
+            <a href="#" role="menuitem">Curso para examen de admisión</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Costos y apoyos
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="apoyos-economicos.html" role="menuitem">Apoyos económicos</a>
+            <a href="#" role="menuitem">Financiamiento</a>
+            <a href="#" role="menuitem">Concursos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button type="button" aria-expanded="false">
+            <span class="arrow-down"></span>
+            Vida universitaria
+          </button>
+          <div class="dropdown-panel" role="menu">
+            <a href="estudia-con-nosotros.html" role="menuitem">Estudia con nosotros</a>
+            <a href="estudia-con-nosotros.html#experiencia" role="menuitem">Experiencia</a>
+            <a href="estudia-con-nosotros.html#eventos" role="menuitem">Eventos</a>
+            <a href="foraneos.html" role="menuitem">Foráneos</a>
+            <a href="campus-norte.html" role="menuitem">Campus Norte</a>
+            <a href="campus-sur.html" role="menuitem">Campus Sur</a>
+          </div>
+        </div>
+        <a href="#">Foráneos</a>
+      </nav>
+
+      <a class="btn btn-dark nav-contact" href="contacto.html">Contacto</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-panel">
+        <a href="oferta-academica.html">Licenciaturas</a>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Admisiones
+        </button>
+        <div class="mobile-submenu">
+          <a href="proceso-de-admision.html">Proceso de admisión</a>
+          <a href="fechas-de-examenes.html">Fechas de examen</a>
+          <a href="revalidacion-equivalencia.html">Revalidación y equivalencia</a>
+          <a href="#">Curso para examen de admisión</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Costos y apoyos
+        </button>
+        <div class="mobile-submenu">
+          <a href="apoyos-economicos.html">Apoyos económicos</a>
+          <a href="#">Financiamiento</a>
+          <a href="#">Concursos</a>
+        </div>
+        <button class="mobile-subnav" type="button" aria-expanded="false">
+          <span class="arrow-down"></span>
+          Vida universitaria
+        </button>
+        <div class="mobile-submenu">
+          <a href="estudia-con-nosotros.html">Estudia con nosotros</a>
+          <a href="estudia-con-nosotros.html#experiencia">Experiencia</a>
+          <a href="estudia-con-nosotros.html#eventos">Eventos</a>
+          <a href="campus-norte.html">Campus Norte</a>
+          <a href="campus-sur.html">Campus Sur</a>
+        </div>
+        <a href="#">Foráneos</a>
+        <a class="btn btn-dark mobile-contact" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- =====================================================================
+           M1. HERO · [AIDA: Atención] · #inicio
+           Hero compacto de trámite (sin cifras ni carrusel): breadcrumb + eyebrow
+           + H1 + claim + subtítulo + 2 CTAs (Inicia tu solicitud / WhatsApp).
+           ===================================================================== -->
+      <section class="lic-hero rev-hero section-pad" id="inicio">
+        <div class="container lic-hero-inner">
+          <div class="lic-hero-copy">
+            <nav class="lic-breadcrumb" aria-label="Ruta de navegación">
+              <ol>
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="proceso-de-admision.html">Admisiones</a></li>
+                <li aria-current="page">Revalidación y equivalencia</li>
+              </ol>
+            </nav>
+
+            <p class="tagline reveal" data-reveal><span></span>¿Ya empezaste tu licenciatura en otra universidad?</p>
+            <h1 class="reveal" data-reveal>Revalidación y equivalencia de estudios</h1>
+            <p class="rev-hero-sub reveal" data-reveal>
+              Si cursaste parte de tu carrera en otra universidad —en México o en el extranjero— puedes validar lo que ya estudiaste. Te explicamos tu proceso paso a paso.
+            </p>
+
+            <div class="button-row reveal" data-reveal>
+              <a class="btn btn-orange" href="#proceso">Inicia tu solicitud</a>
+              <a
+                class="btn btn-light btn-whatsapp"
+                href="https://wa.me/525549553745?text=%C2%A1Hola%21%20Tengo%20dudas%20sobre%20revalidaci%C3%B3n%20o%20equivalencia%20de%20estudios%20en%20la%20An%C3%A1huac%20M%C3%A9xico."
+                target="_blank"
+                rel="noopener"
+                aria-label="Resuelve tus dudas por WhatsApp (se abre WhatsApp)"
+              >
+                <svg class="btn-wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.19-.57-.34zM12 2a10 10 0 0 0-8.6 15.07L2 22l5.06-1.33A10 10 0 1 0 12 2z"/></svg>
+                Resuelve tus dudas por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="lic-hero-media reveal" data-reveal>
+            <div class="video-card">
+              <img
+                src="assets/dudas.jpg"
+                alt="Estudiante de la Universidad Anáhuac México revisando su proceso de equivalencia con un asesor"
+                loading="eager"
+                width="1000"
+                height="1250"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M2. ¿CUÁL ES TU CASO? · [AIDA: Interés → routing] · #tu-caso
+           Router de la página (componente .paso-card). La distinción equivalencia
+           (México) / revalidación (extranjero) se explica aquí UNA sola vez.
+           ===================================================================== -->
+      <section class="lic-pasos rev-casos section-pad" id="tu-caso">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Identifica tu trámite</p>
+            <h2>¿Cuál es tu caso?</h2>
+            <p>El trámite depende de dónde cursaste tus estudios. Identifica tu caso para ver tu proceso y tus documentos.</p>
+          </div>
+
+          <div class="rev-casos-grid reveal" data-reveal>
+            <a class="paso-card" href="#proceso" aria-label="Equivalencia: cursé parte de mi licenciatura en otra universidad en México">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11" /><path d="M9 21v-6h6v6" /></svg>
+              </span>
+              <h3>Estudié en otra universidad en México → Equivalencia</h3>
+              <p>Tus estudios están dentro del Sistema Educativo Nacional. El trámite se llama <strong>equivalencia</strong>.</p>
+              <span class="paso-cta">Ver mi proceso <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card" href="#proceso" aria-label="Revalidación: cursé parte de mi licenciatura en el extranjero">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z" /></svg>
+              </span>
+              <h3>Estudié parte de mi licenciatura en el extranjero → Revalidación</h3>
+              <p>Tus estudios se cursaron fuera de México. El trámite se llama <strong>revalidación</strong> y suma algunos pasos (apostilla/legalización y traducción).</p>
+              <span class="paso-cta">Ver mi proceso <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card" href="fechas-de-examenes.html" aria-label="Terminé el bachillerato en el extranjero">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 4-9 4-9-4 9-4z" /><path d="M5 10v5c0 1.1 3.1 2.5 7 2.5s7-1.4 7-2.5v-5" /></svg>
+              </span>
+              <h3>Terminé bachillerato en el extranjero</h3>
+              <p>Si lo que cursaste en el extranjero fue el bachillerato (no una licenciatura), tu trámite es la <strong>revalidación de nivel medio superior ante la SEP</strong>, como parte de tu proceso de admisión.</p>
+              <span class="paso-cta">Ver el proceso de admisión <span aria-hidden="true">›</span></span>
+              <!-- [VERIFICAR: que el proceso unificado cubra la revalidación SEP de bachillerato extranjero] -->
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M3. TU PROCESO, PASO A PASO · [AIDA: Acción] · #proceso
+           Timeline numerada (1→4) del molde. Donde un paso cambia para el caso
+           extranjero, se marca con una nota «Extranjero».
+           ⚠️ No se promete número de materias validadas (depende del dictamen).
+           El costo y el tiempo del trámite NO se comunican (no documentados).
+           ===================================================================== -->
+      <section class="rev-proceso section-pad" id="proceso">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Tu proceso</p>
+            <h2>Conoce el paso a paso</h2>
+          </div>
+
+          <ol class="rev-timeline reveal" data-reveal>
+            <li class="rev-step">
+              <span class="rev-step-num" aria-hidden="true">1</span>
+              <div class="rev-step-body">
+                <h3>Solicita tu Número de Expediente (ID)</h3>
+                <p>Para iniciar necesitas un <strong>Número de Expediente (ID)</strong>. Lo solicitas en la <strong>Ventanilla única</strong> que corresponde a la carrera que quieres estudiar.</p>
+                <a class="rev-step-cta" href="#ventanillas">Ver Ventanillas únicas <span aria-hidden="true">›</span></a>
+              </div>
+            </li>
+
+            <li class="rev-step">
+              <span class="rev-step-num" aria-hidden="true">2</span>
+              <div class="rev-step-body">
+                <h3>Reúne tus documentos</h3>
+                <p>Prepara toda la documentación de tu solicitud. <strong>Debes entregarla completa, sin excepciones.</strong> Consulta la lista según tu caso.</p>
+                <p class="rev-step-nota"><span class="rev-nota-tag">Extranjero</span> Tus documentos del extranjero deben venir <strong>apostillados o legalizados</strong> y, si están en otro idioma, con <strong>traducción al español</strong>. <!-- [VERIFICAR: cuándo aplica apostilla vs legalización según país] --></p>
+                <a class="rev-step-cta" href="#documentos">Ver mis documentos <span aria-hidden="true">›</span></a>
+              </div>
+            </li>
+
+            <li class="rev-step">
+              <span class="rev-step-num" aria-hidden="true">3</span>
+              <div class="rev-step-body">
+                <h3>Registra tu solicitud</h3>
+                <p>Con tu ID y tus documentos listos, registra tu solicitud en el <strong>Formulario de Equivalencia o Revalidación de Estudios Parciales (DAE)</strong>.</p>
+                <a class="rev-step-cta" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=l2uNDV3gDEa2tRm30CD0euLndbM08P5Fja2pnoZuTXNUNDlNM09DRjZQNDFRNEcwU0g0WlA5NksyNi4u&amp;route=shorturl" target="_blank" rel="noopener">Registrar mi solicitud <span aria-hidden="true">›</span></a>
+              </div>
+            </li>
+
+            <li class="rev-step">
+              <span class="rev-step-num" aria-hidden="true">4</span>
+              <div class="rev-step-body">
+                <h3>Recibe tu dictamen</h3>
+                <p>La Ventanilla única revisa tu caso y emite el <strong>dictamen</strong> con las materias que se te validan. Un asesor te acompaña en lo que sigue de tu admisión.</p>
+                <a class="rev-step-cta" href="fechas-de-examenes.html">Conoce el proceso de admisión <span aria-hidden="true">›</span></a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M4. LOS DOCUMENTOS QUE NECESITAS · [AIDA: Acción] · #documentos
+           Componente de pestañas (las del plan de estudios): «Nacional
+           (equivalencia)» / «Extranjero (revalidación)». 1.ª abierta; en móvil
+           se usa el <select>.
+           ⚠️ Los 7 documentos de Nacional son LITERALES de la página actual (no
+           reescribir, no cambiar el «8.0»). Extranjero SUMA requisitos.
+           ===================================================================== -->
+      <section class="lic-plan-est rev-docs section-pad" id="documentos">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Documentación</p>
+            <h2>Los documentos que necesitas</h2>
+            <p>Entrega la documentación completa, sin excepciones. Elige tu caso:</p>
+          </div>
+
+          <div class="plan-tabs reveal" data-reveal>
+            <label class="sr-only" for="rev-doc-select">Selecciona tu caso</label>
+            <select class="plan-tabs-select js-select" id="rev-doc-select" aria-label="Selecciona tu caso">
+              <option value="tab-nacional">Nacional (equivalencia)</option>
+              <option value="tab-extranjero">Extranjero (revalidación)</option>
+            </select>
+            <div class="plan-tabs-nav" role="tablist" aria-label="Documentos por caso">
+              <button class="plan-tab is-active" type="button" role="tab" id="tab-nacional" aria-controls="panel-nacional" aria-selected="true">Nacional <span class="rev-tab-sub">(equivalencia)</span></button>
+              <button class="plan-tab" type="button" role="tab" id="tab-extranjero" aria-controls="panel-extranjero" aria-selected="false" tabindex="-1">Extranjero <span class="rev-tab-sub">(revalidación)</span></button>
+            </div>
+
+            <div class="plan-tab-panel is-active" role="tabpanel" id="panel-nacional" aria-labelledby="tab-nacional" tabindex="0">
+              <ol class="rev-docs-list">
+                <li>
+                  <strong>Solicitud</strong> de Equivalencia o Revalidación de Estudios Parciales.
+                  <a class="rev-doc-dl" href="assets/solicitud-equivalencia-revalidacion.pdf" target="_blank" rel="noopener">Descargar PDF <span aria-hidden="true">›</span></a>
+                </li>
+                <li>Copia del <strong>acta de nacimiento</strong> electrónica.</li>
+                <li>Copia del <strong>certificado de bachillerato</strong> o preparatoria, o su equivalente en el Sistema Educativo Nacional.</li>
+                <li>Copia del <strong>certificado parcial con validez oficial</strong> de la universidad de procedencia.</li>
+                <li><strong>Programas o contenidos</strong> de las asignaturas aprobadas con calificación <strong>igual o mayor a 8.0</strong> (o equivalente), con sello o referencia web de consulta.</li>
+                <li>Copia de <strong>identificación oficial</strong> (INE, pasaporte o residencia migratoria).</li>
+                <li><strong>Responsiva de traducción</strong> al español, cuando aplique (la proporciona la Ventanilla única).</li>
+              </ol>
+            </div>
+
+            <div class="plan-tab-panel" role="tabpanel" id="panel-extranjero" aria-labelledby="tab-extranjero" tabindex="0" hidden>
+              <p class="rev-docs-intro">Incluye <strong>todos los documentos de la lista Nacional</strong> y, además, lo específico del extranjero:</p>
+              <ol class="rev-docs-list">
+                <li>Documentos del extranjero <strong>apostillados o legalizados</strong> según el país de origen. <!-- [VERIFICAR: redacción oficial] --></li>
+                <li><strong>Traducción al español</strong> de los documentos en otro idioma, hecha por el alumno o por un perito oficial registrado en México, respetando el formato original.</li>
+                <li>Si además cursaste tu <strong>bachillerato en el extranjero</strong>, su <strong>revalidación ante la SEP</strong> (trámite SEP3034). <a class="rev-doc-dl" href="fechas-de-examenes.html">Ver proceso de admisión <span aria-hidden="true">›</span></a></li>
+              </ol>
+              <p class="rev-docs-nota">La <strong>responsiva de traducción</strong> se entrega en la Ventanilla única.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M5. DÓNDE INICIAR: VENTANILLAS ÚNICAS · [AIDA: Acción] · #ventanillas
+           Intro + descarga del PDF (administrable) + nota a WhatsApp.
+           ⚠️ El PDF de ventanillas cambia por periodo: no quemar nombres ni correos.
+           ===================================================================== -->
+      <section class="rev-ventanillas section-pad" id="ventanillas">
+        <div class="container">
+          <div class="rev-ventanillas-card reveal" data-reveal>
+            <div class="rev-ventanillas-copy">
+              <div class="section-intro">
+                <p class="tagline"><span></span>Dónde iniciar</p>
+                <h2>Dónde iniciar: Ventanillas únicas</h2>
+              </div>
+              <p>Tu trámite comienza en la <strong>Ventanilla única</strong> de la escuela o facultad de la carrera que quieres estudiar. Ahí solicitas tu Número de Expediente (ID) y te orientan sobre tu caso.</p>
+              <p class="rev-ventanillas-nota">¿No sabes cuál te toca? Escríbenos y te orientamos.
+                <a
+                  href="https://wa.me/525549553745?text=%C2%A1Hola%21%20Tengo%20dudas%20sobre%20revalidaci%C3%B3n%20o%20equivalencia%20de%20estudios%20en%20la%20An%C3%A1huac%20M%C3%A9xico."
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Escríbenos por WhatsApp (se abre WhatsApp)"
+                >Escríbenos por WhatsApp ›</a>
+              </p>
+            </div>
+            <div class="rev-ventanillas-cta">
+              <a class="btn btn-orange" href="assets/ventanillas-unicas.pdf" target="_blank" rel="noopener" aria-label="Consulta el directorio de Ventanillas únicas en PDF">Consulta el directorio (PDF)</a>
+              <!-- PDF administrable: se reemplaza por periodo. Hoy: Ventanillas únicas feb-2026. -->
+              <p class="rev-ventanillas-dato">Directorio por escuela y facultad · PDF</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M6. ¿VIENES DEL EXTRANJERO? · [AIDA: Acción] · #extranjeros
+           Banda horizontal: resume lo específico del extranjero y enruta.
+           ⚠️ El detalle migratorio NO se duplica aquí: resume y enruta al proceso
+           de admisión unificado.
+           ===================================================================== -->
+      <section class="rev-banda section-pad" id="extranjeros">
+        <div class="container">
+          <div class="rev-banda-inner reveal" data-reveal>
+            <div class="rev-banda-copy">
+              <p class="tagline"><span></span>Estudiantes internacionales</p>
+              <h2>¿Vienes del extranjero?</h2>
+              <p>Además de revalidar tus estudios, como estudiante internacional necesitas tu trámite migratorio y, si cursaste el bachillerato fuera de México, su revalidación ante la SEP.</p>
+              <ul class="rev-banda-puntos">
+                <li>
+                  <span class="rev-punto-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4" /><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /></svg>
+                  </span>
+                  <span><strong>Revalidación de tus estudios</strong> de licenciatura o bachillerato (en esta página y, para bachillerato, ante la SEP).</span>
+                </li>
+                <li>
+                  <span class="rev-punto-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2" /><circle cx="12" cy="9" r="2.2" /><path d="M8.5 16c.6-1.8 2-2.6 3.5-2.6s2.9.8 3.5 2.6" /></svg>
+                  </span>
+                  <span><strong>Trámite migratorio y visa de estudiante:</strong> carta migratoria, visa temporal y tarjeta de residente temporal.</span>
+                </li>
+                <li>
+                  <span class="rev-punto-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2" /><path d="M5.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5" /></svg>
+                  </span>
+                  <span><strong>Un asesor para extranjeros</strong> que te acompaña paso a paso.</span>
+                </li>
+              </ul>
+              <p class="rev-banda-contacto">Si tienes dudas, escríbele a Ximena Benavides:
+                <a href="mailto:ximena.benavides@anahuac.mx">ximena.benavides@anahuac.mx</a> ·
+                <a href="https://wa.me/525545779528" target="_blank" rel="noopener" aria-label="WhatsApp de Ximena Benavides (se abre WhatsApp)">WhatsApp 55 4577 9528</a>.
+                <!-- [VERIFICAR: contacto de extranjeros vigente y público] -->
+              </p>
+            </div>
+            <div class="rev-banda-cta">
+              <img class="rev-banda-img" src="assets/extranjeros.webp" alt="Estudiantes internacionales de la Universidad Anáhuac México en el campus" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           M7. PREGUNTAS FRECUENTES · [AIDA: Acción] · #faq
+           Componente .lic-faq (acordeón <details>/<summary>; 1ª abierta).
+           schema.org/FAQPage con texto idéntico al acordeón.
+           ===================================================================== -->
+      <section class="lic-faq rev-faq section-pad" id="faq">
+        <div class="container">
+          <div class="section-intro wide reveal" data-reveal>
+            <p class="tagline"><span></span>Preguntas frecuentes</p>
+            <h2>Preguntas frecuentes</h2>
+          </div>
+
+          <div class="faq-list reveal" data-reveal>
+            <details class="faq-item" name="faq-revalidacion" open>
+              <summary>¿Cuál es la diferencia entre revalidación y equivalencia?</summary>
+              <p>La <strong>equivalencia</strong> es para estudios que cursaste en una universidad de México (dentro del Sistema Educativo Nacional). La <strong>revalidación</strong> es para estudios que cursaste en el extranjero. El proceso es muy parecido; la revalidación suma la apostilla/legalización y la traducción de tus documentos.</p>
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>¿Cómo empiezo el trámite?</summary>
+              <p>Solicita tu Número de Expediente (ID) en la Ventanilla única de la carrera que quieres estudiar y registra tu solicitud en el formulario DAE. Consulta el directorio de ventanillas.</p>
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>¿Qué calificación mínima se necesita para validar una materia?</summary>
+              <p>Se consideran las asignaturas aprobadas con calificación <strong>igual o mayor a 8.0</strong> (o su equivalente).</p>
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>¿Cuántas materias me van a validar?</summary>
+              <p>Lo determina el dictamen de la Ventanilla única, según los contenidos de las asignaturas que ya cursaste. Por eso se piden los programas de las materias.</p>
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>¿Mis documentos del extranjero necesitan apostilla y traducción?</summary>
+              <p>Sí. Los documentos emitidos en el extranjero deben estar apostillados o legalizados según el país, y los que estén en otro idioma necesitan traducción al español (del alumno o de un perito oficial registrado en México).</p>
+              <!-- [VERIFICAR: redacción oficial] -->
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>Terminé el bachillerato en el extranjero, ¿qué hago?</summary>
+              <p>Debes revalidar tus estudios de nivel medio superior ante la SEP (trámite SEP3034) como parte de tu proceso de admisión.</p>
+            </details>
+            <details class="faq-item" name="faq-revalidacion">
+              <summary>¿Puedo cambiar de carrera y validar materias?</summary>
+              <p>Sí, si las materias que cursaste tienen contenidos equivalentes a las de tu nueva carrera. El dictamen lo confirma.</p>
+            </details>
+          </div>
+        </div>
+
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Cuál es la diferencia entre revalidación y equivalencia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "La equivalencia es para estudios que cursaste en una universidad de México (dentro del Sistema Educativo Nacional). La revalidación es para estudios que cursaste en el extranjero. El proceso es muy parecido; la revalidación suma la apostilla/legalización y la traducción de tus documentos."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cómo empiezo el trámite?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Solicita tu Número de Expediente (ID) en la Ventanilla única de la carrera que quieres estudiar y registra tu solicitud en el formulario DAE. Consulta el directorio de ventanillas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué calificación mínima se necesita para validar una materia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Se consideran las asignaturas aprobadas con calificación igual o mayor a 8.0 (o su equivalente)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cuántas materias me van a validar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Lo determina el dictamen de la Ventanilla única, según los contenidos de las asignaturas que ya cursaste. Por eso se piden los programas de las materias."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Mis documentos del extranjero necesitan apostilla y traducción?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí. Los documentos emitidos en el extranjero deben estar apostillados o legalizados según el país, y los que estén en otro idioma necesitan traducción al español (del alumno o de un perito oficial registrado en México)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Terminé el bachillerato en el extranjero, ¿qué hago?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Debes revalidar tus estudios de nivel medio superior ante la SEP (trámite SEP3034) como parte de tu proceso de admisión."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Puedo cambiar de carrera y validar materias?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, si las materias que cursaste tienen contenidos equivalentes a las de tu nueva carrera. El dictamen lo confirma."
+                }
+              }
+            ]
+          }
+        </script>
+      </section>
+
+      <!-- =====================================================================
+           M8. ELIGE EL SIGUIENTE PASO · [AIDA: Acción] · #siguiente-paso
+           Clúster .lic-pasos. Intro a la izquierda y 4 tarjetas en bloque 2×2
+           alineadas a la derecha (ver .rev-siguiente en el CSS).
+           ===================================================================== -->
+      <section class="lic-pasos rev-siguiente section-pad" id="siguiente-paso">
+        <div class="container">
+          <div class="pasos-grid">
+            <div class="pasos-lead reveal" data-reveal>
+              <p class="tagline"><span></span>Siguiente paso</p>
+              <h2>Elige el siguiente paso</h2>
+              <p>Mientras resuelves tu trámite, puedes ir avanzando.</p>
+            </div>
+
+            <a class="paso-card reveal" data-reveal href="fechas-de-examenes.html" aria-label="Conoce el proceso de admisión">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a1 1 0 0 1 1 1v15l-5-2.5L7 20V5a1 1 0 0 1 1-1z" /><path d="M9.5 9h5M9.5 12.5h5" /></svg>
+              </span>
+              <h3>Conoce el proceso de admisión</h3>
+              <p>Descubre los pasos para ingresar y las fechas de examen.</p>
+              <span class="paso-cta">Ver proceso <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="costos-becas.html" aria-label="Conoce los costos">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v10M9.5 9.5c0-1.1 1.1-1.8 2.5-1.8s2.5.7 2.5 1.8-1.1 1.8-2.5 1.8-2.5.7-2.5 1.9 1.1 1.8 2.5 1.8 2.5-.7 2.5-1.8" /></svg>
+              </span>
+              <h3>Conoce los costos</h3>
+              <p>Consulta colegiaturas y opciones de pago.</p>
+              <span class="paso-cta">Ver costos <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="oferta-academica.html" aria-label="Explora la oferta académica">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 4-9 4-9-4 9-4z" /><path d="M5 10v5c0 1.1 3.1 2.5 7 2.5s7-1.4 7-2.5v-5" /></svg>
+              </span>
+              <h3>Explora la oferta académica</h3>
+              <p>Encuentra tu licenciatura.</p>
+              <span class="paso-cta">Ver oferta <span aria-hidden="true">›</span></span>
+            </a>
+
+            <a class="paso-card reveal" data-reveal href="contacto.html" aria-label="Contacta a un asesor">
+              <span class="paso-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15.5a2 2 0 0 1-2 2H8l-4 3V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9.5z" /><path d="M8.5 9.5h7M8.5 12.5h4" /></svg>
+              </span>
+              <h3>Contacta a un asesor</h3>
+              <p>Resuelve tus dudas con un asesor preuniversitario.</p>
+              <span class="paso-cta">Contactar <span aria-hidden="true">›</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <svg class="social-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M15.1 8.3h3V4h-3.7c-4 0-6 2.4-6 6v2.4H5v4.4h3.4V24h4.7v-7.2h3.8l.7-4.4h-4.5v-2c0-1.3.5-2.1 2-2.1Z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2h3.3l-7.3 8.3L23.5 22h-6.7l-5.2-6.9L5.6 22H2.3l7.8-8.9L1.8 2h6.9l4.7 6.3L18.9 2Zm-1.2 18h1.8L7.7 3.9h-2L17.7 20Z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M7.3 2h9.4A5.3 5.3 0 0 1 22 7.3v9.4a5.3 5.3 0 0 1-5.3 5.3H7.3A5.3 5.3 0 0 1 2 16.7V7.3A5.3 5.3 0 0 1 7.3 2Zm0 2.2a3.1 3.1 0 0 0-3.1 3.1v9.4a3.1 3.1 0 0 0 3.1 3.1h9.4a3.1 3.1 0 0 0 3.1-3.1V7.3a3.1 3.1 0 0 0-3.1-3.1H7.3ZM12 7.1A4.9 4.9 0 1 1 12 17a4.9 4.9 0 0 1 0-9.9Zm0 2.2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm5.2-2.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M21.7 7.1a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.6.5a3 3 0 0 0-2.1 2.1C1.8 9 1.8 12 1.8 12s0 3 .5 4.9A3 3 0 0 0 4.4 19c1.9.5 7.6.5 7.6.5s5.7 0 7.6-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.9.5-4.9s0-3-.5-4.9ZM10 15.2V8.8l5.6 3.2-5.6 3.2Z"/></symbol>
+      </svg>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <img src="assets/logo-anahuac.svg" alt="Anáhuac México" />
+          <form class="newsletter">
+            <h2>Recibe noticias de la Universidad Anáhuac México</h2>
+            <p>Recibe noticias sobre admisiones, eventos preuniversitarios y vida universitaria en tu correo.</p>
+            <div>
+              <input type="email" placeholder="tucorreo@ejemplo.com" aria-label="Correo electrónico" />
+              <button class="btn btn-dark" type="submit">Suscríbete</button>
+            </div>
+            <small>Al suscribirte aceptas nuestro Aviso de Privacidad.</small>
+          </form>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h3>Ingeniería y Ciencias</h3>
+            <a href="/licenciaturas/ingenieria-ambiental">Ingeniería Ambiental</a>
+            <a href="/licenciaturas/ingenieria-biomedica">Ingeniería Biomédica</a>
+            <a href="/licenciaturas/ingenieria-civil">Ingeniería Civil</a>
+            <a href="/licenciaturas/ingenieria-en-sistemas-y-tecnologia-de-la-informacion">Ingeniería en Sistemas y Tecnologías de la Información</a>
+            <a href="/licenciaturas/ingenieria-industrial-para-la-direccion">Ingeniería Industrial para la Dirección</a>
+            <a href="/licenciaturas/ingenieria-mecatronica">Ingeniería Mecatrónica</a>
+            <a href="/licenciaturas/ingenieria-quimica">Ingeniería Química</a>
+            <a href="/licenciaturas/ciencia-de-datos">Ciencia de Datos</a>
+            <a href="/licenciaturas/engineering-management">Engineering Management</a>
+            <a href="/licenciaturas/actuaria">Actuaría</a>
+          </div>
+          <div>
+            <h3>Áreas académicas</h3>
+            <a href="area-ciencias-de-la-salud.html">Ciencias de la Salud</a>
+            <a href="area-turismo-gastronomia-y-hospitalidad.html">Turismo, Gastronomía y Hospitalidad</a>
+            <a href="#">Negocios y Economía</a>
+            <a href="#">Comunicación, Arquitectura y Diseño</a>
+            <a href="#">Ciencias Sociales y Derecho</a>
+            <a href="#">Artes y Humanidades</a>
+            <a href="#">Ejecutivas</a>
+          </div>
+          <div>
+            <h3>Admisiones</h3>
+            <a href="proceso-de-admision.html">Admisión general</a>
+            <a href="#">Admisión medicina</a>
+            <a href="#">Admisión internacional</a>
+            <a href="fechas-de-examenes.html">Fechas de examen</a>
+            <a href="revalidacion-equivalencia.html">Revalidación y equivalencia</a>
+            <a href="apoyos-economicos.html">Becas y apoyos</a>
+          </div>
+          <div>
+            <h3>Campus Norte</h3>
+            <p>Av. Universidad Anáhuac 46, Col. Lomas Anáhuac. Huixquilucan, Estado de México.</p>
+            <a href="tel:+525556270210">+52 (55) 5627 0210</a>
+            <a href="campus-norte.html">Conoce Campus Norte</a>
+            <div class="social-links" aria-label="Redes sociales Campus Norte">
+              <a href="#" aria-label="Facebook Campus Norte"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Norte"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Norte"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Norte"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Campus Sur</h3>
+            <p>Av. de los Tanques 865, Col. Torres de Potrero. Álvaro Obregón, CDMX.</p>
+            <a href="tel:+525556288800">+52 (55) 5628 8800</a>
+            <a href="#">Aviso de Privacidad</a>
+            <a href="#">Mapa del sitio</a>
+            <a href="campus-sur.html">Conoce Campus Sur</a>
+            <div class="social-links" aria-label="Redes sociales Campus Sur">
+              <a href="#" aria-label="Facebook Campus Sur"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Campus Sur"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Campus Sur"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Campus Sur"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="mailto:preuniversitarios@anahuac.mx">preuniversitarios@anahuac.mx</a>
+            <a href="#">Vida Anáhuac</a>
+            <a href="#">Preuniversitario</a>
+            <a href="#">@vidanahuac</a>
+            <div class="social-links" aria-label="Redes sociales Anáhuac México">
+              <a href="#" aria-label="Facebook Anáhuac México"><svg><use href="#icon-facebook"></use></svg></a>
+              <a href="#" aria-label="X Anáhuac México"><svg><use href="#icon-x"></use></svg></a>
+              <a href="#" aria-label="Instagram Anáhuac México"><svg><use href="#icon-instagram"></use></svg></a>
+              <a href="#" aria-label="YouTube Anáhuac México"><svg><use href="#icon-youtube"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <p class="copyright">
+          RVOE SEP D.O.F. 26/11/1982 · © <span data-current-year>2026</span> Universidad Anáhuac México. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Barra con CTA fijo en móvil (< 768px). Aparece al pasar el hero; se oculta
+         mientras el proceso (#proceso) o los documentos (#documentos) están en
+         pantalla y sobre el footer. Dos botones: Inicia tu solicitud + WhatsApp.
+         Ver revalidacion-equivalencia.js. -->
+    <div class="rev-ctabar" data-cto-ctabar hidden>
+      <a class="btn btn-orange" href="#proceso" aria-label="Inicia tu solicitud">Inicia tu solicitud</a>
+      <a
+        class="btn btn-dark btn-whatsapp"
+        href="https://wa.me/525549553745?text=%C2%A1Hola%21%20Tengo%20dudas%20sobre%20revalidaci%C3%B3n%20o%20equivalencia%20de%20estudios%20en%20la%20An%C3%A1huac%20M%C3%A9xico."
+        target="_blank"
+        rel="noopener"
+        aria-label="Escríbenos por WhatsApp (se abre WhatsApp)"
+      >
+        <svg class="btn-wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.19-.57-.34zM12 2a10 10 0 0 0-8.6 15.07L2 22l5.06-1.33A10 10 0 1 0 12 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="psicologia.js"></script>
+    <script src="revalidacion-equivalencia.js"></script>
+    <script type="module" src="assets/review/review.js"></script>
+  </body>
+</html>
