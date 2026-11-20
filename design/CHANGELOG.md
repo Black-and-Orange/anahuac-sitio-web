@@ -1723,3 +1723,8 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Se eliminan las reglas de las pruebas descartadas. Botones alineados y adaptación móvil conservados. Publicación autorizada.
 
 - Reparación de publicación: deploy-pages fijado a v4.0.0 por SHA y actions:read para consultar artefactos por REST, tras fallos repetidos de listado en v5. Contenido del sitio sin cambios.
+
+## 2026-11-20 — Docentes de Comunicación
+
+- Actualiza las once descripciones con los textos proporcionados por la usuaria y cinco ajustes editoriales aprobados. Conserva cargos proporcionados, nombres, orden, imágenes y formato.
+- Incorpora la actualización remota de Contacto sin interferir con Comunicación. Publicación autorizada tras revisión local.

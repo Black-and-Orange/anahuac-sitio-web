@@ -807,3 +807,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Estudia con nosotros, revisión final local solicitada: descarta durazno y asimetría; recupera columnas iguales, cita lila suave e icono naranja centrado en cabecera equivalente a la foto. Título negro y botón de contorno morado conservados, botones alineados.
 
 - Publicación de Estudia 275ce8c: varios despliegues fallaron al listar artefactos con deploy-pages v5 pese a existir en REST. Se fija deploy-pages v4.0.0 por SHA verificado, que lista por REST, y permiso mínimo actions:read para esa consulta. Se conserva timeout y diseño.
+
+- 2026-11-20, Comunicación, solo local: once descripciones del claustro actualizadas con textos de la usuaria y cinco ajustes editoriales aprobados; cargos de Director y Coordinador conservados, sin inventar cargos para los demás. Formato e imágenes sin cambios.

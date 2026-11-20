@@ -432,3 +432,19 @@ Header
 | 10 | ID del video institucional | M1 | 🟡 | Cliente |
 | 12 | Logotipos de empresas vinculadas | M9 | 🟢 | Cliente |
 | 13 | Conexión del formulario a HubSpot | M13 | 🟡 | HubSpot |
+
+## 2026-11-20 — Descripciones del claustro
+
+Textos proporcionados por la usuaria y ajustes editoriales aceptados. Solo local; formato, nombres, orden e imágenes conservados. Cargo separado de descripción mediante salto de línea cuando fue proporcionado.
+
+- **Mtro. Josu Garritz Alcalá** — Director de la Facultad de Comunicación: Impulsa la acreditación internacional, la modernización de espacios especializados y el desarrollo de nuevos programas de posgrado.
+- **Dr. Luis Felipe Ramírez Alvarado** — Coordinador de la Licenciatura en Comunicación: Doctor en Estudios Humanísticos, con formación en animación digital y experiencia en medios interactivos, cibercultura y renovación curricular.
+- **Mtro. Allende Sendic Antonio Márquez Ortiz**: Especialista en comunicación política, políticas públicas y análisis del discurso. Cuenta con experiencia en consultoría e investigación aplicada.
+- **Mtra. Viridiana Reza Pérez**: Experiencia en vinculación con empresas de entretenimiento, televisión, relaciones públicas y comunicación corporativa.
+- **Dra. Laura Elena King Lozano**: Más de 25 años de experiencia en medios, investigación y producción. Participa en proyectos como *Anáhuac Landscape* y en la Asociación de Mujeres en Cine y Televisión.
+- **Dra. Alicia Helena Hernández Barba**: Especialista en estudios globales y relaciones internacionales. Ha promovido intercambios y estancias académicas en América Latina, Europa y Estados Unidos.
+- **Mtra. Ana Pamela Flores**: Desarrolla talleres de orientación vocacional y experiencias interactivas sobre comunicación digital, además de iniciativas de vinculación educativa.
+- **Mtro. Clemente Sánchez Uribe**: Promueve la vinculación con egresados mediante encuentros profesionales, bolsa de trabajo y el reconocimiento *Premio Lidera*.
+- **Mtra. Myrna Araceli del Castillo Vega**: Especialista en evaluación y acreditación académica ante organismos como CONAC-CONAICC y CIEES.
+- **Dra. Carolina Leticia Ibarra García**: Especialista en bioética y ética tecnológica. Su trabajo aborda inteligencia artificial, comunicación y cultura de paz.
+- **Mtra. Rocío García Mercado**: Dirige Radio Anáhuac (1670 AM) e impulsa su transformación digital mediante proyectos radiofónicos y transmedia realizados por alumnos y profesores.
