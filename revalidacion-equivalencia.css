@@ -329,6 +329,49 @@
   width: 22px;
   height: 22px;
 }
+/* Lista numerada de trámites del estudiante internacional (sobre fondo morado). */
+.pagina-revalidacion .rev-banda-lista {
+  list-style: none;
+  counter-reset: rev-int;
+  margin: var(--space-7) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.pagina-revalidacion .rev-banda-lista li {
+  counter-increment: rev-int;
+  position: relative;
+  padding-left: 46px;
+  line-height: 1.55;
+  color: var(--lilac-2);
+}
+.pagina-revalidacion .rev-banda-lista li strong {
+  color: var(--color-text-invert);
+}
+.pagina-revalidacion .rev-banda-lista li::before {
+  content: counter(rev-int);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-text-invert);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+.pagina-revalidacion .rev-banda-lista a {
+  color: var(--color-text-invert);
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+}
+
 .pagina-revalidacion .rev-banda-contacto {
   margin: var(--space-7) 0 0;
   font-size: 15px;
