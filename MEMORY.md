@@ -811,3 +811,5 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-20, Comunicación, solo local: once descripciones del claustro actualizadas con textos de la usuaria y cinco ajustes editoriales aprobados; cargos de Director y Coordinador conservados, sin inventar cargos para los demás. Formato e imágenes sin cambios.
 
 - 2026-11-20, Área Ciencias de la Salud, solo local: dos textos de Nutrición simplificados para prospectos según versión aprobada: afinidad sobre salud/alimentación/prevención e innovación; descripción sobre planes personalizados y proyectos de bienestar. Descripción estructurada sincronizada con afinidad.
+
+- 2026-11-20, Ciencias de la Salud, solo local: cuarta fila de Historias Anáhuac en morado con texto Pendiente testimonio y dos imágenes de referencia, sin nombre ni cita inventados, para mantener alternancia naranja/morado al repetirse el carrusel.

@@ -1733,3 +1733,7 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 
 - Simplifica los dos textos de la tarjeta de Nutrición según redacción aprobada, centrados en afinidad y aplicación profesional. Sincroniza descripción estructurada.
 - Revisión móvil local y pública en ocho anchuras sin reproducir la superposición reportada; sin cambios de diseño por solicitud del usuario. Publicación autorizada.
+
+## 2026-11-20 — Continuidad de Historias de Ciencias de la Salud
+
+- Agrega cuarta fila morada con Pendiente testimonio y dos imágenes de referencia, sin identidad ni cita inventada. Mantiene alternancia naranja/morado en el ciclo del carrusel. Publicación autorizada.
