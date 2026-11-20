@@ -1728,3 +1728,8 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 
 - Actualiza las once descripciones con los textos proporcionados por la usuaria y cinco ajustes editoriales aprobados. Conserva cargos proporcionados, nombres, orden, imágenes y formato.
 - Incorpora la actualización remota de Contacto sin interferir con Comunicación. Publicación autorizada tras revisión local.
+
+## 2026-11-20 — Nutrición en el área de Ciencias de la Salud
+
+- Simplifica los dos textos de la tarjeta de Nutrición según redacción aprobada, centrados en afinidad y aplicación profesional. Sincroniza descripción estructurada.
+- Revisión móvil local y pública en ocho anchuras sin reproducir la superposición reportada; sin cambios de diseño por solicitud del usuario. Publicación autorizada.
