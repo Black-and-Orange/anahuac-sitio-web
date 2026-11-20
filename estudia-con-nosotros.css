@@ -1014,3 +1014,201 @@
   outline: var(--border-width) solid var(--surface-accent);
   outline-offset: var(--space-1);
 }
+
+/* CTA de recorrido: texto más legible, con alcance exclusivo de este botón. */
+.ecn-page .ecn-inst-cta .btn {
+  font-size: var(--size-22);
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+  padding: var(--space-6) var(--space-8);
+  white-space: normal;
+  text-align: center;
+}
+
+/* Mayor aire entre líneas del título de campus. */
+.ecn-page .ecn-campus .section-intro h2 {
+  line-height: 1.18;
+}
+
+/* Propuesta local de eventos: sede explícita y enlace de información. */
+.ecn-page .ecn-visit2-event {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  padding: var(--space-8);
+}
+
+.ecn-page .ecn-event-meta {
+  margin-bottom: var(--space-2);
+}
+
+.ecn-page .ecn-visit2-event h3 {
+  font-size: var(--heading-5-size);
+  line-height: 1.2;
+}
+
+.ecn-page .ecn-visit2-event > p {
+  margin-bottom: var(--space-8);
+  font-size: var(--paragraph-size);
+  line-height: 1.55;
+}
+
+.ecn-page .ecn-event-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  margin-top: auto;
+  padding-top: var(--space-6);
+  border-top: var(--border-width-thin) solid var(--border-hairline);
+}
+
+.ecn-page .ecn-event-location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--surface-accent);
+  font-family: var(--font-body);
+  font-size: var(--eyebrow-size);
+}
+
+.ecn-page .ecn-event-location svg {
+  width: var(--space-7);
+  height: var(--space-7);
+  flex-shrink: 0;
+}
+
+.ecn-page .ecn-event-link {
+  font-size: var(--paragraph-size);
+  font-weight: var(--weight-semibold);
+}
+
+/* La sede acompaña al nombre; la acción permanece al pie. */
+.ecn-page .ecn-visit2-event > .ecn-event-location {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+/* Visita: dos alternativas con igual jerarquía y contenido sobre blanco. */
+.ecn-page .ecn-visit2-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.ecn-page .ecn-visit2-card {
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface);
+  color: var(--color-text);
+  border: var(--border-width-thin) solid var(--border-hairline);
+}
+
+.ecn-page .ecn-visit2-card::after {
+  display: none;
+}
+
+.ecn-page .ecn-visit2-header {
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ecn-page .ecn-visit2-header img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ecn-page .ecn-visit2-header--advisor {
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--surface-accent-light) 35%, var(--surface));
+  color: var(--surface-accent);
+}
+
+.ecn-page .ecn-visit2-header--advisor svg {
+  width: var(--space-12);
+  height: var(--space-12);
+}
+
+.ecn-page .ecn-visit2-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  padding: var(--space-8);
+}
+
+.ecn-page .ecn-visit2-body h3 {
+  line-height: 1.18;
+}
+
+.ecn-page .ecn-visit2-body > p {
+  color: var(--color-text-secondary);
+  opacity: 1;
+  font-size: var(--paragraph-size);
+  max-width: none;
+}
+
+.ecn-page .ecn-visit2-dato {
+  color: var(--surface-accent);
+  line-height: 1.5;
+}
+
+.ecn-page .ecn-visit2-action {
+  margin-top: auto;
+  padding-top: var(--space-8);
+}
+
+.ecn-page .ecn-visit2-action .btn {
+  margin-top: 0;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .ecn-page .ecn-visit2-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cita: superficie lila continua e icono naranja como acento. */
+.ecn-page .ecn-visit2-card--solid {
+  background: color-mix(in srgb, var(--surface-accent-light) 35%, var(--surface));
+}
+
+.ecn-page .ecn-visit2-header--advisor {
+  background: transparent;
+  color: var(--color-brand-primary);
+}
+
+.ecn-page .ecn-visit2-card--solid .ecn-visit2-body h3 {
+  color: var(--surface-accent);
+}
+
+/* Jerarquía de acciones: tour principal y cita como alternativa. */
+.ecn-page .ecn-visit2-card--solid .ecn-visit2-action .btn {
+  background: transparent;
+  color: var(--surface-accent);
+  border-color: var(--surface-accent);
+}
+
+.ecn-page .ecn-visit2-card--solid .ecn-visit2-action .btn:hover {
+  background: color-mix(in srgb, var(--surface-accent) 8%, transparent);
+}
+
+/* Icono de cita con presencia proporcional a la cabecera. */
+.ecn-page .ecn-visit2-header--advisor svg {
+  width: calc(var(--space-12) * 2);
+  height: calc(var(--space-12) * 2);
+  stroke-width: 1.2;
+}
+
+@media (max-width: 640px) {
+  .ecn-page .ecn-visit2-header--advisor svg {
+    width: calc(var(--space-12) + var(--space-8));
+    height: calc(var(--space-12) + var(--space-8));
+  }
+}

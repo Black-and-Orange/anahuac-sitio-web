@@ -1709,3 +1709,10 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Agenda tu visita: botón morado con texto blanco mayor y en negritas, y más separación inferior respecto a la sección naranja.
 - Primera tarjeta de espacios alineada con el margen del texto. Carrusel automático cada 6 segundos, control de pausa, pausa por interacción/foco/visibilidad y respeto a movimiento reducido.
 - Alineación y avance comprobados en escritorio y móvil; publicación autorizada tras revisión local.
+
+## 2026-11-19 — Visitas y eventos de Estudia con nosotros
+
+- Aumenta a 22px el CTA Agenda tu visita y recórrelos y amplía el interlineado del título Dos campus, una sola universidad.
+- Eventos: sede debajo del nombre (Sur, Norte y Bi-Campus, respectivamente), icono de ubicación y Más información al pie; enlaces provisionales a Contacto conservados.
+- Tour/Cita con igual ancho: foto arriba y cuerpo blanco en tour; tarjeta lila continua con icono naranja de asesor con diadema compacta en cita. CTA tour sólido y CTA cita de contorno, alineados.
+- Publicación autorizada tras revisión local.

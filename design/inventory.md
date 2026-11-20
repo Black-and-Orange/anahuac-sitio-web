@@ -149,3 +149,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-12: lic-porque2-cards incorpora séptima tarjeta de Internacionalización y movilidad en las ocho ingenierías, por solicitud explícita. Sin cambio al componente compartido.
 
 - 2026-11-19: ecn-show-nav de Estudia con nosotros incorpora iconos vectoriales de categoría, radios del sistema, selección morada y navegación móvil de una etiqueta entre flechas; teclado y seguimiento de activa.
+
+- 2026-11-19: ecn-visit2 de Estudia con nosotros: tarjetas equivalentes de tour y cita con cabecera, cuerpo y acción; cita lila con icono de asesor. Eventos incorporan sede bajo título y CTA informativo al pie.

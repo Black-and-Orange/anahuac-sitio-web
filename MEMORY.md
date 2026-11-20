@@ -773,3 +773,27 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - Estudia con nosotros, solo local: CTA Agenda tu visita cambia de naranja a morado con texto blanco para distinguirse de la siguiente sección naranja; conserva tamaño mayor y añade space-10 debajo.
 
 - Estudia con nosotros, solo local: primera imagen de galería alineada al texto mediante margen medido; avance automático cada 6s solo visible, pausa al interactuar/hover/foco, control Pausar/Reproducir y respeto a movimiento reducido.
+
+- Estudia con nosotros, solo local: texto del CTA Agenda tu visita y recórrelos aumentado a 22px en negritas con espaciado adecuado y ajuste de línea para móvil. Fondo negro y enlace conservados.
+
+- Estudia con nosotros, solo local: interlineado 1.18 en el título Dos campus, una sola universidad, sin alterar tamaño ni otros títulos.
+
+- Estudia con nosotros, propuesta local de eventos: fila de tres tarjetas (apiladas en móvil), título y descripción, sede con icono de ubicación y soft CTA Más información. Sedes pendientes marcadas Sede por confirmar; CTA provisional a contacto.html hasta recibir enlaces específicos. No se inventan fechas ni campus.
+
+- Eventos de Estudia con nosotros, local: sedes asignadas por el usuario en orden: Vive Anáhuac—Campus Sur; Clase muestra por área—Campus Norte; Taller vocacional—Bi-Campus. Enlaces específicos pendientes; CTA provisional a Contacto conservado.
+
+- Estudia con nosotros, eventos local: sede con icono movida inmediatamente debajo del nombre de cada evento; Más información conservado al pie.
+
+- Estudia con nosotros, propuesta local: Tour y Cita con mismo ancho y estructura; tour foto arriba sin texto superpuesto; cita cabecera lila con icono de conversación. Cuerpos blancos, botones morados al pie y alineados, contenido y enlaces conservados. Apilado móvil. Sin capturas ni publicación.
+
+- Estudia con nosotros, revisión local de visita: tarjeta de Cita completa en lila suave, cabecera transparente para superficie continua, icono naranja y título/botón morados. Tour blanco con foto conservado.
+
+- Estudia con nosotros, solo local: CTA Tour mantiene morado sólido; CTA Cita pasa a borde/texto morados y fondo transparente, sin cambiar dimensiones ni alineación.
+
+- Estudia con nosotros, local: icono de Cita pasa de 80px a 160px en escritorio y 104px en móvil ≤640px; trazo 1.2 para conservar ligereza y naranja existente. Sin capturas.
+
+- Estudia con nosotros, icono Cita local: sustituye caja de conversación por persona con diadema y micrófono, inspirado en referencia del usuario; naranja, trazo fino y tamaños aprobados conservados.
+
+- Estudia con nosotros, icono de asesor local: cabeza ampliada de radio 7 a 9, hombros de 11 a 15 y auriculares más compactos para equilibrar persona y diadema. Tamaño general y estilo conservados.
+
+- Estudia con nosotros, asesor local: diadema reducida a radio 10.5 y auriculares a 3.5×7; persona conservada. Micrófono más compacto.
