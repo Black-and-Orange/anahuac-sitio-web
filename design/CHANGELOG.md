@@ -1721,3 +1721,5 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 
 - Tras probar fondo cálido y composición asimétrica, se conserva la versión aprobada: tour y cita del mismo ancho, cita lila con icono naranja centrado, título negro y botón de contorno morado.
 - Se eliminan las reglas de las pruebas descartadas. Botones alineados y adaptación móvil conservados. Publicación autorizada.
+
+- Reparación de publicación: deploy-pages fijado a v4.0.0 por SHA y actions:read para consultar artefactos por REST, tras fallos repetidos de listado en v5. Contenido del sitio sin cambios.
