@@ -151,3 +151,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-19: ecn-show-nav de Estudia con nosotros incorpora iconos vectoriales de categoría, radios del sistema, selección morada y navegación móvil de una etiqueta entre flechas; teclado y seguimiento de activa.
 
 - 2026-11-19: ecn-visit2 de Estudia con nosotros: tarjetas equivalentes de tour y cita con cabecera, cuerpo y acción; cita lila con icono de asesor. Eventos incorporan sede bajo título y CTA informativo al pie.
+
+- 2026-11-20: ecn-visit2-event incorpora time lateral y ecn-event-content flexible, variante exclusiva de Estudia con nosotros.
+
+- 2026-11-20: revisión de fecha ecn-event-date: etiqueta morada a la derecha, día blanco y mes/año lila; sustituye fecha lateral sin fondo.
+
+- 2026-11-20: ecn-visit2-event usa cabecera título/sede y fecha; descripción y footer ocupan ambas columnas.

@@ -813,3 +813,13 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-20, Área Ciencias de la Salud, solo local: dos textos de Nutrición simplificados para prospectos según versión aprobada: afinidad sobre salud/alimentación/prevención e innovación; descripción sobre planes personalizados y proyectos de bienestar. Descripción estructurada sincronizada con afinidad.
 
 - 2026-11-20, Ciencias de la Salud, solo local: cuarta fila de Historias Anáhuac en morado con texto Pendiente testimonio y dos imágenes de referencia, sin nombre ni cita inventados, para mantener alternancia naranja/morado al repetirse el carrusel.
+
+- 2026-11-20, Estudia con nosotros, solo local: por nueva solicitud tour 60% y cita 40% en escritorio, conservando lila/icono naranja. Cabeceras de igual altura para alinear títulos y botones al pie; móvil mantiene tarjetas apiladas sin cambio de proporción.
+
+- 2026-11-20, Estudia con nosotros, local: fecha lateral 22 Mayo 2026 en los tres eventos por instrucción explícita de la usuaria; reemplaza Próximamente. Día grande morado, sede bajo título y CTA inferior; actualización manual.
+
+- 2026-11-20, revisión local de eventos: usuaria prefiere fecha al lado derecho; sustituye posición izquierda, mantiene formato y fechas.
+
+- 2026-11-20, eventos local: fecha derecha pasa a etiqueta morada con radio del sistema, día blanco recto y Mayo 2026 en lila debajo, como referencia de usuaria.
+
+- 2026-11-20, eventos local: jerarquía aprobada: título/sede junto a fecha en cabecera, descripción debajo a todo el ancho y Más información con separador inferior completo.

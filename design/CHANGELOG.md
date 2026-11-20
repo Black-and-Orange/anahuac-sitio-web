@@ -1737,3 +1737,9 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-20 — Continuidad de Historias de Ciencias de la Salud
 
 - Agrega cuarta fila morada con Pendiente testimonio y dos imágenes de referencia, sin identidad ni cita inventada. Mantiene alternancia naranja/morado en el ciclo del carrusel. Publicación autorizada.
+
+## 2026-11-20 — Visita y eventos de Estudia con nosotros
+
+- Tour al 60% y cita al 40% en escritorio, con cabeceras y botones alineados; conserva lila e icono naranja, y tarjetas apiladas en móvil.
+- Eventos con fecha morada a la derecha (22 Mayo 2026 en los tres, por instrucción de la usuaria), título y sede en cabecera, descripción y enlace inferior a todo el ancho. Adaptación intermedia a una columna para mantener legibilidad.
+- Revisión humana aprobada en local; comprobación de ajuste sin desbordamientos en escritorio y móvil.
