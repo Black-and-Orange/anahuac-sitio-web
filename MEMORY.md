@@ -727,3 +727,43 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-13, Engineering Management, solo local: por nueva instrucción del usuario el dato destacado 3 Summer Schools cambia a 4.5 Años. Las menciones curriculares de Summer Schools se conservan.
 
 - 2026-11-13, Engineering Management, corrección local: faltaba cargar assets/review/review.js al final del HTML; se agrega la misma integración usada en las otras ingenierías para habilitar review=true con token válido.
+
+- 2026-11-19: propuesta local para pestañas de Así se vive en Estudia con nosotros: botones con fondo lila, tipografía mayor, selección morada y texto blanco, distribución adaptable. Sin cambios de contenido; pendiente de revisión y publicación.
+
+- Estudia con nosotros: se descarta propuesta de botones con fondos por demasiado protagonismo. Nueva propuesta local conserva tipografía y tamaño originales, sin fondos ni cajas; jerarquía por opacidad y subrayado naranja fino, con separador tenue. Usuario solicita revisión directa en local, sin capturas.
+
+- Estudia con nosotros, revisión local: usuario prefiere base original con marco fino y sombreado lila suave por pestaña; tamaño y tipografía originales, selección en negritas y línea naranja conservadas. Sin capturas ni publicación.
+
+- Estudia con nosotros, solo local: pestañas con esquinas rectas por solicitud del usuario, apariencia tipo archivero. Se conserva borde fino, lila tenue y selección con naranja y negritas.
+
+- Estudia con nosotros, solo local: pestaña activa sin línea naranja inferior, integrada a la línea continua del módulo mediante borde inferior transparente y fondo del módulo; apariencia de archivero, esquinas rectas y negritas conservadas.
+
+- Estudia con nosotros, solo local: pestañas contiguas sin separación y con un único borde divisor compartido; seleccionada abierta por abajo.
+
+- Estudia con nosotros, solo local: redondeado únicamente en las dos esquinas superiores de cada pestaña; base recta, divisores compartidos y activa abierta conservados.
+
+- Estudia con nosotros, propuesta local: pestañas inactivas en morado oscuro y texto blanco; activa mantiene fondo claro, negritas y base abierta. Esquinas superiores redondeadas y borde divisor único conservados.
+
+- Estudia con nosotros, local: indicador naranja solo en el borde superior de la pestaña activa; se oculta inmediatamente al cerrar, eliminando la animación residual inferior. Base abierta conservada.
+
+- Corrección local del indicador: naranja debajo del texto de la pestaña activa, no arriba; mantiene base abierta e inactivas sin indicador.
+
+- Estudia con nosotros, solo local: más espacio interior en pestañas (space-6/space-7), mayor separación superior y hacia el contenido (space-10), morado inactivo suavizado conservando letras blancas y desplazamiento horizontal si no caben. Estilo de archivero y selección naranja conservados. Usuario pide revisión directa sin capturas.
+
+- 2026-11-19: por instrucción final del usuario se descartan las propuestas locales de pestañas y se restaura el diseño original publicado de Estudia con nosotros (CSS y referencia de hoja de estilos). Sin publicación ni cambios al contenido.
+
+- Estudia con nosotros, nueva propuesta local aprobada para prueba: base original con 18px escritorio/16px móvil, mayor área de pulsación, fondo lila solo activa, naranja y negritas. Navegación horizontal contenida y activa visible al cambiar; teclado con flechas/Home/End. Sin capturas para el usuario ni publicación.
+
+- 2026-11-19, Estudia con nosotros, propuesta local basada en referencia de navegación con iconos: siete SVG de línea propios por categoría, tarjetas blancas con divisores finos y activa morada con texto/icono blanco y acento naranja. Tipografía actual conservada y desplazamiento móvil existente. Sin publicación.
+
+- Estudia con nosotros, propuesta local de categorías con iconos: usuario aprueba y pide radio redondeado del sitio. Aplicado radius-button a las pestañas y separación mínima para respetar las esquinas, conservando iconos y colores.
+
+- Estudia con nosotros, solo local: a ≤640px pestañas compactas con icono sobre etiqueta, dos filas de texto como objetivo, fila deslizable que muestra parte de siguiente categoría y flechas debajo junto al contenido. Activa conserva morado y seguimiento visible. Escritorio sin cambio por estas reglas. Sin capturas.
+
+- Estudia con nosotros, móvil local: flechas junto a la tira de categorías, en columna compacta a su derecha para mantener superficie táctil y espacio de etiquetas; escritorio sin cambios.
+
+- Estudia con nosotros, móvil local: una categoría completa por vista, sin asomar la siguiente, con una flecha a cada lado en la misma línea. Reemplaza distribución anterior de flechas en columna. Escritorio intacto.
+
+- Estudia con nosotros, local: retiradas las siete etiquetas naranjas de categoría y contador (ej. DEPORTE 01 / 07) sobre los títulos del showcase. Se conservan navegación, títulos y contenidos.
+
+- Estudia con nosotros, solo local: retirada la etiqueta Montañismo de Deportes por solicitud del usuario.

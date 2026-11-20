@@ -147,3 +147,5 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-11: lic-inst-slider compartido utilizado en las ocho ingenierías; imágenes de referencia y nombres por carrera, CTA de tour. Actuaría y Ciencia de Datos sin cambios.
 
 - 2026-11-12: lic-porque2-cards incorpora séptima tarjeta de Internacionalización y movilidad en las ocho ingenierías, por solicitud explícita. Sin cambio al componente compartido.
+
+- 2026-11-19: ecn-show-nav de Estudia con nosotros incorpora iconos vectoriales de categoría, radios del sistema, selección morada y navegación móvil de una etiqueta entre flechas; teclado y seguimiento de activa.

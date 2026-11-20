@@ -73,10 +73,33 @@
       navbtns.forEach((b, k) => {
         b.classList.toggle("is-active", k === i);
         b.setAttribute("aria-selected", k === i ? "true" : "false");
+        b.tabIndex = k === i ? 0 : -1;
       });
+      const nav = sec.querySelector(".ecn-show-nav");
+      const active = navbtns[i];
+      if (nav && active) {
+        const bounds = nav.getBoundingClientRect();
+        const item = active.getBoundingClientRect();
+        if (item.left < bounds.left || item.right > bounds.right) {
+          nav.scrollLeft += item.left < bounds.left ? item.left - bounds.left : item.right - bounds.right;
+        }
+      }
     }
 
     navbtns.forEach((b, k) => b.addEventListener("click", () => go(k)));
+    navbtns.forEach((b, k) => {
+      b.tabIndex = k === i ? 0 : -1;
+      b.addEventListener("keydown", (event) => {
+        const target = event.key === "ArrowRight" ? k + 1
+          : event.key === "ArrowLeft" ? k - 1
+          : event.key === "Home" ? 0
+          : event.key === "End" ? slides.length - 1 : null;
+        if (target === null) return;
+        event.preventDefault();
+        go(target);
+        navbtns[i].focus({ preventScroll: true });
+      });
+    });
     if (prev) prev.addEventListener("click", () => go(i - 1));
     if (next) next.addEventListener("click", () => go(i + 1));
 

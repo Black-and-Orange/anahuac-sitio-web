@@ -1696,3 +1696,10 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 ## 2026-11-13 — Comentarios de Engineering Management
 
 - Agrega la carga del módulo compartido assets/review/review.js que faltaba en esta página. Botón Comentar y activación verificados en local; otras siete ingenierías verificadas en público. Publicación autorizada.
+
+## 2026-11-19 — Navegación de Estudia con nosotros
+
+- Categorías de Así se vive con siete iconos vectoriales relacionados, bordes redondeados, fondo blanco y selección morada con acento naranja.
+- En móvil: icono sobre etiqueta, una categoría completa entre flechas, sin recortar la siguiente. Seguimiento de la activa y navegación por teclado. Escritorio conserva disposición horizontal.
+- Retira las siete etiquetas naranjas de nombre/contador y Montañismo de Deportes.
+- Propuesta final revisada por el usuario y autorizada para publicar; base sincronizada con GitHub.
