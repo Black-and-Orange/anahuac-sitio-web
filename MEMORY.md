@@ -843,3 +843,7 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-20, índice local: Terapia Física y Rehabilitación cambia a EN AJUSTES; conserva estilo de revisión y conteo agrupado.
 
 - 2026-11-20, índice local: EN AJUSTES de Terapia Física usa azul (accent-blue) y fondo azul suave, sin alterar el conteo.
+
+- 2026-11-23, Engineering Management, local: hero compacto con H1 de escala heading-3 (40px) y estructura del molde Industrial. Denominación inglesa sale del H1 a texto independiente gris heading-4 para que el autoajuste no reduzca el título por contar tipografías de distintas alturas. Foto, botones, claim y chips conservados.
+
+- 2026-11-23, Engineering Management local: botones del hero en dos columnas iguales sin salto de fila; texto adaptable, tamaño móvil y padding por tokens para conservar ambos en paralelo sin desbordamiento.

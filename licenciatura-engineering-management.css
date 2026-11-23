@@ -39,10 +39,11 @@
 
 /* «(Engineering Management)»: marca entre paréntesis, un escalón por debajo del
    nombre oficial, en una línea propia con separación. */
-.pagina-engmgmt h1 .eng-hero-marca {
+.pagina-engmgmt .eng-hero-marca {
   display: block;
-  margin-top: var(--space-8);
-  font-size: 0.48em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--heading-4-size);
   line-height: 1.2;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -243,5 +244,40 @@
 @media (max-width: 760px) {
   .pagina-engmgmt .engm-colab-extra {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Hero compacto como Industrial; la denominación inglesa conserva jerarquía propia. */
+.pagina-engmgmt .lic-hero h1 {
+  width:100%;
+  font-size:var(--heading-3-size);
+  line-height:1.05;
+}
+
+@media (max-width:480px) {
+  .pagina-engmgmt .lic-hero h1 {
+    font-size:clamp(var(--heading-4-size), 7.5vw, var(--heading-3-size));
+  }
+}
+
+/* Dos acciones en paralelo, ajustadas al ancho disponible de la foto. */
+.pagina-engmgmt .lic-hero-media .button-row {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  width:100%;
+}
+.pagina-engmgmt .lic-hero-media .button-row .btn {
+  min-width:0;
+  width:100%;
+  padding:var(--space-5) var(--space-4);
+  justify-content:center;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:normal;
+}
+@media (max-width:480px) {
+  .pagina-engmgmt .lic-hero-media .button-row .btn {
+    font-size:var(--paragraph-size);
+    padding:var(--space-4) var(--space-2);
   }
 }

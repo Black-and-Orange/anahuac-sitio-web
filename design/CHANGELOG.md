@@ -1749,3 +1749,8 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Agrega Contacto y Test vocacional; excluye Costos y Becas por indicación de la usuaria.
 - Actualiza estados aprobados: autorizadas, revisión de coordinador, pendientes de cliente en naranja, revisiones sin respuesta en rojo y Terapia Física en ajustes en azul.
 - Conteo agrupado: 10 autorizadas, 21 en revisión (incluye ajustes y sin respuesta), 4 pendientes de cliente; 35 páginas.
+
+## 2026-11-23 — Hero de Engineering Management
+
+- Ajusta el título a escala compacta equivalente a la referencia de Industrial. Denominación inglesa en texto gris independiente, evitando reducción excesiva por el ajuste automático del H1.
+- Conserva foto, claim y chips; botones en dos columnas iguales, con texto y padding adaptables en móvil. Revisión local aprobada por la usuaria.
