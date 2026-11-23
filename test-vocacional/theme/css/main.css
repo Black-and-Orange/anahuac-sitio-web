@@ -4621,6 +4621,7 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
 .tv-carreras {
   list-style: none;
   padding: 0;
+  /* el aire entre grupos lo pone la lista, no la cabecera siguiente */
   margin: 0 0 var(--space-11);
   display: grid;
   /* auto-FILL, no auto-fit: con una sola ganadora, auto-fit la estiraria a
@@ -4685,18 +4686,39 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   gap: var(--space-4);
   padding: var(--space-8);
 }
-/* El area es ROTULO de categoria, no un segundo renglon del nombre: va arriba,
-   en versalitas y con el gris de apoyo. Antes iba debajo y en gris, y las dos
-   lineas se leian como una sola cosa partida en dos. */
-.tv-carrera-area {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: var(--eyebrow-size);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
+/* CABECERA DE GRUPO. El area encabeza sus licenciaturas en vez de repetirse
+   como rotulo en cada tarjeta: con tres carreras de la misma area el rotulo
+   salia tres veces seguidas y aun asi se veian mezcladas. Lleva al lado el
+   soft CTA de explorar esa area. */
+.tv-area-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin: 0 0 var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-width-thin) solid var(--border-hairline);
 }
+.tv-area-titulo {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: var(--heading-4-size);
+  line-height: var(--lh-heading);
+  color: var(--color-text);
+}
+.tv-area-explorar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-5);
+  font-family: var(--font-body);
+  font-size: var(--paragraph-size);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-brand);
+  white-space: nowrap;
+}
+.tv-area-explorar:hover .tv-flecha { width: var(--space-10); }
 .tv-carrera-nombre {
   margin: 0;
   font-family: var(--font-heading);
@@ -4721,19 +4743,6 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   font-weight: var(--weight-medium);
   white-space: nowrap;
 }
-/* Las que no alcanzaron el puntaje mas alto no son tarjetas: son renglones.
-   Se acercan, pero menos, y la pagina tiene que decirlo. */
-.tv-carreras--resto { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
-.tv-carrera--mini {
-  grid-template-rows: auto;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-}
-.tv-carrera--mini .tv-carrera-texto { display: grid; gap: var(--space-1); padding: var(--space-5) var(--space-8); }
-.tv-carrera--mini .tv-carrera-nombre { font-size: var(--heading-5-size); }
-.tv-carrera--mini .tv-carrera-area { font-size: var(--size-13); }
-.tv-carrera--mini .tv-carrera-enlace { align-self: center; margin-top: 0; padding: 0 var(--space-8) 0 0; }
-
 /* Flecha de "esto lleva a algun lado". Es la misma del sitio (.long-arrow),
    mas corta: indicador de destino, no adorno de seccion. Crece en hover, que
    es el unico movimiento que se permite aqui. */
@@ -4758,22 +4767,35 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
 }
 .tv-carrera--enlazada:hover .tv-flecha { width: var(--space-10); }
 
+/* DOS cierres, no uno. Son momentos distintos del embudo —orientacion
+   vocacional y cita con admisiones— y dentro del mismo bloque competian.
+   Se parten a la mitad y cada uno carga un solo boton. */
+.tv-cierres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(34ch, 1fr));
+  gap: var(--space-8);
+  align-items: stretch;
+}
 .tv-cierre {
   display: grid;
-  /* Leonel pesaba poco contra un bloque de mil ciento sesenta de ancho y
-     quedaban casi doscientos de hueco muerto entre el texto y el. Columna de
-     texto mas corta y personaje mas grande: sigue parado sobre el piso del
-     bloque, que es de donde sale su gracia. */
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
-  gap: var(--space-11);
-  align-items: end;
-  padding: var(--space-11) var(--space-11) 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: end;
+  padding: var(--space-10);
   border-radius: var(--radius-section);
   background: var(--surface-accent);
   color: var(--color-text-invert);
   overflow: hidden;
 }
-.tv-cierre-texto { padding-bottom: var(--space-11); }
+/* Solo el primero lleva a Leonel: partido en dos ya no cabe de cuerpo entero
+   en los dos, y es el bloque de la invitacion el que lo pide. Sigue parado
+   sobre el piso del bloque, que es de donde sale su gracia. */
+.tv-cierre--marca {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-9);
+  padding-bottom: 0;
+}
+.tv-cierre--marca .tv-cierre-texto { padding-bottom: var(--space-10); }
 /* El cierre estaba a la misma escala que el resultado: la respuesta del test y
    el boton de ventas gritaban igual de fuerte. Baja al mismo cuerpo que el
    encabezado del resultado, que es su pareja: abre y cierra la pagina. */
@@ -4786,9 +4808,9 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   line-height: var(--lh-snug);
   color: var(--color-text-invert);
 }
-.tv-cierre p { margin: 0 0 var(--space-10); max-width: 42ch; font-family: var(--font-body); font-size: var(--heading-6-size); line-height: var(--lh-body); color: var(--color-text-invert); }
+.tv-cierre p { margin: 0 0 var(--space-9); max-width: 38ch; font-family: var(--font-body); font-size: var(--heading-6-size); line-height: var(--lh-body); color: var(--color-text-invert); }
 .tv-cierre-acciones { display: flex; flex-wrap: wrap; gap: var(--space-5); }
-.tv-cierre-imagen { justify-self: end; align-self: end; max-width: 26ch; }
+.tv-cierre-imagen { justify-self: end; align-self: end; max-width: 11ch; }
 .tv-cierre-imagen img { display: block; width: 100%; height: auto; }
 .tv-cierre .btn { margin: 0; }
 .tv-secundario {
@@ -4867,10 +4889,6 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   .tv-intro-imagen { justify-self: center; max-width: 50%; }
   .tv-intro h1 { font-size: var(--h2-1180); }
   .tv-hero, .tv-corte { grid-template-columns: 1fr; gap: var(--space-9); }
-  /* El cierre se queda en dos columnas hasta el telefono. Apilado, Leonel
-     —que es alto y angosto— empujaba el bloque a casi mil de alto para un
-     CTA de tres lineas. A esta anchura texto y personaje caben de lado. */
-  .tv-cierre { gap: var(--space-9); }
   /* Apilado, el botón caía ENTRE el texto y la lista: había que bajar a elegir
      y volver a subir para continuar. `display: contents` sube los hijos del
      bloque de texto al flex del contenedor para poder reordenarlos. */
@@ -4878,18 +4896,12 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   .tv-corte:not(.tv-corte--eleccion) .tv-corte-texto { display: contents; }
   .tv-corte:not(.tv-corte--eleccion) .tv-areas-lista { order: 2; }
   .tv-corte:not(.tv-corte--eleccion) .btn-orange { order: 3; }
-  /* Leonel ya no se esconde en móvil: con el bloque apilado cabe debajo del
-     texto, parado sobre el borde. Es el momento emocional del cierre y en
-     teléfono es donde más alumnos lo van a ver. */
-  .tv-cierre-imagen { max-width: 22ch; }
   .tv-corte { padding: var(--space-11) var(--space-9); }
   .tv-corte h2 { font-size: var(--size-38); max-width: none; }
   .tv-cierre h3, .tv-hero h2 { max-width: none; }
   /* Apilada, la foto pasa a banda: a 16/10 y ancho completo se comia la
      pantalla entera y el alumno llegaba a las licenciaturas a ciegas. */
   .tv-hero-imagen { aspect-ratio: 21 / 9; }
-  /* El cierre apilado: Leonel se centra y deja de ser columna. */
-  .tv-cierre { padding-bottom: 0; }
   .tv-corte--eleccion { padding: var(--space-10) var(--space-9); }
   .tv-corte--eleccion h2 { font-size: var(--size-30); }
   /* A tres columnas los nombres largos se partían en cuatro renglones y la fila
@@ -4907,13 +4919,14 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
   .tv-enunciado { font-size: var(--heading-4-size); }
   .tv-pregunta { gap: var(--space-8); }
   .tv-avance { margin-bottom: var(--space-8); }
-  .tv-corte, .tv-cierre { padding: var(--space-10) var(--space-7) 0; }
-  /* Ahora si se apila. Leonel sigue visible —es el momento emocional del
-     cierre y en telefono es donde mas alumnos lo van a ver— pero medido:
-     la imagen es alta y angosta, y suelta se come la pantalla. */
-  .tv-cierre { grid-template-columns: 1fr; }
-  .tv-cierre-imagen { justify-self: center; max-width: 20ch; }
-  .tv-cierre-texto { padding-bottom: 0; }
+  .tv-corte { padding: var(--space-10) var(--space-7) 0; }
+  .tv-cierre { padding: var(--space-9) var(--space-7); }
+  /* Leonel sigue visible —es el momento emocional del cierre y en telefono es
+     donde mas alumnos lo van a ver— pero baja de tamano: la imagen es alta y
+     angosta, y suelta se come la pantalla. */
+  .tv-cierre--marca { grid-template-columns: 1fr; padding-bottom: 0; }
+  .tv-cierre--marca .tv-cierre-texto { padding-bottom: var(--space-7); }
+  .tv-cierre-imagen { justify-self: center; max-width: 13ch; }
   .tv-corte h2 { font-size: var(--size-30); }
   /* El marco y el cierre bajan por debajo del nombre de la licenciatura: a
      esta anchura los tres cabian en el mismo cuerpo y la jerarquia se aplanaba
@@ -4941,9 +4954,8 @@ a.tv-otra-area-ficha:hover .tv-flecha { width: var(--space-10); }
      justo lo que la pantalla tiene que conseguir. */
   .tv-carrera-texto { padding: var(--space-7); }
   .tv-carrera-nombre { font-size: var(--size-28); }
-  .tv-carrera--mini { grid-template-columns: minmax(0, 1fr); }
-  .tv-carrera--mini .tv-carrera-texto { padding: var(--space-5) var(--space-7); }
-  .tv-carrera--mini .tv-carrera-enlace { align-self: start; padding: 0 var(--space-7) var(--space-5); }
+  .tv-area-cabecera { gap: var(--space-4); }
+  .tv-area-titulo { font-size: var(--size-22); }
   .tv-hitos { gap: var(--space-4); }
 }
 

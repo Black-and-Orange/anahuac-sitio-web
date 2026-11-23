@@ -681,53 +681,56 @@
       panel.appendChild(hero);
 
       /* licenciaturas — lo que el alumno vino a buscar.
-         Van en dos grupos y no en una rejilla plana. El instrumento da dos
-         reactivos por carrera, asi que el puntaje va de cero a ocho y los
-         empates son la norma: numerarlas 01..05 inventaria un orden que no
-         sostiene. Agruparlas por puntaje dice lo unico que si sostiene, que
-         estas quedaron mas cerca que aquellas. Tampoco hay barras ni cifras,
-         por la misma razon por la que se quitaron los medidores de afinidad. */
-      var tope = ganadoras.length ? ganadoras[0].puntaje : 0;
-      var cerca = ganadoras.filter(function (f) { return f.puntaje === tope; });
-      var tambien = ganadoras.filter(function (f) { return f.puntaje !== tope; });
+         Se agrupan por AREA OFICIAL del sitio, no por puntaje. Antes salian
+         en dos grupos —las del puntaje mas alto y el resto— y el area iba de
+         rotulo en cada tarjeta; se veian mezcladas y el rotulo se repetia
+         tres veces seguidas. Ahora el area encabeza su grupo y la tarjeta se
+         queda con foto, nombre y enlace.
 
-      function filaCarrera(fila, compacta) {
-        var item = crear("li", compacta ? "tv-carrera tv-carrera--mini" : "tv-carrera");
-        if (!compacta) {
-          var foto = fotoDe(fila.lic);
-          // Miniatura cuadrada, no el banner de antes. La mitad de las carreras
-          // tiene foto propia y la otra mitad hereda la de su area en duotono:
-          // a tamano de banner la mezcla leia como un error de carga. Del
-          // tamano de la del desempate lee como marca de categoria, que es lo
-          // que es, y de paso el bloque reusa el lenguaje de aquella pantalla.
-          var marcoC = crear("div", "tv-carrera-foto" + (foto.esDeArea ? " tv-carrera-foto--area" : ""));
-          if (foto.ruta) {
-            var imgC = document.createElement("img");
-            imgC.src = imagen(foto.ruta);
-            imgC.alt = "";
-            imgC.loading = "lazy";
-            marcoC.appendChild(imgC);
-          }
-          item.appendChild(marcoC);
+         El match se calcula ANTES y no se recalcula al agrupar: `ganadoras`
+         ya viene ordenada de mayor a menor, asi que dentro de cada area el
+         orden sale solo. Solo aparecen las areas que tienen alguna carrera en
+         el resultado; a ninguna carrera no evaluada se le inventa afinidad.
+         Una licenciatura de dos areas se muestra en la principal —la primera
+         de su lista— y no se duplica. */
+      var porArea = [];
+      var indiceArea = {};
+      ganadoras.forEach(function (fila) {
+        var id = fila.lic.areaSitio;
+        if (!indiceArea[id]) {
+          indiceArea[id] = { id: id, area: areasPorId[id], filas: [] };
+          porArea.push(indiceArea[id]);
         }
+        indiceArea[id].filas.push(fila);
+      });
+      // El area que contiene la carrera de mayor match encabeza la pantalla.
+      porArea.sort(function (a, b) { return b.filas[0].puntaje - a.filas[0].puntaje; });
+
+      function filaCarrera(fila) {
+        var item = crear("li", "tv-carrera");
+        var foto = fotoDe(fila.lic);
+        // La mitad de las carreras tiene foto propia y la otra mitad hereda la
+        // de su area en tono de categoria. El duotono claro las distingue sin
+        // que la fila lea como un error de carga.
+        var marcoC = crear("div", "tv-carrera-foto" + (foto.esDeArea ? " tv-carrera-foto--area" : ""));
+        if (foto.ruta) {
+          var imgC = document.createElement("img");
+          imgC.src = imagen(foto.ruta);
+          imgC.alt = "";
+          imgC.loading = "lazy";
+          marcoC.appendChild(imgC);
+        }
+        item.appendChild(marcoC);
         var textoC = crear("div", "tv-carrera-texto");
-        // El area va ARRIBA, como rotulo de categoria, y el nombre debajo. Es
-        // el orden editorial y de un vistazo se distingue que es cada cosa;
-        // abajo y en gris las dos se leian como una sola linea de dos renglones.
-        var areaLic = areasPorId[fila.lic.areaSitio];
-        if (areaLic) textoC.appendChild(crear("p", "tv-carrera-area", areaLic.nombre));
         textoC.appendChild(crear("h4", "tv-carrera-nombre", fila.lic.nombre));
         item.appendChild(textoC);
         if (fila.lic.url) {
           var enlace = crear("a", "tv-carrera-enlace", config.explorar);
           enlace.href = fila.lic.url;
           enlace.appendChild(crear("span", "tv-flecha"));
-          // En la tarjeta el enlace va DENTRO del texto, para poder empujarlo
-          // al pie y que los de todas las tarjetas queden a la misma altura
-          // aunque un nombre ocupe dos renglones y otro uno. En la fila
-          // compacta va fuera, a la derecha.
-          if (compacta) item.appendChild(enlace);
-          else textoC.appendChild(enlace);
+          // Va DENTRO del texto para empujarlo al pie y que los enlaces de un
+          // mismo renglon queden alineados aunque un nombre ocupe dos lineas.
+          textoC.appendChild(enlace);
           // Solo entonces se comporta como enlace: hoy solo Psicologia tiene
           // URL y encenderlas todas prometeria algo que no se cumple.
           item.className += " tv-carrera--enlazada";
@@ -735,45 +738,71 @@
         return item;
       }
 
+      /* Cabecera de grupo: el nombre del area y su soft CTA. De las ocho areas
+         solo tres tienen pagina propia hoy; las demas caen en la oferta
+         academica, que es el destino mas cercano que existe. */
+      function cabeceraArea(grupo) {
+        var cab = crear("div", "tv-area-cabecera");
+        cab.appendChild(crear("h4", "tv-area-titulo", grupo.area ? grupo.area.nombre : ""));
+        if (grupo.area && grupo.area.url) {
+          var ex = crear("a", "tv-area-explorar", config.explorarArea);
+          ex.href = grupo.area.url;
+          ex.appendChild(crear("span", "tv-flecha"));
+          cab.appendChild(ex);
+        }
+        return cab;
+      }
+
       panel.appendChild(crear("h3", "tv-titulo-bloque", config.resultadoCarreras));
-      var rejilla = crear("ul", "tv-carreras");
-      cerca.forEach(function (f) { rejilla.appendChild(filaCarrera(f, false)); });
-      panel.appendChild(rejilla);
+      porArea.forEach(function (grupo) {
+        panel.appendChild(cabeceraArea(grupo));
+        var rejilla = crear("ul", "tv-carreras");
+        grupo.filas.forEach(function (f) { rejilla.appendChild(filaCarrera(f)); });
+        panel.appendChild(rejilla);
+      });
 
-      if (tambien.length) {
-        panel.appendChild(crear("h3", "tv-titulo-bloque", config.resultadoCarrerasResto));
-        var rejillaB = crear("ul", "tv-carreras tv-carreras--resto");
-        tambien.forEach(function (f) { rejillaB.appendChild(filaCarrera(f, true)); });
-        panel.appendChild(rejillaB);
+      /* cierre: ahora son DOS llamados, no uno. Son momentos distintos del
+         embudo y antes competian dentro del mismo bloque: el primero invita a
+         ORIENTACION vocacional —todavia no se decide— y conserva a Leonel; el
+         segundo es el paso practico, agendar con admisiones. Leonel se queda
+         solo en el primero: partido en dos no cabia de cuerpo entero, y es el
+         bloque emocional el que lo pide. */
+      function bloqueCierre(titulo, texto, etiqueta, destino, conLeonel) {
+        var b = crear("div", "tv-cierre" + (conLeonel ? " tv-cierre--marca" : ""));
+        var t = crear("div", "tv-cierre-texto");
+        t.appendChild(crear("h3", null, titulo));
+        t.appendChild(crear("p", null, texto));
+        var acc = crear("div", "tv-cierre-acciones");
+        if (destino) {
+          var cta = crear("a", "btn btn-orange", etiqueta);
+          cta.href = destino;
+          acc.appendChild(cta);
+        }
+        // El PDF del resultado es tarea aparte; el gancho queda listo y no
+        // pinta nada mientras el field siga vacio.
+        if (conLeonel && config.pdfUrl) {
+          var pdf = crear("a", "tv-secundario", config.pdfBoton);
+          pdf.href = config.pdfUrl;
+          acc.appendChild(pdf);
+        }
+        t.appendChild(acc);
+        b.appendChild(t);
+        if (conLeonel && config.cierreImagen) {
+          var marcoL = crear("div", "tv-cierre-imagen");
+          var imgL = document.createElement("img");
+          imgL.src = config.cierreImagen;
+          imgL.alt = "";
+          marcoL.appendChild(imgL);
+          b.appendChild(marcoL);
+        }
+        return b;
       }
-
-      /* cierre: la conversión */
-      var cierre = crear("div", "tv-cierre");
-      var textoCierre = crear("div", "tv-cierre-texto");
-      textoCierre.appendChild(crear("h3", null, config.cierreTitulo));
-      textoCierre.appendChild(crear("p", null, config.cierreTexto));
-      var acciones = crear("div", "tv-cierre-acciones");
-      if (config.asesorUrl) {
-        var cta = crear("a", "btn btn-orange", config.asesorBoton);
-        cta.href = config.asesorUrl;
-        acciones.appendChild(cta);
-      }
-      if (config.pdfUrl) {
-        var pdf = crear("a", "tv-secundario", config.pdfBoton);
-        pdf.href = config.pdfUrl;
-        acciones.appendChild(pdf);
-      }
-      textoCierre.appendChild(acciones);
-      cierre.appendChild(textoCierre);
-      if (config.cierreImagen) {
-        var marcoL = crear("div", "tv-cierre-imagen");
-        var imgL = document.createElement("img");
-        imgL.src = config.cierreImagen;
-        imgL.alt = "";
-        marcoL.appendChild(imgL);
-        cierre.appendChild(marcoL);
-      }
-      panel.appendChild(cierre);
+      var cierres = crear("div", "tv-cierres");
+      cierres.appendChild(bloqueCierre(config.cierreTitulo, config.cierreTexto,
+                                       config.asesorBoton, config.asesorUrl, true));
+      cierres.appendChild(bloqueCierre(config.cierreTitulo2, config.cierreTexto2,
+                                       config.asesorBoton2, config.asesorUrl2, false));
+      panel.appendChild(cierres);
 
       var pie = crear("div");
       var fila = crear("div", "tv-cierre-pie");
