@@ -33,7 +33,7 @@
          de beneficios (M2), lista «cómo funciona» (M3), tabla de fechas (M4), bloque
          del formulario (M5) y la barra con CTA fijo en móvil. -->
     <link rel="stylesheet" href="psicologia.css" />
-    <link rel="stylesheet" href="curso-examen-admision.css" />
+    <link rel="stylesheet" href="curso-examen-admision.css?v=20261124-revision-web-movil" />
 
     <!-- Datos estructurados: BreadcrumbList + Course. El FAQPage va junto a su
          módulo (M6), con texto idéntico al acordeón. -->
@@ -199,15 +199,15 @@
               Un curso <strong>en línea</strong> donde repasas Matemáticas y Español, resuelves ejercicios y aclaras tus dudas con maestros expertos. <strong>Sin costo adicional</strong> a tu examen de admisión.
             </p>
 
-            <div class="button-row reveal" data-reveal>
-              <a class="btn btn-orange" href="#registro">Regístrate</a>
-            </div>
-
             <ul class="curso-chips reveal" data-reveal aria-label="Características del curso">
               <li><span class="curso-chip-ico" aria-hidden="true">●</span>100% en línea</li>
               <li><span class="curso-chip-ico" aria-hidden="true">●</span>100% en español</li>
               <li><span class="curso-chip-ico" aria-hidden="true">●</span>Sin costo adicional</li>
             </ul>
+
+            <div class="button-row reveal" data-reveal>
+              <a class="btn btn-orange" href="#registro">Regístrate</a>
+            </div>
           </div>
 
           <div class="lic-hero-media reveal" data-reveal>
@@ -338,7 +338,7 @@
           <div class="section-intro wide reveal" data-reveal>
             <p class="tagline"><span></span>Calendario</p>
             <h2>Elige tus fechas</h2>
-            <p>Regístrate a la fecha que mejor te acomode. Puedes inscribirte a más de una.</p>
+            <p>Consulta las fechas de 2026 y elige tu sesión en el formulario de registro. Puedes inscribirte a más de una.</p>
           </div>
 
           <!-- Tabla administrable (HubDB): se carga el ciclo vigente. Hoy muestra el
@@ -361,14 +361,14 @@
                   <td data-label="Horario">15:00–18:00 h</td>
                   <td data-label="Fechas">
                     <ul class="curso-fechas-chips">
-                      <li>24 ago</li>
-                      <li>7 sep</li>
-                      <li>21 sep</li>
-                      <li>5 oct</li>
-                      <li>19 oct</li>
-                      <li>4 nov</li>
-                      <li>18 nov</li>
-                      <li>30 nov</li>
+                      <li><time datetime="2026-08-24">24 ago</time></li>
+                      <li><time datetime="2026-09-07">7 sep</time></li>
+                      <li><time datetime="2026-09-21">21 sep</time></li>
+                      <li><time datetime="2026-10-05">5 oct</time></li>
+                      <li><time datetime="2026-10-19">19 oct</time></li>
+                      <li><time datetime="2026-11-04">4 nov</time></li>
+                      <li><time datetime="2026-11-18">18 nov</time></li>
+                      <li><time datetime="2026-11-30">30 nov</time></li>
                     </ul>
                   </td>
                 </tr>
@@ -378,21 +378,21 @@
                   <td data-label="Horario">15:00–18:00 h</td>
                   <td data-label="Fechas">
                     <ul class="curso-fechas-chips">
-                      <li>25 ago</li>
-                      <li>8 sep</li>
-                      <li>22 sep</li>
-                      <li>6 oct</li>
-                      <li>20 oct</li>
-                      <li>3 nov</li>
-                      <li>17 nov</li>
-                      <li>1 dic</li>
+                      <li><time datetime="2026-08-25">25 ago</time></li>
+                      <li><time datetime="2026-09-08">8 sep</time></li>
+                      <li><time datetime="2026-09-22">22 sep</time></li>
+                      <li><time datetime="2026-10-06">6 oct</time></li>
+                      <li><time datetime="2026-10-20">20 oct</time></li>
+                      <li><time datetime="2026-11-03">3 nov</time></li>
+                      <li><time datetime="2026-11-17">17 nov</time></li>
+                      <li><time datetime="2026-12-01">1 dic</time></li>
                     </ul>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            <p class="curso-fechas-nota">Las fechas son las mismas para <strong>ambos campus</strong> (Norte y Sur).</p>
+            <p class="curso-fechas-nota">Calendario 2026 · Las fechas son las mismas para <strong>ambos campus</strong> (Norte y Sur). La selección de sesión se realiza en el formulario.</p>
             <a class="btn btn-orange curso-fechas-cta" href="#registro">Regístrate <span aria-hidden="true">›</span></a>
           </div>
         </div>
@@ -413,7 +413,7 @@
                 <h2>Regístrate</h2>
               </div>
               <p>Déjanos tus datos y elige tu fecha. Te enviaremos el <strong>enlace de Zoom al correo</strong> que registres.</p>
-              <p class="curso-registro-privacidad">Al registrarte aceptas nuestro <a href="#" rel="noopener">Aviso de Privacidad</a>.</p>
+              <p class="curso-registro-privacidad">Al registrarte aceptas nuestro <a href="https://www.anahuac.mx/mexico/proteccion-de-datos-personales/AvisosdePrivacidad/ContactoAPREU" target="_blank" rel="noopener">Aviso de Privacidad</a>.</p>
             </div>
 
             <div class="curso-registro-form">
@@ -561,7 +561,7 @@
               <p>Mientras te preparas, puedes ir avanzando.</p>
             </div>
 
-            <a class="paso-card reveal" data-reveal href="fechas-de-examenes.html" aria-label="Conoce el proceso de admisión">
+            <a class="paso-card reveal" data-reveal href="proceso-de-admision.html" aria-label="Conoce el proceso de admisión">
               <span class="paso-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a1 1 0 0 1 1 1v15l-5-2.5L7 20V5a1 1 0 0 1 1-1z" /><path d="M9.5 9h5M9.5 12.5h5" /></svg>
               </span>
@@ -719,7 +719,7 @@
 
     <script src="script.js"></script>
     <script src="psicologia.js"></script>
-    <script src="curso-examen-admision.js"></script>
+    <script src="curso-examen-admision.js?v=20261124-revision-web-movil"></script>
     <script type="module" src="assets/review/review.js"></script>
   </body>
 </html>

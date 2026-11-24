@@ -402,3 +402,166 @@
     padding-right: var(--space-4);
   }
 }
+
+/* Revisión local: características antes del CTA principal. */
+.pagina-curso .curso-hero .curso-chips { margin-top:var(--space-3); }
+.pagina-curso .curso-hero .button-row { margin-top:var(--space-5); }
+.pagina-curso .curso-hero .button-row .btn {
+  font-size:var(--heading-4-size);
+  padding:var(--space-5) var(--space-9);
+  min-height:var(--space-11);
+  justify-content:center;
+}
+@media (max-width:480px) {
+  .pagina-curso .curso-hero .button-row { width:100%; }
+  .pagina-curso .curso-hero .button-row .btn { width:100%; }
+}
+
+/* Revisión de ritmo y registro, exclusiva de esta página. */
+.pagina-curso main > .section-pad:not(.curso-hero) {
+  padding-top:var(--space-11);
+  padding-bottom:var(--space-11);
+}
+.pagina-curso .curso-hero { padding-bottom:var(--space-11); }
+.pagina-curso .curso-benes,
+.pagina-curso .curso-como-grid,
+.pagina-curso .curso-fechas-wrap { margin-top:var(--space-8); }
+.pagina-curso .curso-fechas-table thead th { font-size:var(--space-6); }
+.pagina-curso .curso-fechas-chips li {
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  border-color:var(--surface-accent);
+  font-family:var(--font-body);
+}
+.pagina-curso .curso-fechas-historico { margin-top:var(--space-5); }
+.pagina-curso .curso-fechas-historico summary {
+  color:var(--color-text-secondary);
+  font-size:var(--space-5);
+  cursor:pointer;
+  padding:var(--space-3) 0;
+}
+.pagina-curso .curso-fechas-historico .curso-fechas-chips li {
+  color:var(--color-text-secondary);
+  border-color:color-mix(in srgb, var(--surface-accent) 25%, var(--surface));
+}
+.pagina-curso .curso-fechas-vacio { margin:0; font-size:var(--space-6); }
+.pagina-curso .curso-fechas-cta {
+  min-height:var(--space-11);
+  padding:var(--space-5) var(--space-9);
+  font-size:var(--heading-4-size);
+}
+.pagina-curso .curso-registro-card {
+  padding:var(--space-10);
+  gap:var(--space-10);
+
+}
+.pagina-curso #hubspot-form-registro form {
+  width:100%;
+  font-family:var(--font-body);
+  color:var(--color-text);
+}
+.pagina-curso #hubspot-form-registro fieldset {
+  max-width:none!important;
+  margin-bottom:var(--space-3);
+}
+.pagina-curso #hubspot-form-registro .hs-form-field { margin-bottom:var(--space-6); }
+.pagina-curso #hubspot-form-registro label {
+  font-family:var(--font-body);
+  font-size:var(--space-6);
+  line-height:1.5;
+  margin-bottom:var(--space-2);
+  color:var(--color-text);
+}
+.pagina-curso #hubspot-form-registro input:not([type=hidden]):not([type=checkbox]):not([type=radio]):not([type=submit]),
+.pagina-curso #hubspot-form-registro select,
+.pagina-curso #hubspot-form-registro textarea {
+  box-sizing:border-box;
+  min-height:calc(var(--space-10) + var(--space-2));
+  padding:var(--space-4);
+  border:calc(var(--space-1) / 4) solid color-mix(in srgb, var(--surface-accent) 25%, var(--surface));
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  color:var(--color-text);
+  font-family:var(--font-body);
+  font-size:var(--space-6);
+  box-shadow:none;
+}
+.pagina-curso #hubspot-form-registro .hs-input:focus-visible {
+  outline:calc(var(--space-1) / 2) solid var(--surface-accent);
+  outline-offset:var(--space-1);
+}
+.pagina-curso #hubspot-form-registro .hs-form-booleancheckbox-display {
+  display:flex;
+  align-items:flex-start;
+  gap:var(--space-3);
+}
+.pagina-curso #hubspot-form-registro input[type=checkbox] {
+  width:var(--space-7);
+  height:var(--space-7);
+  flex-shrink:0;
+  accent-color:var(--surface-accent);
+}
+.pagina-curso #hubspot-form-registro .hs-button[type=submit] {
+  min-height:var(--space-11);
+  padding:var(--space-5) var(--space-9);
+  border:calc(var(--space-1) / 4) solid var(--color-brand-primary);
+  border-radius:var(--radius-button);
+  background:var(--color-brand-primary);
+  color:var(--color-text-invert);
+  font-family:var(--font-heading);
+  font-size:var(--heading-4-size);
+  font-weight:var(--weight-semibold);
+  text-shadow:none;
+  box-shadow:none;
+  cursor:pointer;
+}
+.pagina-curso #hubspot-form-registro .hs-error-msg { color:var(--accent-red); }
+@media (max-width:767px) {
+  .pagina-curso main > .section-pad:not(.curso-hero) {
+    padding-top:var(--space-10);
+    padding-bottom:var(--space-10);
+  }
+  .pagina-curso .curso-benes { gap:var(--space-4); }
+  .pagina-curso .curso-bene { padding:var(--space-7); }
+  .pagina-curso .curso-como-item {
+    grid-template-columns:var(--space-10) minmax(0,1fr);
+    gap:var(--space-4);
+    padding:var(--space-6);
+  }
+  .pagina-curso .curso-como-ico { width:var(--space-10); height:var(--space-10); }
+  .pagina-curso .curso-registro-card { padding:var(--space-7); gap:var(--space-7); }
+  .pagina-curso #hubspot-form-registro .form-columns-2 > .hs-form-field {
+    width:100%!important;
+    float:none!important;
+  }
+  .pagina-curso #hubspot-form-registro .input { margin-right:0!important; }
+  .pagina-curso #hubspot-form-registro .hs-button[type=submit],
+  .pagina-curso .curso-fechas-cta { width:100%; text-align:center; justify-content:center; }
+  .pagina-curso .curso-ctabar {
+    padding-bottom:calc(var(--space-4) + env(safe-area-inset-bottom));
+    gap:var(--space-3);
+  }
+  .pagina-curso .curso-ctabar .btn { min-width:0; min-height:calc(var(--space-10) + var(--space-2)); font-size:var(--space-6); }
+  .pagina-curso .curso-ctabar .btn-orange { flex:1.2; }
+  .pagina-curso .curso-ctabar .btn-whatsapp {
+    flex:1;
+    background:transparent;
+    border-color:var(--surface-accent);
+    color:var(--surface-accent);
+  }
+  .pagina-curso.curso-bar-visible { padding-bottom:calc(var(--space-12) + env(safe-area-inset-bottom)); }
+}
+
+.pagina-curso .curso-registro-form { min-width:0; }
+.pagina-curso #hubspot-form-registro .hs-button[type=submit] {
+  box-sizing:border-box;
+  max-width:100%;
+  line-height:var(--lh-heading);
+}
+.pagina-curso #hubspot-form-registro a { color:var(--surface-accent); }
+.pagina-curso #hubspot-form-registro a:focus-visible,
+.pagina-curso #hubspot-form-registro .hs-button:focus-visible,
+.pagina-curso .curso-fechas-historico summary:focus-visible {
+  outline:calc(var(--space-1) / 2) solid var(--surface-accent);
+  outline-offset:var(--space-1);
+}

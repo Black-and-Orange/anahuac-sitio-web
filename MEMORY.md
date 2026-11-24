@@ -847,3 +847,7 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-23, Engineering Management, local: hero compacto con H1 de escala heading-3 (40px) y estructura del molde Industrial. Denominación inglesa sale del H1 a texto independiente gris heading-4 para que el autoajuste no reduzca el título por contar tipografías de distintas alturas. Foto, botones, claim y chips conservados.
 
 - 2026-11-23, Engineering Management local: botones del hero en dos columnas iguales sin salto de fila; texto adaptable, tamaño móvil y padding por tokens para conservar ambos en paralelo sin desbordamiento.
+
+- 2026-11-24, Curso para examen local: tres tags del hero suben antes del CTA; Regístrate debajo, ampliado con escala heading-4 y padding por tokens, ancho completo en móvil. Solo ajuste solicitado, sin aplicar propuesta general.
+
+- 2026-11-24, Curso para examen, ajustes generales autorizados solo local: ritmo más compacto, Cómo funciona con más ancho útil móvil, calendario2026 con sesiones anteriores en details y próximas visibles según fecha Cancún, aclaración de selección en formulario; formulario HubSpot estilizado (campos48px, botón60px) sin cambiar campos/opciones/captura. Barra móvil registro dominante y WhatsApp contorno, safe-area y oculta en foco; corrige privacidad al enlace usado por propio HubSpot y proceso a proceso-de-admision.html.

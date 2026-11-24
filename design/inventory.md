@@ -165,3 +165,7 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-20: idx-pill.is-overdue roja para revisiones sin respuesta en Cirujano Dentista y Nutrición, exclusiva de paginas.html.
 
 - 2026-11-23: Engineering Management reutiliza hero compacto; eng-hero-marca independiente gris para evitar interferir con ajuste automático del H1. Alcance exclusivo pagina-engmgmt.
+
+- 2026-11-24: curso-hero ordena descripción → curso-chips → button-row; CTA ampliado exclusivo de pagina-curso.
+
+- 2026-11-24: variantes exclusivas pagina-curso: calendario con histórico details, formulario HubSpot con controles ampliados, barra móvil secundaria de contorno y espaciado compacto. Componentes globales sin cambios.

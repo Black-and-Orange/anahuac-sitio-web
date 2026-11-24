@@ -1754,3 +1754,10 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 
 - Ajusta el título a escala compacta equivalente a la referencia de Industrial. Denominación inglesa en texto gris independiente, evitando reducción excesiva por el ajuste automático del H1.
 - Conserva foto, claim y chips; botones en dos columnas iguales, con texto y padding adaptables en móvil. Revisión local aprobada por la usuaria.
+
+## 2026-11-24 — Curso para examen de admisión
+
+- Hero con tags antes del CTA ampliado; ritmo de secciones y tarjetas adaptado a escritorio y móvil.
+- Calendario 2026 separa fechas anteriores en histórico y muestra próximas sesiones; selección de fecha sigue en el formulario.
+- Formulario HubSpot con campos y botón ampliados, sin cambiar sus opciones o captura; barra móvil jerarquizada con registro principal, WhatsApp secundario y respeto de foco/safe-area.
+- Corrige enlaces de privacidad y proceso de admisión. Validación responsive sin desbordamientos; revisión humana aprobada y publicación autorizada.

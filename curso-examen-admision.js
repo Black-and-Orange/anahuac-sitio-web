@@ -31,11 +31,14 @@
     let fechasVisible = false;
     let registroVisible = false;
     let footerVisible = false;
+    let inputFocused = false;
 
     function update() {
       const show =
-        !heroVisible && !fechasVisible && !registroVisible && !footerVisible;
+        !heroVisible && !fechasVisible && !registroVisible && !footerVisible && !inputFocused;
       bar.classList.toggle("is-visible", show);
+      bar.inert = !show;
+      document.body.classList.toggle("curso-bar-visible", show && window.matchMedia("(max-width: 767px)").matches);
     }
 
     const io = new IntersectionObserver(
@@ -51,6 +54,12 @@
       { threshold: 0 }
     );
 
+    document.addEventListener("focusin", (event) => {
+      inputFocused = event.target.matches("input, select, textarea");
+      update();
+    });
+    document.addEventListener("focusout", () => { inputFocused = false; update(); });
+    window.addEventListener("resize", update);
     io.observe(hero);
     if (fechas) io.observe(fechas);
     if (registro) io.observe(registro);
@@ -126,4 +135,33 @@
       setTimeout(createForm, 4000);
     }
   }
+})();
+
+/* Calendario informativo: próximas sesiones e historial, sin alterar HubSpot. */
+(function () {
+  const parts = new Intl.DateTimeFormat('en-CA', {timeZone:'America/Cancun', year:'numeric', month:'2-digit', day:'2-digit'}).formatToParts(new Date());
+  const value = type => parts.find(part => part.type === type).value;
+  const today = value('year') + '-' + value('month') + '-' + value('day');
+  document.querySelectorAll('.curso-fechas-table > tbody > tr').forEach(row => {
+    const list = row.querySelector('.curso-fechas-chips');
+    if (!list) return;
+    const past = [...list.children].filter(item => item.querySelector('time')?.dateTime < today);
+    if (!past.length) return;
+    const history = document.createElement('details');
+    history.className = 'curso-fechas-historico';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Fechas anteriores (' + past.length + ')';
+    const archived = document.createElement('ul');
+    archived.className = 'curso-fechas-chips';
+    past.forEach(item => archived.appendChild(item));
+    history.append(summary, archived);
+    list.after(history);
+    if (!list.children.length) {
+      list.hidden = true;
+      const empty = document.createElement('p');
+      empty.className = 'curso-fechas-vacio';
+      empty.textContent = 'Consulta las próximas sesiones con un asesor.';
+      history.before(empty);
+    }
+  });
 })();
