@@ -1,0 +1,240 @@
+/* =============================================================================
+   LICENCIATURA EN ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS — hoja de página
+
+   Esta hoja NO define componentes: el molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la
+   página nace con las correcciones del molde promovidas el 2026-08-31. No las
+   repitas aquí.
+
+   Aquí solo están las desviaciones propias de esta carrera:
+     a) el módulo doble-tit de UNA sola columna (Coventry) — M6,
+     b) la rejilla «Acreditaciones y miembros de» — M9,
+     c) la fila de docentes sin carrusel (fallback que monta el JS de la página
+        cuando hay 4 docentes o menos),
+     d) la nota de créditos por bloque del plan y la foto 1:1 de campo laboral.
+
+   Todo se acota a `.pagina-administracion-empresas`.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   M1 · Hero — título más grande que los H2 (regla de la clienta, 2026-11-26)
+   El claim naranja (los verbos «Emprende. Innova. Dirige.») se deja con el tamaño
+   del molde: aquí NO se toca.
+   El problema real del título era el script de ajuste de script.js, que encoge el
+   H1 hasta que cabe en ≤3 renglones: con «Licenciatura en» forzado a su propio
+   renglón (.lic-hero-pre), el título largo de esta carrera caía a 36px —más chico
+   que los H2 (56px)—. Al dejar que «Licenciatura en» fluya con «Administración»,
+   el mismo script encuentra un tamaño mucho mayor que cabe en 2–3 renglones, así
+   que el H1 vuelve a dominar sobre los H2 sin tocar el tamaño de los H2.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .lic-hero h1 .lic-hero-pre {
+  display: inline;
+}
+
+/* -----------------------------------------------------------------------------
+   M3 · Banda gris del Modelo Anáhuac (.porque-plan) — CTA a la derecha
+   Regla de la clienta (2026-11-26) para TODAS las licenciaturas: el CTA de esta
+   banda va a la derecha del texto. El molde ya la arma en fila con el CTA al
+   final, pero el botón de esta carrera lleva una etiqueta larga («Descubre la
+   formación de un líder empresarial Anáhuac México»): junto a un copy de 640px
+   no cabe en el renglón y caía debajo. Se acota el copy para que el CTA quepa a
+   su lado y quede alineado a la derecha, como en la referencia de Médico.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .porque-plan-copy {
+  max-width: 500px;
+}
+
+.pagina-administracion-empresas .porque-plan-cta {
+  align-self: center;
+}
+
+/* -----------------------------------------------------------------------------
+   M4/M5 · Créditos por bloque del Modelo Anáhuac
+   El desglose (261 / 54 / 42) va junto al título del bloque, en tono secundario.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .plan-bloque-cred {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* «Minors» en el Bloque Profesional: mientras no haya ID de video, va como
+   término glosado (no como enlace que abriría un embed roto). */
+.pagina-administracion-empresas .plan-minors-gloss-term {
+  font-weight: 600;
+  color: var(--purple-1, #432f64);
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · En campo laboral la foto va 1:1 (seis ámbitos, igual que el molde de 6)
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .campo-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · Doble titulación internacional — banda morada única (Coventry)
+   Se usa el componente .campo-band--doble del molde (la misma banda de Le Cordon
+   Bleu de Gastronomía). Mientras no exista el logo oficial de Coventry, el hueco
+   del logotipo lo ocupa un wordmark de texto + banderita, en blanco sobre el
+   morado de la banda.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .campo-doble-logo--texto {
+  flex-shrink: 0;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--color-text-invert, #fff);
+}
+
+.pagina-administracion-empresas .campo-doble-logo-flag {
+  display: block;
+  width: 72px;
+  border-radius: 4px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.pagina-administracion-empresas .campo-doble-logo-flag svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pagina-administracion-empresas .campo-doble-logo-nombre {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+}
+
+.pagina-administracion-empresas .campo-doble-logo-nombre small {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: var(--lilac-2, #cdb9ef);
+}
+
+@media (max-width: 760px) {
+  .pagina-administracion-empresas .campo-doble-logo--texto {
+    flex-direction: row;
+    width: auto;
+    gap: 14px;
+    text-align: left;
+  }
+  .pagina-administracion-empresas .campo-doble-logo-nombre {
+    align-items: flex-start;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · «Acreditaciones y miembros de» (rejilla de logos)
+   Rejilla provisional: mientras no haya archivos de logo oficiales, cada ítem
+   muestra el acrónimo como marcador y el nombre completo debajo.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .ade-acred-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.pagina-administracion-empresas .ade-acred {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px;
+  background: var(--surface, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius, 20px);
+}
+
+.pagina-administracion-empresas .ade-acred-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--gray, #f2f2f2);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--purple-1, #432f64);
+}
+
+.pagina-administracion-empresas .ade-acred-nombre {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.pagina-administracion-empresas .ade-acred-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .pagina-administracion-empresas .ade-acred-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .pagina-administracion-empresas .ade-acred-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · Claustro docente sin carrusel (fallback que monta el JS de la página)
+   El JS cambia `.colab-docentes-carousel` / `.colab-docentes-track` por
+   `.gas-docentes-vista` / `.gas-docentes-fila` cuando hay 4 docentes o menos,
+   para que el carrusel compartido de psicologia.js no se monte aquí. Se replica
+   su maquetación: cuatro por fila, igual que el componente original.
+   -------------------------------------------------------------------------- */
+.pagina-administracion-empresas .gas-docentes-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina-administracion-empresas .gas-docentes-fila > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .pagina-administracion-empresas .gas-docentes-fila > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-administracion-empresas .gas-docentes-fila > .docente-card {
+    flex: 0 0 100%;
+  }
+}
