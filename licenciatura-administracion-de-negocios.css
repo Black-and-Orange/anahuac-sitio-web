@@ -1,0 +1,37 @@
+/* Administración de Negocios: variante local del molde de carrera (base: Educación). Sin cambios a componentes globales. */
+.pagina-negocios .lic-hero h1 { width:100%; font-size:var(--heading-3-size); line-height:var(--lh-heading); }
+.pagina-negocios .lic-hero-media .button-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.pagina-negocios .lic-hero-media .button-row .btn { width:100%; min-width:0; padding:var(--space-5) var(--space-4); white-space:normal; text-align:center; justify-content:center; }
+.pagina-negocios .btn:disabled { cursor:default; opacity:1; }
+.pagina-negocios .neg-plan-tabs .plan-tabs-nav { grid-template-columns:repeat(9,minmax(0,1fr)); }
+.pagina-negocios .plan-tab { font-size:var(--space-4); padding-left:var(--space-2); padding-right:var(--space-2); }
+.pagina-negocios .plan-bloques { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.pagina-negocios .porque-plan h3 { margin:0 0 var(--space-4); }
+.pagina-negocios #solicita { scroll-margin-top:calc(var(--nav-height) + var(--space-10)); }
+.pagina-negocios #solicita .btn { min-height:var(--space-11); padding:var(--space-5) var(--space-8); font-size:var(--heading-5-size); white-space:normal; text-align:center; }
+.pagina-negocios .afinidad-tag-group { min-width:0; }
+.pagina-negocios .afinidad-tag-group .lic-chip { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+.pagina-negocios .lic-inst-card .neg-recurso-copy { padding:0 var(--space-8) var(--space-8); margin:0; }
+.pagina-negocios .lic-form-card input:disabled { opacity:1; color:var(--color-text-secondary); }
+
+/* Encuadres de las fotos del folleto. */
+.pagina-negocios .lic-hero-media .neg-img-hero { object-position:55% center; }
+.pagina-negocios .lic-porque2-media .neg-img-pros { object-position:center 30%; }
+.pagina-negocios #perfil-egreso .neg-img-perfil { object-position:center 30%; }
+.pagina-negocios .campo-media { object-position:45% center; }
+.pagina-negocios .lic-form-media .neg-img-formulario { object-position:60% center; }
+
+/* Siguiente paso: encabezado arriba y tres tarjetas en una misma fila. */
+.pagina-negocios #siguiente-paso .pasos-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.pagina-negocios #siguiente-paso .pasos-lead { grid-column:1 / -1; padding-right:0; }
+
+@media (max-width:1240px) { .pagina-negocios .neg-plan-tabs .plan-tabs-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:600px) {
+ .pagina-negocios .plan-bloques { grid-template-columns:1fr; }
+ .pagina-negocios .afinidad-tags { grid-template-columns:1fr; width:100%; }
+ .pagina-negocios #siguiente-paso .pasos-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+ .pagina-negocios .lic-hero h1 { font-size:clamp(var(--heading-4-size),7.5vw,var(--heading-3-size)); }
+ .pagina-negocios .lic-hero-media .button-row .btn { font-size:var(--space-6); padding:var(--space-4) var(--space-2); }
+}
