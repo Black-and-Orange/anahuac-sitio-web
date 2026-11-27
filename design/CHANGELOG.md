@@ -1,5 +1,9 @@
 # CHANGELOG del design system
 
+## 2026-11-27 · Ciencias Religiosas, revisión local
+
+Se aplican a la instancia los patrones ya aprobados de Educación: hero compacto con botones paralelos y tres tarjetas de Siguiente paso. Sin cambios globales. FAQ integrada, textos de experiencia adaptados y estados pendientes explícitos en testimonios, RVOE y formulario. Revisión local solicitada por usuaria, sin publicación ni capturas.
+
 Registro de cambios al sistema (componentes, tokens, variantes, efectos, patrones).
 Toda promoción a documento base (ver `docs/change-protocol.md`) se anota aquí. Lo más reciente arriba.
 

@@ -175,3 +175,4 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-26: Educación incorpora lic-porque2-layout, campo-layout/campo-tile, lic-inst-slider, stories y lic-colab (docentes y logos), junto con pasos-grid canónico. Medios de recursos usan iconos en el contenedor de imagen del módulo existente.
 
 - 2026-11-26: Educación incorpora experience/experience-card y lic-form/solicita con estructura del molde; formulario desactivado en propuesta local.
+- 2026-11-27: Ciencias Religiosas reutiliza la composición aprobada en Educación: hero compacto/botones paralelos, pasos-grid de tres tarjetas, lic-faq con ocho preguntas, experience con contenido a distancia, lic-form desactivado y etiqueta RVOE pendiente. Ajustes exclusivos de pagina-religiosas, sin cambios a componentes globales ni imágenes.

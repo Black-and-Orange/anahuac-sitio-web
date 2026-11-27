@@ -115,3 +115,62 @@
   color: var(--color-text-secondary);
   text-wrap: pretty;
 }
+
+/* Revisión local: mismos patrones aprobados para Educación. */
+.pagina-religiosas .lic-hero h1 {
+  width: 100%;
+  font-size: var(--heading-3-size);
+  line-height: var(--lh-heading);
+}
+.pagina-religiosas .lic-hero-media .button-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pagina-religiosas .lic-hero-media .button-row .btn {
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-5) var(--space-4);
+  white-space: normal;
+  text-align: center;
+  justify-content: center;
+}
+.pagina-religiosas #siguiente-paso .pasos-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.pagina-religiosas #siguiente-paso .pasos-lead {
+  grid-column: 1 / -1;
+  padding-right: 0;
+}
+.pagina-religiosas .btn:disabled,
+.pagina-religiosas .plan-rvoe-link:disabled {
+  cursor: default;
+  opacity: 1;
+}
+.pagina-religiosas .plan-rvoe-link:disabled {
+  background: transparent;
+}
+.pagina-religiosas .lic-form-card input:disabled {
+  opacity: 1;
+  color: var(--color-text-secondary);
+}
+.pagina-religiosas #solicita .btn {
+  min-height: var(--space-11);
+  padding: var(--space-5) var(--space-8);
+  font-size: var(--heading-5-size);
+  white-space: normal;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .pagina-religiosas #siguiente-paso .pasos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .pagina-religiosas .lic-hero h1 {
+    font-size: clamp(var(--heading-4-size), 7.5vw, var(--heading-3-size));
+  }
+  .pagina-religiosas .lic-hero-media .button-row .btn {
+    font-size: var(--space-6);
+    padding: var(--space-4) var(--space-2);
+  }
+}

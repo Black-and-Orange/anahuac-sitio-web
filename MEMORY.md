@@ -883,3 +883,11 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 27nov2026: Recursos para tu formación incorpora las tres fotografías proporcionadas: biblioteca, herramientas y webinars, en ese orden. Encuadres individuales en tarjetas 3:2; ajuste exclusivamente local.
 
 2026-11-27: Usuaria autoriza commit, merge y push de Educación como página en revisión. Se conservan pendientes explícitos de testimonios, claustro, convenios, campus e integración del formulario; no se presentan como información confirmada. Se incorpora al índice con En revisión.
+## 2026-11-27 · Ciencias Religiosas, revisión local autorizada
+
+- Sincronizada con origin/main177f3a8 antes de cambios. Usuaria solicita aplicar ajustes de Educación y otras carreras solo en local, sin capturas; datos e imágenes por confirmar quedan para cliente.
+- Tres tarjetas en Siguiente paso, botones del hero en paralelo también en móvil y título compacto validado en32 anchos. Ocho FAQ tras integrar modalidad/trabajo, conservando las preguntas nuevas y FAQPage sincronizado.
+- RVOE sin fecha y desactivado hasta recibir enlace; formulario de referencia desactivado, sin promesa de envío ni periodo confirmado. Textos de experiencia adaptados a formación a distancia; imágenes intactas. Historias con Pendiente testimonio.
+- Enlaces locales disponibles conectados; privacidad enlaza al directorio institucional consultado desde la página oficial. No se incorporan precios, contactos ni datos nuevos de la referencia. Especificación: specs/licenciatura-ciencias-religiosas.md.
+
+- 2026-11-27: usuaria autoriza publicar los ajustes revisados de Ciencias Religiosas. Integrar origin/main con área-ejecutivas y conservar su enlace; datos e imágenes pendientes permanecen para cliente.
