@@ -1,0 +1,56 @@
+/* Educación: variante local del molde de carrera. Sin cambios a componentes globales. */
+.pagina-educacion .lic-hero h1 { width:100%; font-size:var(--heading-3-size); line-height:var(--lh-heading); }
+.pagina-educacion .edu-hero-sub { margin:0; max-width:54ch; font-size:var(--space-6); line-height:var(--lh-body); color:var(--color-text-secondary); }
+.pagina-educacion .lic-hero-media .button-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.pagina-educacion .lic-hero-media .button-row .btn { width:100%; min-width:0; padding:var(--space-5) var(--space-4); white-space:normal; text-align:center; justify-content:center; }
+.pagina-educacion .btn:disabled { cursor:default; opacity:1; }
+.pagina-educacion .edu-plan-tabs .plan-tabs-nav { grid-template-columns:repeat(9,minmax(0,1fr)); }
+.pagina-educacion .plan-tab { font-size:var(--space-4); padding-left:var(--space-2); padding-right:var(--space-2); }
+.pagina-educacion .plan-bloques { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.pagina-educacion .plan-top-media img { object-position:65% center; }
+.pagina-educacion .porque-plan h3 { margin:0 0 var(--space-4); }
+.pagina-educacion #solicita { scroll-margin-top:calc(var(--nav-height) + var(--space-10)); }
+.pagina-educacion .lic-hero-media img { object-position:60% 10%; }
+@media (max-width:1240px) { .pagina-educacion .edu-plan-tabs .plan-tabs-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:600px) { .pagina-educacion .plan-bloques { grid-template-columns:1fr; } }
+@media (max-width:480px) {
+ .pagina-educacion .lic-hero h1 { font-size:clamp(var(--heading-4-size),7.5vw,var(--heading-3-size)); }
+ .pagina-educacion .lic-hero-media .button-row .btn { font-size:var(--space-6); padding:var(--space-4) var(--space-2); }
+}
+
+.pagina-educacion #solicita .btn { min-height:var(--space-11); padding:var(--space-5) var(--space-8); font-size:var(--heading-5-size); white-space:normal; text-align:center; }
+.pagina-educacion .afinidad-tag-group { min-width:0; }
+.pagina-educacion .afinidad-tag-group .lic-chip { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+@media (max-width:600px) { .pagina-educacion .afinidad-tags { grid-template-columns:1fr; width:100%; } }
+
+/* Medios de referencia para recursos virtuales, dentro del módulo de instalaciones. */
+.pagina-educacion .edu-recurso-visual { display:flex; align-items:center; justify-content:center; background:var(--surface-accent-light); color:var(--surface-accent); }
+.pagina-educacion .edu-recurso-visual svg { width:var(--space-12); height:var(--space-12); }
+.pagina-educacion .lic-inst-card .edu-recurso-copy { padding:0 var(--space-8) var(--space-8); margin:0; }
+.pagina-educacion .lic-porque2-media img { object-position:60% 10%; }
+.pagina-educacion .campo-media { object-position:65% center; }
+.pagina-educacion .edu-paso-inactivo { text-align:left; font-family:var(--font-body); color:var(--color-text); cursor:default; }
+
+.pagina-educacion .lic-form-media img { object-position:65% center; }
+.pagina-educacion .lic-form-card input:disabled { opacity:1; color:var(--color-text-secondary); }
+
+/* Siguiente paso: encabezado arriba y tres tarjetas en una misma fila. */
+.pagina-educacion #siguiente-paso .pasos-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.pagina-educacion #siguiente-paso .pasos-lead { grid-column:1 / -1; padding-right:0; }
+@media (max-width:600px) {
+ .pagina-educacion #siguiente-paso .pasos-grid { grid-template-columns:1fr; }
+}
+
+.pagina-educacion .lic-porque2-media .edu-img-comunidad { object-position:60% center; }
+.pagina-educacion .lic-form-media .edu-img-aula { object-position:56% 65%; }
+
+.pagina-educacion .lic-porque2-media .edu-img-aula-galeria { object-position:center 65%; }
+
+.pagina-educacion .lic-form-media .edu-img-formulario { object-position:78% center; }
+
+.pagina-educacion #perfil-egreso .edu-img-perfil { object-position:62% center; }
+
+/* Encuadres de las fotografías de recursos en tarjetas 3:2. */
+.pagina-educacion .edu-recurso-biblioteca { object-position:center 55%; }
+.pagina-educacion .edu-recurso-herramientas { object-position:center 44%; }
+.pagina-educacion .edu-recurso-webinars { object-position:center 46%; }

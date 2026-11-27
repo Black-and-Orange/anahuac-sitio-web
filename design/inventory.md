@@ -169,3 +169,9 @@ Base del análisis de impacto: componente ↔ páginas. **Mantener al día en ca
 - 2026-11-24: curso-hero ordena descripción → curso-chips → button-row; CTA ampliado exclusivo de pagina-curso.
 
 - 2026-11-24: variantes exclusivas pagina-curso: calendario con histórico details, formulario HubSpot con controles ampliados, barra móvil secundaria de contorno y espaciado compacto. Componentes globales sin cambios.
+
+- 2026-11-26: licenciatura-educacion.html reutiliza lic-hero, lic-afinidad, porque-grid/porque-plan, lic-plan, plan-tabs (nueve cuatrimestres)/plan-bloques (dos), lic-campo/campo-band, lic-campus, pasos-grid y lic-faq. Hoja exclusiva pagina-educacion; sin cambios a globales.
+
+- 2026-11-26: Educación incorpora lic-porque2-layout, campo-layout/campo-tile, lic-inst-slider, stories y lic-colab (docentes y logos), junto con pasos-grid canónico. Medios de recursos usan iconos en el contenedor de imagen del módulo existente.
+
+- 2026-11-26: Educación incorpora experience/experience-card y lic-form/solicita con estructura del molde; formulario desactivado en propuesta local.

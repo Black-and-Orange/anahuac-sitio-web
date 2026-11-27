@@ -851,3 +851,35 @@ Carrusel limitado a: Quirófano; Laboratorio de fisiología; Proteómica y genó
 - 2026-11-24, Curso para examen local: tres tags del hero suben antes del CTA; Regístrate debajo, ampliado con escala heading-4 y padding por tokens, ancho completo en móvil. Solo ajuste solicitado, sin aplicar propuesta general.
 
 - 2026-11-24, Curso para examen, ajustes generales autorizados solo local: ritmo más compacto, Cómo funciona con más ancho útil móvil, calendario2026 con sesiones anteriores en details y próximas visibles según fecha Cancún, aclaración de selección en formulario; formulario HubSpot estilizado (campos48px, botón60px) sin cambiar campos/opciones/captura. Barra móvil registro dominante y WhatsApp contorno, safe-area y oculta en foco; corrige privacidad al enlace usado por propio HubSpot y proceso a proceso-de-admision.html.
+
+- 2026-11-26, Educación local: usa estructura del molde Industrial/psicologia.css, nueve cuatrimestres y dos bloques, 40 materias del PDF y tres Estadías. Información exclusiva de Educación contrastada entre cuatro adjuntos; no arrastra asincronía religiosa, Minor, ABET, estadísticas ni testimonios. CTA Iniciar proceso desactivado sin destino por instrucción de la usuaria; cliente definirá contacto después. Recursos virtuales usan tarjetas existentes, sin módulos nuevos.
+
+- 2026-11-26, revisión de Educación local: usuaria pide módulos completos canónicos: lic-porque2 con media/carrusel y tarjetas, campo-layout con selector/preview, lic-inst-slider adaptado a recursos virtuales, Historias Anáhuac y lic-colab completo, y Siguiente paso en lugar de Admisión. Historias/claustro/convenios sin datos adjuntos se marcan pendientes, sin citas/personas/alianzas inventadas. CTA de inicio continúa desactivado sin destino.
+
+- 2026-11-26, Educación local: Siguiente paso queda con tres tarjetas exactas de Industrial: Cotiza tu carrera, Apoyos socioeconómicos y Habla con un asesor; conserva sus textos, iconos y destinos base. Elimina restantes tarjetas y banda adicional de inversión. Hero Iniciar proceso sigue sin destino y desactivado.
+
+- 2026-11-26, Educación local: FAQ reducidas de diez a seis según propuesta aprobada; integra trabajo/modalidad/acompañamiento, perfil/diferencia con Pedagogía, duración/plan, admisión, titulación/servicio social y becas. Schema FAQPage sincronizado.
+
+- 2026-11-26, Educación local: agrega los dos módulos finales del molde: experience y lic-form. Experiencia adapta cuatro mensajes al enfoque ejecutivo y recursos confirmados; medios institucionales del molde. Solicita información conserva estructura, datos de interés y opciones de material; modalidad aula virtual, sin fechas/campus inventados. Formulario íntegramente desactivado y sin envío hasta definir contacto/integración con cliente, conforme al CTA sin destino acordado.
+
+- 2026-11-26, Educación local: corrige atributos value del formulario a Educación y Presencial en aula virtual; retira párrafo bajo título del plan y texto bajo verbos del hero; simplifica RVOE y pie a RVOE SEP · D.O.F. Añade tag +23 años por solicitud explícita. Campus pendiente de confirmación; no asumir bicampus a partir de folleto institucional. Los demás hallazgos de auditoría quedan pendientes de cliente.
+
+- 2026-11-26, Educación local: título de banda morada de Campo laboral cambia a Profesionaliza tu experiencia en educación sin dejar de trabajar, por texto aprobado de la usuaria.
+
+- 2026-11-26, Educación local: RVOE usa plan-rvoe-link del molde, con borde redondeado, subrayado e icono externo; texto RVOE SEP D.O.F. Enlace al apartado del folleto suministrado (p9), sin inventar URL de documento oficial.
+
+- 2026-11-26, Educación local: Siguiente paso con lead a todo el ancho y tres tarjetas juntas en tres columnas; móvil hasta600px se apila. Cambio acotado a pagina-educacion.
+
+- 2026-11-27, Educación local: incorpora tres fotos adjuntas en ubicaciones puntuales por instrucción de no cambiar todas: comunidad en primer slide de Por qué; coordinación en primer ámbito/preview de Campo laboral; aula junto al formulario. Conserva demás imágenes. WebP optimizadas y encuadres locales; ninguna persona se atribuye a claustro o testimonio.
+
+- 2026-11-27, Educación local: por revisión de usuaria, foto del salón pasa al segundo slide de Por qué la Anáhuac; formulario recupera imagen previa del folleto.
+
+- 2026-11-27, Educación local: formulario usa Sur-135.jpg optimizada como solicita-informacion.webp; encuadre78% para conservar a la estudiante. No cambia otras imágenes.
+
+- 2026-11-27, Educación local: imagen de Perfil de egreso sustituida por la foto Gemini_Generated_Image_e36xqye36xqye36x.jpeg suministrada; versión WebP con encuadre62%. Sin otros cambios de imágenes.
+
+- 2026-11-27, Educación local: segunda foto de Por qué la Anáhuac sustituida por nueva versión del salón proporcionada por la usuaria; demás fotos conservadas.
+
+27nov2026: Recursos para tu formación incorpora las tres fotografías proporcionadas: biblioteca, herramientas y webinars, en ese orden. Encuadres individuales en tarjetas 3:2; ajuste exclusivamente local.
+
+2026-11-27: Usuaria autoriza commit, merge y push de Educación como página en revisión. Se conservan pendientes explícitos de testimonios, claustro, convenios, campus e integración del formulario; no se presentan como información confirmada. Se incorpora al índice con En revisión.

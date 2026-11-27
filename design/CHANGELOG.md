@@ -1761,3 +1761,5 @@ mover Psicología sin revisarla; quedan propuestos para promoción al componente
 - Calendario 2026 separa fechas anteriores en histórico y muestra próximas sesiones; selección de fecha sigue en el formulario.
 - Formulario HubSpot con campos y botón ampliados, sin cambiar sus opciones o captura; barra móvil jerarquizada con registro principal, WhatsApp secundario y respeto de foco/safe-area.
 - Corrige enlaces de privacidad y proceso de admisión. Validación responsive sin desbordamientos; revisión humana aprobada y publicación autorizada.
+
+2026-11-27: Usuaria autoriza commit, merge y push de Educación como página en revisión. Se conservan pendientes explícitos de testimonios, claustro, convenios, campus e integración del formulario; no se presentan como información confirmada. Se incorpora al índice con En revisión.
