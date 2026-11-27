@@ -1,0 +1,117 @@
+/* =============================================================================
+   LICENCIATURA EN CIENCIAS RELIGIOSAS — hoja de página
+
+   Esta hoja NO define componentes. El molde es el de Ingeniería Industrial para
+   la Dirección, que vive en psicologia.css y se reutiliza tal cual. El `<body>`
+   lleva `pagina-carrera`, así que la página nace con las correcciones del molde
+   promovidas el 2026-08-31. **No las repitas aquí.**
+
+   Aquí solo están las desviaciones que impone el contenido de esta carrera:
+
+     a) el subtítulo del hero bajo el claim (igual que Industrial);
+     b) las 11 pestañas del plan van por CUATRIMESTRE: 6 + 5 en escritorio,
+        4 por fila por debajo de 1240px; ≤540px el molde usa el dropdown;
+     c) dos tarjetas .plan-bloque en lugar de tres (plan de referencia y
+        electivas) y la lista de 11 electivas;
+     d) la nota de duración de la tarjeta AEO;
+     e) la descripción bajo el título de las tarjetas de «Modalidad» (M7).
+
+   Todo prefijado con `.pagina-religiosas` para no tocar otras páginas ni los
+   componentes compartidos (psicologia.css / styles.css).
+
+   Color siempre por token semántico del molde; el espaciado sigue la escala del
+   sitio.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   M1 · SUBTÍTULO DEL HERO (bajo el claim)
+   -------------------------------------------------------------------------- */
+.pagina-religiosas .lic-hero-sub {
+  max-width: 54ch;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
+
+/* -----------------------------------------------------------------------------
+   M4 · NOTA DE DURACIÓN EN LA TARJETA AEO
+   -------------------------------------------------------------------------- */
+.pagina-religiosas .rel-plan-aeo-nota {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------------------------------
+   M5 · LAS 11 PESTAÑAS DEL PLAN VAN POR CUATRIMESTRE
+   El molde reparte la barra en `repeat(8, 1fr)`. 11 no divide exacto: en
+   escritorio van en dos filas (6 + 5); de 1240px hacia abajo, 4 por fila
+   (4 + 4 + 3). ≤640px el molde pasa a 2 columnas y ≤540px a dropdown.
+   -------------------------------------------------------------------------- */
+.pagina-religiosas .rel-plan-tabs .plan-tabs-nav {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 1240px) {
+  .pagina-religiosas .rel-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-religiosas .rel-plan-tabs .plan-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dos tarjetas de bloque, no tres. */
+.pagina-religiosas .rel-plan-bloques {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .pagina-religiosas .rel-plan-bloques {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Lista de las 11 electivas dentro de su .plan-bloque. */
+.pagina-religiosas .rel-electivas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .pagina-religiosas .rel-electivas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M7 · MODALIDAD: descripción bajo el título de cada tarjeta
+   (mismo tratamiento que el showcase de instalaciones de Industrial).
+   -------------------------------------------------------------------------- */
+.pagina-religiosas .lic-inst-card p {
+  margin: 10px 0 0;
+  padding: 0 26px 26px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
+}
