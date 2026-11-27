@@ -927,3 +927,158 @@
     font-size: 17px;
   }
 }
+
+/* ===== Asesoría y admisión por licenciatura (#asesoria-admision) =====
+   Tarjeta de asesora: misma pieza que el rotador de Proceso de admisión
+   (proceso-de-admision.css), copiada aquí con alcance .ej-adm para no cargar
+   esa hoja completa. Las pestañas cambian asesora y proceso juntos. */
+.ej-adm { background: var(--gray); }
+.ej-adm-top {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 610px);
+  gap: 60px;
+  align-items: center;
+}
+.ej-adm .ej-tabs-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin: 24px 0 10px;
+}
+.ej-adm .ej-tabs { display: flex; flex-wrap: wrap; gap: 10px; max-width: 560px; }
+.ej-adm .ej-tab {
+  font: 500 15px/1.2 var(--font-body);
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  background: var(--white);
+  color: var(--black);
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.ej-adm .ej-tab:hover { border-color: var(--black); }
+.ej-adm .ej-tab:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.ej-adm .ej-tab[aria-selected="true"] { background: var(--black); border-color: var(--black); color: var(--white); }
+
+.ej-adm .asesor-col { container-type: inline-size; }
+.ej-adm .asesor-col[hidden], .ej-adm .ej-proc[hidden] { display: none; }
+.ej-adm .asesor-card {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 610px;
+  background: var(--white);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+@container (max-width: 559px) {
+  .ej-adm .asesor-card { flex-direction: column; align-items: flex-start; }
+}
+.ej-adm .asesor-foto {
+  flex-shrink: 0;
+  width: 280px;
+  min-width: 280px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  background: var(--purple-2) url(assets/proceso-de-admision/asesor-anahuac-mujer.webp) center / cover no-repeat;
+}
+.ej-adm .asesor-info {
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ej-adm .asesor-nombre {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.ej-adm .ej-rol { font-size: 14px; color: var(--text-gray); margin-top: -8px; }
+.ej-adm .asesor-links { display: flex; flex-direction: column; gap: 14px; }
+.ej-adm .asesor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 200ms ease;
+}
+.ej-adm .asesor-link svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--orange); }
+.ej-adm .asesor-link:hover { color: var(--orange); }
+
+.ej-adm .ej-proc {
+  margin-top: 40px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 36px 40px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+}
+.ej-adm .ej-proc h3 { font-family: var(--font-heading); font-size: 28px; font-weight: 600; margin: 0 0 6px; }
+.ej-adm .ej-proc-sub { color: var(--text-gray); margin: 0 0 24px; }
+.ej-adm .ej-pasos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  counter-reset: paso;
+}
+.ej-adm .ej-pasos li {
+  counter-increment: paso;
+  background: var(--gray);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  font-weight: 500;
+}
+.ej-adm .ej-pasos li::before {
+  content: counter(paso);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.ej-adm .ej-docs { list-style: none; padding: 0; margin: 0 0 28px; columns: 2; column-gap: 40px; }
+.ej-adm .ej-docs li { break-inside: avoid; padding: 0 0 12px 30px; position: relative; line-height: 1.45; }
+.ej-adm .ej-docs li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid var(--orange);
+}
+.ej-adm .ej-docs small { display: block; color: var(--text-gray); }
+.ej-adm .ej-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.ej-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+@media (max-width: 900px) {
+  .ej-adm-top { grid-template-columns: 1fr; gap: 32px; }
+  .ej-adm .ej-pasos { grid-template-columns: 1fr; }
+  .ej-adm .ej-docs { columns: 1; }
+  .ej-adm .ej-proc { padding: 24px 20px; }
+  .ej-adm .ej-proc h3 { font-size: 24px; }
+  /* En celular la foto se hace chica para que el proceso quede a la vista */
+  .ej-adm .asesor-card { margin-left: 0; width: 100%; flex-direction: row; align-items: center; padding: 20px; gap: 16px; }
+  .ej-adm .asesor-foto { width: 96px; min-width: 96px; }
+  .ej-adm .asesor-info { min-width: 0; max-width: none; }
+  .ej-adm .asesor-nombre { font-size: 20px; }
+}
