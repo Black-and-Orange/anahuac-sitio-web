@@ -21,14 +21,11 @@
 .pagina-bwm .lic-form-media .bwm-img-formulario { object-position:60% center; }
 
 /* Siguiente paso: encabezado arriba y tres tarjetas en una misma fila. */
-.pagina-bwm #siguiente-paso .pasos-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
-.pagina-bwm #siguiente-paso .pasos-lead { grid-column:1 / -1; padding-right:0; }
 
 @media (max-width:1240px) { .pagina-bwm .bwm-plan-tabs .plan-tabs-nav { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media (max-width:600px) {
  .pagina-bwm .plan-bloques { grid-template-columns:1fr; }
  .pagina-bwm .afinidad-tags { grid-template-columns:1fr; width:100%; }
- .pagina-bwm #siguiente-paso .pasos-grid { grid-template-columns:1fr; }
 }
 @media (max-width:480px) {
  .pagina-bwm .lic-hero h1 { font-size:clamp(var(--heading-4-size),7.5vw,var(--heading-3-size)); }
