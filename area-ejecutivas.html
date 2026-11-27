@@ -1224,6 +1224,16 @@
           cols.forEach(function (c) { c.hidden = c.dataset.for.split(" ").indexOf(lic(tab)) === -1; });
           if (focus) tab.focus();
         }
+        // Liga con filtro desde la página de cada carrera: area-ejecutivas.html?licenciatura=<slug>#asesoria-admision
+        var slugs = { "educacion": "edu", "ciencias-religiosas": "rel", "administracion-de-negocios": "an", "business-wealth-management": "bwm" };
+        var pedida = slugs[new URLSearchParams(location.search).get("licenciatura")];
+        var inicial = pedida && document.getElementById("ej-tab-" + pedida);
+        if (inicial) {
+          select(inicial);
+          // Las imágenes de arriba terminan de cargar después del salto y lo recorren; se vuelve a alinear la sección.
+          var alinear = function () { document.getElementById("asesoria-admision").scrollIntoView({ behavior: "auto", block: "start" }); };
+          window.addEventListener("load", function () { alinear(); setTimeout(alinear, 600); });
+        }
         tabs.forEach(function (tab, i) {
           tab.addEventListener("click", function () { select(tab); });
           tab.addEventListener("keydown", function (e) {
