@@ -541,10 +541,14 @@
   overflow: hidden;
 }
 
-.iac-clinica-foto {
+/* El selector lleva la tarjeta para ganarle a `.campus-slides img` del
+   componente (height: 100%), que anulaba la proporción y dejaba cada foto con
+   el alto que le tocara. Así todas cortan igual, sea cual sea la foto. */
+.iac-clinica .iac-clinica-foto {
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
+  flex-shrink: 0;
   object-fit: cover;
   /* La foto sangra hasta el borde de la tarjeta; el radio superior lo hereda del
      contenedor, así que basta con no redondearla por abajo. */
