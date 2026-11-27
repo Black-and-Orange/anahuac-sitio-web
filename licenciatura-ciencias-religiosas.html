@@ -30,7 +30,7 @@
          psicologia.css): esta página no estrena componentes.
          licenciatura-ciencias-religiosas.css solo lleva las desviaciones que
          impone su contenido (11 pestañas por cuatrimestre, lista de electivas,
-         tarjeta de costos, nota de duración y descripción en las tarjetas de
+         nota de duración y descripción en las tarjetas de
          modalidad). -->
     <link rel="stylesheet" href="psicologia.css" />
     <link rel="stylesheet" href="licenciatura-ciencias-religiosas.css" />
@@ -642,18 +642,6 @@
             </article>
           </div>
 
-          <!-- [PROPUESTA] Costos visibles. La coordinación pidió que los costos se
-               vean en la página porque la marca se percibe cara y el programa es
-               accesible (entrevista 2026-01-07). La página actual del programa
-               muestra costos por número de materias, pero la regla de la cuenta
-               prohíbe cifras de colegiatura sin lista vigente aprobada: el monto
-               queda por confirmar. Reutiliza .plan-card (sin componente nuevo). -->
-          <article class="plan-card rel-costos reveal" data-reveal id="costos">
-            <h3>¿Cuánto cuesta la Licenciatura en Ciencias Religiosas?</h3>
-            <p>El costo depende del número de materias que curses cada cuatrimestre: pagas por lo que llevas y puedes ajustar tu carga a tu tiempo y a tu presupuesto.</p>
-            <p class="rel-costos-pendiente">[Costos por cuatrimestre: por confirmar con la lista de precios vigente]</p>
-          </article>
-
           <div class="plan-cta reveal" data-reveal>
             <a class="btn btn-orange" href="#solicita">Descargar plan de estudios</a>
             <a class="btn btn-light" href="#solicita">Descargar folleto</a>
@@ -947,20 +935,20 @@
            5 paso-card. Cambios frente al molde, por la entrevista 2026-01-07:
            · «Fechas de examen» → «Requisitos de admisión»: aquí no hay examen de
              conocimientos, solo psicométrico; el detalle vive en el FAQ.
-           · «Habla con un asesor» → [PROPUESTA] «Habla con la promotora»: el
-             programa no depende de los asesores preuniversitarios; lo atiende su
-             propia promotora. [PENDIENTE] liga de contacto (WhatsApp o correo)
-             aprobada para publicar. -->
+           · «Cotiza tu carrera» y «Habla con un asesor» quedan como en el molde
+             (decisión de quien pidió, 27-nov-2026: sin tarjeta de costos propia y
+             con el bloque del asesor general en lugar de la promotora).
+             [VERIFICAR] que el cotizador incluya esta licenciatura. -->
       <section class="lic-pasos section-pad" id="siguiente-paso">
         <div class="container">
           <div class="pasos-grid">
             <div class="pasos-lead reveal" data-reveal>
               <p class="tagline"><span></span>Siguiente paso</p>
               <h2>Elige el siguiente paso para tu futuro</h2>
-              <p>Avanza a tu ritmo: conoce los costos, revisa los requisitos, inicia tu admisión o habla con la promotora de la licenciatura.</p>
+              <p>Avanza a tu ritmo: explora costos y apoyos, revisa los requisitos, inicia tu admisión o habla con un asesor.</p>
             </div>
 
-            <a class="paso-card reveal" data-reveal href="#costos">
+            <a class="paso-card reveal" data-reveal href="/cotizador">
               <span class="paso-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="5" y="3" width="14" height="18" rx="2" />
@@ -969,9 +957,9 @@
                   <path d="M15.5 14.5v3" />
                 </svg>
               </span>
-              <h3>Conoce los costos</h3>
-              <p>El costo depende de cuántas materias lleves cada cuatrimestre.</p>
-              <span class="paso-cta">Ver costos <span aria-hidden="true">›</span></span>
+              <h3>Cotiza tu carrera</h3>
+              <p>Calcula la inversión de tu licenciatura y conoce las opciones de pago.</p>
+              <span class="paso-cta">Cotizar <span aria-hidden="true">›</span></span>
             </a>
 
             <a class="paso-card reveal" data-reveal href="/admision-general">
@@ -1012,8 +1000,7 @@
               <span class="paso-cta">Ver apoyos <span aria-hidden="true">›</span></span>
             </a>
 
-            <!-- [PROPUESTA] [PENDIENTE] liga de contacto directo con la promotora. -->
-            <a class="paso-card reveal" data-reveal href="#">
+            <a class="paso-card reveal" data-reveal href="proceso-de-admision.html#asesoria">
               <span class="paso-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 13v-1a8 8 0 0 1 16 0v1" />
@@ -1022,8 +1009,8 @@
                   <path d="M20 19a4 4 0 0 1-4 3h-2.5" />
                 </svg>
               </span>
-              <h3>Habla con la promotora</h3>
-              <p>Resuelve tus dudas directamente con la promotora de Ciencias Religiosas.</p>
+              <h3>Habla con un asesor</h3>
+              <p>Resuelve tus dudas con un asesor preuniversitario.</p>
               <span class="paso-cta">Contactar <span aria-hidden="true">›</span></span>
             </a>
           </div>
@@ -1073,7 +1060,7 @@
             </details>
             <details class="faq-item" name="faq-religiosas">
               <summary>¿Cuánto cuesta estudiar Ciencias Religiosas en la Universidad Anáhuac México?</summary>
-              <p>El costo depende del número de materias que curses cada cuatrimestre. Consulta los costos vigentes en esta página o pregúntale a la promotora de la licenciatura.</p>
+              <p>El costo depende del número de materias que curses cada cuatrimestre. Para conocer los costos vigentes, usa el cotizador o pregúntale a un asesor preuniversitario.</p>
             </details>
           </div>
         </div>
@@ -1121,7 +1108,7 @@
               {
                 "@type": "Question",
                 "name": "¿Cuánto cuesta estudiar Ciencias Religiosas en la Universidad Anáhuac México?",
-                "acceptedAnswer": { "@type": "Answer", "text": "El costo depende del número de materias que curses cada cuatrimestre. Consulta los costos vigentes en esta página o pregúntale a la promotora de la licenciatura." }
+                "acceptedAnswer": { "@type": "Answer", "text": "El costo depende del número de materias que curses cada cuatrimestre. Para conocer los costos vigentes, usa el cotizador o pregúntale a un asesor preuniversitario." }
               }
             ]
           }
@@ -1217,7 +1204,7 @@
               <div class="section-intro reveal" data-reveal>
                 <p class="tagline"><span></span>Solicita información</p>
                 <h2>Solicita información sobre la Licenciatura en Ciencias Religiosas</h2>
-                <p>Cuéntanos qué te interesa y te enviaremos el material directamente a tu correo o WhatsApp. Si prefieres hablar con alguien, escríbele a la promotora desde «Elige el siguiente paso».</p>
+                <p>Cuéntanos qué te interesa y te enviaremos el material directamente a tu correo o WhatsApp. Si prefieres hablar con alguien, contacta a un asesor desde «Elige el siguiente paso».</p>
               </div>
 
               <form class="lic-form-card reveal" data-reveal>

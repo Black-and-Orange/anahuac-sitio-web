@@ -13,7 +13,7 @@
         4 por fila por debajo de 1240px; ≤540px el molde usa el dropdown;
      c) dos tarjetas .plan-bloque en lugar de tres (plan de referencia y
         electivas) y la lista de 11 electivas;
-     d) la nota de duración de la tarjeta AEO y la tarjeta de costos [PROPUESTA];
+     d) la nota de duración de la tarjeta AEO;
      e) la descripción bajo el título de las tarjetas de «Modalidad» (M7).
 
    Todo prefijado con `.pagina-religiosas` para no tocar otras páginas ni los
@@ -101,31 +101,6 @@
   .pagina-religiosas .rel-electivas {
     grid-template-columns: 1fr;
   }
-}
-
-/* -----------------------------------------------------------------------------
-   M5 · TARJETA DE COSTOS [PROPUESTA]
-   Reutiliza .plan-card; solo se separa de las tarjetas de bloque.
-   -------------------------------------------------------------------------- */
-.pagina-religiosas .rel-costos {
-  margin-top: 20px;
-  border: 2px solid var(--orange);
-}
-
-.pagina-religiosas .rel-costos p {
-  margin: 0;
-  max-width: 62ch;
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.6;
-  letter-spacing: 0.2px;
-  color: var(--color-text-secondary);
-}
-
-.pagina-religiosas .rel-costos .rel-costos-pendiente {
-  margin-top: 12px;
-  font-weight: 600;
-  color: var(--color-text);
 }
 
 /* -----------------------------------------------------------------------------
