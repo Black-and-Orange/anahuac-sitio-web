@@ -1,0 +1,206 @@
+/* =============================================================================
+   LICENCIATURA EN DIRECCIÓN FINANCIERA — hoja de página
+
+   Esta hoja NO define componentes: el molde entero vive en psicologia.css y se
+   reutiliza tal cual. El `<body>` lleva además `pagina-carrera`, así que la
+   página nace con las correcciones del molde promovidas el 2026-08-31. No las
+   repitas aquí.
+
+   Aquí solo están las desviaciones propias de esta carrera:
+     a) el hero con el H1 dominante (se deja fluir «Licenciatura en»),
+     b) la banda gris del Modelo Anáhuac con el CTA a la derecha,
+     c) los créditos por bloque del plan y la foto 1:1 de campo laboral,
+     d) la rejilla «Acreditaciones y miembros de» de M9 (que aquí SÍ incluye al
+        CFA Institute) y la fila de docentes sin carrusel (fallback que monta el
+        JS de la página cuando hay 4 docentes o menos),
+     e) el wordmark de texto de las tarjetas de doble titulación (M6) mientras no
+        existan los logos oficiales de Essex y EADA.
+
+   El módulo de doble titulación (M6) es el `doble-tit` de dos columnas de
+   Psicología: ya está estilizado en psicologia.css y aquí NO se redefine.
+
+   Todo se acota a `.pagina-direccion-financiera`.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   M1 · Hero — título más grande que los H2 (regla de la clienta, 2026-11-26)
+   El claim naranja (los verbos «Reconoce. Genera. Desarrolla.») se deja con el
+   tamaño del molde: aquí NO se toca. Se deja que «Licenciatura en» fluya con el
+   resto del título (.lic-hero-pre) para que el script de ajuste de script.js
+   encuentre un tamaño en el que el H1 domine sobre los H2, sin tocar los H2.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .lic-hero h1 .lic-hero-pre {
+  display: inline;
+}
+
+/* -----------------------------------------------------------------------------
+   M3 · Banda gris del Modelo Anáhuac (.porque-plan) — CTA a la derecha
+   Regla de la clienta (2026-11-26) para TODAS las licenciaturas: el CTA de esta
+   banda va a la derecha del texto. El molde ya la arma en fila con el CTA al
+   final, pero el botón de esta carrera lleva una etiqueta larga («Descubre la
+   formación de un líder financiero Anáhuac México»): junto a un copy de 640px no
+   cabe en el renglón y caía debajo. Se acota el copy para que el CTA quepa a su
+   lado y quede alineado a la derecha.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .porque-plan-copy {
+  max-width: 500px;
+}
+
+.pagina-direccion-financiera .porque-plan-cta {
+  align-self: center;
+}
+
+/* -----------------------------------------------------------------------------
+   M5 · Créditos por bloque del Modelo Anáhuac
+   El desglose (261 / 54 / 42) va junto al título del bloque, en tono secundario.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .plan-bloque-cred {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* «Minors» en el Bloque Profesional: mientras no haya ID de video, va como
+   término glosado (no como enlace que abriría un embed roto). */
+.pagina-direccion-financiera .plan-minors-gloss-term {
+  font-weight: 600;
+  color: var(--purple-1, #432f64);
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · En campo laboral la foto va 1:1 (seis ámbitos, igual que el molde de 6)
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .campo-media {
+  aspect-ratio: 1 / 1;
+}
+
+/* M6 · Intro de campo laboral a todo el ancho del módulo (regla de la clienta,
+   2026-11-26): el molde acota los párrafos de .section-intro a 62ch (~557px), lo
+   que dejaba el intro muy angosto y compacto. Aquí se libera para que ocupe el
+   mismo ancho que la rejilla de tarjetas de abajo (.campo-layout) y el texto
+   —ya resumido a 2–3 renglones— se distribuya alineado con ese margen. */
+.pagina-direccion-financiera .lic-campo .section-intro > p:not(.tagline) {
+  max-width: none;
+}
+
+/* -----------------------------------------------------------------------------
+   M6 · Doble titulación — wordmark de texto en el chip del logo
+   El módulo es el `doble-tit` de Psicología (dos tarjetas: Essex y EADA).
+   Mientras no existan los archivos de logo oficiales, el chip blanco (.dt-logo)
+   muestra el nombre de la universidad como texto en lugar de <img>. Cuando
+   lleguen los logos, se sustituye .dt-logo-text por <img> y esta regla deja de
+   aplicar sola.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .dt-logo-text {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+  color: var(--purple-1, #432f64);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · «Acreditaciones y miembros de» (rejilla de logos)
+   Rejilla provisional: mientras no haya archivos de logo oficiales, cada ítem
+   muestra el acrónimo como marcador y el nombre completo debajo.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .ade-acred-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.pagina-direccion-financiera .ade-acred {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px;
+  background: var(--surface, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius, 20px);
+}
+
+.pagina-direccion-financiera .ade-acred-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--gray, #f2f2f2);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--purple-1, #432f64);
+}
+
+.pagina-direccion-financiera .ade-acred-nombre {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.pagina-direccion-financiera .ade-acred-nota {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .pagina-direccion-financiera .ade-acred-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .pagina-direccion-financiera .ade-acred-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   M9 · Claustro docente sin carrusel (fallback que monta el JS de la página)
+   El JS cambia `.colab-docentes-carousel` / `.colab-docentes-track` por
+   `.gas-docentes-vista` / `.gas-docentes-fila` cuando hay 4 docentes o menos,
+   para que el carrusel compartido de psicologia.js no se monte aquí. Se replica
+   su maquetación: cuatro por fila, igual que el componente original.
+   -------------------------------------------------------------------------- */
+.pagina-direccion-financiera .gas-docentes-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina-direccion-financiera .gas-docentes-fila > .docente-card {
+  flex: 0 0 calc((100% - 60px) / 4);
+}
+
+@media (max-width: 900px) {
+  .pagina-direccion-financiera .gas-docentes-fila > .docente-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina-direccion-financiera .gas-docentes-fila > .docente-card {
+    flex: 0 0 100%;
+  }
+}
